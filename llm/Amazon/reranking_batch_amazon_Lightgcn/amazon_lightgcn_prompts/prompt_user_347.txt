@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Pies and Prejudice (A Charmed Pie Shoppe Mystery)"
+  },
+  {
+    "item_name": "Sleight of Paw (Magical Cats)"
+  },
+  {
+    "item_name": "Copycat Killing (Magical Cats)"
+  },
+  {
+    "item_name": "The Cat, the Wife and the Weapon: A Cats in Trouble Mystery"
+  },
+  {
+    "item_name": "If Books Could Kill: A Bibliophile Mystery"
+  },
+  {
+    "item_name": "Rebels and Lovers"
+  },
+  {
+    "item_name": "Bedeviled Eggs (A Cackleberry Club Mystery)"
+  },
+  {
+    "item_name": "The Big Kitty (A Sunny &amp; Shadow Mystery)"
+  },
+  {
+    "item_name": "The Lies That Bind: A Bibliophile Mystery"
+  },
+  {
+    "item_name": "Cat Trick (Magical Cats)"
+  },
+  {
+    "item_name": "The Cat, the Mill and the Murder: A Cats in Trouble Mystery"
+  },
+  {
+    "item_name": "Dragon's Fire (The Dragonriders of Pern)"
+  },
+  {
+    "item_name": "Beauty and the Werewolf (Tales of the Five Hundred Kingdoms, Book 6)"
+  },
+  {
+    "item_name": "Stuff White People Like (to Talk About): 50 Ways to Start Conversations with Caucasians"
+  },
+  {
+    "item_name": "Dragon Harper (Pern)"
+  },
+  {
+    "item_name": "Final Catcall (Magical Cats)"
+  },
+  {
+    "item_name": "Book Lust To Go: Recommended Reading for Travelers, Vagabonds, and Dreamers"
+  },
+  {
+    "item_name": "The Good Master (Puffin Newbery Library)"
+  },
+  {
+    "item_name": "The Penderwicks on Gardam Street"
+  },
+  {
+    "item_name": "The Penderwicks at Point Mouette"
+  },
+  {
+    "item_name": "A Long Fatal Love Chase"
+  },
+  {
+    "item_name": "Star Wars: The Han Solo Trilogy: The Paradise Snare: Volume 1 (AU Star Wars)"
+  },
+  {
+    "item_name": "An Irish Country Doctor"
+  },
+  {
+    "item_name": "Double Booked for Death (A Black Cat Bookshop Mystery)"
+  },
+  {
+    "item_name": "That Old Flame of Mine (A Sweet Pepper Fire Brigade)"
+  },
+  {
+    "item_name": "A Midwinter's Tail (Magical Cats)"
+  },
+  {
+    "item_name": "The Cat, the Vagabond and the Victim (Cats in Trouble Mystery)"
+  },
+  {
+    "item_name": "The Cat, the Sneak and the Secret (Cats in Trouble Mystery)"
+  },
+  {
+    "item_name": "Cat Shout for Joy: A Joe Grey Mystery (Joe Grey Mystery Series)"
+  },
+  {
+    "item_name": "Epitaph: A Novel of the O.K. Corral"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 60,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 2,
+    "item_id": 7766,
+    "item_name": "Birds of a Feather (Maisie Dobbs, Book 2)"
+  },
+  {
+    "rank": 3,
+    "item_id": 21592,
+    "item_name": "Her Royal Spyness"
+  },
+  {
+    "rank": 4,
+    "item_id": 270,
+    "item_name": "The Mystery of the Blue Train (Poirot)"
+  },
+  {
+    "rank": 5,
+    "item_id": 2749,
+    "item_name": "Nation"
+  },
+  {
+    "rank": 6,
+    "item_id": 12329,
+    "item_name": "My Friend Rabbit: A Picture Book"
+  },
+  {
+    "rank": 7,
+    "item_id": 24357,
+    "item_name": "Murder of a Small-Town Honey (Scumble River Mysteries, Book 1)"
+  },
+  {
+    "rank": 8,
+    "item_id": 27997,
+    "item_name": "Dragonsong (Volume One of the Harper Hall Trilogy)"
+  },
+  {
+    "rank": 9,
+    "item_id": 6491,
+    "item_name": "Aunt Dimity and the Duke (Aunt Dimity Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_id": 1600,
+    "item_name": "Gaudy Night"
+  },
+  {
+    "rank": 11,
+    "item_id": 8817,
+    "item_name": "The Borrowers"
+  },
+  {
+    "rank": 12,
+    "item_id": 2379,
+    "item_name": "Mort"
+  },
+  {
+    "rank": 13,
+    "item_id": 2366,
+    "item_name": "Feet of Clay"
+  },
+  {
+    "rank": 14,
+    "item_id": 8013,
+    "item_name": "Aunt Dimity: Vampire Hunter (Aunt Dimity Mystery)"
+  },
+  {
+    "rank": 15,
+    "item_id": 74802,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 16,
+    "item_id": 22269,
+    "item_name": "Death of a Mad Hatter (A Hat Shop Mystery)"
+  },
+  {
+    "rank": 17,
+    "item_id": 62300,
+    "item_name": "My Man Godfrey"
+  },
+  {
+    "rank": 18,
+    "item_id": 2146,
+    "item_name": "The Light Fantastic: A Discworld Novel"
+  },
+  {
+    "rank": 19,
+    "item_id": 301,
+    "item_name": "The Man in the Brown Suit (Agatha Christie Collection)"
+  },
+  {
+    "rank": 20,
+    "item_id": 35316,
+    "item_name": "Sing Along Songs:Lion King - Circle"
+  },
+  {
+    "rank": 21,
+    "item_id": 2320,
+    "item_name": "The Body in the Library"
+  },
+  {
+    "rank": 22,
+    "item_id": 37996,
+    "item_name": "Prince Valiant, Vol. 5: The Sea King"
+  },
+  {
+    "rank": 23,
+    "item_id": 235,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 24,
+    "item_id": 504,
+    "item_name": "One, Two, Buckle My Shoe"
+  },
+  {
+    "rank": 25,
+    "item_id": 48389,
+    "item_name": "Archie Meets Nero Wolfe: A Prequel to Rex Stout's Nero Wolfe Mysteries (The Nero Wolfe Mysteries)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

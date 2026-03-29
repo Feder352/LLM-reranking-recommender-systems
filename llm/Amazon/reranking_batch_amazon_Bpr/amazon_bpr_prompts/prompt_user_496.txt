@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Art of Breathing"
+  },
+  {
+    "item_name": "Hell &amp; High Water"
+  },
+  {
+    "item_name": "Flight of Magpies"
+  },
+  {
+    "item_name": "Trouble &amp; the Wallflower"
+  },
+  {
+    "item_name": "Red Dirt Heart 3 (Volume 3)"
+  },
+  {
+    "item_name": "A Restored Man (The Men of Halfway House) (Volume 3)"
+  },
+  {
+    "item_name": "Chaos Station eBook"
+  },
+  {
+    "item_name": "Life, Some Assembly Required"
+  },
+  {
+    "item_name": "Secrets and Bow Ties"
+  },
+  {
+    "item_name": "The Lightning-Struck Heart"
+  },
+  {
+    "item_name": "Vespertine"
+  },
+  {
+    "item_name": "How to Walk Like a Man (Howl at the Moon) (Volume 2)"
+  },
+  {
+    "item_name": "How to Be a Normal Person"
+  },
+  {
+    "item_name": "Breakaway"
+  },
+  {
+    "item_name": "Kings Rising (The Captive Prince Trilogy)"
+  },
+  {
+    "item_name": "Blood Song: Book 1 of Raven's Shadow"
+  },
+  {
+    "item_name": "When Falcons Fall (Sebastian St. Cyr Mystery)"
+  },
+  {
+    "item_name": "Power Play"
+  },
+  {
+    "item_name": "Who Buries the Dead (Sebastian St. Cyr Mystery)"
+  },
+  {
+    "item_name": "Wolfsong"
+  },
+  {
+    "item_name": "The Forest of Forever (The Soren Chase series) (Volume 1)"
+  },
+  {
+    "item_name": "Reawakening"
+  },
+  {
+    "item_name": "Captive: Beautiful Monsters Vol. 1"
+  },
+  {
+    "item_name": "Empty Net (Scoring Chances)"
+  },
+  {
+    "item_name": "Sire (Beautiful Monsters Vol. 2)"
+  },
+  {
+    "item_name": "The Weight Of It All"
+  },
+  {
+    "item_name": "Broken (Beautiful Monsters Vol. 3)"
+  },
+  {
+    "item_name": "Where the Dead Lie (Sebastian St. Cyr Mystery)"
+  },
+  {
+    "item_name": "Borrowing Blue: A Made Marian Novel"
+  },
+  {
+    "item_name": "Hexbreaker (Hexworld) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Shades of Gray"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Dark Tide"
+  },
+  {
+    "rank": 4,
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Assassin's Apprentice"
+  },
+  {
+    "rank": 6,
+    "item_name": "Skin Game (The Dresden Files)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Dark Lover (Black Dagger Brotherhood, Book 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "White Witch, Black Curse"
+  },
+  {
+    "rank": 9,
+    "item_name": "Cold Days: A Dresden Files Novel (The Dresden Files)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Boundary"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Fairy Godmother (Tales of the Five Hundred Kingdoms, Book 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Three Days to Dead (Dreg City, Book 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Captain's Fury (Codex Alera, Book 4)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Curse of Chalion (Chalion series)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Touched by an Alien (Alien Novels)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Ritual of Proof"
+  },
+  {
+    "rank": 17,
+    "item_name": "White Night (The Dresden Files)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "rank": 19,
+    "item_name": "Magic Study (Study Series)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Dark Secret (The Carpathians (Dark) Series, Book 12)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Magic Burns (Kate Daniels)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Enslave Me Sweetly (Alien Huntress, Book 2)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Retribution Falls (Tales of the Ketty Jay)"
+  },
+  {
+    "rank": 24,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Fantasy Lover"
+  },
+  {
+    "rank": 26,
+    "item_name": "Visitor (Foreigner)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Silver Master (Ghost Hunters, Book 4)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Scandalous Miranda"
+  },
+  {
+    "rank": 29,
+    "item_name": "Flowers from the Storm"
+  },
+  {
+    "rank": 30,
+    "item_name": "Rebel Fay (The Noble Dead)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Assassin's Quest (The Farseer Trilogy)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Devil May Cry (Dark-Hunter, Book 11)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Blood Cross (Jane Yellowrock, Book 2)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Fatal Shadows"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Ghost Wore Yellow Socks"
+  },
+  {
+    "rank": 36,
+    "item_name": "Every Which Way But Dead"
+  },
+  {
+    "rank": 37,
+    "item_name": "Wicked Game"
+  },
+  {
+    "rank": 38,
+    "item_name": "Summoning the Night: An Arcadia Bell Novel (The Arcadia Bell series)"
+  },
+  {
+    "rank": 39,
+    "item_name": "You Slay Me (Aisling Grey, Guardian, Book 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Rosemary and Rue (October Daye)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Diving into the Wreck: A Diving Novel (Diving Series) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Born to Darkness (with bonus short story Shane's Last Stand)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Alien Taste (Ukiah Oregon, Book 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Hammered (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 45,
+    "item_name": "One Salt Sea"
+  },
+  {
+    "rank": 46,
+    "item_name": "Spirit Dances (The Walker Papers, Book 6)"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Study in Ashes: Book Three in The Baskerville Affair"
+  },
+  {
+    "rank": 48,
+    "item_name": "Raintree: Sanctuary"
+  },
+  {
+    "rank": 49,
+    "item_name": "Dark Celebration (A Carpathian Reunion)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Silence of the Lambs"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

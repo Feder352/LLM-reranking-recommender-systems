@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Sins of Lord Lockwood (Rules for the Reckless)"
+  },
+  {
+    "item_name": "Heart of Iron"
+  },
+  {
+    "item_name": "To Kill a Kingdom"
+  },
+  {
+    "item_name": "More Than We Can Tell"
+  },
+  {
+    "item_name": "The Wicked Deep"
+  },
+  {
+    "item_name": "Obsidio (The Illuminae Files)"
+  },
+  {
+    "item_name": "Cupid, Texas: How the Cowboy Was Won"
+  },
+  {
+    "item_name": "What a Difference a Duke Makes: School for Dukes"
+  },
+  {
+    "item_name": "I Have Lost My Way"
+  },
+  {
+    "item_name": "Claim Me, Cowboy (Copper Ridge)"
+  },
+  {
+    "item_name": "Bitter Spirits (A Roaring Twenties Novel)"
+  },
+  {
+    "item_name": "Emergency Contact"
+  },
+  {
+    "item_name": "A Scandalous Deal: The Four Hundred Series"
+  },
+  {
+    "item_name": "Disturbing His Peace: The Academy"
+  },
+  {
+    "item_name": "Savor You: A Fusion Novel"
+  },
+  {
+    "item_name": "A Duke Like No Other (Playful Brides)"
+  },
+  {
+    "item_name": "The Good Luck Sister: A Wildstone Novella"
+  },
+  {
+    "item_name": "Girl Made of Stars"
+  },
+  {
+    "item_name": "It's All About the Duke: The Rakes of St. James"
+  },
+  {
+    "item_name": "I Flipping Love You"
+  },
+  {
+    "item_name": "Legendary: A Caraval Novel"
+  },
+  {
+    "item_name": "The Kiss Quotient"
+  },
+  {
+    "item_name": "Neanderthal Opens the Door to the Universe"
+  },
+  {
+    "item_name": "Ain't She a Peach (Southern Eclectic)"
+  },
+  {
+    "item_name": "Chemistry Lessons"
+  },
+  {
+    "item_name": "Moonlight Seduction: A de Vincent Novel (de Vincent series)"
+  },
+  {
+    "item_name": "The Highlander's Promise: Highland Brides"
+  },
+  {
+    "item_name": "One Small Thing"
+  },
+  {
+    "item_name": "Leave No Trace: A Novel"
+  },
+  {
+    "item_name": "Why Not Tonight (Happily Inc)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Grave Mercy: His Fair Assassin, Book I"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Selection. by Kiera Cass"
+  },
+  {
+    "rank": 3,
+    "item_name": "Life After Juliet"
+  },
+  {
+    "rank": 4,
+    "item_name": "Dark Triumph: His Fair Assassins, Book II"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Geography of You and Me"
+  },
+  {
+    "rank": 6,
+    "item_name": "A Court of Thorns and Roses"
+  },
+  {
+    "rank": 7,
+    "item_name": "Defy (Defy, Book 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Too Hot to Handle (Romancing the Clarksons)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Book of Ivy (Entangled Teen)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Star-Touched Queen"
+  },
+  {
+    "rank": 11,
+    "item_name": "Seeker"
+  },
+  {
+    "rank": 12,
+    "item_name": "Alice in Zombieland"
+  },
+  {
+    "rank": 13,
+    "item_name": "Dumplin'"
+  },
+  {
+    "rank": 14,
+    "item_name": "Shattered Blue (The Light Trilogy)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Walk the Edge (Thunder Road)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Vanishing Girls"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Forgetting"
+  },
+  {
+    "rank": 18,
+    "item_name": "When"
+  },
+  {
+    "rank": 19,
+    "item_name": "All the Broken Pieces"
+  },
+  {
+    "rank": 20,
+    "item_name": "Soundless"
+  },
+  {
+    "rank": 21,
+    "item_name": "My Not So Perfect Life: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Salt"
+  },
+  {
+    "rank": 23,
+    "item_name": "Whatever Life Throws at You (Entangled Teen)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Valiant"
+  },
+  {
+    "rank": 25,
+    "item_name": "Hooked"
+  },
+  {
+    "rank": 26,
+    "item_name": "Compromising Her Position"
+  },
+  {
+    "rank": 27,
+    "item_name": "Temptation"
+  },
+  {
+    "rank": 28,
+    "item_name": "I Want It That Way"
+  },
+  {
+    "rank": 29,
+    "item_name": "Break Me Like a Promise: Once Upon a Crime Family"
+  },
+  {
+    "rank": 30,
+    "item_name": "Burning Glass"
+  },
+  {
+    "rank": 31,
+    "item_name": "Chasing Truth (Eleanor Ames Series)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Jesse's Girl (Hundred Oaks)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Catching Jordan (Hundred Oaks)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Say You'll Remember Me"
+  },
+  {
+    "rank": 35,
+    "item_name": "Black Ice"
+  },
+  {
+    "rank": 36,
+    "item_name": "Bloodlines: The Ruby Circle (book 6)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 38,
+    "item_name": "Unbreakable (Legion)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Hourglass"
+  },
+  {
+    "rank": 40,
+    "item_name": "I Was Here"
+  },
+  {
+    "rank": 41,
+    "item_name": "You Were Here"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Ones Who Got Away"
+  },
+  {
+    "rank": 43,
+    "item_name": "To All the Boys I've Loved Before"
+  },
+  {
+    "rank": 44,
+    "item_name": "When the Stars Come Out: A Cottonbloom Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "Paper or Plastic (Entangled Teen)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The DUFF: (Designated Ugly Fat Friend)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Revolution of Ivy"
+  },
+  {
+    "rank": 48,
+    "item_name": "Branded (A Sinner Series) (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Illusions of Fate"
+  },
+  {
+    "rank": 50,
+    "item_name": "A Corner of White: Book 1 of The Colors of Madeleine"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

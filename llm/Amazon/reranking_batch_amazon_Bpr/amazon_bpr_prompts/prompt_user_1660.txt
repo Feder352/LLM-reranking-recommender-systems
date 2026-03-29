@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "High as the Heavens"
+  },
+  {
+    "item_name": "Street of Eternal Happiness: Big City Dreams Along a Shanghai Road"
+  },
+  {
+    "item_name": "Egypt's Sister: A Novel of Cleopatra (The Silent Years)"
+  },
+  {
+    "item_name": "On Edge: A Journey Through Anxiety"
+  },
+  {
+    "item_name": "The Fix: How Countries Use Crises to Solve the World's Worst Problems"
+  },
+  {
+    "item_name": "Inconvenient Beauty (Hawthorne House)"
+  },
+  {
+    "item_name": "David Bowie: A Life"
+  },
+  {
+    "item_name": "Ordering Your Private World"
+  },
+  {
+    "item_name": "The Master's Mind: The Art of Reshaping Your Thoughts"
+  },
+  {
+    "item_name": "The Comic Book Story of Video Games: The Incredible History of the Electronic Gaming Revolution"
+  },
+  {
+    "item_name": "Where We Belong"
+  },
+  {
+    "item_name": "Boundaries: When To Say Yes, How to Say No"
+  },
+  {
+    "item_name": "The Tunnels: Escapes Under the Berlin Wall and the Historic Films the JFK White House Tried to Kill (Random House Large Print)"
+  },
+  {
+    "item_name": "Picturing Heaven: 40 Hope-Filled Devotions with Coloring Pages"
+  },
+  {
+    "item_name": "Same Kind of Different As Me Movie Edition: A Modern-Day Slave, an International Art Dealer, and the Unlikely Woman Who Bound Them Together"
+  },
+  {
+    "item_name": "The Wolf: A True Story of Survival and Obsession in the West"
+  },
+  {
+    "item_name": "The Last Girl: My Story of Captivity, and My Fight Against the Islamic State"
+  },
+  {
+    "item_name": "In the Middle of the Mess Study Guide: Strength for This Beautiful, Broken Life"
+  },
+  {
+    "item_name": "The House on Foster Hill"
+  },
+  {
+    "item_name": "Blessed Are the Misfits: Great News for Believers who are Introverts, Spiritual Strugglers, or Just Feel Like They're Missing Something"
+  },
+  {
+    "item_name": "How Democracies Die"
+  },
+  {
+    "item_name": "Out of the Ashes (The Heart of Alaska)"
+  },
+  {
+    "item_name": "Faithful Finance: 10 Secrets to Move from Fearful Insecurity to Confident Control"
+  },
+  {
+    "item_name": "Putting It Together Again When It's All Fallen Apart: 7 Principles for Rebuilding Your Life"
+  },
+  {
+    "item_name": "The Inkblots: Hermann Rorschach, His Iconic Test, and the Power of Seeing"
+  },
+  {
+    "item_name": "Keturah (The Sugar Baron's Daughters)"
+  },
+  {
+    "item_name": "The Heart's Appeal (London Beginnings)"
+  },
+  {
+    "item_name": "Bountiful Blessings: A Creative Devotional Experience"
+  },
+  {
+    "item_name": "Girl, Wash Your Face: Stop Believing the Lies About Who You Are so You Can Become Who You Were Meant to Be"
+  },
+  {
+    "item_name": "Vogue&reg; Knitting The Ultimate Knitting Book: Completely Revised &amp; Updated"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 3,
+    "item_name": "As Waters Gone By"
+  },
+  {
+    "rank": 4,
+    "item_name": "Critical Condition"
+  },
+  {
+    "rank": 5,
+    "item_name": "Among the Fair Magnolias: Four Southern Love Stories"
+  },
+  {
+    "rank": 6,
+    "item_name": "Annabel Lee (Coffey &amp; Hill)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Dwelling Places: Words to Live in Every Season"
+  },
+  {
+    "rank": 8,
+    "item_name": "Home to Paradise: The Coming Home Series  Book 3"
+  },
+  {
+    "rank": 9,
+    "item_name": "Dressed for Death (A Drew Farthering Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Advocate"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Name Unknown (Shadows Over England)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Fatal Trauma"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Evangelism Study Bible"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Innocent: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "Afloat"
+  },
+  {
+    "rank": 16,
+    "item_name": "Rachel: A Novel (Wives of the Patriarchs) (Volume 3)"
+  },
+  {
+    "rank": 17,
+    "item_name": "In Every Heartbeat"
+  },
+  {
+    "rank": 18,
+    "item_name": "Imperfect Justice (Hidden Justice)"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Bride at Last"
+  },
+  {
+    "rank": 20,
+    "item_name": "Get Out of That Pit: Straight Talk about God's Deliverance"
+  },
+  {
+    "rank": 21,
+    "item_name": "Real Marriage: The Truth About Sex, Friendship, &amp; Life Together"
+  },
+  {
+    "rank": 22,
+    "item_name": "A Sweet Misfortune: A Novel (Virtues and Vices of the Old West)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Every Girl Gets Confused: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 25,
+    "item_name": "Cold-Case Christianity for Kids: Investigate Jesus with a Real Detective"
+  },
+  {
+    "rank": 26,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 27,
+    "item_name": "Beyond All Dreams"
+  },
+  {
+    "rank": 28,
+    "item_name": "Perfectly Matched: A Novel (The Blue Willow Brides) (Volume 3)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Cold-Case Christianity: A Homicide Detective Investigates the Claims of the Gospels"
+  },
+  {
+    "rank": 30,
+    "item_name": "Angels: The Strange and Mysterious Truth"
+  },
+  {
+    "rank": 31,
+    "item_name": "Getaway with God: The Everywoman's Guide to Personal Retreat"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Sacred Year: Mapping the Soulscape of Spiritual Practice -- How Contemplating Apples, Living in a Cave, and Befriending a Dying Woman Revived My Life"
+  },
+  {
+    "rank": 33,
+    "item_name": "Not by Sight: A Novel (Ozark Mountain Trilogy)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Heiress of Winterwood (Whispers On The Moors)"
+  },
+  {
+    "rank": 35,
+    "item_name": "God Knows Your Name: In a World of Rejection, He Accepts You"
+  },
+  {
+    "rank": 36,
+    "item_name": "Anchor in the Storm (Waves of Freedom)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Chance of Loving You: Romance Collection (Thorndike Press Large Print Christian Fiction)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Citizen: Your role in the alternative kingdom"
+  },
+  {
+    "rank": 39,
+    "item_name": "After a Fashion"
+  },
+  {
+    "rank": 40,
+    "item_name": "Two Roads Home: A Chicory Inn Novel - Book 2"
+  },
+  {
+    "rank": 41,
+    "item_name": "In the Dust of the Rabbi Discovery Guide: 5 Faith Lessons"
+  },
+  {
+    "rank": 42,
+    "item_name": "A Fool and His Monet (Serena Jones Mysteries)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Love's Sacred Song: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "12 Days at Bleakly Manor: Book 1 in Once Upon a Dickens Christmas"
+  },
+  {
+    "rank": 45,
+    "item_name": "5 Days to a Clutter-Free House: Quick, Easy Ways to Clear Up Your Space"
+  },
+  {
+    "rank": 46,
+    "item_name": "Critical Reaction: a novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Mayflower Bride: Daughters of the Mayflower - Book 1"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Stitch in Crime: Quilts of Love Series"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Christmas Singing: A Romance from the Heart of Amish Country (Apple Ridge)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Tried and True (Wild at Heart) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

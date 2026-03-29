@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Escape Claws"
+  },
+  {
+    "item_name": "Chained (Kate Turner, DVM, Mysteries)"
+  },
+  {
+    "item_name": "The Fast and the Furriest (Second Chance Cat Mystery)"
+  },
+  {
+    "item_name": "Clairvoyant and Present Danger (A Bay Island Psychic Mystery)"
+  },
+  {
+    "item_name": "Pressing the Issue (A Cookbook Nook Mystery) (Volume 6)"
+  },
+  {
+    "item_name": "Dial Meow for Murder (Lucky Paws Petsitting Mystery)"
+  },
+  {
+    "item_name": "Dial M for Mousse (An Emergency Dessert Squad Mystery)"
+  },
+  {
+    "item_name": "Pawprints &amp; Predicaments (Lucky Paws Petsitting Mystery)"
+  },
+  {
+    "item_name": "Dead Calm (A Mattie Winston Mystery)"
+  },
+  {
+    "item_name": "Cookies and Scream (Baker Street Cozy Mysterys) (Volume 2)"
+  },
+  {
+    "item_name": "Cherry Pie Or Die (Baker Street Cozy Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "Creme Brle To Slay (Baker Street Cozy Mysteries) (Volume 3)"
+  },
+  {
+    "item_name": "Six Feet Under (A Kenni Lowry Mystery) (Volume 4)"
+  },
+  {
+    "item_name": "A Berry Deadly Welcome: A Laugh-Out-Loud Kylie Berry Mystery"
+  },
+  {
+    "item_name": "Deja Moo (A Perfectly Proper Paranormal Museum Mystery)"
+  },
+  {
+    "item_name": "One Foot in the Grove (An Olive Grove Mystery)"
+  },
+  {
+    "item_name": "Double Dog Dare (A Davis Way Crime Caper) (Volume 7)"
+  },
+  {
+    "item_name": "Playing With Bonbon Fire: A Southern Chocolate Shop Mystery"
+  },
+  {
+    "item_name": "Picture Perfect Murder (A Ryli Sinclair Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Uneasy Prey (A Zoe Chambers Mystery) (Volume 6)"
+  },
+  {
+    "item_name": "Hippity Hoppity Homicide (Zoe Donovan Cozy Mystery) (Volume 28)"
+  },
+  {
+    "item_name": "Cold Blooded Brew: A Cozy Mystery (A Killer Coffee Mystery Series Book Four)"
+  },
+  {
+    "item_name": "Lost Books and Old Bones: A Scottish Bookshop Mystery"
+  },
+  {
+    "item_name": "Lethal in Old Lace: A Consignment Shop Mystery"
+  },
+  {
+    "item_name": "Hide and Sneak (A Savannah Reid Mystery)"
+  },
+  {
+    "item_name": "The Cupid Caper (A Finley Goodhart Crime Caper) (Volume 1)"
+  },
+  {
+    "item_name": "Dark Queen (Jane Yellowrock)"
+  },
+  {
+    "item_name": "What to Expect When Your Demon Slayer is Expecting (Biker Witches Mystery) (Volume 8)"
+  },
+  {
+    "item_name": "Lowcountry Bookshop (A Liz Talbot Mystery)"
+  },
+  {
+    "item_name": "Blazing Summer (Darling Investigations)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3499,
+    "item_name": "Read It and Weep (A Library Lover's Mystery)"
+  },
+  {
+    "rank": 2,
+    "item_id": 3505,
+    "item_name": "Murder, She Barked: A Paws &amp; Claws Mystery"
+  },
+  {
+    "rank": 3,
+    "item_id": 4009,
+    "item_name": "The Cat, the Wife and the Weapon: A Cats in Trouble Mystery"
+  },
+  {
+    "rank": 4,
+    "item_id": 3500,
+    "item_name": "Holiday Buzz (A Coffeehouse Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_id": 6122,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 6,
+    "item_id": 3477,
+    "item_name": "Scandal in Skibbereen (A County Cork Mystery)"
+  },
+  {
+    "rank": 7,
+    "item_id": 4050,
+    "item_name": "The Whole Cat and Caboodle (Second Chance Cat Mystery)"
+  },
+  {
+    "rank": 8,
+    "item_id": 4035,
+    "item_name": "Throw in the Trowel (Flower Shop Mystery)"
+  },
+  {
+    "rank": 9,
+    "item_id": 3489,
+    "item_name": "The Diva Digs Up the Dirt (A Domestic Diva Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_id": 3962,
+    "item_name": "A Glimpse of Evil (Psychic Eye Mysteries, No. 8)"
+  },
+  {
+    "rank": 11,
+    "item_id": 3974,
+    "item_name": "Vision Impossible (Psychic Eye Mysteries, No. 9)"
+  },
+  {
+    "rank": 12,
+    "item_id": 3913,
+    "item_name": "Better Read Than Dead (Psychic Eye Mysteries, Book 2)"
+  },
+  {
+    "rank": 13,
+    "item_id": 5209,
+    "item_name": "Dying to Read: A Novel (The Cate Kinkaid Files-Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_id": 3985,
+    "item_name": "In a Witch's Wardrobe: A Witchcraft Mystery"
+  },
+  {
+    "rank": 15,
+    "item_id": 3496,
+    "item_name": "The Diva Frosts a Cupcake (A Domestic Diva Mystery)"
+  },
+  {
+    "rank": 16,
+    "item_id": 3480,
+    "item_name": "Every Trick in the Book (A Novel Idea Mystery)"
+  },
+  {
+    "rank": 17,
+    "item_id": 3466,
+    "item_name": "Going, Going, Ganache (Cupcake Bakery Mystery)"
+  },
+  {
+    "rank": 18,
+    "item_id": 3924,
+    "item_name": "A Vision of Murder (Psychic Eye Mysteries, Book 3)"
+  },
+  {
+    "rank": 19,
+    "item_id": 4044,
+    "item_name": "Murder of a Stacked Librarian: A Scumble River Mystery"
+  },
+  {
+    "rank": 20,
+    "item_id": 4039,
+    "item_name": "Seed No Evil: A Flower Shop Mystery"
+  },
+  {
+    "rank": 21,
+    "item_id": 2337,
+    "item_name": "Moon Over Soho (Rivers of London)"
+  },
+  {
+    "rank": 22,
+    "item_id": 3497,
+    "item_name": "Last Licks (Sunny &amp; Shadow Mystery)"
+  },
+  {
+    "rank": 23,
+    "item_id": 4049,
+    "item_name": "The Cat, the Mill and the Murder: A Cats in Trouble Mystery"
+  },
+  {
+    "rank": 24,
+    "item_id": 3449,
+    "item_name": "Due or Die (A Library Lover's Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_id": 5097,
+    "item_name": "1225 Christmas Tree Lane (Cedar Cove)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

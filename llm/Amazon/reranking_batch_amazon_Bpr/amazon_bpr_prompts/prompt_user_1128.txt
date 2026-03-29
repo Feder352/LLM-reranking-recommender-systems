@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Driftwood Cove: Two stories for the price of one (Harmony Harbor)"
+  },
+  {
+    "item_name": "Lethal Licorice (An Amish Candy Shop Mystery)"
+  },
+  {
+    "item_name": "Raspberry Danish Murder (A Hannah Swensen Mystery)"
+  },
+  {
+    "item_name": "It Takes a Coven (A Witch City Mystery)"
+  },
+  {
+    "item_name": "The Fast and the Furriest (Second Chance Cat Mystery)"
+  },
+  {
+    "item_name": "Color Me Murder (Pen &amp; Ink)"
+  },
+  {
+    "item_name": "Pawprints &amp; Predicaments (Lucky Paws Petsitting Mystery)"
+  },
+  {
+    "item_name": "The Sometimes Sisters"
+  },
+  {
+    "item_name": "Pressing the Issue (A Cookbook Nook Mystery) (Volume 6)"
+  },
+  {
+    "item_name": "Claws for Concern (Cat in the Stacks Mystery)"
+  },
+  {
+    "item_name": "Dragon's Guard: A Reverse Harem Paranormal Romance (The Dragon Shifter's Mates) (Volume 1)"
+  },
+  {
+    "item_name": "The Summer of Secrets: A feel good romance novel perfect for holiday reading"
+  },
+  {
+    "item_name": "A Manor of Murder"
+  },
+  {
+    "item_name": "The French Girl"
+  },
+  {
+    "item_name": "Best Laid Plans (Madaris Family Saga)"
+  },
+  {
+    "item_name": "Marinating in Murder (A Dinner Club Mystery)"
+  },
+  {
+    "item_name": "The Book of Secrets (The Last Oracle) (Volume 1)"
+  },
+  {
+    "item_name": "Forever Home"
+  },
+  {
+    "item_name": "The Good Liar"
+  },
+  {
+    "item_name": "Carbs &amp; Cadavers (Supper Club Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "A Nantucket Wedding: A Novel"
+  },
+  {
+    "item_name": "Dead Girl Running (Cape Charade)"
+  },
+  {
+    "item_name": "Healthy Air Fryer Cookbook: 100 Great Recipes with Fewer Calories and Less Fat"
+  },
+  {
+    "item_name": "Cake and Punishment: A Southern Cake Baker Mystery"
+  },
+  {
+    "item_name": "After Anna"
+  },
+  {
+    "item_name": "The Death of Mrs. Westaway"
+  },
+  {
+    "item_name": "The Cottages on Silver Beach (Haven Point)"
+  },
+  {
+    "item_name": "Shelter in Place"
+  },
+  {
+    "item_name": "Stay Hidden: A Novel (Mike Bowditch Mysteries)"
+  },
+  {
+    "item_name": "Every Time You Go Away: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "A Merciful Death (Mercy Kilpatrick)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Lone Wolf (An F.B.I. K-9 Novel)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Curious Minds: A Knight and Moon Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Swimsuit Body (The Cypress Bay Mysteries)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Cutaway: A Thriller"
+  },
+  {
+    "rank": 8,
+    "item_name": "Plantation Shudders: A Cajun Country Mystery"
+  },
+  {
+    "rank": 9,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Other Einstein: A Novel - Kindle edition"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Passenger"
+  },
+  {
+    "rank": 12,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Snow Angel Cove: A small-town romance (Haven Point)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Sound of Glass"
+  },
+  {
+    "rank": 15,
+    "item_name": "Diner Knock Out (A Rose Strickland Mystery) (Volume 4)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Boyfriend Swap"
+  },
+  {
+    "rank": 17,
+    "item_name": "A Girl's Guide to Moving On: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 18,
+    "item_name": "That Darkness (A Gardiner and Renner Novel)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Rules of Magic"
+  },
+  {
+    "rank": 20,
+    "item_name": "Hunted (The Profiler)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Beauty of the End"
+  },
+  {
+    "rank": 22,
+    "item_name": "Candy Corn Murder (A Lucy Stone Mystery)"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Whole Latte Murder (Java Jive Mystery)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Pop Goes the Weasel (A Helen Grace Thriller)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Readers of Broken Wheel Recommend"
+  },
+  {
+    "rank": 26,
+    "item_name": "Lowcountry Boneyard (A Liz Talbot Mystery) (Volume 3)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Promise of Provence: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Guilt by Degrees (A Rachel Knight Novel)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Black-Eyed Susans: A Novel of Suspense"
+  },
+  {
+    "rank": 30,
+    "item_name": "Pretty Girls"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Scam: A Fox and O'Hare Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Bones of You"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Fifth Petal"
+  },
+  {
+    "rank": 35,
+    "item_name": "Mother Knows Best (A Margie Peterson Mystery)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Wicked Charms: A Lizzy and Diesel Novel (Lizzy &amp; Diesel)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Cold as Ice (Country Club Murders)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Hanover House"
+  },
+  {
+    "rank": 39,
+    "item_name": "No One Knows: A Book Club Recommendation!"
+  },
+  {
+    "rank": 40,
+    "item_name": "Dark Prayer"
+  },
+  {
+    "rank": 41,
+    "item_name": "That Night"
+  },
+  {
+    "rank": 42,
+    "item_name": "Find Her (A D.D. Warren and Flora Dane Novel)"
+  },
+  {
+    "rank": 43,
+    "item_name": "From Bruges with Love (The Pieter Van In Mysteries)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Child: The must-read Richard and Judy Book Club pick 2018"
+  },
+  {
+    "rank": 45,
+    "item_name": "Best Friends Forever"
+  },
+  {
+    "rank": 46,
+    "item_name": "The English Wife: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Blossom Street Brides: A Blossom Street Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "After She's Gone (West Coast Series)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Marriage Pact: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Someone Is Watching: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

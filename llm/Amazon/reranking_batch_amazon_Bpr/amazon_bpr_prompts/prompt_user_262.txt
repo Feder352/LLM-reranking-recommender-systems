@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "item_name": "But What If We're Wrong?: Thinking About the Present As If It Were the Past"
+  },
+  {
+    "item_name": "Harry Potter and the Cursed Child, parts one and two. [Based on the original new story by J.J. Rowling, John Tiffany &amp; Jack Thorne]. First produced by ... End production, special rehearsal edition."
+  },
+  {
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "item_name": "Ocean: The World's Last Wilderness Revealed"
+  },
+  {
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "item_name": "The Second World Wars: How the First Global Conflict Was Fought and Won"
+  },
+  {
+    "item_name": "All Passion Spent (Vintage Classics)"
+  },
+  {
+    "item_name": "The End of the Point: A Novel (P.S.)"
+  },
+  {
+    "item_name": "Alexander Hamilton"
+  },
+  {
+    "item_name": "Grant"
+  },
+  {
+    "item_name": "The Story Girl"
+  },
+  {
+    "item_name": "Who We Are and How We Got Here: Ancient DNA and the New Science of the Human Past"
+  },
+  {
+    "item_name": "The Cornish Coast Murder (British Library Crime Classics)"
+  },
+  {
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "item_name": "Lonely Planet Iceland's Ring Road (Travel Guide)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 3,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Cannery Row"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "1776 : America and Britain at War"
+  },
+  {
+    "rank": 9,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 10,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 12,
+    "item_name": "North and South"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Turn of the Screw and Other Stories (Penguin modern classics)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Of Mice and Men"
+  },
+  {
+    "rank": 15,
+    "item_name": "Gone with the Wind"
+  },
+  {
+    "rank": 16,
+    "item_name": "Power and the Glory"
+  },
+  {
+    "rank": 17,
+    "item_name": "The House of Mirth (Vintage Classics)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 21,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Alchemist"
+  },
+  {
+    "rank": 23,
+    "item_name": "Inside the Third Reich"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Lost Continent: Travels in Small Town America"
+  },
+  {
+    "rank": 25,
+    "item_name": "Gone With the Wind, The Margaret Mitchell Anniversary Edition"
+  },
+  {
+    "rank": 26,
+    "item_name": "Little House On The Prairie"
+  },
+  {
+    "rank": 27,
+    "item_name": "Dune (Penguin Galaxy)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Candide (French Edition)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Out of Sight"
+  },
+  {
+    "rank": 30,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Autobiography of Benjamin Franklin with Related Readings (Glencoe Literature Library)"
+  },
+  {
+    "rank": 32,
+    "item_name": "On The Road CD Unabridged"
+  },
+  {
+    "rank": 33,
+    "item_name": "Little Women"
+  },
+  {
+    "rank": 34,
+    "item_name": "Maltese Falcon (Picador Books)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Alexander and the Terrible, Horrible, No Good, Very Bad Day Low Price"
+  },
+  {
+    "rank": 36,
+    "item_name": "Little House Reader, A (Little House Books)"
+  },
+  {
+    "rank": 37,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 38,
+    "item_name": "Tess of the D'Urbervilles (Penguin Classics)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Innocents Abroad (Penguin Classics)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Alexandria Quartet"
+  },
+  {
+    "rank": 41,
+    "item_name": "FOUNDATION- PB"
+  },
+  {
+    "rank": 42,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Blue Fairy Book (Dover Children's Classics)"
+  },
+  {
+    "rank": 44,
+    "item_name": "These Happy Golden Years (Little House)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Travels with Charley in Search of America"
+  },
+  {
+    "rank": 46,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 47,
+    "item_name": "Murder Room."
+  },
+  {
+    "rank": 48,
+    "item_name": "Seabiscuit: An American Legend"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Lost World"
+  },
+  {
+    "rank": 50,
+    "item_name": "A Room With A View"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

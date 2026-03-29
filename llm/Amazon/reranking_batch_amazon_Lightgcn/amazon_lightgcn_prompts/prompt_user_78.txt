@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "How Israel Lost: The Four Questions"
+  },
+  {
+    "item_name": "Sandstorm (Sigma Force)"
+  },
+  {
+    "item_name": "Sandstorm (Sigma Force)"
+  },
+  {
+    "item_name": "Sandstorm (Sigma Force)"
+  },
+  {
+    "item_name": "Sandstorm (Sigma Force)"
+  },
+  {
+    "item_name": "The Distance Between Us"
+  },
+  {
+    "item_name": "Beneath a Marble Sky: A Love Story"
+  },
+  {
+    "item_name": "Beneath a Marble Sky: A Love Story"
+  },
+  {
+    "item_name": "Light On Snow (Large Print)"
+  },
+  {
+    "item_name": "In the Shadow of No Towers (Pantheon Graphic Library)"
+  },
+  {
+    "item_name": "Night Fall"
+  },
+  {
+    "item_name": "Night Fall"
+  },
+  {
+    "item_name": "Boy in the Striped Pyjamas: A Fable"
+  },
+  {
+    "item_name": "Boy in the Striped Pyjamas: A Fable"
+  },
+  {
+    "item_name": "Boy in the Striped Pyjamas: A Fable"
+  },
+  {
+    "item_name": "Boy in the Striped Pyjamas: A Fable"
+  },
+  {
+    "item_name": "Defiance: The Bielski Partisans"
+  },
+  {
+    "item_name": "Defiance: The Bielski Partisans"
+  },
+  {
+    "item_name": "Flipping Out: A Lomax &amp; Biggs Mystery"
+  },
+  {
+    "item_name": "Flipping Out: A Lomax &amp; Biggs Mystery"
+  },
+  {
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "item_name": "First Comes Love, then Comes Malaria: How a Peace Corps Poster Boy Won My Heart and a Third World Adventure Changed My Life"
+  },
+  {
+    "item_name": "First Comes Love, then Comes Malaria: How a Peace Corps Poster Boy Won My Heart and a Third World Adventure Changed My Life"
+  },
+  {
+    "item_name": "Portrait of an Unknown Woman: A Novel"
+  },
+  {
+    "item_name": "The Late, Lamented Molly Marx: A Novel"
+  },
+  {
+    "item_name": "Killing Castro (Hard Case Crime (Mass Market Paperback))"
+  },
+  {
+    "item_name": "Killing Castro (Hard Case Crime (Mass Market Paperback))"
+  },
+  {
+    "item_name": "Killing Castro (Hard Case Crime (Mass Market Paperback))"
+  },
+  {
+    "item_name": "The Dead Man's Brother"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 6177,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 2,
+    "item_id": 10339,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 3,
+    "item_id": 10001,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "rank": 4,
+    "item_id": 75903,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 5,
+    "item_id": 74516,
+    "item_name": "Red Dragon"
+  },
+  {
+    "rank": 6,
+    "item_id": 74923,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 7,
+    "item_id": 27345,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 8,
+    "item_id": 8451,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 9,
+    "item_id": 6161,
+    "item_name": "The Handmaid's Tale (Contemporary Classics)"
+  },
+  {
+    "rank": 10,
+    "item_id": 20296,
+    "item_name": "Rules of Prey"
+  },
+  {
+    "rank": 11,
+    "item_id": 8694,
+    "item_name": "Slammerkin: A Loose Dress, A Loose Woman"
+  },
+  {
+    "rank": 12,
+    "item_id": 31929,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 13,
+    "item_id": 22987,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 14,
+    "item_id": 13279,
+    "item_name": "The Black Echo (Harry Bosch)"
+  },
+  {
+    "rank": 15,
+    "item_id": 23322,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 16,
+    "item_id": 31958,
+    "item_name": "A Thousand Splendid Suns: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_id": 5766,
+    "item_name": "The Silence of the Lambs"
+  },
+  {
+    "rank": 18,
+    "item_id": 74741,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 19,
+    "item_id": 333,
+    "item_name": "Girl with a Pearl Earring"
+  },
+  {
+    "rank": 20,
+    "item_id": 1231,
+    "item_name": "The Professor and the Madman"
+  },
+  {
+    "rank": 21,
+    "item_id": 18969,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 22,
+    "item_id": 13798,
+    "item_name": "Lost Light"
+  },
+  {
+    "rank": 23,
+    "item_id": 14471,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 24,
+    "item_id": 11985,
+    "item_name": "The Northern Lights: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_id": 43781,
+    "item_name": "The White Tiger: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

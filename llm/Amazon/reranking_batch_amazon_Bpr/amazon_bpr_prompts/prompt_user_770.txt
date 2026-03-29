@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Pandemic: Tracking Contagions, from Cholera to Ebola and Beyond"
+  },
+  {
+    "item_name": "Smugglers &amp; Scones (Moorehaven Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "Last Argument of Kings (The First Law Trilogy)"
+  },
+  {
+    "item_name": "The Radium Girls"
+  },
+  {
+    "item_name": "Gulp: Adventures on the Alimentary Canal"
+  },
+  {
+    "item_name": "The Physics of Everyday Things: The Extraordinary Science Behind an Ordinary Day"
+  },
+  {
+    "item_name": "Pandora's Lab: Seven Stories of Science Gone Wrong"
+  },
+  {
+    "item_name": "Wishful Drinking"
+  },
+  {
+    "item_name": "Shockaholic"
+  },
+  {
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "item_name": "Caesar's Last Breath: Decoding the Secrets of the Air Around Us"
+  },
+  {
+    "item_name": "Strange Practice (A Dr. Greta Helsing Novel)"
+  },
+  {
+    "item_name": "How to Remove a Brain: and other bizarre medical practices and procedures"
+  },
+  {
+    "item_name": "A Brief History of Everyone Who Ever Lived: The Human Story Retold Through Our Genes"
+  },
+  {
+    "item_name": "Quackery: A Brief History of the Worst Ways to Cure Everything"
+  },
+  {
+    "item_name": "Code Girls: The Untold Story of the American Women Code Breakers of World War II"
+  },
+  {
+    "item_name": "The River of Consciousness"
+  },
+  {
+    "item_name": "The Trouble With Twelfth Grave (Charley Davidson)"
+  },
+  {
+    "item_name": "Beasts of Extraordinary Circumstance: A Novel"
+  },
+  {
+    "item_name": "Inspector Hobbes and the Blood: unhuman I - A fast paced comedy crime fantasy (Volume 1)"
+  },
+  {
+    "item_name": "Murder in the Manuscript Room: A 42nd Street Library Mystery (The 42nd Street Library Mysteries)"
+  },
+  {
+    "item_name": "Soulless (The Parasol Protectorate)"
+  },
+  {
+    "item_name": "Senlin Ascends (The Books of Babel)"
+  },
+  {
+    "item_name": "Do You Believe in Magic?: The Sense and Nonsense of Alternative Medicine"
+  },
+  {
+    "item_name": "As You Wish: Inconceivable Tales from the Making of The Princess Bride"
+  },
+  {
+    "item_name": "The Coincidence Makers: A Novel"
+  },
+  {
+    "item_name": "The Truth About Animals: Stoned Sloths, Lovelorn Hippos, and Other Tales from the Wild Side of Wildlife"
+  },
+  {
+    "item_name": "Witches Gone Wicked: A Cozy Witch Mystery (Womby's School for Wayward Witches) (Volume 3)"
+  },
+  {
+    "item_name": "The Darkening Age: The Christian Destruction of the Classical World"
+  },
+  {
+    "item_name": "What the Eyes Don't See: A Story of Crisis, Resistance, and Hope in an American City"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 2,
+    "item_name": "Astrophysics for People in a Hurry"
+  },
+  {
+    "rank": 3,
+    "item_name": "American Gods"
+  },
+  {
+    "rank": 4,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 5,
+    "item_name": "Sourcery"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Graveyard Book"
+  },
+  {
+    "rank": 7,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 9,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Botany of Desire: A Plant's-Eye View of the World"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 12,
+    "item_name": "What If?: Serious Scientific Answers to Absurd Hypothetical Questions"
+  },
+  {
+    "rank": 13,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Road"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Sixth Extinction: An Unnatural History"
+  },
+  {
+    "rank": 16,
+    "item_name": "When Breath Becomes Air"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Perks Of Being A Wallflower (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Snuff: A Novel of Discworld"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Life-Changing Magic of Tidying: A simple, effective way to banish clutter forever"
+  },
+  {
+    "rank": 20,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Sandman Vol. 8: World's End"
+  },
+  {
+    "rank": 22,
+    "item_name": "Stuff Matters: Exploring the Marvelous Materials That Shape Our Man-Made World"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Hat Full of Sky"
+  },
+  {
+    "rank": 25,
+    "item_name": "Rabid: A Cultural History of the World's Most Diabolical Virus"
+  },
+  {
+    "rank": 26,
+    "item_name": "Lean In: Women, Work, and the Will to Lead"
+  },
+  {
+    "rank": 27,
+    "item_name": "Under the Banner of Heaven : A Story of Violent Faith"
+  },
+  {
+    "rank": 28,
+    "item_name": "Every Which Way But Dead"
+  },
+  {
+    "rank": 29,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 30,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 31,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 32,
+    "item_name": "Wintersmith (Discworld)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Born on a Blue Day: A Memoir of Asperger's and an Extraordinary Mind"
+  },
+  {
+    "rank": 34,
+    "item_name": "Siddhartha: An Indian Tale (Penguin Twentieth-Century Classics)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 36,
+    "item_name": "Cold Days: A Dresden Files Novel (The Dresden Files)"
+  },
+  {
+    "rank": 37,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Soul of an Octopus: A Surprising Exploration into the Wonder of Consciousness"
+  },
+  {
+    "rank": 39,
+    "item_name": "Witches Protection Program"
+  },
+  {
+    "rank": 40,
+    "item_name": "Stiff: The Curious Lives of Human Cadavers"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Alchemist"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Stolen Child: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Charlotte's Web (50th Anniversary Retrospective Edition)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Reefer Madness: Sex, Drugs, and Cheap Labor in the American Black Market"
+  },
+  {
+    "rank": 45,
+    "item_name": "Smoke and Mirrors: Short Fictions and Illusions"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Handmaid's Tale (Contemporary Classics)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Making Money (Discworld)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Hollow City"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Republican Brain: The Science of Why They Deny Science- and Reality"
+  },
+  {
+    "rank": 50,
+    "item_name": "Predictably Irrational: The Hidden Forces That Shape Our Decisions"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

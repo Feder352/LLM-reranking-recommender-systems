@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Wicked in a Kilt (Hot Scots)"
+  },
+  {
+    "item_name": "Break My Heart (Pine Grove) (Volume 2)"
+  },
+  {
+    "item_name": "Embracing Love (Once Broken) (Volume 1)"
+  },
+  {
+    "item_name": "Part-time Princess (Royally Wed Romantic Comedy) (Volume 1)"
+  },
+  {
+    "item_name": "Stutter Creek"
+  },
+  {
+    "item_name": "The Bad Luck Bride: The Cavensham Heiresses"
+  },
+  {
+    "item_name": "Montana Wild"
+  },
+  {
+    "item_name": "Beyond Scandal and Desire: A Sins for All Seasons Novel"
+  },
+  {
+    "item_name": "Perfectly Mismatched"
+  },
+  {
+    "item_name": "Crossing Promises (Cross Creek)"
+  },
+  {
+    "item_name": "Marrying the Wedding Crasher (A Harmony Valley Novel)"
+  },
+  {
+    "item_name": "Because of You"
+  },
+  {
+    "item_name": "Dangerous in a Kilt (Hot Scots) (Volume 1)"
+  },
+  {
+    "item_name": "Roaming Wild (Steele Ridge) (Volume 6)"
+  },
+  {
+    "item_name": "Mail Order Bride"
+  },
+  {
+    "item_name": "Uniquely Mine: A Fitz Series"
+  },
+  {
+    "item_name": "Dangerous Embrace"
+  },
+  {
+    "item_name": "HIS Choice (Hamilton Investigation &amp; Security: HIS Series) (Volume 2)"
+  },
+  {
+    "item_name": "Broken Embrace: (Embrace Series, 3) (Volume 3)"
+  },
+  {
+    "item_name": "His Chance"
+  },
+  {
+    "item_name": "Deadly Lies"
+  },
+  {
+    "item_name": "True Crime 2017: Homicide &amp; True Crime Stories of 2017 (Annual True Crime Anthology) (Volume 2)"
+  },
+  {
+    "item_name": "True Crime Stories Volume 9: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "item_name": "Shopping for a Billionaire's Baby (Volume 13)"
+  },
+  {
+    "item_name": "My Own Nightmare (Shattered Lives) (Volume 1)"
+  },
+  {
+    "item_name": "Willow's Discovery (The Winters Sisters Series) (Volume 3)"
+  },
+  {
+    "item_name": "Chance Collision (Crossing Forces) (Volume 2)"
+  },
+  {
+    "item_name": "Blood Reaction: A Vampire Novel"
+  },
+  {
+    "item_name": "Superior Collision (Crossing Forces) (Volume 5)"
+  },
+  {
+    "item_name": "Love's Always Paws-able (Sheltered Love) (Volume 2)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Fire Away (Somewhere, TX) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Love in a Snow Storm (Pine Harbour) (Volume 2)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Light My Fire (Rock Royalty) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Cowgirl Ropes a Billionaire (Cowboys of Chance Creek) (Volume 4)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Resurrection River: Men of Mercy"
+  },
+  {
+    "rank": 6,
+    "item_name": "Taken by Love (The Bradens at Trusty, Book 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "SEAL's Promise"
+  },
+  {
+    "rank": 8,
+    "item_name": "Meant for Her: The Love and Danger Series, Book One"
+  },
+  {
+    "rank": 9,
+    "item_name": "Dare to Love"
+  },
+  {
+    "rank": 10,
+    "item_name": "Mystic Montana Sky"
+  },
+  {
+    "rank": 11,
+    "item_name": "Montana Dog Soldier (Brotherhood Protectors Series) (Volume 6)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Teasing Destiny (Wishing Well, Texas) (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Sinful: A Bitter Creek Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "SEALed Bride: A Bad Boy Romance"
+  },
+  {
+    "rank": 15,
+    "item_name": "Hanover House"
+  },
+  {
+    "rank": 16,
+    "item_name": "It Must Be Your Love (Seattle Sullivans)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Branded for You: Riding Tall"
+  },
+  {
+    "rank": 18,
+    "item_name": "Love in a Small Town (Pine Harbour) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Rugged Texas Cowboy: Two Stories in One: Cowboy and the Captive, Cowboy and the Thief"
+  },
+  {
+    "rank": 20,
+    "item_name": "Griff Montgomery (First &amp; Ten) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Adam (Farraday Country) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "A SEAL's Oath (SEALs of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Cowboy's Rebellious Bride"
+  },
+  {
+    "rank": 24,
+    "item_name": "Hardheaded (Deep in the Heart)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Justice for Corrie (Badge of Honor: Texas Heroes) (Volume 3)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Come Away With Me (The Andrades) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "SEAL's Desire (Take No Prisoners) (Volume 2)"
+  },
+  {
+    "rank": 28,
+    "item_name": "King of Clubs (Aces &amp; Eights)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The First Kiss of Spring: An Eternity Springs Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Billionaire Takes All (The Sinclairs)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Last One (The One Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Rescuing Emily: Delta Force Heroes, Book 2"
+  },
+  {
+    "rank": 33,
+    "item_name": "Chasing I Do: The Eastons (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Tycoon's Proposal: Baby for the Billionaire (Volume 3)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Her Billionaire Rancher Boss (A Cowboy of Her Own) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Shunned No More: A Lady Forsaken, Book One (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Come Home To Me: A Homefront Novella (Homefront .5)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Montana Cherries (The Wildes of Birch Bay)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Treasured by Thursday (Weekday Brides)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Tycoon Takedown (Lone Star Burn)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Stone's Surrender: (A SEALs of Honor World Novel) (Heroes for Hire) (Volume 2)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Saltwater Kisses: A Billionaire Love Story"
+  },
+  {
+    "rank": 43,
+    "item_name": "Falling For Her (A K2 Team Novel)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Protecting Caroline (SEAL of Protection) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Eden's Deliverance"
+  },
+  {
+    "rank": 46,
+    "item_name": "Cowboys Don't Cry (Desire Large Print)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Sweet Girl (Titan)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Against the Tide (The Brodies Of Alaska)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Montana Ranger (Brotherhood Protectors) (Volume 5)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Promise Cove: A Pelican Pointe Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

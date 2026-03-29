@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Emerald Lily (Vampire Blood) (Volume 4)"
+  },
+  {
+    "item_name": "Baby, I'm Howling For You (Alphaville)"
+  },
+  {
+    "item_name": "Thanks Fur Last Night"
+  },
+  {
+    "item_name": "Born to Be Bound (Alphas Claim) (Volume 1)"
+  },
+  {
+    "item_name": "Viking Thunder"
+  },
+  {
+    "item_name": "Nothing Special V"
+  },
+  {
+    "item_name": "Blackmailed by the beast"
+  },
+  {
+    "item_name": "Cocksure"
+  },
+  {
+    "item_name": "Mean Machine (The Untouchables MC)"
+  },
+  {
+    "item_name": "Cuffed: A Forbidden Romance"
+  },
+  {
+    "item_name": "All Kinds of Tied Down"
+  },
+  {
+    "item_name": "Fit to Be Tied"
+  },
+  {
+    "item_name": "Tied Up in Knots (Marshals)"
+  },
+  {
+    "item_name": "Taking Avery: (A Lilith's Army Mc Novel)"
+  },
+  {
+    "item_name": "Sire (Beautiful Monsters Vol. 2)"
+  },
+  {
+    "item_name": "Captive: Beautiful Monsters Vol. 1"
+  },
+  {
+    "item_name": "Broken (Beautiful Monsters Vol. 3)"
+  },
+  {
+    "item_name": "Bad Bachelor (Bad Bachelors)"
+  },
+  {
+    "item_name": "Twisted and Tied (Marshals)"
+  },
+  {
+    "item_name": "PowerHouse (Power Chain) (Volume 1)"
+  },
+  {
+    "item_name": "A Matter of Time: Vol. 1"
+  },
+  {
+    "item_name": "Bulletproof"
+  },
+  {
+    "item_name": "But for You"
+  },
+  {
+    "item_name": "The Undercover Billionaire: A Billionaire SEAL Romance (The Tate Brothers)"
+  },
+  {
+    "item_name": "Risen (Blood Eternal)"
+  },
+  {
+    "item_name": "Pestilence (The Four Horsemen) (Volume 1)"
+  },
+  {
+    "item_name": "Blood Will Tell (Blood Series) (Volume 1)"
+  },
+  {
+    "item_name": "Burned (Viking Bastards MC) (Volume 3)"
+  },
+  {
+    "item_name": "The Crown of Embers: Fire and Thorns, Book 2"
+  },
+  {
+    "item_name": "Tethered Souls: A Nine Minutes Spin-Off Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Deviant (Blood &amp; Roses) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Raw"
+  },
+  {
+    "rank": 3,
+    "item_name": "Pulse: Book Two in the Collide Series"
+  },
+  {
+    "rank": 4,
+    "item_name": "Rock the Heart (Black Falcon)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Into the Darkness (Darkness, 1) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Axel (Corps Security) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Throttle Me (Men of Inked) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "King's: Book 1, The KING Trilogy (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Angel's Halo (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Pact"
+  },
+  {
+    "rank": 11,
+    "item_name": "NIKOLAI (Her Russian Protector 4): Her Russian Protector 4"
+  },
+  {
+    "rank": 12,
+    "item_name": "Undeniable"
+  },
+  {
+    "rank": 13,
+    "item_name": "Prick: A Stepbrother Romance"
+  },
+  {
+    "rank": 14,
+    "item_name": "After We Fall"
+  },
+  {
+    "rank": 15,
+    "item_name": "Wild Man (Dream Man)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Driven ((The Driven Trilogy))"
+  },
+  {
+    "rank": 17,
+    "item_name": "Painted Faces"
+  },
+  {
+    "rank": 18,
+    "item_name": "Samson's Lovely Mortal: Scanguards Vampires"
+  },
+  {
+    "rank": 19,
+    "item_name": "Stepbrother Dearest"
+  },
+  {
+    "rank": 20,
+    "item_name": "My Protector (Bewitched and Bewildered) (Volume 2)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Lukas (Ashes &amp; Embers) (Volume 3)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Rock Chick Rescue (Volume 2)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Crash: An Evil Dead MC Story (The Evil Dead MC Series) (Volume 2)"
+  },
+  {
+    "rank": 24,
+    "item_name": "It Ain't Me, Babe"
+  },
+  {
+    "rank": 25,
+    "item_name": "Feral Sins (The Phoenix Pack Series)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Real Ugly (Hard Rock Roots) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Fighting Destiny (The Fae Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Seeking Vengeance: Callaghan Brothers, Book 4"
+  },
+  {
+    "rank": 29,
+    "item_name": "Neanderthal Seeks Human: A Smart Romance (Knitting in the City) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Make It A Double (The Last Call Series) (Volume 2)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Perfection: A Neighbor From Hell Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Withstanding Me (Breakneck Series) (Volume 2)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Making Faces"
+  },
+  {
+    "rank": 34,
+    "item_name": "Back-up"
+  },
+  {
+    "rank": 35,
+    "item_name": "Random Acts of Crazy"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Mating: The Original Law of the Lycans story"
+  },
+  {
+    "rank": 37,
+    "item_name": "Shooter (Burnout) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Pucked"
+  },
+  {
+    "rank": 39,
+    "item_name": "Collide: Book One in the Collide Series"
+  },
+  {
+    "rank": 40,
+    "item_name": "Freefall"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Vampire's Mail Order Bride (Nocturne Falls) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Raising Ryann (Bad Boy Reformed)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "rank": 44,
+    "item_name": "Arouse: A Spiral of Bliss Novel (Book One) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Masters at Arms &amp; Nobody's Angel (Rescue Me Saga)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Crashed (The Driven Trilogy)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Damaged (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Double Full (A Nice Guys Novel) (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Reaper's Fire (Reapers Motorcycle Club)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Betrayed: Days of the Rogue (Law of the Lycans)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

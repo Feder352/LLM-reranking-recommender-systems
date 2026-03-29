@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Prince's Virgin Wife"
+  },
+  {
+    "item_name": "His Royal Love-Child"
+  },
+  {
+    "item_name": "In The Groove (Hqn Romance)"
+  },
+  {
+    "item_name": "On The Edge (Hqn Romance)"
+  },
+  {
+    "item_name": "The Sheikh's Bartered Bride"
+  },
+  {
+    "item_name": "The Greek's Innocent Virgin (Harlequin Presents No. 2464)"
+  },
+  {
+    "item_name": "The Italian's Suitable Wife"
+  },
+  {
+    "item_name": "The Greek Tycoon's Ultimatum"
+  },
+  {
+    "item_name": "A Deeper Dimension"
+  },
+  {
+    "item_name": "The Unlikely Wife (Love Inspired Historical)"
+  },
+  {
+    "item_name": "Dirty"
+  },
+  {
+    "item_name": "Enchanted: Erotic Bedtime Stories For Women (Erotic Fiction)"
+  },
+  {
+    "item_name": "The Twelve Dancing Princesses"
+  },
+  {
+    "item_name": "The Blind Date Proposal"
+  },
+  {
+    "item_name": "Modern Classics Outsider (Penguin Modern Classics)"
+  },
+  {
+    "item_name": "The Greek's Christmas Baby"
+  },
+  {
+    "item_name": "Pregnancy Of Passion"
+  },
+  {
+    "item_name": "The Sicilian's Marriage Arrangement"
+  },
+  {
+    "item_name": "Blame It On The Blackout (Harlequin Desire)"
+  },
+  {
+    "item_name": "Maggie's Dad (Silhouette Special Edition, #991)"
+  },
+  {
+    "item_name": "Lost Love"
+  },
+  {
+    "item_name": "Ladies' Man"
+  },
+  {
+    "item_name": "Naked in Death"
+  },
+  {
+    "item_name": "Menagerie"
+  },
+  {
+    "item_name": "The Kouvaris Marriage"
+  },
+  {
+    "item_name": "Voyeur"
+  },
+  {
+    "item_name": "Baby Bonanza (Billionaires and Babies)"
+  },
+  {
+    "item_name": "The Warrior's Touch"
+  },
+  {
+    "item_name": "Rules of Prey"
+  },
+  {
+    "item_name": "Kiss Of The Beast (Secret Fantasies)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Suddenly Sexy"
+  },
+  {
+    "rank": 2,
+    "item_name": "A Cure for Love (Mills &amp; Boon Largeprint Penny Jordan)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Arabian Love-Child (Hot-Blooded Husbands)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Daisy's Back in Town"
+  },
+  {
+    "rank": 5,
+    "item_name": "Powerful Greek, Unworldly Wife"
+  },
+  {
+    "rank": 6,
+    "item_name": "Return of the Moralis Wife"
+  },
+  {
+    "rank": 7,
+    "item_name": "Surrender My Love (Haardrad Family)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Blame It On The Blackout (Harlequin Desire)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Sold for the Greek's Heir: A sensual story of passion and romance (Brides for the Taking)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Every Waking Moment"
+  },
+  {
+    "rank": 11,
+    "item_name": "Valentino's Love-Child"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Kingdom of Dreams"
+  },
+  {
+    "rank": 13,
+    "item_name": "Seduced By His Touch (Byrons of Braebourne)"
+  },
+  {
+    "rank": 14,
+    "item_name": "I'm In No Mood For Love (Writer Friends)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Hard to Hold: (Hard to Hold Trilogy Book 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "After the Night"
+  },
+  {
+    "rank": 17,
+    "item_name": "Lord of Fire: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "Love Only Once: A Malory Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Untamed Italian, Blackmailed Innocent"
+  },
+  {
+    "rank": 20,
+    "item_name": "Wilde Thing"
+  },
+  {
+    "rank": 21,
+    "item_name": "Viking"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Greek Tycoon's Convenient Mistress"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Seduction of His Wife"
+  },
+  {
+    "rank": 24,
+    "item_name": "Slow Burn: A Novel (Buchanan-Renard)"
+  },
+  {
+    "rank": 25,
+    "item_name": "His Wicked Kiss: A Novel (Knight Miscellany)"
+  },
+  {
+    "rank": 26,
+    "item_name": "A Knight in Shining Armor"
+  },
+  {
+    "rank": 27,
+    "item_name": "Up Close and Dangerous: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Sicilian's Marriage Arrangement"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Devil's Web (The Web Trilogy)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Bad Boys Online"
+  },
+  {
+    "rank": 31,
+    "item_name": "Really Something (Zebra Contemporary Romance)"
+  },
+  {
+    "rank": 32,
+    "item_name": "An Unwilling Bride"
+  },
+  {
+    "rank": 33,
+    "item_name": "Love Is Blind (Leisure Historical Romance)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Man of My Dreams"
+  },
+  {
+    "rank": 35,
+    "item_name": "Dream Man"
+  },
+  {
+    "rank": 36,
+    "item_name": "Dark Stranger"
+  },
+  {
+    "rank": 37,
+    "item_name": "Wedding Survivor (Thrillseekers Anonymous, Book 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Sizzling (The Buchanans, Book 3)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Cordina's Royal Family: Bennett &amp; Camilla"
+  },
+  {
+    "rank": 40,
+    "item_name": "Shadow Dance: A Novel (Buchanan-Renard)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Silent Melody"
+  },
+  {
+    "rank": 42,
+    "item_name": "First Comes Marriage"
+  },
+  {
+    "rank": 43,
+    "item_name": "Behind Closed Doors (The McCloud Brothers, Book 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Almost Perfect (Fool's Gold, Book 2)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Dark Symphony (The Carpathians (Dark) Series, Book 9)"
+  },
+  {
+    "rank": 46,
+    "item_name": "White Hot"
+  },
+  {
+    "rank": 47,
+    "item_name": "Love Overboard"
+  },
+  {
+    "rank": 48,
+    "item_name": "To Die For (Blair Mallory)"
+  },
+  {
+    "rank": 49,
+    "item_name": "To Trust a Stranger"
+  },
+  {
+    "rank": 50,
+    "item_name": "Devil's Bride (Cynster Novels)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

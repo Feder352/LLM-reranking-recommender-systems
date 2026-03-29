@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Looking for Alaska"
+  },
+  {
+    "item_name": "Theft by Finding: Diaries (1977-2002)"
+  },
+  {
+    "item_name": "The Windfall: A Novel"
+  },
+  {
+    "item_name": "Eat Slay Love (Living with the Dead, Book 3)"
+  },
+  {
+    "item_name": "Married with Zombies (Living with the Dead, Book 1)"
+  },
+  {
+    "item_name": "Flip this Zombie (Living with the Dead, Book 2)"
+  },
+  {
+    "item_name": "The Zombie Survival Guide: Complete Protection from the Living Dead"
+  },
+  {
+    "item_name": "A gentleman in Moscow"
+  },
+  {
+    "item_name": "Most Talkative: Stories from the Front Lines of Pop Culture"
+  },
+  {
+    "item_name": "Lilac Girls"
+  },
+  {
+    "item_name": "This Time Together: Laughter and Reflection"
+  },
+  {
+    "item_name": "The Handmaid's Tale (Contemporary Classics)"
+  },
+  {
+    "item_name": "Turtles All the Way Down"
+  },
+  {
+    "item_name": "Little Fires Everywhere"
+  },
+  {
+    "item_name": "White Trash Zombie Unchained"
+  },
+  {
+    "item_name": "The Underground Railroad"
+  },
+  {
+    "item_name": "The Magic Misfits"
+  },
+  {
+    "item_name": "Hail to the Chin: Further Confessions of a B Movie Actor"
+  },
+  {
+    "item_name": "Alias Grace"
+  },
+  {
+    "item_name": "Lights, Camera, Middle School! (Babymouse Tales from the Locker)"
+  },
+  {
+    "item_name": "Promise Me, Dad: A Year of Hope, Hardship, and Purpose"
+  },
+  {
+    "item_name": "The Vegetarian: A Novel"
+  },
+  {
+    "item_name": "An American Marriage: A Novel"
+  },
+  {
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "item_name": "Everything Here Is Beautiful"
+  },
+  {
+    "item_name": "An Abundance Of Katherines"
+  },
+  {
+    "item_name": "The Flight Attendant: A Novel"
+  },
+  {
+    "item_name": "Every Note Played"
+  },
+  {
+    "item_name": "Surprise Me: A Novel"
+  },
+  {
+    "item_name": "Surprise Me"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 27175,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 2,
+    "item_id": 75903,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 3,
+    "item_id": 7044,
+    "item_name": "The Help"
+  },
+  {
+    "rank": 4,
+    "item_id": 9629,
+    "item_name": "Gone Girl"
+  },
+  {
+    "rank": 5,
+    "item_id": 6177,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 6,
+    "item_id": 74778,
+    "item_name": "City of Ashes: The Mortal Instruments, Book Two"
+  },
+  {
+    "rank": 7,
+    "item_id": 74741,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 8,
+    "item_id": 16239,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 9,
+    "item_id": 7571,
+    "item_name": "Nightshade"
+  },
+  {
+    "rank": 10,
+    "item_id": 3628,
+    "item_name": "Eve"
+  },
+  {
+    "rank": 11,
+    "item_id": 36254,
+    "item_name": "These Broken Stars"
+  },
+  {
+    "rank": 12,
+    "item_id": 3795,
+    "item_name": "Shatter Me"
+  },
+  {
+    "rank": 13,
+    "item_id": 28156,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 14,
+    "item_id": 7473,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 15,
+    "item_id": 8451,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 16,
+    "item_id": 15005,
+    "item_name": "The Case of the Long-Legged Models"
+  },
+  {
+    "rank": 17,
+    "item_id": 32019,
+    "item_name": "Hush, Hush"
+  },
+  {
+    "rank": 18,
+    "item_id": 583,
+    "item_name": "Wither (Chemical Garden)"
+  },
+  {
+    "rank": 19,
+    "item_id": 19121,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 20,
+    "item_id": 699,
+    "item_name": "The Madman's Daughter"
+  },
+  {
+    "rank": 21,
+    "item_id": 13004,
+    "item_name": "Cinder"
+  },
+  {
+    "rank": 22,
+    "item_id": 7180,
+    "item_name": "All The Bright Places"
+  },
+  {
+    "rank": 23,
+    "item_id": 19202,
+    "item_name": "We Were Liars"
+  },
+  {
+    "rank": 24,
+    "item_id": 3373,
+    "item_name": "Orphan Train: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_id": 2777,
+    "item_name": "Lies (Gone)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

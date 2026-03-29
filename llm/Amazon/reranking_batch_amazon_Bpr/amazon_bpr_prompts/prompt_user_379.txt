@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Flamethrowers: A Novel"
+  },
+  {
+    "item_name": "Libra"
+  },
+  {
+    "item_name": "Invisible Man"
+  },
+  {
+    "item_name": "The Book of Disquiet (Penguin Classics)"
+  },
+  {
+    "item_name": "Native Son (Abridged)"
+  },
+  {
+    "item_name": "The Clown (Classic, 20th-Century, Penguin)"
+  },
+  {
+    "item_name": "The Road to Serfdom: Fiftieth Anniversary Edition"
+  },
+  {
+    "item_name": "The Great Transformation: The Political and Economic Origins of Our Time"
+  },
+  {
+    "item_name": "Death in Venice"
+  },
+  {
+    "item_name": "A High Wind in Jamaica"
+  },
+  {
+    "item_name": "War and Turpentine: A Novel"
+  },
+  {
+    "item_name": "War and Turpentine: A novel - Kindle edition"
+  },
+  {
+    "item_name": "Zero K: A Novel"
+  },
+  {
+    "item_name": "Independence Day"
+  },
+  {
+    "item_name": "Sportswriter"
+  },
+  {
+    "item_name": "10:04: A Novel"
+  },
+  {
+    "item_name": "Beware of Pity"
+  },
+  {
+    "item_name": "Infinite Jest"
+  },
+  {
+    "item_name": "The Age of Revolution: Europe, 1789-1848"
+  },
+  {
+    "item_name": "Although Of Course You End Up Becoming Yourself: A Road Trip with David Foster Wallace"
+  },
+  {
+    "item_name": "The Executioner's Song"
+  },
+  {
+    "item_name": "Last Evenings on Earth"
+  },
+  {
+    "item_name": "By Night in Chile"
+  },
+  {
+    "item_name": "Distant Star"
+  },
+  {
+    "item_name": "Naked Lunch : The Restored Text (Harper Perennial Modern Classics)"
+  },
+  {
+    "item_name": "The Remains of the Day"
+  },
+  {
+    "item_name": "Submission: A Novel"
+  },
+  {
+    "item_name": "Lost Memory of Skin: A Novel"
+  },
+  {
+    "item_name": "The Sweet Hereafter"
+  },
+  {
+    "item_name": "Cloudsplitter: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 3,
+    "item_name": "Power and the Glory"
+  },
+  {
+    "rank": 4,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 5,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 6,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Dharma Bums"
+  },
+  {
+    "rank": 10,
+    "item_name": "Appointment in Samarra (Vintage Classics)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Bluest Eye (Vintage International)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Embers"
+  },
+  {
+    "rank": 13,
+    "item_name": "King Leopold's Ghost: A Story of Greed, Terror, and Heroism in Colonial Africa"
+  },
+  {
+    "rank": 14,
+    "item_name": "Fabric Of Reality (Penguin Science)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 16,
+    "item_name": "Disgrace: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Glass Menagerie (Modern Classics (Penguin))"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Price of Glory: Verdun 1916"
+  },
+  {
+    "rank": 19,
+    "item_name": "Brighton Rock"
+  },
+  {
+    "rank": 20,
+    "item_name": "Double Indemnity CD"
+  },
+  {
+    "rank": 21,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 23,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Tender Is the Night"
+  },
+  {
+    "rank": 25,
+    "item_name": "True History of the Kelly Gang"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Corrections"
+  },
+  {
+    "rank": 27,
+    "item_name": "Bobos in Paradise: The New Upper Class and How They Got There"
+  },
+  {
+    "rank": 28,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 30,
+    "item_name": "Eichmann in Jerusalem, A Report on the Banality of Evil"
+  },
+  {
+    "rank": 31,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 32,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 33,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 34,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 35,
+    "item_name": "Flaubert's Parrot, A History of the World in 10 1/2 Chapters (Everyman's Library Contemporary Classics Series)"
+  },
+  {
+    "rank": 36,
+    "item_name": "White Teeth"
+  },
+  {
+    "rank": 37,
+    "item_name": "Wonder Boys: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Autobiography of Benjamin Franklin with Related Readings (Glencoe Literature Library)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 40,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 41,
+    "item_name": "Burr"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Meaning of the Holy Qur'an"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Grass Is Singing"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Closing of the Western Mind: The Rise of Faith and the Fall of Reason"
+  },
+  {
+    "rank": 45,
+    "item_name": "Darkness Visible"
+  },
+  {
+    "rank": 46,
+    "item_name": "Lord Jim (New School Classics)"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Streetcar Named Desire CD"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Quiet American"
+  },
+  {
+    "rank": 49,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 50,
+    "item_name": "Other Voices, Other Rooms (Penguin Modern Classics)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

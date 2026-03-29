@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Rise of a Phoenix (The Nix Series) (Volume 3)"
+  },
+  {
+    "item_name": "Shadow Hunt (Disrupted Magic)"
+  },
+  {
+    "item_name": "Hotbloods (Volume 1)"
+  },
+  {
+    "item_name": "Secondborn"
+  },
+  {
+    "item_name": "The Unlikeable Demon Hunter: Crave (Nava Katz Book 4)"
+  },
+  {
+    "item_name": "Deathtrap (Crossbreed)"
+  },
+  {
+    "item_name": "Dead Eye (A Tiger's Eye Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Gaslight (Crossbreed Series Book 4)"
+  },
+  {
+    "item_name": "Perilous Waif (Alice Long)"
+  },
+  {
+    "item_name": "Burn Bright"
+  },
+  {
+    "item_name": "High Voltage (Fever)"
+  },
+  {
+    "item_name": "Marked In Flesh (A Novel of the Others)"
+  },
+  {
+    "item_name": "The Soul Summoner (Volume 1)"
+  },
+  {
+    "item_name": "Hot and Badgered (The Honey Badger Chronicles)"
+  },
+  {
+    "item_name": "Forbidden Forest (Volume 1)"
+  },
+  {
+    "item_name": "Shoot the Messenger (Messenger Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "Revenge Is Sweet: A Kali Sweet Urban Fantasy Story (Volume 1)"
+  },
+  {
+    "item_name": "Traitor Born (Secondborn)"
+  },
+  {
+    "item_name": "How to Save an Undead Life (The Beginner's Guide to Necromancy) (Volume 1)"
+  },
+  {
+    "item_name": "How to Break an Undead Heart (The Beginner's Guide to Necromancy) (Volume 3)"
+  },
+  {
+    "item_name": "The Thief: A Novel of the Black Dagger Brotherhood"
+  },
+  {
+    "item_name": "Dark Queen (Jane Yellowrock)"
+  },
+  {
+    "item_name": "Recombinant (The Blood Borne Series) (Volume 1)"
+  },
+  {
+    "item_name": "Shadow Wings (The Darkest Drae) (Volume 2)"
+  },
+  {
+    "item_name": "Bone Driven (The Foundling Series)"
+  },
+  {
+    "item_name": "Wolf Bite (The Blood Borne Series) (Volume 2)"
+  },
+  {
+    "item_name": "Natural Dual-Mage (Magical Mayhem) (Volume 3)"
+  },
+  {
+    "item_name": "Iron and Magic: (The Iron Covenant Book 1) (Volume 1)"
+  },
+  {
+    "item_name": "Venom in the Veins: An Elemental Assassin Book (Volume 17)"
+  },
+  {
+    "item_name": "Shadow's Bane (Dorina Basarab)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 21980,
+    "item_name": "Kiss the Dead (Anita Blake, Vampire Hunter)"
+  },
+  {
+    "rank": 2,
+    "item_id": 22175,
+    "item_name": "Gunmetal Magic"
+  },
+  {
+    "rank": 3,
+    "item_id": 16202,
+    "item_name": "Eighth Grave After Dark"
+  },
+  {
+    "rank": 4,
+    "item_id": 70819,
+    "item_name": "Undercover Magic (Dragon's Gift: The Valkyrie) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_id": 24990,
+    "item_name": "Blood Games (Chicagoland Vampires)"
+  },
+  {
+    "rank": 6,
+    "item_id": 54596,
+    "item_name": "Tracker (A Rylee Adamson Novel) (Volume 6)"
+  },
+  {
+    "rank": 7,
+    "item_id": 3819,
+    "item_name": "Up from the Grave (Night Huntress)"
+  },
+  {
+    "rank": 8,
+    "item_id": 32136,
+    "item_name": "Fourth Grave Beneath My Feet"
+  },
+  {
+    "rank": 9,
+    "item_id": 65709,
+    "item_name": "The Unleashing (Call Of Crows)"
+  },
+  {
+    "rank": 10,
+    "item_id": 22029,
+    "item_name": "Archangel's Legion (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 11,
+    "item_id": 22056,
+    "item_name": "Archangel's Shadows (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 12,
+    "item_id": 40626,
+    "item_name": "The Unlikeable Demon Hunter (Nava Katz) (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_id": 39882,
+    "item_name": "Hell on Heels: Book Three The Hot Damned Series (Volume 3)"
+  },
+  {
+    "rank": 14,
+    "item_id": 50420,
+    "item_name": "Black Widow (Elemental Assassin)"
+  },
+  {
+    "rank": 15,
+    "item_id": 54767,
+    "item_name": "Veiled Threat (A Rylee Adamson Novel) (Volume 7)"
+  },
+  {
+    "rank": 16,
+    "item_id": 41935,
+    "item_name": "Allegiance of Honor (Psy-Changeling Novel, A)"
+  },
+  {
+    "rank": 17,
+    "item_id": 73735,
+    "item_name": "Magic Undying (Dragon's Gift: The Seeker) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_id": 32546,
+    "item_name": "Wolf with Benefits (Brava Paranormal Romance)"
+  },
+  {
+    "rank": 19,
+    "item_id": 52586,
+    "item_name": "Shifty Magic (Shifty Magic Series)"
+  },
+  {
+    "rank": 20,
+    "item_id": 70627,
+    "item_name": "Some Were in Time: Shift Happens Book 2 (Volume 2)"
+  },
+  {
+    "rank": 21,
+    "item_id": 65763,
+    "item_name": "Cold Burn of Magic (Black Blade)"
+  },
+  {
+    "rank": 22,
+    "item_id": 12271,
+    "item_name": "First Grave on the Right (Charley Davidson Series)"
+  },
+  {
+    "rank": 23,
+    "item_id": 70817,
+    "item_name": "Mirror Mage (Dragon's Gift: The Huntress) (Volume 2)"
+  },
+  {
+    "rank": 24,
+    "item_id": 53922,
+    "item_name": "Witch Hunt: An Urban Fantasy Mystery (Preternatural Affairs) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_id": 70809,
+    "item_name": "Trial by Magic (Dragon's Gift: The Protector) (Volume 2)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

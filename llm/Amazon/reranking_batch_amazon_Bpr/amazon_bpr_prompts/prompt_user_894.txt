@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Everywhere You Go Theres a Zacchaeus Up a Tree: Small-Town Faith and Words of Wisdom from Roger Campbells Newspaper Columns"
+  },
+  {
+    "item_name": "Risking It All: A Novel"
+  },
+  {
+    "item_name": "Beastly Lights"
+  },
+  {
+    "item_name": "Mind Game: A Novel (Eve Duncan)"
+  },
+  {
+    "item_name": "The Last Ballad: A Novel"
+  },
+  {
+    "item_name": "The Unwomanly Face of War [Jul 25, 2017] Alexievich, Svetlana; Pevear, Richard and Volokhonsky, Larissa"
+  },
+  {
+    "item_name": "The Golden House: A Novel"
+  },
+  {
+    "item_name": "All-Butter ShortDead (Prequel: Oxford Tearoom Mysteries ~ Book 0)"
+  },
+  {
+    "item_name": "Resurrection America"
+  },
+  {
+    "item_name": "Future Home of the Living God: A Novel"
+  },
+  {
+    "item_name": "The Secret, Book &amp; Scone Society"
+  },
+  {
+    "item_name": "A Hundred Small Lessons: A Novel"
+  },
+  {
+    "item_name": "Deep Black: A Tom Locke Novel"
+  },
+  {
+    "item_name": "The Persian Always Meows Twice (A Cat Groomer Mystery)"
+  },
+  {
+    "item_name": "Year One (Chronicles of The One)"
+  },
+  {
+    "item_name": "City of Lies (A Counterfeit Lady Novel)"
+  },
+  {
+    "item_name": "Forever Charmed: The Halloween LaVeau Series, Book 1"
+  },
+  {
+    "item_name": "The Trailer Park Princess and the Middle Finger of Fate (Volume 1)"
+  },
+  {
+    "item_name": "The Sky Below: A True Story of Summits, Space, and Speed"
+  },
+  {
+    "item_name": "Holidays Can Be Murder: A Charlie Parker Christmas Mystery"
+  },
+  {
+    "item_name": "Big Bunny Bump Off (Zoe Donovan Mystery)"
+  },
+  {
+    "item_name": "The Sweet Smell of Murder (A Chocolate Centered Cozy Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Reconstructing Amelia: A Novel"
+  },
+  {
+    "item_name": "The Forbidden"
+  },
+  {
+    "item_name": "Hotel Scarface: Where Cocaine Cowboys Partied and Plotted to Control Miami"
+  },
+  {
+    "item_name": "Curse Breaker: A New Red-Line Saga Begins (Volume 4)"
+  },
+  {
+    "item_name": "Green: A Novel"
+  },
+  {
+    "item_name": "Playing with Fire: The 1968 Election and the Transformation of American Politics"
+  },
+  {
+    "item_name": "Colors of Christmas: Two Contemporary Stories Celebrate the Hope of Christmas"
+  },
+  {
+    "item_name": "Anatomy of a Scandal: The brilliant, must-read novel of 2018"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 4,
+    "item_name": "Witches Protection Program"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Other Widow: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "From Bruges with Love (The Pieter Van In Mysteries)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Candy Corn Murder (A Lucy Stone Mystery)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Three Sisters (Emily Castles Mysteries)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Monsterland"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Farm"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Bird Sisters: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "Rockin' Chair"
+  },
+  {
+    "rank": 13,
+    "item_name": "Perfection Unleashed: A Double Helix Novel (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Fixin' To Die (A Kenni Lowry Mystery) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Beyond a Doubt (A Carol Childs Mystery) (Volume 2)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Killer Jam (Dewberry Farm Mysteries)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "Double Knot (A Davis Way Crime Caper) (Volume 5)"
+  },
+  {
+    "rank": 19,
+    "item_name": "MURDER, MADNESS &amp; LOVE: a mystery"
+  },
+  {
+    "rank": 20,
+    "item_name": "Thread and Gone (A Mainely Needlepoint Mystery)"
+  },
+  {
+    "rank": 21,
+    "item_name": "White Houses: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 23,
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Rejected Writers Book Club (Southlea Bay Series) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Limoncello Yellow (Franki Amato Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Plantation Shudders: A Cajun Country Mystery"
+  },
+  {
+    "rank": 27,
+    "item_name": "The After House (A Haunting on Long Island Series)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Stillwell: A Haunting on Long Island (A Haunting on Long Island Series)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Santa Klaus Murder (British Library - British Library Crime Classics)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Clouds in My Coffee (The Country Club Murders) (Volume 3)"
+  },
+  {
+    "rank": 31,
+    "item_name": "That Darkness (A Gardiner and Renner Novel)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Forgotten Girls (Louise Rick series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Play Dead: A gripping serial killer thriller"
+  },
+  {
+    "rank": 34,
+    "item_name": "Earthly Remains: A Commissario Guido Brunetti Mystery"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Muddied Murder (A Greenhouse Mystery) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Bengal Identity (A Cat Groomer Mystery)"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Banquet of Consequences: A Lynley Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Bones of You"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Book of Beloved (Pluto's Snitch)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Once Upon a Grind (A Coffeehouse Mystery)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Summer House with Swimming Pool: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Cat Got Your Diamonds: A Kitty Couture Mystery"
+  },
+  {
+    "rank": 44,
+    "item_name": "Blue Monday: A Frieda Klein Novel (1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Old Rectory: Escape To A Country Kitchen"
+  },
+  {
+    "rank": 46,
+    "item_name": "Only the Brave (The DS Allie Shenton Trilogy)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 48,
+    "item_name": "Rules of Magic"
+  },
+  {
+    "rank": 49,
+    "item_name": "Pane and Suffering (A Webb's Glass Shop Mystery)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Coincidence Makers: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

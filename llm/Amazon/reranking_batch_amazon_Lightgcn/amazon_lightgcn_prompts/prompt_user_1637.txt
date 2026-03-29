@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Her One True Love"
+  },
+  {
+    "item_name": "Claiming Her Innocence"
+  },
+  {
+    "item_name": "Crossing the Line (Cross Creek)"
+  },
+  {
+    "item_name": "Ethan's Daughter (Templeton Cove Stories)"
+  },
+  {
+    "item_name": "The Deal"
+  },
+  {
+    "item_name": "Give Murder A Hand: Lizzie Book 2 (The Westport Mysteries)"
+  },
+  {
+    "item_name": "His Christmas Miracle"
+  },
+  {
+    "item_name": "Adam (7 Brides for 7 Soldiers)"
+  },
+  {
+    "item_name": "Forgetting the Billionaire: A Clean Billionaire Romance (Volume 1)"
+  },
+  {
+    "item_name": "Forgiving the Billionaire (A Clean Billionaire Romance) (Volume 2)"
+  },
+  {
+    "item_name": "Crash and Burn"
+  },
+  {
+    "item_name": "Married Till Christmas (The Bravos of Justice Creek)"
+  },
+  {
+    "item_name": "Reckless Heat: A Hostile Operations Team Prequel"
+  },
+  {
+    "item_name": "Christmas on Crimson Mountain (Crimson, Colorado)"
+  },
+  {
+    "item_name": "Survival Instinct"
+  },
+  {
+    "item_name": "Witch Is When It All Began (A Witch P.I. Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Snowbound With An Heiress: Snowbound with an Heiress / the Maverick's Snowbound Christmas (Montana Mavericks: the Great Family Roundup, Book 5)"
+  },
+  {
+    "item_name": "Sit...Stay...Beg (The Dogfather) (Volume 1)"
+  },
+  {
+    "item_name": "Christmas Stray"
+  },
+  {
+    "item_name": "The Second Chance Caf&eacute; (A Hope Springs Novel)"
+  },
+  {
+    "item_name": "The Lady The Duke And The Gentleman: A Historical Regency Romance Novel"
+  },
+  {
+    "item_name": "Sweet Girl (Titan)"
+  },
+  {
+    "item_name": "Burned by a Kiss: The Star Canyon Series - Book One"
+  },
+  {
+    "item_name": "Turquoise Mountain (Iron Feather Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "Forever a Father (The Delaneys of Sandpiper Beach)"
+  },
+  {
+    "item_name": "The Man She Knew (By Way of the Lighthouse)"
+  },
+  {
+    "item_name": "It Might Be You (The Harrisons)"
+  },
+  {
+    "item_name": "Dirty Deeds"
+  },
+  {
+    "item_name": "Reunited with the Sheriff (The Delaneys of Sandpiper Beach)"
+  },
+  {
+    "item_name": "Double Dog Dare (The Dogfather) (Volume 7)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 16980,
+    "item_name": "Navy SEAL Surrender (Texas Family Reckoning)"
+  },
+  {
+    "rank": 2,
+    "item_id": 73794,
+    "item_name": "The Chocolate Cure"
+  },
+  {
+    "rank": 3,
+    "item_id": 70880,
+    "item_name": "Taming of the Bachelor"
+  },
+  {
+    "rank": 4,
+    "item_id": 55181,
+    "item_name": "Lucas The Lion &amp; The Pirate Ship (Jungle Juniors Storybook Series) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_id": 4186,
+    "item_name": "Somebody to Love: A Cupid, Texas Novel"
+  },
+  {
+    "rank": 6,
+    "item_id": 32397,
+    "item_name": "He's the One"
+  },
+  {
+    "rank": 7,
+    "item_id": 70681,
+    "item_name": "Surrender my Love (The Bradens at Peaceful Harbor, Book 2) (Love in Bloom: The Bradens)"
+  },
+  {
+    "rank": 8,
+    "item_id": 59091,
+    "item_name": "Being a Captain is Hard Work: A Captain No Beard Story (Volume 10)"
+  },
+  {
+    "rank": 9,
+    "item_id": 54048,
+    "item_name": "If You Were Me and Lived in...Portugal: A Child's Introduction to Cultures Around the World (Volume 10)"
+  },
+  {
+    "rank": 10,
+    "item_id": 69039,
+    "item_name": "The Sheriff Catches a Bride (Cowboys of Chance Creek) (Volume 5)"
+  },
+  {
+    "rank": 11,
+    "item_id": 34239,
+    "item_name": "Better Than Chocolate (Life in Icicle Falls)"
+  },
+  {
+    "rank": 12,
+    "item_id": 52659,
+    "item_name": "The Cowboy Wins a Bride (The Cowboys of Chance Creek)"
+  },
+  {
+    "rank": 13,
+    "item_id": 53469,
+    "item_name": "Terry Treetop Finds New Friends (Bedtime Stories Children's Books for Early &amp; Beginner Readers) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_id": 51766,
+    "item_name": "Deathscape (Broslin Creek) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_id": 77064,
+    "item_name": "What Love Can Do"
+  },
+  {
+    "rank": 16,
+    "item_id": 17413,
+    "item_name": "When We Met (Fool's Gold, Book 15)"
+  },
+  {
+    "rank": 17,
+    "item_id": 54524,
+    "item_name": "The Flip (A Haunting On Long Island Series)"
+  },
+  {
+    "rank": 18,
+    "item_id": 64439,
+    "item_name": "Married to the Military"
+  },
+  {
+    "rank": 19,
+    "item_id": 55844,
+    "item_name": "Yummy Stories: Fruits, Vegetables and Healthy Eating Habits (Read aloud; Volume: 1)"
+  },
+  {
+    "rank": 20,
+    "item_id": 64950,
+    "item_name": "The Changing Season"
+  },
+  {
+    "rank": 21,
+    "item_id": 64986,
+    "item_name": "Gooseberry Island"
+  },
+  {
+    "rank": 22,
+    "item_id": 54624,
+    "item_name": "If You Were Me and Lived in...Greece: A Child's Introduction to Cultures Around the World (Volume 11)"
+  },
+  {
+    "rank": 23,
+    "item_id": 64015,
+    "item_name": "The Tycoon and the Texan"
+  },
+  {
+    "rank": 24,
+    "item_id": 17568,
+    "item_name": "A SEAL's Touch (Uniformly Hot!)"
+  },
+  {
+    "rank": 25,
+    "item_id": 16621,
+    "item_name": "Deadly Obsession (Harlequin Romantic Suspense)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

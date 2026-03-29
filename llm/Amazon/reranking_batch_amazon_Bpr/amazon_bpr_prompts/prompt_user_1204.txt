@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Wrangler's Challenge (Wind River Valley)"
+  },
+  {
+    "item_name": "Reluctant Hero (Harlequin Intrigue)"
+  },
+  {
+    "item_name": "Mr. Taken (Mystery Christmas)"
+  },
+  {
+    "item_name": "Lone Star Christmas Rescue (Lone Star Justice)"
+  },
+  {
+    "item_name": "Cowboy's Legacy: An Anthology (The Montana Cahills)"
+  },
+  {
+    "item_name": "Christmas Double Cross (Texas Ranger Holidays)"
+  },
+  {
+    "item_name": "Killer Colton Christmas: An Anthology (The Coltons of Shadow Creek)"
+  },
+  {
+    "item_name": "Protector's Instinct (Omega Sector: Under Siege)"
+  },
+  {
+    "item_name": "Cowboy Christmas Guardian (Gold Country Cowboys)"
+  },
+  {
+    "item_name": "Always a Lawman (Blue River Ranch)"
+  },
+  {
+    "item_name": "The Bad Boy Cowboy (Morgan Ranch)"
+  },
+  {
+    "item_name": "Ranger Protector (Texas Brothers of Company B)"
+  },
+  {
+    "item_name": "Ms. Demeanor (Mystery Christmas)"
+  },
+  {
+    "item_name": "Christmas Ranch Rescue (Wrangler's Corner)"
+  },
+  {
+    "item_name": "Luckiest Cowboy of All: Two full books for the price of one (Happy, Texas)"
+  },
+  {
+    "item_name": "Missing in Blue Mesa (The Ranger Brigade: Family Secrets)"
+  },
+  {
+    "item_name": "Ranger Defender (Texas Brothers of Company B)"
+  },
+  {
+    "item_name": "Going Cowboy Crazy (Deep in the Heart of Texas)"
+  },
+  {
+    "item_name": "Appalachian Prey"
+  },
+  {
+    "item_name": "The Welcome Home Garden Club: A Twilight, Texas Novel"
+  },
+  {
+    "item_name": "Kansas City Cop (The Precinct)"
+  },
+  {
+    "item_name": "Montana Heat: True to You"
+  },
+  {
+    "item_name": "Renegade Cowboy (Rocky Mountain Riders)"
+  },
+  {
+    "item_name": "Lone Rider (Wind River Valley)"
+  },
+  {
+    "item_name": "Hero's Return (The Montana Cahills)"
+  },
+  {
+    "item_name": "Roughshod Justice (Blue River Ranch)"
+  },
+  {
+    "item_name": "The First Love Cookie Club (Twilight, Texas)"
+  },
+  {
+    "item_name": "Catch Me a Cowboy (Deep in the Heart of Texas)"
+  },
+  {
+    "item_name": "Cowboy's Redemption (The Montana Cahills)"
+  },
+  {
+    "item_name": "Trouble in Texas (Deep in the Heart of Texas)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Take Me Tonight (The Bullet Catchers, Book 3)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Second Chance with the Billionaire (The Kavanaghs of Silver Glen)"
+  },
+  {
+    "rank": 3,
+    "item_name": "High Country Hideout (Covert Cowboys, Inc.)"
+  },
+  {
+    "rank": 4,
+    "item_name": "My Kind of Christmas (A Virgin River Novel)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Alpha One"
+  },
+  {
+    "rank": 6,
+    "item_name": "Bane (The Westmorelands)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Castaway Cove: A Shelter Bay Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Lucky Like Us: Book Two: The Hunted Series"
+  },
+  {
+    "rank": 9,
+    "item_name": "Second Chance Colton (The Coltons of Oklahoma)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Texan's Baby (Texas Rodeo Barons)"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Lawman's Justice (Sweetwater Ranch)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Lock, Stock and McCullen (The Heroes of Horseshoe Creek)"
+  },
+  {
+    "rank": 13,
+    "item_name": "In a Ranger's Arms"
+  },
+  {
+    "rank": 14,
+    "item_name": "Long Tall Texans Ii (By Request)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Hard Rain: A Western Romance (The Montana Hamiltons)"
+  },
+  {
+    "rank": 16,
+    "item_name": "SWAT Secret Admirer (The Lawmen)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Texas Hunt: What Happens on the Ranch bonus story (Mason Ridge)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Deadly Obsession (Harlequin Romantic Suspense)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Snowfall on Haven Point"
+  },
+  {
+    "rank": 20,
+    "item_name": "Expectant Bride (The Greek Tycoons)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Triple the Fun (Billionaires and Babies)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Midnight Thunder (Thunder Mountain Brotherhood)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Colorado Crime Scene (The Men of Search Team Seven)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Once a Rancher (The Carsons of Mustang Creek)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Marshal's Hostage"
+  },
+  {
+    "rank": 26,
+    "item_name": "Risk Taker (Shadow Warriors)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Tristan's Temptation"
+  },
+  {
+    "rank": 28,
+    "item_name": "Lone Rider (The Montana Hamiltons)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Wild Hearts (Secrets and Lies)"
+  },
+  {
+    "rank": 30,
+    "item_name": "All Out of Love: A Cupid, Texas Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "Untamed"
+  },
+  {
+    "rank": 32,
+    "item_name": "Just To Be With You: The Sullivans"
+  },
+  {
+    "rank": 33,
+    "item_name": "All I Want for Christmas is You"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Cowboy SEAL (Operation: Family)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Haunted Destiny (Krewe of Hunters)"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Cold Creek Christmas Surprise (The Cowboys of Cold Creek)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Taken by Love (The Bradens at Trusty, Book 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Brokedown Cowboy (Copper Ridge)"
+  },
+  {
+    "rank": 39,
+    "item_name": "At Wolf Ranch: A Montana Men Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Black Sheep's Secret Child (Billionaires and Babies)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Because of the Baby... (Texas Cattleman's Club: After the Storm)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Barefoot with a Bodyguard (The Barefoot Bay Series)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Sinful: A Bitter Creek Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "Wild Man Creek (A Virgin River Novel)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Spirit of Christmas"
+  },
+  {
+    "rank": 46,
+    "item_name": "Christmas at Twilight: A Twilight, Texas Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Lone Wolf Lawman (Appaloosa Pass Ranch)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Cowboy Cop"
+  },
+  {
+    "rank": 49,
+    "item_name": "Into The Whirlwind (A BOSS, Inc. Novel)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Against the Tide (The Brodies Of Alaska)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

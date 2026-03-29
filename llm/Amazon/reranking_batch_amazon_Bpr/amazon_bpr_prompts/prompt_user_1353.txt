@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Cowboy Stole My Heart: A River Ranch Novel"
+  },
+  {
+    "item_name": "Falling for a Cowboy (Rocky Mountain Cowboys)"
+  },
+  {
+    "item_name": "Shattered Lullaby (Callahan Confidential)"
+  },
+  {
+    "item_name": "Missing in Blue Mesa (The Ranger Brigade: Family Secrets)"
+  },
+  {
+    "item_name": "Bayside Passions (Bayside Summers Book 2) (Volume 2)"
+  },
+  {
+    "item_name": "My Last Love Story: A Novel"
+  },
+  {
+    "item_name": "By a Charm and a Curse"
+  },
+  {
+    "item_name": "Seized by Love at Seaside (Sweet with Heat: Seaside Summers) (Volume 7)"
+  },
+  {
+    "item_name": "Driving Whiskey Wild"
+  },
+  {
+    "item_name": "The First Kiss of Spring: An Eternity Springs Novel"
+  },
+  {
+    "item_name": "Kansas City Cop (The Precinct)"
+  },
+  {
+    "item_name": "Maybe This Time: A Whiskey and Weddings Novel"
+  },
+  {
+    "item_name": "Night Stalker (FBI: Special Crimes Unit)"
+  },
+  {
+    "item_name": "Fast Burn (Body Armor)"
+  },
+  {
+    "item_name": "Bad Boys After Dark: Brett (Bad Billionaires After Dark) (Volume 4)"
+  },
+  {
+    "item_name": "Mission to Protect (Military K-9 Unit)"
+  },
+  {
+    "item_name": "Cowboy's Redemption (The Montana Cahills)"
+  },
+  {
+    "item_name": "Cowboy's Redemption (The Montana Cahills)"
+  },
+  {
+    "item_name": "Embracing Her Heart (Love in Bloom: The Bradens and Montgomerys (Pleasant Hill - Oak Falls)) (Volume 1)"
+  },
+  {
+    "item_name": "Embraced at Seaside (Sweet with Heat: Seaside Summers) (Volume 8)"
+  },
+  {
+    "item_name": "The Fireproof Girl"
+  },
+  {
+    "item_name": "Just One Spark... (Modern Romance Series Extra)"
+  },
+  {
+    "item_name": "Dead Girl Running (Cape Charade)"
+  },
+  {
+    "item_name": "Lovers at Seaside (Sweet with Heat: Seaside Summers) (Volume 9)"
+  },
+  {
+    "item_name": "The Cottages on Silver Beach (Haven Point)"
+  },
+  {
+    "item_name": "Sandpiper Shore (Harmony Harbor)"
+  },
+  {
+    "item_name": "Unbridled (Long, Tall Texans)"
+  },
+  {
+    "item_name": "When We Found Home"
+  },
+  {
+    "item_name": "Cooper's Charm: A Novel"
+  },
+  {
+    "item_name": "When the Lights Go Out"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Sea of Tranquility: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Breathe (Sea Breeze)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Maybe Someday"
+  },
+  {
+    "rank": 4,
+    "item_name": "After Math"
+  },
+  {
+    "rank": 5,
+    "item_name": "Beautiful Disaster"
+  },
+  {
+    "rank": 6,
+    "item_name": "All Broke Down: A Rusk University Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Ones Who Got Away"
+  },
+  {
+    "rank": 8,
+    "item_name": "I Want It That Way"
+  },
+  {
+    "rank": 9,
+    "item_name": "Taken by Tuesday (Weekday Brides)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Deal (Off-Campus) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Until We Touch (Fool's Gold,  Book 17)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Stay with Me: A Novel (Wait for You Saga)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Taking Shots: The Assassins Series"
+  },
+  {
+    "rank": 14,
+    "item_name": "Too Hot to Handle (Romancing the Clarksons)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Confess: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "From This Moment On (Sullivans)"
+  },
+  {
+    "rank": 17,
+    "item_name": "180 Seconds"
+  },
+  {
+    "rank": 18,
+    "item_name": "White Hot Kiss (The Dark Elements)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Naturals"
+  },
+  {
+    "rank": 20,
+    "item_name": "Before We Kiss (Fool's Gold, Book 16)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Catching Jordan (Hundred Oaks)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Untraceable: The Nature of Grace series"
+  },
+  {
+    "rank": 23,
+    "item_name": "Hooked"
+  },
+  {
+    "rank": 24,
+    "item_name": "Three Little Words (Fool's Gold, Book 13)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 26,
+    "item_name": "When"
+  },
+  {
+    "rank": 27,
+    "item_name": "Read, Write, Love at Seaside (Sweet with Heat: Seaside Summers) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Sweet Evil"
+  },
+  {
+    "rank": 29,
+    "item_name": "Ten Tiny Breaths"
+  },
+  {
+    "rank": 30,
+    "item_name": "Moonlight Over Manhattan (From Manhattan with Love)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Out of Play"
+  },
+  {
+    "rank": 32,
+    "item_name": "Max: A Cold Fury Hockey Novel (Carolina Cold Fury Hockey)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Getting Lucky Number Seven"
+  },
+  {
+    "rank": 34,
+    "item_name": "Since You've Been Gone"
+  },
+  {
+    "rank": 35,
+    "item_name": "The One (The Selection)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Part Time Cowboy (Copper Ridge)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Love Waltzes In (Dancing Under The Stars) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Book of Ivy (Entangled Teen)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Not Quite Mine"
+  },
+  {
+    "rank": 40,
+    "item_name": "Dare You To"
+  },
+  {
+    "rank": 41,
+    "item_name": "How to Lose a Bachelor"
+  },
+  {
+    "rank": 42,
+    "item_name": "This Girl: A Novel (Slammed)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Trouble With Spells"
+  },
+  {
+    "rank": 44,
+    "item_name": "Rules of Protection (Tangled in Texas) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Heir of Fireno. 3 (Throne of Glass)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Only You (Bachelor Brotherhood)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Wait for You (Wait for You Saga)"
+  },
+  {
+    "rank": 48,
+    "item_name": "This Is Where It Ends"
+  },
+  {
+    "rank": 49,
+    "item_name": "Roomies"
+  },
+  {
+    "rank": 50,
+    "item_name": "Sea Glass Sunrise (The Brides Of Blueberry Cove)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

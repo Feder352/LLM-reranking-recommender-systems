@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Every Heart a Doorway (Wayward Children)"
+  },
+  {
+    "item_name": "Down Among the Sticks and Bones (Wayward Children)"
+  },
+  {
+    "item_name": "Beneath the Sugar Sky (Wayward Children)"
+  },
+  {
+    "item_name": "Iron Gold: Book 4 of the Red Rising Saga (Red Rising Series)"
+  },
+  {
+    "item_name": "The King of Bones and Ashes (Witches of New Orleans)"
+  },
+  {
+    "item_name": "Just One Damned Thing After Another (The Chronicles of St Mary's)"
+  },
+  {
+    "item_name": "The Emerald Lily (Vampire Blood) (Volume 4)"
+  },
+  {
+    "item_name": "A Symphony of Echoes (The Chronicles of St Mary's)"
+  },
+  {
+    "item_name": "Good Omens: The Nice and Accurate Prophecies of Agnes Nutter, Witch"
+  },
+  {
+    "item_name": "Warcross"
+  },
+  {
+    "item_name": "Binding Magick (The Witch Blood Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "Tricks for Free (InCryptid)"
+  },
+  {
+    "item_name": "Ubik"
+  },
+  {
+    "item_name": "Ubik"
+  },
+  {
+    "item_name": "UBIK (Doubleday Science Fiction)"
+  },
+  {
+    "item_name": "Shoot the Messenger (Messenger Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "Lake Silence (World of the Others, The)"
+  },
+  {
+    "item_name": "Beyond Addiction (Volume 5)"
+  },
+  {
+    "item_name": "Grey Sister (Book of the Ancestor)"
+  },
+  {
+    "item_name": "Anansi Boys: A Novel"
+  },
+  {
+    "item_name": "The Immortal Prince (Tide Lords)"
+  },
+  {
+    "item_name": "A Court of Wings and Ruin (A Court of Thorns and Roses)"
+  },
+  {
+    "item_name": "A Court of Mist and Fury (Court of Thorns and Roses)"
+  },
+  {
+    "item_name": "Dark Queen (Jane Yellowrock)"
+  },
+  {
+    "item_name": "Nickel: Fallen Lords M.C. (Asphalt Lords M.C.) (Volume 1)"
+  },
+  {
+    "item_name": "Ocean Light (Psy-Changeling Trinity)"
+  },
+  {
+    "item_name": "Iron and Magic: (The Iron Covenant Book 1) (Volume 1)"
+  },
+  {
+    "item_name": "Dangerous (The Outcasts)"
+  },
+  {
+    "item_name": "Smoke and Iron (The Great Library)"
+  },
+  {
+    "item_name": "Spinning Silver: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Silence Fallen (A Mercy Thompson Novel)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Dead Heat: An Alpha and Omega novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Beautiful Creatures. by Kami Garcia &amp; Margaret Stohl"
+  },
+  {
+    "rank": 4,
+    "item_name": "Fair Game (Alpha and Omega)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Magic Bleeds (Kate Daniels)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Magic Burns (Kate Daniels)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Magic Binds (Kate Daniels)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Magic Strikes (Kate Daniels)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Etiquette &amp; Espionage (Finishing School)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Eternity Cure (Blood of Eden)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Undead Pool"
+  },
+  {
+    "rank": 13,
+    "item_name": "City of Bones (The Mortal Instruments)"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Perfect Blood"
+  },
+  {
+    "rank": 15,
+    "item_name": "Poison Princess (The Arcana Chronicles)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The 5th Wave (Book 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Bloodlines: Silver Shadows (book 5)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Firelight (Darkest London)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Take Me On"
+  },
+  {
+    "rank": 20,
+    "item_name": "Illuminae (The Illuminae Files)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Nightshade"
+  },
+  {
+    "rank": 22,
+    "item_name": "Vampire Academy: Spirit Bound (book 5)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Halfway to the Grave (Night Huntress, Book 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Lover Reborn (Black Dagger Brotherhood)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Friday Night Bites (Chicagoland Vampires, Book 2)"
+  },
+  {
+    "rank": 26,
+    "item_name": "White Witch, Black Curse"
+  },
+  {
+    "rank": 27,
+    "item_name": "A Court of Thorns and Roses"
+  },
+  {
+    "rank": 28,
+    "item_name": "Some Girls Bite (Chicagoland Vampires)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Blood Bound (Mercy Thompson, Book 2)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Enslave Me Sweetly (Alien Huntress, Book 2)"
+  },
+  {
+    "rank": 31,
+    "item_name": "EVER AFTER PB"
+  },
+  {
+    "rank": 32,
+    "item_name": "City of Glass (The Mortal Instruments)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Biting Bad (Chicagoland Vampires)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Bloodfever (Fever Series, Book 2)"
+  },
+  {
+    "rank": 35,
+    "item_name": "First Grave on the Right (Charley Davidson Series)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Red Queen"
+  },
+  {
+    "rank": 37,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Faefever (Fever, Book 3)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Cry Wolf (Alpha and Omega)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Hard Bitten (Chicagoland Vampires)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Marked (House of Night, Book 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Mockingjay: The Hunger Games"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Hunger Games (Book 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Dead And Gone: A Sookie Stackhouse Novel (Sookie Stackhouse/True Blood)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 47,
+    "item_name": "Lies (Gone)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Beautiful Ashes (Broken Destiny)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Last Sacrifice (Vampire Academy)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Dead in the Family (Sookie Stackhouse/True Blood, Book 10)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

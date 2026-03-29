@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Sky Full of Stars"
+  },
+  {
+    "item_name": "Steal Away Home"
+  },
+  {
+    "item_name": "The Heart and Mind of Frances Pauley"
+  },
+  {
+    "item_name": "Days With Dad"
+  },
+  {
+    "item_name": "The Story of Snowflake and Inkdrop"
+  },
+  {
+    "item_name": "Pinocchio: The Origin Story"
+  },
+  {
+    "item_name": "The Road to Bittersweet"
+  },
+  {
+    "item_name": "Max and the Millions"
+  },
+  {
+    "item_name": "Ayobami and the Names of the Animals"
+  },
+  {
+    "item_name": "Mister Tender's Girl: A Novel"
+  },
+  {
+    "item_name": "Rattle (The Collector Series)"
+  },
+  {
+    "item_name": "Harper and the Night Forest"
+  },
+  {
+    "item_name": "The Battle of Junk Mountain"
+  },
+  {
+    "item_name": "Marabel and the Book of Fate"
+  },
+  {
+    "item_name": "The Astonishing Color of After"
+  },
+  {
+    "item_name": "Children of Blood and Bone (Legacy of Orisha)"
+  },
+  {
+    "item_name": "The Window"
+  },
+  {
+    "item_name": "The Boy Who Went Magic"
+  },
+  {
+    "item_name": "Isle of Blood and Stone (Tower of Winds)"
+  },
+  {
+    "item_name": "The Very Marrow of Our Bones: A Novel"
+  },
+  {
+    "item_name": "Girls Burn Brighter: A Novel"
+  },
+  {
+    "item_name": "Rebound (The Crossover Series)"
+  },
+  {
+    "item_name": "The The Parker Inheritance"
+  },
+  {
+    "item_name": "Jane Seymour, The Haunted Queen: A Novel (Six Tudor Queens)"
+  },
+  {
+    "item_name": "The Traitor's Game (The Traitor's Game, Book One)"
+  },
+  {
+    "item_name": "The Inventors at No. 8"
+  },
+  {
+    "item_name": "From Broken Glass: My Story of Finding Hope in Hitler's Death Camps to Inspire a New Generation"
+  },
+  {
+    "item_name": "The Council of Twelve (A Hangman's Daughter Tale)"
+  },
+  {
+    "item_name": "Star of the North: A Novel"
+  },
+  {
+    "item_name": "Nyxia Unleashed (The Nyxia Triad)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Vanishing Island (Chronicles of the Black Tulip)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Wild Ones"
+  },
+  {
+    "rank": 4,
+    "item_name": "Vivian Apple Needs a Miracle"
+  },
+  {
+    "rank": 5,
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Antagonist"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Silver Witch: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Gated"
+  },
+  {
+    "rank": 9,
+    "item_name": "Railhead"
+  },
+  {
+    "rank": 10,
+    "item_name": "Lillian on Life"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Best Worst Thing"
+  },
+  {
+    "rank": 12,
+    "item_name": "Conversations with Saint Bernard: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Girl Who Could Not Dream"
+  },
+  {
+    "rank": 14,
+    "item_name": "Duck in the Fridge (A Duck in the Fridge Book)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Ten Lords A-Leaping: A Father Christmas Mystery"
+  },
+  {
+    "rank": 16,
+    "item_name": "Mrs. Sinclair's Suitcase"
+  },
+  {
+    "rank": 17,
+    "item_name": "Dirt"
+  },
+  {
+    "rank": 18,
+    "item_name": "Scarlett Epstein Hates It Here"
+  },
+  {
+    "rank": 19,
+    "item_name": "Born of Illusion"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Scourge"
+  },
+  {
+    "rank": 21,
+    "item_name": "From Bruges with Love (The Pieter Van In Mysteries)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Sizzle: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Outsider: My Life in Intrigue"
+  },
+  {
+    "rank": 24,
+    "item_name": "Twain's End"
+  },
+  {
+    "rank": 25,
+    "item_name": "Listening for Lucca"
+  },
+  {
+    "rank": 26,
+    "item_name": "The End of Innocence: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Fallen Beauty"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Good Idea"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Heat of the Sun: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Ghost in the Glass House"
+  },
+  {
+    "rank": 31,
+    "item_name": "Ancient Appetites (The Wildenstern Saga)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Flora: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Apprentice Witch"
+  },
+  {
+    "rank": 35,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Thirty Girls"
+  },
+  {
+    "rank": 37,
+    "item_name": "Crude Carrier (The Touchstone Agency Mysteries)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Dancer, Daughter, Traitor, Spy"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Woman Who Lost Her Soul"
+  },
+  {
+    "rank": 40,
+    "item_name": "Loving Day: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Francis Miracle: Inside the Transformation of the Pope and the Church"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Key to Extraordinary"
+  },
+  {
+    "rank": 43,
+    "item_name": "Chasing Secrets"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Story Hour: A Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Unbearable Book Club for Unsinkable Girls"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Last Leaves Falling"
+  },
+  {
+    "rank": 47,
+    "item_name": "New York Nocturne: The Return of Miss Lizzie"
+  },
+  {
+    "rank": 48,
+    "item_name": "Ruby: A Novel (Oprahs Book Club 2.0)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Reliance, Illinois"
+  },
+  {
+    "rank": 50,
+    "item_name": "Glory (The Dust Chronicles)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

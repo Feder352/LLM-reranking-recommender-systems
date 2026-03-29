@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Montpelier Parade"
+  },
+  {
+    "item_name": "A Map of the Dark (The Searchers)"
+  },
+  {
+    "item_name": "The Force: A Novel"
+  },
+  {
+    "item_name": "The Immortalists"
+  },
+  {
+    "item_name": "Only Killers and Thieves: A Novel"
+  },
+  {
+    "item_name": "Grist Mill Road"
+  },
+  {
+    "item_name": "The Guest Room: A Novel"
+  },
+  {
+    "item_name": "The French Girl"
+  },
+  {
+    "item_name": "The Guest Room: A Novel - Kindle edition"
+  },
+  {
+    "item_name": "The Burgess Boys: A Novel"
+  },
+  {
+    "item_name": "I Am, I Am, I Am: Seventeen Brushes with Death"
+  },
+  {
+    "item_name": "Girls Burn Brighter: A Novel"
+  },
+  {
+    "item_name": "Theft by Finding: Diaries (1977-2002)"
+  },
+  {
+    "item_name": "I'll Be Gone in the Dark: One Woman's Obsessive Search for the Golden State Killer"
+  },
+  {
+    "item_name": "Tench (Pushkin Vertigo)"
+  },
+  {
+    "item_name": "Educated: A Memoir"
+  },
+  {
+    "item_name": "American by Day"
+  },
+  {
+    "item_name": "Our Little Secret: A Novel"
+  },
+  {
+    "item_name": "Mother American Night: My Life in Crazy Times"
+  },
+  {
+    "item_name": "Lighter than My Shadow"
+  },
+  {
+    "item_name": "Best American Science Fiction and Fantasy 2017 (The Best American Series )"
+  },
+  {
+    "item_name": "Star of the North: A Novel"
+  },
+  {
+    "item_name": "Lonely Planet Iceland's Ring Road (Travel Guide)"
+  },
+  {
+    "item_name": "Rough Animals: An American Western Thriller"
+  },
+  {
+    "item_name": "Ohio"
+  },
+  {
+    "item_name": "Visible Empire"
+  },
+  {
+    "item_name": "Clock Dance: A novel"
+  },
+  {
+    "item_name": "We Begin Our Ascent"
+  },
+  {
+    "item_name": "There There: A novel"
+  },
+  {
+    "item_name": "The Cost of Living: A Working Autobiography"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Rosie Project"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Sense of an Ending"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Visit from the Goon Squad"
+  },
+  {
+    "rank": 4,
+    "item_name": "A Horse Walks into a Bar: A novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "The chaperone."
+  },
+  {
+    "rank": 6,
+    "item_name": "The Art of Fielding: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Lovers: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Brooklyn: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Norwegian by Night"
+  },
+  {
+    "rank": 11,
+    "item_name": "Macbeth"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Long Song: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "Rules of Civility: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Vegetarian: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 16,
+    "item_name": "Life After Life: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Submission: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Locals: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Color Master"
+  },
+  {
+    "rank": 20,
+    "item_name": "Freedom"
+  },
+  {
+    "rank": 21,
+    "item_name": "A Hologram for the King: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "We Are Water: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Widower's Tale: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Lincoln in the Bardo: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_name": "City of Secrets: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "Bring Up the Bodies"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Book of Unknown Americans"
+  },
+  {
+    "rank": 28,
+    "item_name": "Every Day is for the Thief"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Ice Beneath Her: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Leisure Seeker: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Buried Giant: A novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Nutshell: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "One Good Turn"
+  },
+  {
+    "rank": 34,
+    "item_name": "Bluebird, Bluebird"
+  },
+  {
+    "rank": 35,
+    "item_name": "Purity: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Leftovers"
+  },
+  {
+    "rank": 37,
+    "item_name": "Case Histories: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "We Are All Completely Beside Ourselves: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "State of Wonder"
+  },
+  {
+    "rank": 40,
+    "item_name": "Tabloid City: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "A gentleman in Moscow"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Reader (Movie Tie-in Edition) (Vintage International)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Two Hotel Francforts: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Woman Who Lost Her Soul"
+  },
+  {
+    "rank": 45,
+    "item_name": "This Is Where I Leave You: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Infatuations"
+  },
+  {
+    "rank": 47,
+    "item_name": "Shylock is My Name"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Bookshop"
+  },
+  {
+    "rank": 49,
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Americanah"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

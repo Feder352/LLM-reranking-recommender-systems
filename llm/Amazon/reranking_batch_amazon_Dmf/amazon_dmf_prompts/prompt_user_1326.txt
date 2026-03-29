@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Ain't Misbehaving (Dallas Duets) (Volume 1)"
+  },
+  {
+    "item_name": "Cookies and Scream (Baker Street Cozy Mysterys) (Volume 2)"
+  },
+  {
+    "item_name": "Chocolate With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Caramels With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 2)"
+  },
+  {
+    "item_name": "Apple Pie With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 3)"
+  },
+  {
+    "item_name": "Lemon Bars With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 4)"
+  },
+  {
+    "item_name": "High Treason (FBI Task Force)"
+  },
+  {
+    "item_name": "Man Overboard: An Ali Reynolds Novel (Ali Reynolds Series)"
+  },
+  {
+    "item_name": "Flood Watch (Lantern Beach Mysteries) (Volume 2)"
+  },
+  {
+    "item_name": "Bait: Includes the prequel story Target"
+  },
+  {
+    "item_name": "Running in the Dark"
+  },
+  {
+    "item_name": "Medical Error (Prescription for Trouble, Book 2)"
+  },
+  {
+    "item_name": "Fugitive Spy (Love Inspired Suspense)"
+  },
+  {
+    "item_name": "Presumed Guilty (Love Inspired Suspense)"
+  },
+  {
+    "item_name": "If I Live (If I Run Series)"
+  },
+  {
+    "item_name": "STORM SURGE (Lantern Beach) (Volume 3)"
+  },
+  {
+    "item_name": "Creme Brle To Slay (Baker Street Cozy Mysteries) (Volume 3)"
+  },
+  {
+    "item_name": "The Sour Taste of Suspicion: An Angel Lake Mystery"
+  },
+  {
+    "item_name": "Jamie Quinn Mystery Collection: Box Set Books 1-3 (Jamie Quinn Mysteries)"
+  },
+  {
+    "item_name": "Engaged in Danger: A Jamie Quinn Mystery (Jamie Quinn Cozy Mystery Book 4) (Jamie Quinn Cozy Mysteries) (Volume 4)"
+  },
+  {
+    "item_name": "Jeopardy in July: A Jamie Quinn Mystery (Jamie Quinn Cozy Mystery Book 5)"
+  },
+  {
+    "item_name": "Focus on Love"
+  },
+  {
+    "item_name": "Return to Walhalla"
+  },
+  {
+    "item_name": "The Sixth Day (A Brit in the FBI)"
+  },
+  {
+    "item_name": "Dangerous Waters (Lantern Beach) (Volume 4)"
+  },
+  {
+    "item_name": "Fatal Frost (Defenders of Justice)"
+  },
+  {
+    "item_name": "Inescapable (Road to Kingdom) (Volume 1)"
+  },
+  {
+    "item_name": "Lone Witness (Atlanta Justice)"
+  },
+  {
+    "item_name": "Dead Drift (Chesapeake Valor)"
+  },
+  {
+    "item_name": "A Merciful Silence (Mercy Kilpatrick)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 35536,
+    "item_name": "Every Bride Needs a Groom: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 2,
+    "item_id": 35471,
+    "item_name": "Anna's Crossing (Amish Beginnings)"
+  },
+  {
+    "rank": 3,
+    "item_id": 35535,
+    "item_name": "Nowhere to Turn (Hidden Identity)"
+  },
+  {
+    "rank": 4,
+    "item_id": 35485,
+    "item_name": "With Every Letter: A Novel (Wings of the Nightingale) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_id": 35450,
+    "item_name": "Hidden Agenda: A Novel (Southern Crimes) (Volume 3)"
+  },
+  {
+    "rank": 6,
+    "item_id": 37334,
+    "item_name": "Hazardous Duty (Squeaky Clean Mysteries, No. 1)"
+  },
+  {
+    "rank": 7,
+    "item_id": 33393,
+    "item_name": "Courting Cate (The Courtships of Lancaster County) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_id": 35591,
+    "item_name": "No One to Trust: A Novel (Hidden Identity) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_id": 35552,
+    "item_name": "Through Waters Deep (Waves of Freedom)"
+  },
+  {
+    "rank": 10,
+    "item_id": 35559,
+    "item_name": "Always Watching (Elite Guardians)"
+  },
+  {
+    "rank": 11,
+    "item_id": 35585,
+    "item_name": "Vendetta (The Nikki Boyd Files)"
+  },
+  {
+    "rank": 12,
+    "item_id": 35599,
+    "item_name": "The Dance: A Novel (The Restoration Series)"
+  },
+  {
+    "rank": 13,
+    "item_id": 35563,
+    "item_name": "Deceived: A Novel (Private Justice) (Volume 3)"
+  },
+  {
+    "rank": 14,
+    "item_id": 35582,
+    "item_name": "Thin Ice: A Novel (Men of Valor)"
+  },
+  {
+    "rank": 15,
+    "item_id": 44327,
+    "item_name": "Kissed by a Cowboy (A Four of Hearts Ranch Romance)"
+  },
+  {
+    "rank": 16,
+    "item_id": 33548,
+    "item_name": "Cold Shot (Chesapeake Valor)"
+  },
+  {
+    "rank": 17,
+    "item_id": 33237,
+    "item_name": "Swept Away (Trouble in Texas) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_id": 33436,
+    "item_name": "Shattered (Alaskan Courage) (Volume 2)"
+  },
+  {
+    "rank": 19,
+    "item_id": 35490,
+    "item_name": "Anchor in the Storm (Waves of Freedom)"
+  },
+  {
+    "rank": 20,
+    "item_id": 31459,
+    "item_name": "A Passion Most Pure (Daughters of Boston, Book 1)"
+  },
+  {
+    "rank": 21,
+    "item_id": 35601,
+    "item_name": "Buried Secrets: A Novel (Men of Valor)"
+  },
+  {
+    "rank": 22,
+    "item_id": 35627,
+    "item_name": "Pursued (The Nikki Boyd Files)"
+  },
+  {
+    "rank": 23,
+    "item_id": 35505,
+    "item_name": "When the Smoke Clears: A Novel (Deadly Reunions) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_id": 45407,
+    "item_name": "Firewall (FBI: Houston)"
+  },
+  {
+    "rank": 25,
+    "item_id": 33389,
+    "item_name": "Beyond All Dreams"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

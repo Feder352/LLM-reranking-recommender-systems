@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "An Alphabet of Stories"
+  },
+  {
+    "item_name": "Hansel and Gretel Standard Edition: A TOON Graphic"
+  },
+  {
+    "item_name": "Mr. Squirrel and the Moon"
+  },
+  {
+    "item_name": "The War That Saved My Life"
+  },
+  {
+    "item_name": "The Jumbies"
+  },
+  {
+    "item_name": "Cuckoo Song [Paperback] [Jan 01, 2012] Frances Hardinge"
+  },
+  {
+    "item_name": "Unusual Chickens for the Exceptional Poultry Farmer"
+  },
+  {
+    "item_name": "Return to Augie Hobble"
+  },
+  {
+    "item_name": "Hilo Book 1: The Boy Who Crashed to Earth"
+  },
+  {
+    "item_name": "The Hired Girl"
+  },
+  {
+    "item_name": "The Nest"
+  },
+  {
+    "item_name": "Robo-Sauce"
+  },
+  {
+    "item_name": "The Tea Party in the Woods"
+  },
+  {
+    "item_name": "Raymie Nightingale"
+  },
+  {
+    "item_name": "Samurai Rising: The Epic Life of Minamoto Yoshitsune"
+  },
+  {
+    "item_name": "Wolf Hollow"
+  },
+  {
+    "item_name": "The Wild Robot"
+  },
+  {
+    "item_name": "Who Broke the Teapot?!"
+  },
+  {
+    "item_name": "They All Saw a Cat"
+  },
+  {
+    "item_name": "Cloud and Wallfish"
+  },
+  {
+    "item_name": "The Inquisitor's Tale: Or, The Three Magical Children and Their Holy Dog"
+  },
+  {
+    "item_name": "Snow White: A Graphic Novel"
+  },
+  {
+    "item_name": "Wolf in the Snow"
+  },
+  {
+    "item_name": "Real Friends"
+  },
+  {
+    "item_name": "After the Fall (How Humpty Dumpty Got Back Up Again)"
+  },
+  {
+    "item_name": "Her Right Foot"
+  },
+  {
+    "item_name": "The Antlered Ship"
+  },
+  {
+    "item_name": "I'm Just No Good at Rhyming: And Other Nonsense for Mischievous Kids and Immature Grown-Ups"
+  },
+  {
+    "item_name": "Baby Monkey, Private Eye"
+  },
+  {
+    "item_name": "The The Parker Inheritance"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 83,
+    "item_name": "Flat Stanley: His Original Adventure!"
+  },
+  {
+    "rank": 2,
+    "item_id": 1715,
+    "item_name": "Action Jackson"
+  },
+  {
+    "rank": 3,
+    "item_id": 2078,
+    "item_name": "The Librarian Who Measured the Earth"
+  },
+  {
+    "rank": 4,
+    "item_id": 967,
+    "item_name": "Squids Will Be Squids"
+  },
+  {
+    "rank": 5,
+    "item_id": 2013,
+    "item_name": "This Isn't What It Looks Like (The Secret Series, Book 4)"
+  },
+  {
+    "rank": 6,
+    "item_id": 2702,
+    "item_name": "Woods Runner"
+  },
+  {
+    "rank": 7,
+    "item_id": 4519,
+    "item_name": "But Not the Hippopotamus (Boynton on Board)"
+  },
+  {
+    "rank": 8,
+    "item_id": 276,
+    "item_name": "Trinity"
+  },
+  {
+    "rank": 9,
+    "item_id": 5723,
+    "item_name": "Little Mouse's Big Book of Fears (Kate Greenaway Medal)"
+  },
+  {
+    "rank": 10,
+    "item_id": 4526,
+    "item_name": "Blue Hat, Green Hat (Boynton on Board)"
+  },
+  {
+    "rank": 11,
+    "item_id": 5980,
+    "item_name": "Barnyard Dance! (Boynton on Board)"
+  },
+  {
+    "rank": 12,
+    "item_id": 5715,
+    "item_name": "Lost and Found"
+  },
+  {
+    "rank": 13,
+    "item_id": 842,
+    "item_name": "Miss Rumphius"
+  },
+  {
+    "rank": 14,
+    "item_id": 114,
+    "item_name": "The Last of the Really Great Whangdoodles"
+  },
+  {
+    "rank": 15,
+    "item_id": 601,
+    "item_name": "Goldilocks and the Three Dinosaurs: As Retold by Mo Willems"
+  },
+  {
+    "rank": 16,
+    "item_id": 2683,
+    "item_name": "Terrier (The Legend of Beka Cooper, Book 1)"
+  },
+  {
+    "rank": 17,
+    "item_id": 4648,
+    "item_name": "Hippos Go Berserk!"
+  },
+  {
+    "rank": 18,
+    "item_id": 844,
+    "item_name": "The Story About Ping"
+  },
+  {
+    "rank": 19,
+    "item_id": 1282,
+    "item_name": "Pat the Bunny (Touch and Feel Book)"
+  },
+  {
+    "rank": 20,
+    "item_id": 1171,
+    "item_name": "Eating the Alphabet: Fruits &amp; Vegetables from A to Z (Harcourt Brace Big Book)"
+  },
+  {
+    "rank": 21,
+    "item_id": 6010,
+    "item_name": "The Ishbane Conspiracy"
+  },
+  {
+    "rank": 22,
+    "item_id": 3543,
+    "item_name": "The Boy Who Dared"
+  },
+  {
+    "rank": 23,
+    "item_id": 1186,
+    "item_name": "Leaf Man"
+  },
+  {
+    "rank": 24,
+    "item_id": 836,
+    "item_name": "The Four-Story Mistake (Melendy Family)"
+  },
+  {
+    "rank": 25,
+    "item_id": 1281,
+    "item_name": "The Monster at the End of This Book"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

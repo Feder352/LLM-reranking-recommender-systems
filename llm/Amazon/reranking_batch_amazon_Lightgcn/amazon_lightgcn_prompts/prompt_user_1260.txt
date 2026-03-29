@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Best Sellers from Reader's Digest Condensed Books The Source, Intern, Hotel St. Gregory, To Sir, with Love"
+  },
+  {
+    "item_name": "The Day Of The Jackal"
+  },
+  {
+    "item_name": "Dropped Names: Famous Men and Women As I Knew Them"
+  },
+  {
+    "item_name": "Top of the Rock: Inside the Rise and Fall of Must See TV"
+  },
+  {
+    "item_name": "Hitlerland: American Eyewitnesses to the Nazi Rise to Power"
+  },
+  {
+    "item_name": "Churchill Style: The Art of Being Winston Churchill"
+  },
+  {
+    "item_name": "The Bedlam Detective: A Novel"
+  },
+  {
+    "item_name": "The Yard"
+  },
+  {
+    "item_name": "A Higher Call: An Incredible True Story of Combat and Chivalry in the War-Torn Skies of World War II"
+  },
+  {
+    "item_name": "Literary Rogues: A Scandalous History of Wayward Authors"
+  },
+  {
+    "item_name": "The Searchers: The Making of an American Legend"
+  },
+  {
+    "item_name": "As I Knew Him: My Dad, Rod Serling"
+  },
+  {
+    "item_name": "Chicago Then and Now (Then &amp; Now)"
+  },
+  {
+    "item_name": "What's So Funny?: My Hilarious Life"
+  },
+  {
+    "item_name": "Great Escapes: Enjoy the World at Your Leisure (Lonely Planet)"
+  },
+  {
+    "item_name": "Eerie America: Travel Guide of the Macabre"
+  },
+  {
+    "item_name": "The Dead and Those About to Die: D-Day: The Big Red One at Omaha Beach"
+  },
+  {
+    "item_name": "John Wayne: The Life and Legend (Thorndike Press Large Print Biography)"
+  },
+  {
+    "item_name": "The Life and Times of the Thunderbolt Kid: A Memoir (Random House Large Print)"
+  },
+  {
+    "item_name": "The Art of the English Murder: From Jack the Ripper and Sherlock Holmes to Agatha Christie and Alfred Hitchcock"
+  },
+  {
+    "item_name": "Of All the Gin Joints: Stumbling through Hollywood History"
+  },
+  {
+    "item_name": "The Black Country: Scotland Yard Murder Squad Book 2"
+  },
+  {
+    "item_name": "We Don't Need Roads: The Making of the Back to the Future Trilogy"
+  },
+  {
+    "item_name": "Ringo: With a Little Help"
+  },
+  {
+    "item_name": "The Life and Times of Mickey Rooney"
+  },
+  {
+    "item_name": "Andy and Don: The Making of a Friendship and a Classic American TV Show"
+  },
+  {
+    "item_name": "Paul McCartney: The Life"
+  },
+  {
+    "item_name": "Strange History (Strange Series)"
+  },
+  {
+    "item_name": "I Loved Her in the Movies: Memories of Hollywood's Legendary Actresses"
+  },
+  {
+    "item_name": "From Holmes to Sherlock: The Story of the Men and Women Who Created an Icon"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1680,
+    "item_name": "A Crack in the Edge of the World: America and the Great California Earthquake of 1906"
+  },
+  {
+    "rank": 2,
+    "item_id": 49495,
+    "item_name": "World War I: The Definitive Visual History"
+  },
+  {
+    "rank": 3,
+    "item_id": 41753,
+    "item_name": "Black Earth: The Holocaust as History and Warning"
+  },
+  {
+    "rank": 4,
+    "item_id": 28102,
+    "item_name": "Killing Hitler: The Plots, the Assassins, and the Dictator Who Cheated Death"
+  },
+  {
+    "rank": 5,
+    "item_id": 1539,
+    "item_name": "Krakatoa: The Day the World Exploded: August 27, 1883"
+  },
+  {
+    "rank": 6,
+    "item_id": 75568,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 7,
+    "item_id": 41728,
+    "item_name": "Rogue Heroes: The History of the SAS, Britain's Secret Special Forces Unit That Sabotaged the Nazis and Changed the Nature of War"
+  },
+  {
+    "rank": 8,
+    "item_id": 5604,
+    "item_name": "With the Old Breed: The World War Two Pacific Classic"
+  },
+  {
+    "rank": 9,
+    "item_id": 9831,
+    "item_name": "1493: Uncovering the New World Columbus Created"
+  },
+  {
+    "rank": 10,
+    "item_id": 29975,
+    "item_name": "John Adams"
+  },
+  {
+    "rank": 11,
+    "item_id": 31686,
+    "item_name": "Einstein: His Life and Universe"
+  },
+  {
+    "rank": 12,
+    "item_id": 37103,
+    "item_name": "Last Hope Island: Britain, Occupied Europe, and the Brotherhood That Helped Turn the Tide of War"
+  },
+  {
+    "rank": 13,
+    "item_id": 62816,
+    "item_name": "Anything Goes: A Biography of the Roaring Twenties"
+  },
+  {
+    "rank": 14,
+    "item_id": 27606,
+    "item_name": "The Big Burn: Teddy Roosevelt and the Fire that Saved America"
+  },
+  {
+    "rank": 15,
+    "item_id": 14380,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 16,
+    "item_id": 31757,
+    "item_name": "The Greatest Battle: Stalin, Hitler, and the Desperate Struggle for Moscow That Changed the Course of World War II"
+  },
+  {
+    "rank": 17,
+    "item_id": 10300,
+    "item_name": "Dead Wake: The Last Crossing of the Lusitania"
+  },
+  {
+    "rank": 18,
+    "item_id": 31951,
+    "item_name": "The Guns at Last Light: The War in Western Europe, 1944-1945 (Liberation Trilogy)"
+  },
+  {
+    "rank": 19,
+    "item_id": 2715,
+    "item_name": "The Art of War: The New Translation (Harper Perennial Modern Classics)"
+  },
+  {
+    "rank": 20,
+    "item_id": 5651,
+    "item_name": "Day of Deceit : The Truth About FDR and Pearl Harbor"
+  },
+  {
+    "rank": 21,
+    "item_id": 7062,
+    "item_name": "D-Day [Sound Recording]: The Battle for Normandy"
+  },
+  {
+    "rank": 22,
+    "item_id": 18326,
+    "item_name": "The Passage of Power: The Years of Lyndon Johnson, Vol. IV"
+  },
+  {
+    "rank": 23,
+    "item_id": 29617,
+    "item_name": "Truman"
+  },
+  {
+    "rank": 24,
+    "item_id": 18049,
+    "item_name": "Isaac's Storm: A Man, a Time, and the Deadliest Hurricane in History"
+  },
+  {
+    "rank": 25,
+    "item_id": 2737,
+    "item_name": "To Hell on a Fast Horse: Billy the Kid, Pat Garrett, and the Epic Chase to Justice in the Old West"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

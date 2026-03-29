@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Hunter"
+  },
+  {
+    "item_name": "Ghostly Echoes: A Jackaby Novel"
+  },
+  {
+    "item_name": "Cozy Classics: The Nutcracker"
+  },
+  {
+    "item_name": "The Wish Tree"
+  },
+  {
+    "item_name": "Strange Practice (A Dr. Greta Helsing Novel)"
+  },
+  {
+    "item_name": "Cozy Classics: Les Misrables"
+  },
+  {
+    "item_name": "Me and Marvin Gardens"
+  },
+  {
+    "item_name": "The Evaporation of Sofi Snow"
+  },
+  {
+    "item_name": "Rants from the Hill: On Packrats, Bobcats, Wildfires, Curmudgeons, a Drunken Mary Kay Lady, and Other Encounters with the Wild in the High Desert"
+  },
+  {
+    "item_name": "Lopez Lomong: We're all destined to use our talent to change people's lives (What Really Matters)"
+  },
+  {
+    "item_name": "The 5,000 Friends of Veronica Veetch"
+  },
+  {
+    "item_name": "The Adventures of John Blake: Mystery of the Ghost Ship"
+  },
+  {
+    "item_name": "This Is What a Librarian Looks Like: A Celebration of Libraries, Communities, and Access to Information"
+  },
+  {
+    "item_name": "Warcross"
+  },
+  {
+    "item_name": "Inferior: How Science Got Women Wrong-and the New Research That's Rewriting the Story"
+  },
+  {
+    "item_name": "The Disappearances"
+  },
+  {
+    "item_name": "Overboard! (Survivor Diaries)"
+  },
+  {
+    "item_name": "Restart"
+  },
+  {
+    "item_name": "Thick as Thieves (Queen's Thief)"
+  },
+  {
+    "item_name": "Leeroy and Popo (Nobrow Serial Box)"
+  },
+  {
+    "item_name": "Victoria &amp; Abdul (Movie Tie-in): The True Story of the Queen's Closest Confidant"
+  },
+  {
+    "item_name": "The Wolf: A True Story of Survival and Obsession in the West"
+  },
+  {
+    "item_name": "Empire Made: My Search for an Outlaw Uncle Who Vanished in British India"
+  },
+  {
+    "item_name": "Snow &amp; Rose"
+  },
+  {
+    "item_name": "The Fearless Benjamin Lay: The Quaker Dwarf Who Became the First Revolutionary Abolitionist"
+  },
+  {
+    "item_name": "Into the Drowning Deep"
+  },
+  {
+    "item_name": "Appleseed Alpha"
+  },
+  {
+    "item_name": "Bunny Slopes"
+  },
+  {
+    "item_name": "KJV, The King James Study Bible, Bonded Leather, Burgundy, Red Letter, Full-Color Edition"
+  },
+  {
+    "item_name": "Fodor's London 25 Best (Full-color Travel Guide)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 19756,
+    "item_name": "Jack: The True Story of Jack and the Beanstalk"
+  },
+  {
+    "rank": 2,
+    "item_id": 66978,
+    "item_name": "Railhead"
+  },
+  {
+    "rank": 3,
+    "item_id": 3530,
+    "item_name": "The Real Boy"
+  },
+  {
+    "rank": 4,
+    "item_id": 28711,
+    "item_name": "Ivy And Bean Break The Fossil Record (Turtleback School &amp; Library Binding Edition) (Ivy + Bean)"
+  },
+  {
+    "rank": 5,
+    "item_id": 47545,
+    "item_name": "The True Blue Scouts of Sugar Man Swamp"
+  },
+  {
+    "rank": 6,
+    "item_id": 36166,
+    "item_name": "The Imaginary"
+  },
+  {
+    "rank": 7,
+    "item_id": 8582,
+    "item_name": "Circus Mirandus"
+  },
+  {
+    "rank": 8,
+    "item_id": 27106,
+    "item_name": "Wonderstruck (Schneider Family Book Award - Middle School Winner)"
+  },
+  {
+    "rank": 9,
+    "item_id": 47730,
+    "item_name": "The Boundless"
+  },
+  {
+    "rank": 10,
+    "item_id": 1470,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 11,
+    "item_id": 45827,
+    "item_name": "The Monstrumologist"
+  },
+  {
+    "rank": 12,
+    "item_id": 27355,
+    "item_name": "The Princess and the Pony"
+  },
+  {
+    "rank": 13,
+    "item_id": 8532,
+    "item_name": "Mosquitoland"
+  },
+  {
+    "rank": 14,
+    "item_id": 32803,
+    "item_name": "An Apple Pie for Dinner"
+  },
+  {
+    "rank": 15,
+    "item_id": 68794,
+    "item_name": "Hilda and the Black Hound: Book 4 (Hildafolk)"
+  },
+  {
+    "rank": 16,
+    "item_id": 27132,
+    "item_name": "The Maze of Bones (39 Clues, No. 1)"
+  },
+  {
+    "rank": 17,
+    "item_id": 18491,
+    "item_name": "The Fourteenth Goldfish"
+  },
+  {
+    "rank": 18,
+    "item_id": 23247,
+    "item_name": "From the Mixed-Up Files of Mrs. Basil E. Frankweiler (Yearling Newbery)"
+  },
+  {
+    "rank": 19,
+    "item_id": 64412,
+    "item_name": "The Invisible Order, Book One: Rise of the Darklings"
+  },
+  {
+    "rank": 20,
+    "item_id": 36896,
+    "item_name": "Press Here"
+  },
+  {
+    "rank": 21,
+    "item_id": 27408,
+    "item_name": "Slacker"
+  },
+  {
+    "rank": 22,
+    "item_id": 74833,
+    "item_name": "The Amber Spyglass"
+  },
+  {
+    "rank": 23,
+    "item_id": 19741,
+    "item_name": "Boom!"
+  },
+  {
+    "rank": 24,
+    "item_id": 19706,
+    "item_name": "Chasing Secrets"
+  },
+  {
+    "rank": 25,
+    "item_id": 26728,
+    "item_name": "Some Writer!: The Story of E. B. White (Ala Notable Children's Books. All Ages)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

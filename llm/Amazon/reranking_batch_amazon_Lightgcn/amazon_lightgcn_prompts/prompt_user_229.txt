@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "If You've Got It, Haunt It (A Haunted Vintage Mystery)"
+  },
+  {
+    "item_name": "Murder at the Courthouse: A Hidden Springs Mystery (The Hidden Springs Mysteries)"
+  },
+  {
+    "item_name": "Haunt Couture and Ghosts Galore (A Haunted Vintage Mystery)"
+  },
+  {
+    "item_name": "Alibi in High Heels"
+  },
+  {
+    "item_name": "Double Whammy (A Davis Way Crime Caper) (Volume 1)"
+  },
+  {
+    "item_name": "Invisible (Ivy Malone Mystery Series #1)"
+  },
+  {
+    "item_name": "A Vision of Murder (Psychic Eye Mysteries, Book 3)"
+  },
+  {
+    "item_name": "Body on the Bayou: A Cajun Country Mystery"
+  },
+  {
+    "item_name": "Forever Charmed: The Halloween LaVeau Series, Book 1"
+  },
+  {
+    "item_name": "A Witch in Time (A Bewitching Mystery)"
+  },
+  {
+    "item_name": "Bite the Biscuit (A Barkery &amp; Biscuits Mystery)"
+  },
+  {
+    "item_name": "Rest Ye Murdered Gentlemen (A Year-Round Christmas Mystery)"
+  },
+  {
+    "item_name": "In Plain Sight (Ivy Malone Mystery Series #2)"
+  },
+  {
+    "item_name": "Stranded (Ivy Malone Mysteries, Book 4)"
+  },
+  {
+    "item_name": "Plantation Shudders: A Cajun Country Mystery"
+  },
+  {
+    "item_name": "We Wish You a Murderous Christmas (A Year-Round Christmas Mystery)"
+  },
+  {
+    "item_name": "Death of a Valentine (Hamish Macbeth Mystery)"
+  },
+  {
+    "item_name": "Murder, Stage Left (The Nero Wolfe Mysteries)"
+  },
+  {
+    "item_name": "Armed and Outrageous: An Agnes Barton Mystery (Volume 1)"
+  },
+  {
+    "item_name": "A Pedigree to Die For (Melanie Travis Mysteries)"
+  },
+  {
+    "item_name": "Sense of Deception (Psychic Eye Mystery)"
+  },
+  {
+    "item_name": "In the Drink (Mack's Bar Mysteries)"
+  },
+  {
+    "item_name": "Murder with a Twist (Mack's Bar Mysteries)"
+  },
+  {
+    "item_name": "Davis's Q&amp;A Review for NCLEX-RN&reg;"
+  },
+  {
+    "item_name": "NCLEX-PN Premier 2017 with 2 Practice Tests: Online + Book + Video Tutorials + Mobile (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "Double Up (A Davis Way Crime Caper) (Volume 6)"
+  },
+  {
+    "item_name": "Maggie Needs An Alibi (Maggie Kelly Mysteries)"
+  },
+  {
+    "item_name": "Tails, You Lose (A Witch City Mystery)"
+  },
+  {
+    "item_name": "Spirits, Stilettos, and a Silver Bustier (Pyper Rayne) (Volume 1)"
+  },
+  {
+    "item_name": "The Marsh Madness (A Book Collector Mystery)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3433,
+    "item_name": "To Have and to Kill (Piper Donovan/Wedding Cake Mysteries)"
+  },
+  {
+    "rank": 2,
+    "item_id": 21732,
+    "item_name": "Bookmarked for Death (A Booktown Mystery)"
+  },
+  {
+    "rank": 3,
+    "item_id": 21592,
+    "item_name": "Her Royal Spyness"
+  },
+  {
+    "rank": 4,
+    "item_id": 21624,
+    "item_name": "Murder Is Binding"
+  },
+  {
+    "rank": 5,
+    "item_id": 37866,
+    "item_name": "The Ghattis Tale, Book 1: Finders-Seekers"
+  },
+  {
+    "rank": 6,
+    "item_id": 50659,
+    "item_name": "Emerald Isle (A Stacy Justice Mystery)"
+  },
+  {
+    "rank": 7,
+    "item_id": 24891,
+    "item_name": "What a Ghoul Wants: A Ghost Hunter Mystery"
+  },
+  {
+    "rank": 8,
+    "item_id": 21491,
+    "item_name": "The Trouble With Magic (Bewitching Mysteries, No. 1)"
+  },
+  {
+    "rank": 9,
+    "item_id": 2403,
+    "item_name": "Touched by Angels"
+  },
+  {
+    "rank": 10,
+    "item_id": 64109,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 11,
+    "item_id": 2130,
+    "item_name": "Ghost at Work (Bailey Ruth Mysteries, No. 1)"
+  },
+  {
+    "rank": 12,
+    "item_id": 21561,
+    "item_name": "Spanish Dagger (China Bayles Mystery)"
+  },
+  {
+    "rank": 13,
+    "item_id": 22393,
+    "item_name": "Tempest in a Teapot (A Teapot Collector Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_id": 21634,
+    "item_name": "Espresso Shot"
+  },
+  {
+    "rank": 15,
+    "item_id": 24625,
+    "item_name": "Devil May Ride (Ghost Dusters #2)"
+  },
+  {
+    "rank": 16,
+    "item_id": 24477,
+    "item_name": "Killer Insight (Psychic Eye Mysteries, Book 4)"
+  },
+  {
+    "rank": 17,
+    "item_id": 12345,
+    "item_name": "Pushing Up Daisies: A Dirty Business Mystery"
+  },
+  {
+    "rank": 18,
+    "item_id": 21558,
+    "item_name": "Deadly Advice (An Advice Column Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_id": 24575,
+    "item_name": "The Cat, the Quilt and the Corpse: A Cats in Trouble Mystery"
+  },
+  {
+    "rank": 20,
+    "item_id": 12100,
+    "item_name": "Owls Well That Ends Well (Meg Langslow Mysteries)"
+  },
+  {
+    "rank": 21,
+    "item_id": 77133,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 22,
+    "item_id": 32413,
+    "item_name": "Blueberry Muffin Murder"
+  },
+  {
+    "rank": 23,
+    "item_id": 24602,
+    "item_name": "What's a Ghoul to Do? (Ghost Hunter Mysteries, Book 1)"
+  },
+  {
+    "rank": 24,
+    "item_id": 2600,
+    "item_name": "A River in the Sky: An Amelia Peabody Novel of Suspense (Amelia Peabody Series)"
+  },
+  {
+    "rank": 25,
+    "item_id": 24591,
+    "item_name": "Ghouls Just Haunt to Have Fun (Ghost Hunter Mysteries, No. 3)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

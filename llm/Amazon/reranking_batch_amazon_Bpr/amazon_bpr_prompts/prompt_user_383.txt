@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Joseph Smith: Rough Stone Rolling"
+  },
+  {
+    "item_name": "The Amateur: Barack Obama in the White House"
+  },
+  {
+    "item_name": "Defending the Free Market: The Moral Case for a Free Economy"
+  },
+  {
+    "item_name": "The Roots of Obama's Rage"
+  },
+  {
+    "item_name": "Obama's America: Unmaking the American Dream"
+  },
+  {
+    "item_name": "Cook's Illustrated Cookbook: 2,000 Recipes from 20 Years of America's Most Trusted Cooking Magazine"
+  },
+  {
+    "item_name": "The Affluent Investor: Financial Advice to Grow and Protect Your Wealth"
+  },
+  {
+    "item_name": "Brilliant Blunders: From Darwin to Einstein - Colossal Mistakes by Great Scientists That Changed Our Understanding of Life and the Universe"
+  },
+  {
+    "item_name": "Inside the Box: A Proven System of Creativity for Breakthrough Results"
+  },
+  {
+    "item_name": "The Painted Word"
+  },
+  {
+    "item_name": "Coolidge"
+  },
+  {
+    "item_name": "The One Thing: The Surprisingly Simple Truth Behind Extraordinary Results"
+  },
+  {
+    "item_name": "Rescue: A Novel"
+  },
+  {
+    "item_name": "Back to Blood: A Novel"
+  },
+  {
+    "item_name": "Overbooked: The Exploding Business of Travel and Tourism"
+  },
+  {
+    "item_name": "Things That Matter: Three Decades of Passions, Pastimes and Politics [Deckled Edge]"
+  },
+  {
+    "item_name": "Blood Feud: The Clintons vs. The Obamas"
+  },
+  {
+    "item_name": "The Romney Family Table: Sharing Home-Cooked Recipes &amp; Favorite Traditions"
+  },
+  {
+    "item_name": "13 Hours: The Inside Account of What Really Happened In Benghazi"
+  },
+  {
+    "item_name": "Stonewalled: My Fight for Truth Against the Forces of Obstruction, Intimidation, and Harassment in Obama's Washington."
+  },
+  {
+    "item_name": "Clinton Cash: The Untold Story of How and Why Foreign Governments and Businesses Helped Make Bill and Hillary Rich"
+  },
+  {
+    "item_name": "And the Good News Is...: Lessons and Advice from the Bright Side"
+  },
+  {
+    "item_name": "The Silencing: How the Left is Killing Free Speech"
+  },
+  {
+    "item_name": "Don't Give Up, Don't Give in: Lessons from an Extraordinary Life"
+  },
+  {
+    "item_name": "Unlikeable: The Problem with Hillary"
+  },
+  {
+    "item_name": "Jack Nicklaus"
+  },
+  {
+    "item_name": "Losing Mum and Pup: A Memoir"
+  },
+  {
+    "item_name": "Anthem"
+  },
+  {
+    "item_name": "Who Speaks For Islam?: What a Billion Muslims Really Think"
+  },
+  {
+    "item_name": "The Wright Brothers (Thorndike Press Large Print Popular and Narrative Nonfiction Series)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 2,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 3,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 4,
+    "item_name": "Do As I Say (Not As I Do): Profiles in Liberal Hypocrisy"
+  },
+  {
+    "rank": 5,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 7,
+    "item_name": "Plan of Attack:  The Definitive Account of the Decision to Invade Iraq"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Next 100 Years: A Forecast for the 21st Century"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  },
+  {
+    "rank": 10,
+    "item_name": "Trump - The Art Of The Deal"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 12,
+    "item_name": "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time"
+  },
+  {
+    "rank": 13,
+    "item_name": "Being A Dad: The Stuff No One Told Me"
+  },
+  {
+    "rank": 14,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 15,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 18,
+    "item_name": "Monster of God: The Man-Eating Predator in the Jungles of History and the Mind"
+  },
+  {
+    "rank": 19,
+    "item_name": "Worse Than Watergate: The Secret Presidency of George W. Bush"
+  },
+  {
+    "rank": 20,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 21,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Crisis of Islam: Holy War and Unholy Terror"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Housing Boom and Bust: Revised Edition"
+  },
+  {
+    "rank": 24,
+    "item_name": "Legacy of Ashes: The History of the CIA"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Ultimate Competitive Advantage: Secrets of Continually Developing a More Profitable Business Model"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Warrior Diet"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Prayer of Jabez: Breaking Through To The Blessed Life"
+  },
+  {
+    "rank": 29,
+    "item_name": "Awaken The Giant Within"
+  },
+  {
+    "rank": 30,
+    "item_name": "Wooden on Leadership: How to Create a Winning Organization"
+  },
+  {
+    "rank": 31,
+    "item_name": "Godless: The Church of Liberalism"
+  },
+  {
+    "rank": 32,
+    "item_name": "The 48 Laws of Power"
+  },
+  {
+    "rank": 33,
+    "item_name": "Confidence: How Winning Streaks and Losing Streaks Begin and End"
+  },
+  {
+    "rank": 34,
+    "item_name": "The End of Oil: On the Edge of a Perilous New World"
+  },
+  {
+    "rank": 35,
+    "item_name": "Trick or Treatment: The Undeniable Facts about Alternative Medicine"
+  },
+  {
+    "rank": 36,
+    "item_name": "How Full Is Your Bucket?: Positive Strategies for Work and Life"
+  },
+  {
+    "rank": 37,
+    "item_name": "Rework: Change The Way You Work Forever"
+  },
+  {
+    "rank": 38,
+    "item_name": "Our Endangered Values: America's Moral Crisis"
+  },
+  {
+    "rank": 39,
+    "item_name": "Big Coal: The Dirty Secret Behind America's Energy Future"
+  },
+  {
+    "rank": 40,
+    "item_name": "How Full Is Your Bucket?: Positive Strategies for Work and Life"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Next Global Stage: Challenges and Opportunities in Our Borderless World"
+  },
+  {
+    "rank": 42,
+    "item_name": "Ask and It Is Given: Learning to Manifest Your Desires"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Case for Christ:  A Journalist's Personal Investigation of the Evidence for Jesus"
+  },
+  {
+    "rank": 44,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 45,
+    "item_name": "Listen to Your Mother: Stand Up Straight: How Progressives Can Win"
+  },
+  {
+    "rank": 46,
+    "item_name": "Fordlandia: The Rise and Fall of Henry Ford's Forgotten Jungle City"
+  },
+  {
+    "rank": 47,
+    "item_name": "Fabric Of Reality (Penguin Science)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Courage and Consequence: My Life as a Conservative in the Fight"
+  },
+  {
+    "rank": 49,
+    "item_name": "The 4-hour Workweek: Escape the 9-5, Live Anywhere and Join the New Rich"
+  },
+  {
+    "rank": 50,
+    "item_name": "Predictably Irrational: The Hidden Forces That Shape Our Decisions"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

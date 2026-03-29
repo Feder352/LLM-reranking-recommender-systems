@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Rise of a Phoenix (The Nix Series) (Volume 3)"
+  },
+  {
+    "item_name": "Shadow Hunt (Disrupted Magic)"
+  },
+  {
+    "item_name": "Hotbloods (Volume 1)"
+  },
+  {
+    "item_name": "Secondborn"
+  },
+  {
+    "item_name": "The Unlikeable Demon Hunter: Crave (Nava Katz Book 4)"
+  },
+  {
+    "item_name": "Deathtrap (Crossbreed)"
+  },
+  {
+    "item_name": "Dead Eye (A Tiger's Eye Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Gaslight (Crossbreed Series Book 4)"
+  },
+  {
+    "item_name": "Perilous Waif (Alice Long)"
+  },
+  {
+    "item_name": "Burn Bright"
+  },
+  {
+    "item_name": "High Voltage (Fever)"
+  },
+  {
+    "item_name": "Marked In Flesh (A Novel of the Others)"
+  },
+  {
+    "item_name": "The Soul Summoner (Volume 1)"
+  },
+  {
+    "item_name": "Hot and Badgered (The Honey Badger Chronicles)"
+  },
+  {
+    "item_name": "Forbidden Forest (Volume 1)"
+  },
+  {
+    "item_name": "Shoot the Messenger (Messenger Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "Revenge Is Sweet: A Kali Sweet Urban Fantasy Story (Volume 1)"
+  },
+  {
+    "item_name": "Traitor Born (Secondborn)"
+  },
+  {
+    "item_name": "How to Save an Undead Life (The Beginner's Guide to Necromancy) (Volume 1)"
+  },
+  {
+    "item_name": "How to Break an Undead Heart (The Beginner's Guide to Necromancy) (Volume 3)"
+  },
+  {
+    "item_name": "The Thief: A Novel of the Black Dagger Brotherhood"
+  },
+  {
+    "item_name": "Dark Queen (Jane Yellowrock)"
+  },
+  {
+    "item_name": "Recombinant (The Blood Borne Series) (Volume 1)"
+  },
+  {
+    "item_name": "Shadow Wings (The Darkest Drae) (Volume 2)"
+  },
+  {
+    "item_name": "Bone Driven (The Foundling Series)"
+  },
+  {
+    "item_name": "Wolf Bite (The Blood Borne Series) (Volume 2)"
+  },
+  {
+    "item_name": "Natural Dual-Mage (Magical Mayhem) (Volume 3)"
+  },
+  {
+    "item_name": "Iron and Magic: (The Iron Covenant Book 1) (Volume 1)"
+  },
+  {
+    "item_name": "Venom in the Veins: An Elemental Assassin Book (Volume 17)"
+  },
+  {
+    "item_name": "Shadow's Bane (Dorina Basarab)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3657,
+    "item_name": "Magic Bleeds (Kate Daniels)"
+  },
+  {
+    "rank": 2,
+    "item_id": 422,
+    "item_name": "One Foot in the Grave (Night Huntress, Book 2)"
+  },
+  {
+    "rank": 3,
+    "item_id": 3493,
+    "item_name": "Deadlocked (Sookie Stackhouse/True Blood, Book 12)"
+  },
+  {
+    "rank": 4,
+    "item_id": 494,
+    "item_name": "Once Burned (Night Prince, Book 1)"
+  },
+  {
+    "rank": 5,
+    "item_id": 2895,
+    "item_name": "Iced: Fever Series Book 6"
+  },
+  {
+    "rank": 6,
+    "item_id": 877,
+    "item_name": "Shadow Kiss"
+  },
+  {
+    "rank": 7,
+    "item_id": 2882,
+    "item_name": "Bloodfever (Fever Series, Book 2)"
+  },
+  {
+    "rank": 8,
+    "item_id": 944,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 9,
+    "item_id": 3652,
+    "item_name": "Bayou Moon (The Edge, Book 2)"
+  },
+  {
+    "rank": 10,
+    "item_id": 546,
+    "item_name": "A Girl's Guide to Vampires (Dark Ones Series)"
+  },
+  {
+    "rank": 11,
+    "item_id": 2011,
+    "item_name": "Changeless (The Parasol Protectorate)"
+  },
+  {
+    "rank": 12,
+    "item_id": 6196,
+    "item_name": "Steel's Edge (The Edge, Book 4)"
+  },
+  {
+    "rank": 13,
+    "item_id": 593,
+    "item_name": "Up from the Grave (Night Huntress)"
+  },
+  {
+    "rank": 14,
+    "item_id": 2865,
+    "item_name": "Faefever (Fever, Book 3)"
+  },
+  {
+    "rank": 15,
+    "item_id": 3491,
+    "item_name": "Gunmetal Magic"
+  },
+  {
+    "rank": 16,
+    "item_id": 4240,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 17,
+    "item_id": 3462,
+    "item_name": "Archangel's Legion (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 18,
+    "item_id": 3672,
+    "item_name": "Kitty and the Dead Man's Hand (Kitty Norville)"
+  },
+  {
+    "rank": 19,
+    "item_id": 4902,
+    "item_name": "Succubus Blues (Georgina Kincaid, Book 1)"
+  },
+  {
+    "rank": 20,
+    "item_id": 3670,
+    "item_name": "Kitty Raises Hell (Kitty Norville)"
+  },
+  {
+    "rank": 21,
+    "item_id": 1470,
+    "item_name": "The Forest of Hands and Teeth"
+  },
+  {
+    "rank": 22,
+    "item_id": 4079,
+    "item_name": "Skinwalker (Jane Yellowrock, Book 1)"
+  },
+  {
+    "rank": 23,
+    "item_id": 4853,
+    "item_name": "City of Ashes (The Mortal Instruments)"
+  },
+  {
+    "rank": 24,
+    "item_id": 5656,
+    "item_name": "Throne of Glass"
+  },
+  {
+    "rank": 25,
+    "item_id": 452,
+    "item_name": "The Summoning"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

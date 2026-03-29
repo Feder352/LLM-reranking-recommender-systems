@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Still Alice"
+  },
+  {
+    "item_name": "The Humbling (Vintage International)"
+  },
+  {
+    "item_name": "Churchill: A life"
+  },
+  {
+    "item_name": "Love Medicine (Perennial Modern Classics)"
+  },
+  {
+    "item_name": "America in Retreat: The New Isolationism and the Coming Global Disorder"
+  },
+  {
+    "item_name": "Kafka Was the Rage: A Greenwich Village Memoir"
+  },
+  {
+    "item_name": "The Coming Population Crash: and Our Planet's Surprising Future"
+  },
+  {
+    "item_name": "The Unwinding: An Inner History of the New America"
+  },
+  {
+    "item_name": "I Married a Communist: American Trilogy (2)"
+  },
+  {
+    "item_name": "The Summer Game"
+  },
+  {
+    "item_name": "Will in the World: How Shakespeare Became Shakespeare"
+  },
+  {
+    "item_name": "What Makes Your Brain Happy and Why You Should Do the Opposite"
+  },
+  {
+    "item_name": "This Old Man: All in Pieces"
+  },
+  {
+    "item_name": "Waiting for Godot: A Tragicomedy in Two Acts"
+  },
+  {
+    "item_name": "The End Of Science: Facing The Limits Of Knowledge In The Twilight Of The Scientific Age (Helix Books)"
+  },
+  {
+    "item_name": "Lots of Candles, Plenty of Cake: A Memoir of a Woman's Life"
+  },
+  {
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "item_name": "Love's Labour's Lost: Performed by Derek Jacobi, Geraldine McEwan &amp; Cast"
+  },
+  {
+    "item_name": "The Tempest"
+  },
+  {
+    "item_name": "Gratitude"
+  },
+  {
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "item_name": "Love's Labour's Lost: Performed by Derek Jacobi, Geraldine McEwan &amp; Cast"
+  },
+  {
+    "item_name": "The Tempest"
+  },
+  {
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "item_name": "Love's Labour's Lost: Performed by Derek Jacobi, Geraldine McEwan &amp; Cast"
+  },
+  {
+    "item_name": "The Tempest"
+  },
+  {
+    "item_name": "The Noise of Time: A novel"
+  },
+  {
+    "item_name": "How Doctors Think"
+  },
+  {
+    "item_name": "Rebbe: The Life and Teachings of Menachem M. Schneerson, the Most Influential Rabbi in Modern History"
+  },
+  {
+    "item_name": "Our Souls at Night (Vintage Contemporaries)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 4,
+    "item_name": "Fabric Of Reality (Penguin Science)"
+  },
+  {
+    "rank": 5,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 6,
+    "item_name": "Tortilla Flat"
+  },
+  {
+    "rank": 7,
+    "item_name": "King Leopold's Ghost: A Story of Greed, Terror, and Heroism in Colonial Africa"
+  },
+  {
+    "rank": 8,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 9,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Godly Hero: The Life of William Jennings Bryan"
+  },
+  {
+    "rank": 11,
+    "item_name": "Six Days of War: June 1967 and the Making of the Modern Middle East"
+  },
+  {
+    "rank": 12,
+    "item_name": "Battleground: fact and fantasy in Palestine"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Bluest Eye (Vintage International)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Age of Reagan: A History, 1974-2008"
+  },
+  {
+    "rank": 16,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Liberal Fascism: The Secret History of the Left from Mussolini to the Politics of Meaning"
+  },
+  {
+    "rank": 18,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 19,
+    "item_name": "All the Shah's Men: An American Coup and the Roots of Middle East Terror"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Closing of the Western Mind: The Rise of Faith and the Fall of Reason"
+  },
+  {
+    "rank": 21,
+    "item_name": "Why Orwell Matters"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Problem from Hell : America and the Age of Genocide"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Future of Freedom: Illiberal Democracy at Home and Abroad"
+  },
+  {
+    "rank": 25,
+    "item_name": "Against Interpretation: And Other Essays"
+  },
+  {
+    "rank": 26,
+    "item_name": "What's the Matter with Kansas? How Conservatives Won the Heart of America"
+  },
+  {
+    "rank": 27,
+    "item_name": "What Cops Know: Cops Talk About What They Do, How They Do It, and What It Does to Them"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Gnostic Gospels"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Price of Glory: Verdun 1916"
+  },
+  {
+    "rank": 30,
+    "item_name": "Up from Slavery: An Autobiography (Penguin Classics)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Insectopedia"
+  },
+  {
+    "rank": 32,
+    "item_name": "We Wish to Inform You That Tomorrow We Will be Killed With Our Families: Stories from Rwanda"
+  },
+  {
+    "rank": 33,
+    "item_name": "Bobos in Paradise: The New Upper Class and How They Got There"
+  },
+  {
+    "rank": 34,
+    "item_name": "Rush Limbaugh Is a Big Fat Idiot : And Other Observations"
+  },
+  {
+    "rank": 35,
+    "item_name": "Appointment in Samarra (Vintage Classics)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Mr Lincoln's Army"
+  },
+  {
+    "rank": 37,
+    "item_name": "Power and the Glory"
+  },
+  {
+    "rank": 38,
+    "item_name": "Beyond Belief: Essays on Religion in a Post-Traditional World"
+  },
+  {
+    "rank": 39,
+    "item_name": "It Can't Happen Here (Penguin Modern Classics)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Iliad"
+  },
+  {
+    "rank": 42,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 43,
+    "item_name": "Burr"
+  },
+  {
+    "rank": 44,
+    "item_name": "John F. Kennedy"
+  },
+  {
+    "rank": 45,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 46,
+    "item_name": "Race Matters"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Severed Head"
+  },
+  {
+    "rank": 48,
+    "item_name": "The GUNS OF AUGUST"
+  },
+  {
+    "rank": 49,
+    "item_name": "Why Evolution Is True"
+  },
+  {
+    "rank": 50,
+    "item_name": "Case Closed: Lee Harvey Oswald and the Assassination of JFK"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

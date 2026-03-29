@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Munich"
+  },
+  {
+    "item_name": "Continental Crimes (British Library Crime Classics)"
+  },
+  {
+    "item_name": "Force of Nature: A Novel"
+  },
+  {
+    "item_name": "His Bloody Project: Documents Relating to the Case of Roderick Macrae (Man Booker Prize Finalist 2016)"
+  },
+  {
+    "item_name": "Bluebird, Bluebird"
+  },
+  {
+    "item_name": "Bluebird, Bluebird (Highway 59)"
+  },
+  {
+    "item_name": "The Willows"
+  },
+  {
+    "item_name": "The Willows"
+  },
+  {
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "item_name": "The Vanishing Box: Stephens and Mephisto Mystery 4"
+  },
+  {
+    "item_name": "The Accident on the A35"
+  },
+  {
+    "item_name": "Death at the President's Lodging (Penguin crime fiction)"
+  },
+  {
+    "item_name": "FOUNDATION- PB"
+  },
+  {
+    "item_name": "Pietr the Latvian (Inspector Maigret)"
+  },
+  {
+    "item_name": "Foreign Bodies (British Library Crime Classics)"
+  },
+  {
+    "item_name": "The Mistletoe Murder: And Other Stories"
+  },
+  {
+    "item_name": "Brazzaville Beach: A Novel"
+  },
+  {
+    "item_name": "The Murder on the Links"
+  },
+  {
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "item_name": "Quick Curtain (British Library Crime Classics)"
+  },
+  {
+    "item_name": "In the Valley of the Sun: A Novel"
+  },
+  {
+    "item_name": "ENDURANCE: SHACKLETON'S INCREDIBLE VOYAGE by Lansing, Alfred ( Author ) on Apr-24-1999[ Paperback ]"
+  },
+  {
+    "item_name": "Strangers on a Train (Penguin Crime Fiction)"
+  },
+  {
+    "item_name": "Bump in the Night (Flaxborough Chronicles)"
+  },
+  {
+    "item_name": "The Code of the Woosters (Jeeves &amp; Wooster)"
+  },
+  {
+    "item_name": "Prime of Miss Jean Brodie, The (Perennial Classics)"
+  },
+  {
+    "item_name": "The Rock"
+  },
+  {
+    "item_name": "The New Policeman (New Policeman Trilogy)"
+  },
+  {
+    "item_name": "The King in Yellow and Other Horror Stories (Dover Mystery, Detective, &amp; Other Fiction)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 2,
+    "item_name": "Case Histories: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Life After Life: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "One Good Turn"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Cuckoo's Calling (Cormoran Strike)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 7,
+    "item_name": "Commonwealth CD"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Light Between Oceans: The heartbreaking Richard and Judy bestseller"
+  },
+  {
+    "rank": 9,
+    "item_name": "Shadow of the Wind"
+  },
+  {
+    "rank": 10,
+    "item_name": "Where Monsters Dwell (Odd Singsaker)"
+  },
+  {
+    "rank": 11,
+    "item_name": "We Are All Completely Beside Ourselves: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Underground Railroad"
+  },
+  {
+    "rank": 13,
+    "item_name": "Vinegar Girl: William Shakespeare's The Taming of the Shrew Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "rank": 14,
+    "item_name": "My Name Is Lucy Barton: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "American Gods"
+  },
+  {
+    "rank": 16,
+    "item_name": "Paying Guests"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Sarah's Key"
+  },
+  {
+    "rank": 20,
+    "item_name": "Defending Jacob: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Moonstone: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Phantom (Harry Hole Series)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Turn of the Screw and Other Stories (Penguin modern classics)"
+  },
+  {
+    "rank": 25,
+    "item_name": "A gentleman in Moscow"
+  },
+  {
+    "rank": 26,
+    "item_name": "Tomorrow and Tomorrow"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Ice Beneath Her: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Circling the Sun: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "A Visit from the Goon Squad"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Keeper of Lost Causes"
+  },
+  {
+    "rank": 33,
+    "item_name": "Bring Up the Bodies"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Forgotten Garden"
+  },
+  {
+    "rank": 35,
+    "item_name": "The chaperone."
+  },
+  {
+    "rank": 36,
+    "item_name": "Shutter Island"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Buried Giant: A novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Fourth of July Creek: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Reader (Movie Tie-in Edition) (Vintage International)"
+  },
+  {
+    "rank": 40,
+    "item_name": "All the Light We Cannot See"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Casual Vacancy 1st (first) Edition by Rowling, J.K. published by Little, Brown and Company (2012) Hardcover"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Water's Edge"
+  },
+  {
+    "rank": 43,
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "A Test of Wills (Inspector Ian Rutledge Mysteries)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Murder of Roger Ackroyd (Poirot)"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Man Called Ove (Thorndike Press Large Print Core Series)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Howards End (Penguin Twentieth-Century Classics)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Woman in White (Penguin Classics)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Yard"
+  },
+  {
+    "rank": 50,
+    "item_name": "Started Early, Took My Dog: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

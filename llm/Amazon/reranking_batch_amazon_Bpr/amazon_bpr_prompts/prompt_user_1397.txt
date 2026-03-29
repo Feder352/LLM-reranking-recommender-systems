@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Lip Service (Lone Star Sisters, Book 2)"
+  },
+  {
+    "item_name": "Guardian (Classified K-9 Unit)"
+  },
+  {
+    "item_name": "When Night Comes"
+  },
+  {
+    "item_name": "Unintended Consequences (Jack Turner Suspense Series) (Volume 3)"
+  },
+  {
+    "item_name": "Public Secrets"
+  },
+  {
+    "item_name": "Risky Business"
+  },
+  {
+    "item_name": "Rough Rider (Whitehorse, Montana: The McGraw Kidnapping)"
+  },
+  {
+    "item_name": "Dead Ringer (Whitehorse, Montana: The McGraw Kidnapping)"
+  },
+  {
+    "item_name": "Dying To Play (Signature Spotlight)"
+  },
+  {
+    "item_name": "From This Moment On (Windswept Bay) (Volume 1)"
+  },
+  {
+    "item_name": "Number the Stars"
+  },
+  {
+    "item_name": "Beach Rental (Emerald Isle, NC Stories) (Volume 1)"
+  },
+  {
+    "item_name": "Blue Wide Sky: Book One - Smith Mountain Lake Series (Volume 1)"
+  },
+  {
+    "item_name": "Trust Me (The Last Stand Trilogy, Book 1)"
+  },
+  {
+    "item_name": "Lies That Bind Us"
+  },
+  {
+    "item_name": "The Stranger Beside Me: The Twentieth Anniversary Edition"
+  },
+  {
+    "item_name": "Forever After: A Hanover Falls Novel"
+  },
+  {
+    "item_name": "Almost Forever (Hanover Falls Series #1)"
+  },
+  {
+    "item_name": "After All: A Hanover Falls Novel"
+  },
+  {
+    "item_name": "Dead in Her Tracks (Rogue Winter Novella)"
+  },
+  {
+    "item_name": "On Her Father's Grave (Rogue River Novella)"
+  },
+  {
+    "item_name": "Her Grave Secrets (Rogue River Novella)"
+  },
+  {
+    "item_name": "Gone to Her Grave (Rogue River Novella)"
+  },
+  {
+    "item_name": "Walking on Her Grave (Rogue River Novella)"
+  },
+  {
+    "item_name": "Burned by Her Devotion (Rogue Vows)"
+  },
+  {
+    "item_name": "Her Last Word"
+  },
+  {
+    "item_name": "Missing (Mason Black) (Volume 1)"
+  },
+  {
+    "item_name": "A Merciful Silence (Mercy Kilpatrick)"
+  },
+  {
+    "item_name": "Double Dog Dare (The Dogfather) (Volume 7)"
+  },
+  {
+    "item_name": "Jane Doe: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Gathering Prey (A Prey Novel)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Dangerous Passage: A Novel (Southern Crimes) (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Promise Cove: A Pelican Pointe Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "The One That Got Away"
+  },
+  {
+    "rank": 6,
+    "item_name": "Life After Wife (A Three Magic Words Romance)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Prettiest One: A Thriller"
+  },
+  {
+    "rank": 8,
+    "item_name": "Fatal Judgment (Guardians of Justice, Book 1) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Last Mile"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Merciful Death (Mercy Kilpatrick)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Line Between Here and Gone (Forensic Instincts)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Deathscape (Broslin Creek) (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Brands Who Came for Christmas (The Oklahoma All-Girl Brands) (Silhouette Intimate Moments, 1039)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Vanished (Callahan &amp; McLane)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Crazy Little Thing (A Bell Harbor Novel)"
+  },
+  {
+    "rank": 16,
+    "item_name": "And Then She Was GONE: A riveting new suspense novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Outrage (Faith McMann Trilogy)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Wild Man Creek (A Virgin River Novel)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Silent Run"
+  },
+  {
+    "rank": 20,
+    "item_name": "Notorious (Max Revere Novels)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Blood on the Tracks (Sydney Rose Parnell)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Deathwatch: Broslin Creek"
+  },
+  {
+    "rank": 23,
+    "item_name": "Twelve Days"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Shark (Forgotten Files)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Up to the Challenge (An Anchor Island Novel)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Say You're Sorry (Morgan Dane)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Chance (Thunder Point)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Maggie's Mistake (Avalon Historical Romance)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Blood Defense (Samantha Brinkman)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Lucky in Love"
+  },
+  {
+    "rank": 31,
+    "item_name": "Father Found (The Daddy School, Book 1) (Harlequin Superromance, No 763)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Silent Fall"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Ivy Tree - An Avalon Romance"
+  },
+  {
+    "rank": 34,
+    "item_name": "Rose Harbor in Bloom: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Wyoming Tough"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Wager (Avalon Romance)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Mean Streak"
+  },
+  {
+    "rank": 38,
+    "item_name": "Nora Roberts Land (Dare Valley)"
+  },
+  {
+    "rank": 39,
+    "item_name": "At Wolf Ranch: A Montana Men Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Secret Sister (Fairham Island)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Blank Slate"
+  },
+  {
+    "rank": 42,
+    "item_name": "Ties That Bind: A Madison Knight Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Zero Day (John Puller series)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Memory Man (Amos Decker series)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Between Now And Forever (Callaways #4)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Field Of Prey (Thorndike Press Large Print Basic)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Girl Jacked"
+  },
+  {
+    "rank": 48,
+    "item_name": "She Can Scream"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Trapped Girl (Tracy Crosswhite)"
+  },
+  {
+    "rank": 50,
+    "item_name": "No Way Back"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

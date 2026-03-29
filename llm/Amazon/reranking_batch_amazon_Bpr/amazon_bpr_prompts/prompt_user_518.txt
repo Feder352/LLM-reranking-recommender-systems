@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Feminist Revolution: The Struggle for Women's Liberation"
+  },
+  {
+    "item_name": "GED Test Prep Plus 2018: 2 Practice Tests + Proven Strategies + Online (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "GED Test Prep 2018: 2 Practice Tests + Proven Strategies (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "Neo Parasyte m"
+  },
+  {
+    "item_name": "Waco: A Survivor's Story"
+  },
+  {
+    "item_name": "The Big Picture: The Fight for the Future of Movies"
+  },
+  {
+    "item_name": "Work: The Last 1,000 Years"
+  },
+  {
+    "item_name": "Patriot Number One: American Dreams in Chinatown"
+  },
+  {
+    "item_name": "With One Shot: Family Murder and a Search for Justice"
+  },
+  {
+    "item_name": "Dangerous Mystic: Meister Eckhart's Path to the God Within"
+  },
+  {
+    "item_name": "Blood Letters: The Untold Story of Lin Zhao, a Martyr in Mao's China"
+  },
+  {
+    "item_name": "The Downside"
+  },
+  {
+    "item_name": "What Is Russia Up To in the Middle East?"
+  },
+  {
+    "item_name": "Odd Girl Out (Signature)"
+  },
+  {
+    "item_name": "The Common Core Mathematics Companion: The Standards Decoded, High School: What They Say, What They Mean, How to Teach Them (Corwin Mathematics Series)"
+  },
+  {
+    "item_name": "Great American Outpost: Dreamers, Mavericks, and the Making of an Oil Frontier"
+  },
+  {
+    "item_name": "A Lab of One's Own: Science and Suffrage in the First World War"
+  },
+  {
+    "item_name": "All Things Bright and Strange"
+  },
+  {
+    "item_name": "The Truth About Animals: Stoned Sloths, Lovelorn Hippos, and Other Tales from the Wild Side of Wildlife"
+  },
+  {
+    "item_name": "Absolute Power: How the Pope Became the Most Influential Man in the World"
+  },
+  {
+    "item_name": "My Father's Wake: How the Irish Teach Us to Live, Love, and Die"
+  },
+  {
+    "item_name": "The War on Neighborhoods: Policing, Prison, and Punishment in a Divided City"
+  },
+  {
+    "item_name": "Imperfect Justice (Hidden Justice)"
+  },
+  {
+    "item_name": "The Escape Artist"
+  },
+  {
+    "item_name": "The View from Rainshadow Bay (A Lavender Tides Novel)"
+  },
+  {
+    "item_name": "Police Exams Prep 2018-2019: 4 Practice Tests + Proven Strategies (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "What the Eyes Don't See: A Story of Crisis, Resistance, and Hope in an American City"
+  },
+  {
+    "item_name": "First Person"
+  },
+  {
+    "item_name": "From Broken Glass: My Story of Finding Hope in Hitler's Death Camps to Inspire a New Generation"
+  },
+  {
+    "item_name": "Crochet Animal Rugs: Over 20 Crochet Patterns for Fun Floor Mats and Matching Accessories"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Integrity at Stake: Safeguarding Your Church from Financial Fraud"
+  },
+  {
+    "rank": 2,
+    "item_name": "Mad Richard"
+  },
+  {
+    "rank": 3,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 4,
+    "item_name": "Bird Dream: Adventures at the Extremes of Human Flight"
+  },
+  {
+    "rank": 5,
+    "item_name": "Close Enough for the Angels"
+  },
+  {
+    "rank": 6,
+    "item_name": "Law of the Jungle: The $19 Billion Legal Battle Over Oil in the Rain Forest and the Lawyer Who'd Stop at Nothing to Win"
+  },
+  {
+    "rank": 7,
+    "item_name": "Brave Genius: A Scientist, a Philosopher, and Their Daring Adventures from the French Resistance to the Nobel Prize"
+  },
+  {
+    "rank": 8,
+    "item_name": "The XX Factor: How the Rise of Working Women Has Created a Far Less Equal World"
+  },
+  {
+    "rank": 9,
+    "item_name": "Literacy and the Common Core: Recipes for Action (Jossey-Bass Teacher)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Main Street Entrepreneur: Build Your Dream Company Doing What You Love Where You Live"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Invisible Front: Love and Loss in an Era of Endless War"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Arab of the Future 2: A Childhood in the Middle East, 1984-1985: A Graphic Memoir"
+  },
+  {
+    "rank": 13,
+    "item_name": "Victory: The Triumphant Gay Revolution"
+  },
+  {
+    "rank": 14,
+    "item_name": "Social: Why Our Brains Are Wired to Connect"
+  },
+  {
+    "rank": 15,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 16,
+    "item_name": "Secrets of State"
+  },
+  {
+    "rank": 17,
+    "item_name": "Bones: Brothers, Horses, Cartels, and the Borderland Dream"
+  },
+  {
+    "rank": 18,
+    "item_name": "A Wretched and Precarious Situation: In Search of the Last Arctic Frontier"
+  },
+  {
+    "rank": 19,
+    "item_name": "Being Berlusconi: The Rise and Fall from Cosa Nostra to Bunga Bunga"
+  },
+  {
+    "rank": 20,
+    "item_name": "Victoria: A Life"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Defender: How the Legendary Black Newspaper Changed America"
+  },
+  {
+    "rank": 22,
+    "item_name": "Maximize Your Potential: Grow Your Expertise, Take Bold Risks &amp; Build an Incredible Career (99U)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Energy Investing For Dummies"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Burn Pits: The Poisoning of America's Soldiers"
+  },
+  {
+    "rank": 25,
+    "item_name": "Magic Garden: Color, Dream, Create"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Mathews Men: Seven Brothers and the War Against Hitler's U-boats"
+  },
+  {
+    "rank": 27,
+    "item_name": "Man in Profile: Joseph Mitchell of The New Yorker"
+  },
+  {
+    "rank": 28,
+    "item_name": "Junior Seau: The Life and Death of a Football Icon"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Nixon Tapes: 1971-1972"
+  },
+  {
+    "rank": 30,
+    "item_name": "Simply Brilliant: How Great Organizations Do Ordinary Things in Extraordinary Ways"
+  },
+  {
+    "rank": 31,
+    "item_name": "Policing the Planet: Why the Policing Crisis Led to Black Lives Matter"
+  },
+  {
+    "rank": 32,
+    "item_name": "What Happened to Goldman Sachs: An Insider's Story of Organizational Drift and Its Unintended Consequences"
+  },
+  {
+    "rank": 33,
+    "item_name": "Space Race [Concertina fold-out book]: Leporello"
+  },
+  {
+    "rank": 34,
+    "item_name": "Guilty?: Crime, Punishment, and the Changing Face of Justice"
+  },
+  {
+    "rank": 35,
+    "item_name": "Syria Burning: A Short History of a Catastrophe"
+  },
+  {
+    "rank": 36,
+    "item_name": "I Left It on the Mountain: A Memoir"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Georgetown Set: Friends and Rivals in Cold War Washington"
+  },
+  {
+    "rank": 38,
+    "item_name": "Against the Country"
+  },
+  {
+    "rank": 39,
+    "item_name": "Cuckoo Feathers (Simply Sarah)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Prayers For People Who Say They Can't Pray"
+  },
+  {
+    "rank": 41,
+    "item_name": "Lopez Lomong: We're all destined to use our talent to change people's lives (What Really Matters)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Third Plate: Field Notes on the Future of Food"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Predator Paradox: Ending the War with Wolves, Bears, Cougars, and Coyotes"
+  },
+  {
+    "rank": 44,
+    "item_name": "Can I Go Now?: The Life of Sue Mengers, Hollywood's First Superagent"
+  },
+  {
+    "rank": 45,
+    "item_name": "That's Not How We Do It Here!: A Story about How Organizations Rise and Fall--and Can Rise Again"
+  },
+  {
+    "rank": 46,
+    "item_name": "Fast into the Night: A Woman, Her Dogs, and Their Journey North on the Iditarod Trail"
+  },
+  {
+    "rank": 47,
+    "item_name": "Here and There: Leaving Hasidism, Keeping My Family"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Battle of Junk Mountain"
+  },
+  {
+    "rank": 49,
+    "item_name": "My Lost Cuba"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Full Catastrophe: Travels Among the New Greek Ruins"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

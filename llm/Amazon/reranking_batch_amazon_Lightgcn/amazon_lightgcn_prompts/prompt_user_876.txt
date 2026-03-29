@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Book of Murdock (Page Murdock Novels)"
+  },
+  {
+    "item_name": "Nobody's Angel (Hard Case Crime)"
+  },
+  {
+    "item_name": "For the Win"
+  },
+  {
+    "item_name": "Jonah Hex: No Way Back"
+  },
+  {
+    "item_name": "Drinking at the Movies"
+  },
+  {
+    "item_name": "The Lucifer Code (Thomas Lourdes)"
+  },
+  {
+    "item_name": "People of the Longhouse (North America's Forgotten Past)"
+  },
+  {
+    "item_name": "The Way of Kings"
+  },
+  {
+    "item_name": "Imager's Intrigue (The Imager Portfolio)"
+  },
+  {
+    "item_name": "The Action Bible Study Bible ESV (Gray)"
+  },
+  {
+    "item_name": "Shadow Grail #1: Legacies"
+  },
+  {
+    "item_name": "Lady Lazarus"
+  },
+  {
+    "item_name": "Passion Play (River of Souls, Book 1)"
+  },
+  {
+    "item_name": "Mister Wonderful: A Love Story (Pantheon Graphic Library)"
+  },
+  {
+    "item_name": "Shooter's Cross (Rancho Diablo)"
+  },
+  {
+    "item_name": "Scholar: The Fourth Book of the Imager Portfolio"
+  },
+  {
+    "item_name": "Superman: The High-Flying History of America's Most Enduring Hero"
+  },
+  {
+    "item_name": "Supergods: What Masked Vigilantes, Miraculous Mutants, and a Sun God from Smallville Can Teach Us About Being Human"
+  },
+  {
+    "item_name": "Fever Moon (Graphic Novel)"
+  },
+  {
+    "item_name": "A Memory of Light (Wheel of Time)"
+  },
+  {
+    "item_name": "Jerusalem: A Family Portrait"
+  },
+  {
+    "item_name": "Doc Savage: Skull Island"
+  },
+  {
+    "item_name": "Delilah Dirk and the Turkish Lieutenant"
+  },
+  {
+    "item_name": "Shovel Ready (Spademan)"
+  },
+  {
+    "item_name": "The Martian"
+  },
+  {
+    "item_name": "The Undertaking of Lily Chen"
+  },
+  {
+    "item_name": "Robert B. Parker's Killing the Blues (A Jesse Stone Novel)"
+  },
+  {
+    "item_name": "Olympians: Aphrodite: Goddess of Love"
+  },
+  {
+    "item_name": "Death Warmed Over (Dan Shamble Zombie P. I.)"
+  },
+  {
+    "item_name": "Delilah Dirk and the King's Shilling"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 34859,
+    "item_name": "The New Avengers, Vol. 3: Secrets And Lies"
+  },
+  {
+    "rank": 2,
+    "item_id": 34975,
+    "item_name": "Indestructible Hulk, Vol. 1: Agent of S.H.I.E.L.D."
+  },
+  {
+    "rank": 3,
+    "item_id": 37488,
+    "item_name": "The Last Quarry (Hard Case Crime)"
+  },
+  {
+    "rank": 4,
+    "item_id": 2514,
+    "item_name": "Unseen Academicals (Discworld)"
+  },
+  {
+    "rank": 5,
+    "item_id": 34938,
+    "item_name": "Daredevil, Vol. 1"
+  },
+  {
+    "rank": 6,
+    "item_id": 28437,
+    "item_name": "The Hunt for Atlantis: A Novel (Nina Wilde and Eddie Chase)"
+  },
+  {
+    "rank": 7,
+    "item_id": 34922,
+    "item_name": "Kick-Ass"
+  },
+  {
+    "rank": 8,
+    "item_id": 63883,
+    "item_name": "The Rocketeer: The Complete Deluxe Edition"
+  },
+  {
+    "rank": 9,
+    "item_id": 33745,
+    "item_name": "Agent to the Stars"
+  },
+  {
+    "rank": 10,
+    "item_id": 47139,
+    "item_name": "Hard Magic: Book I of the Grimnoir Chronicles"
+  },
+  {
+    "rank": 11,
+    "item_id": 33689,
+    "item_name": "Old Man's War"
+  },
+  {
+    "rank": 12,
+    "item_id": 34853,
+    "item_name": "New Avengers, Vol. 1: Breakout"
+  },
+  {
+    "rank": 13,
+    "item_id": 15392,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_id": 43967,
+    "item_name": "Fables Vol. 10: The Good Prince"
+  },
+  {
+    "rank": 15,
+    "item_id": 33866,
+    "item_name": "Shadows in Flight (The Shadow Series)"
+  },
+  {
+    "rank": 16,
+    "item_id": 33686,
+    "item_name": "Iorich (Vlad)"
+  },
+  {
+    "rank": 17,
+    "item_id": 9982,
+    "item_name": "Eldest (Inheritance, Book 2)"
+  },
+  {
+    "rank": 18,
+    "item_id": 25163,
+    "item_name": "Way of the Wolf: Book One Of The Vampire Earth"
+  },
+  {
+    "rank": 19,
+    "item_id": 9838,
+    "item_name": "Devil Red (Hap and Leonard)"
+  },
+  {
+    "rank": 20,
+    "item_id": 43984,
+    "item_name": "Green Lantern: In Brightest Day"
+  },
+  {
+    "rank": 21,
+    "item_id": 13148,
+    "item_name": "The Runelords: The Sum Of All Men (The Runelords, Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_id": 34995,
+    "item_name": "Thor Vol. 1: The Goddess of Thunder"
+  },
+  {
+    "rank": 23,
+    "item_id": 43925,
+    "item_name": "Fables Vol. 2: Animal Farm"
+  },
+  {
+    "rank": 24,
+    "item_id": 23558,
+    "item_name": "Sandman Preludes &amp; Nocturnes"
+  },
+  {
+    "rank": 25,
+    "item_id": 48057,
+    "item_name": "Under a Graveyard Sky"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

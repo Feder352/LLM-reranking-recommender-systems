@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Jais (David Rivers Book 1)"
+  },
+  {
+    "item_name": "An American Cage"
+  },
+  {
+    "item_name": "Louis L'Amour's Lost Treasures: Volume 1: Unfinished Manuscripts, Mysterious Stories, and Lost Notes from One of the World's Most Popular Novelists"
+  },
+  {
+    "item_name": "Deadly Stillwater"
+  },
+  {
+    "item_name": "The Vineyard Years: A Memoir with Recipes"
+  },
+  {
+    "item_name": "Out of Sorts"
+  },
+  {
+    "item_name": "The Good Samaritan"
+  },
+  {
+    "item_name": "Snow"
+  },
+  {
+    "item_name": "The Shoemaker's Wife: A Novel"
+  },
+  {
+    "item_name": "A River in Darkness: One Man's Escape from North Korea"
+  },
+  {
+    "item_name": "A gentleman in Moscow"
+  },
+  {
+    "item_name": "Two Kinds of Truth (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "End Game (Will Robie Series)"
+  },
+  {
+    "item_name": "The Bone Garden: A Novel"
+  },
+  {
+    "item_name": "Leonardo da Vinci"
+  },
+  {
+    "item_name": "Our Souls at Night (Vintage Contemporaries)"
+  },
+  {
+    "item_name": "The Elephant Whisperer"
+  },
+  {
+    "item_name": "Lonesome Dove"
+  },
+  {
+    "item_name": "Kick Kennedy: The Charmed Life and Tragic Death of the Favorite Kennedy Daughter"
+  },
+  {
+    "item_name": "Work Song (Two Medicine Country)"
+  },
+  {
+    "item_name": "Ragged Lake: A Frank Yakabuski Mystery"
+  },
+  {
+    "item_name": "The Sense of an Ending"
+  },
+  {
+    "item_name": "In the Land of Invisible Women: A Female Doctor's Journey in the Saudi Kingdom"
+  },
+  {
+    "item_name": "Need To Know"
+  },
+  {
+    "item_name": "The Return of Kid Cooper: A Novel"
+  },
+  {
+    "item_name": "The Third Victim: A Novel"
+  },
+  {
+    "item_name": "Bring Her Home"
+  },
+  {
+    "item_name": "Glock: The Rise of America's Gun"
+  },
+  {
+    "item_name": "Grant"
+  },
+  {
+    "item_name": "The Council of Twelve (A Hangman's Daughter Tale)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 3,
+    "item_name": "Livia Lone (A Livia Lone Novel)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 5,
+    "item_name": "Shotgun Lovesongs: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Olive Kitteridge"
+  },
+  {
+    "rank": 7,
+    "item_name": "Never Go Back: A Jack Reacher Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Missing You"
+  },
+  {
+    "rank": 9,
+    "item_name": "Brooklyn: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 11,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 12,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Stranger"
+  },
+  {
+    "rank": 14,
+    "item_name": "Etta &amp; Otto &amp; Russell &amp; James Ome"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Drop (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Rooster Bar"
+  },
+  {
+    "rank": 17,
+    "item_name": "Pilgrim's Wilderness: A True Story of Faith and Madness on the Alaska Frontier"
+  },
+  {
+    "rank": 18,
+    "item_name": "Bring Up the Bodies"
+  },
+  {
+    "rank": 19,
+    "item_name": "Heartbreak Hotel"
+  },
+  {
+    "rank": 20,
+    "item_name": "Fourth of July Creek: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Heartbreak Hotel: An Alex Delaware Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "Written in Fire (The Brilliance Trilogy)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Bone Tree (Penn Cage)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Gone Girl"
+  },
+  {
+    "rank": 26,
+    "item_name": "Americanah"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Goldfinch: A Novel (Pulitzer Prize for Fiction)"
+  },
+  {
+    "rank": 28,
+    "item_name": "City of Secrets: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Travelers: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Man in the Monster: Inside the Mind of a Serial Killer"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Unlikely Pilgrimage of Harold Fry: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 34,
+    "item_name": "Fool Me Once"
+  },
+  {
+    "rank": 35,
+    "item_name": "Afraid"
+  },
+  {
+    "rank": 36,
+    "item_name": "Five Days at Memorial: Life and Death in a Storm-Ravaged Hospital"
+  },
+  {
+    "rank": 37,
+    "item_name": "When Breath Becomes Air"
+  },
+  {
+    "rank": 38,
+    "item_name": "Live by Night: (Coughlin, Book 2) (Joe Coughlin Series)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Marley &amp; Me: Life and Love with the World's Worst Dog"
+  },
+  {
+    "rank": 40,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Red Bandanna: A Life. A Choice. A Legacy."
+  },
+  {
+    "rank": 42,
+    "item_name": "Take Me With You"
+  },
+  {
+    "rank": 43,
+    "item_name": "Under the Dome"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Ice Beneath Her: A Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "Where'd You Go, Bernadette"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Horse Walks into a Bar: A novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Norwegian by Night"
+  },
+  {
+    "rank": 49,
+    "item_name": "Make Me: A Jack Reacher Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Farm"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

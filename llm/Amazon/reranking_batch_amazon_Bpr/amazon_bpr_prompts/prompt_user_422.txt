@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "American Road: The Story of an Epic Transcontinental Journey at the Dawn of the Motor Age"
+  },
+  {
+    "item_name": "John Paul Jones: Sailor, Hero, Father of the American Navy"
+  },
+  {
+    "item_name": "Krakatoa: The Day the World Exploded: August 27, 1883"
+  },
+  {
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "item_name": "Gentleman Revolutionary: Gouverneur Morris, the Rake Who Wrote the Constitution"
+  },
+  {
+    "item_name": "The Frozen-Water Trade"
+  },
+  {
+    "item_name": "Ship Ablaze: The Tragedy of the Steamboat General Slocum"
+  },
+  {
+    "item_name": "I Am Legend"
+  },
+  {
+    "item_name": "The Dark Horse: The Surprise Election and Political Murder of President James A. Garfield"
+  },
+  {
+    "item_name": "Pacific Alamo: The Battle for Wake Island"
+  },
+  {
+    "item_name": "Under the Banner of Heaven : A Story of Violent Faith"
+  },
+  {
+    "item_name": "The First American: The Life and Times of Benjamin Franklin"
+  },
+  {
+    "item_name": "Poison Blonde (The Amos Walker Series #17)"
+  },
+  {
+    "item_name": "The Spartans: The World of the Warrior-Heroes of Ancient Greece"
+  },
+  {
+    "item_name": "Only Child: A Burke Novel"
+  },
+  {
+    "item_name": "Woodrow Wilson"
+  },
+  {
+    "item_name": "Journal of the Dead: A Story of Friendship and Murder in the New Mexico Desert"
+  },
+  {
+    "item_name": "Reefer Madness: Sex, Drugs, and Cheap Labor in the American Black Market"
+  },
+  {
+    "item_name": "Braving Home: Dispatches from the Underwater Town, the Lava-Side Inn, and Other Extreme Locales"
+  },
+  {
+    "item_name": "The Great Unraveling CD: Losing Our Way in the New Century"
+  },
+  {
+    "item_name": "The Last Stand of the Tin Can Sailors: The Extraordinary World War II Story of the U.S. Navy's Finest Hour"
+  },
+  {
+    "item_name": "Neither Here nor There: Travels in Europe"
+  },
+  {
+    "item_name": "Coming of the Third Reich"
+  },
+  {
+    "item_name": "What Ifs? of American History: Eminent Historians Imagine What Might Have Been"
+  },
+  {
+    "item_name": "Down the Great Unknown: John Wesley Powell's 1869 Journey of Discovery and Tragedy Through the Grand Canyon"
+  },
+  {
+    "item_name": "A Conspiracy of Paper: A Novel"
+  },
+  {
+    "item_name": "Deer Hunting with Jesus: Dispatches from America's Class War"
+  },
+  {
+    "item_name": "The Long Emergency: Surviving the End of Oil, Climate Change, and Other Converging Catastrophes of the Twenty-First Cent"
+  },
+  {
+    "item_name": "World Made by Hand: A Novel"
+  },
+  {
+    "item_name": "The Last Days of Jack Sparks"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 2,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 3,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 5,
+    "item_name": "Godless: The Church of Liberalism"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 7,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 8,
+    "item_name": "State of Fear"
+  },
+  {
+    "rank": 9,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 11,
+    "item_name": "GUNS, GERMS AND STEEL - A Short History of Everybody for the Last 13,000 Years"
+  },
+  {
+    "rank": 12,
+    "item_name": "Power and the Glory"
+  },
+  {
+    "rank": 13,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Manchurian Candidate"
+  },
+  {
+    "rank": 15,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 16,
+    "item_name": "Crime and Punishment (Classics)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 18,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 19,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 20,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 21,
+    "item_name": "Berlin: The Downfall, 1945"
+  },
+  {
+    "rank": 22,
+    "item_name": "Salt: A World History"
+  },
+  {
+    "rank": 23,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 24,
+    "item_name": "Tortilla Flat"
+  },
+  {
+    "rank": 25,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 26,
+    "item_name": "Claudius The God"
+  },
+  {
+    "rank": 27,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 28,
+    "item_name": "PREY."
+  },
+  {
+    "rank": 29,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 31,
+    "item_name": "Gettysburg: A Novel of the Civil War (The Gettysburg Trilogy)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Einstein: His Life and Universe"
+  },
+  {
+    "rank": 33,
+    "item_name": "2001: A Space Odyssey (Penguin Galaxy)"
+  },
+  {
+    "rank": 34,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 36,
+    "item_name": "Plan of Attack:  The Definitive Account of the Decision to Invade Iraq"
+  },
+  {
+    "rank": 37,
+    "item_name": "The First Circle (English and Russian Edition)"
+  },
+  {
+    "rank": 38,
+    "item_name": "1776 : America and Britain at War"
+  },
+  {
+    "rank": 39,
+    "item_name": "Stranger in a Strange Land"
+  },
+  {
+    "rank": 40,
+    "item_name": "Tender Is the Night"
+  },
+  {
+    "rank": 41,
+    "item_name": "Flags of Our Fathers: Heroes of Iwo Jima"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Elements of Style, Third Edition"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 44,
+    "item_name": "I CLAUDIUS"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Years Of Rice And Salt"
+  },
+  {
+    "rank": 46,
+    "item_name": "I, Robot"
+  },
+  {
+    "rank": 47,
+    "item_name": "Eye of the Needle"
+  },
+  {
+    "rank": 48,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 49,
+    "item_name": "Lies My Teacher Told Me: Everything Your American History Textbook Got Wrong"
+  },
+  {
+    "rank": 50,
+    "item_name": "Night: With Connected Readings"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

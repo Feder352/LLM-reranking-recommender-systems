@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Against All Enemies (A Jonathan Grave Thriller)"
+  },
+  {
+    "item_name": "The Most Dangerous Place on Earth"
+  },
+  {
+    "item_name": "A Life in Parts"
+  },
+  {
+    "item_name": "Distress Signals"
+  },
+  {
+    "item_name": "Big Law: A Novel"
+  },
+  {
+    "item_name": "The Impossible Fortress"
+  },
+  {
+    "item_name": "My Not So Perfect Life: A Novel"
+  },
+  {
+    "item_name": "Hidden Figures: The American Dream and the Untold Story of the Black Women Mathematicians Who Helped Win the Space Race"
+  },
+  {
+    "item_name": "Dark Places"
+  },
+  {
+    "item_name": "State vs. Lassiter (Jake Lassiter Series)"
+  },
+  {
+    "item_name": "Secret Lives of the U.S. Presidents: What Your Teachers Never Told You About the Men of the White House"
+  },
+  {
+    "item_name": "Final Girls: A Novel"
+  },
+  {
+    "item_name": "The Forgotten Girls (A Stevens and Windermere Novel)"
+  },
+  {
+    "item_name": "My Darling Detective"
+  },
+  {
+    "item_name": "Change Agent"
+  },
+  {
+    "item_name": "The Whistler"
+  },
+  {
+    "item_name": "Dynastic, Bombastic, Fantastic: Reggie, Rollie, Catfish, and Charlie Finleys Swingin As"
+  },
+  {
+    "item_name": "Son of the Black Sword (Saga of the Forgotten Warrior)"
+  },
+  {
+    "item_name": "Law and Disorder"
+  },
+  {
+    "item_name": "Throw Away Girls (The Jaycee Wilder Series)"
+  },
+  {
+    "item_name": "Age of Swords: Book Two of The Legends of the First Empire"
+  },
+  {
+    "item_name": "Don't Close Your Eyes: A Novel"
+  },
+  {
+    "item_name": "Ramses the Damned: The Passion of Cleopatra"
+  },
+  {
+    "item_name": "The 8th Circle: A Thriller (A Danny Ryan Thriller)"
+  },
+  {
+    "item_name": "It Happened at Two in the Morning"
+  },
+  {
+    "item_name": "Paradox Bound: A Novel"
+  },
+  {
+    "item_name": "The Great and Only Barnum: The Tremendous, Stupendous Life of Showman P. T. Barnum"
+  },
+  {
+    "item_name": "Panacea: A Novel (The ICE Sequence)"
+  },
+  {
+    "item_name": "The Perfect Mother: A Novel"
+  },
+  {
+    "item_name": "Rescued: An Andy Carpenter Mystery (An Andy Carpenter Novel)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1517,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 2,
+    "item_id": 5033,
+    "item_name": "Redshirts: A Novel with Three Codas (Hugo Award Winner - Best Novel)"
+  },
+  {
+    "rank": 3,
+    "item_id": 1552,
+    "item_name": "A Clash of Kings: A Song of Ice and Fire: Book Two"
+  },
+  {
+    "rank": 4,
+    "item_id": 2347,
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 5,
+    "item_id": 730,
+    "item_name": "Time Traveler's Wife"
+  },
+  {
+    "rank": 6,
+    "item_id": 2864,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 7,
+    "item_id": 1131,
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "rank": 8,
+    "item_id": 2367,
+    "item_name": "Odd Thomas: An Odd Thomas Novel"
+  },
+  {
+    "rank": 9,
+    "item_id": 3751,
+    "item_name": "Still Life with Crows (Pendergast, Book 4)"
+  },
+  {
+    "rank": 10,
+    "item_id": 2935,
+    "item_name": "The Stolen Child: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_id": 2337,
+    "item_name": "Moon Over Soho (Rivers of London)"
+  },
+  {
+    "rank": 12,
+    "item_id": 1380,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 13,
+    "item_id": 1443,
+    "item_name": "Dearly Devoted Dexter"
+  },
+  {
+    "rank": 14,
+    "item_id": 3137,
+    "item_name": "Killing Floor (Jack Reacher, No. 1)"
+  },
+  {
+    "rank": 15,
+    "item_id": 971,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 16,
+    "item_id": 1887,
+    "item_name": "I Am Legend"
+  },
+  {
+    "rank": 17,
+    "item_id": 2109,
+    "item_name": "The Collectors"
+  },
+  {
+    "rank": 18,
+    "item_id": 1187,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 19,
+    "item_id": 1944,
+    "item_name": "The Terror: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_id": 1334,
+    "item_name": "Dexter by Design"
+  },
+  {
+    "rank": 21,
+    "item_id": 525,
+    "item_name": "The Blood Gospel: The Order of the Sanguines Series"
+  },
+  {
+    "rank": 22,
+    "item_id": 1250,
+    "item_name": "Kill You Twice"
+  },
+  {
+    "rank": 23,
+    "item_id": 4778,
+    "item_name": "Consent to Kill: A Thriller (Mitch Rapp, No. 6)"
+  },
+  {
+    "rank": 24,
+    "item_id": 2002,
+    "item_name": "The Gods of Guilt (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 25,
+    "item_id": 2623,
+    "item_name": "The Taking"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

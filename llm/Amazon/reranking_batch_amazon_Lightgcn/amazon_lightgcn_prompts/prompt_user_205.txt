@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "This Time Is Different: Eight Centuries of Financial Folly"
+  },
+  {
+    "item_name": "The Quants: How a New Breed of Math Whizzes Conquered Wall Street and Nearly Destroyed It"
+  },
+  {
+    "item_name": "No Simple Victory: World War II in Europe, 1939-1945"
+  },
+  {
+    "item_name": "You Are Not a Gadget: A Manifesto"
+  },
+  {
+    "item_name": "The Moral Landscape: How Science Can Determine Human Values"
+  },
+  {
+    "item_name": "The Tree: A Natural History of What Trees Are, How They Live, and Why They Matter"
+  },
+  {
+    "item_name": "Doctor Zhivago"
+  },
+  {
+    "item_name": "1Q84: Books 1 &amp; 2"
+  },
+  {
+    "item_name": "Dark Pools: The Rise of the Machine Traders and the Rigging of the U.S. Stock Market"
+  },
+  {
+    "item_name": "How to Create a Mind: The Secret of Human Thought Revealed"
+  },
+  {
+    "item_name": "The Making of the Atomic Bomb"
+  },
+  {
+    "item_name": "Our Mathematical Universe: My Quest for the Ultimate Nature of Reality"
+  },
+  {
+    "item_name": "God and the Multiverse: Humanity's Expanding View of the Cosmos"
+  },
+  {
+    "item_name": "Dereliction of Duty : Johnson, McNamara, the Joint Chiefs of Staff, and the Lies That Led to Vietnam"
+  },
+  {
+    "item_name": "From Colony to Superpower: U.S. Foreign Relations Since 1776 (Oxford History of the United States)"
+  },
+  {
+    "item_name": "The Untold History of the United States"
+  },
+  {
+    "item_name": "Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy"
+  },
+  {
+    "item_name": "The Christ Conspiracy: The Greatest Story Ever Sold"
+  },
+  {
+    "item_name": "Hidden Figures: The American Dream and the Untold Story of the Black Women Mathematicians Who Helped Win the Space Race"
+  },
+  {
+    "item_name": "One for the Money (Stephanie Plum, No. 1) (Stephanie Plum Novels)"
+  },
+  {
+    "item_name": "The Female Man (Beacon Paperback, 721)"
+  },
+  {
+    "item_name": "Nightwood (Modern Library)"
+  },
+  {
+    "item_name": "To the Lighthouse (Penguin Popular Classics)"
+  },
+  {
+    "item_name": "The Castle (Oxford World's Classics)"
+  },
+  {
+    "item_name": "The Castle (Modern Library, 388.1)"
+  },
+  {
+    "item_name": "The Castle (Modern Library, 388.1)"
+  },
+  {
+    "item_name": "Our Lady of the Flowers"
+  },
+  {
+    "item_name": "The Corrections"
+  },
+  {
+    "item_name": "Derrida: A Biography"
+  },
+  {
+    "item_name": "Enlightenment Now: The Case for Reason, Science, Humanism, and Progress [Paperback] [Feb 12, 2018] Steven Pinker"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 36807,
+    "item_name": "Irreligion: A Mathematician Explains Why the Arguments for God Just Don't Add Up"
+  },
+  {
+    "rank": 2,
+    "item_id": 74671,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 3,
+    "item_id": 21242,
+    "item_name": "The Open Society and its Enemies: Hegel and Marx (Routledge Classics) (Vol 2)"
+  },
+  {
+    "rank": 4,
+    "item_id": 27827,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 5,
+    "item_id": 7825,
+    "item_name": "Breaking the Spell: Religion as a Natural Phenomenon"
+  },
+  {
+    "rank": 6,
+    "item_id": 2253,
+    "item_name": "Wittgenstein's Poker: The Story of a Ten-Minute Argument Between Two Great Philosophers"
+  },
+  {
+    "rank": 7,
+    "item_id": 7764,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 8,
+    "item_id": 26364,
+    "item_name": "Full House: The Spread of Excellence from Plato to Darwin"
+  },
+  {
+    "rank": 9,
+    "item_id": 9066,
+    "item_name": "Creationism's Trojan Horse:  The Wedge of Intelligent Design"
+  },
+  {
+    "rank": 10,
+    "item_id": 29791,
+    "item_name": "On Human Nature: With a new Preface, Revised Edition"
+  },
+  {
+    "rank": 11,
+    "item_id": 7304,
+    "item_name": "The Blank Slate: The Modern Denial of Human Nature"
+  },
+  {
+    "rank": 12,
+    "item_id": 20110,
+    "item_name": "The Gnostic Gospels"
+  },
+  {
+    "rank": 13,
+    "item_id": 30020,
+    "item_name": "Bobos in Paradise: The New Upper Class and How They Got There"
+  },
+  {
+    "rank": 14,
+    "item_id": 37441,
+    "item_name": "Eurabia: The Euro-Arab Axis"
+  },
+  {
+    "rank": 15,
+    "item_id": 36450,
+    "item_name": "Hegemony or Survival: America's Quest for Global Dominance (The American Empire Project)"
+  },
+  {
+    "rank": 16,
+    "item_id": 6943,
+    "item_name": "Fabric of the Cosmos: Space, Time and the Texture of Reality (Penguin Press Science)"
+  },
+  {
+    "rank": 17,
+    "item_id": 7048,
+    "item_name": "Economics Of Innocent Fraud,The: Truth For Our Time"
+  },
+  {
+    "rank": 18,
+    "item_id": 8969,
+    "item_name": "The Selfish Gene (New Edition)"
+  },
+  {
+    "rank": 19,
+    "item_id": 36479,
+    "item_name": "Why Darwin Matters: The Case Against Intelligent Design"
+  },
+  {
+    "rank": 20,
+    "item_id": 6594,
+    "item_name": "Hitler's Pope : The Secret History of Pius XII"
+  },
+  {
+    "rank": 21,
+    "item_id": 5839,
+    "item_name": "World on Fire: How Exporting Free Market Democracy Breeds Ethnic Hatred and Global Instability"
+  },
+  {
+    "rank": 22,
+    "item_id": 36449,
+    "item_name": "What's the Matter with Kansas? How Conservatives Won the Heart of America"
+  },
+  {
+    "rank": 23,
+    "item_id": 29964,
+    "item_name": "Darwin's Dangerous Idea: Evolution and the Meanings of Life"
+  },
+  {
+    "rank": 24,
+    "item_id": 23587,
+    "item_name": "God Is Not Great: How Religion Poisons Everything"
+  },
+  {
+    "rank": 25,
+    "item_id": 6342,
+    "item_name": "Eichmann in Jerusalem, A Report on the Banality of Evil"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Hatchet"
+  },
+  {
+    "item_name": "The Einstein Enigma: A Novel"
+  },
+  {
+    "item_name": "Intervention"
+  },
+  {
+    "item_name": "Brian's Winter (Custom Book Bundles)"
+  },
+  {
+    "item_name": "Ruby Holler"
+  },
+  {
+    "item_name": "Pete the Cat I Love My White Shoes"
+  },
+  {
+    "item_name": "Ruined: A Novel"
+  },
+  {
+    "item_name": "The Roar"
+  },
+  {
+    "item_name": "Prophecy of the Sisters (Prophecy of the Sisters Trilogy)"
+  },
+  {
+    "item_name": "Shooting Kabul"
+  },
+  {
+    "item_name": "Job: The Story of a Simple Man"
+  },
+  {
+    "item_name": "61 Hours: A Reacher Novel"
+  },
+  {
+    "item_name": "Crocodile Tears (Alex Rider)"
+  },
+  {
+    "item_name": "Childhood's End"
+  },
+  {
+    "item_name": "Lucky's Lady (Loveswept)"
+  },
+  {
+    "item_name": "Pete The Cat Rocking In My School Shoes"
+  },
+  {
+    "item_name": "The Missing Piece"
+  },
+  {
+    "item_name": "Kill Shot (The Mitch Rapp Series)"
+  },
+  {
+    "item_name": "The Terror: A Novel"
+  },
+  {
+    "item_name": "Ultimatum"
+  },
+  {
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "item_name": "The Tale of Peter Rabbit"
+  },
+  {
+    "item_name": "Martha Quest: A Novel (Perennial Classics)"
+  },
+  {
+    "item_name": "Rome Sweet Home: Our Journey to Catholicism"
+  },
+  {
+    "item_name": "Altar of Eden"
+  },
+  {
+    "item_name": "Martha Quest: A Novel (Perennial Classics)"
+  },
+  {
+    "item_name": "Tenderness"
+  },
+  {
+    "item_name": "The Drowning Guard: A Novel of the Ottoman Empire"
+  },
+  {
+    "item_name": "A Teaspoon of Earth and Sea: A Novel"
+  },
+  {
+    "item_name": "Duplicity: A Novel (The Major Brooke Grant Series)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Dog Days (Diary of a Wimpy Kid)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 5,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Five People You Meet in Heaven (Random House Large Print)"
+  },
+  {
+    "rank": 9,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Invention of Hugo Cabret"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 16,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 17,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 18,
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Eyre Affair: A Thursday Next Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "Speak"
+  },
+  {
+    "rank": 21,
+    "item_name": "Memoirs of a Geisha Uk"
+  },
+  {
+    "rank": 22,
+    "item_name": "Mystic River"
+  },
+  {
+    "rank": 23,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Angels &amp; Demons (Random House Large Print)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Amber Spyglass"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Zookeeper's Wife: A War Story"
+  },
+  {
+    "rank": 29,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 30,
+    "item_name": "On Writing"
+  },
+  {
+    "rank": 31,
+    "item_name": "I Want My Hat Back"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 33,
+    "item_name": "American Born Chinese"
+  },
+  {
+    "rank": 34,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Night"
+  },
+  {
+    "rank": 36,
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 38,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Maus: My Father Bleeds History Pt. 1: A Survivor's Tale (Penguin Graphic Fiction)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Husband: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 42,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Lovely Bones: Deluxe Edition"
+  },
+  {
+    "rank": 44,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Reptile Room (A Series of Unfortunate Events, Book 2)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Wee Free Men: A Story of Discworld"
+  },
+  {
+    "rank": 47,
+    "item_name": "Noah's Castle"
+  },
+  {
+    "rank": 48,
+    "item_name": "Isaac's Storm: A Man, a Time, and the Deadliest Hurricane in History"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Lost Symbol (Dan Brown)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Ersatz Elevator (A Series of Unfortunate Events, Book 6)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

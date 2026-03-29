@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Right Ho, Jeeves"
+  },
+  {
+    "item_name": "A Distant Mirror: the Calamitous 14th Century"
+  },
+  {
+    "item_name": "The Children of Henry VIII"
+  },
+  {
+    "item_name": "History of the Peloponnesian War"
+  },
+  {
+    "item_name": "The Night of the Long Knives (Dover Doomsday Classics)"
+  },
+  {
+    "item_name": "Henry Clay: The Essential American"
+  },
+  {
+    "item_name": "Seward: Lincoln's Indispensable Man"
+  },
+  {
+    "item_name": "Golden Bough"
+  },
+  {
+    "item_name": "The Heir Apparent: A Life of Edward VII, the Playboy Prince"
+  },
+  {
+    "item_name": "The Princes in the Tower"
+  },
+  {
+    "item_name": "Catherine the Great: Portrait of a Woman"
+  },
+  {
+    "item_name": "The Fall of the Ottomans: The Great War in the Middle East"
+  },
+  {
+    "item_name": "The Path Between the Seas: The Creation of the Panama Canal, 1870-1914"
+  },
+  {
+    "item_name": "The Path Between the Seas: The Creation of the Panama Canal, 1870-1914"
+  },
+  {
+    "item_name": "Starliner"
+  },
+  {
+    "item_name": "Lucrezia Borgia: Life, Love, and Death in Renaissance Italy"
+  },
+  {
+    "item_name": "How to Be a Normal Person"
+  },
+  {
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "item_name": "Conspirata: A Novel of Ancient Rome"
+  },
+  {
+    "item_name": "Imperium: A Novel of Ancient Rome"
+  },
+  {
+    "item_name": "The Templars: The Dramatic History Of The Knights Templar, The Most Powerful Military Order Of The Crusades"
+  },
+  {
+    "item_name": "Egyptian Mythology: A Fascinating Guide to Understanding the Gods, Goddesses, Monsters, and Mortals"
+  },
+  {
+    "item_name": "Star Trek Log Nine"
+  },
+  {
+    "item_name": "Grant"
+  },
+  {
+    "item_name": "The First Man in Rome (In the Masters of Rome)"
+  },
+  {
+    "item_name": "The Name of the Rose"
+  },
+  {
+    "item_name": "The Storm Before the Storm: The Beginning of the End of the Roman Republic"
+  },
+  {
+    "item_name": "1177 B.C.: The Year Civilization Collapsed (Turning Points in Ancient History)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3546,
+    "item_name": "The Invention of Hugo Cabret"
+  },
+  {
+    "rank": 2,
+    "item_id": 1843,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 3,
+    "item_id": 2669,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 4,
+    "item_id": 448,
+    "item_name": "How the States Got Their Shapes"
+  },
+  {
+    "rank": 5,
+    "item_id": 2588,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 6,
+    "item_id": 2237,
+    "item_name": "The Coming of Conan the Cimmerian: The Original Adventures of the Greatest Sword and Sorcery Hero of All Time!"
+  },
+  {
+    "rank": 7,
+    "item_id": 1698,
+    "item_name": "The World Without Us"
+  },
+  {
+    "rank": 8,
+    "item_id": 1380,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 9,
+    "item_id": 2174,
+    "item_name": "The Demon-Haunted World: Science as a Candle in the Dark"
+  },
+  {
+    "rank": 10,
+    "item_id": 5748,
+    "item_name": "Battle Royale: The Novel"
+  },
+  {
+    "rank": 11,
+    "item_id": 193,
+    "item_name": "Lost Horizon"
+  },
+  {
+    "rank": 12,
+    "item_id": 3103,
+    "item_name": "The Polar Express"
+  },
+  {
+    "rank": 13,
+    "item_id": 4632,
+    "item_name": "Lies My Teacher Told Me : Everything Your American History Textbook Got Wrong"
+  },
+  {
+    "rank": 14,
+    "item_id": 1205,
+    "item_name": "Homage to Catalonia"
+  },
+  {
+    "rank": 15,
+    "item_id": 1887,
+    "item_name": "I Am Legend"
+  },
+  {
+    "rank": 16,
+    "item_id": 216,
+    "item_name": "Bridge to Terabithia"
+  },
+  {
+    "rank": 17,
+    "item_id": 5174,
+    "item_name": "America Alone: The End of the World As We Know It"
+  },
+  {
+    "rank": 18,
+    "item_id": 103,
+    "item_name": "The Map That Changed the World: William Smith and the Birth of Modern Geology"
+  },
+  {
+    "rank": 19,
+    "item_id": 3599,
+    "item_name": "The Castle of Llyr (Pyrdain Chronicles)"
+  },
+  {
+    "rank": 20,
+    "item_id": 747,
+    "item_name": "The Face of Battle: A Study of Agincourt, Waterloo, and the Somme"
+  },
+  {
+    "rank": 21,
+    "item_id": 811,
+    "item_name": "Black Hawk Down: A Story of Modern War"
+  },
+  {
+    "rank": 22,
+    "item_id": 685,
+    "item_name": "Salt: A World History"
+  },
+  {
+    "rank": 23,
+    "item_id": 3011,
+    "item_name": "Stiff: The Curious Lives of Human Cadavers"
+  },
+  {
+    "rank": 24,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 25,
+    "item_id": 322,
+    "item_name": "Smoke and Mirrors: Short Fictions and Illusions"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

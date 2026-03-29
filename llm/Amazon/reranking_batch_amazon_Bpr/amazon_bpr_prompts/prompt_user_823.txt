@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Wolves (A John Wells Novel)"
+  },
+  {
+    "item_name": "When Friendship Followed Me Home"
+  },
+  {
+    "item_name": "Vinegar Girl: William Shakespeare's The Taming of the Shrew Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "item_name": "A Hero of France: A Novel"
+  },
+  {
+    "item_name": "Sara Moulton's Home Cooking 101: How to Make Everything Taste Better"
+  },
+  {
+    "item_name": "Lucy &amp; Andy Neanderthal (Lucy and Andy Neanderthal)"
+  },
+  {
+    "item_name": "The Newsmakers (A Newsmakers Novel)"
+  },
+  {
+    "item_name": "Cecil's Pride"
+  },
+  {
+    "item_name": "Shrill"
+  },
+  {
+    "item_name": "Eaternity: More than 150 Deliciously Easy Vegan Recipes for a Long, Healthy, Satisfied, Joyful Life"
+  },
+  {
+    "item_name": "Spear of Light (The Glittering Edge)"
+  },
+  {
+    "item_name": "The Ninja's Daughter: A Hiro Hattori Novel (A Shinobi Mystery)"
+  },
+  {
+    "item_name": "These Honored Dead: A Lincoln and Speed Mystery"
+  },
+  {
+    "item_name": "More Than Magic"
+  },
+  {
+    "item_name": "Never Look an American in the Eye: A Memoir of Flying Turtles, Colonial Ghosts, and the Making of a Nigerian Amiercan"
+  },
+  {
+    "item_name": "The Heavens May Fall"
+  },
+  {
+    "item_name": "Some Writer!: The Story of E. B. White (Ala Notable Children's Books. All Ages)"
+  },
+  {
+    "item_name": "Fresh Italian Cooking for the New Generation: 100 Full-Flavored Vegetarian Dishes That Prove You Can Stay Slim While Eating Pasta and Bread"
+  },
+  {
+    "item_name": "Violent Borders: Refugees and the Right to Move"
+  },
+  {
+    "item_name": "Duck on a Tractor"
+  },
+  {
+    "item_name": "Be Light Like a Bird"
+  },
+  {
+    "item_name": "Dark Waters: A Raisa Jordan Thriller"
+  },
+  {
+    "item_name": "Me and Marvin Gardens"
+  },
+  {
+    "item_name": "How to Be a Supervillain"
+  },
+  {
+    "item_name": "Brave (Berrybrook Middle School)"
+  },
+  {
+    "item_name": "Lights, Camera, Middle School! (Babymouse Tales from the Locker)"
+  },
+  {
+    "item_name": "Saving Marty"
+  },
+  {
+    "item_name": "Ghost Boys"
+  },
+  {
+    "item_name": "Garden of the Lost and Abandoned: The Extraordinary Story of One Ordinary Woman and the Children She Saves"
+  },
+  {
+    "item_name": "Two Dogs in a Trench Coat Go to School: Book 1"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 2,
+    "item_name": "Dr. Bird's Advice for Sad Poets"
+  },
+  {
+    "rank": 3,
+    "item_name": "What I Saw And How I Lied"
+  },
+  {
+    "rank": 4,
+    "item_name": "Railhead"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 6,
+    "item_name": "I Am Princess X"
+  },
+  {
+    "rank": 7,
+    "item_name": "Chasing Secrets"
+  },
+  {
+    "rank": 8,
+    "item_name": "Speak"
+  },
+  {
+    "rank": 9,
+    "item_name": "Refugee"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Strange and Beautiful Sorrows of Ava Lavender"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Golem and the Jinni: A Novel (P.S.)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Voyage of Lucy P. Simmons"
+  },
+  {
+    "rank": 13,
+    "item_name": "Smart Girls Get What They Want"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Clockwork Three"
+  },
+  {
+    "rank": 15,
+    "item_name": "Grasshopper Jungle"
+  },
+  {
+    "rank": 16,
+    "item_name": "The True Blue Scouts of Sugar Man Swamp"
+  },
+  {
+    "rank": 17,
+    "item_name": "This One Summer"
+  },
+  {
+    "rank": 18,
+    "item_name": "A Tale Dark and Grimm"
+  },
+  {
+    "rank": 19,
+    "item_name": "MaddAddam (MaddAddam Trilogy)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Crash and Burn"
+  },
+  {
+    "rank": 21,
+    "item_name": "Magonia"
+  },
+  {
+    "rank": 22,
+    "item_name": "Stay Where You Are And Then Leave"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Girl Who Could Not Dream"
+  },
+  {
+    "rank": 24,
+    "item_name": "Fire in the Ashes: Twenty-Five Years Among the Poorest Children in America"
+  },
+  {
+    "rank": 25,
+    "item_name": "All the Truth That's in Me"
+  },
+  {
+    "rank": 26,
+    "item_name": "Gated"
+  },
+  {
+    "rank": 27,
+    "item_name": "Planet Tad"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Mango-Shaped Space"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Lost"
+  },
+  {
+    "rank": 30,
+    "item_name": "Seven Wonders Book 1: The Colossus Rises"
+  },
+  {
+    "rank": 31,
+    "item_name": "Life Unaware (Entangled Teen)"
+  },
+  {
+    "rank": 32,
+    "item_name": "In the Land of Believers: An Outsider's Extraordinary Journey into the Heart of the Evangelical Church"
+  },
+  {
+    "rank": 33,
+    "item_name": "Summer of the Gypsy Moths"
+  },
+  {
+    "rank": 34,
+    "item_name": "Sway: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "My Fair Godmother (Godmother, Book 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The End of Innocence: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Everland"
+  },
+  {
+    "rank": 38,
+    "item_name": "Born of Illusion"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Monstrumologist"
+  },
+  {
+    "rank": 40,
+    "item_name": "When You Reach Me (Yearling Newbery)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Overboard! (Survivor Diaries)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Samurai Awakening: (Samurai Awakening Book 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "City of Saints &amp; Thieves"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Unbearable Book Club for Unsinkable Girls"
+  },
+  {
+    "rank": 45,
+    "item_name": "Crewel: A Novel (Crewel World)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Geography of You and Me"
+  },
+  {
+    "rank": 47,
+    "item_name": "Nick and Tesla's High-Voltage Danger Lab: A Mystery with Electromagnets, Burglar Alarms, and Other Gadgets You Can Build Yourself"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Wild Ones"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Library at Mount Char"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Secret Seven"
+  },
+  {
+    "item_name": "The Secret Seven"
+  },
+  {
+    "item_name": "The Secret Seven"
+  },
+  {
+    "item_name": "The Secret Seven"
+  },
+  {
+    "item_name": "Five Go Off to Camp (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five Have Plenty of Fun (Famous Five)"
+  },
+  {
+    "item_name": "Five Have Plenty of Fun (Famous Five)"
+  },
+  {
+    "item_name": "Five Have Plenty of Fun (Famous Five)"
+  },
+  {
+    "item_name": "Five Have Plenty of Fun (Famous Five)"
+  },
+  {
+    "item_name": "Five Go Off to Camp (Famous Five)"
+  },
+  {
+    "item_name": "Five Go to Smuggler's Top (Famous Five)"
+  },
+  {
+    "item_name": "Five Go to Smuggler's Top (Famous Five)"
+  },
+  {
+    "item_name": "Five Go Off to Camp (Famous Five)"
+  },
+  {
+    "item_name": "Five Go Off to Camp (Famous Five)"
+  },
+  {
+    "item_name": "Five Go Off to Camp (Famous Five)"
+  },
+  {
+    "item_name": "Five Go Off to Camp (Famous Five)"
+  },
+  {
+    "item_name": "The Paradise Beach Mysteries: Whitehaven Beach (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 2,
+    "item_name": "Liberal Fascism: The Secret History of the Left from Mussolini to the Politics of Meaning"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Yom Kippur War: The Epic Encounter That Transformed the Middle East"
+  },
+  {
+    "rank": 5,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 6,
+    "item_name": "Jihad Incorporated: A Guide to Militant Islam in the Us"
+  },
+  {
+    "rank": 7,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 8,
+    "item_name": "A War of Frontier and Empire: The Philippine-American War, 1899-1902"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Open Society and its Enemies: Hegel and Marx (Routledge Classics) (Vol 2)"
+  },
+  {
+    "rank": 10,
+    "item_name": "9-11"
+  },
+  {
+    "rank": 11,
+    "item_name": "Consider the Fork: A History of How We Cook and Eat"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Closing of the Western Mind: The Rise of Faith and the Fall of Reason"
+  },
+  {
+    "rank": 13,
+    "item_name": "Out of Control: The New Biology of Machines, Social Systems, &amp; the Economic World"
+  },
+  {
+    "rank": 14,
+    "item_name": "The End of Days: Fundamentalism and the Struggle for the Temple Mount"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Lemon Tree"
+  },
+  {
+    "rank": 16,
+    "item_name": "Six Days of War: June 1967 and the Making of the Modern Middle East"
+  },
+  {
+    "rank": 17,
+    "item_name": "Osama Bin Laden"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Truth About Muhammad: Founder of the World's Most Intolerant Religion"
+  },
+  {
+    "rank": 19,
+    "item_name": "Because They Hate: A Survivor of Islamic Terror Warns America"
+  },
+  {
+    "rank": 20,
+    "item_name": "The World Almanac and Book of Facts 1998"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Professors:  The 101 Most Dangerous Academics in America"
+  },
+  {
+    "rank": 22,
+    "item_name": "How I Helped O. J. Get Away With Murder: The Shocking Inside Story of Violence, Loyalty, Regret, and Remorse"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Castle (Modern Library, 388.1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Reappraisals: Reflections on the Forgotten Twentieth Century"
+  },
+  {
+    "rank": 25,
+    "item_name": "History of Western Philosophy (Routledge Classics) (Volume 44)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The American Patriot's Almanac"
+  },
+  {
+    "rank": 27,
+    "item_name": "Rabbit At Rest"
+  },
+  {
+    "rank": 28,
+    "item_name": "On Hitler's Mountain: Overcoming the Legacy of a Nazi Childhood"
+  },
+  {
+    "rank": 29,
+    "item_name": "Why Terrorism Works: Understanding the Threat Responding to the Challenge"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Godly Hero: The Life of William Jennings Bryan"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Working Poor: Invisible in America"
+  },
+  {
+    "rank": 32,
+    "item_name": "Legacy of Ashes: The History of the CIA"
+  },
+  {
+    "rank": 33,
+    "item_name": "Give Me Liberty: Freeing Ourselves in the Twenty-First Century"
+  },
+  {
+    "rank": 34,
+    "item_name": "Fabric Of Reality (Penguin Science)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Sailing from Byzantium: How a Lost Empire Shaped the World"
+  },
+  {
+    "rank": 36,
+    "item_name": "If I did it : Confessions of the Killer"
+  },
+  {
+    "rank": 37,
+    "item_name": "1968: The Year That Rocked the World"
+  },
+  {
+    "rank": 38,
+    "item_name": "Escape from Sobibor"
+  },
+  {
+    "rank": 39,
+    "item_name": "Insectopedia"
+  },
+  {
+    "rank": 40,
+    "item_name": "Why Nations Fail: The Origins of Power, Prosperity, and Poverty"
+  },
+  {
+    "rank": 41,
+    "item_name": "Worse Than Watergate: The Secret Presidency of George W. Bush"
+  },
+  {
+    "rank": 42,
+    "item_name": "We Wish to Inform You That Tomorrow We Will be Killed With Our Families: Stories from Rwanda"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Connecticut Yankee in King Arthur's Court (Penguin Classics)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Babel: Collected Stories (Penguin Classics)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Mighty Heart: The Brave Life and Death of My Husband, Danny Pearl"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Cosmic Landscape: String Theory and the Illusion of Intelligent Design"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Fourth Estate"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Dark Side of Camelot"
+  },
+  {
+    "rank": 50,
+    "item_name": "Seize the Day (Penguin Great Books of the 20th Century)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Miss Frost Solves A Cold Case: A Nocturne Falls Mystery (Jayne Frost) (Volume 1)"
+  },
+  {
+    "item_name": "Peter and Wendy"
+  },
+  {
+    "item_name": "Nomad (Volume 1)"
+  },
+  {
+    "item_name": "The Case of the Hidden Flame: An Inspector David Graham Cozy Mystery (Inspector David Graham Cozy Mystery Series) (Volume 2)"
+  },
+  {
+    "item_name": "Shadows of Asphodel"
+  },
+  {
+    "item_name": "Miranda Warning (A Murder in the Mountains Novel) (Volume 1)"
+  },
+  {
+    "item_name": "Lost Cause (A Daisy Dunlop Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Strictly Murder (The Verity Long Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "The Importance of Being Earnest"
+  },
+  {
+    "item_name": "The Vampire's Throne: A Paranormal Romance (Royal Blood)"
+  },
+  {
+    "item_name": "Murder on Tyneside"
+  },
+  {
+    "item_name": "Egyptian Mythology: A Fascinating Guide to Understanding the Gods, Goddesses, Monsters, and Mortals"
+  },
+  {
+    "item_name": "The Lightning-Struck Heart"
+  },
+  {
+    "item_name": "Jack of All Trades (Volume 1)"
+  },
+  {
+    "item_name": "The Gossiping Gourmet (The Murder in Marin Series) (Volume 1)"
+  },
+  {
+    "item_name": "Cappuccinos, Cupcakes, and a Corpse (A Cape Bay Cafe Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Willing (The Namesaken)"
+  },
+  {
+    "item_name": "A Ranger's Tale"
+  },
+  {
+    "item_name": "The Viscount's Christmas Temptation (Dukes of War) (Volume 1)"
+  },
+  {
+    "item_name": "Ricochet Joe"
+  },
+  {
+    "item_name": "Tough Love"
+  },
+  {
+    "item_name": "Twice Upon A Time (The Celtic Legends Series) (Volume 1)"
+  },
+  {
+    "item_name": "Two Tocks before Midnight: A 19th Century Historical Murder Mystery (The Agora Mystery Series)"
+  },
+  {
+    "item_name": "Possession (Explicitly Yours) (Volume 1)"
+  },
+  {
+    "item_name": "The Lost Tales of Power Volume I - The Enemy of an Enemy (Volume 1)"
+  },
+  {
+    "item_name": "Any Means Necessary (a Luke Stone Thriller-Book #1) - Kindle edition"
+  },
+  {
+    "item_name": "FIRST CASE: Murder Alley - Crime Thriller (McRyan Mystery Thriller Series Book) (McRyan Mystery Series) - Kindle edition"
+  },
+  {
+    "item_name": "Mind Sweeper (Mind Sweeper Series) (Volume 1) by AE Jones (2014-09-06)"
+  },
+  {
+    "item_name": "The Mailbox"
+  },
+  {
+    "item_name": "A Deadly Blessing"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Forever Road (Peri Jean Mace) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "This Doesn't Happen In The Movies (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Hunger Games (Book 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Zombie Chronicles (Apocalypse Infection Unleashed Series)"
+  },
+  {
+    "rank": 5,
+    "item_name": "I Bring the Fire: Part I : Wolves (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Fashionably Dead: Book One of the Hot Damned Series (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Loose Screw: Dusty Deals Mystery Mystery Series: Book 1 (Dusty Deals Mystery Series) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Haunted on Bourbon Street"
+  },
+  {
+    "rank": 9,
+    "item_name": "Still Life with Murder (Gilded Age Mysteries, No. 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Twenty-Eight and a Half Wishes (A Rose Gardner Mystery)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Mockingjay: The Hunger Games"
+  },
+  {
+    "rank": 12,
+    "item_name": "Graveyard Shift: (Lana Harvey, Reapers Inc.)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Captured"
+  },
+  {
+    "rank": 14,
+    "item_name": "Bubba and the 12 Deadly Days of Christmas: A Bubba Mystery"
+  },
+  {
+    "rank": 15,
+    "item_name": "Trouble in Mudbug"
+  },
+  {
+    "rank": 16,
+    "item_name": "Four and a Half Shades of Fantasy"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Keeping (Law of the Lycans) (Volume 2)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Ridiculous (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Dying for a Living"
+  },
+  {
+    "rank": 20,
+    "item_name": "A Diamond in My Pocket (The Unaltered) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Yeager's Law (An Abel Yeager Novel) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Last Necromancer (The Ministry of Curiosities) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Hiding Place Publisher: Blackstone Audio, Inc.; Unabridged edition"
+  },
+  {
+    "rank": 24,
+    "item_name": "Foreclosed: A Mitzy Neuhaus Mystery"
+  },
+  {
+    "rank": 25,
+    "item_name": "Ready To Were: Shift Happens Series Book One (Volume 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Broken Ferns"
+  },
+  {
+    "rank": 27,
+    "item_name": "'Scuse Me While I Kill This Guy"
+  },
+  {
+    "rank": 28,
+    "item_name": "Touched (The Marnie Baranuik Files)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Descendant: The Descendant Vampire Series Book 1"
+  },
+  {
+    "rank": 30,
+    "item_name": "Blood Orchids"
+  },
+  {
+    "rank": 31,
+    "item_name": "Never Buried: A Leigh Koslow Mystery (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "A Dead Husband (Jessica HuntingtonDesert Cities Mystery) (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Reign of Blood"
+  },
+  {
+    "rank": 34,
+    "item_name": "Whiskey Rebellion: An Addison Holmes Mystery"
+  },
+  {
+    "rank": 35,
+    "item_name": "Kiss Of Fire"
+  },
+  {
+    "rank": 36,
+    "item_name": "Let's Get Digital: How To Self-Publish, And Why You Should"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Keepers (Alchemy Series) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Devil's Grin - A Crime Novel featuring Anna Kronberg and Sherlock Holmes"
+  },
+  {
+    "rank": 39,
+    "item_name": "Talented"
+  },
+  {
+    "rank": 40,
+    "item_name": "Ties That Bind: A Madison Knight Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Profiler's Daughter: A Sky Stone Thriller (Sky Stone Thriller Series) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Witch Is When Life Got Complicated (A Witch P.I. Mystery) (Volume 2)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Utterly Uninteresting and Unadventurous Tales of Fred, the Vampire Accountant"
+  },
+  {
+    "rank": 44,
+    "item_name": "Seven Sisters (Seven Sisters Series)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Innocent in Las Vegas: A Humorous Tiffany Black Mystery (Tiffany Black Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Betrayed: Days of the Rogue (Law of the Lycans)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Somebody Tell Aunt Tillie She's Dead (Toad Witch Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Magic of Thieves"
+  },
+  {
+    "rank": 49,
+    "item_name": "Bait: The Angler Series-Book One"
+  },
+  {
+    "rank": 50,
+    "item_name": "Inescapable (Road to Kingdom) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

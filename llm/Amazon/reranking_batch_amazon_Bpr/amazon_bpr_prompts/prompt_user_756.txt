@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Truly Free (International Edition): Breaking the Snares That So Easily Entangle"
+  },
+  {
+    "item_name": "Exploring Christian Theology: Creation, Fall, and Salvation"
+  },
+  {
+    "item_name": "Beautiful Evidence"
+  },
+  {
+    "item_name": "Ambient Findability: What We Find Changes Who We Become"
+  },
+  {
+    "item_name": "A Clash of Kings: A Song of Ice and Fire: Book Two"
+  },
+  {
+    "item_name": "The Good Spy: The Life and Death of Robert Ames"
+  },
+  {
+    "item_name": "The Paranormal Conspiracy: The Truth about Ghosts, Aliens and Mysterious Beings"
+  },
+  {
+    "item_name": "Men of War: The American Soldier in Combat at Bunker Hill, Gettysburg, and Iwo Jima"
+  },
+  {
+    "item_name": "End of Discussion: How the Left's Outrage Industry Shuts Down Debate, Manipulates Voters, and Makes America Less Free (and Fun)"
+  },
+  {
+    "item_name": "What's Wrong with the World (Dover Books on History, Political and Social Science)"
+  },
+  {
+    "item_name": "1177 B.C.: The Year Civilization Collapsed (Turning Points in Ancient History)"
+  },
+  {
+    "item_name": "The Pursuit of God: Updated Edition"
+  },
+  {
+    "item_name": "The Atheist Who Didn't Exist: Or the Dreadful Consequences of Bad Arguments"
+  },
+  {
+    "item_name": "Seven Women: And the Secret of Their Greatness"
+  },
+  {
+    "item_name": "Dear Mister Essay Writer Guy: Advice and Confessions on Writing, Love, and Cannibals"
+  },
+  {
+    "item_name": "Black Earth: The Holocaust as History and Warning"
+  },
+  {
+    "item_name": "On This Foundation (The Restoration Chronicles)"
+  },
+  {
+    "item_name": "Wicked Women of the Bible"
+  },
+  {
+    "item_name": "52 Original Wisdom Stories: Short Lively Pieces for the Christian Year"
+  },
+  {
+    "item_name": "President Lincoln: The Duty of a Statesman"
+  },
+  {
+    "item_name": "Parables: The Mysteries of God's Kingdom Revealed Through the Stories Jesus Told"
+  },
+  {
+    "item_name": "The Comeback: It's Not Too Late and You're Never Too Far"
+  },
+  {
+    "item_name": "The Four Dimensions of Extraordinary Leadership: The Power of Leading from Your Heart, Soul, Mind, and Strength"
+  },
+  {
+    "item_name": "An Insider's Guide to Praying for the World:  country-by-country prayer guide   inspiring faith stories   on-the-ground insights   up-to-date-maps"
+  },
+  {
+    "item_name": "Risen: The Novelization of the Major Motion Picture"
+  },
+  {
+    "item_name": "The Peaceful Wife: Living in Submission to Christ as Lord"
+  },
+  {
+    "item_name": "The 30-Day Faith Detox: Renew Your Mind, Cleanse Your Body, Heal Your Spirit"
+  },
+  {
+    "item_name": "The Rector: A Christian Murder Mystery (The Solo Ladies Bible Study Group)"
+  },
+  {
+    "item_name": "Draw to Win: A Crash Course on How to Lead, Sell, and Innovate With Your Visual Mind"
+  },
+  {
+    "item_name": "Fatal Frost (Defenders of Justice)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 3,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 4,
+    "item_name": "Enemies of the Heart: Breaking Free from the Four Emotions That Control You"
+  },
+  {
+    "rank": 5,
+    "item_name": "Les Miserables (Penguin Classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Les Miserables (Grandes Novelas (Tomo)) (Spanish Edition)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Left Behind: A Novel of the Earth's Last Days (Left Behind #1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 9,
+    "item_name": "David and Goliath: Art of Battling Giants (A)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Shack"
+  },
+  {
+    "rank": 11,
+    "item_name": "Les Miserables"
+  },
+  {
+    "rank": 12,
+    "item_name": "Purpose-driven Life [Paperback]  by Warren        , Rick"
+  },
+  {
+    "rank": 13,
+    "item_name": "Critical Condition"
+  },
+  {
+    "rank": 14,
+    "item_name": "Real Marriage: The Truth About Sex, Friendship, &amp; Life Together"
+  },
+  {
+    "rank": 15,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 16,
+    "item_name": "Cold-Case Christianity: A Homicide Detective Investigates the Claims of the Gospels"
+  },
+  {
+    "rank": 17,
+    "item_name": "After the Funeral (The Christie Collection)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Steal Like an Artist: 10 Things Nobody Told You About Being Creative"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Case for a Creator"
+  },
+  {
+    "rank": 20,
+    "item_name": "To Heaven and Back: A Doctor's Extraordinary Account of Her Death, Heaven, Angels, and Life Again: A True Story"
+  },
+  {
+    "rank": 21,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Salt Sugar Fat: How the Food Giants Hooked Us"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 24,
+    "item_name": "Dressed for Death (A Drew Farthering Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Crucifying Morality: The Gospel of the Beatitudes"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Heiress of Winterwood (Whispers On The Moors)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Dinner with a Perfect Stranger: An Invitation Worth Considering"
+  },
+  {
+    "rank": 28,
+    "item_name": "In the Dust of the Rabbi Discovery Guide: 5 Faith Lessons"
+  },
+  {
+    "rank": 29,
+    "item_name": "Soulprint: Discovering Your Divine Destiny"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Tea with Hezbollah: Sitting at the Enemies Table Our Journey Through the Middle East"
+  },
+  {
+    "rank": 32,
+    "item_name": "Lit!: A Christian Guide to Reading Books"
+  },
+  {
+    "rank": 33,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 34,
+    "item_name": "Chasing Francis: A Pilgrim&rsquo;s Tale"
+  },
+  {
+    "rank": 35,
+    "item_name": "Francis Chan - Forgotten God Full Set - Forgotten God: Reversing Our Tragic Neglect of the Holy Spirit (Book + Workbook + DVD)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Amish Grace: How Forgiveness Transcended Tragedy"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Separate Peace"
+  },
+  {
+    "rank": 38,
+    "item_name": "By Marie Kondo The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing (Unabridged CD) [Audio CD]"
+  },
+  {
+    "rank": 39,
+    "item_name": "Not by Sight: A Novel (Ozark Mountain Trilogy)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Amazing Grace: William Wilberforce and the Heroic Campaign to End Slavery"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Purpose Driven Life"
+  },
+  {
+    "rank": 42,
+    "item_name": "Freedom's Stand"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Bride at Last"
+  },
+  {
+    "rank": 44,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Decision Points"
+  },
+  {
+    "rank": 46,
+    "item_name": "Coming Apart: The State of White America, 1960-2010"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Five People You Meet in Heaven (Random House Large Print)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Fearless: The Undaunted Courage and Ultimate Sacrifice of Navy SEAL Team SIX Operator Adam Brown"
+  },
+  {
+    "rank": 49,
+    "item_name": "Dead Wake: The Last Crossing of the Lusitania"
+  },
+  {
+    "rank": 50,
+    "item_name": "Tried and True (Wild at Heart) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

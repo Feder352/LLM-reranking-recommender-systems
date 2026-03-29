@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Governess Affair"
+  },
+  {
+    "item_name": "Song for Sophia (A Rougemont Novel) (Volume 1)"
+  },
+  {
+    "item_name": "A Highlander's Christmas Kiss (Highland Heirs)"
+  },
+  {
+    "item_name": "Lothaire (Immortals After Dark)"
+  },
+  {
+    "item_name": "The Seventh Son (Norman Conquest) (Volume 4)"
+  },
+  {
+    "item_name": "My Lady Notorious (A Mallorean Novel)"
+  },
+  {
+    "item_name": "The Prince of Midnight"
+  },
+  {
+    "item_name": "Highland Solution (Duncurra) (Volume 1)"
+  },
+  {
+    "item_name": "Texas Tall (Berkley Sensation)"
+  },
+  {
+    "item_name": "Love's New Beginning: An American Historical Romance (Wilderness Hearts Historical Romances) (Volume 1)"
+  },
+  {
+    "item_name": "Noble Cause: A Novel of Love and War"
+  },
+  {
+    "item_name": "The Abyss - Kindle edition"
+  },
+  {
+    "item_name": "The Merchant's Pearl (The Merchant's Pearl Saga) (Volume 1)"
+  },
+  {
+    "item_name": "How The Warrior Fell (Falling Warriors) (Volume 1)"
+  },
+  {
+    "item_name": "Once a Soldier (Rogues Redeemed)"
+  },
+  {
+    "item_name": "Once a Rebel (Rogues Redeemed)"
+  },
+  {
+    "item_name": "Heaven in His Arms"
+  },
+  {
+    "item_name": "The Lost Letter: A Victorian Romance"
+  },
+  {
+    "item_name": "Come the Night"
+  },
+  {
+    "item_name": "Autumn's Flame"
+  },
+  {
+    "item_name": "Sense of Touch: Love and Duty at Anne of Brittany's Court"
+  },
+  {
+    "item_name": "The Knight's Scarred Maiden (Lovers and Legends)"
+  },
+  {
+    "item_name": "Beauty Like the Night (The Spymaster Series)"
+  },
+  {
+    "item_name": "The King of Threadneedle Street (A Rougemont Novel) (Volume 2)"
+  },
+  {
+    "item_name": "Eyes of the Seer (The Derbfine Series) (Volume 2)"
+  },
+  {
+    "item_name": "Grand Sophy"
+  },
+  {
+    "item_name": "Frederica"
+  },
+  {
+    "item_name": "The Sherbrooke Bride (Bride Series, Book 1)"
+  },
+  {
+    "item_name": "When a Laird Loves a Lady (Highlander Vows: Entangled Hearts) (Volume 1)"
+  },
+  {
+    "item_name": "When a Laird Loves a Lady (Highlander Vows: Entangled Hearts) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3823,
+    "item_name": "The Duke (Knight Miscellany)"
+  },
+  {
+    "rank": 2,
+    "item_id": 557,
+    "item_name": "The Deed (Historical Romances)"
+  },
+  {
+    "rank": 3,
+    "item_id": 243,
+    "item_name": "Sex, Lies, and Online Dating (Writer Friends)"
+  },
+  {
+    "rank": 4,
+    "item_id": 2446,
+    "item_name": "The Devil's Lady"
+  },
+  {
+    "rank": 5,
+    "item_id": 3338,
+    "item_name": "Barely A Bride (Berkley Sensation)"
+  },
+  {
+    "rank": 6,
+    "item_id": 5737,
+    "item_name": "Sarah's Seduction (Men of August, Book 2)"
+  },
+  {
+    "rank": 7,
+    "item_id": 5255,
+    "item_name": "Devil Takes a Bride (Knight Miscellany)"
+  },
+  {
+    "rank": 8,
+    "item_id": 3884,
+    "item_name": "The Fleeing Heiress (Signet Regency Romance)"
+  },
+  {
+    "rank": 9,
+    "item_id": 6028,
+    "item_name": "Highland Mist"
+  },
+  {
+    "rank": 10,
+    "item_id": 4000,
+    "item_name": "Moonrise"
+  },
+  {
+    "rank": 11,
+    "item_id": 2775,
+    "item_name": "The Proposition"
+  },
+  {
+    "rank": 12,
+    "item_id": 3807,
+    "item_name": "The Leopard Prince"
+  },
+  {
+    "rank": 13,
+    "item_id": 2768,
+    "item_name": "Truly Madly Yours"
+  },
+  {
+    "rank": 14,
+    "item_id": 4497,
+    "item_name": "Ransom"
+  },
+  {
+    "rank": 15,
+    "item_id": 244,
+    "item_name": "I'm In No Mood For Love (Writer Friends)"
+  },
+  {
+    "rank": 16,
+    "item_id": 4026,
+    "item_name": "Texas Destiny"
+  },
+  {
+    "rank": 17,
+    "item_id": 1931,
+    "item_name": "Born of Fire (The League, Book 2)"
+  },
+  {
+    "rank": 18,
+    "item_id": 2422,
+    "item_name": "Wedding Vow Of Revenge"
+  },
+  {
+    "rank": 19,
+    "item_id": 289,
+    "item_name": "Sins of a Duke (The Griffin Family)"
+  },
+  {
+    "rank": 20,
+    "item_id": 3385,
+    "item_name": "Wedding Survivor (Thrillseekers Anonymous, Book 1)"
+  },
+  {
+    "rank": 21,
+    "item_id": 279,
+    "item_name": "To Distraction (Bastion Club)"
+  },
+  {
+    "rank": 22,
+    "item_id": 258,
+    "item_name": "Love Letters from a Duke"
+  },
+  {
+    "rank": 23,
+    "item_id": 3808,
+    "item_name": "The Raven Prince"
+  },
+  {
+    "rank": 24,
+    "item_id": 5252,
+    "item_name": "Looking for Lacey"
+  },
+  {
+    "rank": 25,
+    "item_id": 3563,
+    "item_name": "My Dearest Enemy: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

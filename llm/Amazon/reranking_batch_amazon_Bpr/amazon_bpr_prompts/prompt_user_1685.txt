@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Echoes of Love"
+  },
+  {
+    "item_name": "The Pastor's Husband"
+  },
+  {
+    "item_name": "Broken Heart (The Reed Family) (Volume 1)"
+  },
+  {
+    "item_name": "Lowcountry Book Club (Liz Talbot Mystery)"
+  },
+  {
+    "item_name": "Killer Pursuit"
+  },
+  {
+    "item_name": "Killer Pursuit"
+  },
+  {
+    "item_name": "Scar Tissue"
+  },
+  {
+    "item_name": "Vengeful Vows (Sins of the Flesh) (Volume 3)"
+  },
+  {
+    "item_name": "The Lobby"
+  },
+  {
+    "item_name": "The Flip (A Haunting On Long Island Series)"
+  },
+  {
+    "item_name": "Retaliation: A Novel"
+  },
+  {
+    "item_name": "His Kidnapper's Shoes"
+  },
+  {
+    "item_name": "The Rule Maker"
+  },
+  {
+    "item_name": "Heartless"
+  },
+  {
+    "item_name": "Worth the Wait"
+  },
+  {
+    "item_name": "The Bridge of the Golden Wood: A Parable on How to Earn a Living (Careers for Kids)"
+  },
+  {
+    "item_name": "Running in Heels: A Memoir of Grit and Grace (Outdated Edition)"
+  },
+  {
+    "item_name": "Any Day Now (Sullivan's Crossing)"
+  },
+  {
+    "item_name": "Bridges (Daphne White Novels) (Volume 2)"
+  },
+  {
+    "item_name": "Before I Knew (The Cabots)"
+  },
+  {
+    "item_name": "Wait for the Rain"
+  },
+  {
+    "item_name": "Lowcountry Bonfire (A Liz Talbot Mystery) (Volume 6)"
+  },
+  {
+    "item_name": "Saturdays at Sweeney's (Sweeney Sisters Series) (Volume 5)"
+  },
+  {
+    "item_name": "The House on Harbor Hill"
+  },
+  {
+    "item_name": "Before I Let You Go"
+  },
+  {
+    "item_name": "Lessons from the Prairie: The Surprising Secrets to Happiness, Success, and (Sometimes Just) Survival I Learned on Little House"
+  },
+  {
+    "item_name": "Hiding: A gripping psychological thriller with chilling twists, from a unique voice"
+  },
+  {
+    "item_name": "Somebody's Daughter"
+  },
+  {
+    "item_name": "The Family Gathering (Sullivan's Crossing)"
+  },
+  {
+    "item_name": "The Cottages on Silver Beach (Haven Point)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Spare Change: Family Saga (A Wyattsville Novel Book 1) (Series name Family Saga)"
+  },
+  {
+    "rank": 2,
+    "item_name": "A Good Excuse To Be Bad"
+  },
+  {
+    "rank": 3,
+    "item_name": "Dead Line (A Cal Murphy Thriller) (Volume 2)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Chocolate With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "ICED: A Resort to Murder Mystery"
+  },
+  {
+    "rank": 6,
+    "item_name": "City of Gold (Matthew Connor Adventure Series)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Seacrest"
+  },
+  {
+    "rank": 8,
+    "item_name": "Rockin' Chair"
+  },
+  {
+    "rank": 9,
+    "item_name": "Diary of a Stalker (Urban Renaissance)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Isabella: Braveheart of France"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Tree of Everlasting Knowledge (The Liberty Series) (Volume 5)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Cat O' Nine Tales"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Bride Wore Dead: A Josie Tucker Mystery"
+  },
+  {
+    "rank": 14,
+    "item_name": "Rarity From the Hollow"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Loft: The Memory House Collection (The Memory Houuse Series) (Volume 2)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Previously Loved Treasures: The Serendipity Series Book Two (Volume 2)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Gooseberry Island"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Children of Darkness (The Seekers)"
+  },
+  {
+    "rank": 19,
+    "item_name": "SINthetic"
+  },
+  {
+    "rank": 20,
+    "item_name": "Pieces Like Pottery"
+  },
+  {
+    "rank": 21,
+    "item_name": "Monsterland (Monsterland Series) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Walls of Silence"
+  },
+  {
+    "rank": 23,
+    "item_name": "Skeletal (A Christchurch Crime Thriller)"
+  },
+  {
+    "rank": 24,
+    "item_name": "AT Once (An Alex Troutt Thriller, Book 3)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Murder on the SS Rosa (A Ginger God Mystery - a Prequel Novella)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The House"
+  },
+  {
+    "rank": 27,
+    "item_name": "Still Life in Brunswick Stew (A Cherry Tucker Mystery) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Remnants (Brandon Fisher FBI Series)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Finding Hope (Generations of Hope) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Revenge in Paradise (Paradise Series) (Volume 6)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Madison's Song"
+  },
+  {
+    "rank": 32,
+    "item_name": "Mind Games"
+  },
+  {
+    "rank": 33,
+    "item_name": "Wind Catcher (Chosen)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Crooked Branch: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Forever Doomed: A Detective Jack Harney Murder Mystery (Under The Moonlight Book 2) (Volume 2)"
+  },
+  {
+    "rank": 36,
+    "item_name": "MURDER, MADNESS &amp; LOVE: a mystery"
+  },
+  {
+    "rank": 37,
+    "item_name": "Bishop Street"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Vineyard"
+  },
+  {
+    "rank": 39,
+    "item_name": "Fall, Leaves, Fall (The Cletherwood Trilogy Book 1) eBook"
+  },
+  {
+    "rank": 40,
+    "item_name": "Ashes"
+  },
+  {
+    "rank": 41,
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Better Than Chocolate (Life in Icicle Falls)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Small Town Spin (A Headlines in High Heels Mystery) (Volume 3)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Being a Captain is Hard Work: A Captain No Beard Story (Volume 10)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Cranberry Bluff"
+  },
+  {
+    "rank": 46,
+    "item_name": "Counterfeit Conspiracies (A Bodies of Art Mystery) (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Bloody Mary Club"
+  },
+  {
+    "rank": 48,
+    "item_name": "Murder Under the Desert Moon (Lella York Mysteries) (Volume 3)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Delilah Dusticle's Transylvanian Adventure: A Magical Fantasy Series for Children Ages 8-12 (The Delilah Dusticle Adventures.) (Volume 2)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Monsterland"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

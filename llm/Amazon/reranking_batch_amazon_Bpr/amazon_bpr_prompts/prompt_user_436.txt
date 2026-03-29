@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Once A Pirate"
+  },
+  {
+    "item_name": "Imitation in Death"
+  },
+  {
+    "item_name": "Nerd in Shining Armor"
+  },
+  {
+    "item_name": "Unraveled (Unearthed, Book 2)"
+  },
+  {
+    "item_name": "Body Rides"
+  },
+  {
+    "item_name": "In Silent Graves"
+  },
+  {
+    "item_name": "If Chins Could Kill: Confessions of a B Movie Actor"
+  },
+  {
+    "item_name": "The Legend of Banzai Maguire (2176 Series, Book 1)"
+  },
+  {
+    "item_name": "Bubba Ho-Tep"
+  },
+  {
+    "item_name": "Unleashed (Futuristic Romance)"
+  },
+  {
+    "item_name": "Tall, Dark &amp; Hungry (Argeneau Vampire)"
+  },
+  {
+    "item_name": "Wild Rain (A Leopard Novel)"
+  },
+  {
+    "item_name": "Haunted"
+  },
+  {
+    "item_name": "The Flight of Dragons"
+  },
+  {
+    "item_name": "Sleeper"
+  },
+  {
+    "item_name": "Night Pleasures (Dark-Hunter Novels)"
+  },
+  {
+    "item_name": "Night Embrace (Dark-Hunter, Book 3)"
+  },
+  {
+    "item_name": "Hell House"
+  },
+  {
+    "item_name": "Disclosure"
+  },
+  {
+    "item_name": "Star Wars, Episode III: Revenge of the Sith"
+  },
+  {
+    "item_name": "Darkness Tell Us"
+  },
+  {
+    "item_name": "Light in August (Modern Library College Editions Series)"
+  },
+  {
+    "item_name": "Tatooine Ghost (Star Wars)"
+  },
+  {
+    "item_name": "Hell House"
+  },
+  {
+    "item_name": "Lucky Man (Random House Large Print)"
+  },
+  {
+    "item_name": "The Walking Dead, Vol. 2: Miles Behind Us"
+  },
+  {
+    "item_name": "Unmasked (Futuristic Romance)"
+  },
+  {
+    "item_name": "How to Talk to a Liberal (If You Must): The World According to Ann Coulter"
+  },
+  {
+    "item_name": "Lost Boy Lost Girl"
+  },
+  {
+    "item_name": "Keepers"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 2,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 4,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 5,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 6,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 7,
+    "item_name": "I Am Legend"
+  },
+  {
+    "rank": 8,
+    "item_name": "PREY."
+  },
+  {
+    "rank": 9,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 12,
+    "item_name": "Confessor: Chainfire Trilogy, Part 3 (Sword Of Truth, Book 11)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Silence of the Lambs"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 15,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "From the Corner of His Eye"
+  },
+  {
+    "rank": 17,
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "rank": 18,
+    "item_name": "Hidden Empire (The Saga of Seven Suns)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 20,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 21,
+    "item_name": "Firestarter"
+  },
+  {
+    "rank": 22,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 23,
+    "item_name": "Club Dead (Sookie Stackhouse/True Blood, Book 3)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Curse of Chalion (Chalion series)"
+  },
+  {
+    "rank": 25,
+    "item_name": "To Your Scattered Bodies Go (Riverworld Saga, Book 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Timeline"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Dame to Kill for (Sin City)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Chronicles of Riddick:Pitch Black"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Princess of Mars (Penguin Classics)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Talisman"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Dark Tower: Wolves of the Calla"
+  },
+  {
+    "rank": 35,
+    "item_name": "2001: A Space Odyssey (Penguin Galaxy)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Watchmen"
+  },
+  {
+    "rank": 37,
+    "item_name": "Calculating God"
+  },
+  {
+    "rank": 38,
+    "item_name": "Along Came a Spider"
+  },
+  {
+    "rank": 39,
+    "item_name": "Dolores Claiborne"
+  },
+  {
+    "rank": 40,
+    "item_name": "Memoirs of a Geisha Uk"
+  },
+  {
+    "rank": 41,
+    "item_name": "Daytripper"
+  },
+  {
+    "rank": 42,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 43,
+    "item_name": "Guards! Guards!"
+  },
+  {
+    "rank": 44,
+    "item_name": "Fight Club"
+  },
+  {
+    "rank": 45,
+    "item_name": "Angels &amp; Demons (Random House Large Print)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Northern Lights: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 48,
+    "item_name": "State of Fear"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Years Of Rice And Salt"
+  },
+  {
+    "rank": 50,
+    "item_name": "Eye of the Needle"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

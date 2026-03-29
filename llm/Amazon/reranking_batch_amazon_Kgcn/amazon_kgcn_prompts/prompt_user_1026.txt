@@ -1,0 +1,218 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Keeping You a Secret"
+  },
+  {
+    "item_name": "Night Watch"
+  },
+  {
+    "item_name": "Addition: A Novel"
+  },
+  {
+    "item_name": "Bogus to Bubbly: An Insider's Guide to the World of Uglies"
+  },
+  {
+    "item_name": "Secrets to Happiness: A Novel"
+  },
+  {
+    "item_name": "Once a Runner: A Novel"
+  },
+  {
+    "item_name": "Fade (Wake Series, Book 2)"
+  },
+  {
+    "item_name": "Womenomics: Write Your Own Rules for Success"
+  },
+  {
+    "item_name": "Winning in Turbulence (Memo to the CEO)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1531,
+    "item_name": "Destiny of the Republic: A Tale of Madness, Medicine and the Murder of a President"
+  },
+  {
+    "rank": 2,
+    "item_id": 647,
+    "item_name": "The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers"
+  },
+  {
+    "rank": 3,
+    "item_id": 643,
+    "item_name": "The Calorie Myth: How to Eat More, Exercise Less, Lose Weight, and Live Better"
+  },
+  {
+    "rank": 4,
+    "item_id": 4234,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 5,
+    "item_id": 3742,
+    "item_name": "Hitch-22: A Memoir"
+  },
+  {
+    "rank": 6,
+    "item_id": 2893,
+    "item_name": "My Promised Land: The Triumph and Tragedy of Israel"
+  },
+  {
+    "rank": 7,
+    "item_id": 6132,
+    "item_name": "The Romney Family Table: Sharing Home-Cooked Recipes &amp; Favorite Traditions"
+  },
+  {
+    "rank": 8,
+    "item_id": 5092,
+    "item_name": "The Buy Side: A Wall Street Trader's Tale of Spectacular Excess"
+  },
+  {
+    "rank": 9,
+    "item_id": 1096,
+    "item_name": "Detroit: An American Autopsy"
+  },
+  {
+    "rank": 10,
+    "item_id": 2281,
+    "item_name": "What Should I Do with My Life?: The True Story of People Who Answered the Ultimate Question"
+  },
+  {
+    "rank": 11,
+    "item_id": 4829,
+    "item_name": "Girls Like Us: Carole King, Joni Mitchell, and Carly Simon--and the Journey of a Generation"
+  },
+  {
+    "rank": 12,
+    "item_id": 2898,
+    "item_name": "Out of Order: Stories from the History of the Supreme Court"
+  },
+  {
+    "rank": 13,
+    "item_id": 1421,
+    "item_name": "Tokyo Vice: An American Reporter on the Police Beat in Japan"
+  },
+  {
+    "rank": 14,
+    "item_id": 1310,
+    "item_name": "My Song: A Memoir"
+  },
+  {
+    "rank": 15,
+    "item_id": 1110,
+    "item_name": "Give and Take: Why Helping Others Drives Our Success"
+  },
+  {
+    "rank": 16,
+    "item_id": 5912,
+    "item_name": "The Rise of Superman: Decoding the Science of Ultimate Human Performance"
+  },
+  {
+    "rank": 17,
+    "item_id": 1304,
+    "item_name": "The Case for God"
+  },
+  {
+    "rank": 18,
+    "item_id": 5868,
+    "item_name": "A Natural Woman: A Memoir"
+  },
+  {
+    "rank": 19,
+    "item_id": 4258,
+    "item_name": "The Eerie Silence: Renewing Our Search for Alien Intelligence"
+  },
+  {
+    "rank": 20,
+    "item_id": 5288,
+    "item_name": "This Land Is Their Land: Reports from a Divided Nation"
+  },
+  {
+    "rank": 21,
+    "item_id": 5230,
+    "item_name": "Over Time: My Life as a Sportswriter"
+  },
+  {
+    "rank": 22,
+    "item_id": 1393,
+    "item_name": "The Universe Within: Discovering the Common History of Rocks, Planets, and People"
+  },
+  {
+    "rank": 23,
+    "item_id": 6064,
+    "item_name": "A Singular Woman: The Untold Story of Barack Obama's Mother"
+  },
+  {
+    "rank": 24,
+    "item_id": 3066,
+    "item_name": "End This Depression Now!"
+  },
+  {
+    "rank": 25,
+    "item_id": 2063,
+    "item_name": "The Everything Store: Jeff Bezos and the Age of Amazon"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

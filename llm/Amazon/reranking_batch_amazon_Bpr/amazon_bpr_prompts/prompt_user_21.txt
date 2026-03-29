@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Pippi Longstocking"
+  },
+  {
+    "item_name": "Science...For Her!"
+  },
+  {
+    "item_name": "The Extravagant Fool: A Faith Journey That Begins Where Common Sense Ends"
+  },
+  {
+    "item_name": "Born on a Blue Day: A Memoir of Asperger's and an Extraordinary Mind"
+  },
+  {
+    "item_name": "Born on a Blue Day: Inside the Extraordinary Mind of an Autistic Savant"
+  },
+  {
+    "item_name": "Born on a Blue Day: Inside the Extraordinary Mind of an Autistic Savant"
+  },
+  {
+    "item_name": "The Monopolists: Obsession, Fury, and the Scandal Behind the World's Favorite Board Game"
+  },
+  {
+    "item_name": "Pioneer Girl: The Annotated Autobiography"
+  },
+  {
+    "item_name": "Dork Diaries 1: Tales from a Not-So-Fabulous Life"
+  },
+  {
+    "item_name": "Dork Diaries"
+  },
+  {
+    "item_name": "Bad Days in History: A Gleefully Grim Chronicle of Misfortune, Mayhem, and Misery for Every Day of the Year"
+  },
+  {
+    "item_name": "Etta &amp; Otto &amp; Russell &amp; James Ome"
+  },
+  {
+    "item_name": "The Genius Files: Mission Unstoppable"
+  },
+  {
+    "item_name": "Llama Llama Red Pajama (Puffin Storytime)"
+  },
+  {
+    "item_name": "Damn You, Autocorrect!: Hilarious Text Messages You Didn't Mean to Send"
+  },
+  {
+    "item_name": "Me and Earl and the Dying Girl (Revised Edition)"
+  },
+  {
+    "item_name": "Fortunately, the Milk"
+  },
+  {
+    "item_name": "Devoted: A Novel"
+  },
+  {
+    "item_name": "The Great Trouble: A Mystery of London, the Blue Death, and a Boy Called Eel"
+  },
+  {
+    "item_name": "The Devils Pleasure Palace: The Cult of Critical Theory and the Subversion of the West"
+  },
+  {
+    "item_name": "The Illustrated Hitch-hiker's Guide to the Galaxy"
+  },
+  {
+    "item_name": "Rain Reign (Ala Notable Children's Books. Middle Readers)"
+  },
+  {
+    "item_name": "The Fourteenth Goldfish"
+  },
+  {
+    "item_name": "Say You're One of Them (Oprah's Book Club)"
+  },
+  {
+    "item_name": "Looking Back: A Book of Memories"
+  },
+  {
+    "item_name": "Bloom: Navigating Life and Style"
+  },
+  {
+    "item_name": "Unmentionable: The Victorian Lady's Guide to Sex, Marriage, and Manners"
+  },
+  {
+    "item_name": "A Heartbreaking Work of Staggering Genius"
+  },
+  {
+    "item_name": "A Mother's Reckoning: Living in the aftermath of the Columbine tragedy"
+  },
+  {
+    "item_name": "If You Give a Man a Cookie: A Parody"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 3,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 4,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Three Cups of Tea"
+  },
+  {
+    "rank": 6,
+    "item_name": "Where the Wild Things Are"
+  },
+  {
+    "rank": 7,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Sarah, Plain and Tall"
+  },
+  {
+    "rank": 9,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Little Women"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 14,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The True Confessions of Charlotte Doyle Follettbound"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Story Girl"
+  },
+  {
+    "rank": 18,
+    "item_name": "Sybil"
+  },
+  {
+    "rank": 19,
+    "item_name": "Night"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Marvelous Land of Oz (Books of Wonder)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The 5 Love Languages Military Edition: The Secret to Love That Lasts"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 23,
+    "item_name": "Autobiography of a Face"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Reptile Room (A Series of Unfortunate Events, Book 2)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 28,
+    "item_name": "Mike Mulligan and His Steam Shovel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Wizard Alone: The Sixth Book in the Young Wizards Series"
+  },
+  {
+    "rank": 31,
+    "item_name": "Ramona the Pest"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 35,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 37,
+    "item_name": "Where the Wild Things Are (Caldecott Collection)"
+  },
+  {
+    "rank": 38,
+    "item_name": "I Have a Dream (Book &amp; CD)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Roll of Thunder, Hear My Cry"
+  },
+  {
+    "rank": 40,
+    "item_name": "Pope Joan: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "The BFG"
+  },
+  {
+    "rank": 42,
+    "item_name": "Pride &amp; Prejudice (Collins Classics)"
+  },
+  {
+    "rank": 43,
+    "item_name": "I Am Nujood, Age 10 and Divorced"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Midwife's Apprentice"
+  },
+  {
+    "rank": 45,
+    "item_name": "Total Money Makeover"
+  },
+  {
+    "rank": 46,
+    "item_name": "Early Sunday Morning: The Pearl Harbor Diary of Amber Billows, Hawaii 1941 (Dear America Series)"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Connecticut Yankee in King Arthur's Court (Penguin Classics)"
+  },
+  {
+    "rank": 48,
+    "item_name": "By Marie Kondo The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing (Unabridged CD) [Audio CD]"
+  },
+  {
+    "rank": 49,
+    "item_name": "She Said Yes: The Unlikely Martyrdom of Cassie Bernall"
+  },
+  {
+    "rank": 50,
+    "item_name": "A Separate Peace"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Tracker (Classified K-9 Unit)"
+  },
+  {
+    "item_name": "Reunited by Danger"
+  },
+  {
+    "item_name": "Web of Shadows: Agents Under Fire"
+  },
+  {
+    "item_name": "Driven to Date (Better Date than Never) (Volume 7)"
+  },
+  {
+    "item_name": "Web of Secrets: Agents Under Fire, Book 3"
+  },
+  {
+    "item_name": "Cowboy Christmas Guardian (Gold Country Cowboys)"
+  },
+  {
+    "item_name": "Love at First Date (Better Date than Never)"
+  },
+  {
+    "item_name": "Undercover Amish (Amish Protectors)"
+  },
+  {
+    "item_name": "My Last Blind Date"
+  },
+  {
+    "item_name": "Christmas Amnesia (Callahan Confidential)"
+  },
+  {
+    "item_name": "Holiday Secrets (McKade Law)"
+  },
+  {
+    "item_name": "Christmas Captive (Men of Valor)"
+  },
+  {
+    "item_name": "Lone Star Christmas Rescue (Lone Star Justice)"
+  },
+  {
+    "item_name": "Christmas on the Run (Mission: Rescue)"
+  },
+  {
+    "item_name": "Christmas Double Cross (Texas Ranger Holidays)"
+  },
+  {
+    "item_name": "Cold Truth: (Cold Harbor Book 2)"
+  },
+  {
+    "item_name": "Up to Date (Better Date than Never) (Volume 8)"
+  },
+  {
+    "item_name": "Amish Christmas Abduction (Amish Country Justice)"
+  },
+  {
+    "item_name": "Christmas Ranch Rescue (Wrangler's Corner)"
+  },
+  {
+    "item_name": "Shattered Lullaby (Callahan Confidential)"
+  },
+  {
+    "item_name": "Deadly Dose (Strong Women, Extraordinary Situations) (Volume 6)"
+  },
+  {
+    "item_name": "The Baby Assignment (The Baby Protectors)"
+  },
+  {
+    "item_name": "Kill Shot: A Novel (White Knights)"
+  },
+  {
+    "item_name": "When The Cowboy Rides Away"
+  },
+  {
+    "item_name": "Credible Threat (Love Inspired Suspense)"
+  },
+  {
+    "item_name": "Operation Hail Storm"
+  },
+  {
+    "item_name": "Liza's Second Chance (The Amish Charm Bakery)"
+  },
+  {
+    "item_name": "Treacherous Trails (Gold Country Cowboys)"
+  },
+  {
+    "item_name": "Night Stalker (FBI: Special Crimes Unit)"
+  },
+  {
+    "item_name": "Cold Case: (Cold Harbor Book 4)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Dangerous Passage: A Novel (Southern Crimes) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Beyond All Dreams"
+  },
+  {
+    "rank": 3,
+    "item_name": "Among the Fair Magnolias: Four Southern Love Stories"
+  },
+  {
+    "rank": 4,
+    "item_name": "Winter in Full Bloom"
+  },
+  {
+    "rank": 5,
+    "item_name": "Wild Montana Skies (Montana Rescue)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Fatal Mistake: A Novel (White Knights)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Chance of Loving You: Romance Collection (Thorndike Press Large Print Christian Fiction)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Through Waters Deep (Waves of Freedom)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Every Bride Needs a Groom: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Sea Rose Lane: A Hope Harbor Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Most Inconvenient Marriage"
+  },
+  {
+    "rank": 12,
+    "item_name": "True to You (A Bradford Sisters Romance)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Shadows of the Past: A Novel (Logan Point) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Bride at Last"
+  },
+  {
+    "rank": 15,
+    "item_name": "Inescapable (Road to Kingdom) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Governess of Highland Hall: A Novel (Edwardian Brides)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Beautiful Pretender (A Medieval Fairy Tale)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Back in the Saddle: A Novel (Double S Ranch)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Dance: A Novel (The Restoration Series)"
+  },
+  {
+    "rank": 21,
+    "item_name": "A Bride for Keeps: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Golden Braid"
+  },
+  {
+    "rank": 23,
+    "item_name": "By Your Side (Crisis Team)"
+  },
+  {
+    "rank": 24,
+    "item_name": "It Had to Be You (Christiansen Family)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Miracle at the Higher Grounds Cafe"
+  },
+  {
+    "rank": 26,
+    "item_name": "One Perfect Spring: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Red Door Inn: A Novel (Prince Edward Island Dreams)"
+  },
+  {
+    "rank": 28,
+    "item_name": "No One to Trust: A Novel (Hidden Identity) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Justice Delayed"
+  },
+  {
+    "rank": 30,
+    "item_name": "Kissed by a Cowboy (A Four of Hearts Ranch Romance)"
+  },
+  {
+    "rank": 31,
+    "item_name": "A Place in His Heart: A Novel (The Southold Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Counting on a Cowboy (A Four of Hearts Ranch Romance)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Deadly Echoes (Finding Sanctuary) (Volume 2)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Made to Last"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Respectable Actress"
+  },
+  {
+    "rank": 36,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Light in the Window"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Brickmaker's Bride (Refined by Love)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Troubled Waters (Montana Rescue)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Vendetta (The Nikki Boyd Files)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Goodbye Bride (A Summer Harbor Novel)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Tried and True (Wild at Heart) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Elusive Miss Ellison (Regency Brides: A Legacy of Grace)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Deadly Encounter (FBI Task Force)"
+  },
+  {
+    "rank": 45,
+    "item_name": "At Bluebonnet Lake: A Novel (Texas Crossroads) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "After a Fashion"
+  },
+  {
+    "rank": 47,
+    "item_name": "Drawing Fire (Cold Case Justice)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Caught in the Middle"
+  },
+  {
+    "rank": 49,
+    "item_name": "To Save Her Child (Alaskan Search and Rescue)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Not by Sight: A Novel (Ozark Mountain Trilogy)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

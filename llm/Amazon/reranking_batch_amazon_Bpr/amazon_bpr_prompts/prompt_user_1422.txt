@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Hero's Honor: Resolution Ranch (Flint Hills Military Heroes) (Volume 1)"
+  },
+  {
+    "item_name": "Homecoming (Sweet Hearts of Sweet Creek)"
+  },
+  {
+    "item_name": "Kissing Santa at Steeple Ridge: A Buttars Brothers Novel (Steeple Ridge Romance)"
+  },
+  {
+    "item_name": "When Love Comes: A Diamond Creek, Alaska Novel (Diamond Creek, Alaska Series) (Volume 1)"
+  },
+  {
+    "item_name": "Breathless In Love (The Maverick Billionaires, Book 1) (Volume 1)"
+  },
+  {
+    "item_name": "Coming Home to Steeple Ridge: A Buttars Brothers Novel (Steeple Ridge Romance)"
+  },
+  {
+    "item_name": "Alex; In the Company of Snipers 1"
+  },
+  {
+    "item_name": "Thieving Forest"
+  },
+  {
+    "item_name": "Set Free (Second Chance Series) (Volume 1)"
+  },
+  {
+    "item_name": "True North"
+  },
+  {
+    "item_name": "Her Heart for the Asking"
+  },
+  {
+    "item_name": "Wyoming Bride: A Bitter Creek Novel"
+  },
+  {
+    "item_name": "Mark (In the Company of Snipers) (Volume 2)"
+  },
+  {
+    "item_name": "Away in Montana"
+  },
+  {
+    "item_name": "McKettrick's Heart (McKettrick Men)"
+  },
+  {
+    "item_name": "Heart of Eden (Colorado Hearts)"
+  },
+  {
+    "item_name": "Maid for Love (The McCarthys of Gansett Island Series) (Volume 1)"
+  },
+  {
+    "item_name": "Maid for Love (Gansett Island)"
+  },
+  {
+    "item_name": "Touch of Texas"
+  },
+  {
+    "item_name": "Through His Eyes (Mind's Eye)"
+  },
+  {
+    "item_name": "Redeeming Ryker: The Boys of Fury (Volume 1)"
+  },
+  {
+    "item_name": "An Inner Fire (Grayce Walters)"
+  },
+  {
+    "item_name": "McKettrick's Pride (The McKettrick Series #7)"
+  },
+  {
+    "item_name": "From This Moment On (Sullivans)"
+  },
+  {
+    "item_name": "Wrangler's Challenge (Wind River Valley)"
+  },
+  {
+    "item_name": "To Save His Child (Into the Storm) (Volume 1)"
+  },
+  {
+    "item_name": "Godsend (Hell Yeah! Heritage)"
+  },
+  {
+    "item_name": "Down the Long Hills (Louis L'Amour's Lost Treasures): A Novel"
+  },
+  {
+    "item_name": "Justice for Mackenzie (Badge of Honor: Texas Heroes) (Volume 1)"
+  },
+  {
+    "item_name": "Meant for Love (Gansett Island Series) (Volume 10)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Unexpected Gifts: Castle Mountain Lodge Series"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Cowgirl Ropes a Billionaire (Cowboys of Chance Creek) (Volume 4)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Teacher's Billionaire: The Sherbrookes of Newport Book 1"
+  },
+  {
+    "rank": 4,
+    "item_name": "Shunned No More: A Lady Forsaken, Book One (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Chasing Charlie"
+  },
+  {
+    "rank": 6,
+    "item_name": "Brazos Bride: Men of Stone Mountain Book 1. Micah"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Marriage Bargain"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Look of Love (The Sullivans)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Safe by the Marshal's Side (Witness Protection)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Maggie's Mistake (Avalon Historical Romance)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Promise Cove: A Pelican Pointe Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "All I Want for Christmas is You"
+  },
+  {
+    "rank": 13,
+    "item_name": "She Belongs to Me"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Captain's Bluestocking Mistress (Dukes of War) (Volume 3)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Where the Wind Blows (Leisure Historical Romance)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Women of Merryton: Jessie Bell (The Women of Merryton) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Unwrapping Her Perfect Match: A London Legends Christmas Romance"
+  },
+  {
+    "rank": 18,
+    "item_name": "Game of Love (Love in Bloom: The Remingtons, Book 1) (Volume 10)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Silver Storm"
+  },
+  {
+    "rank": 20,
+    "item_name": "Oklahoma Christmas Blues: A Prequel to the McIntyre Men"
+  },
+  {
+    "rank": 21,
+    "item_name": "Sixty Acres and a Bride"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Wren (Wings of the West) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Time to Give (Silhouette Superromance)"
+  },
+  {
+    "rank": 24,
+    "item_name": "A SEAL's Oath (SEALs of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Inconvenient Duchess"
+  },
+  {
+    "rank": 26,
+    "item_name": "If The Shoe Fits: Once Upon A Romance, Book 1 (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Wild Man Creek (A Virgin River Novel)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Brands Who Came for Christmas (The Oklahoma All-Girl Brands) (Silhouette Intimate Moments, 1039)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Accidentally Married"
+  },
+  {
+    "rank": 30,
+    "item_name": "Good Together (The Carrigans of the Circle C) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Taken by Tuesday (Weekday Brides)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Treasure on Moon Lake (Love on the Lake) (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "No Exchanges, No Returns: Book Four of The Return To Redemption Series (Volume 4)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Barefoot in White (The Barefoot Bay Series)"
+  },
+  {
+    "rank": 35,
+    "item_name": "From This Moment On (Windswept Bay) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Reese's Cowboy Kiss Witness Protection  ~ Rancher Style: Blake's Story (Sweet Montana Bride) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Montana Dawn (Home in the Heartland)"
+  },
+  {
+    "rank": 38,
+    "item_name": "When Lightning Strikes (Whiskey Creek)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Treasured by Thursday (Weekday Brides)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Fairy Tale Bride (Once upon a Wedding)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Chief Cook and Bottle Washer: Book One of the Travers Brothers Series"
+  },
+  {
+    "rank": 42,
+    "item_name": "Saving Grace (Safe Havens) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Navy SEAL's E-Mail Order Bride (Heroes of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Father Found (The Daddy School, Book 1) (Harlequin Superromance, No 763)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Unexpected Treasure - The Lost Andersons - Billionaire Bachelors Continued (Volume 10)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Knight and Maggie's Baby (Fate with a Helping Hand) (Volume 3)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Daddy Pact: From The Coach' Boys Series"
+  },
+  {
+    "rank": 48,
+    "item_name": "Fatal Judgment (Guardians of Justice, Book 1) (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "It Had to Be You (Christiansen Family)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Cowboy Wins a Bride (The Cowboys of Chance Creek)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

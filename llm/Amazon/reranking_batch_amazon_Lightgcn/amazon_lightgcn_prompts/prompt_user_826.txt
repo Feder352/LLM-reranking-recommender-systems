@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Only Time Will Tell"
+  },
+  {
+    "item_name": "A is for Alibi (Kinsey Millhone Alphabet Mysteries, No. 1)"
+  },
+  {
+    "item_name": "B is for Burglar (Kinsey Millhone Alphabet Mysteries, No. 2)"
+  },
+  {
+    "item_name": "E is for Evidence (The Kinsey Millhone Alphabet Mysteries)"
+  },
+  {
+    "item_name": "C Is for Corpse: A Kinsey Millhone Mystery (Kinsey Millhone Alphabet Mysteries)"
+  },
+  {
+    "item_name": "The Absolutely True Diary of a Part-Time Indian"
+  },
+  {
+    "item_name": "City of Saints &amp; Thieves"
+  },
+  {
+    "item_name": "The Fifth Petal"
+  },
+  {
+    "item_name": "Alight: Book Two of the Generations Trilogy"
+  },
+  {
+    "item_name": "The Impossible Fortress"
+  },
+  {
+    "item_name": "Playing with Fire"
+  },
+  {
+    "item_name": "The Lonely Hearts Hotel: A Novel"
+  },
+  {
+    "item_name": "The Darkest Minds (Bonus Content) (A Darkest Minds Novel)"
+  },
+  {
+    "item_name": "Code Name Verity"
+  },
+  {
+    "item_name": "Throne of Glass"
+  },
+  {
+    "item_name": "Hamilton: The Revolution"
+  },
+  {
+    "item_name": "Passenger"
+  },
+  {
+    "item_name": "The League of Regrettable Superheroes: Half-Baked Heroes from Comic Book History"
+  },
+  {
+    "item_name": "Lumberjanes Vol. 1: Beware The Kitten Holy"
+  },
+  {
+    "item_name": "Of Mice and Men"
+  },
+  {
+    "item_name": "The Wonder Trail: True Stories from Los Angeles to the End of the World"
+  },
+  {
+    "item_name": "Anita Blake, Vampire Hunter: The First Death"
+  },
+  {
+    "item_name": "F is for Fugitive: A Kinsey Millhone Mystery (Kinsey Millhone Alphabet Mysteries)"
+  },
+  {
+    "item_name": "Real Murders (Aurora Teagarden Mysteries, Book 1)"
+  },
+  {
+    "item_name": "A Bone to Pick (Aurora Teagarden Mysteries, Book 2)"
+  },
+  {
+    "item_name": "Waking Gods: Themis Files Book 2"
+  },
+  {
+    "item_name": "Britt-marie Was Here (Thorndike Core)"
+  },
+  {
+    "item_name": "Flame in the Mist"
+  },
+  {
+    "item_name": "Auntie Poldi and the Sicilian Lions (An Auntie Poldi Adventure)"
+  },
+  {
+    "item_name": "Leave No Trace: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 603,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 2,
+    "item_id": 6179,
+    "item_name": "The Night Circus (Vintage Magic)"
+  },
+  {
+    "rank": 3,
+    "item_id": 7169,
+    "item_name": "Matched"
+  },
+  {
+    "rank": 4,
+    "item_id": 36314,
+    "item_name": "Fangirl"
+  },
+  {
+    "rank": 5,
+    "item_id": 73135,
+    "item_name": "Mockingjay: The Hunger Games"
+  },
+  {
+    "rank": 6,
+    "item_id": 16239,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 7,
+    "item_id": 15807,
+    "item_name": "Red Rising"
+  },
+  {
+    "rank": 8,
+    "item_id": 22965,
+    "item_name": "The Hunger Games (Book 1)"
+  },
+  {
+    "rank": 9,
+    "item_id": 36546,
+    "item_name": "Shadow and Bone (Grisha Trilogy)"
+  },
+  {
+    "rank": 10,
+    "item_id": 13777,
+    "item_name": "Daughter of Smoke &amp; Bone"
+  },
+  {
+    "rank": 11,
+    "item_id": 13973,
+    "item_name": "The Casual Vacancy"
+  },
+  {
+    "rank": 12,
+    "item_id": 4341,
+    "item_name": "The Ocean at the End of the Lane CD: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 27345,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_id": 28218,
+    "item_name": "Everything, Everything"
+  },
+  {
+    "rank": 15,
+    "item_id": 375,
+    "item_name": "The Giver (Collins Modern Classics)"
+  },
+  {
+    "rank": 16,
+    "item_id": 8869,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 17,
+    "item_id": 7205,
+    "item_name": "Prodigy"
+  },
+  {
+    "rank": 18,
+    "item_id": 7213,
+    "item_name": "Crossed (Matched)"
+  },
+  {
+    "rank": 19,
+    "item_id": 77133,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 20,
+    "item_id": 2249,
+    "item_name": "Smoke and Mirrors: Short Fictions and Illusions"
+  },
+  {
+    "rank": 21,
+    "item_id": 10049,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_id": 28800,
+    "item_name": "The Perks Of Being A Wallflower (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 23,
+    "item_id": 13446,
+    "item_name": "Eclipse (Twilight Sagas)"
+  },
+  {
+    "rank": 24,
+    "item_id": 44999,
+    "item_name": "Crown of Midnight (Throne of Glass)"
+  },
+  {
+    "rank": 25,
+    "item_id": 31979,
+    "item_name": "City of Bones (The Mortal Instruments)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

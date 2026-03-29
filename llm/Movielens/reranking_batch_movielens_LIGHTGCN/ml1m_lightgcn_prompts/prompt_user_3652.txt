@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Tarzan"
+  },
+  {
+    "item_name": "Almost Famous"
+  },
+  {
+    "item_name": "Pulp Fiction"
+  },
+  {
+    "item_name": "Raising Arizona"
+  },
+  {
+    "item_name": "Meet the Parents"
+  },
+  {
+    "item_name": "Monty Python and the Holy Grail"
+  },
+  {
+    "item_name": "Monty Python's Life of Brian"
+  },
+  {
+    "item_name": "Mummy, The"
+  },
+  {
+    "item_name": "Apocalypse Now"
+  },
+  {
+    "item_name": "Requiem for a Dream"
+  },
+  {
+    "item_name": "Snow White and the Seven Dwarfs"
+  },
+  {
+    "item_name": "Star Wars: Episode VI - Return of the Jedi"
+  },
+  {
+    "item_name": "Gattaca"
+  },
+  {
+    "item_name": "Contact"
+  },
+  {
+    "item_name": "Forbidden Planet"
+  },
+  {
+    "item_name": "Dark Crystal, The"
+  },
+  {
+    "item_name": "Robocop"
+  },
+  {
+    "item_name": "Close Shave, A"
+  },
+  {
+    "item_name": "Batman: Mask of the Phantasm"
+  },
+  {
+    "item_name": "Secret of NIMH, The"
+  },
+  {
+    "item_name": "Mulan"
+  },
+  {
+    "item_name": "Raiders of the Lost Ark"
+  },
+  {
+    "item_name": "Abyss, The"
+  },
+  {
+    "item_name": "Mystery Men"
+  },
+  {
+    "item_name": "Akira"
+  },
+  {
+    "item_name": "Blade"
+  },
+  {
+    "item_name": "History of the World: Part I"
+  },
+  {
+    "item_name": "Princess Bride, The"
+  },
+  {
+    "item_name": "Fifth Element, The"
+  },
+  {
+    "item_name": "Specials, The"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1201,
+    "item_name": "Dogma"
+  },
+  {
+    "rank": 2,
+    "item_id": 600,
+    "item_name": "Mystery Science Theater 3000: The Movie"
+  },
+  {
+    "rank": 3,
+    "item_id": 433,
+    "item_name": "Face/Off"
+  },
+  {
+    "rank": 4,
+    "item_id": 469,
+    "item_name": "Ghost in the Shell (Kokaku kidotai)"
+  },
+  {
+    "rank": 5,
+    "item_id": 1015,
+    "item_name": "Dark City"
+  },
+  {
+    "rank": 6,
+    "item_id": 631,
+    "item_name": "Rocketeer, The"
+  },
+  {
+    "rank": 7,
+    "item_id": 865,
+    "item_name": "Spaceballs"
+  },
+  {
+    "rank": 8,
+    "item_id": 809,
+    "item_name": "Nutty Professor, The"
+  },
+  {
+    "rank": 9,
+    "item_id": 1210,
+    "item_name": "Lawnmower Man, The"
+  },
+  {
+    "rank": 10,
+    "item_id": 768,
+    "item_name": "Tron"
+  },
+  {
+    "rank": 11,
+    "item_id": 365,
+    "item_name": "City of Lost Children, The"
+  },
+  {
+    "rank": 12,
+    "item_id": 1067,
+    "item_name": "Toys"
+  },
+  {
+    "rank": 13,
+    "item_id": 684,
+    "item_name": "Coneheads"
+  },
+  {
+    "rank": 14,
+    "item_id": 1656,
+    "item_name": "Johnny Mnemonic"
+  },
+  {
+    "rank": 15,
+    "item_id": 540,
+    "item_name": "Grand Day Out, A"
+  },
+  {
+    "rank": 16,
+    "item_id": 69,
+    "item_name": "Gladiator"
+  },
+  {
+    "rank": 17,
+    "item_id": 252,
+    "item_name": "X-Files: Fight the Future, The"
+  },
+  {
+    "rank": 18,
+    "item_id": 784,
+    "item_name": "Flight of the Navigator"
+  },
+  {
+    "rank": 19,
+    "item_id": 21,
+    "item_name": "Pleasantville"
+  },
+  {
+    "rank": 20,
+    "item_id": 108,
+    "item_name": "Demolition Man"
+  },
+  {
+    "rank": 21,
+    "item_id": 559,
+    "item_name": "Honey, I Shrunk the Kids"
+  },
+  {
+    "rank": 22,
+    "item_id": 643,
+    "item_name": "Beetlejuice"
+  },
+  {
+    "rank": 23,
+    "item_id": 1012,
+    "item_name": "Lock, Stock & Two Smoking Barrels"
+  },
+  {
+    "rank": 24,
+    "item_id": 816,
+    "item_name": "Dazed and Confused"
+  },
+  {
+    "rank": 25,
+    "item_id": 344,
+    "item_name": "Big Lebowski, The"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

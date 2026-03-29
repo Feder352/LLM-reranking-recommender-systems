@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Happiness In Between: A Novel"
+  },
+  {
+    "item_name": "The Switch: A Novel"
+  },
+  {
+    "item_name": "Hello, Sunshine: A Novel"
+  },
+  {
+    "item_name": "The Captain's Daughter: A Novel"
+  },
+  {
+    "item_name": "Do Not Become Alarmed"
+  },
+  {
+    "item_name": "Wicked for Hire (Paranormal in Manhattan Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Links"
+  },
+  {
+    "item_name": "Nine Women, One Dress"
+  },
+  {
+    "item_name": "How to Change a Life"
+  },
+  {
+    "item_name": "The Dating Bender"
+  },
+  {
+    "item_name": "The One That Got Away: A Novel"
+  },
+  {
+    "item_name": "The Future She Left Behind"
+  },
+  {
+    "item_name": "Friend Request: The most addictive psychological thriller you'll read this year"
+  },
+  {
+    "item_name": "The Boyfriend Swap"
+  },
+  {
+    "item_name": "A Season to Lie: A Detective Gemma Monroe Mystery (Detective Gemma Monroe Novels)"
+  },
+  {
+    "item_name": "Christmas Under a Cranberry Sky: A perfect romance to curl up by the fire with (A Town Called Christmas) (Volume 1)"
+  },
+  {
+    "item_name": "Best Day Ever: A Riveting Psychological Thriller about the Perfect Marriage"
+  },
+  {
+    "item_name": "Paris for One and Other Stories"
+  },
+  {
+    "item_name": "She Regrets Nothing: A Novel"
+  },
+  {
+    "item_name": "Happiness for Humans"
+  },
+  {
+    "item_name": "The French Girl"
+  },
+  {
+    "item_name": "The Missing Wife: The Unputdownable Bestseller"
+  },
+  {
+    "item_name": "Look for Me (A D.D. Warren and Flora Dane Novel)"
+  },
+  {
+    "item_name": "The Secret to Southern Charm (The Peachtree Bluff Series)"
+  },
+  {
+    "item_name": "Open Season"
+  },
+  {
+    "item_name": "The New Neighbors"
+  },
+  {
+    "item_name": "What My Sister Knew"
+  },
+  {
+    "item_name": "Our House"
+  },
+  {
+    "item_name": "Rush: A Novel"
+  },
+  {
+    "item_name": "Not Her Daughter"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 2,
+    "item_name": "Finding Emma"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Holdout"
+  },
+  {
+    "rank": 4,
+    "item_name": "Heiress Without A Cause: Muses of Mayfair #1"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Good Liar"
+  },
+  {
+    "rank": 6,
+    "item_name": "Across Eternity"
+  },
+  {
+    "rank": 7,
+    "item_name": "Come Dancing (The Jack and Julia Series) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "It's You"
+  },
+  {
+    "rank": 9,
+    "item_name": "Smoke"
+  },
+  {
+    "rank": 10,
+    "item_name": "Multiple Listings"
+  },
+  {
+    "rank": 11,
+    "item_name": "Conditional Love"
+  },
+  {
+    "rank": 12,
+    "item_name": "Don't You Cry"
+  },
+  {
+    "rank": 13,
+    "item_name": "One Plus One: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Other Girl: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Sunshine Sisters"
+  },
+  {
+    "rank": 16,
+    "item_name": "Maine"
+  },
+  {
+    "rank": 17,
+    "item_name": "Plan Bea (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "A Window Opens: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Pam of Babylon"
+  },
+  {
+    "rank": 20,
+    "item_name": "Spare Change: Family Saga (A Wyattsville Novel Book 1) (Series name Family Saga)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Hurricane Sisters: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Lake House: The House of Riverton 05"
+  },
+  {
+    "rank": 23,
+    "item_name": "Hidden"
+  },
+  {
+    "rank": 24,
+    "item_name": "Four Friends"
+  },
+  {
+    "rank": 25,
+    "item_name": "Echoes of Family"
+  },
+  {
+    "rank": 26,
+    "item_name": "Ugly Love: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Breakdown: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Snowflakes and Coffee Cakes"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Rules of Magic: A Novel (The Practical Magic Series)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Before I Go to Sleep: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "Nocturne"
+  },
+  {
+    "rank": 32,
+    "item_name": "Rules of Magic"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Child: The must-read Richard and Judy Book Club pick 2018"
+  },
+  {
+    "rank": 34,
+    "item_name": "It Happens All the Time: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Behind Her Eyes: The Sunday Times #1 Best Selling Psychological Thriller"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Liar"
+  },
+  {
+    "rank": 37,
+    "item_name": "Flight Patterns"
+  },
+  {
+    "rank": 38,
+    "item_name": "Little Beach Street Bakery: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Serenity Harbor: A Heartwarming Small Town Romance (Haven Point)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Wife Between Us: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "To Tuscany with Love"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Widow Waltz: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Gooseberry Island"
+  },
+  {
+    "rank": 44,
+    "item_name": "Reading the Sweet Oak"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Violets of March: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Grace Unexpected"
+  },
+  {
+    "rank": 47,
+    "item_name": "He Belongs to Me"
+  },
+  {
+    "rank": 48,
+    "item_name": "Heat Wave"
+  },
+  {
+    "rank": 49,
+    "item_name": "What Alice Forgot: From the bestselling author of Big Little Lies, now an award winning TV series"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Line Between Here and Gone (Forensic Instincts)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

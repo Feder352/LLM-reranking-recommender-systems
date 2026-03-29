@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Storm Gathering (Scorpius Syndrome)"
+  },
+  {
+    "item_name": "Beauty Dates the Beast"
+  },
+  {
+    "item_name": "Etched in Bone (A Novel of the Others)"
+  },
+  {
+    "item_name": "Lure of Oblivion (Mercury Pack)"
+  },
+  {
+    "item_name": "Stuffed: A Thanksgiving Romance"
+  },
+  {
+    "item_name": "Stone (Walk Of Shame 2nd Genration #1)"
+  },
+  {
+    "item_name": "Frozen"
+  },
+  {
+    "item_name": "After We Fall"
+  },
+  {
+    "item_name": "Man Candy"
+  },
+  {
+    "item_name": "Mooseletoe"
+  },
+  {
+    "item_name": "Flame in the Dark (A Soulwood Novel)"
+  },
+  {
+    "item_name": "Tall, Dark &amp; Heartless: A Pyte Series Novel"
+  },
+  {
+    "item_name": "Teton Sunrise: Teton Romance Trilogy, Book 1 (Volume 1)"
+  },
+  {
+    "item_name": "The Sex Education of M.E."
+  },
+  {
+    "item_name": "Wrong Number, Right Guy (The Bourbon Street Boys)"
+  },
+  {
+    "item_name": "Gifts: A Killers Novel, Book3 (The Killers) (Volume 3)"
+  },
+  {
+    "item_name": "The Hookup (Moonlight and Motor Oil Series) (Volume 1)"
+  },
+  {
+    "item_name": "Survive the Night (Rocky Mountain K9 Unit)"
+  },
+  {
+    "item_name": "To Save His Child (Into the Storm) (Volume 1)"
+  },
+  {
+    "item_name": "Hot and Badgered (The Honey Badger Chronicles)"
+  },
+  {
+    "item_name": "Twice Bitten: An Argeneau Novel"
+  },
+  {
+    "item_name": "Burn Bright"
+  },
+  {
+    "item_name": "Touch of Frost (Magic, New Mexico) (Volume 1)"
+  },
+  {
+    "item_name": "Ten Days with the Highlander"
+  },
+  {
+    "item_name": "Clawed (Were-Soldier Warriors)"
+  },
+  {
+    "item_name": "Set Free (Second Chance Series) (Volume 1)"
+  },
+  {
+    "item_name": "CowSex"
+  },
+  {
+    "item_name": "Wild Hunger (The Phoenix Pack)"
+  },
+  {
+    "item_name": "Ocean Light (Psy-Changeling Trinity)"
+  },
+  {
+    "item_name": "The Darkest Warrior (Lords of the Underworld)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Dark Lover (Black Dagger Brotherhood, Book 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Lover Avenged (Black Dagger Brotherhood, Book 7)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Lover Eternal (Black Dagger Brotherhood, Book 2)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Feral Sins (The Phoenix Pack Series)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The King: A Novel of the Black Dagger Brotherhood"
+  },
+  {
+    "rank": 6,
+    "item_name": "Lover Revealed (Black Dagger Brotherhood, Book 4)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Captivated by You (Crossfire)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Wild Invitation: A Psy-Changeling Collection (Psy/Changelings)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Lover At Last: A Novel of the Black Dagger Brotherhood"
+  },
+  {
+    "rank": 10,
+    "item_name": "Moon Called"
+  },
+  {
+    "rank": 11,
+    "item_name": "In His Keeping: A Slow Burn Novel (Slow Burn Novels)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Heart of the Hunter"
+  },
+  {
+    "rank": 13,
+    "item_name": "Lover Reborn (Black Dagger Brotherhood)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Darkest Night (Lords of the Underworld, Book 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Tempting the Beast (Feline Breeds, Book 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "First Drop of Crimson"
+  },
+  {
+    "rank": 17,
+    "item_name": "Drums of Autumn"
+  },
+  {
+    "rank": 18,
+    "item_name": "Blood Kiss: Black Dagger Legacy"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Shadows (Black Dagger Brotherhood)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Magic Strikes (Kate Daniels)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Stray"
+  },
+  {
+    "rank": 22,
+    "item_name": "Bared to You / Reflected in You / Entwined with You"
+  },
+  {
+    "rank": 23,
+    "item_name": "Archangel's Kiss (Guild Hunter, Book 2)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Magic Bleeds (Kate Daniels)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Magic Burns (Kate Daniels)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Masters of the Shadowlands (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 28,
+    "item_name": "Rock Hard (Rock Kiss)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Enslave Me Sweetly (Alien Huntress, Book 2)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Fantasy Lover"
+  },
+  {
+    "rank": 31,
+    "item_name": "On Dublin Street (On Dublin Street Series)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Bared to You"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Beast (Black Dagger Brotherhood Series)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Born of Fire (The League, Book 2)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Scandal Never Sleeps (The Perfect Gentlemen)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Once Burned (Night Prince, Book 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Neanderthal Seeks Human: A Smart Romance (Knitting in the City) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Down to You (A Bad Boys Novel)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Duchess War (The Brothers Sinister) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Acheron (Dark-Hunter, Book 12)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Manwhore"
+  },
+  {
+    "rank": 42,
+    "item_name": "Ride Steady (Chaos)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Archangel's Blade (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Oracle's Moon (A Novel of the Elder Races)"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Touch of Midnight: (vampire romance) (Midnight Breed)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Iron Kissed (Mercy Thompson, Book 3)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Iced: Fever Series Book 6"
+  },
+  {
+    "rank": 48,
+    "item_name": "Beyond the Highland Mist (Highlander, Book 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Immortal Highlander"
+  },
+  {
+    "rank": 50,
+    "item_name": "Winter of the Wolf: The Wild Hunt Legacy (Volume 2)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

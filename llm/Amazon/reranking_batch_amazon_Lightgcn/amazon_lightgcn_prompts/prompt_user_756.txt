@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Truly Free (International Edition): Breaking the Snares That So Easily Entangle"
+  },
+  {
+    "item_name": "Exploring Christian Theology: Creation, Fall, and Salvation"
+  },
+  {
+    "item_name": "Beautiful Evidence"
+  },
+  {
+    "item_name": "Ambient Findability: What We Find Changes Who We Become"
+  },
+  {
+    "item_name": "A Clash of Kings: A Song of Ice and Fire: Book Two"
+  },
+  {
+    "item_name": "The Good Spy: The Life and Death of Robert Ames"
+  },
+  {
+    "item_name": "The Paranormal Conspiracy: The Truth about Ghosts, Aliens and Mysterious Beings"
+  },
+  {
+    "item_name": "Men of War: The American Soldier in Combat at Bunker Hill, Gettysburg, and Iwo Jima"
+  },
+  {
+    "item_name": "End of Discussion: How the Left's Outrage Industry Shuts Down Debate, Manipulates Voters, and Makes America Less Free (and Fun)"
+  },
+  {
+    "item_name": "What's Wrong with the World (Dover Books on History, Political and Social Science)"
+  },
+  {
+    "item_name": "1177 B.C.: The Year Civilization Collapsed (Turning Points in Ancient History)"
+  },
+  {
+    "item_name": "The Pursuit of God: Updated Edition"
+  },
+  {
+    "item_name": "The Atheist Who Didn't Exist: Or the Dreadful Consequences of Bad Arguments"
+  },
+  {
+    "item_name": "Seven Women: And the Secret of Their Greatness"
+  },
+  {
+    "item_name": "Dear Mister Essay Writer Guy: Advice and Confessions on Writing, Love, and Cannibals"
+  },
+  {
+    "item_name": "Black Earth: The Holocaust as History and Warning"
+  },
+  {
+    "item_name": "On This Foundation (The Restoration Chronicles)"
+  },
+  {
+    "item_name": "Wicked Women of the Bible"
+  },
+  {
+    "item_name": "52 Original Wisdom Stories: Short Lively Pieces for the Christian Year"
+  },
+  {
+    "item_name": "President Lincoln: The Duty of a Statesman"
+  },
+  {
+    "item_name": "Parables: The Mysteries of God's Kingdom Revealed Through the Stories Jesus Told"
+  },
+  {
+    "item_name": "The Comeback: It's Not Too Late and You're Never Too Far"
+  },
+  {
+    "item_name": "The Four Dimensions of Extraordinary Leadership: The Power of Leading from Your Heart, Soul, Mind, and Strength"
+  },
+  {
+    "item_name": "An Insider's Guide to Praying for the World:  country-by-country prayer guide   inspiring faith stories   on-the-ground insights   up-to-date-maps"
+  },
+  {
+    "item_name": "Risen: The Novelization of the Major Motion Picture"
+  },
+  {
+    "item_name": "The Peaceful Wife: Living in Submission to Christ as Lord"
+  },
+  {
+    "item_name": "The 30-Day Faith Detox: Renew Your Mind, Cleanse Your Body, Heal Your Spirit"
+  },
+  {
+    "item_name": "The Rector: A Christian Murder Mystery (The Solo Ladies Bible Study Group)"
+  },
+  {
+    "item_name": "Draw to Win: A Crash Course on How to Lead, Sell, and Innovate With Your Visual Mind"
+  },
+  {
+    "item_name": "Fatal Frost (Defenders of Justice)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 475,
+    "item_name": "The Children of H&uacute;rin"
+  },
+  {
+    "rank": 2,
+    "item_id": 73167,
+    "item_name": "Les Miserables (Grandes Novelas (Tomo)) (Spanish Edition)"
+  },
+  {
+    "rank": 3,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 4,
+    "item_id": 584,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 5,
+    "item_id": 63923,
+    "item_name": "Dug Down Deep: Building Your Life on Truths That Last"
+  },
+  {
+    "rank": 6,
+    "item_id": 31436,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 7,
+    "item_id": 47016,
+    "item_name": "Cold-Case Christianity: A Homicide Detective Investigates the Claims of the Gospels"
+  },
+  {
+    "rank": 8,
+    "item_id": 35185,
+    "item_name": "Left Behind: A Novel of the Earth's Last Days (Left Behind #1)"
+  },
+  {
+    "rank": 9,
+    "item_id": 33573,
+    "item_name": "The Essential Tozer Collection: The Pursuit of God, The Purpose of Man, and The Crucified Life"
+  },
+  {
+    "rank": 10,
+    "item_id": 37322,
+    "item_name": "Interpreting Apocalyptic Literature: An Exegetical Handbook (Handbooks for Old Testament Exegesis)"
+  },
+  {
+    "rank": 11,
+    "item_id": 11222,
+    "item_name": "The Purpose Driven Life"
+  },
+  {
+    "rank": 12,
+    "item_id": 63493,
+    "item_name": "The Fight of Our Lives: Knowing the Enemy, Speaking the Truth, &amp; Choosing to Win the War Against Radical Islam"
+  },
+  {
+    "rank": 13,
+    "item_id": 54442,
+    "item_name": "The 9 Arts of Spiritual Conversations: Walking alongside People Who Believe Differently"
+  },
+  {
+    "rank": 14,
+    "item_id": 6852,
+    "item_name": "Les Miserables (Penguin Classics)"
+  },
+  {
+    "rank": 15,
+    "item_id": 46914,
+    "item_name": "Lit!: A Christian Guide to Reading Books"
+  },
+  {
+    "rank": 16,
+    "item_id": 63953,
+    "item_name": "Man Alive: Transforming Your Seven Primal Needs into a Powerful Spiritual Life"
+  },
+  {
+    "rank": 17,
+    "item_id": 73124,
+    "item_name": "The Pursuit of God: AW Tozer, Christian classics: The Pursuit of God"
+  },
+  {
+    "rank": 18,
+    "item_id": 11539,
+    "item_name": "The Connecting Church 2.0: Beyond Small Groups to Authentic Community"
+  },
+  {
+    "rank": 19,
+    "item_id": 37321,
+    "item_name": "A Commentary on the Psalms: 90-150 (Kregel Exegetical Library)"
+  },
+  {
+    "rank": 20,
+    "item_id": 72046,
+    "item_name": "Les Miserables"
+  },
+  {
+    "rank": 21,
+    "item_id": 63981,
+    "item_name": "When Work and Family Collide: Keeping Your Job from Cheating Your Family"
+  },
+  {
+    "rank": 22,
+    "item_id": 25961,
+    "item_name": "Amish Grace: How Forgiveness Transcended Tragedy"
+  },
+  {
+    "rank": 23,
+    "item_id": 43846,
+    "item_name": "The Adam Quest: Eleven Scientists Who Held on to a Strong Faith While Wrestling with the Mystery of Human Origins"
+  },
+  {
+    "rank": 24,
+    "item_id": 34760,
+    "item_name": "Crazy Love: Overwhelmed by a Relentless God"
+  },
+  {
+    "rank": 25,
+    "item_id": 7105,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

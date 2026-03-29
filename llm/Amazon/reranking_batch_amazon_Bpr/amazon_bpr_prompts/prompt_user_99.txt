@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Last Renegade (A Bitter Springs Novel)"
+  },
+  {
+    "item_name": "Midnight Marriage: A Georgian Historical Romance"
+  },
+  {
+    "item_name": "Silver-Tongued Devil"
+  },
+  {
+    "item_name": "With this Kiss"
+  },
+  {
+    "item_name": "Notorious Angel"
+  },
+  {
+    "item_name": "Habits of the House"
+  },
+  {
+    "item_name": "The Passing Bells: A Novel (Greville Family)"
+  },
+  {
+    "item_name": "Circles of Time: A Novel (Greville Family Saga)"
+  },
+  {
+    "item_name": "Circles of Time: A Novel (Greville Family Saga)"
+  },
+  {
+    "item_name": "Children of Liberty: A Novel"
+  },
+  {
+    "item_name": "The Queen's Vow: A Novel of Isabella of Castile"
+  },
+  {
+    "item_name": "The Unruly Passions of Eug&eacute;nie R."
+  },
+  {
+    "item_name": "This Side of Heaven: A Novel"
+  },
+  {
+    "item_name": "True to the Law"
+  },
+  {
+    "item_name": "A Spear of Summer Grass"
+  },
+  {
+    "item_name": "The Summer Queen: A Novel of Eleanor of Aquitaine"
+  },
+  {
+    "item_name": "The White Princess (COUSINS' WAR)"
+  },
+  {
+    "item_name": "The Firebird"
+  },
+  {
+    "item_name": "Fallen Women: A Novel"
+  },
+  {
+    "item_name": "The Outlaw Knight"
+  },
+  {
+    "item_name": "A Laird for Christmas (Highland Bachelor)"
+  },
+  {
+    "item_name": "Through the Smoke"
+  },
+  {
+    "item_name": "A Risk Worth Taking"
+  },
+  {
+    "item_name": "A King's Ransom: A Novel"
+  },
+  {
+    "item_name": "The Bargain"
+  },
+  {
+    "item_name": "Green Eyes"
+  },
+  {
+    "item_name": "Inspired by Tradition: The Architecture of Norman Davenport Askins"
+  },
+  {
+    "item_name": "The Windflower"
+  },
+  {
+    "item_name": "Tapestry"
+  },
+  {
+    "item_name": "Lilac Girls"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Drums of Autumn"
+  },
+  {
+    "rank": 2,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 4,
+    "item_name": "Shadowy Horses"
+  },
+  {
+    "rank": 5,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Painted Girls: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "Silent in the Grave"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Other Boleyn Girl"
+  },
+  {
+    "rank": 9,
+    "item_name": "Little Altars Everywhere"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Virgin Blue: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Divine Secrets of the Ya-Ya Sisterhood: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "A Knight in Shining Armor"
+  },
+  {
+    "rank": 14,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Little House Reader, A (Little House Books)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 18,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Pride of Lions"
+  },
+  {
+    "rank": 20,
+    "item_name": "As You Wish: Inconceivable Tales from the Making of The Princess Bride"
+  },
+  {
+    "rank": 21,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Venetia"
+  },
+  {
+    "rank": 23,
+    "item_name": "Sarah's Key"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Daughter Of Time"
+  },
+  {
+    "rank": 25,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Lady Fortescue Steps Out (The Poor Relation)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Sure of You"
+  },
+  {
+    "rank": 28,
+    "item_name": "Named of the Dragon"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Forgotten Garden"
+  },
+  {
+    "rank": 30,
+    "item_name": "Rose in Bloom (Puffin Classics)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Sweetness at the Bottom of the Pie: A Flavia de Luce Mystery"
+  },
+  {
+    "rank": 32,
+    "item_name": "Grand Sophy"
+  },
+  {
+    "rank": 33,
+    "item_name": "As Nature Made Him: The Boy Who Was Raised as A Girl"
+  },
+  {
+    "rank": 34,
+    "item_name": "Room"
+  },
+  {
+    "rank": 35,
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "rank": 36,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 37,
+    "item_name": "April Lady (A Harper Monogram Regency)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Kingmaker's Daughter (The Plantagenet and Tudor Novels)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Into the Wilderness: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Conqueror"
+  },
+  {
+    "rank": 41,
+    "item_name": "Cotillion (Harper Monogram Regency)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Ashford Affair: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Lord John and the Private Matter"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Firebird"
+  },
+  {
+    "rank": 45,
+    "item_name": "Sonoma Rose (Elm Creek Quilts)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Lord John and the Private Matter"
+  },
+  {
+    "rank": 47,
+    "item_name": "Harry Potter And The Order Of The Phoenix"
+  },
+  {
+    "rank": 48,
+    "item_name": "Pope Joan: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Blue Castle"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Secret Life of Bees"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

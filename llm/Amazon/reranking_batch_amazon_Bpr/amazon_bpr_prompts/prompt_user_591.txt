@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Standing in the Rainbow: A Novel (Elmwood Springs)"
+  },
+  {
+    "item_name": "The Apprentice: A Rizzoli &amp; Isles Novel"
+  },
+  {
+    "item_name": "Lapin Plays Possum: Trickster Tales From the Louisiana Bayou"
+  },
+  {
+    "item_name": "Lapin Plays Possum: Trickster Tales From the Louisiana Bayou"
+  },
+  {
+    "item_name": "Lapin Plays Possum: Trickster Tales From the Louisiana Bayou"
+  },
+  {
+    "item_name": "Lapin Plays Possum: Trickster Tales From the Louisiana Bayou"
+  },
+  {
+    "item_name": "Lapin Plays Possum: Trickster Tales From the Louisiana Bayou"
+  },
+  {
+    "item_name": "Lapin Plays Possum: Trickster Tales From the Louisiana Bayou"
+  },
+  {
+    "item_name": "Lapin Plays Possum: Trickster Tales From the Louisiana Bayou"
+  },
+  {
+    "item_name": "Fireboat: The Heroic Adventures of the John J. Harvey (Picture Puffin Books)"
+  },
+  {
+    "item_name": "Slowly, Slowly, Slowly, said the Sloth"
+  },
+  {
+    "item_name": "The Spider and the Fly"
+  },
+  {
+    "item_name": "Dear Mrs. LaRue: Letters from Obedience School (LaRue Books)"
+  },
+  {
+    "item_name": "Q is for Quarry: A Kinsey Millhone Novel"
+  },
+  {
+    "item_name": "Visions of Sugar Plums"
+  },
+  {
+    "item_name": "Action Jackson"
+  },
+  {
+    "item_name": "Top of the World"
+  },
+  {
+    "item_name": "Final Epidemic:: A Novel of Medical Suspense"
+  },
+  {
+    "item_name": "Fat Ollie's Book: A Novel of the 87th Precinct"
+  },
+  {
+    "item_name": "The Snowy Day"
+  },
+  {
+    "item_name": "How Do Dinosaurs Get Well Soon?"
+  },
+  {
+    "item_name": "Counting Kisses"
+  },
+  {
+    "item_name": "My Friend Rabbit: A Picture Book"
+  },
+  {
+    "item_name": "Gossie (Reader) (Gossie &amp; Friends)"
+  },
+  {
+    "item_name": "Mumbo Gumbo (Madeline Bean Catering Mysteries #5)"
+  },
+  {
+    "item_name": "Back Story (Spenser Mystery)"
+  },
+  {
+    "item_name": "Ties That Bind (Amanda Jaffe)"
+  },
+  {
+    "item_name": "Lost Light"
+  },
+  {
+    "item_name": "Angry Housewives Eating Bon Bons"
+  },
+  {
+    "item_name": "The Burning Room (A Harry Bosch Novel)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Husband: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 4,
+    "item_name": "Memoirs of a Geisha Uk"
+  },
+  {
+    "rank": 5,
+    "item_name": "State of Fear"
+  },
+  {
+    "rank": 6,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Day Of The Jackal"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Oh, the Thinks You Can Think! Green Back Book"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 11,
+    "item_name": "Company Man"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 13,
+    "item_name": "Girl with a Pearl Earring"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Fifth Witness (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Mary, Mary"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Ruins"
+  },
+  {
+    "rank": 18,
+    "item_name": "Power Play"
+  },
+  {
+    "rank": 19,
+    "item_name": "Mistaken Identity"
+  },
+  {
+    "rank": 20,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Kill Clause"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Five People You Meet in Heaven (Random House Large Print)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Angels &amp; Demons (Random House Large Print)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Digital Fortress"
+  },
+  {
+    "rank": 25,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 26,
+    "item_name": "Cross Bones (Temperance Brennan)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Death Match"
+  },
+  {
+    "rank": 28,
+    "item_name": "No Second Chance"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Cases That Haunt Us"
+  },
+  {
+    "rank": 30,
+    "item_name": "Tripwire (Jack Reacher, No. 3)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Alexander and the Terrible, Horrible, No Good, Very Bad Day Low Price"
+  },
+  {
+    "rank": 32,
+    "item_name": "Sam's Letters To Jennifer"
+  },
+  {
+    "rank": 33,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Ten Big Ones (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 35,
+    "item_name": "PREY."
+  },
+  {
+    "rank": 36,
+    "item_name": "T For Trespass ( A New Kinsey Millhone Mystery)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Trading in Danger (Vatta's War)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Giving Tree with Gift Card"
+  },
+  {
+    "rank": 39,
+    "item_name": "Killer Instinct"
+  },
+  {
+    "rank": 40,
+    "item_name": "Divine Secrets of the Ya-Ya Sisterhood: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Three Little Wolves And The Big Bad Pig (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Brethren"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Enemy (Jack Reacher, No. 8)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Hissy Fit: A Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "Broken Prey (Lucas Davenport Mysteries)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Shrink Rap"
+  },
+  {
+    "rank": 47,
+    "item_name": "Prodigal Summer"
+  },
+  {
+    "rank": 48,
+    "item_name": "Still Life with Crows (Pendergast, Book 4)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Caps for Sale Book and CD: A Tale of a Peddler, Some Monkeys, and Their Monkey Business"
+  },
+  {
+    "rank": 50,
+    "item_name": "Bloodroot (China Bayles Mystery)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

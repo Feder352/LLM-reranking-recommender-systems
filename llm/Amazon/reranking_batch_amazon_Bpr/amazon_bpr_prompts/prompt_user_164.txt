@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Unnatural Death (Lord Peter Wimsey Mysteries)"
+  },
+  {
+    "item_name": "Hermit of Eyton Forest (Brother Cadfael Mysteries)"
+  },
+  {
+    "item_name": "The confession of Brother Haluin : the fifteenth chronicle of Brother Cadfael, of the Benedictine Abbey of Saint Peter and Saint Paul, at Shrewsbury"
+  },
+  {
+    "item_name": "A Rare Benedictine (Chronicles of Brother Cadfael)"
+  },
+  {
+    "item_name": "The Heretic's Apprentice (Chronicles of Brother Cadfael)"
+  },
+  {
+    "item_name": "The Potters Field (Chronicles of Brother Cadfael)"
+  },
+  {
+    "item_name": "The Summer of the Danes (Chronicles of Brother Cadfael)"
+  },
+  {
+    "item_name": "The Holy Thief"
+  },
+  {
+    "item_name": "Neverwhere: A Novel"
+  },
+  {
+    "item_name": "Bitter Creek (The Montana Mysteries Featuring Gabriel Du Pr)"
+  },
+  {
+    "item_name": "Busman's Honeymoon: A Love Story with Detective Interruptions (A Lord Peter Wimsey Mystery with Harriet Vane)"
+  },
+  {
+    "item_name": "Saturday the Rabbi Went Hungry"
+  },
+  {
+    "item_name": "The Beast Master"
+  },
+  {
+    "item_name": "Unnatural Death (Lord Peter Wimsey Mysteries)"
+  },
+  {
+    "item_name": "Storm of the Century: The Labor Day Hurricane of 1935"
+  },
+  {
+    "item_name": "Holy Disorders: Gervase Fen #2"
+  },
+  {
+    "item_name": "Triple Jeopardy (Nero Wolfe)"
+  },
+  {
+    "item_name": "Hide My Eyes (Penguin Classic Crime)"
+  },
+  {
+    "item_name": "Lone Survivor: The Eyewitness Account of Operation Redwing and the Lost Heroes of SEAL Team 10"
+  },
+  {
+    "item_name": "Climate of Uncertainty: A Balanced Look at Global Warming &amp; Renewable Energy (Paperback) - Common"
+  },
+  {
+    "item_name": "Fer-de-Lance/The League of Frightened Men (Nero Wolfe)"
+  },
+  {
+    "item_name": "Chalice"
+  },
+  {
+    "item_name": "Bobby Kennedy: A Raging Spirit"
+  },
+  {
+    "item_name": "The Great Quake: How the Biggest Earthquake in North America Changed Our Understanding of the  Planet"
+  },
+  {
+    "item_name": "Inside the Outbreaks: The Elite Medical Detectives of the Epidemic Intelligence Service"
+  },
+  {
+    "item_name": "The River of Consciousness"
+  },
+  {
+    "item_name": "Death Watch"
+  },
+  {
+    "item_name": "The Punishment She Deserves: A Lynley Novel"
+  },
+  {
+    "item_name": "Where There's a Will"
+  },
+  {
+    "item_name": "Spinning Silver: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 2,
+    "item_name": "20,000 Leagues Under the Sea"
+  },
+  {
+    "rank": 3,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 4,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 5,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 6,
+    "item_name": "One, Two, Buckle My Shoe"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Prince (Classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Murder on the Links"
+  },
+  {
+    "rank": 9,
+    "item_name": "And Then There Were None: The World's Favourite Agatha Christie Book"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Mystery of the Blue Train (Poirot)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Murder of Roger Ackroyd (Poirot)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Eyre Affair: A Thursday Next Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Little Old Lady Who Was Not Afraid of Anything Book and CD (Share a Story)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Aunt Dimity and the Duke (Aunt Dimity Mystery)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Proof: A Play"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Body in the Library"
+  },
+  {
+    "rank": 18,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Pale Horse"
+  },
+  {
+    "rank": 20,
+    "item_name": "A Thousand Splendid Suns: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Giving Tree with Gift Card"
+  },
+  {
+    "rank": 22,
+    "item_name": "Crouching Buzzard, Leaping Loon"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Clouds of Witness"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Turn of the Screw and Other Stories (Penguin modern classics)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Subliminal: How Your Unconscious Mind Rules Your Behavior"
+  },
+  {
+    "rank": 27,
+    "item_name": "Lost in a Good Book (A Thursday Next Novel)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 29,
+    "item_name": "The A. B. C. Murders: A Hercule Poirot Mystery"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Horse You Came In On"
+  },
+  {
+    "rank": 31,
+    "item_name": "Absalom, Absalom! (Modern Library College Editions)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Gangs of New York"
+  },
+  {
+    "rank": 33,
+    "item_name": "To Love and Be Wise"
+  },
+  {
+    "rank": 34,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 35,
+    "item_name": "Stormbreaker (Alex Rider)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Baron Thinks Dogs Are People Too!"
+  },
+  {
+    "rank": 37,
+    "item_name": "Growing Up Laughing: My Story and the Story of Funny"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Connecticut Yankee in King Arthur's Court (Penguin Classics)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Pilgrim's Progress from This World, To That Which Is toCome (Penguin Classics)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Island Stallion's Fury (Black Stallion)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Owls Well That Ends Well (Meg Langslow Mysteries)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Eldest (Inheritance, Book 2)"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Caribbean Mystery Complete &amp; Unabridged"
+  },
+  {
+    "rank": 44,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 46,
+    "item_name": "Harry the Dirty Dog (Harry the Dog)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Secret Knowledge (New and Expanded Edition): Rediscovering the Lost Techniques of the Old Masters"
+  },
+  {
+    "rank": 48,
+    "item_name": "Dragonflight (The Dragonriders of Pern, Vol. 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Night at the Vulcan (Dead Letter Mystery)"
+  },
+  {
+    "rank": 50,
+    "item_name": "On Writing"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

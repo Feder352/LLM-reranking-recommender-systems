@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "M"
+  },
+  {
+    "item_name": "North by Northwest"
+  },
+  {
+    "item_name": "2001: A Space Odyssey"
+  },
+  {
+    "item_name": "Psycho"
+  },
+  {
+    "item_name": "Nikita (La Femme Nikita)"
+  },
+  {
+    "item_name": "One False Move"
+  },
+  {
+    "item_name": "Gaslight"
+  },
+  {
+    "item_name": "Body Heat"
+  },
+  {
+    "item_name": "Seven Days in May"
+  },
+  {
+    "item_name": "Terminator, The"
+  },
+  {
+    "item_name": "Reservoir Dogs"
+  },
+  {
+    "item_name": "Repulsion"
+  },
+  {
+    "item_name": "Jacob's Ladder"
+  },
+  {
+    "item_name": "Gattaca"
+  },
+  {
+    "item_name": "Simple Plan, A"
+  },
+  {
+    "item_name": "Odessa File, The"
+  },
+  {
+    "item_name": "Primal Fear"
+  },
+  {
+    "item_name": "Shallow Grave"
+  },
+  {
+    "item_name": "Red Rock West"
+  },
+  {
+    "item_name": "Game, The"
+  },
+  {
+    "item_name": "Murder in the First"
+  },
+  {
+    "item_name": "Angel Heart"
+  },
+  {
+    "item_name": "Soylent Green"
+  },
+  {
+    "item_name": "Pacific Heights"
+  },
+  {
+    "item_name": "Some Like It Hot"
+  },
+  {
+    "item_name": "Laura"
+  },
+  {
+    "item_name": "Bonnie and Clyde"
+  },
+  {
+    "item_name": "Dog Day Afternoon"
+  },
+  {
+    "item_name": "Serpico"
+  },
+  {
+    "item_name": "Run Lola Run (Lola rennt)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 872,
+    "item_name": "Arlington Road"
+  },
+  {
+    "rank": 2,
+    "item_id": 875,
+    "item_name": "Bone Collector, The"
+  },
+  {
+    "rank": 3,
+    "item_id": 1449,
+    "item_name": "Notorious"
+  },
+  {
+    "rank": 4,
+    "item_id": 2325,
+    "item_name": "Switchback"
+  },
+  {
+    "rank": 5,
+    "item_id": 1170,
+    "item_name": "Ninth Gate, The"
+  },
+  {
+    "rank": 6,
+    "item_id": 305,
+    "item_name": "Talented Mr. Ripley, The"
+  },
+  {
+    "rank": 7,
+    "item_id": 2255,
+    "item_name": "Red Rock West"
+  },
+  {
+    "rank": 8,
+    "item_id": 834,
+    "item_name": "2 Days in the Valley"
+  },
+  {
+    "rank": 9,
+    "item_id": 918,
+    "item_name": "Entrapment"
+  },
+  {
+    "rank": 10,
+    "item_id": 1706,
+    "item_name": "Breakdown"
+  },
+  {
+    "rank": 11,
+    "item_id": 1008,
+    "item_name": "Mulholland Falls"
+  },
+  {
+    "rank": 12,
+    "item_id": 871,
+    "item_name": "What Lies Beneath"
+  },
+  {
+    "rank": 13,
+    "item_id": 523,
+    "item_name": "Cape Fear"
+  },
+  {
+    "rank": 14,
+    "item_id": 1117,
+    "item_name": "Scream"
+  },
+  {
+    "rank": 15,
+    "item_id": 258,
+    "item_name": "Lone Star"
+  },
+  {
+    "rank": 16,
+    "item_id": 2009,
+    "item_name": "Trouble with Harry, The"
+  },
+  {
+    "rank": 17,
+    "item_id": 1548,
+    "item_name": "Frenzy"
+  },
+  {
+    "rank": 18,
+    "item_id": 629,
+    "item_name": "Rear Window"
+  },
+  {
+    "rank": 19,
+    "item_id": 1712,
+    "item_name": "Island of Dr. Moreau, The"
+  },
+  {
+    "rank": 20,
+    "item_id": 924,
+    "item_name": "Basic Instinct"
+  },
+  {
+    "rank": 21,
+    "item_id": 1962,
+    "item_name": "Copycat"
+  },
+  {
+    "rank": 22,
+    "item_id": 1260,
+    "item_name": "Marathon Man"
+  },
+  {
+    "rank": 23,
+    "item_id": 1238,
+    "item_name": "Manchurian Candidate, The"
+  },
+  {
+    "rank": 24,
+    "item_id": 1281,
+    "item_name": "Third Man, The"
+  },
+  {
+    "rank": 25,
+    "item_id": 241,
+    "item_name": "Negotiator, The"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

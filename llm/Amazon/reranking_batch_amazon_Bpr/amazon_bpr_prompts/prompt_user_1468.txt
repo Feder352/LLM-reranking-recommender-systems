@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Gentleman's Deception"
+  },
+  {
+    "item_name": "My Fair Aussie (Millionaire Makeover Romance) (Volume 3)"
+  },
+  {
+    "item_name": "A Dash of Love: Based on the Hallmark Channel Original Movie"
+  },
+  {
+    "item_name": "Troubled Waters (Montana Rescue)"
+  },
+  {
+    "item_name": "Heart of the West"
+  },
+  {
+    "item_name": "Lightning Struck (Brothers Maledetti)"
+  },
+  {
+    "item_name": "The Sidelined Wife (More Than a Wife Series)"
+  },
+  {
+    "item_name": "Falling for a Cowboy (Rocky Mountain Cowboys)"
+  },
+  {
+    "item_name": "#Starstruck (A #Lovestruck Novel)"
+  },
+  {
+    "item_name": "Love's Journey Home"
+  },
+  {
+    "item_name": "Keturah (The Sugar Baron's Daughters)"
+  },
+  {
+    "item_name": "Check Me Out (Proper Romance Contemporary)"
+  },
+  {
+    "item_name": "A Tangled Inheritance"
+  },
+  {
+    "item_name": "Worth the Risk (Pine Valley) (Volume 1)"
+  },
+  {
+    "item_name": "Ashes on the Moor (Proper Romance Victorian)"
+  },
+  {
+    "item_name": "The Lacemaker"
+  },
+  {
+    "item_name": "Good Luck Charm (The Holiday High Series) (Volume 2)"
+  },
+  {
+    "item_name": "Where I Belong (Pine Valley) (Volume 2)"
+  },
+  {
+    "item_name": "A Loyal Heart"
+  },
+  {
+    "item_name": "Bad Boy Rancher (Rocky Mountain Cowboys)"
+  },
+  {
+    "item_name": "My Sister's Intended (Serendipity) (Volume 1)"
+  },
+  {
+    "item_name": "Match Me if You Can (No Match for Love)"
+  },
+  {
+    "item_name": "My Dearest Enemy"
+  },
+  {
+    "item_name": "A Madness Most Discreet (Brothers Maledetti)"
+  },
+  {
+    "item_name": "Miss Wilton's Waltz (Proper Romance Regency)"
+  },
+  {
+    "item_name": "Falling for You (A Bradford Sisters Romance)"
+  },
+  {
+    "item_name": "Storm Front (Montana Rescue)"
+  },
+  {
+    "item_name": "The Orphan's Wish"
+  },
+  {
+    "item_name": "Sons of Blackbird Mountain (A Blackbird Mountain Novel)"
+  },
+  {
+    "item_name": "Dead Drift (Chesapeake Valor)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Keeping Kate"
+  },
+  {
+    "rank": 2,
+    "item_name": "Uncovering Cobbogoth"
+  },
+  {
+    "rank": 3,
+    "item_name": "Do Over"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Nobleman's Governess Bride (The Glass Slipper Chronicles)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Second Season"
+  },
+  {
+    "rank": 6,
+    "item_name": "Lost and Found (A Ripple Effect Romance Novella, Book 4)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Witness in the Dark"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Fall of Lord Drayson (Tanglewood) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Fortune Cafe: A Tangerine Street Romance"
+  },
+  {
+    "rank": 10,
+    "item_name": "Willowkeep (A Regency Romance)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Drops of Gold"
+  },
+  {
+    "rank": 12,
+    "item_name": "Longing for Home: A Proper Romance"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Sage After Rain: A love story"
+  },
+  {
+    "rank": 14,
+    "item_name": "Not A Word"
+  },
+  {
+    "rank": 15,
+    "item_name": "Carla Kelly's Christmas Collection"
+  },
+  {
+    "rank": 16,
+    "item_name": "Christmas Grace"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Cenote"
+  },
+  {
+    "rank": 18,
+    "item_name": "Courting Miss Lancaster"
+  },
+  {
+    "rank": 19,
+    "item_name": "Check Me Out (Proper Romance Contemporary)"
+  },
+  {
+    "rank": 20,
+    "item_name": "All I Want: Three couples. Three Stories. One Holiday"
+  },
+  {
+    "rank": 21,
+    "item_name": "Life (Citizens of Logan Pond) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Sheriffs of Savage Wells: A Proper Romance  (Proper Romance Series)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Loving Helen (A Hearthfire Romance) (Volume 2)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Son of War, Daughter of Chaos"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Kindling (Middle School Magic)"
+  },
+  {
+    "rank": 26,
+    "item_name": "To Move the World (Power of the Matchmaker)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Asked &amp; Answered (Legally in Love)"
+  },
+  {
+    "rank": 28,
+    "item_name": "As You Are"
+  },
+  {
+    "rank": 29,
+    "item_name": "Midnight Masquerade"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Earl's Betrothal (Regency Romance)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Fragile"
+  },
+  {
+    "rank": 32,
+    "item_name": "Girl of Mine"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Secret Life of Daydreams (a Love Story from Portugal)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Courting Carrie in Wonderland"
+  },
+  {
+    "rank": 35,
+    "item_name": "Castles on the Sand"
+  },
+  {
+    "rank": 36,
+    "item_name": "If We Were A Movie"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Charity Chip"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Pursuit of Lady Harriett (Tanglewood) (Volume 3)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Cookie Girl Christmas: A Snowflake Falls Inn Romance (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Friends and Foes"
+  },
+  {
+    "rank": 41,
+    "item_name": "Fetch"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Boardwalk Antiques Shop (A Tangerine Street Romance)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Penumbras (Middle School Magic)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Glimmer of Hope"
+  },
+  {
+    "rank": 45,
+    "item_name": "First Love Second Choice (Accidental Bride)"
+  },
+  {
+    "rank": 46,
+    "item_name": "A July Bride (A Year of Weddings Novella)"
+  },
+  {
+    "rank": 47,
+    "item_name": "For Sale by Owner"
+  },
+  {
+    "rank": 48,
+    "item_name": "Crave (The Clann)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Sense and Sensibility: A Latter-day Tale"
+  },
+  {
+    "rank": 50,
+    "item_name": "Read, Write, Love at Seaside (Sweet with Heat: Seaside Summers) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

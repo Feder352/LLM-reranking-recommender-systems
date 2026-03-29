@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Hothouse Orchid (Holly Barker)"
+  },
+  {
+    "item_name": "Midnight Mass"
+  },
+  {
+    "item_name": "Swimming to Catalina: A Novel"
+  },
+  {
+    "item_name": "No Man's Land (John Puller Series)"
+  },
+  {
+    "item_name": "Worst Fears Realized"
+  },
+  {
+    "item_name": "Cold Paradise (Stone Barrington)"
+  },
+  {
+    "item_name": "The Short Forever (Stone Barrington)"
+  },
+  {
+    "item_name": "Mortal Prey"
+  },
+  {
+    "item_name": "Naked Prey"
+  },
+  {
+    "item_name": "L.A. Dead"
+  },
+  {
+    "item_name": "Dirty Work (Stone Barrington Novels)"
+  },
+  {
+    "item_name": "Hidden Prey (Lucas Davenport Mysteries)"
+  },
+  {
+    "item_name": "Invisible Prey (Lucas Davenport Mysteries)"
+  },
+  {
+    "item_name": "The Hit (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "Wicked Prey (Lucas Davenport Mysteries)"
+  },
+  {
+    "item_name": "The Last Mile"
+  },
+  {
+    "item_name": "The Fix (Memory Man series)"
+  },
+  {
+    "item_name": "Shoot Him If He Runs (Stone Barrington)"
+  },
+  {
+    "item_name": "The Target"
+  },
+  {
+    "item_name": "The Harvest"
+  },
+  {
+    "item_name": "The Day of the Triffids (Popular Penguins)"
+  },
+  {
+    "item_name": "The Silent Corner: A Novel of Suspense (Jane Hawk)"
+  },
+  {
+    "item_name": "Monument 14: Sky on Fire (Monument 14 Series)"
+  },
+  {
+    "item_name": "The Rule of Three: Fight for Power"
+  },
+  {
+    "item_name": "Camino Island: A Novel"
+  },
+  {
+    "item_name": "The Kind Worth Killing: A Novel"
+  },
+  {
+    "item_name": "The Death and Life of Charlie St. Cloud: A Novel"
+  },
+  {
+    "item_name": "Demon Seed"
+  },
+  {
+    "item_name": "The Compound"
+  },
+  {
+    "item_name": "Son of Stone (Stone Barrington)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Black Echo (Harry Bosch)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Mystic River"
+  },
+  {
+    "rank": 3,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Fifth Witness (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Odd Hours"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Scarecrow"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Enemy (Jack Reacher, No. 8)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Bone Collector (A Lincoln Rhyme Novel)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Dead Wrong (Joanna Brady Mysteries, Book 12)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Last Coyote (Harry Bosch)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 13,
+    "item_name": "Suspect"
+  },
+  {
+    "rank": 14,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 15,
+    "item_name": "Play to Kill"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Hot Kid"
+  },
+  {
+    "rank": 17,
+    "item_name": "Revival (Thorndike Press Large Pring Basic)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Brimstone (Pendergast, Book 5)"
+  },
+  {
+    "rank": 19,
+    "item_name": "61 Hours: A Reacher Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Ruins"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Faithful Spy: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Rules of Prey"
+  },
+  {
+    "rank": 23,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 24,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Collectors"
+  },
+  {
+    "rank": 26,
+    "item_name": "Jack Reacher: One Shot (Movie Tie-in Edition): A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Third Gate (Jeremy Logan Series)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Relic"
+  },
+  {
+    "rank": 29,
+    "item_name": "PREY."
+  },
+  {
+    "rank": 30,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Step on a Crack"
+  },
+  {
+    "rank": 32,
+    "item_name": "You've Been Warned"
+  },
+  {
+    "rank": 33,
+    "item_name": "Plum Island"
+  },
+  {
+    "rank": 34,
+    "item_name": "Along Came a Spider"
+  },
+  {
+    "rank": 35,
+    "item_name": "Power Play"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Book of the Dead"
+  },
+  {
+    "rank": 37,
+    "item_name": "Odd Thomas: An Odd Thomas Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Brethren"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 40,
+    "item_name": "Shutter Island"
+  },
+  {
+    "rank": 41,
+    "item_name": "Tyrannosaur Canyon"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Cuckoo's Calling (Cormoran Strike)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Persuader (Jack Reacher, No. 7)"
+  },
+  {
+    "rank": 44,
+    "item_name": "City of Bones"
+  },
+  {
+    "rank": 45,
+    "item_name": "Phantoms"
+  },
+  {
+    "rank": 46,
+    "item_name": "Every Dead Thing"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Death In Vienna (Silva, Daniel)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Darkly Dreaming Dexter"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Affair: A Jack Reacher Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Cross Country"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

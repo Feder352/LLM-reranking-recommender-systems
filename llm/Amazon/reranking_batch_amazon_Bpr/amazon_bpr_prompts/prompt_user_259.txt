@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Art of Romance (The Matchmakers)"
+  },
+  {
+    "item_name": "Petticoat Detective (Undercover Ladies)"
+  },
+  {
+    "item_name": "What God Brings Together"
+  },
+  {
+    "item_name": "Summer House Party (Timeless Regency Collection) (Volume 4)"
+  },
+  {
+    "item_name": "Chasing Fireflies"
+  },
+  {
+    "item_name": "Finding Peace"
+  },
+  {
+    "item_name": "Between Heaven and Earth (Power of the Matchmaker)"
+  },
+  {
+    "item_name": "The Fall of Lord Drayson (Tanglewood) (Volume 1)"
+  },
+  {
+    "item_name": "Mix 'N Match (No Match for Love) (Volume 5)"
+  },
+  {
+    "item_name": "The Reformer (Power of the Matchmaker) (Volume 12)"
+  },
+  {
+    "item_name": "The Viscount of Maisons-Laffitte"
+  },
+  {
+    "item_name": "To Move the World (Power of the Matchmaker)"
+  },
+  {
+    "item_name": "How to Get Over Your Ex in Ninety Days"
+  },
+  {
+    "item_name": "How I Met Your Brother"
+  },
+  {
+    "item_name": "Cupcakes and Cowboys (Sunset Plains Romance) (Volume 1)"
+  },
+  {
+    "item_name": "Rachel Laine (The Women of Merryton) (Volume 3)"
+  },
+  {
+    "item_name": "Twisters and Textbooks (Sunset Plains Romance)"
+  },
+  {
+    "item_name": "The Faithful One: A Billionaire Bride Pact Romance"
+  },
+  {
+    "item_name": "The Christmas Cowboy (Rodeo Romance) (Volume 1)"
+  },
+  {
+    "item_name": "No Holly for Christmas (A Magic City Duo) (Volume 2)"
+  },
+  {
+    "item_name": "The Thirteenth Chance"
+  },
+  {
+    "item_name": "An August Bride (A Year of Weddings Novella)"
+  },
+  {
+    "item_name": "A March Bride (A Year of Weddings Novella)"
+  },
+  {
+    "item_name": "Accept This Dandelion"
+  },
+  {
+    "item_name": "Write Me Home"
+  },
+  {
+    "item_name": "Love's Shadow (Brothers Maledetti) (Volume 2)"
+  },
+  {
+    "item_name": "Then Came You: A Bradford Sisters Novella"
+  },
+  {
+    "item_name": "The Rise of Miss Notley (Tanglewood) (Volume 2)"
+  },
+  {
+    "item_name": "A Season in London (Timeless Regency Collection) (Volume 6)"
+  },
+  {
+    "item_name": "Perfectly Oblivious (The Perfect Series)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Shadows in the Curtain"
+  },
+  {
+    "rank": 2,
+    "item_name": "Cassie's Cowboy Crave (Sweet Montana Brides)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Nellie (The Brides of San Francisco) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "A Cheyenne Christmas"
+  },
+  {
+    "rank": 5,
+    "item_name": "Sixty Acres and a Bride"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Lady of Bolton Hill"
+  },
+  {
+    "rank": 7,
+    "item_name": "Chief Cook and Bottle Washer: Book One of the Travers Brothers Series"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Measure of Katie Calloway: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "Missing Lily"
+  },
+  {
+    "rank": 10,
+    "item_name": "Someone Else's Fairytale"
+  },
+  {
+    "rank": 11,
+    "item_name": "Winter in Full Bloom"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Heart Divided: A Novel (Heart of the Rockies)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Eleanor and the Iron King"
+  },
+  {
+    "rank": 14,
+    "item_name": "Brazos Bride: Men of Stone Mountain Book 1. Micah"
+  },
+  {
+    "rank": 15,
+    "item_name": "Second Chance Ranch: An Inspirational Western Romance (Three Rivers Ranch Romance) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Persuaded"
+  },
+  {
+    "rank": 17,
+    "item_name": "Christmas at Copper Mountain (Taming of the Sheenans) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Hearts in Defiance: Romance in the Rockies Book 2"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Texan's Promise: The Heart of a Hero Series - Book 1"
+  },
+  {
+    "rank": 20,
+    "item_name": "Her Heart for the Asking"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Resilient One: A Billionaire Bride Pact Romance"
+  },
+  {
+    "rank": 22,
+    "item_name": "Blue Christmas"
+  },
+  {
+    "rank": 23,
+    "item_name": "Saving Grace (A Hearthfire Romance) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Finding Her Way (Wildflowers) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Baron and The Bluestocking"
+  },
+  {
+    "rank": 26,
+    "item_name": "Fools Rush In (Weddings by Bella, Book 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Isaac Project"
+  },
+  {
+    "rank": 28,
+    "item_name": "Lord John's Dilemma (Grenville Chronicles) (Volume 2)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Dead Running"
+  },
+  {
+    "rank": 30,
+    "item_name": "Mail Order Bride: Westward winds: A Clean Historical Mail Order Bride Romance (Montana Mail Order Brides) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Capital Bride (Matchmaker &amp; Co) (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "House Without Lies (Lily's House) (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Teacher's Billionaire: The Sherbrookes of Newport Book 1"
+  },
+  {
+    "rank": 34,
+    "item_name": "Miss Armistead Makes Her Choice"
+  },
+  {
+    "rank": 35,
+    "item_name": "Leaving Carolina (Southern Discomfort Series #1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "True to You (A Bradford Sisters Romance)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Fatal Judgment (Guardians of Justice, Book 1) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Cheyenne Mail Order Bride Dreams of a Rich Life (The Brides of Cheyenne) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Christmas Kisses: An Echo Ridge Anthology (Echo Ridge Romance) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Maid for the Billionaire: Ruth Cardello (Legacy Collection)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Out of Control (The Kincaid Brides Book 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Texas Roads"
+  },
+  {
+    "rank": 43,
+    "item_name": "Keeping Kate"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Pursuit of Lady Harriett (Tanglewood) (Volume 3)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Play With Me (Grover Beach Team)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Forever Christmas (Heartsong Novella Collection)"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Bride for Keeps: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Cowgirl Ropes a Billionaire (Cowboys of Chance Creek) (Volume 4)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Marriage  Mart"
+  },
+  {
+    "rank": 50,
+    "item_name": "Rania Ropes a Rancher: A Historical Western Romance (Brides with Grit) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

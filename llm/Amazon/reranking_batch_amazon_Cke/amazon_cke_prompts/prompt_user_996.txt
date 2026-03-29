@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  },
+  {
+    "item_name": "The Play of Death (A Hangman's Daughter Tale)"
+  },
+  {
+    "item_name": "Montana Mornings (The Wildes of Birch Bay)"
+  },
+  {
+    "item_name": "Take Me Back (Paradise, Idaho)"
+  },
+  {
+    "item_name": "Trojan"
+  },
+  {
+    "item_name": "Midnight Curse (Disrupted Magic)"
+  },
+  {
+    "item_name": "In the Blue Hour: A Novel"
+  },
+  {
+    "item_name": "Dream Big"
+  },
+  {
+    "item_name": "Two!"
+  },
+  {
+    "item_name": "Kojo the Sea Dragon Gets Lost"
+  },
+  {
+    "item_name": "Bedtime, Little Bear (Picture Flats)"
+  },
+  {
+    "item_name": "Alfred the Time Traveling Dinosaur (Alfred the Dinosaur)"
+  },
+  {
+    "item_name": "The Promise Kitchen: A Novel"
+  },
+  {
+    "item_name": "The Late Show"
+  },
+  {
+    "item_name": "Captain Underpants and the Attack of the Talking Toilets"
+  },
+  {
+    "item_name": "Ricky Ricotta's Mighty Robot (Astro-Activity Book O'Fun) by Pilkey, Dav (unknown Edition) [Paperback(2006)]"
+  },
+  {
+    "item_name": "Ricky Ricotta's Mighty Robot Book Set (7 Volumes)"
+  },
+  {
+    "item_name": "Holidays Can Be Murder: A Charlie Parker Christmas Mystery"
+  },
+  {
+    "item_name": "Pretend You're Safe (The Agency)"
+  },
+  {
+    "item_name": "Mango Cake and Murder (Mom and Christy's Cozy Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "The Hope That Kills (A DI Fenchurch Novel)"
+  },
+  {
+    "item_name": "Witch Is When It All Began (A Witch P.I. Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Witch Is When Life Got Complicated (A Witch P.I. Mystery) (Volume 2)"
+  },
+  {
+    "item_name": "The Hidden Stairs and the Magic Carpet (The Secrets of Droon, Book 1)"
+  },
+  {
+    "item_name": "Ghost in the Wind (A Haunted Guesthouse Mystery)"
+  },
+  {
+    "item_name": "War Stories: An Enlisted Marine In Vietnam"
+  },
+  {
+    "item_name": "Merry and Bright: A Novel"
+  },
+  {
+    "item_name": "Katherine's Bike Was Wonderfully Strange"
+  },
+  {
+    "item_name": "Bulwark"
+  },
+  {
+    "item_name": "CASINO ROYALE (The Ultimate James Bond Classic)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1854,
+    "item_name": "A Trick of the Light: A Chief Inspector Gamache Novel"
+  },
+  {
+    "rank": 2,
+    "item_id": 1861,
+    "item_name": "The Beautiful Mystery: A Chief Inspector Gamache Novel"
+  },
+  {
+    "rank": 3,
+    "item_id": 3339,
+    "item_name": "On What Grounds (Coffeehouse Mysteries, No. 1)"
+  },
+  {
+    "rank": 4,
+    "item_id": 1733,
+    "item_name": "Bury Your Dead (Chief Inspector Gamache, Book 6)"
+  },
+  {
+    "rank": 5,
+    "item_id": 1723,
+    "item_name": "Pushing Up Daisies: A Dirty Business Mystery"
+  },
+  {
+    "rank": 6,
+    "item_id": 6122,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 7,
+    "item_id": 2002,
+    "item_name": "The Gods of Guilt (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 8,
+    "item_id": 1529,
+    "item_name": "Notorious Nineteen: A Stephanie Plum Novel"
+  },
+  {
+    "rank": 9,
+    "item_id": 1668,
+    "item_name": "Ten Big Ones (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 10,
+    "item_id": 2018,
+    "item_name": "The 6th Target"
+  },
+  {
+    "rank": 11,
+    "item_id": 19,
+    "item_name": "Bloodline"
+  },
+  {
+    "rank": 12,
+    "item_id": 3472,
+    "item_name": "Sweet Tea Revenge (A Tea Shop Mystery)"
+  },
+  {
+    "rank": 13,
+    "item_id": 1857,
+    "item_name": "Gone Missing: A Thriller (Kate Burkholder)"
+  },
+  {
+    "rank": 14,
+    "item_id": 1691,
+    "item_name": "The Cruelest Month (Three Pines Mysteries, No. 3)"
+  },
+  {
+    "rank": 15,
+    "item_id": 1693,
+    "item_name": "Still Life: A Chief Inspector Gamache Novel"
+  },
+  {
+    "rank": 16,
+    "item_id": 5557,
+    "item_name": "The Dead Will Tell: A Kate Burkholder Novel"
+  },
+  {
+    "rank": 17,
+    "item_id": 3973,
+    "item_name": "Live Wire (Myron Bolitar)"
+  },
+  {
+    "rank": 18,
+    "item_id": 3215,
+    "item_name": "The First Rule (A Joe Pike Novel)"
+  },
+  {
+    "rank": 19,
+    "item_id": 1005,
+    "item_name": "Birds of a Feather (Maisie Dobbs, Book 2)"
+  },
+  {
+    "rank": 20,
+    "item_id": 485,
+    "item_name": "The Mapping of Love and Death (Maisie Dobbs, Book 7)"
+  },
+  {
+    "rank": 21,
+    "item_id": 1109,
+    "item_name": "A Serpent's Tooth: A Longmire Mystery"
+  },
+  {
+    "rank": 22,
+    "item_id": 1012,
+    "item_name": "The Cold Dish: A Longmire Mystery"
+  },
+  {
+    "rank": 23,
+    "item_id": 2109,
+    "item_name": "The Collectors"
+  },
+  {
+    "rank": 24,
+    "item_id": 3478,
+    "item_name": "Red Velvet Revenge (Cupcake Bakery Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_id": 1956,
+    "item_name": "One Good Turn"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

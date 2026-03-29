@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "item_name": "The Paper Magician"
+  },
+  {
+    "item_name": "After You: A Novel (Me Before You Trilogy)"
+  },
+  {
+    "item_name": "We're All Damaged"
+  },
+  {
+    "item_name": "The Road to Little Dribbling: Adventures of an American in Britain"
+  },
+  {
+    "item_name": "The Rumor: A Novel"
+  },
+  {
+    "item_name": "A Few of the Girls: Stories"
+  },
+  {
+    "item_name": "Mourn Not Your Dead (Duncan Kincaid/Gemma James Novels)"
+  },
+  {
+    "item_name": "Louisiana Longshot: A Miss Fortune Mystery (Volume 1)"
+  },
+  {
+    "item_name": "A Great Reckoning: A Novel (Chief Inspector Gamache Novel)"
+  },
+  {
+    "item_name": "On Strike for Christmas: A Novel"
+  },
+  {
+    "item_name": "The Behavior Gap: Simple Ways to Stop Doing Dumb Things with Money"
+  },
+  {
+    "item_name": "Dead Cold Brew (A Coffeehouse Mystery)"
+  },
+  {
+    "item_name": "The Diva Wraps It Up (A Domestic Diva Mystery)"
+  },
+  {
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "item_name": "Truly Madly Guilty: From the bestselling author of Big Little Lies, now an award winning TV series"
+  },
+  {
+    "item_name": "Britt-marie Was Here (Thorndike Core)"
+  },
+  {
+    "item_name": "A Piece of the World"
+  },
+  {
+    "item_name": "The School of Essential Ingredients"
+  },
+  {
+    "item_name": "Where'd You Go, Bernadette"
+  },
+  {
+    "item_name": "Option B: Facing Adversity, Building Resilience, and Finding Joy"
+  },
+  {
+    "item_name": "The Bookshop on the Corner: A Novel"
+  },
+  {
+    "item_name": "The Designer"
+  },
+  {
+    "item_name": "When Breath Becomes Air"
+  },
+  {
+    "item_name": "Glass Houses (Chief Inspector Gamache)"
+  },
+  {
+    "item_name": "The Beekeeper's Apprentice: or, On the Segregation of the Queen (A Mary Russell Mystery)"
+  },
+  {
+    "item_name": "Origin: A Novel (Robert Langdon)"
+  },
+  {
+    "item_name": "Etta Mae's Worst Bad-Luck Day: A Novel"
+  },
+  {
+    "item_name": "Shot in the Dark (A Coffeehouse Mystery)"
+  },
+  {
+    "item_name": "In His Image: 10 Ways God Calls Us to Reflect His Character"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3824,
+    "item_name": "The Unlikely Pilgrimage of Harold Fry: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_id": 1956,
+    "item_name": "One Good Turn"
+  },
+  {
+    "rank": 3,
+    "item_id": 612,
+    "item_name": "The Supreme Macaroni Company: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_id": 929,
+    "item_name": "Mrs. Lincoln's Dressmaker: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_id": 2129,
+    "item_name": "The Shack"
+  },
+  {
+    "rank": 6,
+    "item_id": 965,
+    "item_name": "The Weird Sisters"
+  },
+  {
+    "rank": 7,
+    "item_id": 1857,
+    "item_name": "Gone Missing: A Thriller (Kate Burkholder)"
+  },
+  {
+    "rank": 8,
+    "item_id": 1124,
+    "item_name": "The Postmistress"
+  },
+  {
+    "rank": 9,
+    "item_id": 610,
+    "item_name": "There Was an Old Woman: A Novel of Suspense"
+  },
+  {
+    "rank": 10,
+    "item_id": 5209,
+    "item_name": "Dying to Read: A Novel (The Cate Kinkaid Files-Book 1)"
+  },
+  {
+    "rank": 11,
+    "item_id": 2973,
+    "item_name": "The Winter People: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_id": 1832,
+    "item_name": "Home Front: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 618,
+    "item_name": "The Guilty One: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_id": 2346,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_id": 1529,
+    "item_name": "Notorious Nineteen: A Stephanie Plum Novel"
+  },
+  {
+    "rank": 16,
+    "item_id": 571,
+    "item_name": "The Flight of Gemma Hardy"
+  },
+  {
+    "rank": 17,
+    "item_id": 5349,
+    "item_name": "Let's Take the Long Way Home: A Memoir of Friendship"
+  },
+  {
+    "rank": 18,
+    "item_id": 5780,
+    "item_name": "The Secret Keeper: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_id": 611,
+    "item_name": "The Hurricane Sisters: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_id": 5800,
+    "item_name": "The Silver Star: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_id": 1114,
+    "item_name": "Looking for Me: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_id": 485,
+    "item_name": "The Mapping of Love and Death (Maisie Dobbs, Book 7)"
+  },
+  {
+    "rank": 23,
+    "item_id": 4125,
+    "item_name": "Sonoma Rose (Elm Creek Quilts)"
+  },
+  {
+    "rank": 24,
+    "item_id": 3965,
+    "item_name": "The House on Tradd Street"
+  },
+  {
+    "rank": 25,
+    "item_id": 5114,
+    "item_name": "The Returned"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

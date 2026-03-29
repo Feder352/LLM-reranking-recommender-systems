@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "We Were Eight Years in Power: An American Tragedy"
+  },
+  {
+    "item_name": "The Accidental President: Harry S. Truman and the Four Months That Changed the World"
+  },
+  {
+    "item_name": "Best American Travel Writing 2017 (The Best American Series )"
+  },
+  {
+    "item_name": "The Year of the Pitcher: Bob Gibson, Denny McLain, and the End of Baseballs Golden Age"
+  },
+  {
+    "item_name": "Doctor Benjamin Franklin's Dream America"
+  },
+  {
+    "item_name": "How the Right Lost Its Mind"
+  },
+  {
+    "item_name": "The Largesse of the Sea Maiden: Stories"
+  },
+  {
+    "item_name": "Rocket Men: The Daring Odyssey of Apollo 8 and the Astronauts Who Made Man's First Journey to the Moon"
+  },
+  {
+    "item_name": "I Wrote This Book Because I Love You: Essays"
+  },
+  {
+    "item_name": "Improv Nation: How We Made a Great American Art"
+  },
+  {
+    "item_name": "American Trinity: Jefferson, Custer, and the Spirit of the West"
+  },
+  {
+    "item_name": "A More Beautiful and Terrible History: The Uses and Misuses of Civil Rights History"
+  },
+  {
+    "item_name": "Russia in Flames: War, Revolution, Civil War, 1914 - 1921"
+  },
+  {
+    "item_name": "Social Media Wellness: Helping Tweens and Teens Thrive in an Unbalanced Digital World (Corwin Teaching Essentials)"
+  },
+  {
+    "item_name": "Alternate Side: A Novel"
+  },
+  {
+    "item_name": "The City Where We Once Lived: A Novel"
+  },
+  {
+    "item_name": "Bring Out the Dog: Stories"
+  },
+  {
+    "item_name": "A Season in the Sun: The Rise of Mickey Mantle"
+  },
+  {
+    "item_name": "Holmes Entangled"
+  },
+  {
+    "item_name": "The Big Picture: The Fight for the Future of Movies"
+  },
+  {
+    "item_name": "Atticus Finch: The Biography"
+  },
+  {
+    "item_name": "Great American Outpost: Dreamers, Mavericks, and the Making of an Oil Frontier"
+  },
+  {
+    "item_name": "The Pope Who Would Be King: The Exile of Pius IX and the Emergence of Modern Europe"
+  },
+  {
+    "item_name": "In the Enemy's House: The Secret Saga of the FBI Agent and the Code Breaker Who Caught the Russian Spies"
+  },
+  {
+    "item_name": "Fight Like a Girl: The Truth Behind How Female Marines Are Trained"
+  },
+  {
+    "item_name": "The Heritage: Black Athletes, a Divided America, and the Politics of Patriotism"
+  },
+  {
+    "item_name": "Anatomy of a Miracle: A Novel*"
+  },
+  {
+    "item_name": "Ohio"
+  },
+  {
+    "item_name": "A Brotherhood of Spies: The U-2 and the CIA's Secret War"
+  },
+  {
+    "item_name": "Founding Martyr: The Life and Death of Dr. Joseph Warren, the American Revolution's Lost Hero"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Color Master"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Girl With Nine Wigs: A Memoir"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Man in the Monster: Inside the Mind of a Serial Killer"
+  },
+  {
+    "rank": 4,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Victoria: A Life"
+  },
+  {
+    "rank": 6,
+    "item_name": "Against the Country"
+  },
+  {
+    "rank": 7,
+    "item_name": "Rome Stories (Everyman's Library Pocket Classics Series)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 9,
+    "item_name": "I Left It on the Mountain: A Memoir"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Reaper: Autobiography of One of the Deadliest Special Ops Snipers"
+  },
+  {
+    "rank": 11,
+    "item_name": "At the Existentialist Caf: Freedom, Being, and Apricot Cocktails"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Making of Home: The 500-Year Story of How Our Houses Became Our Homes"
+  },
+  {
+    "rank": 13,
+    "item_name": "Dataclysm: Who We are (When We Think No One's Looking)"
+  },
+  {
+    "rank": 14,
+    "item_name": "1493: Uncovering the New World Columbus Created"
+  },
+  {
+    "rank": 15,
+    "item_name": "Stringer: A Reporter's Journey in the Congo"
+  },
+  {
+    "rank": 16,
+    "item_name": "There Was and There Was Not: A Journey Through Hate and Possibility in Turkey, Armenia, and Beyond"
+  },
+  {
+    "rank": 17,
+    "item_name": "Chasing Chaos: My Decade In and Out of Humanitarian Aid"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Silent Oligarch"
+  },
+  {
+    "rank": 19,
+    "item_name": "At Home: A Short History of Private Life (Random House Large Print)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Brave Genius: A Scientist, a Philosopher, and Their Daring Adventures from the French Resistance to the Nobel Prize"
+  },
+  {
+    "rank": 21,
+    "item_name": "Gun Guys: A Road Trip"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Eternal Nazi: From Mauthausen to Cairo, the Relentless Pursuit of SS Doctor Aribert Heim"
+  },
+  {
+    "rank": 23,
+    "item_name": "Billion-Dollar Ball: A Journey Through the Big-Money Culture of College Football"
+  },
+  {
+    "rank": 24,
+    "item_name": "Days of Rage: America's Radical Underground, the FBI, and the Forgotten Age of Revolutionary Violence"
+  },
+  {
+    "rank": 25,
+    "item_name": "Bitter Remains: A Custody Battle, A Gruesome Crime, and the Mother Who Paid the Ultimate Price"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Red Bandanna: A Life. A Choice. A Legacy."
+  },
+  {
+    "rank": 27,
+    "item_name": "New Old World: An Indian Journalist Discovers the Changing Face of Europe"
+  },
+  {
+    "rank": 28,
+    "item_name": "West of Sunset: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Loving Day: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Out on a Limb: What Black Bears Have Taught Me about Intelligence and Intuition"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Newlyweds"
+  },
+  {
+    "rank": 32,
+    "item_name": "Savage Park: A Meditation on Play, Space, and Risk for Americans Who Are Nervous, Distracted, and Afraid to Die"
+  },
+  {
+    "rank": 33,
+    "item_name": "Little Demon in the City of Light: A True Story of Murder in Belle poque Paris"
+  },
+  {
+    "rank": 34,
+    "item_name": "Russian Roulette: A Deadly Game: How British Spies Thwarted Lenin's Global Plot"
+  },
+  {
+    "rank": 35,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "But Enough About Me: A Memoir"
+  },
+  {
+    "rank": 37,
+    "item_name": "Pilgrim's Wilderness: A True Story of Faith and Madness on the Alaska Frontier"
+  },
+  {
+    "rank": 38,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 39,
+    "item_name": "Screening Room: Family Pictures"
+  },
+  {
+    "rank": 40,
+    "item_name": "Lusitania: Triumph, Tragedy, and the End of the Edwardian Age"
+  },
+  {
+    "rank": 41,
+    "item_name": "A Truck Full of Money"
+  },
+  {
+    "rank": 42,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Francis Miracle: Inside the Transformation of the Pope and the Church"
+  },
+  {
+    "rank": 44,
+    "item_name": "Essays After Eighty"
+  },
+  {
+    "rank": 45,
+    "item_name": "Last Hope Island: Britain, Occupied Europe, and the Brotherhood That Helped Turn the Tide of War"
+  },
+  {
+    "rank": 46,
+    "item_name": "Flora: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "The New York Times Disunion: A History of the Civil War"
+  },
+  {
+    "rank": 48,
+    "item_name": "On Paper: The Everything of Its Two-Thousand-Year History (ALA Notable Books for Adults)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Big Truck That Went By: How the World Came to Save Haiti and Left Behind a Disaster"
+  },
+  {
+    "rank": 50,
+    "item_name": "Barney: Grove Press and Barney Rosset, Americas Maverick Publisher and His Battle against Censorship"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

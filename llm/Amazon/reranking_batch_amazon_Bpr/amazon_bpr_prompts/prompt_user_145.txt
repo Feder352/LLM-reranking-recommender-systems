@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Inside Out"
+  },
+  {
+    "item_name": "Under the Radar (The Sisterhood)"
+  },
+  {
+    "item_name": "Mrs. Miracle (Angels)"
+  },
+  {
+    "item_name": "Blood Game: An Eve Duncan Forensics Thriller"
+  },
+  {
+    "item_name": "Strange Brew"
+  },
+  {
+    "item_name": "Metatropolis"
+  },
+  {
+    "item_name": "The Mage in Black (Sabina Kane, Book 2)"
+  },
+  {
+    "item_name": "Eight Days to Live: An Eve Duncan Forensics Thriller"
+  },
+  {
+    "item_name": "The Dead Travel Fast"
+  },
+  {
+    "item_name": "The Fire Lord's Lover (The Elven Lords)"
+  },
+  {
+    "item_name": "The Fire Lord&#39;s Lover (The Elven Lords Book 1) eBook"
+  },
+  {
+    "item_name": "The Mermaid's Mirror"
+  },
+  {
+    "item_name": "A Gentle Rain"
+  },
+  {
+    "item_name": "The Girl Who Chased the Moon: A Novel"
+  },
+  {
+    "item_name": "Beastly"
+  },
+  {
+    "item_name": "Sins of the Heart (Otherkin)"
+  },
+  {
+    "item_name": "Hunger"
+  },
+  {
+    "item_name": "Beneath the Thirteen Moons"
+  },
+  {
+    "item_name": "Call Me Mrs. Miracle"
+  },
+  {
+    "item_name": "Radiance: A Riley Bloom Book"
+  },
+  {
+    "item_name": "First Drop of Crimson"
+  },
+  {
+    "item_name": "Sacrifice (Mortal Path, Book 2)"
+  },
+  {
+    "item_name": "The Werewolf Upstairs (Strange Neighbors)"
+  },
+  {
+    "item_name": "Daughters of the Sea #1: Hannah"
+  },
+  {
+    "item_name": "Deliverance: Mortal Path Book Three (Mortal Path Series)"
+  },
+  {
+    "item_name": "Lilac Wedding in Dry Creek (Return to Dry Creek)"
+  },
+  {
+    "item_name": "The Wind Through the Keyhole: The Dark Tower IV-1/2"
+  },
+  {
+    "item_name": "The Eternal Ones"
+  },
+  {
+    "item_name": "Jane Austen's First Love"
+  },
+  {
+    "item_name": "Sins of the Flesh (Otherkin)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 2,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Undead and Unappreciated"
+  },
+  {
+    "rank": 4,
+    "item_name": "Ghost Walk"
+  },
+  {
+    "rank": 5,
+    "item_name": "Kitty and the Midnight Hour (Kitty Norville)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Twelve Sharp (A Stephanie Plum Novel) (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Scandalous Miranda"
+  },
+  {
+    "rank": 8,
+    "item_name": "All Night Long"
+  },
+  {
+    "rank": 9,
+    "item_name": "Finders Keepers: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Holiday in Death[HOLIDAY IN DEATH][Prebound]"
+  },
+  {
+    "rank": 11,
+    "item_name": "Surrender My Love (Haardrad Family)"
+  },
+  {
+    "rank": 12,
+    "item_name": "White Witch, Black Curse"
+  },
+  {
+    "rank": 13,
+    "item_name": "Undead and Unemployed (Queen Betsy, Book 2)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Every Which Way But Dead"
+  },
+  {
+    "rank": 15,
+    "item_name": "Enslave Me Sweetly (Alien Huntress, Book 2)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Out of Time"
+  },
+  {
+    "rank": 17,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse) By Charlaine Harris"
+  },
+  {
+    "rank": 18,
+    "item_name": "Iron Kissed (Mercy Thompson, Book 3)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse/True Blood, Book 2)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Dead Witch Walking"
+  },
+  {
+    "rank": 22,
+    "item_name": "Dead and Loving It (Undead)"
+  },
+  {
+    "rank": 23,
+    "item_name": "One Foot in the Grave (Night Huntress, Book 2)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 25,
+    "item_name": "Stardoc"
+  },
+  {
+    "rank": 26,
+    "item_name": "Men of the Otherworld"
+  },
+  {
+    "rank": 27,
+    "item_name": "Fire Me Up (Aisling Grey, Guardian, Book 2)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Dead to the World (Southern Vampire Mysteries, Book 4)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Daisy's Back in Town"
+  },
+  {
+    "rank": 30,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 31,
+    "item_name": "Shadow Dance: A Novel (Buchanan-Renard)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Midnight Awakening (The Midnight Breed, Book 3)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Dying to Please"
+  },
+  {
+    "rank": 34,
+    "item_name": "Kitty Goes to Washington (Kitty Norville)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Undead and Uneasy (Queen Betsy, Book 6)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Viscount Who Loved Me (Bridgertons)"
+  },
+  {
+    "rank": 37,
+    "item_name": "True Blood (The True Series, Book 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "It Must Be Love"
+  },
+  {
+    "rank": 39,
+    "item_name": "A Perfect Blood"
+  },
+  {
+    "rank": 40,
+    "item_name": "Can't Teach an Old Demon New Tricks"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Trouble With Magic (Bewitching Mysteries, No. 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Dragon Wytch"
+  },
+  {
+    "rank": 43,
+    "item_name": "Truth or Dare (Krentz, Jayne Ann)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Madhouse"
+  },
+  {
+    "rank": 45,
+    "item_name": "Cry Wolf (Alpha and Omega)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Undead and Unworthy (Queen Betsy, Book 7)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Bespelling Jane Austen: An Anthology"
+  },
+  {
+    "rank": 48,
+    "item_name": "For a Few Demons More (The Hollows, Book 5)"
+  },
+  {
+    "rank": 49,
+    "item_name": "I Can See You"
+  },
+  {
+    "rank": 50,
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

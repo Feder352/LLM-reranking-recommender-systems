@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Henry and the Hidden Treasure"
+  },
+  {
+    "item_name": "Rising Tide: Dark Innocence (The Maura DeLuca Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "item_name": "Lottery in Paradise (Paradise Series) (Volume 11)"
+  },
+  {
+    "item_name": "Alycat and the Monday Blues"
+  },
+  {
+    "item_name": "Halloween Is Murder (McKinley Mysteries)"
+  },
+  {
+    "item_name": "Gone Daddy Gone (Sloane Monroe) (Volume 7)"
+  },
+  {
+    "item_name": "Black Dawn"
+  },
+  {
+    "item_name": "The Sky Throne"
+  },
+  {
+    "item_name": "An Unexpected Afterlife (The Dry Bones Society) (Volume 1)"
+  },
+  {
+    "item_name": "The Supernatural Pet Sitter: The Curse (Volume 2)"
+  },
+  {
+    "item_name": "Rimrider (Rimrider Adventures) (Volume 1)"
+  },
+  {
+    "item_name": "Christmas Recipes From Five of Your Favorite Authors"
+  },
+  {
+    "item_name": "Her Christmas Chance: A Holiday Love Story (Christmas Creek Romance) (Volume 2)"
+  },
+  {
+    "item_name": "Gingerbread at Moonglow"
+  },
+  {
+    "item_name": "Christmas in Paradise (Paradise Series)"
+  },
+  {
+    "item_name": "Dangerous Ends: (Pete Fernandez Book 3)"
+  },
+  {
+    "item_name": "The Case of the Cursed Dodo (The Endangered Files) (Volume 1)"
+  },
+  {
+    "item_name": "Ambushed in Paradise (Paradise Series) (Volume 12)"
+  },
+  {
+    "item_name": "Kiss Carlo: A Novel"
+  },
+  {
+    "item_name": "Engaged in Danger: A Jamie Quinn Mystery (Jamie Quinn Cozy Mystery Book 4) (Jamie Quinn Cozy Mysteries) (Volume 4)"
+  },
+  {
+    "item_name": "A Witch's Path (Witch's Path Series) (Volume 2)"
+  },
+  {
+    "item_name": "Twofer Murder"
+  },
+  {
+    "item_name": "Murder on the SS Rosa (A Ginger God Mystery - a Prequel Novella)"
+  },
+  {
+    "item_name": "The Dragon Grammar Book: Grammar for Kids, Dragons, and the Whole Kingdom"
+  },
+  {
+    "item_name": "Clod Makes A Friend"
+  },
+  {
+    "item_name": "Hunters: Hunters #1 (Demons) (Volume 1)"
+  },
+  {
+    "item_name": "Will to Live: Detective Kay Hunter crime thriller series (Kay Hunter British detective crime thriller series) (Volume 2)"
+  },
+  {
+    "item_name": "Hell to Pay: A Detective Kay Hunter crime thriller (Kay Hunter British detective crime thriller series) (Volume 4)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 66247,
+    "item_name": "Wind Catcher (Chosen)"
+  },
+  {
+    "rank": 2,
+    "item_id": 40624,
+    "item_name": "Magelica's Voyage"
+  },
+  {
+    "rank": 3,
+    "item_id": 70486,
+    "item_name": "Reality Natalie"
+  },
+  {
+    "rank": 4,
+    "item_id": 64969,
+    "item_name": "Rockin' Chair"
+  },
+  {
+    "rank": 5,
+    "item_id": 40638,
+    "item_name": "Talon, Come Fly with Me (Tylon)"
+  },
+  {
+    "rank": 6,
+    "item_id": 76670,
+    "item_name": "Children&#39;s Books: Emma Learns to Sprout [short stories for children] - Kindle edition"
+  },
+  {
+    "rank": 7,
+    "item_id": 38855,
+    "item_name": "Bellyache: A Delicious Tale"
+  },
+  {
+    "rank": 8,
+    "item_id": 65282,
+    "item_name": "Monsterland (Monsterland Series) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_id": 49543,
+    "item_name": "Storm of Arranon (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_id": 53089,
+    "item_name": "The Hanging Tree: A Novella"
+  },
+  {
+    "rank": 11,
+    "item_id": 39400,
+    "item_name": "Talon, on the Wing"
+  },
+  {
+    "rank": 12,
+    "item_id": 31000,
+    "item_name": "My Grandma's a Ninja"
+  },
+  {
+    "rank": 13,
+    "item_id": 38626,
+    "item_name": "Cinderella's Secret Slipper (Classic Fairy Tales with a Modern Twist)"
+  },
+  {
+    "rank": 14,
+    "item_id": 49359,
+    "item_name": "Twin-Bred"
+  },
+  {
+    "rank": 15,
+    "item_id": 61439,
+    "item_name": "Oh Susannah: It's in the Bag (An Oh Susannah Story)"
+  },
+  {
+    "rank": 16,
+    "item_id": 71176,
+    "item_name": "Cat O' Nine Tales"
+  },
+  {
+    "rank": 17,
+    "item_id": 66810,
+    "item_name": "My Fingerpaint Masterpiece"
+  },
+  {
+    "rank": 18,
+    "item_id": 76810,
+    "item_name": "Mama Cried eBook"
+  },
+  {
+    "rank": 19,
+    "item_id": 51739,
+    "item_name": "Robby's Quest for Seed (Robby's Amazing Adventure)"
+  },
+  {
+    "rank": 20,
+    "item_id": 38759,
+    "item_name": "The Twelfth Child"
+  },
+  {
+    "rank": 21,
+    "item_id": 41327,
+    "item_name": "Sammy's Broken Leg (Oh, No!) and the Amazing Cast That Fixed It"
+  },
+  {
+    "rank": 22,
+    "item_id": 29253,
+    "item_name": "Lionel's Grand Adventure: Lionel and the Golden Rule (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_id": 65331,
+    "item_name": "My Friend Suhana: A Story of Friendship and Cerebral Palsy (Growing with Love)"
+  },
+  {
+    "rank": 24,
+    "item_id": 38339,
+    "item_name": "Aoleon The Martian Girl: Science Fiction Saga - Part 3 The Hollow Moon"
+  },
+  {
+    "rank": 25,
+    "item_id": 40325,
+    "item_name": "Onyx Webb: Book One: Episodes 1, 2 &amp; 3"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

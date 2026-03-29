@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "item_name": "Smoke and Mirrors: Short Fictions and Illusions"
+  },
+  {
+    "item_name": "Why People Believe Weird Things: Pseudoscience, Superstition, and Other Confusions of Our Time"
+  },
+  {
+    "item_name": "The Center Cannot Hold (American Empire, Book Two) (Southern Victory: American Empire)"
+  },
+  {
+    "item_name": "Stuff Matters: Exploring the Marvelous Materials That Shape Our Man-Made World"
+  },
+  {
+    "item_name": "Brave New World"
+  },
+  {
+    "item_name": "Brave New World"
+  },
+  {
+    "item_name": "Brave New World"
+  },
+  {
+    "item_name": "Your Life is a Book: How to Craft &amp; Publish Your Memoir"
+  },
+  {
+    "item_name": "Utopia (Penguin Classics)"
+  },
+  {
+    "item_name": "Utopia"
+  },
+  {
+    "item_name": "The Hot Zone"
+  },
+  {
+    "item_name": "Between Heaven and Mirth: Why Joy, Humor, and Laughter Are at the Heart of the Spiritual Life"
+  },
+  {
+    "item_name": "The Long Earth"
+  },
+  {
+    "item_name": "A Higher Call: An Incredible True Story of Combat and Chivalry in the War-Torn Skies of World War II"
+  },
+  {
+    "item_name": "Tau Zero (Berkley Medallion Book)"
+  },
+  {
+    "item_name": "Fields of Blood: Religion and the History of Violence"
+  },
+  {
+    "item_name": "Snuff: A Novel of Discworld"
+  },
+  {
+    "item_name": "The Alchemist"
+  },
+  {
+    "item_name": "The Tenth Man"
+  },
+  {
+    "item_name": "Long Walk: The True Story Of A Trek To Freedom"
+  },
+  {
+    "item_name": "Boy in the Striped Pyjamas: A Fable"
+  },
+  {
+    "item_name": "The Explanation for Everything: A Novel"
+  },
+  {
+    "item_name": "The Martian"
+  },
+  {
+    "item_name": "The Making of Home: The 500-Year Story of How Our Houses Became Our Homes"
+  },
+  {
+    "item_name": "Leaving Church: A Memoir of Faith"
+  },
+  {
+    "item_name": "Speed Kings: The 1932 Winter Olympics and the Fastest Men in the World"
+  },
+  {
+    "item_name": "Unstoppable: Harnessing Science to Change the World"
+  },
+  {
+    "item_name": "The Last Pilot: A Novel"
+  },
+  {
+    "item_name": "The Association of Small Bombs: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 5,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Amber Spyglass"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 9,
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 11,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Dune"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 19,
+    "item_name": "20,000 Leagues Under the Sea"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 21,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Amazing Adventures of Kavalier &amp; Clay"
+  },
+  {
+    "rank": 23,
+    "item_name": "One, Two, Buckle My Shoe"
+  },
+  {
+    "rank": 24,
+    "item_name": "Dune (Penguin Galaxy)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Lord of the Flies"
+  },
+  {
+    "rank": 27,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 28,
+    "item_name": "Jonathan Strange and Mr. Norrell"
+  },
+  {
+    "rank": 29,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Giver (Collins Modern Classics)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Maltese Falcon (Picador Books)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 34,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Of Mice and Men"
+  },
+  {
+    "rank": 39,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Of Human Bondage (Bantam Classics)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Stranger in a Strange Land (Penguin Galaxy)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Isaac's Storm: A Man, a Time, and the Deadliest Hurricane in History"
+  },
+  {
+    "rank": 45,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 46,
+    "item_name": "On Writing"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Elements of Style, Third Edition"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Eyre Affair: A Thursday Next Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 50,
+    "item_name": "A Separate Peace"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

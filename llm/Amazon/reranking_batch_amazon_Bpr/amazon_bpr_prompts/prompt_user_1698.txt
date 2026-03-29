@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Art of War (A Stern Family Saga) (Volume 3)"
+  },
+  {
+    "item_name": "Fighting Silence (On The Ropes) (Volume 1)"
+  },
+  {
+    "item_name": "Vegas Dumb Luck: A P. J. Stone Romance"
+  },
+  {
+    "item_name": "Boyfrenemy: A Payne Brothers Romance"
+  },
+  {
+    "item_name": "Reign (Skulls Renegade MC) (Volume 1)"
+  },
+  {
+    "item_name": "P.S. I Hate You"
+  },
+  {
+    "item_name": "The End Zone"
+  },
+  {
+    "item_name": "Inferno: Part 3 (The Vault) (Volume 3)"
+  },
+  {
+    "item_name": "Inferno: Part 4"
+  },
+  {
+    "item_name": "Cut Short (The Sublime) (Volume 1)"
+  },
+  {
+    "item_name": "Stone Book 3: A Love Without Boundaries (The Forbidden Love Series) (Volume 3)"
+  },
+  {
+    "item_name": "Mackenzie"
+  },
+  {
+    "item_name": "Knave (Masters of Manhattan)"
+  },
+  {
+    "item_name": "Bark: Lost Valkyries MC (Volume 3)"
+  },
+  {
+    "item_name": "His to Claim (Forbidden Lovers)"
+  },
+  {
+    "item_name": "Mister Cowboy"
+  },
+  {
+    "item_name": "Ditched"
+  },
+  {
+    "item_name": "Manic Monday (Charity Case) (Volume 1)"
+  },
+  {
+    "item_name": "King of Wall Street"
+  },
+  {
+    "item_name": "I Dare You"
+  },
+  {
+    "item_name": "Liv (Signature Sweethearts)"
+  },
+  {
+    "item_name": "Tulsa"
+  },
+  {
+    "item_name": "Bare: A Hollywood Romance"
+  },
+  {
+    "item_name": "An Imperfect Heart"
+  },
+  {
+    "item_name": "River's End (Volume 1)"
+  },
+  {
+    "item_name": "The Silver Swan (The Elite Kings Club)"
+  },
+  {
+    "item_name": "Afternoon Delight (Charity Case) (Volume 2)"
+  },
+  {
+    "item_name": "For the King"
+  },
+  {
+    "item_name": "Almost Impossible"
+  },
+  {
+    "item_name": "Not the End (Not Alone Novellas)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "SEAL's Touch: A Dirty Bad Boy Romance (Small Town SEALs)"
+  },
+  {
+    "rank": 2,
+    "item_name": "How We Fall"
+  },
+  {
+    "rank": 3,
+    "item_name": "Fix Me Not (The Fix Series) (Volume 2)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Hostage of the Hitman: A Bad Boy Mafia Romance"
+  },
+  {
+    "rank": 5,
+    "item_name": "Cold Hearted"
+  },
+  {
+    "rank": 6,
+    "item_name": "Mr. Fiance"
+  },
+  {
+    "rank": 7,
+    "item_name": "Shared: A Dark MFM Menage Romance"
+  },
+  {
+    "rank": 8,
+    "item_name": "Chased"
+  },
+  {
+    "rank": 9,
+    "item_name": "Always You"
+  },
+  {
+    "rank": 10,
+    "item_name": "Keeping Her (Keep Me Series) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Trigger (Devil's Reach) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Father"
+  },
+  {
+    "rank": 13,
+    "item_name": "Devils &amp; Rye (Top Shelf) (Volume 4)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Date The Billionaire"
+  },
+  {
+    "rank": 15,
+    "item_name": "Inked: A Bad Boy Next Door Romance"
+  },
+  {
+    "rank": 16,
+    "item_name": "My One Regret"
+  },
+  {
+    "rank": 17,
+    "item_name": "Dirty Indiscretions: A Dark Mafia Romance (Omerta Series)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Heaven Sent (Heaven's Rejects MC) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Line"
+  },
+  {
+    "rank": 20,
+    "item_name": "Full Contact"
+  },
+  {
+    "rank": 21,
+    "item_name": "Muffin Top"
+  },
+  {
+    "rank": 22,
+    "item_name": "Torn Between Two (The Torn Duet) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Irresistibly Undeniable"
+  },
+  {
+    "rank": 24,
+    "item_name": "Stone (Stone Cold Fox Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Bad Teacher (Unprofessional Bad Boys)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Anaconda"
+  },
+  {
+    "rank": 27,
+    "item_name": "Two Wrongs (Trouble by Numbers) (Volume 2)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Magic Burn (Shifting Magic) (Volume 2)"
+  },
+  {
+    "rank": 29,
+    "item_name": "My Hot Boss"
+  },
+  {
+    "rank": 30,
+    "item_name": "To the Fall"
+  },
+  {
+    "rank": 31,
+    "item_name": "His Banana"
+  },
+  {
+    "rank": 32,
+    "item_name": "Caged"
+  },
+  {
+    "rank": 33,
+    "item_name": "Pipe (Fallen Lords MC) (Volume 2)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Trigger: A Circle of Justice Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Baby Mission"
+  },
+  {
+    "rank": 36,
+    "item_name": "Velocity (A Dangerous Bad Boy Romance)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Released: Devil's Blaze MC Book 3 (Volume 3)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Stud: A Smart, Sexy Romantic Comedy"
+  },
+  {
+    "rank": 39,
+    "item_name": "Stolen from the Hitman"
+  },
+  {
+    "rank": 40,
+    "item_name": "Bound by Family: Ravage MC Bound Series (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Cinderella"
+  },
+  {
+    "rank": 42,
+    "item_name": "Wicked Rules (Wicked Bay)"
+  },
+  {
+    "rank": 43,
+    "item_name": "She Asked for It"
+  },
+  {
+    "rank": 44,
+    "item_name": "Throttle Me (Men of Inked) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Flame (Satan&#39;s Savages MC Series Book 2) - Kindle edition"
+  },
+  {
+    "rank": 46,
+    "item_name": "One More Kiss: A Second Chance Romance (One More Series)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Torn: A Dark Bad Boy Romance"
+  },
+  {
+    "rank": 48,
+    "item_name": "Renegade Ridge: A Bad Boy Action Adventure Romance (Renegade Ridge Series)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Mr. Darcy's Kiss"
+  },
+  {
+    "rank": 50,
+    "item_name": "Kissing booth"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

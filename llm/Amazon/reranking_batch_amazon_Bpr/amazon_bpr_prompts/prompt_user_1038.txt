@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "V Is for Virgin"
+  },
+  {
+    "item_name": "A is for Abstinence"
+  },
+  {
+    "item_name": "More Trouble in Loveland (Timeless Romance Single) (Volume 6)"
+  },
+  {
+    "item_name": "Once Again in Christmas Falls (Return to Christmas Falls) (Volume 3)"
+  },
+  {
+    "item_name": "Happily Ever After Collection (A Timeless Romance Anthology) (Volume 20)"
+  },
+  {
+    "item_name": "Saving Shadow (The Beckett Files, Book 1)"
+  },
+  {
+    "item_name": "The Gentleman's Deception"
+  },
+  {
+    "item_name": "Honeymoon for One in Christmas Falls (Return to Christmas Falls) (Volume 2)"
+  },
+  {
+    "item_name": "Happily Ever After (Cinder &amp; Ella #2)"
+  },
+  {
+    "item_name": "My Fair Aussie (Millionaire Makeover Romance) (Volume 3)"
+  },
+  {
+    "item_name": "Write Me Home"
+  },
+  {
+    "item_name": "#Starstruck (A #Lovestruck Novel)"
+  },
+  {
+    "item_name": "The Sidelined Wife (More Than a Wife Series)"
+  },
+  {
+    "item_name": "Saving Marilee"
+  },
+  {
+    "item_name": "When I'm Gone: A Novel"
+  },
+  {
+    "item_name": "A Dangerous Legacy"
+  },
+  {
+    "item_name": "Love's Journey Home"
+  },
+  {
+    "item_name": "Worth the Risk (Pine Valley) (Volume 1)"
+  },
+  {
+    "item_name": "The Smallest Part"
+  },
+  {
+    "item_name": "The Dragons of Alsace Farm"
+  },
+  {
+    "item_name": "The Avery Shaw Experiment"
+  },
+  {
+    "item_name": "The Libby Garrett Intervention"
+  },
+  {
+    "item_name": "Gladly Beyond"
+  },
+  {
+    "item_name": "Lord Borin's Secret Love (Zebra Regency Romance)"
+  },
+  {
+    "item_name": "Love's Shadow (Brothers Maledetti) (Volume 2)"
+  },
+  {
+    "item_name": "Where I Belong (Pine Valley) (Volume 2)"
+  },
+  {
+    "item_name": "My Dearest Enemy"
+  },
+  {
+    "item_name": "Lightning Struck (Brothers Maledetti)"
+  },
+  {
+    "item_name": "Love Remains (Hope Springs)"
+  },
+  {
+    "item_name": "A Madness Most Discreet (Brothers Maledetti)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Someone Else's Fairytale"
+  },
+  {
+    "rank": 2,
+    "item_name": "Persuaded"
+  },
+  {
+    "rank": 3,
+    "item_name": "My Own Mr. Darcy"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Resilient One: A Billionaire Bride Pact Romance"
+  },
+  {
+    "rank": 5,
+    "item_name": "Nellie (The Brides of San Francisco) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Prairie Prince"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Christmas Bargain (A Victorian Holiday Romance)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Mansfield Ranch (The Jane Austen Diaries) (Volume 5)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Isaac Project"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Stranger She Married (Rogue Hearts) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Miss Armistead Makes Her Choice"
+  },
+  {
+    "rank": 12,
+    "item_name": "Longing for Home: A Proper Romance"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Touch of Sage (Center Point Premier Romance (Large Print))"
+  },
+  {
+    "rank": 14,
+    "item_name": "Keeping Kate"
+  },
+  {
+    "rank": 15,
+    "item_name": "Intertwine"
+  },
+  {
+    "rank": 16,
+    "item_name": "Northanger Alibi (Jane Austen Diaries)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Under a Georgia Moon (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Drops of Gold"
+  },
+  {
+    "rank": 19,
+    "item_name": "Lost and Found (A Ripple Effect Romance Novella, Book 4)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Chief Cook and Bottle Washer: Book One of the Travers Brothers Series"
+  },
+  {
+    "rank": 21,
+    "item_name": "If The Shoe Fits: Once Upon A Romance, Book 1 (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Heart's Journey"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Governess"
+  },
+  {
+    "rank": 24,
+    "item_name": "Fragile"
+  },
+  {
+    "rank": 25,
+    "item_name": "Destiny (The Destiny Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Cinderella Project"
+  },
+  {
+    "rank": 27,
+    "item_name": "My Sweetheart: Book 3 in The Love and Dessert Trilogy"
+  },
+  {
+    "rank": 28,
+    "item_name": "Shadow of Time"
+  },
+  {
+    "rank": 29,
+    "item_name": "Reese's Cowboy Kiss Witness Protection  ~ Rancher Style: Blake's Story (Sweet Montana Bride) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Beyond the Rising Tide"
+  },
+  {
+    "rank": 31,
+    "item_name": "Spring in Hyde Park (Timeless Regency Collection) (Volume 3)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Dreaming of Ivy: Book 2 in The Love and Flowers Trilogy (Volume 2)"
+  },
+  {
+    "rank": 33,
+    "item_name": "All I Want: Three couples. Three Stories. One Holiday"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Nobleman's Governess Bride (The Glass Slipper Chronicles)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Forever Christmas (Heartsong Novella Collection)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Accidentally Me"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Taming of Lady Kate"
+  },
+  {
+    "rank": 38,
+    "item_name": "Nobody's Damsel (Someone Else's Fairytale) (Volume 2)"
+  },
+  {
+    "rank": 39,
+    "item_name": "I Belong With You: Book 2 in The Love and Dessert Trilogy (Volume 2)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Finding Her Way (Wildflowers) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Reformer (Power of the Matchmaker) (Volume 12)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Love, Jane"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Lady of Bolton Hill"
+  },
+  {
+    "rank": 44,
+    "item_name": "Discover America: From Sea to Shining Sea"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Texan's Promise: The Heart of a Hero Series - Book 1"
+  },
+  {
+    "rank": 46,
+    "item_name": "Do Over"
+  },
+  {
+    "rank": 47,
+    "item_name": "Play With Me (Grover Beach Team)"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Passion Most Pure (Daughters of Boston, Book 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Second Chance Ranch: An Inspirational Western Romance (Three Rivers Ranch Romance) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Miss Burton Unmasks a Prince"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

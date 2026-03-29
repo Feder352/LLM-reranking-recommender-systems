@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Immortalists"
+  },
+  {
+    "item_name": "Saturdays at Sweeney's (Sweeney Sisters Series) (Volume 5)"
+  },
+  {
+    "item_name": "Cowboy Stole My Heart: A River Ranch Novel"
+  },
+  {
+    "item_name": "The Wife Between Us: A Novel"
+  },
+  {
+    "item_name": "Just Between Us: A Novel"
+  },
+  {
+    "item_name": "Lie With Me: the gripping Richard &amp; Judy bestseller - a perfect summer read [Paperback] [Dec 28, 2016] Sabine Durrant"
+  },
+  {
+    "item_name": "Collision Course (Body Shop Bad Boys)"
+  },
+  {
+    "item_name": "Need To Know"
+  },
+  {
+    "item_name": "Best Friends Forever"
+  },
+  {
+    "item_name": "Watch Me: A Gripping Psychological Thriller"
+  },
+  {
+    "item_name": "This Love Story Will Self-Destruct"
+  },
+  {
+    "item_name": "Marabel and the Book of Fate"
+  },
+  {
+    "item_name": "Whiskey Sharp: Unraveled"
+  },
+  {
+    "item_name": "The Deceivers (A John Wells Novel)"
+  },
+  {
+    "item_name": "The Wedding Date"
+  },
+  {
+    "item_name": "The Girlfriend"
+  },
+  {
+    "item_name": "By the Book: A Book Club Recommendation!"
+  },
+  {
+    "item_name": "Dear Dwayne, With Love"
+  },
+  {
+    "item_name": "Little Liar: A nail-biting, gripping psychological thriller"
+  },
+  {
+    "item_name": "Killer Choice"
+  },
+  {
+    "item_name": "Smooth: A Love Story"
+  },
+  {
+    "item_name": "Erik the Lone Wolf"
+  },
+  {
+    "item_name": "Stand &amp; Deliver (Men of Haven)"
+  },
+  {
+    "item_name": "The Bookshop of Yesterdays"
+  },
+  {
+    "item_name": "Deadly Intent (I-Team) (Volume 8)"
+  },
+  {
+    "item_name": "Cowboy Bold (Longhorn Canyon)"
+  },
+  {
+    "item_name": "The Other Woman: A Novel"
+  },
+  {
+    "item_name": "When We Found Home"
+  },
+  {
+    "item_name": "Good Luck with That"
+  },
+  {
+    "item_name": "Every Time You Go Away: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Snowfall on Haven Point"
+  },
+  {
+    "rank": 2,
+    "item_name": "Until We Touch (Fool's Gold,  Book 17)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Girls of Mischief Bay"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Secret Sister (Fairham Island)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Homecoming (Thunder Point)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Chance (Thunder Point)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Blossom Street Brides: A Blossom Street Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "A Girl's Guide to Moving On: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Virgin: a Novel (Girl cover)"
+  },
+  {
+    "rank": 10,
+    "item_name": "One Snowy Night: A Heartbreaker Bay Christmas Novella"
+  },
+  {
+    "rank": 11,
+    "item_name": "Hunted (The Profiler)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Once a Rancher (The Carsons of Mustang Creek)"
+  },
+  {
+    "rank": 13,
+    "item_name": "If Not for You: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Best of My Love (Fool's Gold, Book 22)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Brokedown Cowboy (Copper Ridge)"
+  },
+  {
+    "rank": 16,
+    "item_name": "For Better Or Worse: The Wedding Belles Book 2"
+  },
+  {
+    "rank": 17,
+    "item_name": "Ever After: A Nantucket Brides Novel (Nantucket Brides Trilogy)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Trouble with Mistletoe: A Heartbreaker Bay Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "Until You Loved Me (Silver Springs)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Watch Me Disappear: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Forever This Time: An Echo Lake Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "Kill Without Mercy (Ares Security)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Not Quite Mine"
+  },
+  {
+    "rank": 25,
+    "item_name": "Heart Like Mine: An Echo Lake Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "Dogwood Hill (A Chesapeake Shores Novel)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Shadow Falling (The Scorpius Syndrome)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Family Tree: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "One Week to Score"
+  },
+  {
+    "rank": 30,
+    "item_name": "Need You for Keeps (Heroes of St. Helena)"
+  },
+  {
+    "rank": 31,
+    "item_name": "You Say It First: A Small-Town Wedding Romance (Happily Inc)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Dash of Peril (Love Undercover)"
+  },
+  {
+    "rank": 33,
+    "item_name": "At Wolf Ranch: A Montana Men Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "When All the Girls Have Gone"
+  },
+  {
+    "rank": 35,
+    "item_name": "Rainy Day Friends: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Any Dream Will Do: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Starlight on Willow Lake (The Lakeshore Chronicles)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Any Day Now (Sullivan's Crossing)"
+  },
+  {
+    "rank": 40,
+    "item_name": "After She's Gone (West Coast Series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Rocky Mountain Romance (Six Pack Ranch) (Volume 7)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Max: A Cold Fury Hockey Novel (Carolina Cold Fury Hockey)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Someone Like You (The Harrisons)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Don't Tempt Me (Hqn)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Taming Lily: A Novel (The Fowler Sisters)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Good Luck Sister: A Wildstone Novella"
+  },
+  {
+    "rank": 47,
+    "item_name": "About That Kiss: A Heartbreaker Bay Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Lethal Lies (Blood Brothers)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Tempting Fate: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Hidden"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "It's All Relative: Adventures Up and Down the World's Family Tree"
+  },
+  {
+    "item_name": "The Book of Separation: A Memoir"
+  },
+  {
+    "item_name": "Into the Drowning Deep"
+  },
+  {
+    "item_name": "The Blood of Patriots: How I Took Down an Anti-Government Militia with Beer, Bounty Hunting, and Badassery"
+  },
+  {
+    "item_name": "Rolling in the Deep"
+  },
+  {
+    "item_name": "The Midnight Line: A Jack Reacher Novel"
+  },
+  {
+    "item_name": "Secrets in Death: An Eve Dallas Novel (In Death, Book 45)"
+  },
+  {
+    "item_name": "Nevermoor: The Trials of Morrigan Crow"
+  },
+  {
+    "item_name": "Best American Travel Writing 2017 (The Best American Series )"
+  },
+  {
+    "item_name": "I Will Find You: Solving Killer Cases from My Life Fighting Crime (Homicide Hunter)"
+  },
+  {
+    "item_name": "Alive in Shape and Color: 17 Paintings by Great Artists and the Stories They Inspired"
+  },
+  {
+    "item_name": "Deep Freeze (A Virgil Flowers Novel)"
+  },
+  {
+    "item_name": "Someone to Wed (A Westcott Novel)"
+  },
+  {
+    "item_name": "The Storm King: A Novel"
+  },
+  {
+    "item_name": "Best American Essays 2017 (The Best American Series &reg;)"
+  },
+  {
+    "item_name": "The Bomb Maker"
+  },
+  {
+    "item_name": "I KNOW MY NAME- PB"
+  },
+  {
+    "item_name": "Friend Request: The most addictive psychological thriller you'll read this year"
+  },
+  {
+    "item_name": "Beforelife"
+  },
+  {
+    "item_name": "Splintered Silence (A Bone Gap Travellers Novel)"
+  },
+  {
+    "item_name": "Time Bomb"
+  },
+  {
+    "item_name": "Hellbent: An Orphan X Novel"
+  },
+  {
+    "item_name": "A Year in the Garden: 365 Inspirational Gardens and Gardening Tips"
+  },
+  {
+    "item_name": "The Worrier's Guide to the End of the World: Love, Loss, and Other Catastrophes--through Italy, India, and Beyond"
+  },
+  {
+    "item_name": "City of the Lost"
+  },
+  {
+    "item_name": "A Darkness Absolute: A Rockton Novel (Casey Duncan Novels)"
+  },
+  {
+    "item_name": "This Fallen Prey: A Rockton Novel (Casey Duncan Novels)"
+  },
+  {
+    "item_name": "The Demon Crown: A Sigma Force Novel (Sigma Force Novels)"
+  },
+  {
+    "item_name": "Shelter in Place"
+  },
+  {
+    "item_name": "Shelter in Place"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 2,
+    "item_name": "Cordina's Royal Family: Bennett &amp; Camilla"
+  },
+  {
+    "rank": 3,
+    "item_name": "Dangerous Waters (The Barkley Sound Series)"
+  },
+  {
+    "rank": 4,
+    "item_name": "LoveUnder Different Skies"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Ghost Fields (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Willow Springs: A Destiny Novel (Destiny series)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Trail of Dead (A Scarlett Bernard Novel)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Dry Bones: A Longmire Mystery"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Last Town (Wayward Pines)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Nightingale: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Reversal (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Silent Creed"
+  },
+  {
+    "rank": 13,
+    "item_name": "Notorious (Max Revere Novels)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Whiskey Beach"
+  },
+  {
+    "rank": 15,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 16,
+    "item_name": "Through the Smoke"
+  },
+  {
+    "rank": 17,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Hunted (The Profiler)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Faerie"
+  },
+  {
+    "rank": 20,
+    "item_name": "Speak of the Devil: A Novel (Anna Curtis Series)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Stray"
+  },
+  {
+    "rank": 22,
+    "item_name": "Fractured"
+  },
+  {
+    "rank": 23,
+    "item_name": "Wayward (Wayward Pines)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Rainwater"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Last Victim: A Novel (Dr. Charlotte Stone)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Bone Tree (Penn Cage)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Silenced (Krewe of Hunters)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Sweet Spot: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "Written in My Own Heart's Blood (Outlander)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Bones Never Lie (Temperance Brennan)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Devil Bones (Temperance Brennan)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Savannah Blues"
+  },
+  {
+    "rank": 36,
+    "item_name": "Learning to Ride (BookShots Flames)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Missing You"
+  },
+  {
+    "rank": 38,
+    "item_name": "Fatal Justice (The Fatal Series)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Tilted World: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Never Go Back: A Jack Reacher Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "Flesh and Blood CD: A Scarpetta Novel (Kay Scarpetta Series)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Strangers in Death"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Libertine (The Taskill Witches)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Man From Stone Creek"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Chalk Girl (A Mallory Novel)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Prime Time"
+  },
+  {
+    "rank": 47,
+    "item_name": "Shadow Dance: A Novel (Buchanan-Renard)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The God's Eye View"
+  },
+  {
+    "rank": 49,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Never Come Back"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

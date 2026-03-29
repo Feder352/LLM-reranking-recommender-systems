@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "My Not So Perfect Life: A Novel"
+  },
+  {
+    "item_name": "Lillian Boxfish Takes a Walk: A Novel"
+  },
+  {
+    "item_name": "Crash and Burn (Sisterhood)"
+  },
+  {
+    "item_name": "Where the Sidewalk Ends: Poems and Drawings"
+  },
+  {
+    "item_name": "John Adams's Republic: The One, the Few, and the Many"
+  },
+  {
+    "item_name": "The Most Dangerous Place on Earth"
+  },
+  {
+    "item_name": "The Poetry of Pop"
+  },
+  {
+    "item_name": "Hit Makers: The Science of Popularity in an Age of Distraction"
+  },
+  {
+    "item_name": "The Loyal Son: The War in Ben Franklin's House"
+  },
+  {
+    "item_name": "Ben Franklin's in My Bathroom! (History Pals)"
+  },
+  {
+    "item_name": "How to be a Scientist"
+  },
+  {
+    "item_name": "Andy Warhol Was a Hoarder: Inside the Minds of History's Great Personalities"
+  },
+  {
+    "item_name": "A Christmas Return: A Novel"
+  },
+  {
+    "item_name": "The Hanging Girl"
+  },
+  {
+    "item_name": "Love Those Eyes"
+  },
+  {
+    "item_name": "The Devils You Know"
+  },
+  {
+    "item_name": "The Apparitionists: A Tale of Phantoms, Fraud, Photography, and the Man Who Captured Lincoln's Ghost"
+  },
+  {
+    "item_name": "Mother of the Unseen World: The Mystery of Mother Meera"
+  },
+  {
+    "item_name": "What Can I Bring?: Southern Food for Any Occasion Life Serves Up"
+  },
+  {
+    "item_name": "Just Haven't Met You Yet"
+  },
+  {
+    "item_name": "Big Book of HOW Revised and Updated (A TIME for Kids Book): 1,001 Facts Kids Want to Know (TIME for Kids Big Books)"
+  },
+  {
+    "item_name": "A Lady's Guide to Selling Out: A Novel"
+  },
+  {
+    "item_name": "Victorians Undone: Tales of the Flesh in the Age of Decorum"
+  },
+  {
+    "item_name": "The Scarecrow Princess"
+  },
+  {
+    "item_name": "The Lost Castle: A Split-Time Romance (A Lost Castle Novel)"
+  },
+  {
+    "item_name": "All the Beautiful Girls: An Uplifting Story of Freedom, Love and Identity"
+  },
+  {
+    "item_name": "The Trials of Nina McCall: Sex, Surveillance, and the Decades-Long Government Plan to Imprison &quot;Promiscuous&quot; Women"
+  },
+  {
+    "item_name": "The Case for Miracles: A Journalist Investigates Evidence for the Supernatural"
+  },
+  {
+    "item_name": "Front Desk"
+  },
+  {
+    "item_name": "The Night She Won Miss America"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 3,
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Call"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "rank": 6,
+    "item_name": "Battleship: A Daring Heiress, a Teenage Jockey, and America's Horse"
+  },
+  {
+    "rank": 7,
+    "item_name": "Scarlett Epstein Hates It Here"
+  },
+  {
+    "rank": 8,
+    "item_name": "Fallen Beauty"
+  },
+  {
+    "rank": 9,
+    "item_name": "Landline: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Behind the Mask: The Life of Vita Sackville-West"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Blonde"
+  },
+  {
+    "rank": 12,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Gated"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Nightingale: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Dark Missions of Edgar Brim"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Giver (Collins Modern Classics)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Here and Now"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Amber Spyglass"
+  },
+  {
+    "rank": 22,
+    "item_name": "Railhead"
+  },
+  {
+    "rank": 23,
+    "item_name": "No One Else Can Have You (Kippy Bushman)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Grasshopper Jungle"
+  },
+  {
+    "rank": 25,
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "rank": 26,
+    "item_name": "Love in the Time of Global Warming"
+  },
+  {
+    "rank": 27,
+    "item_name": "Space Case (Moon Base Alpha)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Sway: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Graduation Day (The Testing)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Not a Drop to Drink"
+  },
+  {
+    "rank": 31,
+    "item_name": "Memoirs of an Imaginary Friend"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Unbearable Book Club for Unsinkable Girls"
+  },
+  {
+    "rank": 33,
+    "item_name": "The True Blue Scouts of Sugar Man Swamp"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Perfect Place"
+  },
+  {
+    "rank": 35,
+    "item_name": "Magonia"
+  },
+  {
+    "rank": 36,
+    "item_name": "Mosquitoland"
+  },
+  {
+    "rank": 37,
+    "item_name": "Crewel: A Novel (Crewel World)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Wolf Hollow"
+  },
+  {
+    "rank": 39,
+    "item_name": "Refugee"
+  },
+  {
+    "rank": 40,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Wild Ones"
+  },
+  {
+    "rank": 42,
+    "item_name": "Smoke Gets in Your Eyes: And Other Lessons from the Crematory"
+  },
+  {
+    "rank": 43,
+    "item_name": "Everland"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Cranes Dance"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Golem and the Jinni: A Novel (P.S.)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 47,
+    "item_name": "These Broken Stars"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Edge (A Peak Marcello Adventure)"
+  },
+  {
+    "rank": 49,
+    "item_name": "What I Saw And How I Lied"
+  },
+  {
+    "rank": 50,
+    "item_name": "Woof: A Bowser and Birdie Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

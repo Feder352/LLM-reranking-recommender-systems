@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Radical Evolution: The Promise and Peril of Enhancing Our Minds, Our Bodies -- and What It Means to Be Human"
+  },
+  {
+    "item_name": "Black Rednecks and White Liberals"
+  },
+  {
+    "item_name": "Michael Moore Is a Big Fat Stupid White Man"
+  },
+  {
+    "item_name": "Red Star Over Hollywood: The Film Colonys Long Romance with the Left"
+  },
+  {
+    "item_name": "What It Means to Be a Libertarian: A Personal Interpretation"
+  },
+  {
+    "item_name": "Christ: The Gospel of Matthew Beautifully Designed for the Internet Age"
+  },
+  {
+    "item_name": "The Right Nation: Conservative Power in America"
+  },
+  {
+    "item_name": "The Soul of Capitalism: Opening Paths to a Moral Economy"
+  },
+  {
+    "item_name": "Porn Generation: How Social Liberalism Is Corrupting Our Future"
+  },
+  {
+    "item_name": "Men in Black: How the Supreme Court Is Destroying America"
+  },
+  {
+    "item_name": "The Painted Kiss: A Novel"
+  },
+  {
+    "item_name": "Do As I Say (Not As I Do): Profiles in Liberal Hypocrisy"
+  },
+  {
+    "item_name": "The Politically Incorrect Guide to Islam"
+  },
+  {
+    "item_name": "One Nation Under Therapy: How the Helping Culture Is Eroding Self-Reliance"
+  },
+  {
+    "item_name": "The Professors:  The 101 Most Dangerous Academics in America"
+  },
+  {
+    "item_name": "South of Main Street"
+  },
+  {
+    "item_name": "The Cattle"
+  },
+  {
+    "item_name": "The Politically Incorrect Guide to Science (The Politically Incorrect Guides)"
+  },
+  {
+    "item_name": "Perfect Murder, Perfect Town: JonBenet and the City of Boulder"
+  },
+  {
+    "item_name": "The Burning"
+  },
+  {
+    "item_name": "America Alone: The End of the World As We Know It"
+  },
+  {
+    "item_name": "The Cases That Haunt Us"
+  },
+  {
+    "item_name": "Never Again: Securing America and Restoring Justice"
+  },
+  {
+    "item_name": "Bankrupt: The Intellectual and Moral Bankruptcy of Today's Democratic Party"
+  },
+  {
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "item_name": "Easy Way to Stop Smoking"
+  },
+  {
+    "item_name": "By the Time You Read This: A Novel"
+  },
+  {
+    "item_name": "Infidel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Godless: The Church of Liberalism"
+  },
+  {
+    "rank": 2,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 3,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 5,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 7,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 8,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 9,
+    "item_name": "Stranger in a Strange Land"
+  },
+  {
+    "rank": 10,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 12,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 13,
+    "item_name": "Stranger in a Strange Land (Penguin Galaxy)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 15,
+    "item_name": "Hannibal"
+  },
+  {
+    "rank": 16,
+    "item_name": "O Jerusalem!"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Years Of Rice And Salt"
+  },
+  {
+    "rank": 18,
+    "item_name": "Tortilla Flat"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 20,
+    "item_name": "March of the Penguins: Companion to the Major Motion Picture"
+  },
+  {
+    "rank": 21,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 22,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Seat of the Soul"
+  },
+  {
+    "rank": 24,
+    "item_name": "Gettysburg: A Novel of the Civil War (The Gettysburg Trilogy)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Inside the Third Reich"
+  },
+  {
+    "rank": 29,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 30,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 31,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 32,
+    "item_name": "Omega"
+  },
+  {
+    "rank": 33,
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Alexandria Quartet"
+  },
+  {
+    "rank": 35,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 36,
+    "item_name": "To Your Scattered Bodies Go (Riverworld Saga, Book 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "I Am Legend"
+  },
+  {
+    "rank": 38,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 39,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 40,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 41,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "TAO TE CHING."
+  },
+  {
+    "rank": 43,
+    "item_name": "State of Fear"
+  },
+  {
+    "rank": 44,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 45,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 47,
+    "item_name": "Fabric Of Reality (Penguin Science)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Comrades: Brothers, Fathers, Sons, Pals"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 50,
+    "item_name": "Bury My Heart At Wounded Knee: An Indian History of the American West"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

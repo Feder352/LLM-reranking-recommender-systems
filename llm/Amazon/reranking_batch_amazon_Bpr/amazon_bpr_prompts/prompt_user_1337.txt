@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dark Curse (Deamhan Chronicles)"
+  },
+  {
+    "item_name": "The Last Airship (Sam Reilly) (Volume 1)"
+  },
+  {
+    "item_name": "The Legend of Mickey Tussler"
+  },
+  {
+    "item_name": "Arrogant Bastard"
+  },
+  {
+    "item_name": "The V girl"
+  },
+  {
+    "item_name": "Broken Wing"
+  },
+  {
+    "item_name": "Being Mortal"
+  },
+  {
+    "item_name": "Stop the Diet, I Want to Get Off!"
+  },
+  {
+    "item_name": "Becoming a Legend (The Blue Eyes Trilogy) (Volume 2)"
+  },
+  {
+    "item_name": "Breathe and release (A Christchurch Crime Thriller)"
+  },
+  {
+    "item_name": "The Debt Collector"
+  },
+  {
+    "item_name": "Drachen: A Thriller (A Matthys Rossouw Pursuit) (Volume 1)"
+  },
+  {
+    "item_name": "Noble Man (Noble Man Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Boat Man: A Thriller"
+  },
+  {
+    "item_name": "The Boat Man"
+  },
+  {
+    "item_name": "The Kramski Case (Tales of MI7 Book 1) - Kindle edition"
+  },
+  {
+    "item_name": "Dark Sky (The Misadventures of Max Bowman) (Volume 1)"
+  },
+  {
+    "item_name": "Dixie Moon (Redemption Mountain Historical Western Romance) (Volume 4)"
+  },
+  {
+    "item_name": "Your Soul Was Made for Mine (Soul Mates)"
+  },
+  {
+    "item_name": "Don't Bring It to Work: Breaking the Family Patterns That Limit Success"
+  },
+  {
+    "item_name": "Grumpy Old Wizards (Grumpy Old Wizards Series) (Volume 1)"
+  },
+  {
+    "item_name": "To Love A Highland Dragon (Dragon Lore) (Volume 1)"
+  },
+  {
+    "item_name": "Beyond The Pale"
+  },
+  {
+    "item_name": "Ice (Dr. Leah Andrews and Jack Hobson Thrillers) (Volume 1)"
+  },
+  {
+    "item_name": "Bloodlines"
+  },
+  {
+    "item_name": "The Conspiracy of Silence"
+  },
+  {
+    "item_name": "The Reason: It's About More Than Just the Money"
+  },
+  {
+    "item_name": "Solid Stone: Revolving Door"
+  },
+  {
+    "item_name": "Murder in Palm Beach: The Homicide That Never Died"
+  },
+  {
+    "item_name": "Glossolalia: Psychological Suspense (The Agents of the Nevermind) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Chasing Rabbits (The Underground) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Special Offers: Book 1 of the Coursodon Dimension Series (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Distant Shore (Stone Trilogy)"
+  },
+  {
+    "rank": 4,
+    "item_name": "True Crime: Homicide &amp; True Crime Stories of 2016 (Annual True Crime Anthology)) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Z Plan: Blood on the Sand"
+  },
+  {
+    "rank": 6,
+    "item_name": "Accounting for Love: A Western Romance Novel (Long Valley) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "This Doesn't Happen In The Movies (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Amanda's Eyes: An A. J. Gregson Novel (A. J. Gregson Series) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "True Crime Stories Volume 7: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "rank": 10,
+    "item_name": "True Crime Stories Volume 5: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Paladine (Paladine Political Thriller Series) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Serial Killer Books: 15 Famous Serial Killers True Crime Stories That Shocked The World (The Serial Killer Files) (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Breaking Braydon"
+  },
+  {
+    "rank": 14,
+    "item_name": "CXVI The Beginning of the End (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Skeletal (A Christchurch Crime Thriller)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Publicist"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Last Survivors: A Dystopian Society in a Post Apocalyptic World (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Foreclosed: A Mitzy Neuhaus Mystery"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Dead Red Alibi: #4 in the Dead Red Mystery Series (Volume 4)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Serenity (The Shelby Alexander Thriller Series) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Dream Doctor (The Dream Doctor Mysteries)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Loose Ends (California Corwin P.I. Mystery) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "True Crime Stories Volume 6: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Deadly Distance (Jack Noble #2)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Mystic Princesses and the Whirlpool: Color Illustrations (Volume 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "True Crime Stories: 12 Shocking True Crime Murder Cases (True Crime Anthology) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "A Death in Duck (A Reverend Lindsay Harding Mystery) (Volume 2)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Christmas Bargain (A Victorian Holiday Romance)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Promise Cove: A Pelican Pointe Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Killing Cousins: The True Story of the Slaying Cousins: Historical Serial Killers and Murderers (True Crime by Evil Killers) (Volume 11)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Schwarzschild Radius"
+  },
+  {
+    "rank": 32,
+    "item_name": "Just Dreams (The Brooks Sisters Dreams Series) (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Out of the Shoebox"
+  },
+  {
+    "rank": 34,
+    "item_name": "Serial Killers Rage and Horror: 8 Shocking True Crime Stories of Serial Killers and Killing Sprees (Serial Killers Anthology) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Land of Gods: An Epic Fantasy Tale of Love, Lust, and Loss. (Falls of Redemption) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Back Story (The Reed Ferguson Mystery Series) (Volume 10)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Patchwork Man (Patchwork People) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Cost of Crude"
+  },
+  {
+    "rank": 39,
+    "item_name": "WINDFALL - a novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Kevin and I in India (Book 2 of 6 in the Frank's Travel Memoir Serie) (Volume 2)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Sir Princess Petras Mission (The Pen Pieyu Adventures, book 3)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Ashes (Ashes #1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "A View to Die For (Books To Die For) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Eleven"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Killing Truth: A Leine Basso Thriller (Volume 0)"
+  },
+  {
+    "rank": 46,
+    "item_name": "No Such Thing As Werewolves"
+  },
+  {
+    "rank": 47,
+    "item_name": "Dance with the Enemy (Enemy Series)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Forever Stone"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Cornbread Bible: A Recipe Storybook"
+  },
+  {
+    "rank": 50,
+    "item_name": "Escape from Witchwood Hollow"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

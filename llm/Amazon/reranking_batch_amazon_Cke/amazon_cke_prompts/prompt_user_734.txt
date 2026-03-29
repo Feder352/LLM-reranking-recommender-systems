@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Auntie Poldi and the Sicilian Lions (An Auntie Poldi Adventure)"
+  },
+  {
+    "item_name": "Lady Justice and the Pharaoh's Curse (Volume 17)"
+  },
+  {
+    "item_name": "Caramels With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 2)"
+  },
+  {
+    "item_name": "Lady Justice in the Eye of the Storm (Volume 18)"
+  },
+  {
+    "item_name": "Elephant Company: The Inspiring Story of an Unlikely Hero and the Animals Who Helped Him Save  Lives in World War II"
+  },
+  {
+    "item_name": "Patriot Number One: American Dreams in Chinatown"
+  },
+  {
+    "item_name": "Lady Justice on the Dark Side (Volume 19)"
+  },
+  {
+    "item_name": "American by Day"
+  },
+  {
+    "item_name": "The Lady of the Lake (The Frannie Shoemaker Campground Mysteries) (Volume 4)"
+  },
+  {
+    "item_name": "No More Wasted Time"
+  },
+  {
+    "item_name": "The Knowledge: A Richard Jury Mystery"
+  },
+  {
+    "item_name": "The Trauma Cleaner: One Woman's Extraordinary Life in the Business of Death, Decay, and Disaster"
+  },
+  {
+    "item_name": "Lady Justice and the Conspiracy (Volume 21)"
+  },
+  {
+    "item_name": "The Lamorna Wink"
+  },
+  {
+    "item_name": "Interview with a Ghost eBook"
+  },
+  {
+    "item_name": "Alexander's Blood Bride (Vampires of London)"
+  },
+  {
+    "item_name": "Home Is Where Your Boots Are"
+  },
+  {
+    "item_name": "Gray Back Broken Bear (Gray Back Bears) (Volume 4)"
+  },
+  {
+    "item_name": "Woodcutter Werebear (Saw Bears) (Volume 2)"
+  },
+  {
+    "item_name": "Woodsman Werebear (Saw Bears) (Volume 6)"
+  },
+  {
+    "item_name": "Axman Werebear (Saw Bears) (Volume 5)"
+  },
+  {
+    "item_name": "Lumberman Werebear (Saw Bears) (Volume 7)"
+  },
+  {
+    "item_name": "Lumberjack Werebear (Saw Bears) (Volume 1)"
+  },
+  {
+    "item_name": "Sawman Werebear (Saw Bears) (Volume 4)"
+  },
+  {
+    "item_name": "Timberman Werebear (Saw Bears) (Volume 3)"
+  },
+  {
+    "item_name": "Murder's a Witch: A Beechwood Harbor Magic Mystery (Beechwood Harbor Magic Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "A Dead Husband (Jessica HuntingtonDesert Cities Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Birthright (Ivy Granger, Psychic Detective) (Volume 4)"
+  },
+  {
+    "item_name": "Hound's Bite (Ivy Granger, Psychic Detective) (Volume 5)"
+  },
+  {
+    "item_name": "The Gaslight Stalker: Nobody is safe in Whitechapel... (Esther &amp; Jack Enright Mystery)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 4240,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 2,
+    "item_id": 2301,
+    "item_name": "Enchanted, Inc. (Katie Chandler, Book 1)"
+  },
+  {
+    "rank": 3,
+    "item_id": 3690,
+    "item_name": "At First Sight"
+  },
+  {
+    "rank": 4,
+    "item_id": 6195,
+    "item_name": "Magic Rises (Kate Daniels)"
+  },
+  {
+    "rank": 5,
+    "item_id": 4079,
+    "item_name": "Skinwalker (Jane Yellowrock, Book 1)"
+  },
+  {
+    "rank": 6,
+    "item_id": 1702,
+    "item_name": "Dark Side of the Moon (Dark-Hunter, Book 10)"
+  },
+  {
+    "rank": 7,
+    "item_id": 4844,
+    "item_name": "Smoke Screen: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_id": 371,
+    "item_name": "Be Still My Vampire Heart (Love at Stake, Book 3)"
+  },
+  {
+    "rank": 9,
+    "item_id": 3263,
+    "item_name": "White Lies (The Arcane Society, Book 2)"
+  },
+  {
+    "rank": 10,
+    "item_id": 494,
+    "item_name": "Once Burned (Night Prince, Book 1)"
+  },
+  {
+    "rank": 11,
+    "item_id": 3652,
+    "item_name": "Bayou Moon (The Edge, Book 2)"
+  },
+  {
+    "rank": 12,
+    "item_id": 5381,
+    "item_name": "Darkness Everlasting (Guardians of Eternity, Book 3)"
+  },
+  {
+    "rank": 13,
+    "item_id": 312,
+    "item_name": "The Scent of Shadows (Sign of the Zodiac, Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_id": 235,
+    "item_name": "Vamps and the City (Love at Stake, Book 2)"
+  },
+  {
+    "rank": 15,
+    "item_id": 4064,
+    "item_name": "Heat Stroke (Weather Warden, Book 2)"
+  },
+  {
+    "rank": 16,
+    "item_id": 4067,
+    "item_name": "Firestorm"
+  },
+  {
+    "rank": 17,
+    "item_id": 2865,
+    "item_name": "Faefever (Fever, Book 3)"
+  },
+  {
+    "rank": 18,
+    "item_id": 3669,
+    "item_name": "Kitty's House of Horrors (Kitty Norville)"
+  },
+  {
+    "rank": 19,
+    "item_id": 3804,
+    "item_name": "Kitty and the Midnight Hour (Kitty Norville)"
+  },
+  {
+    "rank": 20,
+    "item_id": 3231,
+    "item_name": "Running Hot (Arcane Society, Book 5)"
+  },
+  {
+    "rank": 21,
+    "item_id": 1131,
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "rank": 22,
+    "item_id": 5055,
+    "item_name": "Personal Demons (Personal Demons, Book 1)"
+  },
+  {
+    "rank": 23,
+    "item_id": 2035,
+    "item_name": "Timeless (The Parasol Protectorate, No. 5)"
+  },
+  {
+    "rank": 24,
+    "item_id": 420,
+    "item_name": "Vampire, Interrupted (Argeneau Vampires, Book 9)"
+  },
+  {
+    "rank": 25,
+    "item_id": 3402,
+    "item_name": "Nauti Nights (The Nauti Trilogy, Book 2)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

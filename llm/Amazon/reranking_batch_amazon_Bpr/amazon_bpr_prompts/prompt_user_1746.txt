@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Stryke First: The Rock Series (Volume 5)"
+  },
+  {
+    "item_name": "Dark Desire (Dark Saints MC) (Volume 5)"
+  },
+  {
+    "item_name": "A Prescription for Delirium (Van Helsing Organization, Volume: 1)"
+  },
+  {
+    "item_name": "Hot Pursuit: A Hostile Operations Team Novel (Volume 1)"
+  },
+  {
+    "item_name": "Hot Mess: A Hostile Operations Team Novella"
+  },
+  {
+    "item_name": "Hot Package: A Hostile Operations Team Christmas Novella (Volume 3)"
+  },
+  {
+    "item_name": "Dangerously Hot: A Hostile Operations Team Novel (Volume 4)"
+  },
+  {
+    "item_name": "Hot Shot (A Hostile Operations Team Novel)(#5) (Volume 5)"
+  },
+  {
+    "item_name": "Hot SEAL (HOT SEAL Team) (Volume 1)"
+  },
+  {
+    "item_name": "Reckless Heat: A Hostile Operations Team Prequel"
+  },
+  {
+    "item_name": "The Best Medicine"
+  },
+  {
+    "item_name": "Dark Seduction (Dark Saints MC) (Volume 7)"
+  },
+  {
+    "item_name": "True (Temptation Series) (Volume 6)"
+  },
+  {
+    "item_name": "Confessions: Robbie (Volume 1)"
+  },
+  {
+    "item_name": "Blade: A Bayou Heat Novella"
+  },
+  {
+    "item_name": "Lyric's Accidental Mate: Iron Wolves MC"
+  },
+  {
+    "item_name": "Xan's Feisty Mate: Iron Wolves MC, Book 2"
+  },
+  {
+    "item_name": "Kellen's Tempting Mate: Iron Wolves MC 3"
+  },
+  {
+    "item_name": "Slater's Enchanting Mate, Iron Wolves MC 4"
+  },
+  {
+    "item_name": "Bodhi's Synful Mate (Iron Wolves MC) (Volume 6)"
+  },
+  {
+    "item_name": "Turo's Fated Mate (Iron Wolves MC) (Volume 7)"
+  },
+  {
+    "item_name": "Dark Embrace (The Dark Legacy) (Volume 1)"
+  },
+  {
+    "item_name": "Mystic Wolves, Books 1 &amp; 2: Accidentally Wolf ~ Book 1  His Perfect Wolf ~ Book 2 (Volume 1)"
+  },
+  {
+    "item_name": "Jett's Wild Wolf, Mystic Wolves 3"
+  },
+  {
+    "item_name": "Too Much to Lose"
+  },
+  {
+    "item_name": "Inferno (A Phoenix Rising Rock Band Novel) (Volume 1)"
+  },
+  {
+    "item_name": "Solstice Burn (Club Altura Romance)"
+  },
+  {
+    "item_name": "Wicked Rush (Club Altura Romance) (Volume 2)"
+  },
+  {
+    "item_name": "Lure of the Dragon (Aloha Shifters: Jewels of the Heart) (Volume 1)"
+  },
+  {
+    "item_name": "Rematch (Chinese Zodiac Romance Series) (Volume 2)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "My Protector (Bewitched and Bewildered) (Volume 2)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Tailing Her (Quick &amp; Furry) (Volume 2)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Tempted by Fire: Dragons of Bloodfire"
+  },
+  {
+    "rank": 4,
+    "item_name": "Coveted by the Bear"
+  },
+  {
+    "rank": 5,
+    "item_name": "Big Bad Bear"
+  },
+  {
+    "rank": 6,
+    "item_name": "Ink Inspired (Montgomery Ink)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Bear the Heat (Fire Bears) (Volume 3)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Lumberjack Werebear (Saw Bears) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Axman Werebear (Saw Bears) (Volume 5)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Playful Prince: Lords of the Var Book Two"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Shift in the Water (Elemental Shifter) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Reign: A Royal Military Romance"
+  },
+  {
+    "rank": 13,
+    "item_name": "Outlaw's Bride: Grizzlies MC Romance (Outlaw Love)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Gray Back Broken Bear (Gray Back Bears) (Volume 4)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Bear the Burn (Fire Bears) (Volume 2)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Sawman Werebear (Saw Bears) (Volume 4)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Drantos (VLG) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Last Immortal Dragon"
+  },
+  {
+    "rank": 19,
+    "item_name": "Captive: Beautiful Monsters Vol. 1"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Warrior Prince: Dragon Lords Book Four"
+  },
+  {
+    "rank": 21,
+    "item_name": "Blackwing Beast (Kane's Mountains) (Volume 3)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Chasing Tail (Quick &amp; Furry) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Borrowing Blue: A Made Marian Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Vampire King (Kings)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Mick CAOS MC"
+  },
+  {
+    "rank": 26,
+    "item_name": "Feral Sins (The Phoenix Pack Series)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Tempting Rever"
+  },
+  {
+    "rank": 28,
+    "item_name": "Throttle Me (Men of Inked) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Wolf Within (Purgatory) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Highland Wolf Clan, Book 1, The Reluctant Alpha (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Kodiak's Claim (Kodiak Point)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Cade: Le Beau Brothers: New Orleans Billionaire Shifters with BBW mates Series (Le Beau Series) (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Heart of a Dragon (Fallen Immortals 2) - Paranormal Fairytale Romance (Volume 2)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Air Ryder (Harper's Mountains) (Volume 3)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Act of Mercy (PSI-Ops / Immortal Ops)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Bloodrunner Dragon (Harper's Mountains) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "One in a Bear-llion"
+  },
+  {
+    "rank": 38,
+    "item_name": "Smiley (New Species) (Volume 13)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Heart of the Hunter"
+  },
+  {
+    "rank": 40,
+    "item_name": "Ares: Guardians of Hades Romance Series"
+  },
+  {
+    "rank": 41,
+    "item_name": "Tattered Loyalties (Talon Pack) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "My Viking Vampire (Sanctuary, Texas) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Roaring Up the Wrong Tree (Grayslake) (Volume 3)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Fealty of the Bear (Hells Canyon Shifters) (Volume 2)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Lion's Shared Bride"
+  },
+  {
+    "rank": 46,
+    "item_name": "All Roar and No Bite (Grayslake) (Volume 2)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Heart of the Bear (Hells Canyon Shifters) (Volume 5)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Claiming His Mate (A Werewolf Romance)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Into the Darkness (Darkness, 1) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Brukr (Scifi Alien Weredragon Romance) (Dragons of Preor) (Volume 8)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

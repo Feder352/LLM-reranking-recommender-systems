@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Constant Princess"
+  },
+  {
+    "item_name": "The World Almanac and Book of Facts 1998"
+  },
+  {
+    "item_name": "PEOPLE OF THE BOOK"
+  },
+  {
+    "item_name": "The Other Queen"
+  },
+  {
+    "item_name": "Three Cups of Tea"
+  },
+  {
+    "item_name": "Gauntlet: A Novel of International Intrigue"
+  },
+  {
+    "item_name": "So Not Happening (The Charmed Life)"
+  },
+  {
+    "item_name": "The Shimmer (Thorndike Thrillers)"
+  },
+  {
+    "item_name": "Musicophilia: Tales of Music and the Brain"
+  },
+  {
+    "item_name": "The Silent Gift"
+  },
+  {
+    "item_name": "Undress Me in the Temple of Heaven"
+  },
+  {
+    "item_name": "Targets of Deception (Jordan Sandor)"
+  },
+  {
+    "item_name": "Cosmic"
+  },
+  {
+    "item_name": "The 1% Solution for Work and Life: How to Make Your Next 30 Days the Best Ever"
+  },
+  {
+    "item_name": "Wish You Well: with Connections, Study Guide"
+  },
+  {
+    "item_name": "Sing You Home: A Novel"
+  },
+  {
+    "item_name": "Emotional Equations: Simple Truths for Creating Happiness + Success"
+  },
+  {
+    "item_name": "The Dragon Stone (The Rocky Cave Kids)"
+  },
+  {
+    "item_name": "Maybe: A Little Zen for Little Ones"
+  },
+  {
+    "item_name": "Persuade Me (Darcy &amp; Friends)"
+  },
+  {
+    "item_name": "Please Don't Stop the Music"
+  },
+  {
+    "item_name": "Still There?: A Little Zen for Little Ones"
+  },
+  {
+    "item_name": "Captain No Beard: An Imaginary Tale of a Pirate's Life"
+  },
+  {
+    "item_name": "Pepper Parrot's Problem with Patience: A Captain No Beard Story (Volume 2)"
+  },
+  {
+    "item_name": "See Now Then: A Novel"
+  },
+  {
+    "item_name": "Iscariot: A Novel of Judas"
+  },
+  {
+    "item_name": "Jo Joe"
+  },
+  {
+    "item_name": "Hating Heidi Foster"
+  },
+  {
+    "item_name": "Plots and Pans"
+  },
+  {
+    "item_name": "Wonderful Lonesome (Amish Turns of Time)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 10527,
+    "item_name": "Decision Points"
+  },
+  {
+    "rank": 2,
+    "item_id": 11222,
+    "item_name": "The Purpose Driven Life"
+  },
+  {
+    "rank": 3,
+    "item_id": 7284,
+    "item_name": "David and Goliath: Art of Battling Giants (A)"
+  },
+  {
+    "rank": 4,
+    "item_id": 5854,
+    "item_name": "Skipping Christmas"
+  },
+  {
+    "rank": 5,
+    "item_id": 38509,
+    "item_name": "The Snowman's Revenge"
+  },
+  {
+    "rank": 6,
+    "item_id": 76442,
+    "item_name": "Night"
+  },
+  {
+    "rank": 7,
+    "item_id": 35177,
+    "item_name": "The Prayer of Jabez: Breaking Through To The Blessed Life"
+  },
+  {
+    "rank": 8,
+    "item_id": 37596,
+    "item_name": "Fearless: Imagine Your Life Without Fear"
+  },
+  {
+    "rank": 9,
+    "item_id": 74513,
+    "item_name": "Purpose-driven Life [Paperback]  by Warren        , Rick"
+  },
+  {
+    "rank": 10,
+    "item_id": 37622,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 11,
+    "item_id": 32341,
+    "item_name": "Chicken Soup for the Cat Lover's Soul: Stories of Feline Affection, Mystery and Charm (Chicken Soup for the Soul)"
+  },
+  {
+    "rank": 12,
+    "item_id": 35029,
+    "item_name": "Total Money Makeover"
+  },
+  {
+    "rank": 13,
+    "item_id": 63545,
+    "item_name": "One Big Thing: Discovering What You Were Born to Do"
+  },
+  {
+    "rank": 14,
+    "item_id": 14204,
+    "item_name": "The Last Lecture"
+  },
+  {
+    "rank": 15,
+    "item_id": 45235,
+    "item_name": "Quiet Strength: The Principles, Practices, and Priorities of a Winning Life"
+  },
+  {
+    "rank": 16,
+    "item_id": 15700,
+    "item_name": "The Innocent Man: Murder and Injustice in a Small Town"
+  },
+  {
+    "rank": 17,
+    "item_id": 63014,
+    "item_name": "How Starbucks Saved My Life: A Son of Privilege Learns to Live Like Everyone Else"
+  },
+  {
+    "rank": 18,
+    "item_id": 31977,
+    "item_name": "The Secret (Unabridged, 4-CD Set)"
+  },
+  {
+    "rank": 19,
+    "item_id": 76914,
+    "item_name": "[(Chicken Soup for the Cat Lover's Soul: Stories of Feline Affection, Mystery and Charm)] [Author: Jack Canfield] published on (October, 2013)"
+  },
+  {
+    "rank": 20,
+    "item_id": 7105,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 21,
+    "item_id": 584,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 22,
+    "item_id": 34760,
+    "item_name": "Crazy Love: Overwhelmed by a Relentless God"
+  },
+  {
+    "rank": 23,
+    "item_id": 10980,
+    "item_name": "Snow Flower and the Secret Fan: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_id": 10729,
+    "item_name": "To Heaven and Back: A Doctor's Extraordinary Account of Her Death, Heaven, Angels, and Life Again: A True Story"
+  },
+  {
+    "rank": 25,
+    "item_id": 2351,
+    "item_name": "Gifted Hands: The Ben Carson Story"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

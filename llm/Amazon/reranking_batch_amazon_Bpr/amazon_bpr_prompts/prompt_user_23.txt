@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Minister Without Portfolio"
+  },
+  {
+    "item_name": "The After Party: Poems"
+  },
+  {
+    "item_name": "Crossings: A Doctor-Soldier's Story"
+  },
+  {
+    "item_name": "Chasing Phil: The Adventures of Two Undercover Agents with the World's Most Charming Con Man"
+  },
+  {
+    "item_name": "Empire Made: My Search for an Outlaw Uncle Who Vanished in British India"
+  },
+  {
+    "item_name": "The Written World: The Power of Stories to Shape People, History, Civilization"
+  },
+  {
+    "item_name": "For Two Thousand Years"
+  },
+  {
+    "item_name": "What You Did Not Tell: A Russian Past and the Journey Home"
+  },
+  {
+    "item_name": "An American Family: A Memoir of Hope and Sacrifice"
+  },
+  {
+    "item_name": "Close Enough for the Angels"
+  },
+  {
+    "item_name": "Jane Fairfax"
+  },
+  {
+    "item_name": "Perfectly Undone: A Novel"
+  },
+  {
+    "item_name": "The Night Circus (Vintage Magic)"
+  },
+  {
+    "item_name": "The Odd Clauses: Understanding the Constitution Through Ten of Its Most Curious Provisions"
+  },
+  {
+    "item_name": "Garden of the Lost and Abandoned: The Extraordinary Story of One Ordinary Woman and the Children She Saves"
+  },
+  {
+    "item_name": "White Houses: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "Dead Man's Walk (Lonesome Dove)"
+  },
+  {
+    "item_name": "The Magician's Assistant CD"
+  },
+  {
+    "item_name": "How Civilizations Die: (And Why Islam Is Dying Too)"
+  },
+  {
+    "item_name": "Twenty-one Days: A Daniel Pitt Novel"
+  },
+  {
+    "item_name": "Westmoreland: The General Who Lost Vietnam"
+  },
+  {
+    "item_name": "By the Rivers of Babylon: A novel"
+  },
+  {
+    "item_name": "With One Shot: Family Murder and a Search for Justice"
+  },
+  {
+    "item_name": "Night Moves: An Alex Delaware Novel"
+  },
+  {
+    "item_name": "Snow Falling on Cedars"
+  },
+  {
+    "item_name": "There's a Hair in My Dirt!: A Worm's Story"
+  },
+  {
+    "item_name": "River of Doubt"
+  },
+  {
+    "item_name": "Stickle Island"
+  },
+  {
+    "item_name": "Into the Storm: Two Ships, a Deadly Hurricane, and an Epic Battle for Survival"
+  },
+  {
+    "item_name": "Ohio"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "At the Existentialist Caf: Freedom, Being, and Apricot Cocktails"
+  },
+  {
+    "rank": 2,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 3,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 5,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Heart of Everything That Is: The Untold Story of Red Cloud, An American Legend"
+  },
+  {
+    "rank": 7,
+    "item_name": "Bird Dream: Adventures at the Extremes of Human Flight"
+  },
+  {
+    "rank": 8,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 9,
+    "item_name": "Beautiful Souls: Saying No, Breaking Ranks, and Heeding the Voice of Conscience in Dark Times"
+  },
+  {
+    "rank": 10,
+    "item_name": "Pilgrim's Wilderness: A True Story of Faith and Madness on the Alaska Frontier"
+  },
+  {
+    "rank": 11,
+    "item_name": "One Child: The Story of China's Most Radical Experiment"
+  },
+  {
+    "rank": 12,
+    "item_name": "In Defense of Food: An Eater's Manifesto"
+  },
+  {
+    "rank": 13,
+    "item_name": "Embattled Rebel: Jefferson Davis as Commander in Chief"
+  },
+  {
+    "rank": 14,
+    "item_name": "On Paper: The Everything of Its Two-Thousand-Year History (ALA Notable Books for Adults)"
+  },
+  {
+    "rank": 15,
+    "item_name": "1493: Uncovering the New World Columbus Created"
+  },
+  {
+    "rank": 16,
+    "item_name": "Stories from the Kitchen (Everyman's Library Pocket Classics Series)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 18,
+    "item_name": "Embattled Rebel: Jefferson Davis and the Confederate Civil War"
+  },
+  {
+    "rank": 19,
+    "item_name": "Darkness Visible"
+  },
+  {
+    "rank": 20,
+    "item_name": "Dangerously Funny: The Uncensored Story of The Smothers Brothers Comedy Hour"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Arab of the Future 2: A Childhood in the Middle East, 1984-1985: A Graphic Memoir"
+  },
+  {
+    "rank": 22,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 23,
+    "item_name": "The International Bank of Bob: Connecting Our Worlds One $25 Kiva Loan at a Time"
+  },
+  {
+    "rank": 24,
+    "item_name": "1776 : America and Britain at War"
+  },
+  {
+    "rank": 25,
+    "item_name": "Bitter Remains: A Custody Battle, A Gruesome Crime, and the Mother Who Paid the Ultimate Price"
+  },
+  {
+    "rank": 26,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 27,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 28,
+    "item_name": "Animal Wise: How We Know Animals Think and Feel"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Red Bandanna: A Life. A Choice. A Legacy."
+  },
+  {
+    "rank": 30,
+    "item_name": "Breakthrough: Elizabeth Hughes, the Discovery of Insulin, and the Making of a Medical Miracle"
+  },
+  {
+    "rank": 31,
+    "item_name": "Social: Why Our Brains Are Wired to Connect"
+  },
+  {
+    "rank": 32,
+    "item_name": "This Is Paradise: Stories"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Reaper: Autobiography of One of the Deadliest Special Ops Snipers"
+  },
+  {
+    "rank": 34,
+    "item_name": "A Thousand Lives: The Untold Story of Hope, Deception, and Survival at Jonestown"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Orphan Master's Son: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Fields of Blood: Religion and the History of Violence"
+  },
+  {
+    "rank": 37,
+    "item_name": "In Praise of Hatred: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Victoria: A Life"
+  },
+  {
+    "rank": 39,
+    "item_name": "Climate of Uncertainty: A Balanced Look at Global Warming &amp; Renewable Energy (Paperback) - Common"
+  },
+  {
+    "rank": 40,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 41,
+    "item_name": "Between Friends"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Color Master"
+  },
+  {
+    "rank": 43,
+    "item_name": "How I Helped O. J. Get Away With Murder: The Shocking Inside Story of Violence, Loyalty, Regret, and Remorse"
+  },
+  {
+    "rank": 44,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 45,
+    "item_name": "Provence, 1970: M.F.K. Fisher, Julia Child, James Beard, and the Reinvention of American Taste"
+  },
+  {
+    "rank": 46,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Oregon Trail: A New American Journey"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Iran Wars: Spy Games, Bank Battles, and the Secret Deals That Reshaped the Middle East"
+  },
+  {
+    "rank": 49,
+    "item_name": "Objective Troy: A Terrorist, a President, and the Rise of the Drone"
+  },
+  {
+    "rank": 50,
+    "item_name": "Rejection Proof: How I Beat Fear and Became Invincible Through 100 Days of Rejection"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

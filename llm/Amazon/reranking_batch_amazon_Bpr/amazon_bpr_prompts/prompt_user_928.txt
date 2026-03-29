@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A January Bride (A Year of Weddings Novella)"
+  },
+  {
+    "item_name": "Summer of Joy (Hollyhill Series, Book 3)"
+  },
+  {
+    "item_name": "Love at Any Cost: A Novel (The Heart of San Francisco)"
+  },
+  {
+    "item_name": "A Heart's Rebellion: A Regency Romance"
+  },
+  {
+    "item_name": "The Quilted Heart Omnibus: Three Novellas in One: Dandelions on the Wind, Bending Toward the Sun, and Ripples Along the Shore"
+  },
+  {
+    "item_name": "The Queen's Handmaid"
+  },
+  {
+    "item_name": "A Bride for Noah (Seattle Brides)"
+  },
+  {
+    "item_name": "Don't Look Back"
+  },
+  {
+    "item_name": "Mark of Distinction (Price of Privilege)"
+  },
+  {
+    "item_name": "A Table by the Window: A Novel of Family Secrets and Heirloom Recipes (Two Blue Doors)"
+  },
+  {
+    "item_name": "Daisies Are Forever"
+  },
+  {
+    "item_name": "Summer House with Swimming Pool: A Novel"
+  },
+  {
+    "item_name": "Divergent"
+  },
+  {
+    "item_name": "An Amish Second Christmas"
+  },
+  {
+    "item_name": "The Expats: A Novel"
+  },
+  {
+    "item_name": "An Amish Cradle"
+  },
+  {
+    "item_name": "Every Bride Needs a Groom: A Novel (Brides with Style)"
+  },
+  {
+    "item_name": "A Hearts Betrayal (A Journey of the Heart)"
+  },
+  {
+    "item_name": "A Heart's Danger (A Journey of the Heart)"
+  },
+  {
+    "item_name": "The Mapmaker's Children: A Novel"
+  },
+  {
+    "item_name": "A Heart's Home (A Journey of the Heart)"
+  },
+  {
+    "item_name": "Waiting for Morning: A Drunk Driver a Deadly Accident a Dream Destroyed (Forever Faithful)"
+  },
+  {
+    "item_name": "Staying Stylish: Cultivating a Confident Look, Style, and Attitude"
+  },
+  {
+    "item_name": "An Amish Heirloom: A Legacy of Love, The Cedar Chest, The Treasured Book, The Midwife's Dream"
+  },
+  {
+    "item_name": "Treacherous Trails (Gold Country Cowboys)"
+  },
+  {
+    "item_name": "The Kremlin Conspiracy"
+  },
+  {
+    "item_name": "Blue Ridge Sunrise (A Blue Ridge Romance)"
+  },
+  {
+    "item_name": "Where the Fire Falls: A Vintage National Parks Novel"
+  },
+  {
+    "item_name": "The Hawaiian Discovery"
+  },
+  {
+    "item_name": "Thirst of Steel (The Tox Files)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "False Witness"
+  },
+  {
+    "rank": 2,
+    "item_name": "Deeply Devoted: A Novel (The Blue Willow Brides) (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Tutor's Daughter"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Christmas Cat"
+  },
+  {
+    "rank": 5,
+    "item_name": "One Perfect Spring: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Submerged (Alaskan Courage) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Heiress (Daughters of Fortune)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Winter in Full Bloom"
+  },
+  {
+    "rank": 9,
+    "item_name": "Christmas at Harmony Hill: A Shaker Story"
+  },
+  {
+    "rank": 10,
+    "item_name": "Remembering Christmas: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "By the Light of the Silvery Moon"
+  },
+  {
+    "rank": 12,
+    "item_name": "Accused (Pacific Coast Justice)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 14,
+    "item_name": "Tidewater Inn (Hope Beach)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Hazardous Duty (Squeaky Clean Mysteries, No. 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Short-Straw Bride"
+  },
+  {
+    "rank": 17,
+    "item_name": "Love Finds You in Mackinac Island, Michigan"
+  },
+  {
+    "rank": 18,
+    "item_name": "Rachel: A Novel (Wives of the Patriarchs) (Volume 3)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Paradise Valley (The Daughters of Caleb Bender)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Almost Heaven"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Lightkeeper's Daughter (Mercy Falls Series #1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Hope Harbor: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Deepest Waters"
+  },
+  {
+    "rank": 24,
+    "item_name": "Deceived: A Novel (Private Justice) (Volume 3)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Final Summit: A Quest to Find the One Principle That Will Save Humanity"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Wedding Dress"
+  },
+  {
+    "rank": 27,
+    "item_name": "Queen of the Waves"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Dance: A Novel (The Restoration Series)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Baker's Wife"
+  },
+  {
+    "rank": 30,
+    "item_name": "Moonlight Masquerade: A Regency Romance"
+  },
+  {
+    "rank": 31,
+    "item_name": "Sarah's Garden (A Patch of Heaven Novel)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Promise Box (Seven Brides for Seven Bachelors)"
+  },
+  {
+    "rank": 33,
+    "item_name": "To Whisper Her Name (A Belle Meade Plantation Novel)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Small Town Girl: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Apothecary's Daughter"
+  },
+  {
+    "rank": 36,
+    "item_name": "Courting Cate (The Courtships of Lancaster County) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Song of My Heart"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Heiress of Winterwood (Whispers On The Moors)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Governess of Highland Hall: A Novel (Edwardian Brides)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Fair Play: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "Moms' Night Out and Other Things I Miss: Devotions To Help You Survive"
+  },
+  {
+    "rank": 42,
+    "item_name": "Save the Date"
+  },
+  {
+    "rank": 43,
+    "item_name": "Too Close to Home (Women of Justice Series #1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Dancing Master"
+  },
+  {
+    "rank": 45,
+    "item_name": "Freedom's Stand"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Passion Most Pure (Daughters of Boston, Book 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Christmas Roses"
+  },
+  {
+    "rank": 48,
+    "item_name": "Every Perfect Gift (Hickory Ridge Romance)"
+  },
+  {
+    "rank": 49,
+    "item_name": "A Passion Denied (The Daughters of Boston, Book 3)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Trouble with Cowboys (A Big Sky Romance)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

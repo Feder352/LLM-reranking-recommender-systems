@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Wee William's Woman (The Clan MacDougall)"
+  },
+  {
+    "item_name": "Laiden's Daughter (The Clan MacDougall) (Volume 1)"
+  },
+  {
+    "item_name": "Rania Ropes a Rancher: A Historical Western Romance (Brides with Grit) (Volume 1)"
+  },
+  {
+    "item_name": "The Anonymous Bride (Texas Boardinghouse Brides, Book 1)"
+  },
+  {
+    "item_name": "Grace be a Lady: Love &amp; War in Johnson County Book 1 (Volume 1)"
+  },
+  {
+    "item_name": "A Lady in Defiance: Romance in the Rockies 1 (Volume 1)"
+  },
+  {
+    "item_name": "David: Lord of Honor (The Lonely Lords)"
+  },
+  {
+    "item_name": "The River Girl's Song: An Inspirational Texas Historical Women's Fiction Novella (Texas Women of Spirit) (Volume 1)"
+  },
+  {
+    "item_name": "Summer's Storm"
+  },
+  {
+    "item_name": "Emily  Book 2 Come By Chance Mail Order Brides: Sweet Montana Western Bride Romance (Volume 2)"
+  },
+  {
+    "item_name": "The Unwanted Heiress (The Archer Family Regency Romances) (Volume 1)"
+  },
+  {
+    "item_name": "The Earl's Masquerade: previously entitled: Escaping Notice (The Archer Family Regency Romances) (Volume 3)"
+  },
+  {
+    "item_name": "A Lady in Hiding (The Archer Family Regency Romances)"
+  },
+  {
+    "item_name": "Frederick's Queen: Book Two of The Clan Graham Series"
+  },
+  {
+    "item_name": "The Rose and The Thorn (MacPherson Brides) (Volume 1)"
+  },
+  {
+    "item_name": "Knight in Highland Armor (Highland Dynasty) (Volume 1)"
+  },
+  {
+    "item_name": "Frontier Highlander Vow of Love (American Wilderness Series Romance) (Volume 4)"
+  },
+  {
+    "item_name": "Heaven in His Arms"
+  },
+  {
+    "item_name": "A Highland Knight's Desire (Highland Dynasty) (Volume 2)"
+  },
+  {
+    "item_name": "Highland Knight of Rapture (Highland Dynasty) (Volume 4)"
+  },
+  {
+    "item_name": "A Highland Knight to Remember (Highland Dynasty) (Volume 3)"
+  },
+  {
+    "item_name": "Autumn's Flame"
+  },
+  {
+    "item_name": "Dark Surrender (Passion &amp; Promises)"
+  },
+  {
+    "item_name": "The Highlander's Temptation (The Stolen Bride Series) (Volume 7)"
+  },
+  {
+    "item_name": "The Savage Curtain (Dragonblade Series)"
+  },
+  {
+    "item_name": "Rescued by a Highlander (Clan Grant)"
+  },
+  {
+    "item_name": "Texas Twilight: The McCutcheon Family Series"
+  },
+  {
+    "item_name": "My Highland Love (Highland Lords) (Volume 1)"
+  },
+  {
+    "item_name": "Highland Intrigue (Duncurra) (Volume 3)"
+  },
+  {
+    "item_name": "Valley of Dreams (Wild West Wind)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Fatal Judgment (Guardians of Justice, Book 1) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Christmas Bargain (A Victorian Holiday Romance)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Nellie (The Brides of San Francisco) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Fools Rush In (Weddings by Bella, Book 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Capital Bride (Matchmaker &amp; Co) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Hazardous Duty (Squeaky Clean Mysteries, No. 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Her Heart for the Asking"
+  },
+  {
+    "rank": 8,
+    "item_name": "Sweet Enemy: A Veiled Seduction Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Teacher's Billionaire: The Sherbrookes of Newport Book 1"
+  },
+  {
+    "rank": 10,
+    "item_name": "Dark Desires (Zebra Debut)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Christmas Calamity: A Sweet Victorian Holiday Romance (Hardman Holidays) (Volume 3)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Forever His (Stolen Brides Series) (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "For Love of the Duke (Heart of a Duke) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Fall of Lord Drayson (Tanglewood) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Married By Midnight: A Pembroke Palace Novella"
+  },
+  {
+    "rank": 16,
+    "item_name": "Finding Her Way (Wildflowers) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Marriage  Mart"
+  },
+  {
+    "rank": 18,
+    "item_name": "Highland Solution (Duncurra) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "FROM A DISTANCE, A Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "Violet"
+  },
+  {
+    "rank": 21,
+    "item_name": "Weathered Too Young"
+  },
+  {
+    "rank": 22,
+    "item_name": "Never Too Late"
+  },
+  {
+    "rank": 23,
+    "item_name": "Submerged (Alaskan Courage) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Waiting for You"
+  },
+  {
+    "rank": 25,
+    "item_name": "Coming Undone"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Bedeviled Heart: The Highland Heather and Hearts Scottish Romance Series"
+  },
+  {
+    "rank": 27,
+    "item_name": "Candle's Christmas Chair"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Stranger She Married (Rogue Hearts) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Lord Trowbridge's Angel"
+  },
+  {
+    "rank": 30,
+    "item_name": "First Dawn (Freedom's Path Series #1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Merchant's Pearl (The Merchant's Pearl Saga) (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "No Place for a Lady (Heart of the West Series, Book 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Surrender the Heart (Surrender to Destiny)"
+  },
+  {
+    "rank": 34,
+    "item_name": "A Daughters Inheritance (Broadmoor Legacy, Book 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Texas Christmas"
+  },
+  {
+    "rank": 36,
+    "item_name": "Short-Straw Bride"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Cheyenne Christmas"
+  },
+  {
+    "rank": 38,
+    "item_name": "Third Time's the Charm: An Inspirational Western Romance (Three Rivers Ranch Romance) (Volume 2)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Penelope ( A Madcap Regency Romance ) (The Fairweather Sisters) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Caversham's Bride (The Caversham Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Cowboy's Christmas Plan: Grass Valley Cowboys"
+  },
+  {
+    "rank": 42,
+    "item_name": "Deeply Devoted: A Novel (The Blue Willow Brides) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Cry of the Peacock"
+  },
+  {
+    "rank": 44,
+    "item_name": "Highlander's Bride: Historical Time Travel Romance (Moment in Time) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Hanchart Land"
+  },
+  {
+    "rank": 46,
+    "item_name": "Danger's Kiss"
+  },
+  {
+    "rank": 47,
+    "item_name": "Christmas at Harrington's"
+  },
+  {
+    "rank": 48,
+    "item_name": "Lady Danger"
+  },
+  {
+    "rank": 49,
+    "item_name": "More Than Passion"
+  },
+  {
+    "rank": 50,
+    "item_name": "All the Way Home: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

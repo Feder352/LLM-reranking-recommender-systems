@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Sacred Search: What If It's Not about Who You Marry, But Why?"
+  },
+  {
+    "item_name": "Naked Statistics: Stripping the Dread from the Data"
+  },
+  {
+    "item_name": "Disney U: How Disney University Develops the World's Most Engaged, Loyal, and Customer-Centric Employees"
+  },
+  {
+    "item_name": "Decisive: How to Make Better Choices in Life and Work"
+  },
+  {
+    "item_name": "Insourcing: Bringing Discipleship Back to the Local Church (Leadership Network Innovation Series)"
+  },
+  {
+    "item_name": "The I of Leadership: Strategies for Seeing, Being and Doing"
+  },
+  {
+    "item_name": "The Spiritual Danger of Doing Good"
+  },
+  {
+    "item_name": "The Firm: The Story of McKinsey and Its Secret Influence on American Business"
+  },
+  {
+    "item_name": "Innovation's Dirty Little Secret: Why Serial Innovators Succeed Where Others Fail (Leadership Network Innovation Series)"
+  },
+  {
+    "item_name": "How to Be Rich: It's Not What You Have. It's What You Do With What You Have."
+  },
+  {
+    "item_name": "Leaders Eat Last: Why Some Teams Pull Together and Others Don't"
+  },
+  {
+    "item_name": "Big Data at Work: Dispelling the Myths, Uncovering the Opportunities"
+  },
+  {
+    "item_name": "I Like Giving: The Transforming Power of a Generous Life"
+  },
+  {
+    "item_name": "What's Best Next: How the Gospel Transforms the Way You Get Things Done"
+  },
+  {
+    "item_name": "It's Not the How or the What but the Who: Succeed by Surrounding Yourself with the Best"
+  },
+  {
+    "item_name": "How Do I Keep My Employees Motivated?"
+  },
+  {
+    "item_name": "Billy Graham: Leading with Love: 5 Timeless Principles for Effective Leaders"
+  },
+  {
+    "item_name": "Own Your Future: How to Think Like an Entrepreneur and Thrive in an Unpredictable Economy"
+  },
+  {
+    "item_name": "Lead with Humility: 12 Leadership Lessons from Pope Francis"
+  },
+  {
+    "item_name": "Prayer"
+  },
+  {
+    "item_name": "Renegade Gospel: The Rebel Jesus (Renegade Gospel series)"
+  },
+  {
+    "item_name": "Digital Disruption: Unleashing the Next Wave of Innovation"
+  },
+  {
+    "item_name": "Confronting Capitalism: Real Solutions for a Troubled Economic System"
+  },
+  {
+    "item_name": "Return on Character: The Real Reason Leaders and Their Companies Win"
+  },
+  {
+    "item_name": "HBR's 10 Must Reads 2015: The Definitive Management Ideas of the Year from Harvard Business Review (with bonus McKinsey AwardWinning article The Focused Leader) (HBR's 10 Must Reads)"
+  },
+  {
+    "item_name": "Content Inc.: How Entrepreneurs Use Content to Build Massive Audiences and Create Radically  Successful Businesses"
+  },
+  {
+    "item_name": "The Entitlement Cure: Finding Success in Doing Hard Things the Right Way"
+  },
+  {
+    "item_name": "Concrete Economics: The Hamilton Approach to Economic Growth and Policy"
+  },
+  {
+    "item_name": "Integrity at Stake: Safeguarding Your Church from Financial Fraud"
+  },
+  {
+    "item_name": "Competing Against Luck: The Story of Innovation and Customer Choice"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 2,
+    "item_id": 3005,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 3,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 4,
+    "item_id": 996,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 5,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 6,
+    "item_id": 136,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 7,
+    "item_id": 5272,
+    "item_name": "Freethinkers: A History of American Secularism"
+  },
+  {
+    "rank": 8,
+    "item_id": 2588,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 9,
+    "item_id": 18,
+    "item_name": "From Beirut to Jerusalem"
+  },
+  {
+    "rank": 10,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 11,
+    "item_id": 811,
+    "item_name": "Black Hawk Down: A Story of Modern War"
+  },
+  {
+    "rank": 12,
+    "item_id": 4564,
+    "item_name": "Lincoln at Gettysburg: The Words That Re-Made America"
+  },
+  {
+    "rank": 13,
+    "item_id": 1097,
+    "item_name": "The World Until Yesterday: What Can We Learn from Traditional Societies?"
+  },
+  {
+    "rank": 14,
+    "item_id": 237,
+    "item_name": "100 People Who Are Screwing Up America (And Al Franken Is #37)"
+  },
+  {
+    "rank": 15,
+    "item_id": 674,
+    "item_name": "The Plague"
+  },
+  {
+    "rank": 16,
+    "item_id": 168,
+    "item_name": "God's Politics: Why the Right Gets It Wrong and the Left Doesn't Get It"
+  },
+  {
+    "rank": 17,
+    "item_id": 1417,
+    "item_name": "Legacy of Ashes: The History of the CIA"
+  },
+  {
+    "rank": 18,
+    "item_id": 1205,
+    "item_name": "Homage to Catalonia"
+  },
+  {
+    "rank": 19,
+    "item_id": 5089,
+    "item_name": "Apocalypse 2012: A Scientific Investigation into Civilization's End"
+  },
+  {
+    "rank": 20,
+    "item_id": 3028,
+    "item_name": "Death by Black Hole: And Other Cosmic Quandaries"
+  },
+  {
+    "rank": 21,
+    "item_id": 3079,
+    "item_name": "Waiting for Godot: A Tragicomedy in Two Acts"
+  },
+  {
+    "rank": 22,
+    "item_id": 1382,
+    "item_name": "If Democrats Had Any Brains, They'd Be Republicans"
+  },
+  {
+    "rank": 23,
+    "item_id": 4640,
+    "item_name": "The Soul of Capitalism: Opening Paths to a Moral Economy"
+  },
+  {
+    "rank": 24,
+    "item_id": 1372,
+    "item_name": "Imperial Life in The Emerald City: Inside Iraq's Green Zone"
+  },
+  {
+    "rank": 25,
+    "item_id": 303,
+    "item_name": "Somebody's Gotta Say It"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

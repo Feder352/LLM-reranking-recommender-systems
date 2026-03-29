@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Rebound (The Crossover Series)"
+  },
+  {
+    "item_name": "The Hush: A Novel"
+  },
+  {
+    "item_name": "Time Bomb"
+  },
+  {
+    "item_name": "Exhibit Alexandra [Paperback] [Mar 08, 2018] Natasha Bell"
+  },
+  {
+    "item_name": "Good Neighbors: A Novel"
+  },
+  {
+    "item_name": "Noah's Ark"
+  },
+  {
+    "item_name": "The Bishop's Pawn: A Novel (Cotton Malone)"
+  },
+  {
+    "item_name": "Not If I Save You First"
+  },
+  {
+    "item_name": "Emergency Contact"
+  },
+  {
+    "item_name": "Futureface: A Family Mystery, an Epic Quest, and the Secret to Belonging"
+  },
+  {
+    "item_name": "Chasing Phil: The Adventures of Two Undercover Agents with the World's Most Charming Con Man"
+  },
+  {
+    "item_name": "I'll Be Your Blue Sky: A Novel"
+  },
+  {
+    "item_name": "Front Desk"
+  },
+  {
+    "item_name": "The Beauty That Remains"
+  },
+  {
+    "item_name": "Harry: Life, Loss, and Love"
+  },
+  {
+    "item_name": "She Loves You (Yeah, Yeah, Yeah)"
+  },
+  {
+    "item_name": "The Road to Bittersweet"
+  },
+  {
+    "item_name": "The Girlfriend"
+  },
+  {
+    "item_name": "Say You'll Remember Me"
+  },
+  {
+    "item_name": "What the Eyes Don't See: A Story of Crisis, Resistance, and Hope in an American City"
+  },
+  {
+    "item_name": "Love and Ruin: A Novel"
+  },
+  {
+    "item_name": "The Astonishing Color of After"
+  },
+  {
+    "item_name": "A Lady's Guide to Selling Out: A Novel"
+  },
+  {
+    "item_name": "The Cactus"
+  },
+  {
+    "item_name": "Visible Empire"
+  },
+  {
+    "item_name": "Do This for Me: A Novel"
+  },
+  {
+    "item_name": "Believe Me: A Novel"
+  },
+  {
+    "item_name": "From the Corner of the Oval: A Memoir"
+  },
+  {
+    "item_name": "National Parks of the USA"
+  },
+  {
+    "item_name": "Ohio"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Way I Used to Be"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Death of Bees: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Lillian on Life"
+  },
+  {
+    "rank": 5,
+    "item_name": "Don't You Cry"
+  },
+  {
+    "rank": 6,
+    "item_name": "A Star for Mrs. Blake"
+  },
+  {
+    "rank": 7,
+    "item_name": "Crow Mountain"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Truth According to Us: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Miller's Valley: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Under the Wide and Starry Sky: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Perfect Place"
+  },
+  {
+    "rank": 13,
+    "item_name": "Against the Country"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Tyrant's Daughter"
+  },
+  {
+    "rank": 15,
+    "item_name": "Thirty Girls"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Swans of Fifth Avenue: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "China Rich Girlfriend: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "Vivian Apple Needs a Miracle"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Girl With Nine Wigs: A Memoir"
+  },
+  {
+    "rank": 20,
+    "item_name": "Cambridge"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Secret of Nightingale Wood"
+  },
+  {
+    "rank": 22,
+    "item_name": "With Love from the Inside"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Lauras: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "And We Stay"
+  },
+  {
+    "rank": 25,
+    "item_name": "Material Girls"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Land of Decoration"
+  },
+  {
+    "rank": 27,
+    "item_name": "Vanishing Girls"
+  },
+  {
+    "rank": 28,
+    "item_name": "Twain's End"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Wild Ones"
+  },
+  {
+    "rank": 30,
+    "item_name": "Baggage"
+  },
+  {
+    "rank": 31,
+    "item_name": "MOODY BITCHES TPB"
+  },
+  {
+    "rank": 32,
+    "item_name": "Daredevils: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Girl Who Slept with God: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "We Are the Goldens"
+  },
+  {
+    "rank": 35,
+    "item_name": "Space Case (Moon Base Alpha)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Francis Miracle: Inside the Transformation of the Pope and the Church"
+  },
+  {
+    "rank": 37,
+    "item_name": "Idaho"
+  },
+  {
+    "rank": 38,
+    "item_name": "Us: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Gated"
+  },
+  {
+    "rank": 40,
+    "item_name": "Golden Age (The Last Hundred Years Trilogy: A Family Saga)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Vanishing Island (Chronicles of the Black Tulip)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 43,
+    "item_name": "From Bruges with Love (The Pieter Van In Mysteries)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Ruby: A Novel (Oprahs Book Club 2.0)"
+  },
+  {
+    "rank": 45,
+    "item_name": "This Is the Story of a Happy Marriage"
+  },
+  {
+    "rank": 46,
+    "item_name": "Etta &amp; Otto &amp; Russell &amp; James Ome"
+  },
+  {
+    "rank": 47,
+    "item_name": "At the Edge of Summer: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Against Wind and Tide: Letters and Journals, 1947-1986"
+  },
+  {
+    "rank": 49,
+    "item_name": "The End of Innocence: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Challenger Deep (Golden Kite Awards)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

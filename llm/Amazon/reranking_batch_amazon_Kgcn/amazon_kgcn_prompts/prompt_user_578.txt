@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Lady Risks All"
+  },
+  {
+    "item_name": "And Then She Fell (Cynster Sisters Duo)"
+  },
+  {
+    "item_name": "The Road of Danger (RCN)"
+  },
+  {
+    "item_name": "Live Free or Die: Troy Rising I"
+  },
+  {
+    "item_name": "Citadel"
+  },
+  {
+    "item_name": "The Hot Gate: Troy Rising III"
+  },
+  {
+    "item_name": "A Dangerous Inheritance: A Novel of Tudor Rivals and the Secret of the Tower"
+  },
+  {
+    "item_name": "Coup d'Etat (The War That Came Early, Book Four)"
+  },
+  {
+    "item_name": "The Taming of Ryder Cavanaugh (Cynster Sisters Duo)"
+  },
+  {
+    "item_name": "'Twas the Night After Christmas (The Hellions of Halstead Hall)"
+  },
+  {
+    "item_name": "The Ides of April: A Flavia Albia Mystery (Flavia Albia Series)"
+  },
+  {
+    "item_name": "Treecat Wars (Star Kingdom)"
+  },
+  {
+    "item_name": "Terok Nor: Dawn of the Eagles (Star Trek: Deep Space Nine)"
+  },
+  {
+    "item_name": "A Spell For Chameleon (The Magic of Xanth, Volume One)"
+  },
+  {
+    "item_name": "Castle Roogna (Xanth, No. 3)"
+  },
+  {
+    "item_name": "Centaur Aisle (The Magic of Xanth, No. 4)"
+  },
+  {
+    "item_name": "Night Mare (The Magic of Xanth, No. 6)"
+  },
+  {
+    "item_name": "Crewel Lye (Xanth)"
+  },
+  {
+    "item_name": "Golem in the Gears (The Magic of Xanth, Book 9)"
+  },
+  {
+    "item_name": "Voodoo Histories"
+  },
+  {
+    "item_name": "Like a Mighty Army: A Novel in the Safehold Series"
+  },
+  {
+    "item_name": "Cauldron of Ghosts (Crown of Slaves)"
+  },
+  {
+    "item_name": "The Marriage Game"
+  },
+  {
+    "item_name": "Tea With the Black Dragon"
+  },
+  {
+    "item_name": "A Call to Duty (Manticore Ascendant)"
+  },
+  {
+    "item_name": "The Truth About Love: A Cynster Novel (Cynster Novels)"
+  },
+  {
+    "item_name": "1177 B.C.: The Year Civilization Collapsed (Turning Points in Ancient History)"
+  },
+  {
+    "item_name": "A Call to Arms (Manticore Ascendant)"
+  },
+  {
+    "item_name": "Board Stiff (Xanth)"
+  },
+  {
+    "item_name": "Till We Have Faces: A Myth Retold"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1899,
+    "item_name": "Kushiel's Chosen (Kushiel's Legacy)"
+  },
+  {
+    "rank": 2,
+    "item_id": 3515,
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  },
+  {
+    "rank": 3,
+    "item_id": 4402,
+    "item_name": "The Devil Inside (Morgan Kingsley, Exorcist, Book 1)"
+  },
+  {
+    "rank": 4,
+    "item_id": 4523,
+    "item_name": "Flag in Exile (Honor Harrington #5)"
+  },
+  {
+    "rank": 5,
+    "item_id": 3636,
+    "item_name": "Sharper Than a Serpent's Tooth (Nightside, Book 6)"
+  },
+  {
+    "rank": 6,
+    "item_id": 3625,
+    "item_name": "Agents of Light and Darkness (Nightside, Book 2)"
+  },
+  {
+    "rank": 7,
+    "item_id": 3666,
+    "item_name": "The Sioux Spaceman"
+  },
+  {
+    "rank": 8,
+    "item_id": 4365,
+    "item_name": "Luck in the Shadows (Nightrunner, Vol. 1)"
+  },
+  {
+    "rank": 9,
+    "item_id": 4080,
+    "item_name": "The Scourge of God: A Novel of the Change (Change Series)"
+  },
+  {
+    "rank": 10,
+    "item_id": 2758,
+    "item_name": "Expendable (League of Peoples, Bk. 1)"
+  },
+  {
+    "rank": 11,
+    "item_id": 4574,
+    "item_name": "Redliners"
+  },
+  {
+    "rank": 12,
+    "item_id": 2130,
+    "item_name": "The Dragon and the George"
+  },
+  {
+    "rank": 13,
+    "item_id": 2134,
+    "item_name": "The Tar-Aiym Krang"
+  },
+  {
+    "rank": 14,
+    "item_id": 2326,
+    "item_name": "Child of Fire: A Twenty Palaces Novel"
+  },
+  {
+    "rank": 15,
+    "item_id": 3,
+    "item_name": "Harlequin"
+  },
+  {
+    "rank": 16,
+    "item_id": 4887,
+    "item_name": "Ashes of Honor"
+  },
+  {
+    "rank": 17,
+    "item_id": 4875,
+    "item_name": "The High King's Tomb (Green Rider, Book 3)"
+  },
+  {
+    "rank": 18,
+    "item_id": 2285,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 19,
+    "item_id": 3345,
+    "item_name": "The Laughing Corpse (Anita Blake Vampire Hunter)"
+  },
+  {
+    "rank": 20,
+    "item_id": 5328,
+    "item_name": "Shadows Linger: A Novel of the Black Company (The Second Chronicle of The Black Company)"
+  },
+  {
+    "rank": 21,
+    "item_id": 2333,
+    "item_name": "Hammered (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 22,
+    "item_id": 4353,
+    "item_name": "Rogue Squadron (Star Wars: X-Wing Series, Book 1)"
+  },
+  {
+    "rank": 23,
+    "item_id": 5025,
+    "item_name": "Fleet of Worlds (Known Space)"
+  },
+  {
+    "rank": 24,
+    "item_id": 5027,
+    "item_name": "Juggler of Worlds: 200 Years Before the Discovery of the Ringworld"
+  },
+  {
+    "rank": 25,
+    "item_id": 1119,
+    "item_name": "Princeps' Fury (Codex Alera, Book 5)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

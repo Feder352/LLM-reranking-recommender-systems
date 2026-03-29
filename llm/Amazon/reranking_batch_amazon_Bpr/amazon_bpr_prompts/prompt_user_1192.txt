@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Not A Word"
+  },
+  {
+    "item_name": "For Sale by Owner"
+  },
+  {
+    "item_name": "The Beautiful Balance"
+  },
+  {
+    "item_name": "You've Got This! How to Look Up When Life Has You Down"
+  },
+  {
+    "item_name": "You've Got This! How to Look Up When Life Has You Down"
+  },
+  {
+    "item_name": "To Win a Lady's Heart"
+  },
+  {
+    "item_name": "To Suit a Suitor"
+  },
+  {
+    "item_name": "The Afterlife Academy"
+  },
+  {
+    "item_name": "Petticoat Spy"
+  },
+  {
+    "item_name": "Witness in the Dark"
+  },
+  {
+    "item_name": "An Inconvenient Romance"
+  },
+  {
+    "item_name": "Breach of Trust"
+  },
+  {
+    "item_name": "One Fell Down"
+  },
+  {
+    "item_name": "A Fine Gentleman"
+  },
+  {
+    "item_name": "Love, Jane"
+  },
+  {
+    "item_name": "The Richest Man in Babylon"
+  },
+  {
+    "item_name": "The Vicar's Daughter (Proper Romance)"
+  },
+  {
+    "item_name": "Deadly Inheritance"
+  },
+  {
+    "item_name": "Miss Whitaker Opens Her Heart"
+  },
+  {
+    "item_name": "Defiance"
+  },
+  {
+    "item_name": "Chance For Home"
+  },
+  {
+    "item_name": "Sense and Second Chances"
+  },
+  {
+    "item_name": "Wrong for You"
+  },
+  {
+    "item_name": "Romancing Daphne"
+  },
+  {
+    "item_name": "Paige's Turn"
+  },
+  {
+    "item_name": "The Song of Copper Creek"
+  },
+  {
+    "item_name": "Searching for Irene"
+  },
+  {
+    "item_name": "Havencross"
+  },
+  {
+    "item_name": "Spell Check"
+  },
+  {
+    "item_name": "Christmas Grace"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Missing Lily"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Gentleman's Deception"
+  },
+  {
+    "rank": 3,
+    "item_name": "Persuaded"
+  },
+  {
+    "rank": 4,
+    "item_name": "Lady Helen Finds Her Song"
+  },
+  {
+    "rank": 5,
+    "item_name": "Happily Ever After Collection (A Timeless Romance Anthology) (Volume 20)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Accidentally Me"
+  },
+  {
+    "rank": 7,
+    "item_name": "Perfectly You (The Perfect Series)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Match Maker: The Husband Maker, Book 2 (Volume 2)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Love at First Note"
+  },
+  {
+    "rank": 10,
+    "item_name": "Lightning Struck (Brothers Maledetti)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Moses Chronicles, Volume 3: Exodus"
+  },
+  {
+    "rank": 12,
+    "item_name": "Chemistry Lessons"
+  },
+  {
+    "rank": 13,
+    "item_name": "Trouble in Paradise"
+  },
+  {
+    "rank": 14,
+    "item_name": "Midnight Masquerade"
+  },
+  {
+    "rank": 15,
+    "item_name": "Friends and Foes"
+  },
+  {
+    "rank": 16,
+    "item_name": "Walk of Infamy (Rhea Jensen Series)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Under a Georgia Moon (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Fetch"
+  },
+  {
+    "rank": 19,
+    "item_name": "Destiny (The Destiny Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Gideon's Secondhand Bride: A Sweet Historical Mail Order Bride Romance Novella"
+  },
+  {
+    "rank": 21,
+    "item_name": "Check Me Out (Proper Romance Contemporary)"
+  },
+  {
+    "rank": 22,
+    "item_name": "California Dreamin' Collection (A Timeless Romance Anthology) (Volume 11)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Working It Out: A Romantic Comedy"
+  },
+  {
+    "rank": 24,
+    "item_name": "All I Want: Three couples. Three Stories. One Holiday"
+  },
+  {
+    "rank": 25,
+    "item_name": "Heart of the Ocean"
+  },
+  {
+    "rank": 26,
+    "item_name": "Mile 21"
+  },
+  {
+    "rank": 27,
+    "item_name": "Life (Citizens of Logan Pond) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Miss Leslie's Secret"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Fine Gentleman"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Heart Revealed (Proper Romance)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Second Season"
+  },
+  {
+    "rank": 32,
+    "item_name": "Girl of Mine"
+  },
+  {
+    "rank": 33,
+    "item_name": "Asked &amp; Answered (Legally in Love)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Moses Chronicles, Volume 2: Deliverance"
+  },
+  {
+    "rank": 35,
+    "item_name": "For Sale by Owner"
+  },
+  {
+    "rank": 36,
+    "item_name": "Magelica's Voyage"
+  },
+  {
+    "rank": 37,
+    "item_name": "Hello, Bali: A Kids Yoga Island Adventure Book"
+  },
+  {
+    "rank": 38,
+    "item_name": "To Move the World (Power of the Matchmaker)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Double Play"
+  },
+  {
+    "rank": 40,
+    "item_name": "Beyond the Narrows"
+  },
+  {
+    "rank": 41,
+    "item_name": "Willowkeep (A Regency Romance)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Love is Come (Power of the Matchmaker)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Eve: In the Beginning"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Sage After Rain: A love story"
+  },
+  {
+    "rank": 45,
+    "item_name": "Swept Up By the Sea: A Romantic Fairy Tale"
+  },
+  {
+    "rank": 46,
+    "item_name": "Motherhood Matters: Joyful Reminders of the Divinity, Reality, and Rewards of Motherhood"
+  },
+  {
+    "rank": 47,
+    "item_name": "Not Always Happenstance (Power of the Matchmaker)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Cenote"
+  },
+  {
+    "rank": 49,
+    "item_name": "Love's Broken Road"
+  },
+  {
+    "rank": 50,
+    "item_name": "A Tangled Inheritance"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Bride Next Door (Chapel of Love)"
+  },
+  {
+    "item_name": "Indian Horse"
+  },
+  {
+    "item_name": "The Cruel Prince (The Folk of the Air)"
+  },
+  {
+    "item_name": "A Lady's Guide to Selling Out: A Novel"
+  },
+  {
+    "item_name": "Love and Other Words"
+  },
+  {
+    "item_name": "Mornings on Main: A Small-Town Texas Novel"
+  },
+  {
+    "item_name": "More to Love (A Perfect Fit)"
+  },
+  {
+    "item_name": "A Match Made in Bed: A Spinster Heiresses Novel (The Spinster Heiresses)"
+  },
+  {
+    "item_name": "Roomies"
+  },
+  {
+    "item_name": "Hurts to Love You: Forbidden Hearts"
+  },
+  {
+    "item_name": "Unmasked by the Marquess: The Regency Impostors"
+  },
+  {
+    "item_name": "Cowboy Up: Coming Home Book 3"
+  },
+  {
+    "item_name": "Dangerous Crossing"
+  },
+  {
+    "item_name": "My Oxford Year: A Novel"
+  },
+  {
+    "item_name": "Savor You: A Fusion Novel"
+  },
+  {
+    "item_name": "Charity Ends At Home"
+  },
+  {
+    "item_name": "A Scandalous Deal: The Four Hundred Series"
+  },
+  {
+    "item_name": "Disturbing His Peace: The Academy"
+  },
+  {
+    "item_name": "Don't Call Me Cupcake (The Holloway Girls)"
+  },
+  {
+    "item_name": "The Good Luck Sister: A Wildstone Novella"
+  },
+  {
+    "item_name": "Darwin's Ghosts: The Secret History of Evolution"
+  },
+  {
+    "item_name": "Trouble the Water: A Novel"
+  },
+  {
+    "item_name": "By Invitation Only"
+  },
+  {
+    "item_name": "Best Beach Ever (Ten Beach Road Series)"
+  },
+  {
+    "item_name": "Lowcountry Bookshop (A Liz Talbot Mystery)"
+  },
+  {
+    "item_name": "Calypso"
+  },
+  {
+    "item_name": "Ain't She a Peach (Southern Eclectic)"
+  },
+  {
+    "item_name": "The Bookshop of Yesterdays"
+  },
+  {
+    "item_name": "Rainy Day Friends: A Novel"
+  },
+  {
+    "item_name": "The Fragile Ordinary"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "How to Capture a Duke (Matchmaking for Wallflowers) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Luck of the Bride: The Cavensham Heiresses"
+  },
+  {
+    "rank": 3,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 4,
+    "item_name": "My Not So Perfect Life: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Silence of the Lamps (A Caprice De Luca Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_name": "It's All About the Duke: The Rakes of St. James"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Right Kind of Rogue (Playful Brides)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Trouble with Dukes (Windham Brides)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Lady Travelers Guide to Scoundrels and Other Gentlemen: A Historical Romance Novel (Lady Travelers Society)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Earl&#39;s Christmas Colt (A Reluctant Bride Book 1) eBook"
+  },
+  {
+    "rank": 11,
+    "item_name": "My One True Highlander: A No Ordinary Hero Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Girl's Guide to Moving On: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Devil in Spring: The Ravenels, Book 3"
+  },
+  {
+    "rank": 14,
+    "item_name": "Three Weeks With Lady X (Desperate Duchesses)"
+  },
+  {
+    "rank": 15,
+    "item_name": "If the Viscount Falls (The Duke's Men)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Highlander (Victorian Rebels)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Last Chance Christmas Ball"
+  },
+  {
+    "rank": 18,
+    "item_name": "Lady Vice (The Furies)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Duke with Benefits (Studies in Scandal)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Marrying Winterborne"
+  },
+  {
+    "rank": 21,
+    "item_name": "Until We Touch (Fool's Gold,  Book 17)"
+  },
+  {
+    "rank": 22,
+    "item_name": "When the Stars Come Out: A Cottonbloom Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Devil in Scotland: A No Ordinary Hero Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Mother Knows Best (A Margie Peterson Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Promise Not to Tell"
+  },
+  {
+    "rank": 26,
+    "item_name": "Stormswept"
+  },
+  {
+    "rank": 27,
+    "item_name": "Sweet Little Lies: A Heartbreaker Bay Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Black Ice"
+  },
+  {
+    "rank": 29,
+    "item_name": "Not Always a Saint (Lost Lords)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Dark Before the Rising Sun"
+  },
+  {
+    "rank": 31,
+    "item_name": "A Bad Boy for Christmas (Second Chance)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Betrayed by Your Kiss"
+  },
+  {
+    "rank": 33,
+    "item_name": "Christmas Comes to Main Street (The Briar Creek Series)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Surprise Me"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Wedding At Two Love Lane"
+  },
+  {
+    "rank": 36,
+    "item_name": "How to Seduce a Scot (Broadswords and Ballrooms)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Why Do Dukes Fall in Love?: A Dukes Behaving Badly Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Shadows of Stormclyffe Hall"
+  },
+  {
+    "rank": 40,
+    "item_name": "A Study In Scarlet Women (The Lady Sherlock Series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Girl With The Make-Believe Husband: A Bridgertons Prequel"
+  },
+  {
+    "rank": 42,
+    "item_name": "And We Stay"
+  },
+  {
+    "rank": 43,
+    "item_name": "Chance the Winds of Fortune (Dominick Trilogy)"
+  },
+  {
+    "rank": 44,
+    "item_name": "How the Scoundrel Seduces (The Duke's Men)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Summer at Rose Island"
+  },
+  {
+    "rank": 46,
+    "item_name": "Surprise Me: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "STARRY NIGHT"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Sea of Tranquility: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Before We Kiss (Fool's Gold, Book 16)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Marrying the Wrong Earl"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

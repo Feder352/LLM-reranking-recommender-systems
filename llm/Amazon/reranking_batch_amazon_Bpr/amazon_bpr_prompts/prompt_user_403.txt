@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "item_name": "Forty Words for Sorrow"
+  },
+  {
+    "item_name": "Drunkard's Walk: How Randomness Rules Our Lives"
+  },
+  {
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "item_name": "The Bone Thief: A Body Farm Novel"
+  },
+  {
+    "item_name": "The Sparrow: A Novel (The Sparrow Series)"
+  },
+  {
+    "item_name": "Marine One"
+  },
+  {
+    "item_name": "Travels with a Donkey in the Cevennes / The Amateur Emigrant"
+  },
+  {
+    "item_name": "The Lost Adventures of Sherlock Holmes: Based on the Original Radio Plays by Dennis Green and Anthony Boucher"
+  },
+  {
+    "item_name": "Written in Bone"
+  },
+  {
+    "item_name": "All That Remains (Patricia Cornwell)"
+  },
+  {
+    "item_name": "F in Exams: The Very Best Totally Wrong Test Answers"
+  },
+  {
+    "item_name": "The Chase (An Isaac Bell Adventure)"
+  },
+  {
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "item_name": "The Columbus Affair: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "Dark Star Safari: Overland from Cairo to Cape Town"
+  },
+  {
+    "item_name": "Secret Daughter: A Novel"
+  },
+  {
+    "item_name": "God, No!: Signs You May Already Be an Atheist and Other Magical Tales"
+  },
+  {
+    "item_name": "Seven Unholy Days"
+  },
+  {
+    "item_name": "Predator (Kay Scarpetta)"
+  },
+  {
+    "item_name": "The False Prince (The Ascendance Trilogy, Book 1)"
+  },
+  {
+    "item_name": "The Sixth Extinction: An Unnatural History"
+  },
+  {
+    "item_name": "Among the Impostors"
+  },
+  {
+    "item_name": "Deliver Us From Evil"
+  },
+  {
+    "item_name": "Sycamore Row (The Jake Brigance)"
+  },
+  {
+    "item_name": "Devil's Bones, The (Body Farm)"
+  },
+  {
+    "item_name": "House of Secrets"
+  },
+  {
+    "item_name": "No Time for Goodbye: A Thriller"
+  },
+  {
+    "item_name": "Fight Club"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 3,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Mystic River"
+  },
+  {
+    "rank": 6,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 7,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 9,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 11,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 12,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 13,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 15,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 18,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Cuckoo's Calling (Cormoran Strike)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Skipping Christmas"
+  },
+  {
+    "rank": 21,
+    "item_name": "PREY."
+  },
+  {
+    "rank": 22,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 23,
+    "item_name": "Memoirs of a Geisha Uk"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Giver (Collins Modern Classics)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Enemy (Jack Reacher, No. 8)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Ten Big Ones (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 27,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 28,
+    "item_name": "Gone Girl"
+  },
+  {
+    "rank": 29,
+    "item_name": "Club Dead (Sookie Stackhouse/True Blood, Book 3)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 31,
+    "item_name": "Heart-Shaped Box"
+  },
+  {
+    "rank": 32,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 33,
+    "item_name": "22/11/63"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Testament"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Lovely Bones: Deluxe Edition"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Show Must Go On/The Cry and the Covenant/Autobiography of Will Rogers/Cry, the Beloved Country (Reader's Digest Condensed Books, Volume 1: 1950)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "American Gods"
+  },
+  {
+    "rank": 39,
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Fifth Witness (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Bourne Identity"
+  },
+  {
+    "rank": 42,
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "rank": 43,
+    "item_name": "Eclipse (Twilight Sagas)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Eyre Affair: A Thursday Next Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "Timeline"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Silence of the Lambs"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Clash of Kings: A Song of Ice and Fire: Book Two"
+  },
+  {
+    "rank": 48,
+    "item_name": "Isaac's Storm: A Man, a Time, and the Deadliest Hurricane in History"
+  },
+  {
+    "rank": 49,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 50,
+    "item_name": "1st to Die (Women's Murder Club)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Lady in Waiting"
+  },
+  {
+    "item_name": "The Seventh Son (Norman Conquest) (Volume 4)"
+  },
+  {
+    "item_name": "Miss Amelia Lands a Duke: The Caversham Chronicles - The Prequel Novella"
+  },
+  {
+    "item_name": "Lady Northam's Wicked Surrender (Rekindled Passions, 1)"
+  },
+  {
+    "item_name": "Wild Montana Sky"
+  },
+  {
+    "item_name": "Unguarded (One Fairy Tale Wedding) (Volume 1)"
+  },
+  {
+    "item_name": "The Rogue"
+  },
+  {
+    "item_name": "Starry Montana Sky"
+  },
+  {
+    "item_name": "The Thunder Warrior (Lords of Thunder: The de Shera Brotherhood)"
+  },
+  {
+    "item_name": "Stormy Montana Sky (The Montana Sky Series) (Volume 3)"
+  },
+  {
+    "item_name": "Untouched (One Fairy Tale Wedding) (Volume 2)"
+  },
+  {
+    "item_name": "Sylvester"
+  },
+  {
+    "item_name": "Unveiled (One Fairy Tale Wedding) (Volume 3)"
+  },
+  {
+    "item_name": "The Flame and the Flower (The Birmingham Family)"
+  },
+  {
+    "item_name": "Captured by a Laird (The Douglas Legacy)"
+  },
+  {
+    "item_name": "Mail-Order Brides of the West: Trudy"
+  },
+  {
+    "item_name": "Mail-Order Brides of the West: Lina: A Montana Sky Novel (Montana Sky Series)"
+  },
+  {
+    "item_name": "Mail-Order Brides of the West: Darcy: A Montana Sky Series Novel"
+  },
+  {
+    "item_name": "Mail-Order Brides of the West: Heather (The McCutcheon Family) (Volume 4)"
+  },
+  {
+    "item_name": "Grace: Bride of Montana: American Mail-Order Brides Series #41"
+  },
+  {
+    "item_name": "Marry in Scandal (Marriage of Convenience)"
+  },
+  {
+    "item_name": "Flowers from the Storm"
+  },
+  {
+    "item_name": "Glorious Montana Sky"
+  },
+  {
+    "item_name": "Mystic Montana Sky"
+  },
+  {
+    "item_name": "Healing Montana Sky"
+  },
+  {
+    "item_name": "Montana Sky Christmas: A Sweetwater Springs Short Story Collection (Montana Sky Series)"
+  },
+  {
+    "item_name": "Painted Montana Sky: A Montana Sky Series Novella"
+  },
+  {
+    "item_name": "Masqueraders, The"
+  },
+  {
+    "item_name": "Sweetwater Springs Christmas: : A Montana Sky Short Story Anthology (Montana Sky Series)"
+  },
+  {
+    "item_name": "Melt for You (Slow Burn)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 65137,
+    "item_name": "The Letter"
+  },
+  {
+    "rank": 2,
+    "item_id": 52845,
+    "item_name": "Rescued by a Highlander (Clan Grant)"
+  },
+  {
+    "rank": 3,
+    "item_id": 51284,
+    "item_name": "Married By Midnight: A Pembroke Palace Novella"
+  },
+  {
+    "rank": 4,
+    "item_id": 75296,
+    "item_name": "Nine Rules to Break When Romancing a Rake: Number 1 in series (Love by Numbers)"
+  },
+  {
+    "rank": 5,
+    "item_id": 69652,
+    "item_name": "MacFarland's Lass (Scottish Lasses) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_id": 24336,
+    "item_name": "The Defiant Governess (Signet Regency Romance)"
+  },
+  {
+    "rank": 7,
+    "item_id": 57168,
+    "item_name": "The Captain's Bluestocking Mistress (Dukes of War) (Volume 3)"
+  },
+  {
+    "rank": 8,
+    "item_id": 55925,
+    "item_name": "The Other Duke (The Notorious Flynns) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_id": 39362,
+    "item_name": "Salt Bride: A Georgian Historical Romance"
+  },
+  {
+    "rank": 10,
+    "item_id": 14869,
+    "item_name": "Touch the Sun"
+  },
+  {
+    "rank": 11,
+    "item_id": 70621,
+    "item_name": "Worth Lord of Reckoning (Lonely Lords) (Volume 10)"
+  },
+  {
+    "rank": 12,
+    "item_id": 21748,
+    "item_name": "Scandal (Berkley Sensation)"
+  },
+  {
+    "rank": 13,
+    "item_id": 38664,
+    "item_name": "The Bedeviled Heart: The Highland Heather and Hearts Scottish Romance Series"
+  },
+  {
+    "rank": 14,
+    "item_id": 49848,
+    "item_name": "Her Husband's Harlot: Mayhem in Mayfair (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_id": 69249,
+    "item_name": "More Than a Governess"
+  },
+  {
+    "rank": 16,
+    "item_id": 51639,
+    "item_name": "The Christmas Bargain (A Victorian Holiday Romance)"
+  },
+  {
+    "rank": 17,
+    "item_id": 36197,
+    "item_name": "Her Heart for the Asking"
+  },
+  {
+    "rank": 18,
+    "item_id": 58681,
+    "item_name": "Forgotten &amp; Remembered: The Duke's Late Wife (Love's Second Chance Series) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_id": 53874,
+    "item_name": "The Substitute (Wedding Pact)"
+  },
+  {
+    "rank": 20,
+    "item_id": 55903,
+    "item_name": "Rania Ropes a Rancher: A Historical Western Romance (Brides with Grit) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_id": 73153,
+    "item_name": "Unwrapping Her Perfect Match: A London Legends Christmas Romance"
+  },
+  {
+    "rank": 22,
+    "item_id": 40625,
+    "item_name": "What Once Was Perfect (Wardham) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_id": 53833,
+    "item_name": "Wicked Designs (League of Rogues)"
+  },
+  {
+    "rank": 24,
+    "item_id": 44863,
+    "item_name": "Earls Just Want to Have Fun (Covent Garden Cubs)"
+  },
+  {
+    "rank": 25,
+    "item_id": 51034,
+    "item_name": "Betrayed by Your Kiss"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

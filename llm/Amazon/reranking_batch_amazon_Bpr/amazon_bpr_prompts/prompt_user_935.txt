@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Zoo (Zoo Series)"
+  },
+  {
+    "item_name": "After The Ending (The Ending Series) (Volume 1)"
+  },
+  {
+    "item_name": "Final Girls: A Novel"
+  },
+  {
+    "item_name": "The Dark Man (The Graveyard: Classified Paranormal Series) (Volume 1)"
+  },
+  {
+    "item_name": "Beware the Orchids (A Shady Acres Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...the American West: An Introduction to Civilizations Throughout Time (Volume 10)"
+  },
+  {
+    "item_name": "Hell Divers (Hell Divers Series, Book 1)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in... Elizabethan England: An Introduction to Civilizations Throughout Time (Volume 8)"
+  },
+  {
+    "item_name": "Maze of Souls: (Ellie Jordan, Ghost Trapper Book 6) (Volume 6)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Renaissance Italy: An Introduction to Civilizations Throughout Time (Volume 7)"
+  },
+  {
+    "item_name": "Lullaby: (Ellie Jordan, Ghost Trapper Book 7) (Volume 7)"
+  },
+  {
+    "item_name": "The Keeper: (Ellie Jordan, Ghost Trapper Book 8) (Volume 8)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in....the Mayan Empire: An Introduction to Civilizations Throughout Time (Volume 4)"
+  },
+  {
+    "item_name": "The Tower: (Ellie Jordan, Ghost Trapper Book 9) (Volume 9)"
+  },
+  {
+    "item_name": "The Book of Riley: A Zombie Tale"
+  },
+  {
+    "item_name": "Run to Ground (Rocky Mountain K9 Unit)"
+  },
+  {
+    "item_name": "Egyptian Heart"
+  },
+  {
+    "item_name": "Look for Her: A Novel (Keene and Frohmann)"
+  },
+  {
+    "item_name": "The Boy Who Swallows Flies"
+  },
+  {
+    "item_name": "Don't Ever Look Behind Door 32"
+  },
+  {
+    "item_name": "Six Feet Under (A Kenni Lowry Mystery) (Volume 4)"
+  },
+  {
+    "item_name": "The Summer of New Beginnings: A Magnolia Grove Novel"
+  },
+  {
+    "item_name": "Trackers 2: The Hunted (Volume 2)"
+  },
+  {
+    "item_name": "One to Ten: Squirrel's Bad Day (Bedtime Dream Collection)"
+  },
+  {
+    "item_name": "Trackers 3: The Storm (Volume 3)"
+  },
+  {
+    "item_name": "Ice (A Chris Matheson Cold Case Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "White Witch"
+  },
+  {
+    "item_name": "Cake and Punishment: A Southern Cake Baker Mystery"
+  },
+  {
+    "item_name": "Dead As A Doornail (A Kenni Lowry Mystery)"
+  },
+  {
+    "item_name": "Beyond Dead"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Chocolate With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Wind Catcher (Chosen)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Stillwell: A Haunting on Long Island (A Haunting on Long Island Series)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The History Major: A Novella"
+  },
+  {
+    "rank": 5,
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Skeletal (A Christchurch Crime Thriller)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Resthaven"
+  },
+  {
+    "rank": 8,
+    "item_name": "At the Sharp End of Lightning (Oceanlight) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Rockin' Chair"
+  },
+  {
+    "rank": 10,
+    "item_name": "Rarity From the Hollow"
+  },
+  {
+    "rank": 11,
+    "item_name": "Trespassers: a novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "Seven-X"
+  },
+  {
+    "rank": 13,
+    "item_name": "Pokergeist (A Haunting on Long Island Series)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "rank": 15,
+    "item_name": "Spare Change: Family Saga (A Wyattsville Novel Book 1) (Series name Family Saga)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Beyond The Milky Way (The Galaxy Series) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Mama Cried eBook"
+  },
+  {
+    "rank": 18,
+    "item_name": "Devil's Daughter: Lucinda's Pawnshop, Book One"
+  },
+  {
+    "rank": 19,
+    "item_name": "MURDER, MADNESS &amp; LOVE: a mystery"
+  },
+  {
+    "rank": 20,
+    "item_name": "Perfection Unleashed: A Double Helix Novel (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Pieces Like Pottery"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Children of Darkness (The Seekers)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Blood Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Pane and Suffering (A Webb's Glass Shop Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Murder in Cuba"
+  },
+  {
+    "rank": 26,
+    "item_name": "City of Gold (Matthew Connor Adventure Series)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Never Hero (Chronicles of Jonathan Tibbs) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Bitter Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 29,
+    "item_name": "School of Deaths (The Scythe Wielder's Secret)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Onyx Webb: Book Two: Episodes 4, 5 &amp; 6"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Dangerous Edge of Things (A Tai Randolph Mystery)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Earthman Jack vs. The Ghost Planet (The Earthman Jack Space Saga) (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Mortom"
+  },
+  {
+    "rank": 34,
+    "item_name": "Kitty Hawk and the Curse of the Yukon Gold: Book One of the Kitty Hawk Flying Detective Agency Series (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Annihilation of Foreverland"
+  },
+  {
+    "rank": 36,
+    "item_name": "Karma's a Killer (A Downward Dog Mystery)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Warrior (Warriors series) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "A View to Die For (Books To Die For) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Bones of Others (A Skye Cree Novel) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "A Gift of Ghosts (Tassamara)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Bone Witch"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Six Train to Wisconsin (The Six Train to Wisconsin Series) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Fear of Things to Come: The Samantha Clark Mystery Series (Volume 2)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Pop Goes the Weasel (A Helen Grace Thriller)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Witchblood (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Grimm Chronicles, Vol. 1"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Conspiracy of Silence"
+  },
+  {
+    "rank": 48,
+    "item_name": "Halfway Dead (Halfway Witchy) (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Huntress Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 50,
+    "item_name": "If You Were Me and Lived in...Ancient Greece: An Introduction to Civilizations Throughout Time (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Charcoal Joe: An Easy Rawlins Mystery"
+  },
+  {
+    "item_name": "Bring Me Back"
+  },
+  {
+    "item_name": "Worthy: Boost Your Self-Worth to Grow Your Net Worth"
+  },
+  {
+    "item_name": "Three Dark Crowns"
+  },
+  {
+    "item_name": "Sole Guidance: Ancient Secrets of Chinese Reflexology to Heal the Body, Mind, Heart, and Spirit"
+  },
+  {
+    "item_name": "Like One of the Family: Conversations from a Domestic's Life (BLACK WOMEN WRITERS SERIES)"
+  },
+  {
+    "item_name": "The Entrepreneurs Book of Actions: Essential Daily Exercises and Habits for Becoming Wealthier, Smarter, and More Successful"
+  },
+  {
+    "item_name": "Spare the Kids: Why Whupping Children Won't Save Black America"
+  },
+  {
+    "item_name": "Batman Vol. 1: I Am Gotham (Rebirth)"
+  },
+  {
+    "item_name": "The Wide Circumference of Love: A Novel"
+  },
+  {
+    "item_name": "Bull"
+  },
+  {
+    "item_name": "Long Black Veil: A Novel"
+  },
+  {
+    "item_name": "The Education of Margot Sanchez"
+  },
+  {
+    "item_name": "Lopez Lomong: We're all destined to use our talent to change people's lives (What Really Matters)"
+  },
+  {
+    "item_name": "The Darkest Promise: A Dark, Demonic Paranormal Romance (Lords of the Underworld)"
+  },
+  {
+    "item_name": "The Black Witch: An Epic Fantasy Novel (The Black Witch Chronicles)"
+  },
+  {
+    "item_name": "Besieged: Stories from the Iron Druid Chronicles"
+  },
+  {
+    "item_name": "The Dream Keeper's Daughter: A Novel"
+  },
+  {
+    "item_name": "Protest Postcards: Write, Stamp, Send, and Be Heard"
+  },
+  {
+    "item_name": "Higher Is Waiting"
+  },
+  {
+    "item_name": "The Letter"
+  },
+  {
+    "item_name": "Little Leaders: Bold Women in Black History (Vashti Harrison)"
+  },
+  {
+    "item_name": "Ramses the Damned: The Passion of Cleopatra"
+  },
+  {
+    "item_name": "I'm Still Here: Black Dignity in a World Made for Whiteness"
+  },
+  {
+    "item_name": "Misadventures of a City Girl (Misadventures Book 1)"
+  },
+  {
+    "item_name": "The Black Painting: A Novel"
+  },
+  {
+    "item_name": "Winds of Spirit: Ancient Wisdom Tools for Navigating Relationships, Health, and the Divine"
+  },
+  {
+    "item_name": "Ghost Boys"
+  },
+  {
+    "item_name": "The The Parker Inheritance"
+  },
+  {
+    "item_name": "Harry: Life, Loss, and Love"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Pushing the Limits"
+  },
+  {
+    "rank": 2,
+    "item_name": "Love Unscripted"
+  },
+  {
+    "rank": 3,
+    "item_name": "Hard As It Gets: A Hard Ink Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Take Me On"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Angel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Blindfolded Innocence (Hqn)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Best Man (The Blue Heron Series)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Eternity Cure (Blood of Eden)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Prince"
+  },
+  {
+    "rank": 10,
+    "item_name": "Neanderthal Seeks Human: A Smart Romance (Knitting in the City) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Crash into You"
+  },
+  {
+    "rank": 12,
+    "item_name": "Pleasure of a Dark Prince (Immortals After Dark, Book 7)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Look of Love (The Sullivans)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Too Hot to Handle"
+  },
+  {
+    "rank": 15,
+    "item_name": "The King (The Original Sinners)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Being Sloane Jacobs"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Virgin (The Original Sinners)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Truth or Beard (Winston Brothers) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Wild Ones (A Wild Ones Novel)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Blush (The In Vino Veritas Series)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Deadly Silence (Blood Brothers)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Wethering the Storm"
+  },
+  {
+    "rank": 23,
+    "item_name": "Seduce Me at Sunrise (The Hathaways, Book 2)"
+  },
+  {
+    "rank": 24,
+    "item_name": "No Limits (An Ultimate Novel)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Boomerang Bride"
+  },
+  {
+    "rank": 26,
+    "item_name": "Landline: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Obsession (Year of Fire Book 1) - Kindle edition"
+  },
+  {
+    "rank": 28,
+    "item_name": "We Are the Goldens"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Revolution of Ivy"
+  },
+  {
+    "rank": 30,
+    "item_name": "Neo Parasyte m"
+  },
+  {
+    "rank": 31,
+    "item_name": "With The Band (Luminescent Juliet)"
+  },
+  {
+    "rank": 32,
+    "item_name": "A Hunger Like No Other (Immortals After Dark, Book 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Hating Game: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Obsession"
+  },
+  {
+    "rank": 35,
+    "item_name": "Deceiving Lies: A Novel (Forgiving Lies)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The DUFF: (Designated Ugly Fat Friend)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Scoring Wilder"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Jewel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Sway: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "On the Island"
+  },
+  {
+    "rank": 41,
+    "item_name": "Trust (Temptation Series) (Volume 3)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Bare It All (Love Undercover)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Dark Lover (Black Dagger Brotherhood, Book 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Stray"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Highwayman (Victorian Rebels)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Faerie"
+  },
+  {
+    "rank": 47,
+    "item_name": "Owning Violet: A Novel (The Fowler Sisters)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Dark Light of Day (A Noon Onyx Novel)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Wicked Cravings (The Phoenix Pack)"
+  },
+  {
+    "rank": 50,
+    "item_name": "One of Us Is Lying"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

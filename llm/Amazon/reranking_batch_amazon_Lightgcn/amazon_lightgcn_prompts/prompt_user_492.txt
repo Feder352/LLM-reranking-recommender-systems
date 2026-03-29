@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Pinocchio: The Origin Story"
+  },
+  {
+    "item_name": "The Chalk Man"
+  },
+  {
+    "item_name": "The English Wife: A Novel"
+  },
+  {
+    "item_name": "I Am, I Am, I Am: Seventeen Brushes with Death"
+  },
+  {
+    "item_name": "The Firemaker (Murder in China)"
+  },
+  {
+    "item_name": "Auntie Poldi and the Sicilian Lions (An Auntie Poldi Adventure)"
+  },
+  {
+    "item_name": "Lie With Me: the gripping Richard &amp; Judy bestseller - a perfect summer read [Paperback] [Dec 28, 2016] Sabine Durrant"
+  },
+  {
+    "item_name": "The Reading Group"
+  },
+  {
+    "item_name": "H Is For Hawk (Vintage Books)"
+  },
+  {
+    "item_name": "Lola Is Missing: A totally gripping crime thriller (Detective Rachel Prince) (Volume 1)"
+  },
+  {
+    "item_name": "The Perfect Mother: A Novel"
+  },
+  {
+    "item_name": "The Great Alone: A Novel"
+  },
+  {
+    "item_name": "The Grave's a Fine and Private Place: A Flavia de Luce Novel"
+  },
+  {
+    "item_name": "Poison: A Novel (Dismas Hardy)"
+  },
+  {
+    "item_name": "Women in Sunlight: A Novel"
+  },
+  {
+    "item_name": "The Darkling Bride: A Novel"
+  },
+  {
+    "item_name": "Closer Than You Know: A Novel"
+  },
+  {
+    "item_name": "The Family Next Door: A Novel"
+  },
+  {
+    "item_name": "The Dark Angel: The Sunday Times Bestseller (The Dr Ruth Galloway Mysteries)"
+  },
+  {
+    "item_name": "No Safe Place: A gripping thriller with a shocking twist (Detective Lottie Parker) (Volume 4)"
+  },
+  {
+    "item_name": "Eleanor Oliphant is Completely Fine: Debut Sunday Times Bestseller and Costa First Novel Book Award Winner 2017"
+  },
+  {
+    "item_name": "DK Readers L1: LEGO Women of NASA: Space Heroes (DK Readers Level 1)"
+  },
+  {
+    "item_name": "The Romanov Empress: A Novel of Tsarina Maria Feodorovna"
+  },
+  {
+    "item_name": "The Gingerbread Man (Brighter Child Keepsake Stories)"
+  },
+  {
+    "item_name": "Murder on the Left Bank (An Aime Leduc Investigation)"
+  },
+  {
+    "item_name": "Love and Ruin: A Novel"
+  },
+  {
+    "item_name": "A Gathering of Secrets: A Kate Burkholder Novel"
+  },
+  {
+    "item_name": "Us Against You: A Novel (Beartown)"
+  },
+  {
+    "item_name": "Clock Dance: A novel"
+  },
+  {
+    "item_name": "Believe Me: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 19589,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 2,
+    "item_id": 4178,
+    "item_name": "A Dangerous Place: A Maisie Dobbs Novel"
+  },
+  {
+    "rank": 3,
+    "item_id": 7307,
+    "item_name": "Maisie Dobbs (Book 1)"
+  },
+  {
+    "rank": 4,
+    "item_id": 8451,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 5,
+    "item_id": 13413,
+    "item_name": "Case Histories: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_id": 5429,
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_id": 5944,
+    "item_name": "The Water's Edge"
+  },
+  {
+    "rank": 8,
+    "item_id": 25334,
+    "item_name": "A Banquet of Consequences: A Lynley Novel"
+  },
+  {
+    "rank": 9,
+    "item_id": 13031,
+    "item_name": "A Trick of the Light: A Chief Inspector Gamache Novel"
+  },
+  {
+    "rank": 10,
+    "item_id": 27834,
+    "item_name": "The Light Between Oceans: The heartbreaking Richard and Judy bestseller"
+  },
+  {
+    "rank": 11,
+    "item_id": 37070,
+    "item_name": "Missing, Presumed: A Novel (Manon Bradshaw)"
+  },
+  {
+    "rank": 12,
+    "item_id": 5420,
+    "item_name": "Magpie Murders: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 4175,
+    "item_name": "The Care and Management of Lies: A Novel of the Great War (P.S. (Paperback))"
+  },
+  {
+    "rank": 14,
+    "item_id": 20706,
+    "item_name": "City of Women"
+  },
+  {
+    "rank": 15,
+    "item_id": 44989,
+    "item_name": "The Secrets of Wishtide (A Laetitia Rodd Mystery)"
+  },
+  {
+    "rank": 16,
+    "item_id": 11016,
+    "item_name": "The Keeper of Lost Causes"
+  },
+  {
+    "rank": 17,
+    "item_id": 3635,
+    "item_name": "Elegy for Eddie: A Maisie Dobbs Novel"
+  },
+  {
+    "rank": 18,
+    "item_id": 12883,
+    "item_name": "Now You See Me (Lacey Flint Novels)"
+  },
+  {
+    "rank": 19,
+    "item_id": 4185,
+    "item_name": "Journey to Munich: A Maisie Dobbs Novel"
+  },
+  {
+    "rank": 20,
+    "item_id": 21220,
+    "item_name": "Last Days of Night"
+  },
+  {
+    "rank": 21,
+    "item_id": 25606,
+    "item_name": "The Fixer"
+  },
+  {
+    "rank": 22,
+    "item_id": 48698,
+    "item_name": "The Lost City of the Monkey God: A True Story"
+  },
+  {
+    "rank": 23,
+    "item_id": 32187,
+    "item_name": "The Nature of the Beast (Chief Inspector Gamache)"
+  },
+  {
+    "rank": 24,
+    "item_id": 32169,
+    "item_name": "Glass Houses (Chief Inspector Gamache)"
+  },
+  {
+    "rank": 25,
+    "item_id": 42706,
+    "item_name": "Broadchurch: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

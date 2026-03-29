@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Cat O' Nine Tales"
+  },
+  {
+    "item_name": "Henry and the Hidden Treasure"
+  },
+  {
+    "item_name": "#BabyLove: My Toddler Life (Volume 2)"
+  },
+  {
+    "item_name": "Lost and Found Sisters: A Novel"
+  },
+  {
+    "item_name": "The Wolf, the Duck, and the Mouse"
+  },
+  {
+    "item_name": "The Magician's Workshop, Volume One"
+  },
+  {
+    "item_name": "A Vicarage Christmas"
+  },
+  {
+    "item_name": "Learning to Love"
+  },
+  {
+    "item_name": "The Universe Builders: Bernie and the Wizards"
+  },
+  {
+    "item_name": "The Reluctant Elf"
+  },
+  {
+    "item_name": "Penguin Problems"
+  },
+  {
+    "item_name": "Little Fires Everywhere"
+  },
+  {
+    "item_name": "He Said/She Said: A Novel"
+  },
+  {
+    "item_name": "The Welcome Home Diner: A Novel"
+  },
+  {
+    "item_name": "The Secret Child: A gripping novel of family secrets that will leave you in tears"
+  },
+  {
+    "item_name": "Catalyst Moon: Incursion (Volume 1)"
+  },
+  {
+    "item_name": "Who Was Joseph Pulitzer?: A novel"
+  },
+  {
+    "item_name": "The Dark Net"
+  },
+  {
+    "item_name": "The Second Cup (The Butterfly Effect)"
+  },
+  {
+    "item_name": "Shoeless Child (Detective Kerri Blasco) (Volume 4)"
+  },
+  {
+    "item_name": "How to Hang a Witch"
+  },
+  {
+    "item_name": "Haunting the Deep"
+  },
+  {
+    "item_name": "The Devil's Claw: A Jennifer Dorey Mystery"
+  },
+  {
+    "item_name": "Force of Nature: A Novel"
+  },
+  {
+    "item_name": "Written in Blood (A Detective Preach Everson Novel)"
+  },
+  {
+    "item_name": "The Last Laugh: A romantic comedy that will make you laugh and cry"
+  },
+  {
+    "item_name": "Don't Ever Look Behind Door 32"
+  },
+  {
+    "item_name": "The Fatness"
+  },
+  {
+    "item_name": "The Summer of Secrets: A feel good romance novel perfect for holiday reading"
+  },
+  {
+    "item_name": "The Cafe at Seashell Cove: A heartwarming laugh out loud romantic comedy"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "rank": 2,
+    "item_name": "Rarity From the Hollow"
+  },
+  {
+    "rank": 3,
+    "item_name": "The History Major: A Novella"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Bookshop on the Corner: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Fifth Petal"
+  },
+  {
+    "rank": 6,
+    "item_name": "Bitter Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Children&#39;s Books: Emma Learns to Sprout [short stories for children] - Kindle edition"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Publicist"
+  },
+  {
+    "rank": 9,
+    "item_name": "Kaitlin's Tale"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Wife Between Us: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Golden Braid"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Blue Baboon in the Big Balloon"
+  },
+  {
+    "rank": 14,
+    "item_name": "Aoleon The Martian Girl: Science Fiction Saga - Part 1 First Contact"
+  },
+  {
+    "rank": 15,
+    "item_name": "If I Run (If I Run Series)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Cinderella's Secret Slipper (Classic Fairy Tales with a Modern Twist)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Skeletal (A Christchurch Crime Thriller)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Aoleon The Martian Girl: Science Fiction Saga - Part 4 Illegal Aliens"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Hanging Tree: A Novella"
+  },
+  {
+    "rank": 20,
+    "item_name": "Jubilee's Journey: Family Saga (A Wyattsville Novel Book 2) (Series name Family Saga) (Volume 2)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Last Woman Standing: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Flag for the Flying Dragon: A Captain No Beard Story (Volume 9)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Seeing Evil"
+  },
+  {
+    "rank": 25,
+    "item_name": "Witches Protection Program"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Ghost Files (The Ghost Files (Book 1))"
+  },
+  {
+    "rank": 27,
+    "item_name": "Wind Catcher (Chosen)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Monsterland"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Word Game: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Loft: The Memory House Collection (The Memory Houuse Series) (Volume 2)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Face Transplant"
+  },
+  {
+    "rank": 32,
+    "item_name": "Strings"
+  },
+  {
+    "rank": 33,
+    "item_name": "Emma in the Night: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Ink and Bone"
+  },
+  {
+    "rank": 35,
+    "item_name": "Mama Cried eBook"
+  },
+  {
+    "rank": 36,
+    "item_name": "Captain No Beard: An Imaginary Tale of a Pirate's Life"
+  },
+  {
+    "rank": 37,
+    "item_name": "Lost and Found"
+  },
+  {
+    "rank": 38,
+    "item_name": "Spare Change: Family Saga (A Wyattsville Novel Book 1) (Series name Family Saga)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Meeting of the Mustangs"
+  },
+  {
+    "rank": 40,
+    "item_name": "Blood Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Aoleon The Martian Girl: Science Fiction Saga - Part 5 The Great Pyramid of Cydonia"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Devil's Work"
+  },
+  {
+    "rank": 43,
+    "item_name": "Resthaven"
+  },
+  {
+    "rank": 44,
+    "item_name": "Gilt Hollow (Blink)"
+  },
+  {
+    "rank": 45,
+    "item_name": "This Is Where It Ends"
+  },
+  {
+    "rank": 46,
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "When I Grow Up I Want To Be...a Nurse!: Amber's Accidental Journey"
+  },
+  {
+    "rank": 48,
+    "item_name": "Being a Captain is Hard Work: A Captain No Beard Story (Volume 10)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Vines"
+  },
+  {
+    "rank": 50,
+    "item_name": "Immortal Writers"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Forest of Whispers (Hedge Witch)"
+  },
+  {
+    "item_name": "Brightwood"
+  },
+  {
+    "item_name": "The Witch Hunter"
+  },
+  {
+    "item_name": "It's. Nice. Outside.: A Novel"
+  },
+  {
+    "item_name": "All the Breaking Waves: A Novel"
+  },
+  {
+    "item_name": "Simon Thorn and the Wolf's Den"
+  },
+  {
+    "item_name": "The Secret Keepers"
+  },
+  {
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "item_name": "Cloud and Wallfish"
+  },
+  {
+    "item_name": "They Can't Kill Us All: Ferguson, Baltimore, and a New Era in America's Racial Justice Movement"
+  },
+  {
+    "item_name": "The Body Electric"
+  },
+  {
+    "item_name": "A List of Cages"
+  },
+  {
+    "item_name": "The Hundred Lies of Lizzie Lovett"
+  },
+  {
+    "item_name": "Proof of Lies (Anastasia Phoenix)"
+  },
+  {
+    "item_name": "The Best Man"
+  },
+  {
+    "item_name": "Mirrored (Kendra Chronicles)"
+  },
+  {
+    "item_name": "The Forever Summer"
+  },
+  {
+    "item_name": "The Bone Sparrow"
+  },
+  {
+    "item_name": "Weightless: A Novel"
+  },
+  {
+    "item_name": "Year of No Clutter: A Memoir"
+  },
+  {
+    "item_name": "Reading with Patrick: A Teacher, a Student, and a Life-Changing Friendship"
+  },
+  {
+    "item_name": "They Both Die at the End"
+  },
+  {
+    "item_name": "The Girl Who Ignored Ghosts (The Unbelievables Book 1)"
+  },
+  {
+    "item_name": "Rules of Magic"
+  },
+  {
+    "item_name": "The Rules of Magic: A Novel (The Practical Magic Series)"
+  },
+  {
+    "item_name": "The Girl Who Saved Ghosts (The Unbelievables) (Volume 2)"
+  },
+  {
+    "item_name": "Meddling Kids: A Novel"
+  },
+  {
+    "item_name": "Fly by Night"
+  },
+  {
+    "item_name": "The Hate U Give"
+  },
+  {
+    "item_name": "The Tattooist of Auschwitz: the heart-breaking and unforgettable international bestseller"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Selection. by Kiera Cass"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Geography of You and Me"
+  },
+  {
+    "rank": 4,
+    "item_name": "This Is Where It Ends"
+  },
+  {
+    "rank": 5,
+    "item_name": "Everything, Everything"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Valiant"
+  },
+  {
+    "rank": 7,
+    "item_name": "Undertow (The Undertow Trilogy)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 10,
+    "item_name": "Fangirl"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "World After: Penryn and the End of Days Book Two"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Hazel Wood"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Testing"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Sin Eater's Daughter"
+  },
+  {
+    "rank": 16,
+    "item_name": "Zac and Mia"
+  },
+  {
+    "rank": 17,
+    "item_name": "The 5th Wave (Book 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Roomies"
+  },
+  {
+    "rank": 19,
+    "item_name": "Holding Up the Universe"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Fourteenth Goldfish"
+  },
+  {
+    "rank": 21,
+    "item_name": "The DUFF: (Designated Ugly Fat Friend)"
+  },
+  {
+    "rank": 22,
+    "item_name": "You Were Here"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Elite (selection 2)"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Thousand Pieces of You (Firebird)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Glass Sword (Red Queen)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Undertow"
+  },
+  {
+    "rank": 27,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 28,
+    "item_name": "And We Stay"
+  },
+  {
+    "rank": 29,
+    "item_name": "Wonder"
+  },
+  {
+    "rank": 30,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Day The Crayons Quit"
+  },
+  {
+    "rank": 32,
+    "item_name": "Forgive Me, Leonard Peacock"
+  },
+  {
+    "rank": 33,
+    "item_name": "Don't Even Think About It"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Truth About Alice: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "These Broken Stars"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Cruel Prince (The Folk of the Air)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Way I Used to Be"
+  },
+  {
+    "rank": 38,
+    "item_name": "Belzhar"
+  },
+  {
+    "rank": 39,
+    "item_name": "Scarlet (Lunar Chronicles, Book 2)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Vanishing Girls"
+  },
+  {
+    "rank": 41,
+    "item_name": "Maze Runner. Correr o Morir / Maze Runner, Run or die (Spanish Edition)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Game: The Sequel to I Hunt Killers"
+  },
+  {
+    "rank": 43,
+    "item_name": "Every Last Word"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Here and Now"
+  },
+  {
+    "rank": 45,
+    "item_name": "The couple next door."
+  },
+  {
+    "rank": 46,
+    "item_name": "Snow Like Ashes"
+  },
+  {
+    "rank": 47,
+    "item_name": "One of Us Is Lying"
+  },
+  {
+    "rank": 48,
+    "item_name": "Salt to the Sea"
+  },
+  {
+    "rank": 49,
+    "item_name": "Cress"
+  },
+  {
+    "rank": 50,
+    "item_name": "Cinder"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

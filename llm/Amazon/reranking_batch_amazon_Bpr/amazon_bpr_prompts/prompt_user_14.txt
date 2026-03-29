@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Little Dorrit"
+  },
+  {
+    "item_name": "My Beloved World"
+  },
+  {
+    "item_name": "Murder Below Montparnasse (Aimee Leduc)"
+  },
+  {
+    "item_name": "The Bat: Harry Hole 1"
+  },
+  {
+    "item_name": "Girl in Hyacinth Blue"
+  },
+  {
+    "item_name": "Bleak House"
+  },
+  {
+    "item_name": "The Hit (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "Big Data: A Revolution That Will Transform How We Live, Work, and Think"
+  },
+  {
+    "item_name": "Little Green: An Easy Rawlins Mystery (Easy Rawlins Mystery: Vintage Crime / Black Lizard)"
+  },
+  {
+    "item_name": "Looking for Yesterday (A Sharon McCone Mystery)"
+  },
+  {
+    "item_name": "A Delicate Truth: A Novel"
+  },
+  {
+    "item_name": "Robert B. Parker's Wonderland (Spenser)"
+  },
+  {
+    "item_name": "And the Mountains Echoed"
+  },
+  {
+    "item_name": "Paris: The Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "Whiskey Beach"
+  },
+  {
+    "item_name": "The Finkler Question"
+  },
+  {
+    "item_name": "The One Thing: The Surprisingly Simple Truth Behind Extraordinary Results"
+  },
+  {
+    "item_name": "Bad Monkey"
+  },
+  {
+    "item_name": "Antifragile: Things That Gain from Disorder"
+  },
+  {
+    "item_name": "Headhunters"
+  },
+  {
+    "item_name": "Zero Hour (Numa Files)"
+  },
+  {
+    "item_name": "Light of the World"
+  },
+  {
+    "item_name": "The English Girl"
+  },
+  {
+    "item_name": "Hidden Order (Thorndike Core)"
+  },
+  {
+    "item_name": "Hidden Order"
+  },
+  {
+    "item_name": "Joyland (Turtleback School &amp; Library Binding Edition) (Hcc)"
+  },
+  {
+    "item_name": "The Illustrated Life and Adventures of Nicholas Nickleby"
+  },
+  {
+    "item_name": "Never Go Back: A Jack Reacher Novel"
+  },
+  {
+    "item_name": "David and Goliath: Art of Battling Giants (A)"
+  },
+  {
+    "item_name": "Malcolm Gladwell: David and Goliath : Underdogs, Misfits, and the Art of Battling Giants (Large Print Hardcover); 2013 Edition"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Birth of Britain (A History of the English Speaking Peoples, Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 4,
+    "item_name": "Jack Reacher: One Shot (Movie Tie-in Edition): A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Blink - The Power Of Thinking Without Thinking"
+  },
+  {
+    "rank": 6,
+    "item_name": "A History of the English-Speaking Peoples, Vol. 4: The Great Democracies"
+  },
+  {
+    "rank": 7,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Brethren"
+  },
+  {
+    "rank": 9,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Husband: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Columbus Affair: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Dead Midnight (A Sharon McCone Mystery)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Secret (Unabridged, 4-CD Set)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Wright Brothers (Thorndike Press Large Print Popular and Narrative Nonfiction Series)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Brass Verdict: A Novel (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 19,
+    "item_name": "How Starbucks Saved My Life: A Son of Privilege Learns to Live Like Everyone Else"
+  },
+  {
+    "rank": 20,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 21,
+    "item_name": "Freakonomics: A Rogue Economist Explores the Hidden Side of Everything - by Steven D. Levitt &amp; Stephen J. Dubner"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 23,
+    "item_name": "Einstein: His Life and Universe"
+  },
+  {
+    "rank": 24,
+    "item_name": "Mayflower. A story of Community, Courage and War"
+  },
+  {
+    "rank": 25,
+    "item_name": "Colonel Roosevelt"
+  },
+  {
+    "rank": 26,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 27,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 28,
+    "item_name": "Our Endangered Values: America's Moral Crisis"
+  },
+  {
+    "rank": 29,
+    "item_name": "Liberal Fascism: The Secret History of the Left from Mussolini to the Politics of Meaning"
+  },
+  {
+    "rank": 30,
+    "item_name": "I'll Mature When I'm Dead"
+  },
+  {
+    "rank": 31,
+    "item_name": "Obsessive Genius: The Inner World of Marie Curie (Great Discoveries)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Broker"
+  },
+  {
+    "rank": 33,
+    "item_name": "Rescue: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Dark of the Moon (A Virgil Flowers Novel)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Nightly Business Report Presents Lasting Leadership: What You Can Learn from the Top 25 Business People of our Times"
+  },
+  {
+    "rank": 36,
+    "item_name": "Summer in Tuscany: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "All too Human"
+  },
+  {
+    "rank": 38,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Run"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Innocent Man: Murder and Injustice in a Small Town"
+  },
+  {
+    "rank": 41,
+    "item_name": "Some Danger Involved: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "Godless: The Church of Liberalism"
+  },
+  {
+    "rank": 43,
+    "item_name": "Bait And Switch: The (Futile) Pursuit of the American Dream"
+  },
+  {
+    "rank": 44,
+    "item_name": "Rework: Change The Way You Work Forever"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Surgeon (with Bonus Content): A Rizzoli &amp; Isles Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "My Grandfather's Son: A Memoir"
+  },
+  {
+    "rank": 47,
+    "item_name": "Conspiracy of Fools: A True Story"
+  },
+  {
+    "rank": 48,
+    "item_name": "GUNS, GERMS AND STEEL - A Short History of Everybody for the Last 13,000 Years"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Bourne Identity"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

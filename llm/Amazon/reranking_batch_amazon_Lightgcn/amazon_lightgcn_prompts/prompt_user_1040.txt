@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "My Nepenthe: Bohemian Tales of Food, Family, and Big Sur"
+  },
+  {
+    "item_name": "The Lost History of Christianity: The Thousand-Year Golden Age of the Church in the Middle East, Africa, and Asia--and How It Died"
+  },
+  {
+    "item_name": "Sound, Lighting and Video: A Resource for Worship"
+  },
+  {
+    "item_name": "Lunch in Paris: A Love Story, with Recipes"
+  },
+  {
+    "item_name": "Boozehound: On the Trail of the Rare, the Obscure, and the Overrated in Spirits"
+  },
+  {
+    "item_name": "America's Prophet: Moses and the American Story"
+  },
+  {
+    "item_name": "Beautiful &amp; Pointless: A Guide to Modern Poetry"
+  },
+  {
+    "item_name": "The Lake"
+  },
+  {
+    "item_name": "The Grace of Everyday Saints: How a Band of Believers Lost Their Church and Found Their Faith"
+  },
+  {
+    "item_name": "The Book that Made Your World: How the Bible Created the Soul of Western Civilization"
+  },
+  {
+    "item_name": "The Promised One (A 10-week Bible Study): Seeing Jesus in Genesis"
+  },
+  {
+    "item_name": "Welcome to the Story: Reading, Loving, and Living God's Word"
+  },
+  {
+    "item_name": "Sunset Park: A Novel"
+  },
+  {
+    "item_name": "Walking in the Dust of Rabbi Jesus: How the Jewish Words of Jesus Can Change Your Life"
+  },
+  {
+    "item_name": "Christian Apologetics Past and Present (Volume 2, From 1500): A Primary Source Reader"
+  },
+  {
+    "item_name": "Disciple: Getting Your Identity from Jesus"
+  },
+  {
+    "item_name": "Lit!: A Christian Guide to Reading Books"
+  },
+  {
+    "item_name": "Know the Creeds and Councils (KNOW Series)"
+  },
+  {
+    "item_name": "NIV, God's Word for Gardeners, Hardcover: Grow Your Faith While Growing Your Garden"
+  },
+  {
+    "item_name": "Guests on Earth: A Novel"
+  },
+  {
+    "item_name": "Suddenly, Love: A Novel"
+  },
+  {
+    "item_name": "Thirty Girls"
+  },
+  {
+    "item_name": "Dumplings All Day Wong: A Cookbook of Asian Delights From a Top Chef"
+  },
+  {
+    "item_name": "Citrus: Sweet and Savory Sun-Kissed Recipes"
+  },
+  {
+    "item_name": "The Nourished Kitchen: Farm-to-Table Recipes for the Traditional Foods Lifestyle Featuring Bone Broths, Fermented Vegetables, Grass-Fed Meats, Wholesome Fats, Raw Dairy, and Kombuchas"
+  },
+  {
+    "item_name": "Radically Simple: Brilliant Flavors with Breathtaking Ease: 325 Inspiring Recipes from Award-Winning Chef Rozanne Gold"
+  },
+  {
+    "item_name": "32 Yolks: From My Mother's Table to Working the Line"
+  },
+  {
+    "item_name": "Yes, Chef: A Memoir"
+  },
+  {
+    "item_name": "The Really Quite Good British Cookbook: The Food We Love from 100 of Our Best Chefs, Cooks, Bakers and Local Heroes"
+  },
+  {
+    "item_name": "Tamales: Fast and Delicious Mexican Meals"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 6994,
+    "item_name": "Three Cups of Tea"
+  },
+  {
+    "rank": 2,
+    "item_id": 4132,
+    "item_name": "Gilead"
+  },
+  {
+    "rank": 3,
+    "item_id": 6330,
+    "item_name": "Ulysses"
+  },
+  {
+    "rank": 4,
+    "item_id": 6822,
+    "item_name": "Confessions (Penguin Classics)"
+  },
+  {
+    "rank": 5,
+    "item_id": 37984,
+    "item_name": "Nausicaa of the Valley of the Wind, Vol. 7"
+  },
+  {
+    "rank": 6,
+    "item_id": 38141,
+    "item_name": "Nourishing Traditions: The Cookbook that Challenges Politically Correct Nutrition and Diet Dictocrats"
+  },
+  {
+    "rank": 7,
+    "item_id": 30634,
+    "item_name": "How to Live: A Life of Montaigne in One Question and Twenty Attempts at An Answer"
+  },
+  {
+    "rank": 8,
+    "item_id": 34109,
+    "item_name": "The Philosophical Breakfast Club: Four Remarkable Friends Who Transformed Science and Changed the World"
+  },
+  {
+    "rank": 9,
+    "item_id": 11960,
+    "item_name": "Steppenwolf: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_id": 63533,
+    "item_name": "Defiant Joy: The Remarkable Life and   Impact of G.K. Chesterton"
+  },
+  {
+    "rank": 11,
+    "item_id": 1802,
+    "item_name": "A Grief Observed"
+  },
+  {
+    "rank": 12,
+    "item_id": 3639,
+    "item_name": "Does Jesus Really Love Me?: A Gay Christian's Pilgrimage in Search of God in America"
+  },
+  {
+    "rank": 13,
+    "item_id": 20126,
+    "item_name": "The Road From Coorain"
+  },
+  {
+    "rank": 14,
+    "item_id": 6745,
+    "item_name": "The Pilgrim's Progress from This World, To That Which Is toCome (Penguin Classics)"
+  },
+  {
+    "rank": 15,
+    "item_id": 25961,
+    "item_name": "Amish Grace: How Forgiveness Transcended Tragedy"
+  },
+  {
+    "rank": 16,
+    "item_id": 6904,
+    "item_name": "To the Lighthouse (Penguin Popular Classics)"
+  },
+  {
+    "rank": 17,
+    "item_id": 1141,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 18,
+    "item_id": 13512,
+    "item_name": "Good-Bye, Mr. Chips"
+  },
+  {
+    "rank": 19,
+    "item_id": 19122,
+    "item_name": "My Promised Land: The Triumph and Tragedy of Israel"
+  },
+  {
+    "rank": 20,
+    "item_id": 73159,
+    "item_name": "20,000 Leagues Under the Sea"
+  },
+  {
+    "rank": 21,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 22,
+    "item_id": 38010,
+    "item_name": "The Best Recipe: Soups &amp; Stews"
+  },
+  {
+    "rank": 23,
+    "item_id": 19388,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 24,
+    "item_id": 74858,
+    "item_name": "The Old Man and the Sea"
+  },
+  {
+    "rank": 25,
+    "item_id": 23105,
+    "item_name": "The Arrival"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

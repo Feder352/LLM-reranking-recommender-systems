@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Rather Be the Devil (A Rebus Novel)"
+  },
+  {
+    "item_name": "Generation Zero Volume 1: We Are the Future"
+  },
+  {
+    "item_name": "Birthright, Vol. 1: Homecoming"
+  },
+  {
+    "item_name": "The Sin Eater's Daughter"
+  },
+  {
+    "item_name": "Miss Treadway &amp; the Field of Stars"
+  },
+  {
+    "item_name": "Dollmaker, The"
+  },
+  {
+    "item_name": "See You in the Cosmos"
+  },
+  {
+    "item_name": "Rupture"
+  },
+  {
+    "item_name": "Cursed (Henning Juul)"
+  },
+  {
+    "item_name": "Fire and Ice: A Liam Campbell Mystery (Liam Campbell Mysteries)"
+  },
+  {
+    "item_name": "Manifest Destiny Volume 1: Flora &amp; Fauna"
+  },
+  {
+    "item_name": "A Dark So Deadly"
+  },
+  {
+    "item_name": "Bitch Planet Volume 2: President Bitch"
+  },
+  {
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "item_name": "Monstress Volume 2: The Blood"
+  },
+  {
+    "item_name": "ASSASSINS FATE_HB"
+  },
+  {
+    "item_name": "The Bedlam Stacks: By the Internationally Bestselling Author of The Watchmaker of Filigree Street"
+  },
+  {
+    "item_name": "Faithless (Oslo Detective Series)"
+  },
+  {
+    "item_name": "Girl in Snow: A Novel"
+  },
+  {
+    "item_name": "The Other Twin"
+  },
+  {
+    "item_name": "Midnight at the Bright Ideas Bookstore: A Novel"
+  },
+  {
+    "item_name": "Chew Volume 2: International Flavor"
+  },
+  {
+    "item_name": "Saga Volume 7"
+  },
+  {
+    "item_name": "After the Fire"
+  },
+  {
+    "item_name": "The Silent Companions: A Novel"
+  },
+  {
+    "item_name": "Two Kinds of Truth (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Rockstars Volume 1: Nativity in Blacklight"
+  },
+  {
+    "item_name": "The Hazel Wood"
+  },
+  {
+    "item_name": "Deceived: A Sam McClellan Tale"
+  },
+  {
+    "item_name": "Rat Queens Volume 4: High Fantasies"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Harley Quinn Vol. 3: Red Meat (Rebirth) (Harley Quinn: Rebirth)"
+  },
+  {
+    "rank": 2,
+    "item_name": "James Bond Volume 1: VARGR (James Bond 007)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Lady Mechanika Volume 2: Tablet of Destinies"
+  },
+  {
+    "rank": 4,
+    "item_name": "Ghostbusters: Who Ya Gonna Call?"
+  },
+  {
+    "rank": 5,
+    "item_name": "Night and the Enemy (Dover Graphic Novels)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Wraithborn (Benitez Edition)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Autumnlands, Vol. 1: Tooth and Claw"
+  },
+  {
+    "rank": 8,
+    "item_name": "14"
+  },
+  {
+    "rank": 9,
+    "item_name": "Copperhead, Vol. 1: A New Sheriff in Town"
+  },
+  {
+    "rank": 10,
+    "item_name": "All Our Wrong Todays: A BBC Radio 2 Book Club Choice 2017"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 12,
+    "item_name": "Saga, Vol. 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Private Beach (Dover Graphic Novels)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Jim Butcher's Dresden Files: Down Town"
+  },
+  {
+    "rank": 15,
+    "item_name": "Snow White: A Graphic Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "Dark Side of the Road, The: A country house murder mystery with a supernatural twist (An Ishmael Jones Mystery)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Black Magick Volume 1: Awakening I (Black Magick 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Trinity Vol. 1: Better Together (Rebirth) (Trinity: DC Universe Rebirth)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Flash Vol. 4: Running Scared (Rebirth)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Star Trek/Planet of the Apes: The Primate Directive"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Child: The must-read Richard and Judy Book Club pick 2018"
+  },
+  {
+    "rank": 22,
+    "item_name": "American Gods"
+  },
+  {
+    "rank": 23,
+    "item_name": "Artemis"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Flash Vol. 2: Speed of Darkness (Rebirth)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Green Lanterns Vol. 3: Polarity (Rebirth) (Green Lantern: Dc Universe Rebirth)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Danger Club Volume 1"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Snowbear"
+  },
+  {
+    "rank": 28,
+    "item_name": "ART OF ATARI Limited Deluxe Edition"
+  },
+  {
+    "rank": 29,
+    "item_name": "Murder Mysteries"
+  },
+  {
+    "rank": 30,
+    "item_name": "Bloodshot Reborn Deluxe Edition Book 1"
+  },
+  {
+    "rank": 31,
+    "item_name": "This Is Where It Ends"
+  },
+  {
+    "rank": 32,
+    "item_name": "All-Star Batman Vol. 1: My Own Worst Enemy (Rebirth) (DC Universe Rebirth: Batman)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Rarity From the Hollow"
+  },
+  {
+    "rank": 34,
+    "item_name": "Zeroville"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Bleiberg Project (Consortium Thriller)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The City"
+  },
+  {
+    "rank": 37,
+    "item_name": "Dark Nights: Metal: Deluxe Edition"
+  },
+  {
+    "rank": 38,
+    "item_name": "Rapunzel"
+  },
+  {
+    "rank": 39,
+    "item_name": "A Monster Calls: Inspired by an idea from Siobhan Dowd"
+  },
+  {
+    "rank": 40,
+    "item_name": "Authority (The Southern Reach Trilogy)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Last Girl on Earth"
+  },
+  {
+    "rank": 42,
+    "item_name": "I Hunt Killers"
+  },
+  {
+    "rank": 43,
+    "item_name": "Wonder Woman Vol. 3: The Truth (Rebirth)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Full Wolf Moon: A Novel (Jeremy Logan Series)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Lady Mechanika Volume 1: Mystery of the Mechanical Corpse"
+  },
+  {
+    "rank": 46,
+    "item_name": "Anything for Her"
+  },
+  {
+    "rank": 47,
+    "item_name": "Bird &amp; Squirrel On Ice (Bird &amp; Squirrel #2)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Saga, Vol. 2"
+  },
+  {
+    "rank": 49,
+    "item_name": "Batgirl Vol. 1: Beyond Burnside (Rebirth)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Disney Tim Burton's The Nightmare Before Christmas: Special Collector's Manga (Hardcover)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

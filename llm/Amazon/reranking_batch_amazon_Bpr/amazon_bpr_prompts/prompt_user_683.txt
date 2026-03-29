@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Lost at Sea: The Jon Ronson Mysteries"
+  },
+  {
+    "item_name": "Conscious Capitalism: Liberating the Heroic Spirit of Business"
+  },
+  {
+    "item_name": "Top Dog: The Science of Winning and Losing"
+  },
+  {
+    "item_name": "Give and Take: Why Helping Others Drives Our Success"
+  },
+  {
+    "item_name": "The Master Switch: The Rise and Fall of Information Empires (Borzoi Books)"
+  },
+  {
+    "item_name": "Pieces of Light: How the New Science of Memory Illuminates the Stories We Tell About Our Pasts"
+  },
+  {
+    "item_name": "Who Owns the Future?"
+  },
+  {
+    "item_name": "Dollars and Sex: How Economics Influences Sex and Love"
+  },
+  {
+    "item_name": "The Penguin and the Leviathan: How Cooperation Triumphs over Self-Interest"
+  },
+  {
+    "item_name": "This Is How You Fall"
+  },
+  {
+    "item_name": "Floating City: A Rogue Sociologist Lost and Found in New York's Underground Economy"
+  },
+  {
+    "item_name": "Drama High: The Incredible True Story of a Brilliant Teacher, a Struggling Town, and the Mag ic of Theater"
+  },
+  {
+    "item_name": "Confessions of a Bad Teacher: The Shocking Truth from the Front Lines of American Public Education"
+  },
+  {
+    "item_name": "Brainwashed: The Seductive Appeal of Mindless Neuroscience"
+  },
+  {
+    "item_name": "Moral Tribes: Emotion, Reason, and the Gap Between Us and Them"
+  },
+  {
+    "item_name": "Social: Why Our Brains Are Wired to Connect"
+  },
+  {
+    "item_name": "The One World Schoolhouse: Education Reimagined"
+  },
+  {
+    "item_name": "The Burglary: The Discovery of J. Edgar Hoover's Secret FBI"
+  },
+  {
+    "item_name": "One Simple Idea: How Positive Thinking Reshaped Modern Life"
+  },
+  {
+    "item_name": "The Up Side of Down: Why Failing Well Is the Key to Success"
+  },
+  {
+    "item_name": "A Troublesome Inheritance: Genes, Race and Human History"
+  },
+  {
+    "item_name": "Make It Stick: The Science of Successful Learning"
+  },
+  {
+    "item_name": "Blindspot: Hidden Biases Of Good People"
+  },
+  {
+    "item_name": "Mindwise: How We Understand What Others Think, Believe, Feel, and Want"
+  },
+  {
+    "item_name": "Self-Made Man: One Woman's Year Disguised as a Man"
+  },
+  {
+    "item_name": "The Storytelling Animal: How Stories Make Us Human"
+  },
+  {
+    "item_name": "An Idea Whose Time Has Come: Two Presidents, Two Parties, and the Battle for the Civil Rights Act of 1964"
+  },
+  {
+    "item_name": "The Test: Why Our Schools are Obsessed with Standardized TestingBut You Dont Have to Be"
+  },
+  {
+    "item_name": "Sellout: The Politics of Racial Betrayal"
+  },
+  {
+    "item_name": "How Music Got Free: A Story of Obsession and Invention"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 2,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 3,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 5,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 6,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 8,
+    "item_name": "A Universe from Nothing: Why There Is Something Rather than Nothing"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 10,
+    "item_name": "Fooled By Randomness: The Hidden Role of Chance in Life and in the Markets"
+  },
+  {
+    "rank": 11,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Next 100 Years: A Forecast for the 21st Century"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Future of Freedom: Illiberal Democracy at Home and Abroad"
+  },
+  {
+    "rank": 16,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 17,
+    "item_name": "Made to Stick: Why Some Ideas Take Hold and Others Come Unstuck"
+  },
+  {
+    "rank": 18,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 19,
+    "item_name": "7 Habits Of Highly Effective People"
+  },
+  {
+    "rank": 20,
+    "item_name": "Just How Stupid Are We?: Facing the Truth About the American Voter"
+  },
+  {
+    "rank": 21,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 22,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Dumbest Generation: How the Digital Age Stupefies Young Americans and Jeopardizes Our Future (Or, Don't Trust Anyone Under 30)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Legacy of Ashes: The History of the CIA"
+  },
+  {
+    "rank": 25,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 27,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 29,
+    "item_name": "Uncontrolled: The Surprising Payoff of Trial-and-Error for Business, Politics, and Society"
+  },
+  {
+    "rank": 30,
+    "item_name": "What's the Matter with Kansas? How Conservatives Won the Heart of America"
+  },
+  {
+    "rank": 31,
+    "item_name": "Breakthrough: Elizabeth Hughes, the Discovery of Insulin, and the Making of a Medical Miracle"
+  },
+  {
+    "rank": 32,
+    "item_name": "Trump - The Art Of The Deal"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Popes Against the Jews: The Vatican's Role in the Rise of Modern Anti-Semitism"
+  },
+  {
+    "rank": 34,
+    "item_name": "Do As I Say (Not As I Do): Profiles in Liberal Hypocrisy"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Selfish Gene (New Edition)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time"
+  },
+  {
+    "rank": 37,
+    "item_name": "Bait And Switch: The (Futile) Pursuit of the American Dream"
+  },
+  {
+    "rank": 38,
+    "item_name": "This Time Is Different: Eight Centuries of Financial Folly"
+  },
+  {
+    "rank": 39,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Gamble: General Petraeus and the American Military Adventure in Iraq"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Warrior Diet"
+  },
+  {
+    "rank": 42,
+    "item_name": "Bobos in Paradise: The New Upper Class and How They Got There"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Atomic Bazaar: The Rise of the Nuclear Poor"
+  },
+  {
+    "rank": 44,
+    "item_name": "Victory of Reason"
+  },
+  {
+    "rank": 45,
+    "item_name": "7 Deadly Scenarios: A Military Futurist Explores the Changing Face of War in the 21st Century"
+  },
+  {
+    "rank": 46,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 47,
+    "item_name": "The End of Oil: On the Edge of a Perilous New World"
+  },
+  {
+    "rank": 48,
+    "item_name": "Trick or Treatment: The Undeniable Facts about Alternative Medicine"
+  },
+  {
+    "rank": 49,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 50,
+    "item_name": "Theodore Rex"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

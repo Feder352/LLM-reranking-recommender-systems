@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Skin and Bones"
+  },
+  {
+    "item_name": "Timekeeper"
+  },
+  {
+    "item_name": "Wintersong: A Novel"
+  },
+  {
+    "item_name": "Deadly Sweet (Spellwork Syndicate) (Volume 1)"
+  },
+  {
+    "item_name": "#Girlboss"
+  },
+  {
+    "item_name": "The Love Letters of Abelard and Lily"
+  },
+  {
+    "item_name": "Need To Know"
+  },
+  {
+    "item_name": "Watch Me: A Gripping Psychological Thriller"
+  },
+  {
+    "item_name": "The Moment of Everything"
+  },
+  {
+    "item_name": "Love, Hate &amp; Other Filters"
+  },
+  {
+    "item_name": "American Panda"
+  },
+  {
+    "item_name": "Every Last Word"
+  },
+  {
+    "item_name": "Surprise Me: A Novel"
+  },
+  {
+    "item_name": "Surprise Me"
+  },
+  {
+    "item_name": "Uninvited: Living Loved When You Feel Less Than, Left Out, and Lonely"
+  },
+  {
+    "item_name": "My Name Is Venus Black: A Novel"
+  },
+  {
+    "item_name": "This Heart of Mine: A Novel"
+  },
+  {
+    "item_name": "The Coincidence Makers: A Novel"
+  },
+  {
+    "item_name": "Before I Let Go"
+  },
+  {
+    "item_name": "The Beauty That Remains"
+  },
+  {
+    "item_name": "The Heart Between Us: Two Sisters, One Heart Transplant, and a Bucket List"
+  },
+  {
+    "item_name": "This Is How It Ends: The most critically acclaimed crime thriller of 2018"
+  },
+  {
+    "item_name": "Not That I Could Tell: A Novel"
+  },
+  {
+    "item_name": "Every Note Played"
+  },
+  {
+    "item_name": "Emergency Contact"
+  },
+  {
+    "item_name": "The Summer of Broken Things"
+  },
+  {
+    "item_name": "The Favorite Sister"
+  },
+  {
+    "item_name": "Girl Made of Stars"
+  },
+  {
+    "item_name": "Chemistry Lessons"
+  },
+  {
+    "item_name": "Baby Teeth: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Red Dragon"
+  },
+  {
+    "rank": 2,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 3,
+    "item_name": "Ten Big Ones (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Little Altars Everywhere"
+  },
+  {
+    "rank": 5,
+    "item_name": "Breathing Room"
+  },
+  {
+    "rank": 6,
+    "item_name": "Welcome to Temptation"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Other Boleyn Girl"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 9,
+    "item_name": "Daisy's Back in Town"
+  },
+  {
+    "rank": 10,
+    "item_name": "Bet Me"
+  },
+  {
+    "rank": 11,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 12,
+    "item_name": "As Nature Made Him: The Boy Who Was Raised as A Girl"
+  },
+  {
+    "rank": 13,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 14,
+    "item_name": "Midnight Bayou"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Virgin's Lover (Boleyn)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Twelve Sharp (A Stephanie Plum Novel) (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 18,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 19,
+    "item_name": "Autobiography of a Face"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 21,
+    "item_name": "Murder List: A Novel (Buchanan-Renard)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Light On Snow (Large Print)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Chesapeake Blue (Quinn Brothers)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Sunne in Splendour"
+  },
+  {
+    "rank": 25,
+    "item_name": "Birthright (Roberts, Nora)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Vinegar Hill (P.S.)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Cordina's Royal Family: Bennett &amp; Camilla"
+  },
+  {
+    "rank": 28,
+    "item_name": "Good Grief"
+  },
+  {
+    "rank": 29,
+    "item_name": "Cane River"
+  },
+  {
+    "rank": 30,
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "rank": 31,
+    "item_name": "Surrender My Love (Haardrad Family)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Unspeakable, Import"
+  },
+  {
+    "rank": 33,
+    "item_name": "Oh, the Thinks You Can Think! Green Back Book"
+  },
+  {
+    "rank": 34,
+    "item_name": "Hot Six"
+  },
+  {
+    "rank": 35,
+    "item_name": "Crazy for You"
+  },
+  {
+    "rank": 36,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Summer Sisters"
+  },
+  {
+    "rank": 38,
+    "item_name": "Anyone But You (Love and Laughter, No 4)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Giver (Collins Modern Classics)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Little Women"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Silence of the Lambs"
+  },
+  {
+    "rank": 42,
+    "item_name": "Crazy Ladies: A Novel (Girls Raised in the South)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Red Queen (The Cousins' War)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Lover Eternal (Black Dagger Brotherhood, Book 2)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Gallant Waif (Large Print)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 47,
+    "item_name": "An Echo in the Bone: A Novel (Outlander)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Talk Before Sleep: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Killing Hour: An FBI Profiler Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Chill Factor"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

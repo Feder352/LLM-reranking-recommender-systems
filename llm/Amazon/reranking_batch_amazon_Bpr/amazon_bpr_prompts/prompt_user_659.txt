@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Promises"
+  },
+  {
+    "item_name": "God Bless Us Every One: A Contemporary Christmas Novella"
+  },
+  {
+    "item_name": "These Honored Dead: A Lincoln and Speed Mystery"
+  },
+  {
+    "item_name": "The Call"
+  },
+  {
+    "item_name": "Lincolns Greatest Journey: Sixteen Days that Changed a Presidency, March 24  April 8, 1865"
+  },
+  {
+    "item_name": "ODY-C Coloring and Activity Book"
+  },
+  {
+    "item_name": "A Time of Scandal: Charles R. Forbes, Warren G. Harding, and the Making of the Veterans Bureau"
+  },
+  {
+    "item_name": "The Girl Before: A Novel"
+  },
+  {
+    "item_name": "Jimmy and Fay: A Suspense Novel (The Jimmy Quinn Mysteries)"
+  },
+  {
+    "item_name": "Smashed (Las Vegas Mystery)"
+  },
+  {
+    "item_name": "What You Break (A Gus Murphy Novel)"
+  },
+  {
+    "item_name": "One to Go"
+  },
+  {
+    "item_name": "Freedom's Child: A Novel"
+  },
+  {
+    "item_name": "New York Nocturne: The Return of Miss Lizzie"
+  },
+  {
+    "item_name": "Things We Have in Common"
+  },
+  {
+    "item_name": "American Ulysses: A Life of Ulysses S. Grant"
+  },
+  {
+    "item_name": "Star Killer Star (A Crossroads Thriller)"
+  },
+  {
+    "item_name": "The World Remade: America in World War I"
+  },
+  {
+    "item_name": "Elementary, She Read: A Sherlock Holmes Bookshop Mystery"
+  },
+  {
+    "item_name": "Dynastic, Bombastic, Fantastic: Reggie, Rollie, Catfish, and Charlie Finleys Swingin As"
+  },
+  {
+    "item_name": "Lincoln's Lieutenants: The High Command of the Army of the Potomac"
+  },
+  {
+    "item_name": "In the Valley of the Sun: A Novel"
+  },
+  {
+    "item_name": "The Streak: Lou Gehrig, Cal Ripken Jr., and Baseball's Most Historic Record"
+  },
+  {
+    "item_name": "Electric October: Seven World Series Games, Six Lives, Five Minutes of Fame That Lasted Forever"
+  },
+  {
+    "item_name": "Full Service Blonde (A Copper Black Mystery)"
+  },
+  {
+    "item_name": "A Reckoning in the Back Country: A Samuel Craddock Mystery"
+  },
+  {
+    "item_name": "Last Stop in Brooklyn: A Mary Handley Mystery"
+  },
+  {
+    "item_name": "Twenty-one Days: A Daniel Pitt Novel"
+  },
+  {
+    "item_name": "Fairy Tail Day Planner"
+  },
+  {
+    "item_name": "Tin Men: A Crime Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "At the Existentialist Caf: Freedom, Being, and Apricot Cocktails"
+  },
+  {
+    "rank": 2,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 3,
+    "item_name": "Dead Wake: The Last Crossing of the Lusitania"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Fateful Lightning: A Novel of the Civil War"
+  },
+  {
+    "rank": 5,
+    "item_name": "Bird Dream: Adventures at the Extremes of Human Flight"
+  },
+  {
+    "rank": 6,
+    "item_name": "On Paper: The Everything of Its Two-Thousand-Year History (ALA Notable Books for Adults)"
+  },
+  {
+    "rank": 7,
+    "item_name": "One Child: The Story of China's Most Radical Experiment"
+  },
+  {
+    "rank": 8,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 9,
+    "item_name": "At Home: A Short History of Private Life (Random House Large Print)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Oregon Trail: A New American Journey"
+  },
+  {
+    "rank": 11,
+    "item_name": "All Who Go Do Not Return: A Memoir"
+  },
+  {
+    "rank": 12,
+    "item_name": "Rough Riders: Theodore Roosevelt, His Cowboy Regiment, and the Immortal Charge Up San Juan Hill"
+  },
+  {
+    "rank": 13,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Murder and the Making of English CSI"
+  },
+  {
+    "rank": 15,
+    "item_name": "1493: Uncovering the New World Columbus Created"
+  },
+  {
+    "rank": 16,
+    "item_name": "Victoria: A Life"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Hopkins Touch: Harry Hopkins and the Forging of the Alliance to Defeat Hitler"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Silent Oligarch"
+  },
+  {
+    "rank": 19,
+    "item_name": "In Wartime: Stories from Ukraine"
+  },
+  {
+    "rank": 20,
+    "item_name": "Braving It: A Father, a Daughter, and an Unforgettable Journey into the Alaskan Wild"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Reaper: Autobiography of One of the Deadliest Special Ops Snipers"
+  },
+  {
+    "rank": 22,
+    "item_name": "Black Flags: The Rise of ISIS"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Heart of Everything That Is: The Untold Story of Red Cloud, An American Legend"
+  },
+  {
+    "rank": 24,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 25,
+    "item_name": "The New York Times Disunion: A History of the Civil War"
+  },
+  {
+    "rank": 26,
+    "item_name": "Embattled Rebel: Jefferson Davis as Commander in Chief"
+  },
+  {
+    "rank": 27,
+    "item_name": "Frozen in Time: An Epic Story of Survival and a Modern Quest for Lost Heroes of World War II (P.S.)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 29,
+    "item_name": "Rome Stories (Everyman's Library Pocket Classics Series)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Orphan Master's Son: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "1946: The Making of the Modern World"
+  },
+  {
+    "rank": 33,
+    "item_name": "Seven Days"
+  },
+  {
+    "rank": 34,
+    "item_name": "Vanished: The Sixty-Year Search for the Missing Men of World War II"
+  },
+  {
+    "rank": 35,
+    "item_name": "Dangerously Funny: The Uncensored Story of The Smothers Brothers Comedy Hour"
+  },
+  {
+    "rank": 36,
+    "item_name": "Beautiful Souls: Saying No, Breaking Ranks, and Heeding the Voice of Conscience in Dark Times"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Tunnels: Escapes Under the Berlin Wall and the Historic Films the JFK White House Tried to Kill (Random House Large Print)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Fields of Blood: Religion and the History of Violence"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Saint Closes the Case"
+  },
+  {
+    "rank": 40,
+    "item_name": "Lawrence in Arabia: War, Deceit, Imperial Folly and the Making of the Modern Middle East"
+  },
+  {
+    "rank": 41,
+    "item_name": "Last Hope Island: Britain, Occupied Europe, and the Brotherhood That Helped Turn the Tide of War"
+  },
+  {
+    "rank": 42,
+    "item_name": "End of Discussion: How the Left's Outrage Industry Shuts Down Debate, Manipulates Voters, and Makes America Less Free (and Fun)"
+  },
+  {
+    "rank": 43,
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "rank": 44,
+    "item_name": "Dataclysm: Who We are (When We Think No One's Looking)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The End of Tsarist Russia: The March to World War I and Revolution"
+  },
+  {
+    "rank": 46,
+    "item_name": "Island of Vice: Theodore Roosevelt's Doomed Quest to Clean Up Sin-Loving New York"
+  },
+  {
+    "rank": 47,
+    "item_name": "Tinseltown: Murder, Morphine, and Madness at the Dawn of Hollywood"
+  },
+  {
+    "rank": 48,
+    "item_name": "Christmas in the Crosshairs: Two Thousand Years of Denouncing and Defending the World's Most Celebrated Holiday"
+  },
+  {
+    "rank": 49,
+    "item_name": "Benjamin Franklin: An American Life"
+  },
+  {
+    "rank": 50,
+    "item_name": "Fire Shut Up in My Bones"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

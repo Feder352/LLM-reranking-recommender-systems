@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Illustrated Mahabharata: The Definitive Guide to India s Greatest Epic"
+  },
+  {
+    "item_name": "American Trinity: Jefferson, Custer, and the Spirit of the West"
+  },
+  {
+    "item_name": "The Little Red Wolf"
+  },
+  {
+    "item_name": "Rise and Grind: Outperform, Outwork, and Outhustle Your Way to a More Successful and Rewarding Life"
+  },
+  {
+    "item_name": "The Ghost of Gaudi"
+  },
+  {
+    "item_name": "Days With Dad"
+  },
+  {
+    "item_name": "Vengeance: A Novel"
+  },
+  {
+    "item_name": "Deduct It! Lower Your Small Business Taxes"
+  },
+  {
+    "item_name": "The Scarecrow Princess"
+  },
+  {
+    "item_name": "An Uncommon Honeymoon (Librarian/Spy Escapade)"
+  },
+  {
+    "item_name": "Negotiate the Best Lease for Your Business"
+  },
+  {
+    "item_name": "Mister Yes"
+  },
+  {
+    "item_name": "Ayobami and the Names of the Animals"
+  },
+  {
+    "item_name": "Generations"
+  },
+  {
+    "item_name": "GED Test Prep 2018: 2 Practice Tests + Proven Strategies (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "GED Test Prep Plus 2018: 2 Practice Tests + Proven Strategies + Online (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "5 Steps to a 5: AP Spanish Language and Culture with MP3 Disk 2018"
+  },
+  {
+    "item_name": "Wake Up, Sleeping Beauty 1"
+  },
+  {
+    "item_name": "CIRCE (#1 New York Times bestseller)"
+  },
+  {
+    "item_name": "Children of Blood and Bone (Legacy of Orisha)"
+  },
+  {
+    "item_name": "Beneath the Haunting Sea"
+  },
+  {
+    "item_name": "Neo Parasyte m"
+  },
+  {
+    "item_name": "What Would She Do?: 25 True Stories of Trailblazing Rebel Women"
+  },
+  {
+    "item_name": "A Year in the Garden: 365 Inspirational Gardens and Gardening Tips"
+  },
+  {
+    "item_name": "The Trials of Nina McCall: Sex, Surveillance, and the Decades-Long Government Plan to Imprison &quot;Promiscuous&quot; Women"
+  },
+  {
+    "item_name": "The Astrology of You and Me: How to Understand and Improve Every Relationship in Your Life"
+  },
+  {
+    "item_name": "Winds of Spirit: Ancient Wisdom Tools for Navigating Relationships, Health, and the Divine"
+  },
+  {
+    "item_name": "Battle Angel Alita Mars Chronicle 1"
+  },
+  {
+    "item_name": "Singapore Math Practice, Level 5A, Grade 6"
+  },
+  {
+    "item_name": "The 30-Minute Money Plan for Moms: How to Maximize Your Family Budget in Minimal Time"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "rank": 2,
+    "item_name": "My Lady Pocahontas"
+  },
+  {
+    "rank": 3,
+    "item_name": "Vivian Apple Needs a Miracle"
+  },
+  {
+    "rank": 4,
+    "item_name": "Chasing Secrets"
+  },
+  {
+    "rank": 5,
+    "item_name": "Skateboard Party: The Carver Chronicles, Book Two"
+  },
+  {
+    "rank": 6,
+    "item_name": "Noir (The Illumination Paradox)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Mindwise: How We Understand What Others Think, Believe, Feel, and Want"
+  },
+  {
+    "rank": 8,
+    "item_name": "Space Case (Moon Base Alpha)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Battleship: A Daring Heiress, a Teenage Jockey, and America's Horse"
+  },
+  {
+    "rank": 10,
+    "item_name": "The True Tale of the Monster Billy Dean"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Wild Ones"
+  },
+  {
+    "rank": 12,
+    "item_name": "Marked"
+  },
+  {
+    "rank": 13,
+    "item_name": "Scarlett Epstein Hates It Here"
+  },
+  {
+    "rank": 14,
+    "item_name": "Eddie Red Undercover: Mystery in Mayan Mexico"
+  },
+  {
+    "rank": 15,
+    "item_name": "Dark Disciple: Star Wars"
+  },
+  {
+    "rank": 16,
+    "item_name": "Poisoned: How a Crime-Busting Prosecutor Turned His Medical Mystery into a Crusade for Environmental Victims"
+  },
+  {
+    "rank": 17,
+    "item_name": "Planet Tad"
+  },
+  {
+    "rank": 18,
+    "item_name": "Moonhead and the Music Machine"
+  },
+  {
+    "rank": 19,
+    "item_name": "Railhead"
+  },
+  {
+    "rank": 20,
+    "item_name": "Megaskull (Nobrow Serial Box)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Mad Richard"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Dark Missions of Edgar Brim"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Raven (A Jane Harper Horror Novel)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 25,
+    "item_name": "Roses and Rot"
+  },
+  {
+    "rank": 26,
+    "item_name": "We Are the Goldens"
+  },
+  {
+    "rank": 27,
+    "item_name": "Close Enough for the Angels"
+  },
+  {
+    "rank": 28,
+    "item_name": "You Know What You Have To Do"
+  },
+  {
+    "rank": 29,
+    "item_name": "Being Sloane Jacobs"
+  },
+  {
+    "rank": 30,
+    "item_name": "Moone Boy: The Blunder Years"
+  },
+  {
+    "rank": 31,
+    "item_name": "Seven Wonders Book 1: The Colossus Rises"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Perfect Place"
+  },
+  {
+    "rank": 33,
+    "item_name": "Of Treasons Born (Treasons Cycle)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Girl Who Could Not Dream"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Predator Paradox: Ending the War with Wolves, Bears, Cougars, and Coyotes"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Voyage of Lucy P. Simmons"
+  },
+  {
+    "rank": 37,
+    "item_name": "Give a Girl a Knife: A Memoir"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Disappearance of Emily H."
+  },
+  {
+    "rank": 39,
+    "item_name": "The Menagerie: Animal Portraits to Color"
+  },
+  {
+    "rank": 40,
+    "item_name": "Gated"
+  },
+  {
+    "rank": 41,
+    "item_name": "Space Race [Concertina fold-out book]: Leporello"
+  },
+  {
+    "rank": 42,
+    "item_name": "Atlanta Burns"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Strange and Beautiful Sorrows of Ava Lavender"
+  },
+  {
+    "rank": 44,
+    "item_name": "Ricky Ricotta's Mighty Robot Book Set (7 Volumes)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Slacker"
+  },
+  {
+    "rank": 46,
+    "item_name": "An Inheritance of Ashes"
+  },
+  {
+    "rank": 47,
+    "item_name": "Hollow World"
+  },
+  {
+    "rank": 48,
+    "item_name": "Most Dangerous: Daniel Ellsberg and the Secret History of the Vietnam War (Bccb Blue Ribbon Nonfiction Book Award (Awards))"
+  },
+  {
+    "rank": 49,
+    "item_name": "Mage's Blood (The Moontide Quartet)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Junior Seau: The Life and Death of a Football Icon"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

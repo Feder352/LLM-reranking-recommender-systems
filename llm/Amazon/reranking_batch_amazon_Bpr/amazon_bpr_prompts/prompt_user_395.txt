@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Ghostwritten"
+  },
+  {
+    "item_name": "Under the Volcano"
+  },
+  {
+    "item_name": "Eastern Standard Tribe"
+  },
+  {
+    "item_name": "The Fixer (Penguin Twentieth-Century Classics)"
+  },
+  {
+    "item_name": "A New Life (Penguin Twentieth Century Classics)"
+  },
+  {
+    "item_name": "New Life 1ST Edition"
+  },
+  {
+    "item_name": "The Carpet Makers (Orson Scott Card Presents)"
+  },
+  {
+    "item_name": "Silverlock"
+  },
+  {
+    "item_name": "The Algebraist"
+  },
+  {
+    "item_name": "The Mysterious Flame of Queen Loana"
+  },
+  {
+    "item_name": "Brain Wave"
+  },
+  {
+    "item_name": "Spin"
+  },
+  {
+    "item_name": "Ship of Fools"
+  },
+  {
+    "item_name": "The Dreamthief's Daughter: A Tale of the Albino"
+  },
+  {
+    "item_name": "The Curse of Chalion (Chalion series)"
+  },
+  {
+    "item_name": "Paladin of Souls (Chalion series)"
+  },
+  {
+    "item_name": "The Hallowed Hunt (Chalion, Book 3)"
+  },
+  {
+    "item_name": "The Speed of Dark"
+  },
+  {
+    "item_name": "Singularity Sky"
+  },
+  {
+    "item_name": "Iron Sunrise (Singularity)"
+  },
+  {
+    "item_name": "Virtual Light"
+  },
+  {
+    "item_name": "Idoru (Bridge)"
+  },
+  {
+    "item_name": "All Tomorrow's Parties"
+  },
+  {
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "item_name": "Finity's End"
+  },
+  {
+    "item_name": "The Wreck of the River of Stars (Tom Doherty Associates Books)"
+  },
+  {
+    "item_name": "Anathem"
+  },
+  {
+    "item_name": "The Bridge of Birds: A Novel of an Ancient China That Never Was"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 2,
+    "item_name": "Dune"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Dune (Penguin Galaxy)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 6,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 7,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 8,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 9,
+    "item_name": "Starship Troopers"
+  },
+  {
+    "rank": 10,
+    "item_name": "Elric Of Melnibone: Book One of the Elric Saga"
+  },
+  {
+    "rank": 11,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Mysterious Island (Signet Classics)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Underworld"
+  },
+  {
+    "rank": 15,
+    "item_name": "Childhood's End"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Old Man and the Sea"
+  },
+  {
+    "rank": 17,
+    "item_name": "Fahrenheit 451"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Day of the Triffids (Popular Penguins)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Daytripper"
+  },
+  {
+    "rank": 21,
+    "item_name": "Of Mice and Men"
+  },
+  {
+    "rank": 22,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 23,
+    "item_name": "The League of Extraordinary Gentlemen - Volume 2"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Illustrated Hitch-hiker's Guide to the Galaxy"
+  },
+  {
+    "rank": 25,
+    "item_name": "Elmer Gantry"
+  },
+  {
+    "rank": 26,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Black Cauldron (Pyrdain Chronicles)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Gateway"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Dharma Bums"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 31,
+    "item_name": "Eye of the Needle"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Color of Magic: A Discworld Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "A Canticle for Leibowitz"
+  },
+  {
+    "rank": 34,
+    "item_name": "I Am Legend"
+  },
+  {
+    "rank": 35,
+    "item_name": "The First Circle (English and Russian Edition)"
+  },
+  {
+    "rank": 36,
+    "item_name": "2001: A Space Odyssey (Penguin Galaxy)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Golden Fool"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 39,
+    "item_name": "I, Robot"
+  },
+  {
+    "rank": 40,
+    "item_name": "Confessions (Penguin Classics)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Iliad"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Moon is a Harsh Mistress"
+  },
+  {
+    "rank": 43,
+    "item_name": "Twenty Thousand Leagues Under the Sea (Vintage Classics)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Elements of Style, Third Edition"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Princess of Mars (Penguin Classics)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Rendezvous with Rama"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Fire upon the Deep"
+  },
+  {
+    "rank": 48,
+    "item_name": "Of Human Bondage (Bantam Classics)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Inside the Third Reich"
+  },
+  {
+    "rank": 50,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

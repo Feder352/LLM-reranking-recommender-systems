@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Hamilton Affair: The Epic Love Story of Alexander Hamilton and Eliza Schuyler"
+  },
+  {
+    "item_name": "Slender Reeds: Jochebed's Hope"
+  },
+  {
+    "item_name": "The New England Orchard Cookbook: Harvesting Dishes &amp; Desserts from the Region's Bounty"
+  },
+  {
+    "item_name": "From a Paris Balcony"
+  },
+  {
+    "item_name": "The Second Mrs. Hockaday: A Novel"
+  },
+  {
+    "item_name": "The Silent Songbird"
+  },
+  {
+    "item_name": "The Fire by Night: A Novel"
+  },
+  {
+    "item_name": "Imagine Heaven: Near-Death Experiences, God's Promises, and the Exhilarating Future That Awaits You"
+  },
+  {
+    "item_name": "The President's Kitchen Cabinet: The Story of the African Americans Who Have Fed Our First Families, from the Washingtons to the Obamas"
+  },
+  {
+    "item_name": "The Idea of You"
+  },
+  {
+    "item_name": "100% Real: 100 Insanely Good Recipes for Clean Food Made Fresh"
+  },
+  {
+    "item_name": "Food52 Mighty Salads: 60 New Ways to Turn Salad into Dinner (Food52 Works)"
+  },
+  {
+    "item_name": "Call the Nurse: True Stories of a Country Nurse on a Scottish Isle"
+  },
+  {
+    "item_name": "The Drowning King (A Fall of Egypt Novel)"
+  },
+  {
+    "item_name": "Eight Is Enough"
+  },
+  {
+    "item_name": "The Unquiet Grave: A Novel"
+  },
+  {
+    "item_name": "Sally's Cookie Addiction: Irresistible Cookies, Cookie Bars, Shortbread, and More from the Creator of Sally's Baking Addiction"
+  },
+  {
+    "item_name": "The World of Laura Ingalls Wilder: The Frontier Landscapes that Inspired the Little House Books"
+  },
+  {
+    "item_name": "The Indigo Girl: A Novel"
+  },
+  {
+    "item_name": "Texas Slow Cooker: 125 Recipes for the Lone Star State's Very Best Dishes, All Slow-Cooked to Perfection"
+  },
+  {
+    "item_name": "I Will Find You: Solving Killer Cases from My Life Fighting Crime (Homicide Hunter)"
+  },
+  {
+    "item_name": "The Pioneer Woman Cooks: Come and Get It!: Simple, Scrumptious Recipes for Crazy Busy Lives"
+  },
+  {
+    "item_name": "Sweet Revenge: Passive-Aggressive Desserts for Your Exes &amp; Enemies"
+  },
+  {
+    "item_name": "Just Between Us: A Novel"
+  },
+  {
+    "item_name": "The Girls in the Picture: A Novel"
+  },
+  {
+    "item_name": "Carnegie's Maid: A Novel"
+  },
+  {
+    "item_name": "Amish Cooking Class Cookbook: Over 200 Practical Recipes for Use in Any Kitchen"
+  },
+  {
+    "item_name": "I Was Anastasia: A Novel"
+  },
+  {
+    "item_name": "Mistress of Rome (Empress of Rome)"
+  },
+  {
+    "item_name": "The Romanov Empress: A Novel of Tsarina Maria Feodorovna"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Gifted: How to Live the Life of Your Dreams"
+  },
+  {
+    "rank": 2,
+    "item_name": "Witches Protection Program"
+  },
+  {
+    "rank": 3,
+    "item_name": "If You Were Me and Lived in...India: A Child's Introduction to Cultures Around the World (Volume 7)"
+  },
+  {
+    "rank": 4,
+    "item_name": "If You Were Me and Lived in...Ancient Greece: An Introduction to Civilizations Throughout Time (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "If You Were Me and Lived on...Mars (A Child's Introduction to Cultures Around the World) (Volume 23)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Elephant to Hollywood"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Noticer: Sometimes, all a person needs is a little perspective."
+  },
+  {
+    "rank": 8,
+    "item_name": "Conspirators of the Lost Sock Army and the Loose Change Collection Agency"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Night of the Magical Flight: U.S.English Edition - Exciting Rhyming Bedtime Story - Picture Book / Beginner Reader (Ages 3-7) (Top of the Wardrobe Gang Picture Books) (Volume 2)"
+  },
+  {
+    "rank": 10,
+    "item_name": "In a Different Key: The Story of Autism"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Hanging Tree: A Novella"
+  },
+  {
+    "rank": 12,
+    "item_name": "If You Were Me and Lived in... Elizabethan England: An Introduction to Civilizations Throughout Time (Volume 8)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The 12 Days of Christmas"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Flag for the Flying Dragon: A Captain No Beard Story (Volume 9)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Children&#39;s Books: Emma Learns to Sprout [short stories for children] - Kindle edition"
+  },
+  {
+    "rank": 16,
+    "item_name": "Incision Decisions: A Guide to Getting Through Surgery, Recovery, and Your Hospital Stay"
+  },
+  {
+    "rank": 17,
+    "item_name": "Fearless: Imagine Your Life Without Fear"
+  },
+  {
+    "rank": 18,
+    "item_name": "If You Were Me and Lived in...Italy: A Child's Introduction to Cultures Around the World (Volume 21)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Coming Home: A Novel (Winds of Change)"
+  },
+  {
+    "rank": 20,
+    "item_name": "When I Grow Up I Want To Be...a Nurse!: Amber's Accidental Journey"
+  },
+  {
+    "rank": 21,
+    "item_name": "MWF Seeking BFF: My Yearlong Search for a New Best Friend"
+  },
+  {
+    "rank": 22,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 23,
+    "item_name": "If You Were Me and Lived in...Colonial America: An Introduction to Civilizations Throughout Time (Volume 9)"
+  },
+  {
+    "rank": 24,
+    "item_name": "If You Were Me and Lived in...Israel: A Child's Introduction to Cultures Around the World (Volume 19)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Stillwell: A Haunting on Long Island (A Haunting on Long Island Series)"
+  },
+  {
+    "rank": 26,
+    "item_name": "A Perfect Square (A Shipshewana Amish Mystery)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Whaley's Big Adventure: Presented by Carole P. Roman"
+  },
+  {
+    "rank": 28,
+    "item_name": "Terry Treetop and the lost egg: the lost egg (Bedtime story)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Meeting of the Mustangs"
+  },
+  {
+    "rank": 30,
+    "item_name": "Cable Left, Cable Right: 94 Knitted Cables"
+  },
+  {
+    "rank": 31,
+    "item_name": "Stock the Crock: 100 Must-Have Slow-Cooker Recipes, 200 Variations for Every Appetite"
+  },
+  {
+    "rank": 32,
+    "item_name": "Don't Juggle Bees! And Other Useless Advice For Silly Children"
+  },
+  {
+    "rank": 33,
+    "item_name": "I Want What She's Got!"
+  },
+  {
+    "rank": 34,
+    "item_name": "Monsterland"
+  },
+  {
+    "rank": 35,
+    "item_name": "GOA Kids - Goats of Anarchy: The Goat with Many Coats: A true story of a little goat who found a new home"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Crew Goes Coconuts!: A Captain No Beard Story (Volume 6)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Death at Chinatown (Emily Cabot Mysteries) (Volume 5)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Duck in the Fridge (A Duck in the Fridge Book)"
+  },
+  {
+    "rank": 39,
+    "item_name": "If You Were Me and Lived in... Hungary: A Child's Introduction to Cultures Around the World (Volume 13)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Dinosaurs: Amazing Pictures &amp; Facts Children Book About Dinosaurs (Discover Animals Series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Thunder Dog: The True Story of a Blind Man, His Guide Dog, and the Triumph of Trust"
+  },
+  {
+    "rank": 42,
+    "item_name": "If You Were Me and Lived in...Portugal: A Child's Introduction to Cultures Around the World (Volume 10)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Treasure of Snake Island: A Captain No Beard Story (Volume 5)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Plain Pursuit (A Daughters of the Promise Novel)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Whole Town's Talking: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Being a Captain is Hard Work: A Captain No Beard Story (Volume 10)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Writing for Bliss: A Seven-Step Plan for Telling Your Story and Transforming Your Life"
+  },
+  {
+    "rank": 48,
+    "item_name": "Molly Mouse and the Bear Cub: U.S. English Edition - Fun Rhyming Bedtime Story - Picture Book / Beginner Reader (for ages 3-7) (Top of the Wardrobe Gang Picture Books) (Volume 9)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Rocket-Bye (Bedtime Dream Collection)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Fribbet the Frog and the Tadpoles: A Captain No Beard Story (Volume 8)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

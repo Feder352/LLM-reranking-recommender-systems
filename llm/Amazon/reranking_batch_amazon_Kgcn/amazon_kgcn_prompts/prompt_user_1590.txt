@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Shelter (The Getaway Series) (Volume 2)"
+  },
+  {
+    "item_name": "Getting Lucky: Ferris Wheels &amp; Fireflies in Sapphire Falls (Volume 5)"
+  },
+  {
+    "item_name": "Getting Worked Up: Welcome to Sapphire Falls (Volume 2)"
+  },
+  {
+    "item_name": "Here Comes the Sun (Butler, Vermont Series)"
+  },
+  {
+    "item_name": "All In (Sleeper SEALs) (Volume 9)"
+  },
+  {
+    "item_name": "Your Endless Love (The Bennett Family) (Volume 9)"
+  },
+  {
+    "item_name": "Loving Hard (The Chesapeake Blades) (Volume 2)"
+  },
+  {
+    "item_name": "Free Agent (Portland Storm) (Volume 18)"
+  },
+  {
+    "item_name": "Listen To Me: A Fusion Novel"
+  },
+  {
+    "item_name": "Listen to Me: A Fusion Novel"
+  },
+  {
+    "item_name": "Charming Hannah (The Big Sky Series) (Volume 1)"
+  },
+  {
+    "item_name": "Big Badd Wolf (Badd Brothers) (Volume 7)"
+  },
+  {
+    "item_name": "Seducing Lauren (Love Under the Big Sky)"
+  },
+  {
+    "item_name": "Falling for Jillian (Love Under the Big Sky)"
+  },
+  {
+    "item_name": "Loving Cara (Love Under the Big Sky)"
+  },
+  {
+    "item_name": "Easy Nights (The Boudreaux Series) (Volume 6)"
+  },
+  {
+    "item_name": "Easy Kisses (The Boudreaux Series) (Volume 4)"
+  },
+  {
+    "item_name": "Easy Love (The Boudreaux Series) (Volume 1)"
+  },
+  {
+    "item_name": "Easy Charm (The Boudreaux Series) (Volume 2)"
+  },
+  {
+    "item_name": "Easy Magic (The Boudreaux Series) (Volume 5)"
+  },
+  {
+    "item_name": "Easy Melody (The Boudreaux Series) (Volume 3)"
+  },
+  {
+    "item_name": "Reckless Whisper (Off the Grid: FBI Series) (Volume 2)"
+  },
+  {
+    "item_name": "Savage Prince: An Anti-Heroes Collection Novel (The Savage Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Iron Princess: An Anti-Heroes Collection Novel (The Savage Trilogy) (Volume 2)"
+  },
+  {
+    "item_name": "Anything For You (The Connor Family)"
+  },
+  {
+    "item_name": "Hero: The Morgan Brothers (The Morgan Bothers) (Volume 1)"
+  },
+  {
+    "item_name": "High Heels and Haystacks: Billionaires in Blue Jeans, book two (Volume 2)"
+  },
+  {
+    "item_name": "Diamonds and Dirt Roads (Billionaires in Blue Jeans) (Volume 1)"
+  },
+  {
+    "item_name": "Fast Fury (DEA FAST Series) (Volume 5)"
+  },
+  {
+    "item_name": "Allure (Brooklet Dreams) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5885,
+    "item_name": "Beautiful Oblivion (Maddox Brothers)"
+  },
+  {
+    "rank": 2,
+    "item_id": 5906,
+    "item_name": "Tangled (The Tangled Series)"
+  },
+  {
+    "rank": 3,
+    "item_id": 2487,
+    "item_name": "Getting Rowdy (Love Undercover)"
+  },
+  {
+    "rank": 4,
+    "item_id": 5127,
+    "item_name": "If You Were Mine (The Sullivans)"
+  },
+  {
+    "rank": 5,
+    "item_id": 5954,
+    "item_name": "Mine To Take (Mine - Romantic Suspense) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_id": 2511,
+    "item_name": "Dash of Peril (Love Undercover)"
+  },
+  {
+    "rank": 7,
+    "item_id": 2386,
+    "item_name": "Blue Lines: The Assassins Series"
+  },
+  {
+    "rank": 8,
+    "item_id": 5924,
+    "item_name": "Hard to Love"
+  },
+  {
+    "rank": 9,
+    "item_id": 5880,
+    "item_name": "Wife by Wednesday (Weekday Brides)"
+  },
+  {
+    "rank": 10,
+    "item_id": 3531,
+    "item_name": "Reaper's Legacy (Reapers Motorcycle Club)"
+  },
+  {
+    "rank": 11,
+    "item_id": 5516,
+    "item_name": "Infinite Possibilities: The Secret Life of Amy Bensen Book Two (Volume 2)"
+  },
+  {
+    "rank": 12,
+    "item_id": 5908,
+    "item_name": "Sweet Filthy Boy (Wild Seasons)"
+  },
+  {
+    "rank": 13,
+    "item_id": 3527,
+    "item_name": "Then Came You (An Animal Magnetism Novel)"
+  },
+  {
+    "rank": 14,
+    "item_id": 5524,
+    "item_name": "Falling Into You"
+  },
+  {
+    "rank": 15,
+    "item_id": 5124,
+    "item_name": "Always On My Mind (The Sullivans)"
+  },
+  {
+    "rank": 16,
+    "item_id": 5871,
+    "item_name": "Always on My Mind (A Lucky Harbor Novel)"
+  },
+  {
+    "rank": 17,
+    "item_id": 3502,
+    "item_name": "Hope Flames (A Hope Novel)"
+  },
+  {
+    "rank": 18,
+    "item_id": 5897,
+    "item_name": "All In: The Blackstone Affair, Book 2"
+  },
+  {
+    "rank": 19,
+    "item_id": 5892,
+    "item_name": "Wallbanger (The Cocktail Series)"
+  },
+  {
+    "rank": 20,
+    "item_id": 2508,
+    "item_name": "Bare It All (Love Undercover)"
+  },
+  {
+    "rank": 21,
+    "item_id": 5647,
+    "item_name": "In Rides Trouble (Black Knights Inc.)"
+  },
+  {
+    "rank": 22,
+    "item_id": 664,
+    "item_name": "Better When He's Bad: A Welcome to the Point Novel"
+  },
+  {
+    "rank": 23,
+    "item_id": 5900,
+    "item_name": "The Marriage Merger (Marriage to a Billionaire)"
+  },
+  {
+    "rank": 24,
+    "item_id": 5866,
+    "item_name": "Forever and a Day (Lucky Harbor)"
+  },
+  {
+    "rank": 25,
+    "item_id": 5532,
+    "item_name": "Fixed On You (Fixed - Book 1) (Fixed Series) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Magic Strings of Frankie Presto: A Novel"
+  },
+  {
+    "item_name": "Saving Wonder"
+  },
+  {
+    "item_name": "One Breath: Freediving, Death, and the Quest to Shatter Human Limits"
+  },
+  {
+    "item_name": "Tough As They Come"
+  },
+  {
+    "item_name": "Gifts of the Dark Wood: Seven Blessings for Soulful Skeptics (and Other Wanderers)"
+  },
+  {
+    "item_name": "Tough As They Come"
+  },
+  {
+    "item_name": "Bad News: Last Journalists in a Dictatorship"
+  },
+  {
+    "item_name": "The Edge (A Peak Marcello Adventure)"
+  },
+  {
+    "item_name": "The Last Flight of Poxl West: A Novel"
+  },
+  {
+    "item_name": "Broken: Restoring Trust Between the Sacred &amp; the Secular"
+  },
+  {
+    "item_name": "The Wisdom of Dead Men (The Wildenstern Saga)"
+  },
+  {
+    "item_name": "The Readers of Broken Wheel Recommend"
+  },
+  {
+    "item_name": "Jane Steele"
+  },
+  {
+    "item_name": "The Summer Before the War: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "The Emperor of Any Place"
+  },
+  {
+    "item_name": "The Skeleton Tree"
+  },
+  {
+    "item_name": "The Book of Harlan"
+  },
+  {
+    "item_name": "Thrice the Brinded Cat Hath Mew'd: A Flavia de Luce Novel"
+  },
+  {
+    "item_name": "The Queen's Accomplice: A Maggie Hope Mystery"
+  },
+  {
+    "item_name": "Narwhal: Unicorn of the Sea (A Narwhal and Jelly Book #1)"
+  },
+  {
+    "item_name": "The Secrets of Flight: A Novel"
+  },
+  {
+    "item_name": "Cooking for Picasso: A Novel"
+  },
+  {
+    "item_name": "The Hidden Letters of Velta B."
+  },
+  {
+    "item_name": "Merciless Reason (The Wildenstern Saga)"
+  },
+  {
+    "item_name": "Draw to Win: A Crash Course on How to Lead, Sell, and Innovate With Your Visual Mind"
+  },
+  {
+    "item_name": "The Innocents (A Quinn Colson Novel)"
+  },
+  {
+    "item_name": "Space Race [Concertina fold-out book]: Leporello"
+  },
+  {
+    "item_name": "The Perfect Siesta (Junior Library Guild Selection) (Somos8)"
+  },
+  {
+    "item_name": "Baby Monkey, Private Eye"
+  },
+  {
+    "item_name": "Cook's Illustrated Baking Book"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Against the Country"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Antagonist"
+  },
+  {
+    "rank": 4,
+    "item_name": "Poisoned: How a Crime-Busting Prosecutor Turned His Medical Mystery into a Crusade for Environmental Victims"
+  },
+  {
+    "rank": 5,
+    "item_name": "Loving Day: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Neo Parasyte m"
+  },
+  {
+    "rank": 7,
+    "item_name": "Burqas, Baseball, and Apple Pie: Being Muslim in America"
+  },
+  {
+    "rank": 8,
+    "item_name": "Mrs. Poe"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Saint Closes the Case"
+  },
+  {
+    "rank": 10,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Where I Belong"
+  },
+  {
+    "rank": 12,
+    "item_name": "Stringer: A Reporter's Journey in the Congo"
+  },
+  {
+    "rank": 13,
+    "item_name": "Battleship: A Daring Heiress, a Teenage Jockey, and America's Horse"
+  },
+  {
+    "rank": 14,
+    "item_name": "Smoke Gets in Your Eyes: And Other Lessons from the Crematory"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Land of Decoration"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Oregon Trail: A New American Journey"
+  },
+  {
+    "rank": 17,
+    "item_name": "Fallen Beauty"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Silent Oligarch"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Nightingale: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Predator Paradox: Ending the War with Wolves, Bears, Cougars, and Coyotes"
+  },
+  {
+    "rank": 22,
+    "item_name": "With Love from the Inside"
+  },
+  {
+    "rank": 23,
+    "item_name": "Chickens in the Road: An Adventure in Ordinary Splendor"
+  },
+  {
+    "rank": 24,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 25,
+    "item_name": "Ten Lords A-Leaping: A Father Christmas Mystery"
+  },
+  {
+    "rank": 26,
+    "item_name": "Sisi: Empress on Her Own: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Pilgrim's Wilderness: A True Story of Faith and Madness on the Alaska Frontier"
+  },
+  {
+    "rank": 28,
+    "item_name": "Manolito Four-Eyes: The 2nd Volume of the Great Encyclopedia of My Life"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Private Papers of Eastern Jewel: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "On Paper: The Everything of Its Two-Thousand-Year History (ALA Notable Books for Adults)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Speed Kings: The 1932 Winter Olympics and the Fastest Men in the World"
+  },
+  {
+    "rank": 32,
+    "item_name": "This Is the Story of a Happy Marriage"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Francis Miracle: Inside the Transformation of the Pope and the Church"
+  },
+  {
+    "rank": 34,
+    "item_name": "I Hear Them Cry"
+  },
+  {
+    "rank": 35,
+    "item_name": "My Lady Pocahontas"
+  },
+  {
+    "rank": 36,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 37,
+    "item_name": "Gated"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Kissing List"
+  },
+  {
+    "rank": 39,
+    "item_name": "Ross Poldark :POLDARK"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Elementals"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Color Master"
+  },
+  {
+    "rank": 42,
+    "item_name": "Wars of the Roses: Margaret of Anjou"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Secrets of Mary Bowser"
+  },
+  {
+    "rank": 44,
+    "item_name": "Conversations with Saint Bernard: A Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "The People of Forever Are Not Afraid: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Silver Witch: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Perfect Place"
+  },
+  {
+    "rank": 48,
+    "item_name": "LoveUnder Different Skies"
+  },
+  {
+    "rank": 49,
+    "item_name": "Seattle City of Literature: Reflections from a Community of Writers"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Vanishing Island (Chronicles of the Black Tulip)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

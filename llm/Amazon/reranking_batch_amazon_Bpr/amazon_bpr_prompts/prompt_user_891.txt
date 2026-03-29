@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Wizard of Dark Street: An Oona Crate Mystery"
+  },
+  {
+    "item_name": "On the Accidental Wings of Dragons (Dragons of Eternity)"
+  },
+  {
+    "item_name": "A Dead Red Cadillac"
+  },
+  {
+    "item_name": "Galadria: Peter Huddleston &amp; The Knights of the Leaf (The Galadria Fantasy Trilogy) (Volume 3)"
+  },
+  {
+    "item_name": "Acne, Asthma, And Other Signs You Might Be Half Dragon"
+  },
+  {
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "item_name": "Obsidian: The Dragon Kings (Volume 1)"
+  },
+  {
+    "item_name": "Storming: A Dieselpunk Adventure Novel"
+  },
+  {
+    "item_name": "Cora and the Nurse Dragon"
+  },
+  {
+    "item_name": "The Spirit Thief (Eli Monpress Book 1)"
+  },
+  {
+    "item_name": "Time and Again: Book 1 in the History Mystery Series"
+  },
+  {
+    "item_name": "Sign of the Green Dragon"
+  },
+  {
+    "item_name": "First Daughter (The Royals of Dharia, Book Three) (Dharian Affairs)"
+  },
+  {
+    "item_name": "Firebolt (The Dragonian Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Book of Nonsense (Sacred Books, Vol. I)"
+  },
+  {
+    "item_name": "Professor Whiskerton Presents Steampunk ABC"
+  },
+  {
+    "item_name": "Suspended (Vagabond Circus) (Volume 1)"
+  },
+  {
+    "item_name": "Infinity Ring Book 1: A Mutiny in Time"
+  },
+  {
+    "item_name": "Twenty-Four Potential Children of Prophecy (The Numbers Just Keep Getting Bigger) (Volume 1)"
+  },
+  {
+    "item_name": "The Keeper of Dragons: The Prince Returns"
+  },
+  {
+    "item_name": "The Grimoire: Lichgates: Book One of the Grimoire Trilogy"
+  },
+  {
+    "item_name": "The Final Empire: Mistborn Book One"
+  },
+  {
+    "item_name": "The Bridge of the Golden Wood: A Parable on How to Earn a Living (Careers for Kids)"
+  },
+  {
+    "item_name": "Muffy &amp; Valor: A True Story"
+  },
+  {
+    "item_name": "The Queen's Poisoner (Kingfountain)"
+  },
+  {
+    "item_name": "The King's Traitor (Kingfountain)"
+  },
+  {
+    "item_name": "Dragon's Blood: The Pit Dragon Trilogy, Volume One"
+  },
+  {
+    "item_name": "Dragon Trials (Return of the Darkening) (Volume 1)"
+  },
+  {
+    "item_name": "The Dragon Orb (The Alaris Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "Project Mnemosyne (When No One Was Looking) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Son of Neptune (Heroes of Olympus Book 2)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Wind Catcher (Chosen)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The History Major: A Novella"
+  },
+  {
+    "rank": 5,
+    "item_name": "Magic Tree House Collection Volume 1: Books 1-4: #1 Dinosaurs Before Dark; #2 The Knight at Dawn; #3 Mummies in the Morning; #4 Pirates Past Noon (Magic Tree House (R))"
+  },
+  {
+    "rank": 6,
+    "item_name": "Cinderella's Secret Slipper (Classic Fairy Tales with a Modern Twist)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Shadow of Time"
+  },
+  {
+    "rank": 8,
+    "item_name": "Three Sisters (Emily Castles Mysteries)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Last Unicorn"
+  },
+  {
+    "rank": 10,
+    "item_name": "Goosebumps"
+  },
+  {
+    "rank": 11,
+    "item_name": "Rae of Hope"
+  },
+  {
+    "rank": 12,
+    "item_name": "Sanctuary"
+  },
+  {
+    "rank": 13,
+    "item_name": "Peter Pan: The Original Story"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Surge (Storm Runners #2)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Charlie and the Chocolate Factory"
+  },
+  {
+    "rank": 17,
+    "item_name": "Crane"
+  },
+  {
+    "rank": 18,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Inescapable (Road to Kingdom) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Elantris"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Book With No Pictures"
+  },
+  {
+    "rank": 22,
+    "item_name": "Draw-A-Saurus: Everything You Need to Know to Draw Your Favorite Dinosaurs"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 24,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 25,
+    "item_name": "Meritropolis"
+  },
+  {
+    "rank": 26,
+    "item_name": "Lancaster County Christmas, A"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Gnomes Of The Night"
+  },
+  {
+    "rank": 28,
+    "item_name": "Rockin' Chair"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Scorpio Races"
+  },
+  {
+    "rank": 30,
+    "item_name": "Ice"
+  },
+  {
+    "rank": 31,
+    "item_name": "Percy Jackson and the Sea of Monsters (Book 2)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Waterfall: A Novel (River of Time Series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Maisy and the Missing Mice (The Maisy Files) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The ADVENTURES OF PINOCCHIO (DELUXE EDITION)"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Day with Moo: A Best Friend Book (The Adventures of Midge and Moo) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Matched"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Untimed"
+  },
+  {
+    "rank": 39,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Greeth"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Possible Police"
+  },
+  {
+    "rank": 42,
+    "item_name": "Today I'm a Monster"
+  },
+  {
+    "rank": 43,
+    "item_name": "Swipe (Swipe Series)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Firelight"
+  },
+  {
+    "rank": 45,
+    "item_name": "Storm (Swipe Series)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Doctor Who: The Drosten's Curse"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Story Shell: A Tale of Friendship Bog"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Vampire Hunter's Daughter The Complete Collection"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Elusive Miss Ellison (Regency Brides: A Legacy of Grace)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Please Don't Tell My Parents I'm a Supervillain"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

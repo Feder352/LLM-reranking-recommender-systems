@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Magic Binds (Kate Daniels)"
+  },
+  {
+    "item_name": "Glitter"
+  },
+  {
+    "item_name": "Three Dark Crowns"
+  },
+  {
+    "item_name": "The Call"
+  },
+  {
+    "item_name": "The Lost Property Office (Section 13)"
+  },
+  {
+    "item_name": "Of Fire and Stars"
+  },
+  {
+    "item_name": "The Secret Life of Lincoln Jones"
+  },
+  {
+    "item_name": "The Wizard's Dog"
+  },
+  {
+    "item_name": "Flying Lessons &amp; Other Stories"
+  },
+  {
+    "item_name": "The Uncommoners #1: The Crooked Sixpence"
+  },
+  {
+    "item_name": "The Enemies of Versailles: A Novel (The Mistresses of Versailles Trilogy)"
+  },
+  {
+    "item_name": "The Explorers: The Door in the Alley"
+  },
+  {
+    "item_name": "Rickety Stitch and the Gelatinous Goo Book 1: The Road to Epoli"
+  },
+  {
+    "item_name": "Wonder Women: 25 Innovators, Inventors, and Trailblazers Who Changed History"
+  },
+  {
+    "item_name": "Factory Girl"
+  },
+  {
+    "item_name": "How to Be a Supervillain"
+  },
+  {
+    "item_name": "Bull"
+  },
+  {
+    "item_name": "Phantom Limbs"
+  },
+  {
+    "item_name": "Daughters of the Storm"
+  },
+  {
+    "item_name": "Warcross"
+  },
+  {
+    "item_name": "Refugee"
+  },
+  {
+    "item_name": "No Good Deed"
+  },
+  {
+    "item_name": "Midnight Without a Moon"
+  },
+  {
+    "item_name": "The Wearle (The Erth Dragons #1)"
+  },
+  {
+    "item_name": "The Visionary Mayan Queen: Yohl Ik'nal of Palenque (The Mists of Palenque)"
+  },
+  {
+    "item_name": "Little Soldiers: An American Boy, a Chinese School, and the Global Race to Achieve"
+  },
+  {
+    "item_name": "Gork, the Teenage Dragon: A novel"
+  },
+  {
+    "item_name": "The Mesmerist"
+  },
+  {
+    "item_name": "A Secret Sisterhood: The Literary Friendships of Jane Austen, Charlotte Bront&euml;, George Eliot, and Virginia Woolf"
+  },
+  {
+    "item_name": "The Wall of Storms (The Dandelion Dynasty)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 2,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Thousand Pieces of You (Firebird)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Iron Queen (Iron Fey)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Golem and the Jinni: A Novel (P.S.)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Wolf by Wolf"
+  },
+  {
+    "rank": 7,
+    "item_name": "And I Darken (The Conqueror's Trilogy)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Blackbird"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Geography of You and Me"
+  },
+  {
+    "rank": 10,
+    "item_name": "Struck"
+  },
+  {
+    "rank": 11,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 12,
+    "item_name": "Not a Drop to Drink"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Raven Boys"
+  },
+  {
+    "rank": 14,
+    "item_name": "Sway: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Dark Days Club (A Lady Helen Novel)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Iron Daughter"
+  },
+  {
+    "rank": 17,
+    "item_name": "Beautiful Creatures. by Kami Garcia &amp; Margaret Stohl"
+  },
+  {
+    "rank": 18,
+    "item_name": "Red Queen"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Iron Traitor (The Iron Fey)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Missing"
+  },
+  {
+    "rank": 21,
+    "item_name": "Cress"
+  },
+  {
+    "rank": 22,
+    "item_name": "Feral"
+  },
+  {
+    "rank": 23,
+    "item_name": "Daughter of Smoke &amp; Bone"
+  },
+  {
+    "rank": 24,
+    "item_name": "Inside Out"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Valiant"
+  },
+  {
+    "rank": 26,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 27,
+    "item_name": "Magonia"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Taking"
+  },
+  {
+    "rank": 29,
+    "item_name": "Hemlock"
+  },
+  {
+    "rank": 30,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 31,
+    "item_name": "Wonder Woman: Warbringer (DC Icons Series)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Lies (Gone)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Denton Little's Deathdate (Denton Little Series)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Tabula Rasa (Tabula Rasa Trilogy)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Etiquette &amp; Espionage (Finishing School)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Lock &amp; Mori"
+  },
+  {
+    "rank": 37,
+    "item_name": "Defy the Stars"
+  },
+  {
+    "rank": 38,
+    "item_name": "Saga, Vol. 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Fangirl"
+  },
+  {
+    "rank": 40,
+    "item_name": "I Am Princess X"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Fire Wish (Jinni Wars)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Don't Touch"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Selection. by Kiera Cass"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Here and Now"
+  },
+  {
+    "rank": 45,
+    "item_name": "Ricky Ricotta's Mighty Robot Book Set (7 Volumes)"
+  },
+  {
+    "rank": 46,
+    "item_name": "This One Summer"
+  },
+  {
+    "rank": 47,
+    "item_name": "Hero (The Woodcutter Sisters)"
+  },
+  {
+    "rank": 48,
+    "item_name": "With All My Soul (Soul Screamers)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Team Human"
+  },
+  {
+    "rank": 50,
+    "item_name": "Smart Girls Get What They Want"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

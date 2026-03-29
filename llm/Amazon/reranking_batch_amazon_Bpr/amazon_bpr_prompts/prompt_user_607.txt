@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Making of Donald Trump"
+  },
+  {
+    "item_name": "Astrophysics for People in a Hurry"
+  },
+  {
+    "item_name": "Never Enough: Donald Trump and the Pursuit of Success"
+  },
+  {
+    "item_name": "A Crack in Creation: Gene Editing and the Unthinkable Power to Control Evolution"
+  },
+  {
+    "item_name": "Multipliers: How the Best Leaders Make Everyone Smarter"
+  },
+  {
+    "item_name": "The End of Advertising: Why It Had to Die, and the Creative Resurrection to Come"
+  },
+  {
+    "item_name": "The Long Haul: A Trucker's Tales of Life on the Road"
+  },
+  {
+    "item_name": "Finding Gobi (Main edition): The True Story of a Little Dog and an Incredible Journey"
+  },
+  {
+    "item_name": "Devil's Bargain: Steve Bannon, Donald Trump, and the Storming of the Presidency"
+  },
+  {
+    "item_name": "Everybody Lies: Big Data, New Data, and What the Internet Can Tell Us About Who We Really Are"
+  },
+  {
+    "item_name": "I Can't Make This Up: Life Lessons"
+  },
+  {
+    "item_name": "The Once and Future Liberal: After Identity Politics"
+  },
+  {
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "item_name": "The GUNS OF AUGUST"
+  },
+  {
+    "item_name": "How the Right Lost Its Mind"
+  },
+  {
+    "item_name": "The Vanishing American Adult: Our Coming-of-Age Crisis--and How to Rebuild a Culture of Self-Reliance"
+  },
+  {
+    "item_name": "The Impossible Presidency: The Rise and Fall of America's Highest Office"
+  },
+  {
+    "item_name": "Guilty as Sin: Uncovering New Evidence of Corruption and How Hillary Clinton and the Democrats Derailed the FBI Investigation"
+  },
+  {
+    "item_name": "Leonardo da Vinci"
+  },
+  {
+    "item_name": "Let Trump Be Trump: The Inside Story of His Rise to the Presidency"
+  },
+  {
+    "item_name": "God: A Human History"
+  },
+  {
+    "item_name": "Fall Down 7 Times Get Up 8: A Young Man's Voice from the Silence of Autism"
+  },
+  {
+    "item_name": "Little Soldiers: An American Boy, a Chinese School, and the Global Race to Achieve"
+  },
+  {
+    "item_name": "It's Even Worse Than You Think: What the Trump Administration Is Doing to America"
+  },
+  {
+    "item_name": "Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future"
+  },
+  {
+    "item_name": "Trumpocracy: The Corruption of the American Republic"
+  },
+  {
+    "item_name": "The Great Influenza: The Story of the Deadliest Pandemic in History"
+  },
+  {
+    "item_name": "How Democracies Die"
+  },
+  {
+    "item_name": "Fantasyland: How America Went Haywire: A 500-Year History"
+  },
+  {
+    "item_name": "Everything for Sale: The Virtues and Limits of Markets"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "7 Habits Of Highly Effective People"
+  },
+  {
+    "rank": 2,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 4,
+    "item_name": "Made to Stick: Why Some Ideas Take Hold and Others Come Unstuck"
+  },
+  {
+    "rank": 5,
+    "item_name": "The New Depression: The Breakdown of the Paper Money Economy"
+  },
+  {
+    "rank": 6,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 7,
+    "item_name": "Think and Grow Rich"
+  },
+  {
+    "rank": 8,
+    "item_name": "Being Wrong: Adventures in the Margin of Error"
+  },
+  {
+    "rank": 9,
+    "item_name": "7 Habits of Highly Effective People"
+  },
+  {
+    "rank": 10,
+    "item_name": "Just How Stupid Are We?: Facing the Truth About the American Voter"
+  },
+  {
+    "rank": 11,
+    "item_name": "Trick or Treatment: The Undeniable Facts about Alternative Medicine"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Happiness Advantage: The Seven Principles of Positive Psychology That Fuel Success and Performance at Work"
+  },
+  {
+    "rank": 14,
+    "item_name": "Antifragile: Things That Gain from Disorder"
+  },
+  {
+    "rank": 15,
+    "item_name": "Aftershock: The Next Economy and America's Future"
+  },
+  {
+    "rank": 16,
+    "item_name": "Leaders Eat Last: Why Some Teams Pull Together and Others Don't"
+  },
+  {
+    "rank": 17,
+    "item_name": "Superforecasting: The Art and Science of Prediction"
+  },
+  {
+    "rank": 18,
+    "item_name": "Rework: Change The Way You Work Forever"
+  },
+  {
+    "rank": 19,
+    "item_name": "Naked Statistics: Stripping the Dread from the Data"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Medici Effect: What Elephants and Epidemics Can Teach Us About Innovation"
+  },
+  {
+    "rank": 21,
+    "item_name": "The 4-hour Workweek: Escape the 9-5, Live Anywhere and Join the New Rich"
+  },
+  {
+    "rank": 22,
+    "item_name": "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Talent Code: Greatness Isn't Born. It's Grown."
+  },
+  {
+    "rank": 24,
+    "item_name": "Do You Believe in Magic?: The Sense and Nonsense of Alternative Medicine"
+  },
+  {
+    "rank": 25,
+    "item_name": "Conscious Capitalism: Liberating the Heroic Spirit of Business"
+  },
+  {
+    "rank": 26,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 27,
+    "item_name": "How Successful People Think: Change Your Thinking, Change Your Life"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Upside of Irrationality: The Unexpected Benefits of Defying Logic"
+  },
+  {
+    "rank": 29,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Myths of Happiness: What Should Make You Happy, but Doesn't, What Shouldn't Make You Happy, but Does"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Working Poor: Invisible in America"
+  },
+  {
+    "rank": 32,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 33,
+    "item_name": "Sellout: The Politics of Racial Betrayal"
+  },
+  {
+    "rank": 34,
+    "item_name": "Rise of the Robots: Technology and the Threat of a Jobless Future"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Random Walk Down Wall Street: Including a Life-Cycle Guide to Personal Investing"
+  },
+  {
+    "rank": 36,
+    "item_name": "What Money Can't Buy: The Moral Limits of Markets"
+  },
+  {
+    "rank": 37,
+    "item_name": "Does This Mean You'll See Me Naked?: Field Notes from a Funeral Director"
+  },
+  {
+    "rank": 38,
+    "item_name": "Battling the Gods: Atheism in the Ancient World"
+  },
+  {
+    "rank": 39,
+    "item_name": "Victory of Reason"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Four: The Hidden DNA of Amazon, Apple, Facebook, and Google"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Crisis of Islam: Holy War and Unholy Terror"
+  },
+  {
+    "rank": 42,
+    "item_name": "Lords of Finance: 1929, The Great Depression, and the Bankers who Broke the World"
+  },
+  {
+    "rank": 43,
+    "item_name": "Ignore Everybody: And 39 Other Keys to Creativity"
+  },
+  {
+    "rank": 44,
+    "item_name": "A Demon of Our Own Design: Markets, Hedge Funds, and the Perils of Financial Innovation"
+  },
+  {
+    "rank": 45,
+    "item_name": "Basilica: The Splendor and the Scandal: Building St. Peter's"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Popes Against the Jews: The Vatican's Role in the Rise of Modern Anti-Semitism"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Antidote: Happiness for People Who Can't Stand Positive Thinking"
+  },
+  {
+    "rank": 48,
+    "item_name": "Denialism: How Irrational Thinking Harms the Planet and Threatens Our Lives"
+  },
+  {
+    "rank": 49,
+    "item_name": "Spycraft: The Secret History of the CIA's Spytechs, from Communism to Al-Qaeda"
+  },
+  {
+    "rank": 50,
+    "item_name": "Breakthrough: Elizabeth Hughes, the Discovery of Insulin, and the Making of a Medical Miracle"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Jesus Called &ndash; He Wants His Church Back: What Christians and the American Church are Missing"
+  },
+  {
+    "item_name": "The Library at Mount Char"
+  },
+  {
+    "item_name": "The 9 Arts of Spiritual Conversations: Walking alongside People Who Believe Differently"
+  },
+  {
+    "item_name": "The Art of People: 11 Simple People Skills That Will Get You Everything You Want"
+  },
+  {
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "item_name": "Curse (Blur Trilogy)"
+  },
+  {
+    "item_name": "There Will Be Stars"
+  },
+  {
+    "item_name": "Punderdome: A Card Game for Pun Lovers"
+  },
+  {
+    "item_name": "Star Trek/Planet of the Apes: The Primate Directive"
+  },
+  {
+    "item_name": "Skin"
+  },
+  {
+    "item_name": "Chase the Lion: If Your Dream Doesn't Scare You, It's Too Small"
+  },
+  {
+    "item_name": "Catalyst (Star Wars): A Rogue One Novel"
+  },
+  {
+    "item_name": "You're Saying It Wrong: A Pronunciation Guide to the 150 Most Commonly Mispronounced Words--and Their Tangled Histories of Misuse"
+  },
+  {
+    "item_name": "Brady vs Manning: The Untold Story of the Rivalry That Transformed the NFL"
+  },
+  {
+    "item_name": "The Returning (A Seer Novel)"
+  },
+  {
+    "item_name": "Meet Generation Z: Understanding and Reaching the New Post-Christian World"
+  },
+  {
+    "item_name": "The Way of the Dragon or the Way of the Lamb: Searching for Jesus Path of Power in a Church that Has Abandoned It"
+  },
+  {
+    "item_name": "Life After: A Novel"
+  },
+  {
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "item_name": "The Most Misused Stories in the Bible: Surprising Ways Popular Bible Stories Are Misunderstood"
+  },
+  {
+    "item_name": "Every Deadly Kiss (The Bowers Files)"
+  },
+  {
+    "item_name": "NIV, Kids' Visual Study Bible, Hardcover, Full Color Interior: Explore the Story of the Bible---People, Places, and History"
+  },
+  {
+    "item_name": "Whisper: How to Hear the Voice of God"
+  },
+  {
+    "item_name": "The Midnight Line: A Jack Reacher Novel"
+  },
+  {
+    "item_name": "Nyxia (The Nyxia Triad)"
+  },
+  {
+    "item_name": "The Master's Mind: The Art of Reshaping Your Thoughts"
+  },
+  {
+    "item_name": "The Sky Is Yours: A Novel"
+  },
+  {
+    "item_name": "Blessed Are the Misfits: Great News for Believers who are Introverts, Spiritual Strugglers, or Just Feel Like They're Missing Something"
+  },
+  {
+    "item_name": "Woman No. 17: A Novel"
+  },
+  {
+    "item_name": "Aftermath: Star Wars: Journey to Star Wars: The Force Awakens"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 2,
+    "item_name": "Purpose-driven Life [Paperback]  by Warren        , Rick"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Purpose Driven Life"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Final Summit: A Quest to Find the One Principle That Will Save Humanity"
+  },
+  {
+    "rank": 6,
+    "item_name": "Face of Betrayal (Triple Threat Series #1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Stitch in Crime: Quilts of Love Series"
+  },
+  {
+    "rank": 8,
+    "item_name": "Freedom's Stand"
+  },
+  {
+    "rank": 9,
+    "item_name": "Anchor in the Storm (Waves of Freedom)"
+  },
+  {
+    "rank": 10,
+    "item_name": "False Witness"
+  },
+  {
+    "rank": 11,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 12,
+    "item_name": "In the Dust of the Rabbi Discovery Guide: 5 Faith Lessons"
+  },
+  {
+    "rank": 13,
+    "item_name": "David and Goliath: Art of Battling Giants (A)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Cold-Case Christianity: A Homicide Detective Investigates the Claims of the Gospels"
+  },
+  {
+    "rank": 15,
+    "item_name": "Rooms: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "God Gave Us Love (God Gave Us Series)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Lit!: A Christian Guide to Reading Books"
+  },
+  {
+    "rank": 18,
+    "item_name": "Citizen: Your role in the alternative kingdom"
+  },
+  {
+    "rank": 19,
+    "item_name": "All is Grace"
+  },
+  {
+    "rank": 20,
+    "item_name": "Chasing Francis: A Pilgrim&rsquo;s Tale"
+  },
+  {
+    "rank": 21,
+    "item_name": "Christmas in Apple Ridge: Three-in-One Collection: The Sound of Sleigh Bells, The Christmas Singing, NEW! The Dawn of Christmas"
+  },
+  {
+    "rank": 22,
+    "item_name": "Kiss"
+  },
+  {
+    "rank": 23,
+    "item_name": "Dressed for Death (A Drew Farthering Mystery)"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Lever Long Enough"
+  },
+  {
+    "rank": 25,
+    "item_name": "One Month to Live: Thirty Days to a No-Regrets Life"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Case for a Creator"
+  },
+  {
+    "rank": 27,
+    "item_name": "Friend Me: A Novel of Suspense"
+  },
+  {
+    "rank": 28,
+    "item_name": "Nick of Time (Bug Man)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Slave: The Hidden Truth About Your Identity in Christ"
+  },
+  {
+    "rank": 30,
+    "item_name": "Home to Paradise: The Coming Home Series  Book 3"
+  },
+  {
+    "rank": 31,
+    "item_name": "Fearless: The Undaunted Courage and Ultimate Sacrifice of Navy SEAL Team SIX Operator Adam Brown"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Grandma's Attic Cookbook"
+  },
+  {
+    "rank": 33,
+    "item_name": "Frozen in Time: An Epic Story of Survival and a Modern Quest for Lost Heroes of World War II (P.S.)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Advocate"
+  },
+  {
+    "rank": 35,
+    "item_name": "Critical Condition"
+  },
+  {
+    "rank": 36,
+    "item_name": "Christ the Lord: Out of Egypt"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Pagan's Nightmare: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Dinner with a Perfect Stranger: An Invitation Worth Considering"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Soul of the Rose (Thorndike Press Large Print Clean Reads)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Stone of Destiny: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "Forsaken"
+  },
+  {
+    "rank": 42,
+    "item_name": "Critical Reaction: a novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Get Out of That Pit: Straight Talk about God's Deliverance"
+  },
+  {
+    "rank": 44,
+    "item_name": "Rachel: A Novel (Wives of the Patriarchs) (Volume 3)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Sacred Year: Mapping the Soulscape of Spiritual Practice -- How Contemplating Apples, Living in a Cave, and Befriending a Dying Woman Revived My Life"
+  },
+  {
+    "rank": 46,
+    "item_name": "Presumed Innocent: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Irreparable Harm"
+  },
+  {
+    "rank": 48,
+    "item_name": "Cold-Case Christianity for Kids: Investigate Jesus with a Real Detective"
+  },
+  {
+    "rank": 49,
+    "item_name": "Digitalis (Discarded Heroes, Book 2)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Code Blue (Prescription for Trouble, Book 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

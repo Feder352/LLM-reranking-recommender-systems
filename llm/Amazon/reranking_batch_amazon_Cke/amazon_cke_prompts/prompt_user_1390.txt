@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Man Who Mistook His Wife for a Hat (Picador)"
+  },
+  {
+    "item_name": "What If?: Serious Scientific Answers to Absurd Hypothetical Questions"
+  },
+  {
+    "item_name": "Food52 Genius Recipes: 100 Recipes That Will Change the Way You Cook"
+  },
+  {
+    "item_name": "It Starts With Food: Discover the Whole30 and Change Your Life in Unexpected Ways"
+  },
+  {
+    "item_name": "Miss Amelia Lands a Duke: The Caversham Chronicles - The Prequel Novella"
+  },
+  {
+    "item_name": "Saved by the Dragon (Loved by the Dragon) (Volume 1)"
+  },
+  {
+    "item_name": "Tales of Tinfoil: Stories of Paranoia and Conspiracy"
+  },
+  {
+    "item_name": "Star Wars: Heir to the Empire, 20th Anniversary Edition"
+  },
+  {
+    "item_name": "Heir To The Empire"
+  },
+  {
+    "item_name": "Nonsense: The Power of Not Knowing"
+  },
+  {
+    "item_name": "In a Different Key: The Story of Autism"
+  },
+  {
+    "item_name": "My Confection: Odyssey of a Sugar Addict"
+  },
+  {
+    "item_name": "Smarter Faster Better: The Secrets of Being Productive"
+  },
+  {
+    "item_name": "Morgue: A Life in Death"
+  },
+  {
+    "item_name": "In Memory of Bread: A Memoir"
+  },
+  {
+    "item_name": "Impossible to Ignore: Creating Memorable Content to Influence Decisions"
+  },
+  {
+    "item_name": "Dark Road Home: A Gin Sullivan Mystery"
+  },
+  {
+    "item_name": "Star Wars: The Last Command"
+  },
+  {
+    "item_name": "Cure: A Journey into the Science of Mind Over Body"
+  },
+  {
+    "item_name": "Find Your Extraordinary: Dream Bigger, Live Happier, and Achieve Success on Your Own Terms"
+  },
+  {
+    "item_name": "Modified: GMOs and the Threat to Our Food, Our Land, Our Future"
+  },
+  {
+    "item_name": "Drug Dealer, MD: How Doctors Were Duped, Patients Got Hooked, and Why Its So Hard to Stop"
+  },
+  {
+    "item_name": "Consider the Fork: A History of How We Cook and Eat"
+  },
+  {
+    "item_name": "Broth and Stock from the Nourished Kitchen: Wholesome Master Recipes for Bone, Vegetable, and Seafood Broths and Meals to Make with Them"
+  },
+  {
+    "item_name": "The Case Against Sugar"
+  },
+  {
+    "item_name": "The Undertaker's Daughter (The Family Secrets series)"
+  },
+  {
+    "item_name": "Drunks: An American History"
+  },
+  {
+    "item_name": "From Here to Security: How Workplace Savings Can Keep America's Promise"
+  },
+  {
+    "item_name": "The Physics of Everyday Things: The Extraordinary Science Behind an Ordinary Day"
+  },
+  {
+    "item_name": "Unstoppable: Harnessing Science to Change the World"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 221,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 2,
+    "item_id": 1517,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 3,
+    "item_id": 46,
+    "item_name": "Lost in Shangri-La: Escape from a Hidden World"
+  },
+  {
+    "rank": 4,
+    "item_id": 1552,
+    "item_name": "A Clash of Kings: A Song of Ice and Fire: Book Two"
+  },
+  {
+    "rank": 5,
+    "item_id": 1116,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 6,
+    "item_id": 730,
+    "item_name": "Time Traveler's Wife"
+  },
+  {
+    "rank": 7,
+    "item_id": 3546,
+    "item_name": "The Invention of Hugo Cabret"
+  },
+  {
+    "rank": 8,
+    "item_id": 1125,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 9,
+    "item_id": 44,
+    "item_name": "A Feast for Crows"
+  },
+  {
+    "rank": 10,
+    "item_id": 2411,
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "rank": 11,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 12,
+    "item_id": 1509,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 13,
+    "item_id": 322,
+    "item_name": "Smoke and Mirrors: Short Fictions and Illusions"
+  },
+  {
+    "rank": 14,
+    "item_id": 487,
+    "item_name": "Game Change: Obama and the Clintons, McCain and Palin, and the Race of a Lifetime"
+  },
+  {
+    "rank": 15,
+    "item_id": 2129,
+    "item_name": "The Shack"
+  },
+  {
+    "rank": 16,
+    "item_id": 3291,
+    "item_name": "Insane City"
+  },
+  {
+    "rank": 17,
+    "item_id": 1299,
+    "item_name": "Born to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never Seen"
+  },
+  {
+    "rank": 18,
+    "item_id": 1944,
+    "item_name": "The Terror: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_id": 2285,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 20,
+    "item_id": 1862,
+    "item_name": "The Eye of the World (The Wheel of Time, Book 1)"
+  },
+  {
+    "rank": 21,
+    "item_id": 1104,
+    "item_name": "Escape from Camp 14: One Man's Remarkable Odyssey from North Korea to Freedom in the West"
+  },
+  {
+    "rank": 22,
+    "item_id": 4240,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 23,
+    "item_id": 41,
+    "item_name": "Open: An Autobiography"
+  },
+  {
+    "rank": 24,
+    "item_id": 1698,
+    "item_name": "The World Without Us"
+  },
+  {
+    "rank": 25,
+    "item_id": 685,
+    "item_name": "Salt: A World History"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

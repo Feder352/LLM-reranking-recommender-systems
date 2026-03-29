@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Winston Churchill (Christian Encounters Series)"
+  },
+  {
+    "item_name": "Bye Bye, Miss American Empire: Neighborhood Patriots, Backcountry Rebels, and their Underdog Crusades to Redraw America's Political Map"
+  },
+  {
+    "item_name": "Hamlet's BlackBerry: Building a Good Life in the Digital Age"
+  },
+  {
+    "item_name": "William F. Buckley (Christian Encounters Series)"
+  },
+  {
+    "item_name": "A Small Furry Hope: Dog Rescue and the Meaning of Life"
+  },
+  {
+    "item_name": "The Revolutionary Paul Revere"
+  },
+  {
+    "item_name": "Flight from Monticello: Thomas Jefferson at War"
+  },
+  {
+    "item_name": "To End All Wars: How the First World War Divided Britain"
+  },
+  {
+    "item_name": "The Imperial Cruise: A Secret History of Empire and War"
+  },
+  {
+    "item_name": "Mr. Chartwell"
+  },
+  {
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "item_name": "Lost Kingdom: Hawaii's Last Queen, the Sugar Kings and America's First Imperial Adventure"
+  },
+  {
+    "item_name": "The Starboard Sea: A Novel"
+  },
+  {
+    "item_name": "The Mission Myth: Building Nonprofit Momentum Through Better Business"
+  },
+  {
+    "item_name": "Churchill Style: The Art of Being Winston Churchill"
+  },
+  {
+    "item_name": "The Year of the Gadfly"
+  },
+  {
+    "item_name": "Return of the Thin Man: Two never-before-published novellas featuring Nick &amp; Nora Charles"
+  },
+  {
+    "item_name": "Empire of the Summer Moon: Quanah Parker and the Rise and Fall of the Comanches, the Most Powerful Indian Tribe in American History"
+  },
+  {
+    "item_name": "Seduced by Secrets: Inside the Stasi's Spy-Tech World"
+  },
+  {
+    "item_name": "Wilson"
+  },
+  {
+    "item_name": "The King of Sports: Football's Impact on America"
+  },
+  {
+    "item_name": "Countrymen: The Untold Story of How Denmark's Jews Escaped the Nazis, of the Courage of Their Fellow Danes--and of the Extraordinary Role of the SS"
+  },
+  {
+    "item_name": "This Is Paradise: Stories"
+  },
+  {
+    "item_name": "The War That Ended Peace: The Road to 1914"
+  },
+  {
+    "item_name": "Fatal Enquiry: A Barker &amp; Llewelyn Novel"
+  },
+  {
+    "item_name": "Faithful Unto Death (A Sugar Land Mystery)"
+  },
+  {
+    "item_name": "Jet Set: The People, the Planes, the Glamour, and the Romance in Aviation's Glory Years"
+  },
+  {
+    "item_name": "One Man Against the World: The Tragedy of Richard Nixon"
+  },
+  {
+    "item_name": "Seattle Justice: The Rise and Fall of the Police Payoff System in Seattle"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 2,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Next 100 Years: A Forecast for the 21st Century"
+  },
+  {
+    "rank": 6,
+    "item_name": "Made to Stick: Why Some Ideas Take Hold and Others Come Unstuck"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 9,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 10,
+    "item_name": "Fooled By Randomness: The Hidden Role of Chance in Life and in the Markets"
+  },
+  {
+    "rank": 11,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 14,
+    "item_name": "Breakthrough: Elizabeth Hughes, the Discovery of Insulin, and the Making of a Medical Miracle"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Popes Against the Jews: The Vatican's Role in the Rise of Modern Anti-Semitism"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Medici Effect: What Elephants and Epidemics Can Teach Us About Innovation"
+  },
+  {
+    "rank": 18,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 19,
+    "item_name": "Islam : A Short History (Universal History)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 21,
+    "item_name": "Being A Dad: The Stuff No One Told Me"
+  },
+  {
+    "rank": 22,
+    "item_name": "My Grandfather's Son: A Memoir"
+  },
+  {
+    "rank": 23,
+    "item_name": "Empires of the Word: A Language History of the World"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Talent Code: Greatness Isn't Born. It's Grown."
+  },
+  {
+    "rank": 25,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 26,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 27,
+    "item_name": "March of the Penguins: Companion to the Major Motion Picture"
+  },
+  {
+    "rank": 28,
+    "item_name": "Justice: What's the Right Thing to Do?"
+  },
+  {
+    "rank": 29,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 30,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Future of Freedom: Illiberal Democracy at Home and Abroad"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Gettysburg Gospel: The Lincoln Speech That Nobody Knows (Simon &amp; Schuster Lincoln Library)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Comrades: Brothers, Fathers, Sons, Pals"
+  },
+  {
+    "rank": 34,
+    "item_name": "Victory of Reason"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Book of Vice: Very Naughty Things (and How to Do Them)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 37,
+    "item_name": "Darkness Visible"
+  },
+  {
+    "rank": 38,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 39,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 40,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Crisis of Islam: Holy War and Unholy Terror"
+  },
+  {
+    "rank": 42,
+    "item_name": "Fabric Of Reality (Penguin Science)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Trick or Treatment: The Undeniable Facts about Alternative Medicine"
+  },
+  {
+    "rank": 44,
+    "item_name": "Against Interpretation: And Other Essays"
+  },
+  {
+    "rank": 45,
+    "item_name": "Samuel Adams: Father of the American Revolution"
+  },
+  {
+    "rank": 46,
+    "item_name": "Overthrow: America's Century of Regime Change from Hawaii to Iraq"
+  },
+  {
+    "rank": 47,
+    "item_name": "Liberal Fascism: The Secret History of the Left from Mussolini to the Politics of Meaning"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Universe from Nothing: Why There Is Something Rather than Nothing"
+  },
+  {
+    "rank": 49,
+    "item_name": "At the Existentialist Caf: Freedom, Being, and Apricot Cocktails"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

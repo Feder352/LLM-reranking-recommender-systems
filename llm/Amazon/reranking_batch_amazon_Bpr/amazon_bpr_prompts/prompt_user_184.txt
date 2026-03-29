@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Patriot Threat: A Novel (Cotton Malone)"
+  },
+  {
+    "item_name": "Twelve Days (A John Wells Novel)"
+  },
+  {
+    "item_name": "White Plague (A Joe Rush Novel)"
+  },
+  {
+    "item_name": "Secrets of State"
+  },
+  {
+    "item_name": "Signal: A Sam Dryden Novel"
+  },
+  {
+    "item_name": "Intrusion (A Chris Bruen Novel)"
+  },
+  {
+    "item_name": "This Is How It Really Sounds: A Novel"
+  },
+  {
+    "item_name": "Seveneves"
+  },
+  {
+    "item_name": "Ghost Fleet: A Novel of the Next World War"
+  },
+  {
+    "item_name": "BULL MOUNTAIN"
+  },
+  {
+    "item_name": "Pinnacle Event: A Novel"
+  },
+  {
+    "item_name": "Private Vegas"
+  },
+  {
+    "item_name": "NYPD Red 3"
+  },
+  {
+    "item_name": "Shapeshifters"
+  },
+  {
+    "item_name": "Memory Man (Amos Decker series)"
+  },
+  {
+    "item_name": "The Fixer"
+  },
+  {
+    "item_name": "Zero World"
+  },
+  {
+    "item_name": "Protocol Zero (A Joe Rush Novel)"
+  },
+  {
+    "item_name": "Protocol Zero (A Joe Rush Novel Book 2) - Kindle edition"
+  },
+  {
+    "item_name": "Patriot: An Alex Hawke Novel (Alex Hawke Novels)"
+  },
+  {
+    "item_name": "The Lost Codex (OPSIG Team Black)"
+  },
+  {
+    "item_name": "The Mask"
+  },
+  {
+    "item_name": "Lonely Planet's Wild World"
+  },
+  {
+    "item_name": "The Wolves (A John Wells Novel)"
+  },
+  {
+    "item_name": "Shaker: A Thriller"
+  },
+  {
+    "item_name": "The Drifter (A Peter Ash Novel)"
+  },
+  {
+    "item_name": "Sunfail"
+  },
+  {
+    "item_name": "The God's Eye View"
+  },
+  {
+    "item_name": "Point of Control"
+  },
+  {
+    "item_name": "Beijing Red: A Thriller (A Nick Foley Thriller)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Enemy (Jack Reacher, No. 8)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Tripwire (Jack Reacher, No. 3)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Reversal (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Darkest Fear : A Myron Bolitar Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Persuader (Jack Reacher, No. 7)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Taken (Joe Pike)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Lost Light"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Professional"
+  },
+  {
+    "rank": 9,
+    "item_name": "Play to Kill"
+  },
+  {
+    "rank": 10,
+    "item_name": "Hollywood Moon: A Novel (Hollywood Station)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Bone Tree (Penn Cage)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Never Go Back: A Jack Reacher Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Hot Kid"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Fool's Run (Kidd)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Dark of the Moon (A Virgil Flowers Novel)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Mind Prey"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Last Man (Mitch Rapp)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Defector (Gabriel Allon Novels)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Rules of Prey"
+  },
+  {
+    "rank": 20,
+    "item_name": "Running Blind"
+  },
+  {
+    "rank": 21,
+    "item_name": "Shadow of Power: A Paul Madriani Novel (Paul Madriani Novels)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Black Echo (Harry Bosch)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Dark Lady"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Fallen"
+  },
+  {
+    "rank": 25,
+    "item_name": "Shrink Rap"
+  },
+  {
+    "rank": 26,
+    "item_name": "Supreme Justice: A Novel of Suspense (Dana Cutler Series)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Caught Stealing: A Novel (Henry Thompson)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Hot Springs (Earl Swagger)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Deadline (A Virgil Flowers Novel)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Bad Blood (Virgil Flowers)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Nine Dragons (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Silent Man (A John Wells Novel)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Gone"
+  },
+  {
+    "rank": 34,
+    "item_name": "Dead Wrong (Joanna Brady Mysteries, Book 12)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Below Zero (A Joe Pickett Novel)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Little Green: An Easy Rawlins Mystery (Easy Rawlins Mystery: Vintage Crime / Black Lizard)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Hidden Prey (Lucas Davenport Mysteries)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Nature Girl"
+  },
+  {
+    "rank": 39,
+    "item_name": "Airtight"
+  },
+  {
+    "rank": 40,
+    "item_name": "Spycatcher: A Will Cochrane Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "No Second Chance"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Midnight Line: A Jack Reacher Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Angels Flight (Harry Bosch)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Nowhere to Run"
+  },
+  {
+    "rank": 45,
+    "item_name": "Compulsion (Alex Delaware, No. 22)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Hard Way (Jack Reacher, No. 10"
+  },
+  {
+    "rank": 47,
+    "item_name": "Brimstone"
+  },
+  {
+    "rank": 48,
+    "item_name": "Chosen Prey"
+  },
+  {
+    "rank": 49,
+    "item_name": "City of Bones"
+  },
+  {
+    "rank": 50,
+    "item_name": "Long Lost (Myron Bolitar)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

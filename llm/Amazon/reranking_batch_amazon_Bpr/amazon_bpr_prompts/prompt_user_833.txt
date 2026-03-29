@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Baby Monkey, Private Eye"
+  },
+  {
+    "item_name": "Off the Deep End: A History of Madness at Sea"
+  },
+  {
+    "item_name": "Real Artists Don't Starve: Timeless Strategies for Thriving in the New Creative Age"
+  },
+  {
+    "item_name": "It's All Relative: Adventures Up and Down the World's Family Tree"
+  },
+  {
+    "item_name": "Death in the Air: The True Story of a Serial Killer, the Great London Smog, and the Strangling of a City"
+  },
+  {
+    "item_name": "A Christmas Return: A Novel"
+  },
+  {
+    "item_name": "The Letter"
+  },
+  {
+    "item_name": "The Memo: Five Rules for Your Economic Liberation"
+  },
+  {
+    "item_name": "Best American Travel Writing 2017 (The Best American Series )"
+  },
+  {
+    "item_name": "Daisy"
+  },
+  {
+    "item_name": "Crazy Like a Fox: A Novel (Sister Jane)"
+  },
+  {
+    "item_name": "A Season to Lie: A Detective Gemma Monroe Mystery (Detective Gemma Monroe Novels)"
+  },
+  {
+    "item_name": "Reach Out: The Simple Strategy You Need to Expand Your Network and Increase Your Influence"
+  },
+  {
+    "item_name": "I Will Find You: Solving Killer Cases from My Life Fighting Crime (Homicide Hunter)"
+  },
+  {
+    "item_name": "Beau Death (A Detective Peter Diamond Mystery)"
+  },
+  {
+    "item_name": "The Grave's a Fine and Private Place: A Flavia de Luce Novel"
+  },
+  {
+    "item_name": "A Time of Love and Tartan (44 Scotland Street Series)"
+  },
+  {
+    "item_name": "Rise and Grind: Outperform, Outwork, and Outhustle Your Way to a More Successful and Rewarding Life"
+  },
+  {
+    "item_name": "If Apples Had Teeth"
+  },
+  {
+    "item_name": "Kobane Calling: Greetings from Northern Syria"
+  },
+  {
+    "item_name": "Willpower Doesn't Work: Discover the Hidden Keys to Success"
+  },
+  {
+    "item_name": "Hoax: A History of Deception: 5,000 Years of Fakes, Forgeries, and Fallacies"
+  },
+  {
+    "item_name": "The Lover"
+  },
+  {
+    "item_name": "The Widows of Malabar Hill (A Mystery of 1920s India)"
+  },
+  {
+    "item_name": "Sparks!"
+  },
+  {
+    "item_name": "The King in Yellow and Other Horror Stories (Dover Mystery, Detective, &amp; Other Fiction)"
+  },
+  {
+    "item_name": "Blood Letters: The Untold Story of Lin Zhao, a Martyr in Mao's China"
+  },
+  {
+    "item_name": "Barracuda: A Novel"
+  },
+  {
+    "item_name": "The Perpetual Summer: A Chuck Restic Mystery (Chuck Restic Mysteries)"
+  },
+  {
+    "item_name": "Island of the Mad: A novel of suspense featuring Mary Russell and Sherlock Holmes"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Oregon Trail: A New American Journey"
+  },
+  {
+    "rank": 3,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "On Paper: The Everything of Its Two-Thousand-Year History (ALA Notable Books for Adults)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 6,
+    "item_name": "Shylock is My Name"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Color Master"
+  },
+  {
+    "rank": 8,
+    "item_name": "Mad Richard"
+  },
+  {
+    "rank": 9,
+    "item_name": "Against the Country"
+  },
+  {
+    "rank": 10,
+    "item_name": "At the Existentialist Caf: Freedom, Being, and Apricot Cocktails"
+  },
+  {
+    "rank": 11,
+    "item_name": "Fire Shut Up in My Bones"
+  },
+  {
+    "rank": 12,
+    "item_name": "White Houses: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Thirty Girls"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Geography of Genius: A Search for the World's Most Creative Places from Ancient Athens to Silicon Valley"
+  },
+  {
+    "rank": 15,
+    "item_name": "Mycroft Holmes"
+  },
+  {
+    "rank": 16,
+    "item_name": "Dog Trouble!"
+  },
+  {
+    "rank": 17,
+    "item_name": "Pilgrim's Wilderness: A True Story of Faith and Madness on the Alaska Frontier"
+  },
+  {
+    "rank": 18,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Other Language"
+  },
+  {
+    "rank": 20,
+    "item_name": "Visiting Tom: A Man, a Highway, and the Road to Roughneck Grace"
+  },
+  {
+    "rank": 21,
+    "item_name": "Long Man: A novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Mushroom Hunters: On the Trail of an Underground America"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Fly Trap"
+  },
+  {
+    "rank": 24,
+    "item_name": "City of Secrets: A Novel - Kindle edition"
+  },
+  {
+    "rank": 25,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Girl With Nine Wigs: A Memoir"
+  },
+  {
+    "rank": 27,
+    "item_name": "Miss Anne in Harlem: The White Women of the Black Renaissance"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Widower's Tale: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "This Is the Story of a Happy Marriage"
+  },
+  {
+    "rank": 30,
+    "item_name": "Mr. Lynch's Holiday: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "Victoria: The Queen: An Intimate Biography of the Woman who Ruled an Empire"
+  },
+  {
+    "rank": 32,
+    "item_name": "Stories from the Kitchen (Everyman's Library Pocket Classics Series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Five Star Billionaire: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Stop the Presses! (The Nero Wolfe Mysteries)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Summer Before the War: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Heat of the Sun: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Wish You Were Here"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Mistresses of Cliveden: Three Centuries of Scandal, Power and Intrigue in an English Stately Home"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Making of Home: The 500-Year Story of How Our Houses Became Our Homes"
+  },
+  {
+    "rank": 40,
+    "item_name": "Beautiful Souls: Saying No, Breaking Ranks, and Heeding the Voice of Conscience in Dark Times"
+  },
+  {
+    "rank": 41,
+    "item_name": "A Partial History of Lost Causes: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "Idaho"
+  },
+  {
+    "rank": 43,
+    "item_name": "Days of Rage: America's Radical Underground, the FBI, and the Forgotten Age of Revolutionary Violence"
+  },
+  {
+    "rank": 44,
+    "item_name": "I Left It on the Mountain: A Memoir"
+  },
+  {
+    "rank": 45,
+    "item_name": "1946: The Making of the Modern World"
+  },
+  {
+    "rank": 46,
+    "item_name": "What Happened to Goldman Sachs: An Insider's Story of Organizational Drift and Its Unintended Consequences"
+  },
+  {
+    "rank": 47,
+    "item_name": "Law of the Jungle: The $19 Billion Legal Battle Over Oil in the Rain Forest and the Lawyer Who'd Stop at Nothing to Win"
+  },
+  {
+    "rank": 48,
+    "item_name": "In Wartime: Stories from Ukraine"
+  },
+  {
+    "rank": 49,
+    "item_name": "In the Valley of the Sun: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Heart Healers: The Misfits, Mavericks, and Rebels Who Created the Greatest Medical Breakthrough of Our Lives"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

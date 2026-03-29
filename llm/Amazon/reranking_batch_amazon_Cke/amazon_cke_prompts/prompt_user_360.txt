@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Careless People: Murder, Mayhem, and the Invention of The Great Gatsby"
+  },
+  {
+    "item_name": "Andy and Don: The Making of a Friendship and a Classic American TV Show"
+  },
+  {
+    "item_name": "The Earth Is Weeping: The Epic Story of the Indian Wars for the American West"
+  },
+  {
+    "item_name": "Defying the Nazis: The Sharps' War"
+  },
+  {
+    "item_name": "The Family Romanov: Murder, Rebellion, and the Fall of Imperial Russia (Orbis Pictus Award for Outstanding Nonfiction for Children (Awards))"
+  },
+  {
+    "item_name": "Wilson"
+  },
+  {
+    "item_name": "The Tunnels: Escapes Under the Berlin Wall and the Historic Films the JFK White House Tried to Kill (Random House Large Print)"
+  },
+  {
+    "item_name": "Four Sisters: The Lost Lives of the Romanov Grand Duchesses"
+  },
+  {
+    "item_name": "The Baseball Whisperer: A Small-Town Coach Who Shaped Big League Dreams"
+  },
+  {
+    "item_name": "Arnie: The Life of Arnold Palmer"
+  },
+  {
+    "item_name": "One Minute to Midnight: Kennedy, Khrushchev, and Castro on the Brink of Nuclear War"
+  },
+  {
+    "item_name": "The Kennedy Detail: JFK's Secret Service Agents Break Their Silence"
+  },
+  {
+    "item_name": "Any Day Now (Sullivan's Crossing)"
+  },
+  {
+    "item_name": "The Men Who United the States: America's Explorers, Inventors, Eccentrics, and Mavericks, and the Creation of One Nation, Indivisible"
+  },
+  {
+    "item_name": "One Man Against the World: The Tragedy of Richard Nixon"
+  },
+  {
+    "item_name": "Nicholas and Alexandra: The Classic Account of the Fall of the Romanov Dynasty"
+  },
+  {
+    "item_name": "My Fellow Soldiers: General John Pershing and the Americans Who Helped Win the Great War"
+  },
+  {
+    "item_name": "Atlantic: A Vast Ocean of a Million Stories"
+  },
+  {
+    "item_name": "Any Dream Will Do: A Novel"
+  },
+  {
+    "item_name": "Fairytale: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "Renegade: Martin Luther, The Graphic Biography"
+  },
+  {
+    "item_name": "A Force So Swift: Mao, Truman, and the Birth of Modern China, 1949"
+  },
+  {
+    "item_name": "Pride &amp; Prejudice (Collins Classics)"
+  },
+  {
+    "item_name": "Last Hope Island: Britain, Occupied Europe, and the Brotherhood That Helped Turn the Tide of War"
+  },
+  {
+    "item_name": "The Immortal Irishman: The Irish Revolutionary Who Became an American Hero"
+  },
+  {
+    "item_name": "Alexander Hamilton"
+  },
+  {
+    "item_name": "Moses [Large Print]: In the Footsteps of the Reluctant Prophet (Moses Series)"
+  },
+  {
+    "item_name": "The Making of the President 1964"
+  },
+  {
+    "item_name": "A Season in the Sun: The Rise of Mickey Mantle"
+  },
+  {
+    "item_name": "Unwrapping the Names of Jesus: An Advent Devotional"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5289,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 2,
+    "item_id": 5297,
+    "item_name": "Killing Kennedy: The End of Camelot"
+  },
+  {
+    "rank": 3,
+    "item_id": 451,
+    "item_name": "The Way of the World: A Story of Truth and Hope in an Age of Extremism"
+  },
+  {
+    "rank": 4,
+    "item_id": 5711,
+    "item_name": "Champlain's Dream"
+  },
+  {
+    "rank": 5,
+    "item_id": 4714,
+    "item_name": "1491: New Revelations of the Americas Before Columbus"
+  },
+  {
+    "rank": 6,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 7,
+    "item_id": 2664,
+    "item_name": "The Passage of Power: The Years of Lyndon Johnson, Vol. IV"
+  },
+  {
+    "rank": 8,
+    "item_id": 4136,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 9,
+    "item_id": 3742,
+    "item_name": "Hitch-22: A Memoir"
+  },
+  {
+    "rank": 10,
+    "item_id": 2019,
+    "item_name": "A Terrible Glory: Custer and the Little Bighorn - the Last Great Battle of the American West"
+  },
+  {
+    "rank": 11,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 12,
+    "item_id": 2279,
+    "item_name": "Under and Alone: The True Story of the Undercover Agent Who Infiltrated America's Most Violent Outlaw Motorcycle Gang"
+  },
+  {
+    "rank": 13,
+    "item_id": 396,
+    "item_name": "Amazing Grace: William Wilberforce and the Heroic Campaign to End Slavery"
+  },
+  {
+    "rank": 14,
+    "item_id": 1417,
+    "item_name": "Legacy of Ashes: The History of the CIA"
+  },
+  {
+    "rank": 15,
+    "item_id": 5606,
+    "item_name": "Culture of Corruption: Obama and His Team of Tax Cheats, Crooks, and Cronies"
+  },
+  {
+    "rank": 16,
+    "item_id": 5304,
+    "item_name": "My Lunches with Orson: Conversations between Henry Jaglom and Orson Welles"
+  },
+  {
+    "rank": 17,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 18,
+    "item_id": 5343,
+    "item_name": "Plain, Honest Men: The Making of the American Constitution"
+  },
+  {
+    "rank": 19,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 20,
+    "item_id": 5174,
+    "item_name": "America Alone: The End of the World As We Know It"
+  },
+  {
+    "rank": 21,
+    "item_id": 4144,
+    "item_name": "The Tsar's Last Armada"
+  },
+  {
+    "rank": 22,
+    "item_id": 2528,
+    "item_name": "Churchill: A Biography"
+  },
+  {
+    "rank": 23,
+    "item_id": 136,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 24,
+    "item_id": 5368,
+    "item_name": "Blood on the Moon: The Assassination of Abraham Lincoln"
+  },
+  {
+    "rank": 25,
+    "item_id": 2972,
+    "item_name": "Every Man in This Village is a Liar: An Education in War"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

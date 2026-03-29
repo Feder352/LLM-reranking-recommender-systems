@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Ghost: Lords of Carnage MC"
+  },
+  {
+    "item_name": "Not Quite Perfect"
+  },
+  {
+    "item_name": "The Billionaire's Dance: Billionaire Bachelors"
+  },
+  {
+    "item_name": "Long and Lost (The Bewitching Hour) (Volume 3)"
+  },
+  {
+    "item_name": "A Little Wicked (Bewitching Hour) (Volume 4)"
+  },
+  {
+    "item_name": "Raise Hell (The Bewitching Hour) (Volume 5)"
+  },
+  {
+    "item_name": "Not Quite Crazy"
+  },
+  {
+    "item_name": "Hawk: Lords of Carnage MC (Volume 2)"
+  },
+  {
+    "item_name": "The Billionaire's Marriage Proposal: Billionaire Bachelors (Volume 4)"
+  },
+  {
+    "item_name": "Brick: Lords of Carnage MC (Volume 3)"
+  },
+  {
+    "item_name": "The Sometimes Sisters"
+  },
+  {
+    "item_name": "Blackmailing the Billionaire: Billionaire Bachelors (Volume 5)"
+  },
+  {
+    "item_name": "Runaway Heiress: Billionaire Bachelors (Volume 6)"
+  },
+  {
+    "item_name": "The Maiden"
+  },
+  {
+    "item_name": "The Billionaire's Final Stand (Billionaire Bachelors)"
+  },
+  {
+    "item_name": "The Strawberry Hearts Diner"
+  },
+  {
+    "item_name": "Hidden Treasure (The Lost Andersons) (Volume 2)"
+  },
+  {
+    "item_name": "Stone Rules: A Stone Brothers novel"
+  },
+  {
+    "item_name": "Stone Promises: A Stone Brothers Novel"
+  },
+  {
+    "item_name": "Life After Wife (A Three Magic Words Romance)"
+  },
+  {
+    "item_name": "Amber (Red Hot Love)"
+  },
+  {
+    "item_name": "Trouble in Paradise"
+  },
+  {
+    "item_name": "Hardheaded (Deep in the Heart)"
+  },
+  {
+    "item_name": "Catching Caden"
+  },
+  {
+    "item_name": "Priceless Treasure (The Lost Andersons) (Volume 4)"
+  },
+  {
+    "item_name": "Lily's White Lace (Avalon Romance)"
+  },
+  {
+    "item_name": "Softhearted (Deep in the Heart)"
+  },
+  {
+    "item_name": "The Prophet (The Cloister) (Volume 2)"
+  },
+  {
+    "item_name": "The Ultimate Treasure (The Lost Andersons) (Volume 5)"
+  },
+  {
+    "item_name": "Only a Millionaire: A Sinclair Novella (The Sinclairs)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Up to the Challenge (An Anchor Island Novel)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Navy SEAL's E-Mail Order Bride (Heroes of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Crazy Little Thing (A Bell Harbor Novel)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Protecting Caroline (SEAL of Protection) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Christmas at Copper Mountain (Taming of the Sheenans) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Kidnapped: A Romantic Suspense Novel (Edgars Family)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Almost A Bride (Wyoming Wildflowers)"
+  },
+  {
+    "rank": 8,
+    "item_name": "At Wolf Ranch: A Montana Men Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Cowgirl Ropes a Billionaire (Cowboys of Chance Creek) (Volume 4)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Look of Love (The Sullivans)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Wyoming Tough"
+  },
+  {
+    "rank": 12,
+    "item_name": "Fire and Ice: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "rank": 14,
+    "item_name": "Dare to Love"
+  },
+  {
+    "rank": 15,
+    "item_name": "Jagged (Colorado Mountain)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Doctor's Secret Bride (Billionaire Brides of Granite Falls) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Barefoot in White (The Barefoot Bay Series)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Billionaire's Marriage Proposal: Billionaire Bachelors (Volume 4)"
+  },
+  {
+    "rank": 19,
+    "item_name": "No Exchanges, No Returns: Book Four of The Return To Redemption Series (Volume 4)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Neanderthal Seeks Human: A Smart Romance (Knitting in the City) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Cowboy's E-Mail Order Bride (Cowboys of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Unexpected Gifts: Castle Mountain Lodge Series"
+  },
+  {
+    "rank": 23,
+    "item_name": "Waking Up Married (Mills &amp; Boon Hardback Romance)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Protecting Fiona (SEAL of Protection) (Volume 3)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Reaper's Property (Ellora's Cave Moderne)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Fatal Affair: Book One of the Fatal Series: One Night with You"
+  },
+  {
+    "rank": 27,
+    "item_name": "Treasured by Thursday (Weekday Brides)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Deathscape (Broslin Creek) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Hold On My Heart"
+  },
+  {
+    "rank": 30,
+    "item_name": "Seduced by Sunday (Weekday Brides)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Bedding The Wrong Brother (Bedding The Bachelors)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Sugar Daddy"
+  },
+  {
+    "rank": 33,
+    "item_name": "Dare to Surrender (NY Dares) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Dangerous Waters (The Barkley Sound Series)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Father Found (The Daddy School, Book 1) (Harlequin Superromance, No 763)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Chosen for Power (Women of Power Series) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Just One Kiss (Fool's Gold, Book 11)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Nora Roberts Land (Dare Valley)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Dare to Desire (Dare to Love) (Volume 2)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Secrets on the Sand (The Barefoot Bay Series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Married by Monday (Weekday Brides)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Everything We Keep: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "First Do No Evil (Blood Secrets)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Fianc&eacute; by Friday (Weekday Brides Series)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Her Heart for the Asking"
+  },
+  {
+    "rank": 46,
+    "item_name": "Wife by Wednesday (Weekday Brides)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Taken by Tuesday (Weekday Brides)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Forged in Fire (A Red-Hot SEALs Novel)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Forbidden Billionaire (The Sinclairs)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Perfect"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

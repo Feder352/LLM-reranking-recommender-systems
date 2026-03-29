@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Survivalist (Anarchy Rising)"
+  },
+  {
+    "item_name": "1,001 ASVAB Practice Questions For Dummies (+ Free Online Practice)"
+  },
+  {
+    "item_name": "In Meat We Trust: An Unexpected History of Carnivore America"
+  },
+  {
+    "item_name": "Ex-Purgatory (Ex-Heroes)"
+  },
+  {
+    "item_name": "The Survivalist (Judgment Day)"
+  },
+  {
+    "item_name": "Archery: Steps to Success"
+  },
+  {
+    "item_name": "Business Plans Kit For Dummies"
+  },
+  {
+    "item_name": "Terms of Enlistment (Frontlines)"
+  },
+  {
+    "item_name": "Lines of Departure (Frontlines)"
+  },
+  {
+    "item_name": "The Cusanus Game"
+  },
+  {
+    "item_name": "There Will Be Bears"
+  },
+  {
+    "item_name": "Dreamtreaders"
+  },
+  {
+    "item_name": "American Craftsmen: A Novel (American Craft Series)"
+  },
+  {
+    "item_name": "The Survivalist (Madness Rules)"
+  },
+  {
+    "item_name": "Lonely Planet Discover USA (Travel Guide)"
+  },
+  {
+    "item_name": "Barbarian Lord"
+  },
+  {
+    "item_name": "Affordable Care Act For Dummies (For Dummies Series)"
+  },
+  {
+    "item_name": "The Clockwork Dagger: A Novel (A Clockwork Dagger Novel)"
+  },
+  {
+    "item_name": "The Blonde"
+  },
+  {
+    "item_name": "The Sensory Deception"
+  },
+  {
+    "item_name": "Blood and Ashes (Joe Hunter Novels)"
+  },
+  {
+    "item_name": "The Russian Endgame (A Craig Page Thriller)"
+  },
+  {
+    "item_name": "The Secrets of Life and Death"
+  },
+  {
+    "item_name": "Out of Range: A Novel"
+  },
+  {
+    "item_name": "Seveneves"
+  },
+  {
+    "item_name": "Lonely Planet Pocket Orlando &amp; Walt Disney World&reg; Resort (Travel Guide)"
+  },
+  {
+    "item_name": "Tomorrow War: The Chronicles of Max [Redacted]"
+  },
+  {
+    "item_name": "Pearl Harbor: 75 Years Later: A Day of Infamy and Its Legacy"
+  },
+  {
+    "item_name": "How to Draw Cool Stuff: Shading, Textures and Optical Illusions"
+  },
+  {
+    "item_name": "Captain Cuttle's Mailbag: History, Folklore, and Victorian Pedantry from the Pages of Notes and Queries"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 2,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 3,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Under the Dome"
+  },
+  {
+    "rank": 6,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 10,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Book of Three (Pyrdain Chronicles)"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 14,
+    "item_name": "Battleship: A Daring Heiress, a Teenage Jockey, and America's Horse"
+  },
+  {
+    "rank": 15,
+    "item_name": "Dune"
+  },
+  {
+    "rank": 16,
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "rank": 17,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Amber Spyglass"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Wolf Gift (The Wolf Gift Chronicles)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 24,
+    "item_name": "Treasure Island (Penguin Classics)"
+  },
+  {
+    "rank": 25,
+    "item_name": "A Princess of Mars (Penguin Classics)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Northern Lights: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Mr. Mercedes"
+  },
+  {
+    "rank": 28,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 29,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 30,
+    "item_name": "Crucible of Gold (Temeraire)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Stranger in a Strange Land (Penguin Galaxy)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Golden Fool"
+  },
+  {
+    "rank": 33,
+    "item_name": "Over the Hedge"
+  },
+  {
+    "rank": 34,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Golden Fool (Tawny Man)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Beowulf: A New Verse Translation"
+  },
+  {
+    "rank": 37,
+    "item_name": "Supernatural and Philosophy: Metaphysics and Monsters ... for Idjits"
+  },
+  {
+    "rank": 38,
+    "item_name": "Pawn's Gambit: And Other Stratagems"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Last Unicorn"
+  },
+  {
+    "rank": 40,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 41,
+    "item_name": "Jonathan Strange and Mr. Norrell"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Casual Vacancy"
+  },
+  {
+    "rank": 43,
+    "item_name": "Enter the Saint"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Saint Closes the Case"
+  },
+  {
+    "rank": 45,
+    "item_name": "Star Wars: The Old Republic - Fatal Alliance"
+  },
+  {
+    "rank": 46,
+    "item_name": "Stranger in a Strange Land"
+  },
+  {
+    "rank": 47,
+    "item_name": "RANGO (RENTAL READY)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Leaders of Their Own Learning: Transforming Schools Through Student-Engaged Assessment"
+  },
+  {
+    "rank": 49,
+    "item_name": "Ancient Shores"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Windup Girl"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Only Time Will Tell"
+  },
+  {
+    "item_name": "A is for Alibi (Kinsey Millhone Alphabet Mysteries, No. 1)"
+  },
+  {
+    "item_name": "B is for Burglar (Kinsey Millhone Alphabet Mysteries, No. 2)"
+  },
+  {
+    "item_name": "E is for Evidence (The Kinsey Millhone Alphabet Mysteries)"
+  },
+  {
+    "item_name": "C Is for Corpse: A Kinsey Millhone Mystery (Kinsey Millhone Alphabet Mysteries)"
+  },
+  {
+    "item_name": "The Absolutely True Diary of a Part-Time Indian"
+  },
+  {
+    "item_name": "City of Saints &amp; Thieves"
+  },
+  {
+    "item_name": "The Fifth Petal"
+  },
+  {
+    "item_name": "Alight: Book Two of the Generations Trilogy"
+  },
+  {
+    "item_name": "The Impossible Fortress"
+  },
+  {
+    "item_name": "Playing with Fire"
+  },
+  {
+    "item_name": "The Lonely Hearts Hotel: A Novel"
+  },
+  {
+    "item_name": "The Darkest Minds (Bonus Content) (A Darkest Minds Novel)"
+  },
+  {
+    "item_name": "Code Name Verity"
+  },
+  {
+    "item_name": "Throne of Glass"
+  },
+  {
+    "item_name": "Hamilton: The Revolution"
+  },
+  {
+    "item_name": "Passenger"
+  },
+  {
+    "item_name": "The League of Regrettable Superheroes: Half-Baked Heroes from Comic Book History"
+  },
+  {
+    "item_name": "Lumberjanes Vol. 1: Beware The Kitten Holy"
+  },
+  {
+    "item_name": "Of Mice and Men"
+  },
+  {
+    "item_name": "The Wonder Trail: True Stories from Los Angeles to the End of the World"
+  },
+  {
+    "item_name": "Anita Blake, Vampire Hunter: The First Death"
+  },
+  {
+    "item_name": "F is for Fugitive: A Kinsey Millhone Mystery (Kinsey Millhone Alphabet Mysteries)"
+  },
+  {
+    "item_name": "Real Murders (Aurora Teagarden Mysteries, Book 1)"
+  },
+  {
+    "item_name": "A Bone to Pick (Aurora Teagarden Mysteries, Book 2)"
+  },
+  {
+    "item_name": "Waking Gods: Themis Files Book 2"
+  },
+  {
+    "item_name": "Britt-marie Was Here (Thorndike Core)"
+  },
+  {
+    "item_name": "Flame in the Mist"
+  },
+  {
+    "item_name": "Auntie Poldi and the Sicilian Lions (An Auntie Poldi Adventure)"
+  },
+  {
+    "item_name": "Leave No Trace: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 3,
+    "item_name": "Fangirl"
+  },
+  {
+    "rank": 4,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 5,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 6,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 7,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 9,
+    "item_name": "Matched"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Perks Of Being A Wallflower (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Mockingjay: The Hunger Games"
+  },
+  {
+    "rank": 13,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 14,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Wither (Chemical Garden)"
+  },
+  {
+    "rank": 16,
+    "item_name": "City of Bones (The Mortal Instruments)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Fallen"
+  },
+  {
+    "rank": 18,
+    "item_name": "Daughter of Smoke &amp; Bone"
+  },
+  {
+    "rank": 19,
+    "item_name": "Clockwork Angel"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Host"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Night Circus (Vintage Magic)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Giver (Collins Modern Classics)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Austenland: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Days of Blood &amp; Starlight"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Cuckoo's Calling (Cormoran Strike)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 27,
+    "item_name": "Shadow and Bone (Grisha Trilogy)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Everything, Everything"
+  },
+  {
+    "rank": 29,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Under the Never Sky"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Hunger Games (Book 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Golem and the Jinni: A Novel (P.S.)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Code Name Verity"
+  },
+  {
+    "rank": 34,
+    "item_name": "Scarlet (Lunar Chronicles, Book 2)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Pivot Point"
+  },
+  {
+    "rank": 36,
+    "item_name": "Dreams of Gods &amp; Monsters (Daughter of Smoke &amp; Bone)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Winner's Curse (The Winner's Trilogy)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Graveyard Book"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Knife of Never Letting Go: Chaos Walking: Book One"
+  },
+  {
+    "rank": 40,
+    "item_name": "Ruby Red (The Ruby Red Trilogy)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Partials. by Dan Wells"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Geography of You and Me"
+  },
+  {
+    "rank": 43,
+    "item_name": "City of Glass (The Mortal Instruments)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 45,
+    "item_name": "Crossed (Matched)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Testing"
+  },
+  {
+    "rank": 47,
+    "item_name": "Hush, Hush"
+  },
+  {
+    "rank": 48,
+    "item_name": "Life After Life: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Dark Places"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Iron King"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

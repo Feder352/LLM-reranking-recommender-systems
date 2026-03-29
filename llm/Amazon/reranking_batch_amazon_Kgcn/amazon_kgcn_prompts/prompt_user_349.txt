@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Judge Dredd: The Complete Case Files 07"
+  },
+  {
+    "item_name": "Pathfinder Roleplaying Game: Beginner Box"
+  },
+  {
+    "item_name": "Queen Emeraldas 1"
+  },
+  {
+    "item_name": "Superman: American Alien"
+  },
+  {
+    "item_name": "Wonder Woman: The True Amazon"
+  },
+  {
+    "item_name": "365 Things to Do with LEGO Bricks: Lego Fun Every Day of the Year"
+  },
+  {
+    "item_name": "Moebius Library: The World of Edena"
+  },
+  {
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "item_name": "Sharks! (Animal Planet Chapter Books #1) (Volume 1) (Animal Planet Chapter Books (Volume 1))"
+  },
+  {
+    "item_name": "Dr. Jekyll and Mr. Hyde and Other Stories"
+  },
+  {
+    "item_name": "DC Universe: Rebirth Deluxe Edition"
+  },
+  {
+    "item_name": "Dinosaurs! (Animal Planet Chapter Books #2) (Volume 2) (Animal Planet Chapter Books (Volume 2))"
+  },
+  {
+    "item_name": "Attack on Titan Anthology"
+  },
+  {
+    "item_name": "Green Arrow Vol. 1: The Death and Life Of Oliver Queen (Rebirth)"
+  },
+  {
+    "item_name": "JSA: The Golden Age (JSA (Justice Society of America) (Graphic Novels))"
+  },
+  {
+    "item_name": "Doom Patrol Vol. 1: Brick by Brick (Young Animal)"
+  },
+  {
+    "item_name": "Wonder Woman Vol. 1: The Lies (Rebirth) (Wonder Woman DC Universe Rebirth)"
+  },
+  {
+    "item_name": "Cave Carson Has a Cybernetic Eye Vol. 1: Going Underground (Young Animal)"
+  },
+  {
+    "item_name": "Mother Panic Vol. 1: A Work in Progress (Young Animal)"
+  },
+  {
+    "item_name": "Shade the Changing Girl Vol. 1: Earth Girl Made Easy (Young Animal)"
+  },
+  {
+    "item_name": "New Super-Man Vol. 1: Made In China (Rebirth)"
+  },
+  {
+    "item_name": "Appleseed Alpha"
+  },
+  {
+    "item_name": "Garbage Night"
+  },
+  {
+    "item_name": "Hilda and the Black Hound: Book 4 (Hildafolk)"
+  },
+  {
+    "item_name": "Waltz of the Snowflakes"
+  },
+  {
+    "item_name": "Batman/The Flash: The Button Deluxe Edition"
+  },
+  {
+    "item_name": "Tom Swift and the Cosmic Astronauts (Tom Swift Jr. Adventures, 16)"
+  },
+  {
+    "item_name": "Tom Swift in the Race to the Moon (The New Tom Swift Jr. Adventures, Series No. 12)"
+  },
+  {
+    "item_name": "Green Lantern: Earth One Vol. 1"
+  },
+  {
+    "item_name": "Dark Nights: Metal: Deluxe Edition"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2914,
+    "item_name": "Papal Sin: Structures of Deceit"
+  },
+  {
+    "rank": 2,
+    "item_id": 2174,
+    "item_name": "The Demon-Haunted World: Science as a Candle in the Dark"
+  },
+  {
+    "rank": 3,
+    "item_id": 4140,
+    "item_name": "The Pleasure of Finding Things Out: The Best Short Works of Richard P. Feynman (Helix Books)"
+  },
+  {
+    "rank": 4,
+    "item_id": 838,
+    "item_name": "City of God (Penguin Classics)"
+  },
+  {
+    "rank": 5,
+    "item_id": 5234,
+    "item_name": "The Long Emergency: Surviving the End of Oil, Climate Change, and Other Converging Catastrophes of the Twenty-First Cent"
+  },
+  {
+    "rank": 6,
+    "item_id": 799,
+    "item_name": "Without a Doubt"
+  },
+  {
+    "rank": 7,
+    "item_id": 2167,
+    "item_name": "Why Do Catholics Do That?: A Guide to the Teachings and Practices of the Catholic Church"
+  },
+  {
+    "rank": 8,
+    "item_id": 4252,
+    "item_name": "Are We Rome?: The Fall of an Empire and the Fate of America"
+  },
+  {
+    "rank": 9,
+    "item_id": 4475,
+    "item_name": "China Shakes the World: A Titan's Rise and Troubled Future -- and the Challenge for America"
+  },
+  {
+    "rank": 10,
+    "item_id": 4672,
+    "item_name": "On Bullshit"
+  },
+  {
+    "rank": 11,
+    "item_id": 5180,
+    "item_name": "Anatomy of Greed: The Unshredded Truth from an Enron Insider"
+  },
+  {
+    "rank": 12,
+    "item_id": 4518,
+    "item_name": "The Lessons of History"
+  },
+  {
+    "rank": 13,
+    "item_id": 3855,
+    "item_name": "The Richest Man in Babylon"
+  },
+  {
+    "rank": 14,
+    "item_id": 5587,
+    "item_name": "Dark Age Ahead"
+  },
+  {
+    "rank": 15,
+    "item_id": 52,
+    "item_name": "The End of History and the Last Man"
+  },
+  {
+    "rank": 16,
+    "item_id": 4130,
+    "item_name": "Catching Fire: How Cooking Made Us Human"
+  },
+  {
+    "rank": 17,
+    "item_id": 3068,
+    "item_name": "The Three Trillion Dollar War: The True Cost of the Iraq Conflict"
+  },
+  {
+    "rank": 18,
+    "item_id": 852,
+    "item_name": "The Smartest Guys in the Room: The Amazing Rise and Scandalous Fall of Enron"
+  },
+  {
+    "rank": 19,
+    "item_id": 1068,
+    "item_name": "Wired for War: The Robotics Revolution and Conflict in the 21st Century"
+  },
+  {
+    "rank": 20,
+    "item_id": 4109,
+    "item_name": "The Savage Nation: Saving America from the Liberal Assault on Our Borders, Language, and Culture"
+  },
+  {
+    "rank": 21,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 22,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 23,
+    "item_id": 25,
+    "item_name": "Trilobite"
+  },
+  {
+    "rank": 24,
+    "item_id": 4680,
+    "item_name": "Why People Believe Weird Things: Pseudoscience, Superstition, and Other Confusions of Our Time"
+  },
+  {
+    "rank": 25,
+    "item_id": 213,
+    "item_name": "How Soccer Explains the World"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Spying in High Heels"
+  },
+  {
+    "item_name": "The Body in the Attic: A Faith Fairchild Mystery (Faith Fairchild Mysteries)"
+  },
+  {
+    "item_name": "Dark Tort (Goldy Culinary Mysteries, Book 13)"
+  },
+  {
+    "item_name": "Sweet Revenge (Goldy Schulz)"
+  },
+  {
+    "item_name": "Aphrodisiac (Berkley Sensation)"
+  },
+  {
+    "item_name": "Shoots to Kill (Flower Shop Mysteries, No. 7)"
+  },
+  {
+    "item_name": "Weddings Can Be Murder"
+  },
+  {
+    "item_name": "Murder Takes The Cake"
+  },
+  {
+    "item_name": "The Good-to-Go Cookbook: Take-along Food, Quick Suppers, and Satisfying Snacks for On-The-Go Families"
+  },
+  {
+    "item_name": "Dead Wrong (Joanna Brady Mysteries, Book 12)"
+  },
+  {
+    "item_name": "Asking For Murder (Advice Column Mysteries)"
+  },
+  {
+    "item_name": "Cream Puff Murder (A Hannah Swensen Mystery)"
+  },
+  {
+    "item_name": "Carolinas Georgia &amp; the South Trips (Regional Travel Guide)"
+  },
+  {
+    "item_name": "The Body in the Gallery: A Faith Fairchild Mystery (Faith Fairchild Mysteries)"
+  },
+  {
+    "item_name": "Fire and Ice: A Beaumont and Brady Novel (J. P. Beaumont Novel)"
+  },
+  {
+    "item_name": "Ira'S, 401(K)s &amp; Other Retirement Plans: Taking Your Money Out (Ira's, 401k's &amp; Other Retirement Plans, 4th ed)"
+  },
+  {
+    "item_name": "Dead Wrong (Joanna Brady Mysteries, Book 12)"
+  },
+  {
+    "item_name": "Eggsecutive Orders (A White House Chef Mystery)"
+  },
+  {
+    "item_name": "Apple Turnover Murder (A Hannah Swensen Mystery)"
+  },
+  {
+    "item_name": "Delicious and Suspicious (A Memphis BBQ Mystery)"
+  },
+  {
+    "item_name": "The Revolutionary Paul Revere"
+  },
+  {
+    "item_name": "Dirty Rotten Tendrils: A Flower Shop Mystery"
+  },
+  {
+    "item_name": "Deduct It! Lower Your Small Business Taxes"
+  },
+  {
+    "item_name": "Betrayal of Trust: A J. P. Beaumont Novel"
+  },
+  {
+    "item_name": "Left for Dead: A Novel (Ali Reynolds)"
+  },
+  {
+    "item_name": "A Broth of Betrayal (A Soup Lover's Mystery)"
+  },
+  {
+    "item_name": "Shunned and Dangerous (An Amish Mystery)"
+  },
+  {
+    "item_name": "Remains of Innocence: A Brady Novel of Suspense (Joanna Brady Mysteries)"
+  },
+  {
+    "item_name": "Dead Between the Lines (Devereaux's Dime Store Mystery)"
+  },
+  {
+    "item_name": "Cancans, Croissants, and Caskets (A Happy Hoofers Mystery)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 4009,
+    "item_name": "The Cat, the Wife and the Weapon: A Cats in Trouble Mystery"
+  },
+  {
+    "rank": 2,
+    "item_id": 6122,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 3,
+    "item_id": 3466,
+    "item_name": "Going, Going, Ganache (Cupcake Bakery Mystery)"
+  },
+  {
+    "rank": 4,
+    "item_id": 3499,
+    "item_name": "Read It and Weep (A Library Lover's Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_id": 3339,
+    "item_name": "On What Grounds (Coffeehouse Mysteries, No. 1)"
+  },
+  {
+    "rank": 6,
+    "item_id": 3962,
+    "item_name": "A Glimpse of Evil (Psychic Eye Mysteries, No. 8)"
+  },
+  {
+    "rank": 7,
+    "item_id": 1861,
+    "item_name": "The Beautiful Mystery: A Chief Inspector Gamache Novel"
+  },
+  {
+    "rank": 8,
+    "item_id": 3480,
+    "item_name": "Every Trick in the Book (A Novel Idea Mystery)"
+  },
+  {
+    "rank": 9,
+    "item_id": 3500,
+    "item_name": "Holiday Buzz (A Coffeehouse Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_id": 3309,
+    "item_name": "Picture Miss Seeton"
+  },
+  {
+    "rank": 11,
+    "item_id": 3486,
+    "item_name": "Books, Cooks, and Crooks (A Novel Idea Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_id": 3974,
+    "item_name": "Vision Impossible (Psychic Eye Mysteries, No. 9)"
+  },
+  {
+    "rank": 13,
+    "item_id": 1710,
+    "item_name": "A Beautiful Blue Death (Charles Lenox Mysteries)"
+  },
+  {
+    "rank": 14,
+    "item_id": 1584,
+    "item_name": "Murder on the Flying Scotsman (Daisy Dalrymple Mysteries, No. 4)"
+  },
+  {
+    "rank": 15,
+    "item_id": 3478,
+    "item_name": "Red Velvet Revenge (Cupcake Bakery Mystery)"
+  },
+  {
+    "rank": 16,
+    "item_id": 3313,
+    "item_name": "The Bishop's Tale (Sister Frevisse Medieval Mysteries)"
+  },
+  {
+    "rank": 17,
+    "item_id": 5148,
+    "item_name": "Silent in the Sanctuary: A Lady Julia Grey Mystery"
+  },
+  {
+    "rank": 18,
+    "item_id": 3510,
+    "item_name": "Poisoned Prose (A Books by the Bay Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_id": 3445,
+    "item_name": "Grace Under Pressure (Manor House Mysteries, No. 1)"
+  },
+  {
+    "rank": 20,
+    "item_id": 4986,
+    "item_name": "Louisiana Hotshot: A Talba Wallis Novel"
+  },
+  {
+    "rank": 21,
+    "item_id": 4049,
+    "item_name": "The Cat, the Mill and the Murder: A Cats in Trouble Mystery"
+  },
+  {
+    "rank": 22,
+    "item_id": 5171,
+    "item_name": "Every Fear"
+  },
+  {
+    "rank": 23,
+    "item_id": 3335,
+    "item_name": "AN Eye for Murder (Prime Crime Mysteries)"
+  },
+  {
+    "rank": 24,
+    "item_id": 1039,
+    "item_name": "Another Man's Moccasins: A Longmire Mystery"
+  },
+  {
+    "rank": 25,
+    "item_id": 3467,
+    "item_name": "One Hot Murder (Victoria Square Mystery)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

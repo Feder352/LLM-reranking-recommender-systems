@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Disturbed"
+  },
+  {
+    "item_name": "Down to No Good (Charlie Miner)"
+  },
+  {
+    "item_name": "Strong to the Bone: A Caitlin Strong Novel (Caitlin Strong Novels)"
+  },
+  {
+    "item_name": "Close to Me"
+  },
+  {
+    "item_name": "Say Nothing"
+  },
+  {
+    "item_name": "The Firemaker (Murder in China)"
+  },
+  {
+    "item_name": "The Voice Inside: A Thriller (Frost Easton)"
+  },
+  {
+    "item_name": "Vindication (A Matt Royal Mystery)"
+  },
+  {
+    "item_name": "If You Knew Her: A Novel"
+  },
+  {
+    "item_name": "Dark in Death: An Eve Dallas Novel (In Death, Book 46)"
+  },
+  {
+    "item_name": "Abuse of Discretion (Dre Thomas Series)"
+  },
+  {
+    "item_name": "Poison: A Novel (Dismas Hardy)"
+  },
+  {
+    "item_name": "White Witch"
+  },
+  {
+    "item_name": "Bulwark"
+  },
+  {
+    "item_name": "Look for Her: A Novel (Keene and Frohmann)"
+  },
+  {
+    "item_name": "A Well-Timed Murder: An Agnes Lthi Mystery (Agnes Luthi Mysteries)"
+  },
+  {
+    "item_name": "Louisiana Catch"
+  },
+  {
+    "item_name": "Clod Makes A Friend"
+  },
+  {
+    "item_name": "The First Family: A Novel"
+  },
+  {
+    "item_name": "I KNOW MY NAME- PB"
+  },
+  {
+    "item_name": "Shattered Mirror: An Eve Duncan Novel"
+  },
+  {
+    "item_name": "Dead Air: A Glenn Beckert Mystery"
+  },
+  {
+    "item_name": "Alter Ego (A Jonathan Stride Novel)"
+  },
+  {
+    "item_name": "The Gray Ghost (A Sam and Remi Fargo Adventure)"
+  },
+  {
+    "item_name": "The Gray Ghost (A Sam and Remi Fargo Adventure)"
+  },
+  {
+    "item_name": "The Pharaoh Key (Gideon Crew)"
+  },
+  {
+    "item_name": "Three Shoeboxes"
+  },
+  {
+    "item_name": "Stay Hidden: A Novel (Mike Bowditch Mysteries)"
+  },
+  {
+    "item_name": "Abandoned: A Novel (Max Revere Novels)"
+  },
+  {
+    "item_name": "Bloody Sunday: A Thriller (A Dewey Andreas Novel)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Doing Harm: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Being a Captain is Hard Work: A Captain No Beard Story (Volume 10)"
+  },
+  {
+    "rank": 4,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 5,
+    "item_name": "Bitter Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Ashley Bell"
+  },
+  {
+    "rank": 7,
+    "item_name": "Captain No Beard: An Imaginary Tale of a Pirate's Life"
+  },
+  {
+    "rank": 8,
+    "item_name": "If You Were Me and Lived in...Ancient Greece: An Introduction to Civilizations Throughout Time (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Before the Fall: The year's best suspense novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Trespassers: a novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "The After House (A Haunting on Long Island Series)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Little Boy Lost"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Word Game: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Resthaven"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Last Woman Standing: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "Three Days to Forever (A Mac Faraday Mystery) (Volume 9)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Memory Man (Amos Decker series)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Oh Susannah: It's in the Bag (An Oh Susannah Story)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Butcher"
+  },
+  {
+    "rank": 20,
+    "item_name": "Brood X: A Firsthand Account of the Great Cicada Invasion"
+  },
+  {
+    "rank": 21,
+    "item_name": "If You Were Me and Lived in...Colonial America: An Introduction to Civilizations Throughout Time (Volume 9)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Die For Me: A Bragg Thriller (The Bragg Thriller Series)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Beauty of the End"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Flip (A Haunting On Long Island Series)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Dead Souls: A gripping serial killer thriller with a shocking twist (Detective Kim Stone Crime Thriller Series) (Volume 6)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Resurrection America"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Treasure of Snake Island: A Captain No Beard Story (Volume 5)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Girl in Snow: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Passenger 19 (A Jammer Davis Thriller)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Stranger Inside"
+  },
+  {
+    "rank": 31,
+    "item_name": "Gunmetal Gray (Gray Man)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Descent: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Cop Town: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Friendly Fire (A Jonathan Grave Thriller)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Victim"
+  },
+  {
+    "rank": 36,
+    "item_name": "Rarity From the Hollow"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Raveled"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Marriage Pact: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Bone Tree (Penn Cage)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Forever is the Worst Long Time: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "Don't Lose Her (The Max Freeman Mysteries)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Third Victim: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "Pop Goes the Weasel (A Helen Grace Thriller)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Emma in the Night: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "THE HIGHWAY: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Ink and Bone"
+  },
+  {
+    "rank": 48,
+    "item_name": "Remnants (Brandon Fisher FBI Series)"
+  },
+  {
+    "rank": 49,
+    "item_name": "She Can Tell"
+  },
+  {
+    "rank": 50,
+    "item_name": "Fool Me Once"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

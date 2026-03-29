@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Strangers Tend to Tell Me Things: A Memoir of Love, Loss, and Coming Home"
+  },
+  {
+    "item_name": "The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies"
+  },
+  {
+    "item_name": "Rise of the Robots: Technology and the Threat of a Jobless Future"
+  },
+  {
+    "item_name": "The Wisdom of Finance: Discovering Humanity in the World of Risk and Return"
+  },
+  {
+    "item_name": "Liar's Poker: Rising Through the Wreckage on Wall Street"
+  },
+  {
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "item_name": "Future Babble: Why Pundits Are Hedgehogs and Foxes Know Best"
+  },
+  {
+    "item_name": "Flash Boys"
+  },
+  {
+    "item_name": "Coming Jobs War"
+  },
+  {
+    "item_name": "Panic: The Story of Modern Financial Insanity"
+  },
+  {
+    "item_name": "Submission: A Novel"
+  },
+  {
+    "item_name": "Supernormal: The Untold Story of Adversity and Resilience"
+  },
+  {
+    "item_name": "Stories from the Dirt: Indiscretions of an Adventure Junkie"
+  },
+  {
+    "item_name": "The Victory Lab: The Secret Science of Winning Campaigns"
+  },
+  {
+    "item_name": "The Wave: In Pursuit of the Rogues, Freaks and Giants of the Ocean"
+  },
+  {
+    "item_name": "The Devil's Teeth: A True Story of Survival and Obsession Among America's Great White Sharks"
+  },
+  {
+    "item_name": "Reach Out: The Simple Strategy You Need to Expand Your Network and Increase Your Influence"
+  },
+  {
+    "item_name": "The Mission Walker: I was given three months to live..."
+  },
+  {
+    "item_name": "23 Things They Don't Tell You About Capitalism"
+  },
+  {
+    "item_name": "Science of the Magical: From the Holy Grail to Love Potions to Superpowers"
+  },
+  {
+    "item_name": "The Industries of the Future"
+  },
+  {
+    "item_name": "The Four: The Hidden DNA of Amazon, Apple, Facebook, and Google"
+  },
+  {
+    "item_name": "Eat Right for Your Type"
+  },
+  {
+    "item_name": "How We Learn: The Surprising Truth About When, Where and Why it Happens"
+  },
+  {
+    "item_name": "Spark: The Revolutionary New Science of Exercise and the Brain"
+  },
+  {
+    "item_name": "Grain Brain: The Surprising Truth about Wheat, Carbs,  and Sugar--Your Brain's Silent Killers"
+  },
+  {
+    "item_name": "Work: The Last 1,000 Years"
+  },
+  {
+    "item_name": "Brain Maker: The Power of Gut Microbes to Heal and Protect Your Brainfor Life"
+  },
+  {
+    "item_name": "Paleofantasy: What Evolution Really Tells Us about Sex, Diet, and How We Live"
+  },
+  {
+    "item_name": "Focus: The Hidden Driver of Excellence"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 36807,
+    "item_name": "Irreligion: A Mathematician Explains Why the Arguments for God Just Don't Add Up"
+  },
+  {
+    "rank": 2,
+    "item_id": 63700,
+    "item_name": "Merchants of Doubt: How a Handful of Scientists Obscured the Truth on Issues from Tobacco Smoke to Global Warming"
+  },
+  {
+    "rank": 3,
+    "item_id": 12153,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 4,
+    "item_id": 1805,
+    "item_name": "The Myth of the Rational Market: A History of Risk, Reward, and Delusion on Wall Street"
+  },
+  {
+    "rank": 5,
+    "item_id": 6067,
+    "item_name": "The Talent Code: Greatness Isn't Born. It's Grown."
+  },
+  {
+    "rank": 6,
+    "item_id": 62556,
+    "item_name": "The Ultimate Competitive Advantage: Secrets of Continually Developing a More Profitable Business Model"
+  },
+  {
+    "rank": 7,
+    "item_id": 6943,
+    "item_name": "Fabric of the Cosmos: Space, Time and the Texture of Reality (Penguin Press Science)"
+  },
+  {
+    "rank": 8,
+    "item_id": 5839,
+    "item_name": "World on Fire: How Exporting Free Market Democracy Breeds Ethnic Hatred and Global Instability"
+  },
+  {
+    "rank": 9,
+    "item_id": 30020,
+    "item_name": "Bobos in Paradise: The New Upper Class and How They Got There"
+  },
+  {
+    "rank": 10,
+    "item_id": 17906,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 11,
+    "item_id": 25837,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 12,
+    "item_id": 8083,
+    "item_name": "Crisis Economics: A Crash Course in the Future of Finance"
+  },
+  {
+    "rank": 13,
+    "item_id": 45159,
+    "item_name": "Steve Jobs: A Biography"
+  },
+  {
+    "rank": 14,
+    "item_id": 76725,
+    "item_name": "Misbehaving"
+  },
+  {
+    "rank": 15,
+    "item_id": 15758,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 16,
+    "item_id": 10112,
+    "item_name": "13 Bankers: The Wall Street Takeover and the Next Financial Meltdown"
+  },
+  {
+    "rank": 17,
+    "item_id": 7764,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 18,
+    "item_id": 44193,
+    "item_name": "The Long Tail: Why the Future of Business is Selling Less of More"
+  },
+  {
+    "rank": 19,
+    "item_id": 7789,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 20,
+    "item_id": 9375,
+    "item_name": "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time"
+  },
+  {
+    "rank": 21,
+    "item_id": 23761,
+    "item_name": "End The Fed"
+  },
+  {
+    "rank": 22,
+    "item_id": 10461,
+    "item_name": "Aftershock: The Next Economy and America's Future"
+  },
+  {
+    "rank": 23,
+    "item_id": 27545,
+    "item_name": "How We Decide"
+  },
+  {
+    "rank": 24,
+    "item_id": 29342,
+    "item_name": "Big Coal: The Dirty Secret Behind America's Energy Future"
+  },
+  {
+    "rank": 25,
+    "item_id": 7647,
+    "item_name": "The Best Democracy Money Can Buy"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

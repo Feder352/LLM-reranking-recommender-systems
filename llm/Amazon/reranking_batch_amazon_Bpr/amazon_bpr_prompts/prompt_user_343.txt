@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "TAKEN! Box Set - Books 1-6"
+  },
+  {
+    "item_name": "The Road"
+  },
+  {
+    "item_name": "A Place to Call Home: Toby's Tale"
+  },
+  {
+    "item_name": "A Little Life: A Novel"
+  },
+  {
+    "item_name": "The Broken Destiny: Book One of the Broken Series"
+  },
+  {
+    "item_name": "Blood Trinity"
+  },
+  {
+    "item_name": "Ink and Bone (The Great Library)"
+  },
+  {
+    "item_name": "The Fireman: A Novel"
+  },
+  {
+    "item_name": "The Walking Dead: Rise of the Governor"
+  },
+  {
+    "item_name": "Allah's Revenge"
+  },
+  {
+    "item_name": "Escaping Reality (The Secret Life of Amy Bensen) (Volume 1)"
+  },
+  {
+    "item_name": "INSATIABLE (Sydney Rye #3)"
+  },
+  {
+    "item_name": "The Wicked Boy: An Infamous Murder in Victorian London"
+  },
+  {
+    "item_name": "The Forgotten Ones (The Danaan Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Dark Desires (Zebra Debut)"
+  },
+  {
+    "item_name": "A Diamond in My Pocket (The Unaltered) (Volume 1)"
+  },
+  {
+    "item_name": "A Rose Blooms Twice (A Prairie Heritage, Book 1)"
+  },
+  {
+    "item_name": "Winter's Destiny (Volume 1)"
+  },
+  {
+    "item_name": "A Cowboy for Christmas"
+  },
+  {
+    "item_name": "Compelled"
+  },
+  {
+    "item_name": "Paper and Fire (The Great Library)"
+  },
+  {
+    "item_name": "Immurement: A Young Adult Science Fiction Dystopian Novel (The Undergrounders Series Book One)"
+  },
+  {
+    "item_name": "Before the Fall: The year's best suspense novel"
+  },
+  {
+    "item_name": "Pretty Dead (Elise Sandburg)"
+  },
+  {
+    "item_name": "In the Clearing (Tracy Crosswhite)"
+  },
+  {
+    "item_name": "Shadow Ritual (Antoine Marcas Freemason Thrillers)"
+  },
+  {
+    "item_name": "The Morgenstern Project (Consortium Thriller)"
+  },
+  {
+    "item_name": "The Grownup: A Story by the Author of Gone Girl"
+  },
+  {
+    "item_name": "The Alchemist"
+  },
+  {
+    "item_name": "Meant to Be"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Hunger Games (Book 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 3,
+    "item_name": "Mockingjay: The Hunger Games"
+  },
+  {
+    "rank": 4,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 5,
+    "item_name": "The 5th Wave (Book 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Gypsy Hunted"
+  },
+  {
+    "rank": 7,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Casual Vacancy"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Jakarta Pandemic"
+  },
+  {
+    "rank": 10,
+    "item_name": "Vengeance is Mine: A Benjamin Tucker Mystery (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Ghost Files (The Ghost Files (Book 1))"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Handmaid's Tale (Contemporary Classics)"
+  },
+  {
+    "rank": 13,
+    "item_name": "This Doesn't Happen In The Movies (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Good Neighbor"
+  },
+  {
+    "rank": 15,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Naturalist"
+  },
+  {
+    "rank": 18,
+    "item_name": "Scary Mary (The Scary Mary Series) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Feed (Newsflesh, Book 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Moon Called"
+  },
+  {
+    "rank": 22,
+    "item_name": "Cassidy Jones and Vulcan's Gift: (Cassidy Jones Adventures, Book Two)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Missing"
+  },
+  {
+    "rank": 24,
+    "item_name": "Ravage"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Butterfly Garden (The Collector)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Hollow City"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Winter Over"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Night Circus (Vintage Magic)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Twenty-Eight and a Half Wishes (A Rose Gardner Mystery)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The City of Ember (The First Book of Ember)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Dead Witch Walking"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Last Survivors: A Dystopian Society in a Post Apocalyptic World (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "World After: Penryn and the End of Days Book Two"
+  },
+  {
+    "rank": 34,
+    "item_name": "Night of the Purple Moon (The Toucan Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Heretic: A Templar Chronicles (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Project ELE (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Warrior (Warriors series) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "No Such Thing As Werewolves"
+  },
+  {
+    "rank": 40,
+    "item_name": "Wreckage"
+  },
+  {
+    "rank": 41,
+    "item_name": "Braineater Jones"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Maggie for Hire: Book One:  Maggie MacKay Magical Tracker Series"
+  },
+  {
+    "rank": 44,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Accountable to None (Book One of Eviscerating the Snake) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Saving Grace (What Doesn't Kill You, #1): A Katie Romantic Mystery"
+  },
+  {
+    "rank": 47,
+    "item_name": "Red Rising"
+  },
+  {
+    "rank": 48,
+    "item_name": "Endurance: A Novel of Terror"
+  },
+  {
+    "rank": 49,
+    "item_name": "Six Years"
+  },
+  {
+    "rank": 50,
+    "item_name": "A Hidden Fire: Elemental Mysteries Book 1"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Pies and Prejudice (A Charmed Pie Shoppe Mystery)"
+  },
+  {
+    "item_name": "Sleight of Paw (Magical Cats)"
+  },
+  {
+    "item_name": "Copycat Killing (Magical Cats)"
+  },
+  {
+    "item_name": "The Cat, the Wife and the Weapon: A Cats in Trouble Mystery"
+  },
+  {
+    "item_name": "If Books Could Kill: A Bibliophile Mystery"
+  },
+  {
+    "item_name": "Rebels and Lovers"
+  },
+  {
+    "item_name": "Bedeviled Eggs (A Cackleberry Club Mystery)"
+  },
+  {
+    "item_name": "The Big Kitty (A Sunny &amp; Shadow Mystery)"
+  },
+  {
+    "item_name": "The Lies That Bind: A Bibliophile Mystery"
+  },
+  {
+    "item_name": "Cat Trick (Magical Cats)"
+  },
+  {
+    "item_name": "The Cat, the Mill and the Murder: A Cats in Trouble Mystery"
+  },
+  {
+    "item_name": "Dragon's Fire (The Dragonriders of Pern)"
+  },
+  {
+    "item_name": "Beauty and the Werewolf (Tales of the Five Hundred Kingdoms, Book 6)"
+  },
+  {
+    "item_name": "Stuff White People Like (to Talk About): 50 Ways to Start Conversations with Caucasians"
+  },
+  {
+    "item_name": "Dragon Harper (Pern)"
+  },
+  {
+    "item_name": "Final Catcall (Magical Cats)"
+  },
+  {
+    "item_name": "Book Lust To Go: Recommended Reading for Travelers, Vagabonds, and Dreamers"
+  },
+  {
+    "item_name": "The Good Master (Puffin Newbery Library)"
+  },
+  {
+    "item_name": "The Penderwicks on Gardam Street"
+  },
+  {
+    "item_name": "The Penderwicks at Point Mouette"
+  },
+  {
+    "item_name": "A Long Fatal Love Chase"
+  },
+  {
+    "item_name": "Star Wars: The Han Solo Trilogy: The Paradise Snare: Volume 1 (AU Star Wars)"
+  },
+  {
+    "item_name": "An Irish Country Doctor"
+  },
+  {
+    "item_name": "Double Booked for Death (A Black Cat Bookshop Mystery)"
+  },
+  {
+    "item_name": "That Old Flame of Mine (A Sweet Pepper Fire Brigade)"
+  },
+  {
+    "item_name": "A Midwinter's Tail (Magical Cats)"
+  },
+  {
+    "item_name": "The Cat, the Vagabond and the Victim (Cats in Trouble Mystery)"
+  },
+  {
+    "item_name": "The Cat, the Sneak and the Secret (Cats in Trouble Mystery)"
+  },
+  {
+    "item_name": "Cat Shout for Joy: A Joe Grey Mystery (Joe Grey Mystery Series)"
+  },
+  {
+    "item_name": "Epitaph: A Novel of the O.K. Corral"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Little House Reader, A (Little House Books)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 3,
+    "item_name": "In a Witch's Wardrobe: A Witchcraft Mystery"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Sweetness at the Bottom of the Pie: A Flavia de Luce Mystery"
+  },
+  {
+    "rank": 5,
+    "item_name": "Bless Her Dead Little Heart (A Southern Ladies Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 7,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 8,
+    "item_name": "Wyrd Sisters"
+  },
+  {
+    "rank": 9,
+    "item_name": "Pale Horse"
+  },
+  {
+    "rank": 10,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Lost and Fondue (Cheese Shop Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Buffalo West Wing (A White House Chef Mystery)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Wintersmith (Discworld)"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Deadly Grind (A Vintage Kitchen Mystery)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 17,
+    "item_name": "Passenger to Frankfurt"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Tropic of Serpents: A Memoir by Lady Trent (The Lady Trent Memoirs)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Hidden Empire (The Saga of Seven Suns)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Midnight in the Garden of Good and Evil (AUDIO CD)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Murder of Roger Ackroyd (Poirot)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Murder Buys a T-Shirt (Haunted Souvenir Shop)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Sourcery"
+  },
+  {
+    "rank": 25,
+    "item_name": "Agatha Raisin and the Day the Floods Came (Agatha Raisin Mysteries, No. 12)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Crepes of Wrath: A Pennsylvania Dutch Mystery with Recipes (Pennsylvania Dutch Mysteries)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Daughter Of Time"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Memoirs of Sherlock Holmes"
+  },
+  {
+    "rank": 29,
+    "item_name": "Alexander and the Terrible, Horrible, No Good, Very Bad Day Low Price"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Her Royal Spyness"
+  },
+  {
+    "rank": 32,
+    "item_name": "Dragonsong (Volume One of the Harper Hall Trilogy)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 34,
+    "item_name": "My Man Godfrey"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Ghost and the Dead Man's Library (Haunted Bookshop Mystery)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Murder, With Peacocks (Meg Langslow Mysteries)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 38,
+    "item_name": "Guards! Guards!"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Giving Tree with Gift Card"
+  },
+  {
+    "rank": 40,
+    "item_name": "Sure of You"
+  },
+  {
+    "rank": 41,
+    "item_name": "Shattered Dreams: My Life as a Polygamist's Wife"
+  },
+  {
+    "rank": 42,
+    "item_name": "Undead and Unwed (Queen Betsy, Book 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Sentenced to Death (A Booktown Mystery)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Island of the Blue Dolphins (Puffin Books)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Sliding Scales (A Pip &amp; Flinx Adventure)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Superman &amp; Batman: Generations, An Imaginary Tale (Elseworlds)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Blood Rites (The Dresden Files)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Murder on the Half Shelf (A Booktown Mystery)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Cloche and Dagger (A Hat Shop Mystery)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

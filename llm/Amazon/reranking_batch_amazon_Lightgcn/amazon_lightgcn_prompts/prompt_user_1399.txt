@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Dance with Seduction"
+  },
+  {
+    "item_name": "Releasing Henry"
+  },
+  {
+    "item_name": "Eleven"
+  },
+  {
+    "item_name": "Must Love More Kilts: A Time Travel Romance (Volume 4)"
+  },
+  {
+    "item_name": "Going Dark (The Lost Platoon)"
+  },
+  {
+    "item_name": "Lady Eleanor's Seventh Suitor"
+  },
+  {
+    "item_name": "The Mercenary Pirate (The Heart of a Hero) (Volume 10)"
+  },
+  {
+    "item_name": "Hunt for Evil: An International Clandestine Enterprise Novel (ICE) (Volume 1)"
+  },
+  {
+    "item_name": "Eyes of the Seer (The Derbfine Series) (Volume 2)"
+  },
+  {
+    "item_name": "Desperate Bride"
+  },
+  {
+    "item_name": "Then Came You (Compass Cove)"
+  },
+  {
+    "item_name": "Lady Charlotte's First Love"
+  },
+  {
+    "item_name": "Shield of Kronos (The Great Knights of de Moray) (Volume 1)"
+  },
+  {
+    "item_name": "When a Lord Loves a Lady: A Waltz with a Rogue Collection, 1-5"
+  },
+  {
+    "item_name": "The Scot's Bride (Highland Heirs)"
+  },
+  {
+    "item_name": "Highland Ruse: Mercenary Maidens - Book Two (The Mercenary Maidens Series)"
+  },
+  {
+    "item_name": "A Highland Moon Enchantment"
+  },
+  {
+    "item_name": "To the Duke, With Love: The Rakes of St. James"
+  },
+  {
+    "item_name": "Defiant"
+  },
+  {
+    "item_name": "Highlander Entangled (Highland Adventure) (Volume 9)"
+  },
+  {
+    "item_name": "The Heiress's Deception (Sinful Brides)"
+  },
+  {
+    "item_name": "The Highland Guardian (Lords of the Highlands)"
+  },
+  {
+    "item_name": "A Wicked Way to Win an Earl (Sutherland Scoundrels)"
+  },
+  {
+    "item_name": "Meet a Rogue at Midnight (Midnight Meetings)"
+  },
+  {
+    "item_name": "More or Less a Marchioness"
+  },
+  {
+    "item_name": "My Lord Rogue (Nelson's Tea)"
+  },
+  {
+    "item_name": "The Hellion (Wicked Wallflowers)"
+  },
+  {
+    "item_name": "Blaike: Secrets Gone Askew (Conundrums of the Misses Culpepper) (Volume 4)"
+  },
+  {
+    "item_name": "You Never Forget Your First Earl (The Worthingtons)"
+  },
+  {
+    "item_name": "The Widow's Watcher"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 43247,
+    "item_name": "The Luck of the Bride: The Cavensham Heiresses"
+  },
+  {
+    "rank": 2,
+    "item_id": 43083,
+    "item_name": "The Untamed Earl (Playful Brides)"
+  },
+  {
+    "rank": 3,
+    "item_id": 29284,
+    "item_name": "Captured by the Pirate Laird (Highland Force) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_id": 43135,
+    "item_name": "My One True Highlander: A No Ordinary Hero Novel"
+  },
+  {
+    "rank": 5,
+    "item_id": 42902,
+    "item_name": "The Irresistible Rogue (Playful Brides)"
+  },
+  {
+    "rank": 6,
+    "item_id": 42776,
+    "item_name": "Good Earl Gone Bad: A Lords of Anarchy Novel (The Lords of Anarchy)"
+  },
+  {
+    "rank": 7,
+    "item_id": 53999,
+    "item_name": "The Legend (House of Summerlin)"
+  },
+  {
+    "rank": 8,
+    "item_id": 46102,
+    "item_name": "Not Always a Saint (Lost Lords)"
+  },
+  {
+    "rank": 9,
+    "item_id": 43399,
+    "item_name": "TAMING THE HIGHLANDER (The Scottish Relic Trilogy)"
+  },
+  {
+    "rank": 10,
+    "item_id": 43255,
+    "item_name": "Duke with Benefits (Studies in Scandal)"
+  },
+  {
+    "rank": 11,
+    "item_id": 48264,
+    "item_name": "What the Duke Desires (The Duke's Men)"
+  },
+  {
+    "rank": 12,
+    "item_id": 46348,
+    "item_name": "When a Marquis Chooses a Bride (The Worthingtons)"
+  },
+  {
+    "rank": 13,
+    "item_id": 71607,
+    "item_name": "Word of Honor (Knights of Valor) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_id": 69995,
+    "item_name": "Countess By Coincidence (House of Haverstock, Book 3) (Volume 3)"
+  },
+  {
+    "rank": 15,
+    "item_id": 60030,
+    "item_name": "When a Laird Loves a Lady (Highlander Vows: Entangled Hearts) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_id": 43273,
+    "item_name": "The Bad Luck Bride: The Cavensham Heiresses"
+  },
+  {
+    "rank": 17,
+    "item_id": 15941,
+    "item_name": "A Sinful Deception (Breconridge Brothers)"
+  },
+  {
+    "rank": 18,
+    "item_id": 16669,
+    "item_name": "The Inconvenient Duchess"
+  },
+  {
+    "rank": 19,
+    "item_id": 48372,
+    "item_name": "Scandal and the Duchess (Highland Pleasures)"
+  },
+  {
+    "rank": 20,
+    "item_id": 69911,
+    "item_name": "Miss Amelia Lands a Duke: The Caversham Chronicles - The Prequel Novella"
+  },
+  {
+    "rank": 21,
+    "item_id": 46308,
+    "item_name": "The Scotsman Who Saved Me (Seven Brides/Seven Scotsmen)"
+  },
+  {
+    "rank": 22,
+    "item_id": 57037,
+    "item_name": "The Scoundrel's Lover (The Notorious Flynns) (Volume 2)"
+  },
+  {
+    "rank": 23,
+    "item_id": 53274,
+    "item_name": "Tremaine's True Love (True Gentlemen)"
+  },
+  {
+    "rank": 24,
+    "item_id": 44609,
+    "item_name": "The Bridegroom Wore Plaid (MacGregor Series)"
+  },
+  {
+    "rank": 25,
+    "item_id": 49046,
+    "item_name": "The Highland Duke (Lords of the Highlands)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

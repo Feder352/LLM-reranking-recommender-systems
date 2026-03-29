@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Glimpse of the Dream"
+  },
+  {
+    "item_name": "A Brush with Shadows (A Lady Darby Mystery)"
+  },
+  {
+    "item_name": "Grey: Fifty Shades of Grey as Told by Christian (Fifty Shades of Grey Series)"
+  },
+  {
+    "item_name": "Children of Blood and Bone (Legacy of Orisha)"
+  },
+  {
+    "item_name": "Our Unscripted Story"
+  },
+  {
+    "item_name": "Wedding Cake Crumble (Cupcake Bakery Mystery)"
+  },
+  {
+    "item_name": "Lost Books and Old Bones: A Scottish Bookshop Mystery"
+  },
+  {
+    "item_name": "Twilight Tenth Anniversary/Life and Death Dual Edition"
+  },
+  {
+    "item_name": "Devil's Cut: A Bourbon Kings Novel (The Bourbon Kings)"
+  },
+  {
+    "item_name": "A Lack of Temperance (A Hattie Davish Mystery)"
+  },
+  {
+    "item_name": "Deadly Secret: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "item_name": "Flying at Night"
+  },
+  {
+    "item_name": "Dirty Laundry"
+  },
+  {
+    "item_name": "Edge of Darkness (The Cincinnati Series)"
+  },
+  {
+    "item_name": "A Magical Match (Witchcraft Mystery)"
+  },
+  {
+    "item_name": "Hold Back the Dark (Bishop/Special Crimes Unit)"
+  },
+  {
+    "item_name": "The Broken Girls"
+  },
+  {
+    "item_name": "Happiness for Humans"
+  },
+  {
+    "item_name": "Cinco de Murder (A Taste of Texas Mystery)"
+  },
+  {
+    "item_name": "Shot in the Dark (A Coffeehouse Mystery)"
+  },
+  {
+    "item_name": "Cake and Punishment: A Southern Cake Baker Mystery"
+  },
+  {
+    "item_name": "A Riesling to Die"
+  },
+  {
+    "item_name": "Ropes of Lies: A Dirty Liars Novel"
+  },
+  {
+    "item_name": "The Good Twin"
+  },
+  {
+    "item_name": "Bane (Sinners of Saint) (Volume 5)"
+  },
+  {
+    "item_name": "Murder on Union Square (A Gaslight Mystery)"
+  },
+  {
+    "item_name": "Shadow Keeper (A Shadow Riders Novel)"
+  },
+  {
+    "item_name": "Broken Promise: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "item_name": "Good Luck with That"
+  },
+  {
+    "item_name": "Dagger's Edge: A Brute Force Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "At Last (A Lucky Harbor Novel)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Lemon Pies and Little White Lies (A Charmed Pie Shoppe Mystery)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Cloche and Dagger (A Hat Shop Mystery)"
+  },
+  {
+    "rank": 4,
+    "item_name": "A Deadly Grind (A Vintage Kitchen Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Every Trick in the Book (A Novel Idea Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Widow's Tears (China Bayles Mystery)"
+  },
+  {
+    "rank": 7,
+    "item_name": "About a Dog (A Bluff Point Romance)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Basket Case (A Silver Six Mystery)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Ladle to the Grave (A Soup Lover's Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Final Sentence (A Cookbook Nook Mystery)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Better Homes and Hauntings"
+  },
+  {
+    "rank": 12,
+    "item_name": "Eighth Grave After Dark"
+  },
+  {
+    "rank": 13,
+    "item_name": "Lethal Letters (A Books by the Bay Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Cat, the Vagabond and the Victim (Cats in Trouble Mystery)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Tempest in a Teapot (A Teapot Collector Mystery)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Gossamer Ghost (A Scrapbooking Mystery)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Postcards from the Dead (A Scrapbooking Mystery)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Dream a Little Scream (A Dream Club Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_name": "All the President's Menus (A White House Chef Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Billionaire Bachelor (Billionaire Bad Boys)"
+  },
+  {
+    "rank": 21,
+    "item_name": "When the Grits Hit the Fan (A Country Store Mystery)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Read It and Weep (A Library Lover's Mystery)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Dangling by a Thread (A Mainely Needlepoint Mystery)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Magic Burns (Kate Daniels)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Grace Interrupted (A Manor House Mystery)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Inherit the Word (A Cookbook Nook Mystery)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Beewitched (A Queen Bee Mystery)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Death of a Mad Hatter (A Hat Shop Mystery)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Buttercream Bump Off (Cupcake Bakery Mystery)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Grilled For Murder (A Country Store Mystery)"
+  },
+  {
+    "rank": 31,
+    "item_name": "A Darkness Absolute: A Rockton Novel (Casey Duncan Novels)"
+  },
+  {
+    "rank": 32,
+    "item_name": "A First Date with Death (A Love or Money Mystery)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Who Do, Voodoo? (A Mind for Murder Mystery)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Due or Die (A Library Lover's Mystery)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Twisted Threads (Mainely Needlepoint Mystery)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Wicked Stitch (Embroidery Mystery)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Day Shift (Midnight, Texas)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Wolf with Benefits (Brava Paranormal Romance)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Murder for the Halibut (A Clueless Cook Mystery)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Kernel of Truth (A Popcorn Shop Mystery)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Buried in a Book (A Novel Idea Mystery)"
+  },
+  {
+    "rank": 42,
+    "item_name": "This Fallen Prey: A Rockton Novel (Casey Duncan Novels)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Dead with the Wind (A Southern Ladies Mystery)"
+  },
+  {
+    "rank": 44,
+    "item_name": "No Charm Intended (A Cora Crafts Mystery)"
+  },
+  {
+    "rank": 45,
+    "item_name": "All Murders Final!: A Sarah W. Garage Sale Mystery"
+  },
+  {
+    "rank": 46,
+    "item_name": "Berry the Hatchet (A Cranberry Cove Mystery)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Southern Spirits (Southern Ghost Hunter Mysteries)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Murder Buys a T-Shirt (Haunted Souvenir Shop)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Cast On, Kill Off (A Knitting Mystery)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Spell Booked (Retired Witches Mysteries)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

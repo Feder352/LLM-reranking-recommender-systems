@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Christmas in the Duke's Arms: A Historical Romance Holiday Anthology"
+  },
+  {
+    "item_name": "The Lies of Locke Lamora (Gentleman Bastards)"
+  },
+  {
+    "item_name": "Dreaming Spies: A Novel of Suspense Featuring Mary Russell and Sherlock Holmes"
+  },
+  {
+    "item_name": "I Have No Mouth &amp; I Must Scream"
+  },
+  {
+    "item_name": "The Deeds of the Disturber (Amelia Peabody Mysteries) (Amelia Peabody Series)"
+  },
+  {
+    "item_name": "Elfin (The Elfin Series) (Volume 1)"
+  },
+  {
+    "item_name": "Guilty Pleasures (Anita Blake, Vampire Hunter)"
+  },
+  {
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "item_name": "A Spirited Tail (Mystic Notch Cozy Mystery Series) (Volume 2)"
+  },
+  {
+    "item_name": "Guilty Pleasures by Laurell K. Hamilton Unabridged CD Audiobook (Anita Blake Vampire Hunter Novel)"
+  },
+  {
+    "item_name": "Inspector Hobbes and the Blood: unhuman I - A fast paced comedy crime fantasy (Volume 1)"
+  },
+  {
+    "item_name": "A Study In Scarlet Women (The Lady Sherlock Series)"
+  },
+  {
+    "item_name": "Miss Julia Speaks Her Mind: A Novel"
+  },
+  {
+    "item_name": "Monster Hunter International"
+  },
+  {
+    "item_name": "The Wicked Wyckerly: The Rebellious Sons"
+  },
+  {
+    "item_name": "Call of the Herald (The Dawning of Power)"
+  },
+  {
+    "item_name": "Dragon's Egg"
+  },
+  {
+    "item_name": "Carnival Tricks (Double Helix Case Files) (Volume 1)"
+  },
+  {
+    "item_name": "Saving Grace (What Doesn't Kill You, #1): A Katie Romantic Mystery"
+  },
+  {
+    "item_name": "To Catch Her Death (Grim Reality Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Transformation of Anna (Cornerstone Deep) (Volume 1)"
+  },
+  {
+    "item_name": "Burn Bright"
+  },
+  {
+    "item_name": "Modern Sorcery"
+  },
+  {
+    "item_name": "The Descent Series, Books 1-3: Death's Hand, The Darkest Gate, and Dark Union: An Urban Fantasy Omnibus"
+  },
+  {
+    "item_name": "Angelbound (Angelbound Origins)"
+  },
+  {
+    "item_name": "The Decoy Princess"
+  },
+  {
+    "item_name": "She's No Faerie Princess (The Others, Book 10)"
+  },
+  {
+    "item_name": "Nun After The Other (A Giulia Driscoll Mystery)"
+  },
+  {
+    "item_name": "The Vanishing Thief (A Victorian Bookshop Mystery)"
+  },
+  {
+    "item_name": "The Lightning-Struck Heart"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Captured"
+  },
+  {
+    "rank": 2,
+    "item_name": "Justice Calling (The Twenty-Sided Sorceress) (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Accidental Demon Slayer"
+  },
+  {
+    "rank": 4,
+    "item_name": "Trouble in Mudbug"
+  },
+  {
+    "rank": 5,
+    "item_name": "Vampire Moon"
+  },
+  {
+    "rank": 6,
+    "item_name": "Ellie Jordan, Ghost Trapper (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Night Broken: A Mercy Thompson Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Gypsy Hunted"
+  },
+  {
+    "rank": 10,
+    "item_name": "Whiskey Rebellion: An Addison Holmes Mystery"
+  },
+  {
+    "rank": 11,
+    "item_name": "Burned by Magic (The Baine Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Boundary Crossed (Boundary Magic)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Just One Damned Thing After Another (The Chronicles of St Mary's)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Skin Game (The Dresden Files)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Housewife Assassin's Handbook (The Housewife Assassin Series) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Robin: Lady of Legend (The Classic Adventures of the Girl Who Became Robin Hood)"
+  },
+  {
+    "rank": 17,
+    "item_name": "White Witch, Black Curse"
+  },
+  {
+    "rank": 18,
+    "item_name": "Moon Over Soho (Rivers of London)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Still Life with Murder (Gilded Age Mysteries, No. 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Murder Takes Time (Friendship and Honor)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Blood Orchids"
+  },
+  {
+    "rank": 22,
+    "item_name": "Somebody Tell Aunt Tillie She's Dead (Toad Witch Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Perfect Blood"
+  },
+  {
+    "rank": 24,
+    "item_name": "Soulless (The Parasol Protectorate)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Cold Days: A Dresden Files Novel (The Dresden Files)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Etiquette &amp; Espionage (Finishing School)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Silent in the Grave"
+  },
+  {
+    "rank": 28,
+    "item_name": "Cocaine Blues (Phryne Fisher Mysteries)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Killer Cupcakes: A Lexy Baker Bakery Cozy Mystery (Lexy Baker Bakery Cozy Mysteries)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Vision in Silver (A Novel of the Others)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Maggie for Hire: Book One:  Maggie MacKay Magical Tracker Series"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Last Necromancer (The Ministry of Curiosities) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Forever Road (Peri Jean Mace) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Study in Ashes: Book Three in The Baskerville Affair"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Witch Hunter (The Witch Hunter Saga) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Dead Witch Walking"
+  },
+  {
+    "rank": 38,
+    "item_name": "Wolf at the Door (The Others, Book 9)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Dead Heat: An Alpha and Omega novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Bubba and the 12 Deadly Days of Christmas: A Bubba Mystery"
+  },
+  {
+    "rank": 41,
+    "item_name": "Moon Dance (Vampire for Hire, Book 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Maids of Misfortune: A Victorian San Francisco Mystery"
+  },
+  {
+    "rank": 43,
+    "item_name": "Secondhand Spirits: A Witchcraft Mystery"
+  },
+  {
+    "rank": 44,
+    "item_name": "Tricked (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 45,
+    "item_name": "I Have People"
+  },
+  {
+    "rank": 46,
+    "item_name": "Play Dead"
+  },
+  {
+    "rank": 47,
+    "item_name": "Carrots (Shelby Nichols Adventures)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Devil's Grin - A Crime Novel featuring Anna Kronberg and Sherlock Holmes"
+  },
+  {
+    "rank": 49,
+    "item_name": "Graveyard Shift: (Lana Harvey, Reapers Inc.)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Paper Magician"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

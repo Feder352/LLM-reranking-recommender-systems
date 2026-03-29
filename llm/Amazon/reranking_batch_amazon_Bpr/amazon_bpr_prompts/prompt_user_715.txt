@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Vanishing Season: A Mystery (Ellery Hathaway)"
+  },
+  {
+    "item_name": "Summer Knight (Dresden Files)"
+  },
+  {
+    "item_name": "Rough Justice"
+  },
+  {
+    "item_name": "The Deal of a Lifetime"
+  },
+  {
+    "item_name": "The Girls in the Picture: A Novel"
+  },
+  {
+    "item_name": "A Treacherous Curse (A Veronica Speedwell Mystery)"
+  },
+  {
+    "item_name": "Promise Me, Dad: A Year of Hope, Hardship, and Purpose"
+  },
+  {
+    "item_name": "Carnegie's Maid: A Novel"
+  },
+  {
+    "item_name": "Scandal (English and Japanese Edition)"
+  },
+  {
+    "item_name": "Curses, Boiled Again!: A Lobster Shack Mystery"
+  },
+  {
+    "item_name": "Death by Chocolate Cherry Cheesecake (A Death by Chocolate Mystery)"
+  },
+  {
+    "item_name": "Perish (A Gardiner and Renner Novel)"
+  },
+  {
+    "item_name": "This Fallen Prey: A Rockton Novel (Casey Duncan Novels)"
+  },
+  {
+    "item_name": "By the Book: A Book Club Recommendation!"
+  },
+  {
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "item_name": "The Story of Arthur Truluv: A Novel"
+  },
+  {
+    "item_name": "Killer Jam (Dewberry Farm Mysteries)"
+  },
+  {
+    "item_name": "Color Me Murder (Pen &amp; Ink)"
+  },
+  {
+    "item_name": "The Night Bird (Frost Easton)"
+  },
+  {
+    "item_name": "Let Me Lie"
+  },
+  {
+    "item_name": "Every Note Played"
+  },
+  {
+    "item_name": "Death by Dumpling: A Noodle Shop Mystery"
+  },
+  {
+    "item_name": "Other People's Houses"
+  },
+  {
+    "item_name": "The Woman in the Water: A Prequel to the Charles Lenox Series (Charles Lenox Mysteries)"
+  },
+  {
+    "item_name": "Shot in the Dark (A Coffeehouse Mystery)"
+  },
+  {
+    "item_name": "Murder in the Locked Library (A Book Retreat Mystery)"
+  },
+  {
+    "item_name": "Alter Ego (A Jonathan Stride Novel)"
+  },
+  {
+    "item_name": "The Orphan&#39;s Tale"
+  },
+  {
+    "item_name": "Claws for Alarm (The Gray Whale Inn Mysteries) (Volume 8)"
+  },
+  {
+    "item_name": "After Anna"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Buried in a Bog (A County Cork Mystery)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Dry Bones: A Longmire Mystery"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Curious Beginning (A Veronica Speedwell Mystery)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Garden Spells: A Novel (Waverly Family)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Sizzling Sixteen (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Help"
+  },
+  {
+    "rank": 7,
+    "item_name": "Dead by Midnight (Death on Demand)"
+  },
+  {
+    "rank": 8,
+    "item_name": "A Christmas Garland: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "Eleven on Top"
+  },
+  {
+    "rank": 10,
+    "item_name": "Ten Big Ones (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Sizzling Sixteen (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 12,
+    "item_name": "One Good Turn"
+  },
+  {
+    "rank": 13,
+    "item_name": "Blackberry Pie Murder (A Hannah Swensen Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Buttercream Bump Off (Cupcake Bakery Mystery)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Find Her (A D.D. Warren and Flora Dane Novel)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Royal Blood (A Royal Spyness Mystery)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 18,
+    "item_name": "Wicked Appetite (Lizzy and Diesel)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Her Royal Spyness"
+  },
+  {
+    "rank": 20,
+    "item_name": "Flash and Bones: (Temperance Brennan 14)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Lake House: The House of Riverton 05"
+  },
+  {
+    "rank": 22,
+    "item_name": "Minding Frankie"
+  },
+  {
+    "rank": 23,
+    "item_name": "Ghost at Work (Bailey Ruth Mysteries, No. 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Maisie Dobbs (Book 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Fifth Witness (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Scent of Rain and Lightning: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "To Have and to Kill (Piper Donovan/Wedding Cake Mysteries)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 29,
+    "item_name": "16 Lighthouse Road (Cedar Cove, Book 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "To Helvetica and Back (A Dangerous Type Mystery)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Come Home"
+  },
+  {
+    "rank": 32,
+    "item_name": "Twelve Sharp (A Stephanie Plum Novel) (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Death Comes Silently (A Death on Demand Mysteries)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The City"
+  },
+  {
+    "rank": 35,
+    "item_name": "Silent in the Sanctuary: A Lady Julia Grey Mystery"
+  },
+  {
+    "rank": 36,
+    "item_name": "3rd Degree"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Week in Winter"
+  },
+  {
+    "rank": 38,
+    "item_name": "Long Gone: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Leaving Time (with bonus novella Larger Than Life): A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Shell Seekers"
+  },
+  {
+    "rank": 41,
+    "item_name": "Victoria"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Water's Edge"
+  },
+  {
+    "rank": 44,
+    "item_name": "Smokin' Seventeen: A Stephanie Plum Novel (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Ghost and Mrs. Mewer (A Paws &amp; Claws Mystery)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Notorious Nineteen: A Stephanie Plum Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Six Years"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Chalk Girl (A Mallory Novel)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Buffalo West Wing (A White House Chef Mystery)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

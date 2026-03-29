@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Lady Risks All"
+  },
+  {
+    "item_name": "And Then She Fell (Cynster Sisters Duo)"
+  },
+  {
+    "item_name": "The Road of Danger (RCN)"
+  },
+  {
+    "item_name": "Live Free or Die: Troy Rising I"
+  },
+  {
+    "item_name": "Citadel"
+  },
+  {
+    "item_name": "The Hot Gate: Troy Rising III"
+  },
+  {
+    "item_name": "A Dangerous Inheritance: A Novel of Tudor Rivals and the Secret of the Tower"
+  },
+  {
+    "item_name": "Coup d'Etat (The War That Came Early, Book Four)"
+  },
+  {
+    "item_name": "The Taming of Ryder Cavanaugh (Cynster Sisters Duo)"
+  },
+  {
+    "item_name": "'Twas the Night After Christmas (The Hellions of Halstead Hall)"
+  },
+  {
+    "item_name": "The Ides of April: A Flavia Albia Mystery (Flavia Albia Series)"
+  },
+  {
+    "item_name": "Treecat Wars (Star Kingdom)"
+  },
+  {
+    "item_name": "Terok Nor: Dawn of the Eagles (Star Trek: Deep Space Nine)"
+  },
+  {
+    "item_name": "A Spell For Chameleon (The Magic of Xanth, Volume One)"
+  },
+  {
+    "item_name": "Castle Roogna (Xanth, No. 3)"
+  },
+  {
+    "item_name": "Centaur Aisle (The Magic of Xanth, No. 4)"
+  },
+  {
+    "item_name": "Night Mare (The Magic of Xanth, No. 6)"
+  },
+  {
+    "item_name": "Crewel Lye (Xanth)"
+  },
+  {
+    "item_name": "Golem in the Gears (The Magic of Xanth, Book 9)"
+  },
+  {
+    "item_name": "Voodoo Histories"
+  },
+  {
+    "item_name": "Like a Mighty Army: A Novel in the Safehold Series"
+  },
+  {
+    "item_name": "Cauldron of Ghosts (Crown of Slaves)"
+  },
+  {
+    "item_name": "The Marriage Game"
+  },
+  {
+    "item_name": "Tea With the Black Dragon"
+  },
+  {
+    "item_name": "A Call to Duty (Manticore Ascendant)"
+  },
+  {
+    "item_name": "The Truth About Love: A Cynster Novel (Cynster Novels)"
+  },
+  {
+    "item_name": "1177 B.C.: The Year Civilization Collapsed (Turning Points in Ancient History)"
+  },
+  {
+    "item_name": "A Call to Arms (Manticore Ascendant)"
+  },
+  {
+    "item_name": "Board Stiff (Xanth)"
+  },
+  {
+    "item_name": "Till We Have Faces: A Myth Retold"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Hidden Empire (The Saga of Seven Suns)"
+  },
+  {
+    "rank": 2,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 3,
+    "item_name": "Sliding Scales (A Pip &amp; Flinx Adventure)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Curse of Chalion (Chalion series)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Assassin's Quest (The Farseer Trilogy)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Devil's Eye: An Alex Benedict Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Meeting at Corvallis (Dies the Fire, Book 3)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Fairy Godmother (Tales of the Five Hundred Kingdoms, Book 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Guards! Guards!"
+  },
+  {
+    "rank": 10,
+    "item_name": "Dauntless (The Lost Fleet, Book 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The High Crusade"
+  },
+  {
+    "rank": 12,
+    "item_name": "Beyond the Gap (Opening of the World)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Judas Unchained (Commonwealth Saga)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Ghost Brigades"
+  },
+  {
+    "rank": 15,
+    "item_name": "Agent to the Stars"
+  },
+  {
+    "rank": 16,
+    "item_name": "Finders Keepers: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Courageous (The Lost Fleet, Book 3)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Old Man's War"
+  },
+  {
+    "rank": 19,
+    "item_name": "True Blood (The True Series, Book 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Ritual of Proof"
+  },
+  {
+    "rank": 21,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "War of Honor (Honor Harrington #10)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Island of the Blue Dolphins (Puffin Books)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Echo (An Alex Benedict Novel)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Trading in Danger (Vatta's War)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Confessor: Chainfire Trilogy, Part 3 (Sword Of Truth, Book 11)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Abaddon's Gate (The Expanse)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Runelords: The Sum Of All Men (The Runelords, Book 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Assassin's Apprentice"
+  },
+  {
+    "rank": 30,
+    "item_name": "Unshapely Things (Connor Grey, Book 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Sharing Knife, Volume Four: Horizon (The Sharing Knife series)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Covenants: A Borderlands Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Marque and Reprisal"
+  },
+  {
+    "rank": 34,
+    "item_name": "Altered Carbon (Takeshi Kovacs)"
+  },
+  {
+    "rank": 35,
+    "item_name": "White Witch, Black Curse"
+  },
+  {
+    "rank": 36,
+    "item_name": "SPQR V: Saturnalia (The SPQR Roman Mysteries)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Chronicles of Riddick:Pitch Black"
+  },
+  {
+    "rank": 38,
+    "item_name": "Undead and Unwed (Queen Betsy, Book 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Lamentation (The Psalms of Isaak)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Hominids (Neanderthal Parallax)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Eldest (Inheritance, Book 2)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Black Projects, White Knights: The Company Dossiers"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Moon is a Harsh Mistress"
+  },
+  {
+    "rank": 44,
+    "item_name": "Diving into the Wreck: A Diving Novel (Diving Series) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Alien Taste (Ukiah Oregon, Book 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Dark Celebration (A Carpathian Reunion)"
+  },
+  {
+    "rank": 47,
+    "item_name": "CASINO ROYALE (The Ultimate James Bond Classic)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Tomb of the Golden Bird (Amelia Peabody Series)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Medicus: A Novel of the Roman Empire"
+  },
+  {
+    "rank": 50,
+    "item_name": "All Night Long"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Devil's Lake"
+  },
+  {
+    "item_name": "The Vampire's Mail Order Bride (Nocturne Falls) (Volume 1)"
+  },
+  {
+    "item_name": "Heart on Fire"
+  },
+  {
+    "item_name": "Talon, Come Fly with Me (Tylon)"
+  },
+  {
+    "item_name": "Compelled"
+  },
+  {
+    "item_name": "Ares: Guardians of Hades Romance Series"
+  },
+  {
+    "item_name": "Breaking Free (Others of Edenton) (Volume 4)"
+  },
+  {
+    "item_name": "The Werewolf Meets His Match (Nocturne Falls) (Volume 2)"
+  },
+  {
+    "item_name": "Mending Scars (Others of Edenton) (Volume 5)"
+  },
+  {
+    "item_name": "The Gargoyle Gets His Girl (Nocturne Falls) (Volume 3)"
+  },
+  {
+    "item_name": "The Professor Woos The Witch (Nocturne Falls) (Volume 4)"
+  },
+  {
+    "item_name": "Light in Darkness (Others of Seattle) (Volume 6)"
+  },
+  {
+    "item_name": "Blissful Agony (Others of Seattle) (Volume 7)"
+  },
+  {
+    "item_name": "The Vampire's Fake Fiancee (Nocturne Falls)"
+  },
+  {
+    "item_name": "Valen: Guardians of Hades Romance Series"
+  },
+  {
+    "item_name": "Cinder"
+  },
+  {
+    "item_name": "Bombshell (Hollywood A-List)"
+  },
+  {
+    "item_name": "Stone Guardian (Entwined Realms) (Volume 1)"
+  },
+  {
+    "item_name": "Throb"
+  },
+  {
+    "item_name": "Turned by a Tiger: Eternal Mates Romance Series"
+  },
+  {
+    "item_name": "Fifty Shades of Grey"
+  },
+  {
+    "item_name": "Nefertiti's Heart (The Artifact Hunters) (Volume 1)"
+  },
+  {
+    "item_name": "Unchained by a Forbidden Love: Eternal Mates Romance Series"
+  },
+  {
+    "item_name": "Guardians of Stone (The Relic Seekers)"
+  },
+  {
+    "item_name": "Fountain of Secrets (The Relic Seekers)"
+  },
+  {
+    "item_name": "The Lost Chalice (The Relic Seekers)"
+  },
+  {
+    "item_name": "Don't Forget Dexter! (Dexter T. Rexter)"
+  },
+  {
+    "item_name": "The Dragons of Dorcastle (The Pillars of Reality)"
+  },
+  {
+    "item_name": "&#39;Til Death Do Us Part (an adult retelling of The Little Mermaid) - Kindle edition"
+  },
+  {
+    "item_name": "The Hidden Masters of Marandur (The Pillars of Reality)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Gypsy Hunted"
+  },
+  {
+    "rank": 3,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 4,
+    "item_name": "After The Ending (The Ending Series) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "World After: Penryn and the End of Days Book Two"
+  },
+  {
+    "rank": 6,
+    "item_name": "Under the Never Sky"
+  },
+  {
+    "rank": 7,
+    "item_name": "Shadow of Time"
+  },
+  {
+    "rank": 8,
+    "item_name": "Reign of Blood"
+  },
+  {
+    "rank": 9,
+    "item_name": "Dead Radiance (Valkyrie, Book 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "rank": 11,
+    "item_name": "Talented"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Zombie Chronicles (Apocalypse Infection Unleashed Series)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Games of Fate (Fate Fire Shifter Dragon) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Stained: Stained Series (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Night Broken: A Mercy Thompson Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "Venom and Vanilla (The Venom Trilogy)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Scarlet (Lunar Chronicles, Book 2)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Mystic Wolves: Mystic Wolves"
+  },
+  {
+    "rank": 19,
+    "item_name": "Delirium (Debt Collector Episode One): Debt Collector Episode One (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The 5th Wave (Book 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Rippler: Book One in the Ripple Series"
+  },
+  {
+    "rank": 22,
+    "item_name": "Ellie Jordan, Ghost Trapper (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Wind Catcher (Chosen)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Perception (The Perception Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Accidental Demon Slayer"
+  },
+  {
+    "rank": 26,
+    "item_name": "Dead Heat: An Alpha and Omega novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Untraceable: The Nature of Grace series"
+  },
+  {
+    "rank": 28,
+    "item_name": "Burned by Magic (The Baine Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Ready To Were: Shift Happens Series Book One (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Justice Calling (The Twenty-Sided Sorceress) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Vampire Girl (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Rite of Rejection"
+  },
+  {
+    "rank": 33,
+    "item_name": "Halfway Dead (Halfway Witchy) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Publicist"
+  },
+  {
+    "rank": 35,
+    "item_name": "Runes"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Forgotten Ones (The Danaan Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Time of Death: Induction (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Dirty Blood"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Witching Pen (Witching Pen Novellas)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Night of the Purple Moon (The Toucan Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Selection. by Kiera Cass"
+  },
+  {
+    "rank": 42,
+    "item_name": "Survival, Book 1 of The Guardians of Vesturon: The Guardians of Vesturon (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Blemished"
+  },
+  {
+    "rank": 44,
+    "item_name": "The 100"
+  },
+  {
+    "rank": 45,
+    "item_name": "Cupcakes, Trinkets, and Other Deadly Magic (Dowser)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Elite (selection 2)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Flight: Book 1 of the Crescent Chronicles"
+  },
+  {
+    "rank": 48,
+    "item_name": "Obsidian (Lux)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Spider's Bite (Elemental Assassin, Book 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Hunger Games (Book 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

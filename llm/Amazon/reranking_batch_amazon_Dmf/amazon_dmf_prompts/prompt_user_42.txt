@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Bones of the Hills (Conqueror, Book 3)"
+  },
+  {
+    "item_name": "Red Rabbit"
+  },
+  {
+    "item_name": "The Force Awakens (Star Wars)"
+  },
+  {
+    "item_name": "Ex-Heroes: A Novel"
+  },
+  {
+    "item_name": "Fool Moon"
+  },
+  {
+    "item_name": "Timebound (The Chronos Files)"
+  },
+  {
+    "item_name": "Wolverine: Old Man Logan Vol. 2: Bordertown (Wolverine: Old Man Logan (2015))"
+  },
+  {
+    "item_name": "Time's Edge (The Chronos Files)"
+  },
+  {
+    "item_name": "Low, Vol. 1: The Delirium of Hope"
+  },
+  {
+    "item_name": "Secret War (New Avengers) (Book 1)"
+  },
+  {
+    "item_name": "Kingdom Come (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "East of West Volume 1: The Promise"
+  },
+  {
+    "item_name": "The City of Shifting Waters (Valerian &amp; Laureline)"
+  },
+  {
+    "item_name": "Star Wars: Journey to Star Wars: The Force Awakens: Shattered Empire (Star Wars (Marvel))"
+  },
+  {
+    "item_name": "Wolverine: Old Man Logan Vol. 3: The Last Ronin (Wolverine: Old Man Logan (2015))"
+  },
+  {
+    "item_name": "The Reason for God: Belief in an Age of Skepticism"
+  },
+  {
+    "item_name": "Ex-Patriots: A Novel (Ex-Heroes)"
+  },
+  {
+    "item_name": "Tech World (Undying Mercenaries)"
+  },
+  {
+    "item_name": "Ex-Communication: A Novel (Ex-Heroes)"
+  },
+  {
+    "item_name": "Deathstroke Vol. 1: The Professional (Rebirth)"
+  },
+  {
+    "item_name": "Siege"
+  },
+  {
+    "item_name": "Catalyst (Star Wars): A Rogue One Novel"
+  },
+  {
+    "item_name": "Ex-Isle: A Novel (Ex-Heroes)"
+  },
+  {
+    "item_name": "Wolverine: Weapon X"
+  },
+  {
+    "item_name": "Star Wars: Ahsoka"
+  },
+  {
+    "item_name": "The Pioneer Woman Cooks: Come and Get It!: Simple, Scrumptious Recipes for Crazy Busy Lives"
+  },
+  {
+    "item_name": "When Breath Becomes Air"
+  },
+  {
+    "item_name": "Injustice: Gods Among Us: Year Five Vol. 2"
+  },
+  {
+    "item_name": "The Pioneer Woman: Black Heels to Tractor Wheels--A Love Story"
+  },
+  {
+    "item_name": "Phasma (Star Wars): Journey to Star Wars: The Last Jedi"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 16,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 2,
+    "item_id": 235,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 3,
+    "item_id": 565,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 4,
+    "item_id": 27953,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 5,
+    "item_id": 74439,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 6,
+    "item_id": 74663,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 7,
+    "item_id": 74802,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 8,
+    "item_id": 74923,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 9,
+    "item_id": 75586,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 10,
+    "item_id": 37,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 11,
+    "item_id": 100,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 12,
+    "item_id": 6680,
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "rank": 13,
+    "item_id": 6920,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 14,
+    "item_id": 76371,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 15,
+    "item_id": 75993,
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "rank": 16,
+    "item_id": 83,
+    "item_name": "Little Women"
+  },
+  {
+    "rank": 17,
+    "item_id": 6785,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 18,
+    "item_id": 34859,
+    "item_name": "The New Avengers, Vol. 3: Secrets And Lies"
+  },
+  {
+    "rank": 19,
+    "item_id": 6507,
+    "item_name": "The Man Who Was Thursday: A Nightmare (Classic, 20th-Century, Penguin)"
+  },
+  {
+    "rank": 20,
+    "item_id": 44006,
+    "item_name": "Fables: Werewolves of the Heartland"
+  },
+  {
+    "rank": 21,
+    "item_id": 7638,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_id": 3746,
+    "item_name": "A Midsummer Night's Dream (Teen Classics)"
+  },
+  {
+    "rank": 23,
+    "item_id": 14823,
+    "item_name": "John Carter of Mars (Barsoom Series, #11)"
+  },
+  {
+    "rank": 24,
+    "item_id": 9641,
+    "item_name": "The Illustrated Hitch-hiker's Guide to the Galaxy"
+  },
+  {
+    "rank": 25,
+    "item_id": 7819,
+    "item_name": "A Princess of Mars (Penguin Classics)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

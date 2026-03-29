@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Refuse to Lose (A Coach's Love) (Volume 1)"
+  },
+  {
+    "item_name": "Rebel"
+  },
+  {
+    "item_name": "Two Dirty Bosses"
+  },
+  {
+    "item_name": "Dirty Laundry"
+  },
+  {
+    "item_name": "Werebears Of Acadia: The Complete Series Collection (Shifter Nation)"
+  },
+  {
+    "item_name": "Second Chance Draft: A Second Chance Sports Romance (Pass To Win)"
+  },
+  {
+    "item_name": "The Dragon's Secret Queen (Dragon Secrets) (Volume 5)"
+  },
+  {
+    "item_name": "Devils &amp; Rye (Top Shelf) (Volume 4)"
+  },
+  {
+    "item_name": "Baby for the Beast"
+  },
+  {
+    "item_name": "The Traitor's Bride: A science fiction romance (Keepers of Xereill)"
+  },
+  {
+    "item_name": "Dark Oath (Dark Saints MC) (Volume 9)"
+  },
+  {
+    "item_name": "Controlling Disgrace: A Novella (The Control Series)"
+  },
+  {
+    "item_name": "Forbidden Duke (Princes of Avce) (Volume 4)"
+  },
+  {
+    "item_name": "The Problem with Pugs: A Love &amp; Pets Romantic Comedy Series Novel"
+  },
+  {
+    "item_name": "Vegas Boss"
+  },
+  {
+    "item_name": "Hearts and Ever Afters: Regency Romance Collection"
+  },
+  {
+    "item_name": "Lord of Temptation (Rogues to Riches) (Volume 4)"
+  },
+  {
+    "item_name": "The Magestaff (The Seven Kingdoms)"
+  },
+  {
+    "item_name": "The Wife Gamble: Salinger (Six Men of Alaska)"
+  },
+  {
+    "item_name": "Cheeky Royal (Royals Undercover) (Volume 1)"
+  },
+  {
+    "item_name": "Triple Daddies"
+  },
+  {
+    "item_name": "The Secret Billionaire: Covington Billionaires Book 3 (An Alpha Billionaire Romance Love Story)"
+  },
+  {
+    "item_name": "Hot Seal Next Door: A Bad Boy Second Chance Romance"
+  },
+  {
+    "item_name": "Scorpio"
+  },
+  {
+    "item_name": "Claiming Her"
+  },
+  {
+    "item_name": "Accidental Surprises"
+  },
+  {
+    "item_name": "Fated Attraction (Werebears Of The Everglades)"
+  },
+  {
+    "item_name": "Lord of Secrets (Rogues to Riches) (Volume 5)"
+  },
+  {
+    "item_name": "Black Rules (Black Edge)"
+  },
+  {
+    "item_name": "Damien's Nanny (Beverly Hills Dragons)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Trapped in the Cabin"
+  },
+  {
+    "rank": 2,
+    "item_name": "Renegade Ridge: A Bad Boy Action Adventure Romance (Renegade Ridge Series)"
+  },
+  {
+    "rank": 3,
+    "item_name": "SEAL's Touch: A Dirty Bad Boy Romance (Small Town SEALs)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Play (Brit Boys Sports Romance) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Ranger Trent (Shifter Nation: Werebears Of Acadia) (Volume 2)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Velocity (A Dangerous Bad Boy Romance)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Two Wrongs (Trouble by Numbers) (Volume 2)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Christmas Hims: A Christmas Romance"
+  },
+  {
+    "rank": 9,
+    "item_name": "Dirty Dom: A Bad Boy Mafia Romance"
+  },
+  {
+    "rank": 10,
+    "item_name": "Hostage of the Hitman: A Bad Boy Mafia Romance"
+  },
+  {
+    "rank": 11,
+    "item_name": "Babyjacked: A Payne Brothers Romance"
+  },
+  {
+    "rank": 12,
+    "item_name": "Guarding Her: A Secret Baby Romance"
+  },
+  {
+    "rank": 13,
+    "item_name": "All Tied Up For New Year's (Restrained) (Volume 3)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Hot Seal Next Door: A Bad Boy Second Chance Romance"
+  },
+  {
+    "rank": 15,
+    "item_name": "His Banana"
+  },
+  {
+    "rank": 16,
+    "item_name": "Conceit (Se7en Deadly SEALs) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Professor with Benefits"
+  },
+  {
+    "rank": 18,
+    "item_name": "Out Of Bounds (Brit Boys Sports Romance) (Volume 3)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Duke of New York: A Contemporary Bad Boy Royal Romance"
+  },
+  {
+    "rank": 20,
+    "item_name": "Missing From Me (Sixth Street Bands) (Volume 3)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Come Undone - A Bad Boy Romance"
+  },
+  {
+    "rank": 22,
+    "item_name": "Forbidden: A Student Teacher Romance"
+  },
+  {
+    "rank": 23,
+    "item_name": "Italian Billionaire's Stubborn Lover (The Romano Brothers Series) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Mine: MMF Bisexual Menage Romance"
+  },
+  {
+    "rank": 25,
+    "item_name": "Dirty Jock"
+  },
+  {
+    "rank": 26,
+    "item_name": "Their Virgin Brat"
+  },
+  {
+    "rank": 27,
+    "item_name": "Flipped (Better With Prosecco)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Billionaire Retreat"
+  },
+  {
+    "rank": 29,
+    "item_name": "Redemption"
+  },
+  {
+    "rank": 30,
+    "item_name": "Unbridled Pursuit"
+  },
+  {
+    "rank": 31,
+    "item_name": "Kiss Me in the Rain (Kiss Me Romance)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Fake Bride: A Billionaire Boss Fake Marriage Romance"
+  },
+  {
+    "rank": 33,
+    "item_name": "Jenny (Beach Brides) (Volume 5)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Baby Mission"
+  },
+  {
+    "rank": 35,
+    "item_name": "Mine to Protect"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Dragon King's Prisoner: A Paranormal Romance (Separated by Time) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Beast"
+  },
+  {
+    "rank": 38,
+    "item_name": "Promise Me: A Second Chance Romance"
+  },
+  {
+    "rank": 39,
+    "item_name": "Stockholm Syndromance: A Bad Boy Romance (Still a Bad Boy) (Volume 4)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Saved by Alpha Bear"
+  },
+  {
+    "rank": 41,
+    "item_name": "Playing with Fire: A Single Dad and Nanny Romance (Game Time)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Scars of Love"
+  },
+  {
+    "rank": 43,
+    "item_name": "Queen of My Heart (Life Won't Wait) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Redemption"
+  },
+  {
+    "rank": 45,
+    "item_name": "Dirty Indiscretions: A Dark Mafia Romance (Omerta Series)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Captive of the Hitman: A Bad Boy Mafia Romance Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Tornado: A Paranormal Romance (Savage Brotherhood MC) (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Two Hitmen: Raw, Lethal and Dirty"
+  },
+  {
+    "rank": 49,
+    "item_name": "For the Love of Luca (Chicago Syndicate) (Volume 8)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Three: MMF Bisexual Menage Romance"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

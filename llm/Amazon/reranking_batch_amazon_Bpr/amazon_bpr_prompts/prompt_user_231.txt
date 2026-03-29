@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Sixth Grave on the Edge"
+  },
+  {
+    "item_name": "Memory of Water"
+  },
+  {
+    "item_name": "The Patron Saint of Ugly"
+  },
+  {
+    "item_name": "Shield of Winter (Psy-Changeling Novel, A)"
+  },
+  {
+    "item_name": "Ghost Seer (The Ghost Seer Novel)"
+  },
+  {
+    "item_name": "Shadowflame (A Novel of the Shadow World)"
+  },
+  {
+    "item_name": "Magic Breaks (Kate Daniels)"
+  },
+  {
+    "item_name": "Dark Skye (Immortals After Dark)"
+  },
+  {
+    "item_name": "Deadly Obsession (A Brown and de Luca Novel)"
+  },
+  {
+    "item_name": "Wickedly Dangerous (A Baba Yaga Novel)"
+  },
+  {
+    "item_name": "Midnight's Kiss (A Novel of the Elder Races)"
+  },
+  {
+    "item_name": "Vengeance of the Demon (Kara Gillian)"
+  },
+  {
+    "item_name": "The Dead Run: A Novel (Jess Galvan)"
+  },
+  {
+    "item_name": "The Trouble with Honor (The Cabot Sisters)"
+  },
+  {
+    "item_name": "Feral"
+  },
+  {
+    "item_name": "Red Queen"
+  },
+  {
+    "item_name": "Archangel's Enigma (A Guild Hunter Novel)"
+  },
+  {
+    "item_name": "Magic Shifts (Kate Daniels)"
+  },
+  {
+    "item_name": "Crown of Midnight (Throne of Glass)"
+  },
+  {
+    "item_name": "An Unattractive Vampire"
+  },
+  {
+    "item_name": "Cast in Honor (The Chronicles of Elantra)"
+  },
+  {
+    "item_name": "Shadow Falling (The Scorpius Syndrome)"
+  },
+  {
+    "item_name": "Frostblood (The Frostblood Saga)"
+  },
+  {
+    "item_name": "Fire Touched: Mercy Thompson Book 9"
+  },
+  {
+    "item_name": "Marked In Flesh (A Novel of the Others)"
+  },
+  {
+    "item_name": "Strange Practice (A Dr. Greta Helsing Novel)"
+  },
+  {
+    "item_name": "Things to Do When You're Goth in the Country: and Other Stories"
+  },
+  {
+    "item_name": "Bring the Heat (Dragon Kin)"
+  },
+  {
+    "item_name": "Places in the Darkness"
+  },
+  {
+    "item_name": "Hot and Badgered (The Honey Badger Chronicles)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse) By Charlaine Harris"
+  },
+  {
+    "rank": 3,
+    "item_name": "Summoning the Night: An Arcadia Bell Novel (The Arcadia Bell series)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Kitty and the Midnight Hour (Kitty Norville)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Turning"
+  },
+  {
+    "rank": 7,
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "rank": 8,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse/True Blood, Book 2)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Undead Pool"
+  },
+  {
+    "rank": 10,
+    "item_name": "Grave Dance (Alex Craft)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Magic Strikes (Kate Daniels)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Iron Crowned"
+  },
+  {
+    "rank": 13,
+    "item_name": "Thunderbird Falls (The Walker Papers, Book 2)"
+  },
+  {
+    "rank": 14,
+    "item_name": "White Night (The Dresden Files)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Storm Born (Dark Swan, Book 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "You Slay Me (Aisling Grey, Guardian, Book 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Vision in Silver (A Novel of the Others)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Fire Me Up (Aisling Grey, Guardian, Book 2)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Touched by an Alien (Alien Novels)"
+  },
+  {
+    "rank": 20,
+    "item_name": "My Soul to Save (Soul Screamers Book 2)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Taste of Night (Sign of the Zodiac, Book 2)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Spell Bound (The Women of the Otherworld Series)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Living with the Dead: Women of the Otherworld (The Women of the Otherworld Series)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Dead to the World (Southern Vampire Mysteries, Book 4)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Mercy Blade (Jane Yellowrock, Book 3)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Stray"
+  },
+  {
+    "rank": 27,
+    "item_name": "Magic to the Bone (Allie Beckstrom, Book 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Grave Peril (The Dresden Files, Book 3)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Men of the Otherworld"
+  },
+  {
+    "rank": 30,
+    "item_name": "Caressed By Ice (Psy-Changelings, Book 3)"
+  },
+  {
+    "rank": 31,
+    "item_name": "A Hunger Like No Other (Immortals After Dark, Book 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Daughter of the Blood (Black Jewels, Book 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Red-Headed Stepchild (Sabina Kane, Book 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Grave Memory (Alex Craft)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Unshapely Things (Connor Grey, Book 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Finders Keepers: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Raintree: Sanctuary"
+  },
+  {
+    "rank": 38,
+    "item_name": "Destined for an Early Grave"
+  },
+  {
+    "rank": 39,
+    "item_name": "Undead and Unappreciated"
+  },
+  {
+    "rank": 40,
+    "item_name": "Dark Time: Mortal Path Book One (Mortal Path Series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Taken: Celestial Blues (Celestial Blues Series Book 1) - Kindle edition"
+  },
+  {
+    "rank": 42,
+    "item_name": "Dagger-Star (Epic of Palins, Book 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Discount Armageddon (InCryptid)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Sacrificial Magic (Downside Ghosts)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Strange Brew"
+  },
+  {
+    "rank": 46,
+    "item_name": "Club Dead (Sookie Stackhouse/True Blood, Book 3)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Long Way Home (Buffy the Vampire Slayer, Season 8, Vol. 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "An Ice Cold Grave (Harper Connelly Mysteries, Book 3)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Lover Revealed (Black Dagger Brotherhood, Book 4)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Spirit Dances (The Walker Papers, Book 6)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

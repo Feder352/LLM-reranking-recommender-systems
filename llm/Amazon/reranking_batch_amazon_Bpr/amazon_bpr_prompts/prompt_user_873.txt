@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Power Play: A Novel"
+  },
+  {
+    "item_name": "The Woman Who Stole My Life"
+  },
+  {
+    "item_name": "The Statistical Probability of Love at First Sight"
+  },
+  {
+    "item_name": "See Jane Die (Mira)"
+  },
+  {
+    "item_name": "Monument 14: Savage Drift (Monument 14 Series)"
+  },
+  {
+    "item_name": "Six of Crows"
+  },
+  {
+    "item_name": "The Bone Season"
+  },
+  {
+    "item_name": "A Court of Thorns and Roses"
+  },
+  {
+    "item_name": "Coffin Road"
+  },
+  {
+    "item_name": "The Change: Episode one"
+  },
+  {
+    "item_name": "The 500: A Novel"
+  },
+  {
+    "item_name": "The Reluctant Bachelorette: A Romantic Comedy"
+  },
+  {
+    "item_name": "The Burning (Maeve Kerrigan, Book 1) (Maeve Kerrigan Novels)"
+  },
+  {
+    "item_name": "Dream Country: A Novel"
+  },
+  {
+    "item_name": "Everybody Sees the Ants"
+  },
+  {
+    "item_name": "Fangirl"
+  },
+  {
+    "item_name": "A Cast of Stones (The Staff and the Sword)"
+  },
+  {
+    "item_name": "The Rose &amp; the Dagger (The Wrath and the Dawn)"
+  },
+  {
+    "item_name": "I'll Give You the Sun"
+  },
+  {
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "item_name": "The Archived"
+  },
+  {
+    "item_name": "NOS4A2: A Novel"
+  },
+  {
+    "item_name": "Just Listen"
+  },
+  {
+    "item_name": "Mean Streak"
+  },
+  {
+    "item_name": "The Next Best Thing: A Novel"
+  },
+  {
+    "item_name": "Rumour Has it (Signed by author!!!)"
+  },
+  {
+    "item_name": "Me Before You: A Novel (Movie Tie-In) (Me Before You Trilogy)"
+  },
+  {
+    "item_name": "Stupid Fast (Felton Reinstein trilogy)"
+  },
+  {
+    "item_name": "The Boy Next Door"
+  },
+  {
+    "item_name": "Tease"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Allegiant"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 3,
+    "item_name": "We Were Liars"
+  },
+  {
+    "rank": 4,
+    "item_name": "Fallen"
+  },
+  {
+    "rank": 5,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Elite (selection 2)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Requiem (Delirium Trilogy)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 9,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 10,
+    "item_name": "Under the Never Sky"
+  },
+  {
+    "rank": 11,
+    "item_name": "Beautiful Creatures. by Kami Garcia &amp; Margaret Stohl"
+  },
+  {
+    "rank": 12,
+    "item_name": "Hush, Hush"
+  },
+  {
+    "rank": 13,
+    "item_name": "The One (The Selection)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Days of Blood &amp; Starlight"
+  },
+  {
+    "rank": 15,
+    "item_name": "Prodigy"
+  },
+  {
+    "rank": 16,
+    "item_name": "Firelight"
+  },
+  {
+    "rank": 17,
+    "item_name": "Dreams of Gods &amp; Monsters (Daughter of Smoke &amp; Bone)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Seraphina"
+  },
+  {
+    "rank": 19,
+    "item_name": "Vampire Academy: Spirit Bound (book 5)"
+  },
+  {
+    "rank": 20,
+    "item_name": "City of Glass (The Mortal Instruments)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Mockingjay: The Hunger Games"
+  },
+  {
+    "rank": 22,
+    "item_name": "Maze Runner. Correr o Morir / Maze Runner, Run or die (Spanish Edition)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Torment (Fallen)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Young Elites"
+  },
+  {
+    "rank": 25,
+    "item_name": "Shatter Me"
+  },
+  {
+    "rank": 26,
+    "item_name": "Million Suns"
+  },
+  {
+    "rank": 27,
+    "item_name": "Down the Rabbit Hole: Curious Adventures and Cautionary Tales of a Former Playboy Bunny"
+  },
+  {
+    "rank": 28,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Body Finder"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Testing"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Girl of Fire and Thorns"
+  },
+  {
+    "rank": 32,
+    "item_name": "Attachments: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "The 100"
+  },
+  {
+    "rank": 34,
+    "item_name": "Everything, Everything"
+  },
+  {
+    "rank": 35,
+    "item_name": "Arson: Book One in The Arson Trilogy"
+  },
+  {
+    "rank": 36,
+    "item_name": "Bloodlines"
+  },
+  {
+    "rank": 37,
+    "item_name": "Chain Reaction (A Perfect Chemistry Novel)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Trapped"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Unbecoming of Mara Dyer (The Mara Dyer Trilogy)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Hunger Games (Book 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Obsidian (Lux)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Abandon"
+  },
+  {
+    "rank": 43,
+    "item_name": "Reached"
+  },
+  {
+    "rank": 44,
+    "item_name": "Every Last Word"
+  },
+  {
+    "rank": 45,
+    "item_name": "I Am Number Four (Lorien Legacies, Book 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Silence"
+  },
+  {
+    "rank": 47,
+    "item_name": "Wither (Chemical Garden)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Hourglass"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Truth About Alice: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Struck"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

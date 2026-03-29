@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "HBR's 10 Must Reads 2015: The Definitive Management Ideas of the Year from Harvard Business Review (with bonus McKinsey AwardWinning article The Focused Leader) (HBR's 10 Must Reads)"
+  },
+  {
+    "item_name": "Superforecasting: The Art and Science of Prediction"
+  },
+  {
+    "item_name": "Play the Part: Master Body Signals to Connect and Communicate for Business Success"
+  },
+  {
+    "item_name": "A Confident Heart: How to Stop Doubting Yourself and Live in the Security of Gods Promises"
+  },
+  {
+    "item_name": "God Never Blinks: 50 Lessons for Life's Little Detours"
+  },
+  {
+    "item_name": "Peak: Secrets from the New Science of Expertise"
+  },
+  {
+    "item_name": "Eat People: And Other Unapologetic Rules for Game-Changing Entrepreneurs"
+  },
+  {
+    "item_name": "Impossible to Ignore: Creating Memorable Content to Influence Decisions"
+  },
+  {
+    "item_name": "13 Things Mentally Strong People Don't Do"
+  },
+  {
+    "item_name": "Mistakes Were Made (But Not by Me): Why We Justify Foolish Beliefs, Bad Decisions, and Hurtful Acts"
+  },
+  {
+    "item_name": "Thank You for Being Late: An Optimist's Guide to Thriving in the Age of Accelerations"
+  },
+  {
+    "item_name": "Wherever You Go, There You Are: Mindfulness Meditation in Everyday Life"
+  },
+  {
+    "item_name": "How to Fly a Horse: The Secret History of Creation, Invention, and Discovery"
+  },
+  {
+    "item_name": "100 Tricks to Appear Smart in Meetings: How to Get By Without Even Trying"
+  },
+  {
+    "item_name": "Wake Up to the Joy of You: 52 Meditations and Practices for a Calmer, Happier Life"
+  },
+  {
+    "item_name": "The Bazaar of Bad Dreams: Stories"
+  },
+  {
+    "item_name": "Hit Makers: The Science of Popularity in an Age of Distraction"
+  },
+  {
+    "item_name": "How Not to Die: Discover the Foods Scientifically Proven to Prevent and Reverse Disease"
+  },
+  {
+    "item_name": "If I Understood You, Would I Have This Look on My Face?: My Adventures in the Art and Science of Relating and Communicating"
+  },
+  {
+    "item_name": "How Not to Be Wrong: The Power of Mathematical Thinking"
+  },
+  {
+    "item_name": "Barking Up the Wrong Tree: The Surprising Science Behind Why Everything You Know About Success Is (Mostly) Wrong"
+  },
+  {
+    "item_name": "Triggers: Creating Behavior That Lasts--Becoming the Person You Want to Be"
+  },
+  {
+    "item_name": "Deep Work: Rules for Focused Success in a Distracted World [Paperback] [Jan 01, 2016] Newport, Cal"
+  },
+  {
+    "item_name": "The Four: The Hidden DNA of Amazon, Apple, Facebook, and Google"
+  },
+  {
+    "item_name": "Everybody Lies: Big Data, New Data, and What the Internet Can Tell Us About Who We Really Are"
+  },
+  {
+    "item_name": "The Case Against Sugar"
+  },
+  {
+    "item_name": "Your New Job Title Is Accomplice: A Dilbert Book"
+  },
+  {
+    "item_name": "Age of Discovery: Navigating the Risks and Rewards of Our New Renaissance"
+  },
+  {
+    "item_name": "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life"
+  },
+  {
+    "item_name": "Leading Through the Turn: How a Journey Mindset Can Help Leaders Find Success and Significance"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The New Depression: The Breakdown of the Paper Money Economy"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 3,
+    "item_name": "Being Wrong: Adventures in the Margin of Error"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Next 100 Years: A Forecast for the 21st Century"
+  },
+  {
+    "rank": 5,
+    "item_name": "7 Deadly Scenarios: A Military Futurist Explores the Changing Face of War in the 21st Century"
+  },
+  {
+    "rank": 6,
+    "item_name": "Trick or Treatment: The Undeniable Facts about Alternative Medicine"
+  },
+  {
+    "rank": 7,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 8,
+    "item_name": "Ultimate Leadership: Winning Execution Strategies for Your Situation"
+  },
+  {
+    "rank": 9,
+    "item_name": "Pre-Suasion: A Revolutionary Way to Influence and Persuade"
+  },
+  {
+    "rank": 10,
+    "item_name": "Leaders Eat Last: Why Some Teams Pull Together and Others Don't"
+  },
+  {
+    "rank": 11,
+    "item_name": "Conscious Capitalism: Liberating the Heroic Spirit of Business"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  },
+  {
+    "rank": 14,
+    "item_name": "Getting Beyond Better: How Social Entrepreneurship Works"
+  },
+  {
+    "rank": 15,
+    "item_name": "Do As I Say (Not As I Do): Profiles in Liberal Hypocrisy"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Upside of Irrationality: The Unexpected Benefits of Defying Logic"
+  },
+  {
+    "rank": 17,
+    "item_name": "Big Coal: The Dirty Secret Behind America's Energy Future"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Talent Code: Greatness Isn't Born. It's Grown."
+  },
+  {
+    "rank": 19,
+    "item_name": "Aftershock: The Next Economy and America's Future"
+  },
+  {
+    "rank": 20,
+    "item_name": "Uncontrolled: The Surprising Payoff of Trial-and-Error for Business, Politics, and Society"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Warrior Diet"
+  },
+  {
+    "rank": 22,
+    "item_name": "The 4-hour Workweek: Escape the 9-5, Live Anywhere and Join the New Rich"
+  },
+  {
+    "rank": 23,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Innovator's Solution: Creating and Sustaining Successful Growth"
+  },
+  {
+    "rank": 25,
+    "item_name": "Nightly Business Report Presents Lasting Leadership: What You Can Learn from the Top 25 Business People of our Times"
+  },
+  {
+    "rank": 26,
+    "item_name": "Makers and Takers: How Wall Street Destroyed Main Street"
+  },
+  {
+    "rank": 27,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Sense of Urgency"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Random Walk Down Wall Street: Including a Life-Cycle Guide to Personal Investing"
+  },
+  {
+    "rank": 30,
+    "item_name": "Multipliers: How the Best Leaders Make Everyone Smarter"
+  },
+  {
+    "rank": 31,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 33,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Housing Boom and Bust: Revised Edition"
+  },
+  {
+    "rank": 36,
+    "item_name": "What Happy People Know: How the New Science of Happiness Can Change Your Life for the Better"
+  },
+  {
+    "rank": 37,
+    "item_name": "True North: Discover Your Authentic Leadership"
+  },
+  {
+    "rank": 38,
+    "item_name": "DIY U: Edupunks, Edupreneurs, and the Coming Transformation of Higher Education"
+  },
+  {
+    "rank": 39,
+    "item_name": "Lead with Humility: 12 Leadership Lessons from Pope Francis"
+  },
+  {
+    "rank": 40,
+    "item_name": "Born Entrepreneurs, Born Leaders: How Your Genes Affect Your Work Life"
+  },
+  {
+    "rank": 41,
+    "item_name": "Welcome to Obamaland: I Have Seen Your Future and It Doesn't Work"
+  },
+  {
+    "rank": 42,
+    "item_name": "A Demon of Our Own Design: Markets, Hedge Funds, and the Perils of Financial Innovation"
+  },
+  {
+    "rank": 43,
+    "item_name": "Talent is Overrated: What Really Separates World-Class Performers from Everybody Else"
+  },
+  {
+    "rank": 44,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 45,
+    "item_name": "Confidence: How Winning Streaks and Losing Streaks Begin and End"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Birth of Plenty : How the Prosperity of the Modern World was Created"
+  },
+  {
+    "rank": 47,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Return of George Washington: Uniting the States, 1783-1789"
+  },
+  {
+    "rank": 49,
+    "item_name": "Blackett's War: The Men Who Defeated the Nazi U-Boats and Brought Science to the Art of Warfare"
+  },
+  {
+    "rank": 50,
+    "item_name": "Please Stop Helping Us: How Liberals Make It Harder for Blacks to Succeed"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

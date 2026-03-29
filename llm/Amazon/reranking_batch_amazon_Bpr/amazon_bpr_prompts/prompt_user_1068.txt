@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Touched (Sense Thieves)"
+  },
+  {
+    "item_name": "At Every Turn"
+  },
+  {
+    "item_name": "Hating Heidi Foster"
+  },
+  {
+    "item_name": "Whispers at Moonrise (A Shadow Falls Novel)"
+  },
+  {
+    "item_name": "The Lies That Bind (The Liar Society)"
+  },
+  {
+    "item_name": "Underside of Joy"
+  },
+  {
+    "item_name": "Everbound (Everneath)"
+  },
+  {
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "item_name": "The Dead and Buried"
+  },
+  {
+    "item_name": "Innocent Darkness (Turtleback School &amp; Library Binding Edition) (Aether Chronicles)"
+  },
+  {
+    "item_name": "Shades of Gray"
+  },
+  {
+    "item_name": "Chasers (Alone #1)"
+  },
+  {
+    "item_name": "When Hope Blossoms"
+  },
+  {
+    "item_name": "The Tutor's Daughter"
+  },
+  {
+    "item_name": "Lesson: A Novel (Stoney Ridge Seasons)"
+  },
+  {
+    "item_name": "You Got to Be Kidding! A Radical Satire of The Bible"
+  },
+  {
+    "item_name": "Divine Fury: An Enzo Lee Mystery Thriller"
+  },
+  {
+    "item_name": "Lullaby (A Watersong Novel)"
+  },
+  {
+    "item_name": "Midnight City: A Conquered Earth Novel (The Conquered Earth Series)"
+  },
+  {
+    "item_name": "Crimson Wind (Horngate Witches)"
+  },
+  {
+    "item_name": "Bitter Night: A Horngate Witches Book"
+  },
+  {
+    "item_name": "Vicious Circle (Persephone Alcmedi, Book 1)"
+  },
+  {
+    "item_name": "Lust for Life"
+  },
+  {
+    "item_name": "Fatherless: A Novel"
+  },
+  {
+    "item_name": "Into the Dark"
+  },
+  {
+    "item_name": "Love Finds You in Glacier Bay, Alaska"
+  },
+  {
+    "item_name": "Ashen Winter (Ashfall Trilogy)"
+  },
+  {
+    "item_name": "Untimed"
+  },
+  {
+    "item_name": "The Runner (Michael Knight Series, Book 1)"
+  },
+  {
+    "item_name": "Wicked Circle (Persephone Alcmedi)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ruby Red (The Ruby Red Trilogy)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 4,
+    "item_name": "Arson: Book One in The Arson Trilogy"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Dancing Master"
+  },
+  {
+    "rank": 6,
+    "item_name": "Fathomless (Fairy Tale Retelling)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Scarlet (Lunar Chronicles, Book 2)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Before I Fall Enhanced Edition"
+  },
+  {
+    "rank": 9,
+    "item_name": "Under the Never Sky"
+  },
+  {
+    "rank": 10,
+    "item_name": "Abandon"
+  },
+  {
+    "rank": 11,
+    "item_name": "Cascade: A Novel (River of Time Series)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Once (Eve)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Defy (Defy, Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Merchant's Daughter (Fairy Tale Romance Series)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The False Prince (The Ascendance Trilogy, Book 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Nocturne"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Lying Game"
+  },
+  {
+    "rank": 18,
+    "item_name": "Waterfall: A Novel (River of Time Series)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Cryer's Cross"
+  },
+  {
+    "rank": 20,
+    "item_name": "Eve"
+  },
+  {
+    "rank": 21,
+    "item_name": "Shade"
+  },
+  {
+    "rank": 22,
+    "item_name": "Wither (Chemical Garden)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Etiquette &amp; Espionage: Finishing School, Book 1"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Lonely Hearts Club"
+  },
+  {
+    "rank": 25,
+    "item_name": "Dark Mirror: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "Glow: Book One of the Sky Chasers"
+  },
+  {
+    "rank": 27,
+    "item_name": "Choker"
+  },
+  {
+    "rank": 28,
+    "item_name": "Illusions of Fate"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Girl in the Gatehouse"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Healers Apprentice"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Iron Knight (Iron Fey)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Incarnate (Incarnate Trilogy)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Conspiracy of Us"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Hunt (The Hunt Trilogy)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 36,
+    "item_name": "Inside Out"
+  },
+  {
+    "rank": 37,
+    "item_name": "Crewel: A Novel (Crewel World)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Everneath"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Heiress of Winterwood (Whispers On The Moors)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Ten Miles Past Normal"
+  },
+  {
+    "rank": 41,
+    "item_name": "Shatter Me"
+  },
+  {
+    "rank": 42,
+    "item_name": "Delirium (Delirium Trilogy)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Ascend (A Trylle Novel)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Bumped"
+  },
+  {
+    "rank": 46,
+    "item_name": "My Soul to Take"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Iron Witch (The Iron Witch Series)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Atomic Weight of Secrets or The Arrival of the Mysterious Men in Black (The Young Inventors Guild Series)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Not This Time: A Novel (Crossroads Crisis Center)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Those That Wake"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Wilder Life: My Adventures in the Lost World of Little House on the Prairie"
+  },
+  {
+    "item_name": "The Key on the Quilt (The Quilt Chronicles)"
+  },
+  {
+    "item_name": "The Seventh Most Important Thing"
+  },
+  {
+    "item_name": "Everything I Never Told You"
+  },
+  {
+    "item_name": "A Season for Tending: Book One in the Amish Vines and Orchards Series"
+  },
+  {
+    "item_name": "Murder Simply Brewed (An Amish Village Mystery)"
+  },
+  {
+    "item_name": "All-of-a-Kind Family"
+  },
+  {
+    "item_name": "Fever 1793"
+  },
+  {
+    "item_name": "Spark Joy: An Illustrated Master Class on the Art of Organizing and Tidying Up (The Life Changing Magic of Tidying Up)"
+  },
+  {
+    "item_name": "Off Balance: A Memoir"
+  },
+  {
+    "item_name": "The Geek's Guide to Unrequited Love"
+  },
+  {
+    "item_name": "The Winnowing Season: Book Two in the Amish Vines and Orchards Series"
+  },
+  {
+    "item_name": "Notes from the Hyena's Belly: An Ethiopian Boyhood"
+  },
+  {
+    "item_name": "War Child: A Child Soldier's Story"
+  },
+  {
+    "item_name": "Hero (The Woodcutter Sisters)"
+  },
+  {
+    "item_name": "The Vine Basket"
+  },
+  {
+    "item_name": "Trail of Broken Wings"
+  },
+  {
+    "item_name": "What Katy Did (Puffin Classics)"
+  },
+  {
+    "item_name": "Crenshaw"
+  },
+  {
+    "item_name": "Eight Twenty Eight: When Love Didn't Give Up"
+  },
+  {
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "item_name": "The Horse and His Boy (The Chronicles of Narnia)"
+  },
+  {
+    "item_name": "Prodigy"
+  },
+  {
+    "item_name": "Strawberry Girl 60th Anniversary Edition (Trophy Newbery)"
+  },
+  {
+    "item_name": "Sadako and the Thousand Paper Cranes (Puffin Modern Classics)"
+  },
+  {
+    "item_name": "For Every Season: Book Three in the Amish Vines and Orchards Series"
+  },
+  {
+    "item_name": "Seasons of Tomorrow: Book Four in the Amish Vines and Orchards Series"
+  },
+  {
+    "item_name": "Love Letters from God: Bible Stories"
+  },
+  {
+    "item_name": "Courage to Soar: A Body in Motion, A Life in Balance"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 584,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 2,
+    "item_id": 10450,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 3,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 4,
+    "item_id": 7105,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 5,
+    "item_id": 74802,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 6,
+    "item_id": 73113,
+    "item_name": "Maze Runner. Correr o Morir / Maze Runner, Run or die (Spanish Edition)"
+  },
+  {
+    "rank": 7,
+    "item_id": 14799,
+    "item_name": "The Shack"
+  },
+  {
+    "rank": 8,
+    "item_id": 74439,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 9,
+    "item_id": 27953,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 10,
+    "item_id": 235,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 11,
+    "item_id": 16,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 12,
+    "item_id": 6283,
+    "item_name": "Speak"
+  },
+  {
+    "rank": 13,
+    "item_id": 11599,
+    "item_name": "The Healers Apprentice"
+  },
+  {
+    "rank": 14,
+    "item_id": 35185,
+    "item_name": "Left Behind: A Novel of the Earth's Last Days (Left Behind #1)"
+  },
+  {
+    "rank": 15,
+    "item_id": 31380,
+    "item_name": "redeeming Love"
+  },
+  {
+    "rank": 16,
+    "item_id": 74663,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 17,
+    "item_id": 28796,
+    "item_name": "A Child Called It: One Child's Courage To Survive (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 18,
+    "item_id": 31436,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 19,
+    "item_id": 22987,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 20,
+    "item_id": 16239,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 21,
+    "item_id": 77131,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 22,
+    "item_id": 22978,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 23,
+    "item_id": 2939,
+    "item_name": "Stolen Innocence: My Story of Growing Up in a Polygamous Sect, Becoming a Teenage Bride, and Breaking Free of Warren Jeffs"
+  },
+  {
+    "rank": 24,
+    "item_id": 27240,
+    "item_name": "The False Prince (The Ascendance Trilogy, Book 1)"
+  },
+  {
+    "rank": 25,
+    "item_id": 7156,
+    "item_name": "Dog Days (Diary of a Wimpy Kid)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

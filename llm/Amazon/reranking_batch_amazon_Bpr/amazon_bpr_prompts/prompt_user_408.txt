@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Magnus Chase and the Sword of Summer (Book 1)"
+  },
+  {
+    "item_name": "The Thing About Jellyfish"
+  },
+  {
+    "item_name": "Most Dangerous: Daniel Ellsberg and the Secret History of the Vietnam War (Bccb Blue Ribbon Nonfiction Book Award (Awards))"
+  },
+  {
+    "item_name": "Iron Rails, Iron Men, and the Race to Link the Nation: The Story of the Transcontinental Railroad"
+  },
+  {
+    "item_name": "The Marvels"
+  },
+  {
+    "item_name": "Sunny Side Up"
+  },
+  {
+    "item_name": "Child Soldier: When Boys and Girls Are Used in War (CitizenKid)"
+  },
+  {
+    "item_name": "Saving Wonder"
+  },
+  {
+    "item_name": "The Girl in the Well Is Me"
+  },
+  {
+    "item_name": "The Wild Robot"
+  },
+  {
+    "item_name": "Red: The (Fairly) True Tale of Red Riding Hood"
+  },
+  {
+    "item_name": "Slacker"
+  },
+  {
+    "item_name": "Raymie Nightingale"
+  },
+  {
+    "item_name": "The Nameless City"
+  },
+  {
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "item_name": "Just Like Me"
+  },
+  {
+    "item_name": "Grayling's Song"
+  },
+  {
+    "item_name": "Serafina and the Twisted Staff (The Serafina Series)"
+  },
+  {
+    "item_name": "Supergirl at Super Hero High (DC Super Hero Girls)"
+  },
+  {
+    "item_name": "Towers Falling"
+  },
+  {
+    "item_name": "Lucy &amp; Andy Neanderthal (Lucy and Andy Neanderthal)"
+  },
+  {
+    "item_name": "Ghosts"
+  },
+  {
+    "item_name": "The Gathering (Shadow House, Book 1)"
+  },
+  {
+    "item_name": "Ghosts"
+  },
+  {
+    "item_name": "The Littlest Bigfoot"
+  },
+  {
+    "item_name": "The Best Man"
+  },
+  {
+    "item_name": "The Secret Keepers"
+  },
+  {
+    "item_name": "The Inquisitor's Tale: Or, The Three Magical Children and Their Holy Dog"
+  },
+  {
+    "item_name": "Welcome to Wonderland #1: Home Sweet Motel"
+  },
+  {
+    "item_name": "Right Behind You (FBI Profiler)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 2,
+    "item_name": "Princess Academy"
+  },
+  {
+    "rank": 3,
+    "item_name": "Fairest"
+  },
+  {
+    "rank": 4,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 5,
+    "item_name": "So You Want to Be a Wizard"
+  },
+  {
+    "rank": 6,
+    "item_name": "Magic Tree House Collection Volume 1: Books 1-4: #1 Dinosaurs Before Dark; #2 The Knight at Dawn; #3 Mummies in the Morning; #4 Pirates Past Noon (Magic Tree House (R))"
+  },
+  {
+    "rank": 7,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Gregor The Overlander (Underland Chronicles)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The School Is Alive! (Eerie Elementary #1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Candy Shop War"
+  },
+  {
+    "rank": 11,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Speak"
+  },
+  {
+    "rank": 13,
+    "item_name": "Green Witch"
+  },
+  {
+    "rank": 14,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Calamity Jack"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Ice"
+  },
+  {
+    "rank": 18,
+    "item_name": "Inside Out and Back Again"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Hero's Guide to Saving Your Kingdom"
+  },
+  {
+    "rank": 20,
+    "item_name": "Eona"
+  },
+  {
+    "rank": 21,
+    "item_name": "Howl's Moving Castle"
+  },
+  {
+    "rank": 22,
+    "item_name": "When You Reach Me (Yearling Newbery)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Wither (Chemical Garden)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Thirteenth Child (Frontier Magic)"
+  },
+  {
+    "rank": 25,
+    "item_name": "ARTEMIS FOWL - The Eternity Code"
+  },
+  {
+    "rank": 26,
+    "item_name": "Vampire Kisses"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Last Unicorn"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Tale of Despereaux"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Voyage of Lucy P. Simmons"
+  },
+  {
+    "rank": 30,
+    "item_name": "Beautiful Creatures. by Kami Garcia &amp; Margaret Stohl"
+  },
+  {
+    "rank": 31,
+    "item_name": "A Tale Dark and Grimm"
+  },
+  {
+    "rank": 32,
+    "item_name": "Leviathan"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Healers Apprentice"
+  },
+  {
+    "rank": 34,
+    "item_name": "What If?: Serious Scientific Answers to Absurd Hypothetical Questions"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Day The Crayons Quit"
+  },
+  {
+    "rank": 36,
+    "item_name": "Keys To The Demon Prison (Turtleback School &amp; Library Binding Edition) (Fablehaven)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Clockwork Angel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 39,
+    "item_name": "Ruined: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Tom Thumb: The Remarkable True Story of a Man in Miniature"
+  },
+  {
+    "rank": 41,
+    "item_name": "American Born Chinese"
+  },
+  {
+    "rank": 42,
+    "item_name": "Just Grace Goes Green (The Just Grace Series)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Mercury"
+  },
+  {
+    "rank": 44,
+    "item_name": "Fat Vampire: A Never Coming of Age Story"
+  },
+  {
+    "rank": 45,
+    "item_name": "Uglies"
+  },
+  {
+    "rank": 46,
+    "item_name": "Lizzie Bright and the Buckminster Boy (Readers Circle (Laurel-Leaf))"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Iron Daughter"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Monstrumologist"
+  },
+  {
+    "rank": 49,
+    "item_name": "Matched"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Little Prince&quot; and &quot;Letter to a Hostage&quot; (Penguin Modern Classics Translated Texts S.)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

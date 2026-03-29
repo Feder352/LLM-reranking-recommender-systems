@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Mindware: Tools for Smart Thinking"
+  },
+  {
+    "item_name": "Superforecasting: The Art and Science of Prediction"
+  },
+  {
+    "item_name": "Submission: A Novel"
+  },
+  {
+    "item_name": "The Singapore Grip"
+  },
+  {
+    "item_name": "Fools, Frauds and Firebrands: Thinkers of the New Left"
+  },
+  {
+    "item_name": "Islam : A Short History (Universal History)"
+  },
+  {
+    "item_name": "Average Is Over: Powering America Beyond the Age of the Great Stagnation"
+  },
+  {
+    "item_name": "The Innovator's Solution: Creating and Sustaining Successful Growth"
+  },
+  {
+    "item_name": "The Innovator's Solution: Creating and Sustaining Successful Growth"
+  },
+  {
+    "item_name": "Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy"
+  },
+  {
+    "item_name": "The Rise and Fall of American Growth: The U.S. Standard of Living since the Civil War (The Princeton Economic History of the Western World)"
+  },
+  {
+    "item_name": "The Teleportation Accident"
+  },
+  {
+    "item_name": "Austerity: The History of a Dangerous Idea"
+  },
+  {
+    "item_name": "Competing Against Luck: The Story of Innovation and Customer Choice"
+  },
+  {
+    "item_name": "The Art of Opportunity: How to Build Growth and Ventures Through Strategic Innovation and Visual Thinking"
+  },
+  {
+    "item_name": "Pre-Suasion: A Revolutionary Way to Influence and Persuade"
+  },
+  {
+    "item_name": "The Dream of Enlightenment: The Rise of Modern Philosophy"
+  },
+  {
+    "item_name": "The Three-Body Problem (Remembrance of Earth's Past)"
+  },
+  {
+    "item_name": "The Evolution of Everything: How New Ideas Emerge"
+  },
+  {
+    "item_name": "The Third Wave"
+  },
+  {
+    "item_name": "The Dark Forest (Remembrance of Earth's Past)"
+  },
+  {
+    "item_name": "The Undoing Project: A Friendship that Changed the World"
+  },
+  {
+    "item_name": "Homo Deus: A Brief History of Tomorrow"
+  },
+  {
+    "item_name": "On Tyranny: Twenty Lessons from the Twentieth Century"
+  },
+  {
+    "item_name": "The Complacent Class: The Self-Defeating Quest for the American Dream"
+  },
+  {
+    "item_name": "Diplomacy (Touchstone Book)"
+  },
+  {
+    "item_name": "The Automobile Club of Egypt: A novel"
+  },
+  {
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "item_name": "Blue Ocean Shift: Beyond Competing - Proven Steps to Inspire Confidence and Seize New Growth"
+  },
+  {
+    "item_name": "History on Trial: My Day in Court with a Holocaust Denier"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 4,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 6,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 8,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 9,
+    "item_name": "Fooled By Randomness: The Hidden Role of Chance in Life and in the Markets"
+  },
+  {
+    "rank": 10,
+    "item_name": "Naked Statistics: Stripping the Dread from the Data"
+  },
+  {
+    "rank": 11,
+    "item_name": "Victory of Reason"
+  },
+  {
+    "rank": 12,
+    "item_name": "Aftershock: The Next Economy and America's Future"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Popes Against the Jews: The Vatican's Role in the Rise of Modern Anti-Semitism"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 15,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 16,
+    "item_name": "Justice: What's the Right Thing to Do?"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Return of George Washington: Uniting the States, 1783-1789"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Future of Freedom: Illiberal Democracy at Home and Abroad"
+  },
+  {
+    "rank": 19,
+    "item_name": "Rework: Change The Way You Work Forever"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Talent Code: Greatness Isn't Born. It's Grown."
+  },
+  {
+    "rank": 21,
+    "item_name": "At the Existentialist Caf: Freedom, Being, and Apricot Cocktails"
+  },
+  {
+    "rank": 22,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Big Rich: The Rise and Fall of the Greatest Texas Oil Fortunes"
+  },
+  {
+    "rank": 24,
+    "item_name": "Being Wrong: Adventures in the Margin of Error"
+  },
+  {
+    "rank": 25,
+    "item_name": "Lords of Finance: 1929, The Great Depression, and the Bankers who Broke the World"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Dumbest Generation: How the Digital Age Stupefies Young Americans and Jeopardizes Our Future (Or, Don't Trust Anyone Under 30)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Ignore Everybody: And 39 Other Keys to Creativity"
+  },
+  {
+    "rank": 28,
+    "item_name": "Grit: The Power of Passion and Perseverance"
+  },
+  {
+    "rank": 29,
+    "item_name": "Uncontrolled: The Surprising Payoff of Trial-and-Error for Business, Politics, and Society"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 31,
+    "item_name": "Devil Take the Hindmost: A History of Financial Speculation"
+  },
+  {
+    "rank": 32,
+    "item_name": "This Fight Is Our Fight: The Battle to Save America's Middle Class"
+  },
+  {
+    "rank": 33,
+    "item_name": "How Not to Be Wrong: The Power of Mathematical Thinking"
+  },
+  {
+    "rank": 34,
+    "item_name": "Trick or Treatment: The Undeniable Facts about Alternative Medicine"
+  },
+  {
+    "rank": 35,
+    "item_name": "Ultimate Leadership: Winning Execution Strategies for Your Situation"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Happiness Advantage: The Seven Principles of Positive Psychology That Fuel Success and Performance at Work"
+  },
+  {
+    "rank": 37,
+    "item_name": "7 Deadly Scenarios: A Military Futurist Explores the Changing Face of War in the 21st Century"
+  },
+  {
+    "rank": 38,
+    "item_name": "The 4-hour Workweek: Escape the 9-5, Live Anywhere and Join the New Rich"
+  },
+  {
+    "rank": 39,
+    "item_name": "Breakthrough: Elizabeth Hughes, the Discovery of Insulin, and the Making of a Medical Miracle"
+  },
+  {
+    "rank": 40,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 41,
+    "item_name": "Just How Stupid Are We?: Facing the Truth About the American Voter"
+  },
+  {
+    "rank": 42,
+    "item_name": "Conscious Capitalism: Liberating the Heroic Spirit of Business"
+  },
+  {
+    "rank": 43,
+    "item_name": "Islam : A Short History (Universal History)"
+  },
+  {
+    "rank": 44,
+    "item_name": "That Used to Be Us: How America Fell Behind in the World It Invented and How We Can Come Back"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Warrior Diet"
+  },
+  {
+    "rank": 46,
+    "item_name": "True North: Discover Your Authentic Leadership"
+  },
+  {
+    "rank": 47,
+    "item_name": "Basilica: The Splendor and the Scandal: Building St. Peter's"
+  },
+  {
+    "rank": 48,
+    "item_name": "Why Does the World Exist?: An Existential Detective Story"
+  },
+  {
+    "rank": 49,
+    "item_name": "Marriage, a History: How Love Conquered Marriage"
+  },
+  {
+    "rank": 50,
+    "item_name": "Leaders Eat Last: Why Some Teams Pull Together and Others Don't"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

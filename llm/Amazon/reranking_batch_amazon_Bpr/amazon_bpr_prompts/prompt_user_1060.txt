@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Maker's Diet Revolution: The 10 Day Diet to Lose Weight and Detoxify Your Body, Mind and Spirit"
+  },
+  {
+    "item_name": "Stop Waiting Start WINNING!: 10 Steps to Living Your Vision NOW!"
+  },
+  {
+    "item_name": "Your Guide to Living Life Out Loud"
+  },
+  {
+    "item_name": "Prone to Love"
+  },
+  {
+    "item_name": "The Illusion of More: The Trick to Finding Faith in a World of Deception"
+  },
+  {
+    "item_name": "Abandon: Laying Aside Your Plan for God's Purpose"
+  },
+  {
+    "item_name": "Claiming Your Inheritance: Unlimited Access to the Voice of God"
+  },
+  {
+    "item_name": "Jesus and the Jihadis: Confronting the Rage of ISIS: The Theology Driving the Ideology"
+  },
+  {
+    "item_name": "Untamed: A Fool's Guide to Surrendered Faith"
+  },
+  {
+    "item_name": "Bloodlines (Star Wars: Legacy of the Force)"
+  },
+  {
+    "item_name": "Hearing God through Biblical Meditation: Unlocking Fresh Revelation Daily"
+  },
+  {
+    "item_name": "Faithing It: Bringing Purpose Back to Your Life!"
+  },
+  {
+    "item_name": "Unmasking the Devil: Strategies to Defeat Eternity's Greatest Enemy"
+  },
+  {
+    "item_name": "A Daily Invitation to Friendship with God: Dreaming With God to Transform Your World"
+  },
+  {
+    "item_name": "Planet Heal Thyself: The Revolution of Regeneration in Body, Mind, and Planet"
+  },
+  {
+    "item_name": "The Jerusalem Secret (The Identity Theft Series) (Volume 2)"
+  },
+  {
+    "item_name": "Heaven Declares: Prophetic Decrees to Start Your Day"
+  },
+  {
+    "item_name": "SOZO Saved Healed Delivered: A Journey into Freedom with the Father, Son, and Holy Spirit"
+  },
+  {
+    "item_name": "Summer on Sunset Ridge (Forever Freedom Series)"
+  },
+  {
+    "item_name": "The Amish Wanderer"
+  },
+  {
+    "item_name": "The Power of Right Thinking: Transform Your Thoughts, Transform Your World"
+  },
+  {
+    "item_name": "God's Feminist Movement: Redefining a Womans Place From a Biblical Perspective"
+  },
+  {
+    "item_name": "Silent Takeover: Overcoming Emotional, Mental &amp; Addictive Disorders"
+  },
+  {
+    "item_name": "Healing of the Heart (Secrets of Sterling Street)"
+  },
+  {
+    "item_name": "Pockets of Joy: Deciding to Be Happy, Choosing to Be Free"
+  },
+  {
+    "item_name": "Their Daring Hearts (Forever Freedom Series)"
+  },
+  {
+    "item_name": "The Christmas Admirer"
+  },
+  {
+    "item_name": "Lydia, Woman of Philippi"
+  },
+  {
+    "item_name": "Unstuck: Hope for Christians in a Dead-End Job, Dead-End Faith, or Some Similar Soul-Shriveling Rut"
+  },
+  {
+    "item_name": "Love by the Numbers"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Deeply Devoted: A Novel (The Blue Willow Brides) (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Not by Sight: A Novel (Ozark Mountain Trilogy)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Dressed for Death (A Drew Farthering Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Dance: A Novel (The Restoration Series)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Rachel: A Novel (Wives of the Patriarchs) (Volume 3)"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Place in His Heart: A Novel (The Southold Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Among the Fair Magnolias: Four Southern Love Stories"
+  },
+  {
+    "rank": 9,
+    "item_name": "Anchor in the Storm (Waves of Freedom)"
+  },
+  {
+    "rank": 10,
+    "item_name": "True to You (A Bradford Sisters Romance)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Anna's Crossing (Amish Beginnings)"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Bride at Last"
+  },
+  {
+    "rank": 13,
+    "item_name": "Head in the Clouds"
+  },
+  {
+    "rank": 14,
+    "item_name": "Friend Me: A Novel of Suspense"
+  },
+  {
+    "rank": 15,
+    "item_name": "Critical Condition"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Beautiful Pretender (A Medieval Fairy Tale)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Chance of Loving You: Romance Collection (Thorndike Press Large Print Christian Fiction)"
+  },
+  {
+    "rank": 18,
+    "item_name": "In the Dust of the Rabbi Discovery Guide: 5 Faith Lessons"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Fool and His Monet (Serena Jones Mysteries)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Afloat"
+  },
+  {
+    "rank": 21,
+    "item_name": "Moms' Night Out and Other Things I Miss: Devotions To Help You Survive"
+  },
+  {
+    "rank": 22,
+    "item_name": "Sarai: A Novel (Wives of the Patriarchs) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Leaving Carolina (Southern Discomfort Series #1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Tried and True (Wild at Heart) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Beyond the Silence"
+  },
+  {
+    "rank": 26,
+    "item_name": "Courageous (Valiant Hearts)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Every Girl Gets Confused: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Small Town Girl: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Every Bride Needs a Groom: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Freedom's Stand"
+  },
+  {
+    "rank": 31,
+    "item_name": "Freedom's Price: A Novel (Keys of Promise)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Citizen: Your role in the alternative kingdom"
+  },
+  {
+    "rank": 33,
+    "item_name": "A Respectable Actress"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Deepest Waters"
+  },
+  {
+    "rank": 35,
+    "item_name": "Refuge on Crescent Hill: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Chasing Francis: A Pilgrim&rsquo;s Tale"
+  },
+  {
+    "rank": 37,
+    "item_name": "Lethal Legacy: A Novel (Guardians of Justice) (Volume 3)"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Heart's Obsession (A Journey of the Heart)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Inheritance (Secrets of the Shetlands)"
+  },
+  {
+    "rank": 40,
+    "item_name": "A Sweet Misfortune: A Novel (Virtues and Vices of the Old West)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Last Chance Hero: A Novel (A Place to Call Home)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Fatal Mistake: A Novel (White Knights)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Here to Stay"
+  },
+  {
+    "rank": 44,
+    "item_name": "Seven Men: And the Secret of Their Greatness"
+  },
+  {
+    "rank": 45,
+    "item_name": "Through Waters Deep (Waves of Freedom)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Enemies of the Heart: Breaking Free from the Four Emotions That Control You"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Name Unknown (Shadows Over England)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Beyond All Dreams"
+  },
+  {
+    "rank": 49,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 50,
+    "item_name": "Cold-Case Christianity: A Homicide Detective Investigates the Claims of the Gospels"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

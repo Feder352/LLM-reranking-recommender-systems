@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "To Capture Her Heart: A Novel (The Southold Chronicles)"
+  },
+  {
+    "item_name": "Among the Fair Magnolias: Four Southern Love Stories"
+  },
+  {
+    "item_name": "After a Fashion"
+  },
+  {
+    "item_name": "In Good Company"
+  },
+  {
+    "item_name": "A Curious Beginning (A Veronica Speedwell Mystery)"
+  },
+  {
+    "item_name": "Secrets of a Charmed Life"
+  },
+  {
+    "item_name": "Jinx"
+  },
+  {
+    "item_name": "The Ology: Ancient Truths, Ever New"
+  },
+  {
+    "item_name": "The Holy Bible: English Standard Version, Concordia Deluxe Reference Edition, ESV"
+  },
+  {
+    "item_name": "The Holy Bible: English Standard Version, Reference Edition"
+  },
+  {
+    "item_name": "The Copper Gauntlet (Magisterium, Book 2) (The Magisterium)"
+  },
+  {
+    "item_name": "The Golden Braid"
+  },
+  {
+    "item_name": "Visual Scriptures: A Meditative Coloring Book (Devotional Coloring)"
+  },
+  {
+    "item_name": "The Berenstain Bears, The Very First Christmas (Berenstain Bears/Living Lights)"
+  },
+  {
+    "item_name": "The Red Pyramid (Kane Chronicles Series #1)"
+  },
+  {
+    "item_name": "The Legend of the Easter Robin: An Easter Story of Compassion and Faith"
+  },
+  {
+    "item_name": "Shapes, Grade K (Spectrum)"
+  },
+  {
+    "item_name": "A Spear of Summer Grass"
+  },
+  {
+    "item_name": "Subtraction, Grade 2 (Spectrum)"
+  },
+  {
+    "item_name": "Silent in the Grave"
+  },
+  {
+    "item_name": "Wild Animals (Animal Planet Animal Bites)"
+  },
+  {
+    "item_name": "Price of Privilege"
+  },
+  {
+    "item_name": "Born of Persuasion (Price of Privilege)"
+  },
+  {
+    "item_name": "Mark of Distinction (Price of Privilege)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Viking Europe: An Introduction to Civilizations Throughout Time (Volume 3)"
+  },
+  {
+    "item_name": "Judy Moody was in a mood. Not a good mood. A bad mood."
+  },
+  {
+    "item_name": "All Is Bright: A Devotional Journey to Color Your Way to Christmas"
+  },
+  {
+    "item_name": "The Mayflower Bride: Daughters of the Mayflower - Book 1"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Colonial America: An Introduction to Civilizations Throughout Time (Volume 9)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Renaissance Italy: An Introduction to Civilizations Throughout Time (Volume 7)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Deeply Devoted: A Novel (The Blue Willow Brides) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Country House Courtship (A Regency Inspirational Romance)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Winter in Full Bloom"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Heiress of Winterwood (Whispers On The Moors)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Every Girl Gets Confused: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Code Blue (Prescription for Trouble, Book 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "By the Light of the Silvery Moon"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Tutor's Daughter"
+  },
+  {
+    "rank": 10,
+    "item_name": "Save the Date"
+  },
+  {
+    "rank": 11,
+    "item_name": "In Every Heartbeat"
+  },
+  {
+    "rank": 12,
+    "item_name": "Hearts Awakening"
+  },
+  {
+    "rank": 13,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 14,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 15,
+    "item_name": "False Witness"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Christmas Cat"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Lightkeeper's Daughter (Mercy Falls Series #1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "5 Days to a Clutter-Free House: Quick, Easy Ways to Clear Up Your Space"
+  },
+  {
+    "rank": 19,
+    "item_name": "Anchor in the Storm (Waves of Freedom)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Playing the Part"
+  },
+  {
+    "rank": 21,
+    "item_name": "Afloat"
+  },
+  {
+    "rank": 22,
+    "item_name": "Dressed for Death (A Drew Farthering Mystery)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Angels: The Strange and Mysterious Truth"
+  },
+  {
+    "rank": 24,
+    "item_name": "Queen of the Waves"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Winnowing Season: Book Two in the Amish Vines and Orchards Series"
+  },
+  {
+    "rank": 26,
+    "item_name": "Moms' Night Out and Other Things I Miss: Devotions To Help You Survive"
+  },
+  {
+    "rank": 27,
+    "item_name": "Beyond All Dreams"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Messenger"
+  },
+  {
+    "rank": 29,
+    "item_name": "Plain Perfect (Daughters of the Promise, Book 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Love's Sacred Song: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Sound of Sleigh Bells: A Romance from the Heart of Amish Country (Apple Ridge)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Immanuel's Veins"
+  },
+  {
+    "rank": 33,
+    "item_name": "Enemies of the Heart: Breaking Free from the Four Emotions That Control You"
+  },
+  {
+    "rank": 34,
+    "item_name": "One Perfect Spring: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "As Waters Gone By"
+  },
+  {
+    "rank": 36,
+    "item_name": "Wish You Were Here: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Paradise Valley (The Daughters of Caleb Bender)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Song of My Heart"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Deepest Waters"
+  },
+  {
+    "rank": 40,
+    "item_name": "Love in the Balance"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Stone of Destiny: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "Demon: A Memoir"
+  },
+  {
+    "rank": 43,
+    "item_name": "Over the Edge (The Kincaid Brides) (Volume 3)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Sarah's Garden (A Patch of Heaven Novel)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Perfectly Matched: A Novel (The Blue Willow Brides) (Volume 3)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Head in the Clouds"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Heart Revealed: A Novel (Winds of Change)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Sea Rose Lane: A Hope Harbor Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Glamorous Illusions: A Novel (Grand Tour Series)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Freedom's Stand"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

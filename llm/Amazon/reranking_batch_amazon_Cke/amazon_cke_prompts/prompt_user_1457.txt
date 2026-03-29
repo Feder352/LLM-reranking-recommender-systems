@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "item_name": "Gretel and the Case of the Missing Frog Prints: A Brothers Grimm Mystery (Brothers Grimm Mysteries)"
+  },
+  {
+    "item_name": "Thunderstruck"
+  },
+  {
+    "item_name": "The Strings of Murder: Frey &amp; McGray Book 1 (A Case for Frey &amp; McGray)"
+  },
+  {
+    "item_name": "The Night Bell: A Novel (A Detective Hazel Micallef Mystery)"
+  },
+  {
+    "item_name": "The Butcher Bird: Oswald de Lacy Book 2"
+  },
+  {
+    "item_name": "Abolition of Evil (Matt Hawkins Series) (Volume 2)"
+  },
+  {
+    "item_name": "Best. State. Ever.: A Florida Man Defends His Homeland"
+  },
+  {
+    "item_name": "The Lost Boy (Patrik Hedstrom and Erica Falck)"
+  },
+  {
+    "item_name": "The Drowning, Patrik Hedstrom 6"
+  },
+  {
+    "item_name": "Dying for Christmas: A Novel"
+  },
+  {
+    "item_name": "Dead Gone"
+  },
+  {
+    "item_name": "The Nightwalker: A Novel"
+  },
+  {
+    "item_name": "Ripper: The Secret Life of Walter Sickert"
+  },
+  {
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "item_name": "Into Thin Air: A Personal Account of the Mt. Everest Disaster"
+  },
+  {
+    "item_name": "Left for Dead: My Journey Home from Everest"
+  },
+  {
+    "item_name": "Touching the Void"
+  },
+  {
+    "item_name": "The Climb: Tragic Ambitions on Everest"
+  },
+  {
+    "item_name": "Climbing High: A Woman's Account of Surviving the Everest Tragedy"
+  },
+  {
+    "item_name": "How I Helped O. J. Get Away With Murder: The Shocking Inside Story of Violence, Loyalty, Regret, and Remorse"
+  },
+  {
+    "item_name": "Killing Time: The First Full Investigation into the Unsolved Murders of Nicole Brown Simpson and Ronald Goldman"
+  },
+  {
+    "item_name": "Blind Descent: Surviving Alone and Blind on Mount Everest"
+  },
+  {
+    "item_name": "Blind Descent: Surviving Alone and Blind on Mount Everest"
+  },
+  {
+    "item_name": "Think No Evil: Inside the Story of the Amish Schoolhouse Shooting...and Beyond"
+  },
+  {
+    "item_name": "Pretty Jane and the Viper of Kidbrooke Lane: A True Story of Victorian Law and Disorder: The Unsolved Murder that Shocked Victorian England"
+  },
+  {
+    "item_name": "Batman: A Death in the Family"
+  },
+  {
+    "item_name": "Batman/The Shadow: The Murder Geniuses"
+  },
+  {
+    "item_name": "The Shadow: Midnight in Moscow"
+  },
+  {
+    "item_name": "Mephisto Waltz: A Max Liebermann Mystery (Max Lieberman Mysteries)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1994,
+    "item_name": "The Goldfinch: A Novel (Pulitzer Prize for Fiction)"
+  },
+  {
+    "rank": 2,
+    "item_id": 1431,
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "rank": 3,
+    "item_id": 221,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 4,
+    "item_id": 1125,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 5,
+    "item_id": 15,
+    "item_name": "The Namesake"
+  },
+  {
+    "rank": 6,
+    "item_id": 2939,
+    "item_name": "The Lost City of Z: A Tale of Deadly Obsession in the Amazon"
+  },
+  {
+    "rank": 7,
+    "item_id": 982,
+    "item_name": "The City of Falling Angels"
+  },
+  {
+    "rank": 8,
+    "item_id": 730,
+    "item_name": "Time Traveler's Wife"
+  },
+  {
+    "rank": 9,
+    "item_id": 1956,
+    "item_name": "One Good Turn"
+  },
+  {
+    "rank": 10,
+    "item_id": 2038,
+    "item_name": "The Art of Fielding: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_id": 1343,
+    "item_name": "Terrorist"
+  },
+  {
+    "rank": 12,
+    "item_id": 2621,
+    "item_name": "Ghost Soldiers: The Forgotten Epic Story of World War II's Most Dramatic Mission"
+  },
+  {
+    "rank": 13,
+    "item_id": 1423,
+    "item_name": "Where Men Win Glory: The Odyssey of Pat Tillman"
+  },
+  {
+    "rank": 14,
+    "item_id": 3824,
+    "item_name": "The Unlikely Pilgrimage of Harold Fry: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_id": 505,
+    "item_name": "Moonlight Mile"
+  },
+  {
+    "rank": 16,
+    "item_id": 1476,
+    "item_name": "Going Clear: Scientology, Hollywood, and the Prison of Belief"
+  },
+  {
+    "rank": 17,
+    "item_id": 1327,
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  },
+  {
+    "rank": 18,
+    "item_id": 3781,
+    "item_name": "The Geography of Bliss: One Grump's Search for the Happiest Places in the World"
+  },
+  {
+    "rank": 19,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 20,
+    "item_id": 753,
+    "item_name": "White Noise (Contemporary American Fiction)"
+  },
+  {
+    "rank": 21,
+    "item_id": 553,
+    "item_name": "State of Wonder"
+  },
+  {
+    "rank": 22,
+    "item_id": 1415,
+    "item_name": "Dreams from My Father: A Story of Race and Inheritance"
+  },
+  {
+    "rank": 23,
+    "item_id": 1532,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 24,
+    "item_id": 1843,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 25,
+    "item_id": 4123,
+    "item_name": "This Is Where I Leave You: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

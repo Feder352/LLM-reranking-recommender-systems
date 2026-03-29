@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Light on the Hill (Cities of Refuge)"
+  },
+  {
+    "item_name": "The Irish Inheritance: A Jayne Sinclair Genealogical Mystery"
+  },
+  {
+    "item_name": "Across the Blue: A Novel"
+  },
+  {
+    "item_name": "The Book of Secrets (The Last Oracle) (Volume 1)"
+  },
+  {
+    "item_name": "Liar's Winter: An Appalachian Novel"
+  },
+  {
+    "item_name": "The Innkeeper's Daughter (Bow Street Runners Trilogy)"
+  },
+  {
+    "item_name": "Keturah (The Sugar Baron's Daughters)"
+  },
+  {
+    "item_name": "Where I Belong (Pine Valley) (Volume 2)"
+  },
+  {
+    "item_name": "A Loyal Heart"
+  },
+  {
+    "item_name": "Hearts Entwined: A Historical Romance Novella Collection"
+  },
+  {
+    "item_name": "Clayton's Honor (British Agent Novels) (Volume 3)"
+  },
+  {
+    "item_name": "Red Sky Over America (Ladies of Oberlin) (Volume 1)"
+  },
+  {
+    "item_name": "Beneath a Prairie Moon: A Novel"
+  },
+  {
+    "item_name": "A Most Noble Heir"
+  },
+  {
+    "item_name": "High Cotton (Bucklin Family Reunion)"
+  },
+  {
+    "item_name": "Beyond Derrynane: A Novel of Eighteenth Century Europe (The Derrynane Saga) (Volume 1)"
+  },
+  {
+    "item_name": "No One Ever Asked: A Novel"
+  },
+  {
+    "item_name": "The Wedding Quilt Bride (Brides of Lost Creek)"
+  },
+  {
+    "item_name": "Julie"
+  },
+  {
+    "item_name": "The Rancher's Secret Child (Bluebonnet Springs)"
+  },
+  {
+    "item_name": "In the Shadow of the Storm"
+  },
+  {
+    "item_name": "Ain't Misbehavin' (Roaring Twenties Series Book 2)"
+  },
+  {
+    "item_name": "Paris Ever After"
+  },
+  {
+    "item_name": "More Than Meets the Eye"
+  },
+  {
+    "item_name": "The Hawaiian Discovery"
+  },
+  {
+    "item_name": "Sons of Blackbird Mountain (A Blackbird Mountain Novel)"
+  },
+  {
+    "item_name": "Hope of Azure Springs"
+  },
+  {
+    "item_name": "Reckoning at Gossamer Pond"
+  },
+  {
+    "item_name": "Cooper's Charm: A Novel"
+  },
+  {
+    "item_name": "Thief of Corinth"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 6148,
+    "item_name": "Uncertain Heart (Seasons of Redemption, Book 2)"
+  },
+  {
+    "rank": 2,
+    "item_id": 1703,
+    "item_name": "In Another Man's Bed: A Novel (Invincible Women Series)"
+  },
+  {
+    "rank": 3,
+    "item_id": 4970,
+    "item_name": "A Promise to Believe In"
+  },
+  {
+    "rank": 4,
+    "item_id": 2522,
+    "item_name": "Dying To Play (Signature Spotlight)"
+  },
+  {
+    "rank": 5,
+    "item_id": 6227,
+    "item_name": "A Shadow of Treason (Chronicles of the Spanish Civil War, Book 2)"
+  },
+  {
+    "rank": 6,
+    "item_id": 5665,
+    "item_name": "Finding Stefanie (Noble Legacy Series #3)"
+  },
+  {
+    "rank": 7,
+    "item_id": 5670,
+    "item_name": "Reclaiming Nick (Noble Legacy Series #1)"
+  },
+  {
+    "rank": 8,
+    "item_id": 1570,
+    "item_name": "The Jesus Storybook Bible: Every Story Whispers His Name"
+  },
+  {
+    "rank": 9,
+    "item_id": 6146,
+    "item_name": "The Struggle (Kentucky Brothers, Book 3)"
+  },
+  {
+    "rank": 10,
+    "item_id": 4968,
+    "item_name": "The Secret Life of Becky Miller (Becky Miller, Book 1)"
+  },
+  {
+    "rank": 11,
+    "item_id": 5594,
+    "item_name": "When the Soul Mends (Sisters of the Quilt, Book 3)"
+  },
+  {
+    "rank": 12,
+    "item_id": 6015,
+    "item_name": "A Clearing in the Wild (Change and Cherish Historical Series #1)"
+  },
+  {
+    "rank": 13,
+    "item_id": 5667,
+    "item_name": "Doesn't She Look Natural (The Fairlawn Series #1)"
+  },
+  {
+    "rank": 14,
+    "item_id": 5210,
+    "item_name": "Stallions at Burnt Rock"
+  },
+  {
+    "rank": 15,
+    "item_id": 6113,
+    "item_name": "This Side of Heaven"
+  },
+  {
+    "rank": 16,
+    "item_id": 5974,
+    "item_name": "Golden Chances (Homespun)"
+  },
+  {
+    "rank": 17,
+    "item_id": 6043,
+    "item_name": "Perfecting Kate"
+  },
+  {
+    "rank": 18,
+    "item_id": 5598,
+    "item_name": "These Boots Weren't Made for Walking"
+  },
+  {
+    "rank": 19,
+    "item_id": 5804,
+    "item_name": "Fifteen Minutes: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_id": 1485,
+    "item_name": "The Winnowing Season: Book Two in the Amish Vines and Orchards Series"
+  },
+  {
+    "rank": 21,
+    "item_id": 5739,
+    "item_name": "Hanchart Land"
+  },
+  {
+    "rank": 22,
+    "item_id": 365,
+    "item_name": "The Bride Wore Spurs"
+  },
+  {
+    "rank": 23,
+    "item_id": 4962,
+    "item_name": "Deep in the Heart of Trouble"
+  },
+  {
+    "rank": 24,
+    "item_id": 4971,
+    "item_name": "Mozart's Sister"
+  },
+  {
+    "rank": 25,
+    "item_id": 5900,
+    "item_name": "The Marriage Merger (Marriage to a Billionaire)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

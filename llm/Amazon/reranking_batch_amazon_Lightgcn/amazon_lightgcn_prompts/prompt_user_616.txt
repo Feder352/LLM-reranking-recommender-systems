@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Flesh House"
+  },
+  {
+    "item_name": "The Gravedigger's Daughter: A Novel (P.S.)"
+  },
+  {
+    "item_name": "The Shadow District: A Thriller (The Flovent and Thorson Thrillers)"
+  },
+  {
+    "item_name": "The Falls: An Inspector Rebus Novel (Inspector Rebus Novels)"
+  },
+  {
+    "item_name": "A Question of Blood: An Inspector Rebus Novel"
+  },
+  {
+    "item_name": "Robicheaux: You Know My Name (Dave Robicheaux)"
+  },
+  {
+    "item_name": "Hidden Depths"
+  },
+  {
+    "item_name": "The Late Show"
+  },
+  {
+    "item_name": "The Leopard"
+  },
+  {
+    "item_name": "The Black Book: An Inspector Rebus Novel (Inspector Rebus Novels)"
+  },
+  {
+    "item_name": "Robert B. Parker's The Hangman's Sonnet (A Jesse Stone Novel)"
+  },
+  {
+    "item_name": "Tooth and Nail: An Inspector Rebus Novel (Inspector Rebus Novels)"
+  },
+  {
+    "item_name": "Three Stations"
+  },
+  {
+    "item_name": "Sixkill (Spenser Mystery)"
+  },
+  {
+    "item_name": "Set in Darkness: An Inspector Rebus Novel (Inspector Rebus Mysteries)"
+  },
+  {
+    "item_name": "Plum Tea Crazy (A Tea Shop Mystery)"
+  },
+  {
+    "item_name": "Exit Music (Detective John Rebus Novels)"
+  },
+  {
+    "item_name": "Two Kinds of Truth (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Hundred-Dollar Baby (Spenser Mystery)"
+  },
+  {
+    "item_name": "High Profile (A Jesse Stone Novel)"
+  },
+  {
+    "item_name": "The Midnight Line: A Jack Reacher Novel"
+  },
+  {
+    "item_name": "Haunted (A Hannah Smith Novel)"
+  },
+  {
+    "item_name": "Death of a Liar (A Hamish Macbeth Mystery)"
+  },
+  {
+    "item_name": "Death of a Ghost (A Hamish Macbeth Mystery)"
+  },
+  {
+    "item_name": "Dark Blood"
+  },
+  {
+    "item_name": "Deep Blue (A Doc Ford Novel)"
+  },
+  {
+    "item_name": "The Lewis Man"
+  },
+  {
+    "item_name": "Phantom (Harry Hole Series)"
+  },
+  {
+    "item_name": "The Chessmen"
+  },
+  {
+    "item_name": "Police"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 7307,
+    "item_name": "Maisie Dobbs (Book 1)"
+  },
+  {
+    "rank": 2,
+    "item_id": 14595,
+    "item_name": "S is for Silence"
+  },
+  {
+    "rank": 3,
+    "item_id": 12246,
+    "item_name": "The Long Way Home"
+  },
+  {
+    "rank": 4,
+    "item_id": 13599,
+    "item_name": "The Gods of Guilt (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 5,
+    "item_id": 20819,
+    "item_name": "Kinsey and Me: Stories"
+  },
+  {
+    "rank": 6,
+    "item_id": 15514,
+    "item_name": "Killer: An Alex Delaware Novel"
+  },
+  {
+    "rank": 7,
+    "item_id": 11765,
+    "item_name": "Agatha Raisin and the Vicious Vet (Agatha Raisin Mysteries, No. 2)"
+  },
+  {
+    "rank": 8,
+    "item_id": 22110,
+    "item_name": "The Twelve Clues of Christmas: A Royal Spyness Mystery"
+  },
+  {
+    "rank": 9,
+    "item_id": 21779,
+    "item_name": "Royal Blood (A Royal Spyness Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_id": 7769,
+    "item_name": "Death Without Company: A Longmire Mystery"
+  },
+  {
+    "rank": 11,
+    "item_id": 1287,
+    "item_name": "Moment of Truth"
+  },
+  {
+    "rank": 12,
+    "item_id": 10789,
+    "item_name": "The Neighbor: A Detective D. D. Warren Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 10764,
+    "item_name": "Faceless Killers"
+  },
+  {
+    "rank": 14,
+    "item_id": 8296,
+    "item_name": "A Serpent's Tooth: A Longmire Mystery"
+  },
+  {
+    "rank": 15,
+    "item_id": 9306,
+    "item_name": "V Is for Vengeance"
+  },
+  {
+    "rank": 16,
+    "item_id": 13773,
+    "item_name": "11th Hour (Women's Murder Club)"
+  },
+  {
+    "rank": 17,
+    "item_id": 9276,
+    "item_name": "T For Trespass ( A New Kinsey Millhone Mystery)"
+  },
+  {
+    "rank": 18,
+    "item_id": 22076,
+    "item_name": "Buried in a Bog (A County Cork Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_id": 48789,
+    "item_name": "Death of a Nurse (A Hamish Macbeth Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_id": 20636,
+    "item_name": "Force of Nature (A Joe Pickett Novel)"
+  },
+  {
+    "rank": 21,
+    "item_id": 13092,
+    "item_name": "How the Light Gets In: A Chief Inspector Gamache Novel"
+  },
+  {
+    "rank": 22,
+    "item_id": 49464,
+    "item_name": "Dead Man's Chest (Miss Fisher's Murder Mysteries)"
+  },
+  {
+    "rank": 23,
+    "item_id": 1545,
+    "item_name": "A Share in Death (Duncan Kincaid/Gemma James Novels)"
+  },
+  {
+    "rank": 24,
+    "item_id": 12966,
+    "item_name": "Destroyer Angel: An Anna Pigeon Novel (Anna Pigeon Mysteries)"
+  },
+  {
+    "rank": 25,
+    "item_id": 18969,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Someone to Wed (A Westcott Novel)"
+  },
+  {
+    "item_name": "Murder in the Manuscript Room: A 42nd Street Library Mystery (The 42nd Street Library Mysteries)"
+  },
+  {
+    "item_name": "The Lady Travelers Guide to Larceny with a Dashing Stranger: A Novel (Lady Travelers Society)"
+  },
+  {
+    "item_name": "The Twelve Days of Christmas"
+  },
+  {
+    "item_name": "To the Duke, With Love: The Rakes of St. James"
+  },
+  {
+    "item_name": "A Duke in Shining Armor: Difficult Dukes"
+  },
+  {
+    "item_name": "A Devious Death (A Lady and Lady's Maid Mystery)"
+  },
+  {
+    "item_name": "Snowdrift and Other Stories"
+  },
+  {
+    "item_name": "The Rogue Is Back in Town: A Wayward Wallflowers Novel (The Wayward Wallflowers)"
+  },
+  {
+    "item_name": "A Wedding At Two Love Lane"
+  },
+  {
+    "item_name": "Christmas at Little Beach Street Bakery: A Novel"
+  },
+  {
+    "item_name": "A Devil in Scotland: A No Ordinary Hero Novel"
+  },
+  {
+    "item_name": "Wallflower Most Wanted: A Studies in Scandal Novel"
+  },
+  {
+    "item_name": "THE FRENCH ADVENTURE"
+  },
+  {
+    "item_name": "A Kiss for Miss Kingsley (A Waltz with a Rogue Novella) (Volume 1)"
+  },
+  {
+    "item_name": "Seven Dead (British Library Crime Classics)"
+  },
+  {
+    "item_name": "Croissants and Corruption: A Margot Durand Cozy Mystery (Volume 1)"
+  },
+  {
+    "item_name": "Mistletoe, Moonlight, and Murder (Ravenwood Cove Cozy Mystery) (Volume 3)"
+  },
+  {
+    "item_name": "Catch Of The Day"
+  },
+  {
+    "item_name": "An Accidental Murder: A Yellow Cottage Vintage Mystery (The Yellow Cottage Vintage Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "No Earls Allowed (The Survivors)"
+  },
+  {
+    "item_name": "The Secret of Flirting (The Sinful Suitors)"
+  },
+  {
+    "item_name": "Lost Books and Old Bones: A Scottish Bookshop Mystery"
+  },
+  {
+    "item_name": "Lady Rogue (Royal Rewards)"
+  },
+  {
+    "item_name": "The Luck of the Bride: The Cavensham Heiresses"
+  },
+  {
+    "item_name": "A Duke Like No Other (Playful Brides)"
+  },
+  {
+    "item_name": "The High Tide Club: A Novel"
+  },
+  {
+    "item_name": "It's All About the Duke: The Rakes of St. James"
+  },
+  {
+    "item_name": "Flowers and Foul Play: A Magic Garden Mystery"
+  },
+  {
+    "item_name": "What Ales the Earl (The Widow's Brew Series)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Tremaine's True Love (True Gentlemen)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Dark Before the Rising Sun"
+  },
+  {
+    "rank": 3,
+    "item_name": "Organized for Murder: Organized Mysteries book #1 (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Captain's Bluestocking Mistress (Dukes of War) (Volume 3)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Daniel's True Desire (True Gentlemen)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Hanover Square Affair"
+  },
+  {
+    "rank": 7,
+    "item_name": "Plantation Shudders: A Cajun Country Mystery"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Tuscan Child"
+  },
+  {
+    "rank": 9,
+    "item_name": "Only Beloved (Survivors' Club)"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Sword for His Lady (Courtly Love)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Murder in Morningside Heights (A Gaslight Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_name": "When the Grits Hit the Fan (A Country Store Mystery)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Dukes Are Forever (The Secret Life of Scoundrels)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Must Love Dukes (Tricks of the Ton)"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Study In Scarlet Women (The Lady Sherlock Series)"
+  },
+  {
+    "rank": 16,
+    "item_name": "A Christmas Escape: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Lone Wolf (An F.B.I. K-9 Novel)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 19,
+    "item_name": "To Helvetica and Back (A Dangerous Type Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Through the Smoke"
+  },
+  {
+    "rank": 21,
+    "item_name": "50 Ways to Ruin a Rake (Rakes and Rogues)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Crowned and Dangerous (A Royal Spyness Mystery)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Sweet Enemy: A Veiled Seduction Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "204 Rosewood Lane (Cedar Cove, Book 2)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Masterful Mr. Montague: A Casebook of Barnaby Adair Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Earl&#39;s Christmas Colt (A Reluctant Bride Book 1) eBook"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Beauty Bride"
+  },
+  {
+    "rank": 28,
+    "item_name": "Dark Witch (Cousins O'Dwyer)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Wallflower's Wicked Wager (A Waltz with a Rogue Novella) (Volume 5)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Rose Harbor in Bloom: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Duke's Disaster"
+  },
+  {
+    "rank": 32,
+    "item_name": "Dark Desires (Zebra Debut)"
+  },
+  {
+    "rank": 33,
+    "item_name": "A Diamond for a Duke (Seductive Scoundrels) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Immortal Hunter: A Rogue Hunter Novel (Argeneau Vampire)"
+  },
+  {
+    "rank": 35,
+    "item_name": "311 Pelican Court (Cedar Cove Series #3)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Cut From The Same Cloth (Zebra Regency Romance)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Broken Promise: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Arrangement"
+  },
+  {
+    "rank": 39,
+    "item_name": "Highland Guard (The Murrays)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Bad Luck Bride: The Cavensham Heiresses"
+  },
+  {
+    "rank": 41,
+    "item_name": "A Terrible Beauty: A Lady Emily Mystery (Lady Emily Mysteries)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Three Weeks To Wed (The Worthingtons)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Lord Sebastian's Secret (The Duke's Sons)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Rainshadow Road: A Novel (Friday Harbor)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Kill the Competition"
+  },
+  {
+    "rank": 46,
+    "item_name": "Kittens Can Kill: A Pru Marlowe Pet Noir"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Heiress's Deception (Sinful Brides)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Highlander Redeemed (Guardians of the Targe)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Chance the Winds of Fortune (Dominick Trilogy)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Inn at Rose Harbor: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

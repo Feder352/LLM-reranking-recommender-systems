@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Not Dead Yet: The Memoir"
+  },
+  {
+    "item_name": "The Marches: A Borderland Journey between England and Scotland"
+  },
+  {
+    "item_name": "Down City: A Daughter's Story of Love, Memory, and Murder"
+  },
+  {
+    "item_name": "Why Save the Bankers?: And Other Essays on Our Economic and Political Crisis"
+  },
+  {
+    "item_name": "Civilianized: A Young Veteran's Memoir"
+  },
+  {
+    "item_name": "Born to Run (Wheeler Publishing Large Print Hardcover)"
+  },
+  {
+    "item_name": "The Long Run: A Memoir of Loss and Life in Motion"
+  },
+  {
+    "item_name": "HILLBILLY ELEGY- PB"
+  },
+  {
+    "item_name": "Filthy Rich: A Powerful Billionaire, the Sex Scandal that Undid Him, and All the Justice that Money Can Buy - The Shocking True Story of Jeffrey Epstein"
+  },
+  {
+    "item_name": "Seinfeldia: How a Show About Nothing Changed Everything"
+  },
+  {
+    "item_name": "The Rules Do Not Apply: A Memoir"
+  },
+  {
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "item_name": "Bones: Brothers, Horses, Cartels, and the Borderland Dream"
+  },
+  {
+    "item_name": "Strangers in Their Own Land: Anger and Mourning on the American Right"
+  },
+  {
+    "item_name": "Silencer"
+  },
+  {
+    "item_name": "The Fact of a Body: A Murder and a Memoir"
+  },
+  {
+    "item_name": "Between Them: Remembering My Parents"
+  },
+  {
+    "item_name": "Good Things Happen Slowly: A Life In and Out of Jazz"
+  },
+  {
+    "item_name": "You Don't Have to Say You Love Me: A Memoir"
+  },
+  {
+    "item_name": "The Sympathizer: A Novel (Pulitzer Prize for Fiction)"
+  },
+  {
+    "item_name": "After the Eclipse: A Mother's Murder, a Daughter's Search"
+  },
+  {
+    "item_name": "From Here to Security: How Workplace Savings Can Keep America's Promise"
+  },
+  {
+    "item_name": "Memory's Last Breath: Field Notes on My Dementia"
+  },
+  {
+    "item_name": "The Refugees"
+  },
+  {
+    "item_name": "You Can't Spell America Without Me: The Really Tremendous Inside Story of My Fantastic First Year as President Donald J. Trump (A So-Called Parody)"
+  },
+  {
+    "item_name": "God: A Human History"
+  },
+  {
+    "item_name": "Fire and Fury: Inside the Trump White House"
+  },
+  {
+    "item_name": "No Time to Spare: Thinking About What Matters"
+  },
+  {
+    "item_name": "How to Murder Your Life: A Memoir"
+  },
+  {
+    "item_name": "I Am, I Am, I Am: Seventeen Brushes with Death"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 3,
+    "item_name": "Bait And Switch: The (Futile) Pursuit of the American Dream"
+  },
+  {
+    "rank": 4,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 5,
+    "item_name": "Bird Dream: Adventures at the Extremes of Human Flight"
+  },
+  {
+    "rank": 6,
+    "item_name": "All the Truth Is Out: The Week Politics Went Tabloid"
+  },
+  {
+    "rank": 7,
+    "item_name": "Five Days at Memorial: Life and Death in a Storm-Ravaged Hospital"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 9,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Sixth Extinction: An Unnatural History"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Truck Full of Money"
+  },
+  {
+    "rank": 12,
+    "item_name": "Dataclysm: Who We are (When We Think No One's Looking)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 14,
+    "item_name": "When Breath Becomes Air"
+  },
+  {
+    "rank": 15,
+    "item_name": "Rosemary: The Hidden Kennedy Daughter"
+  },
+  {
+    "rank": 16,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 17,
+    "item_name": "Social: Why Our Brains Are Wired to Connect"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Man in the Monster: Inside the Mind of a Serial Killer"
+  },
+  {
+    "rank": 19,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Antidote: Happiness for People Who Can't Stand Positive Thinking"
+  },
+  {
+    "rank": 21,
+    "item_name": "Last Hope Island: Britain, Occupied Europe, and the Brotherhood That Helped Turn the Tide of War"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 23,
+    "item_name": "At the Existentialist Caf: Freedom, Being, and Apricot Cocktails"
+  },
+  {
+    "rank": 24,
+    "item_name": "At Home: A Short History of Private Life (Random House Large Print)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Medici Effect: What Elephants and Epidemics Can Teach Us About Innovation"
+  },
+  {
+    "rank": 26,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 27,
+    "item_name": "One Child: The Story of China's Most Radical Experiment"
+  },
+  {
+    "rank": 28,
+    "item_name": "Redeployment"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Iran Wars: Spy Games, Bank Battles, and the Secret Deals That Reshaped the Middle East"
+  },
+  {
+    "rank": 31,
+    "item_name": "Victoria: The Queen: An Intimate Biography of the Woman who Ruled an Empire"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Red Bandanna: A Life. A Choice. A Legacy."
+  },
+  {
+    "rank": 33,
+    "item_name": "The Imposter - How a Juvenile Criminal Succeeded in Business and Life"
+  },
+  {
+    "rank": 34,
+    "item_name": "La Seduction: How the French Play the Game of Life"
+  },
+  {
+    "rank": 35,
+    "item_name": "MWF Seeking BFF: My Yearlong Search for a New Best Friend"
+  },
+  {
+    "rank": 36,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 37,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 38,
+    "item_name": "Being Mortal"
+  },
+  {
+    "rank": 39,
+    "item_name": "1493: Uncovering the New World Columbus Created"
+  },
+  {
+    "rank": 40,
+    "item_name": "Columbine"
+  },
+  {
+    "rank": 41,
+    "item_name": "Judgment Ridge: The True Story Behind the Dartmouth Murders"
+  },
+  {
+    "rank": 42,
+    "item_name": "Fantasyland: How America Went Haywire: A 500-Year History"
+  },
+  {
+    "rank": 43,
+    "item_name": "White Trash: The 400-Year Untold History of Class in America"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Oregon Trail: A New American Journey"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Stranger in the Woods: The Extraordinary Story of the Last True Hermit"
+  },
+  {
+    "rank": 46,
+    "item_name": "Objective Troy: A Terrorist, a President, and the Rise of the Drone"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Race Underground: Boston, New York, and the Incredible Rivalry That Built Americas First Subway"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Ghost in My Brain: How a Concussion Stole My Life and How the New Science of Brain Plasticity Helped Me Get It Back"
+  },
+  {
+    "rank": 50,
+    "item_name": "Stringer: A Reporter's Journey in the Congo"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

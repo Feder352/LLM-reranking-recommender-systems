@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Paleo Chef: Quick, Flavorful Paleo Meals for Eating Well"
+  },
+  {
+    "item_name": "Food52 Genius Recipes: 100 Recipes That Will Change the Way You Cook"
+  },
+  {
+    "item_name": "Seven Spoons: My Favorite Recipes for Any and Every Day"
+  },
+  {
+    "item_name": "The Shirtmaking Workbook: Pattern, Design, and Construction Resources - More than 100 Pattern Downloads for Collars, Cuffs &amp; Plackets"
+  },
+  {
+    "item_name": "A Modern Way to Eat: 200+ Satisfying Vegetarian Recipes (That Will Make You Feel Amazing)"
+  },
+  {
+    "item_name": "The Ultimate Disney Party Book: 8 Fantastic Disney Themes"
+  },
+  {
+    "item_name": "Disney Frozen Hairstyles: Inspired by Anna and Elsa"
+  },
+  {
+    "item_name": "Disney Princess Hairstyles"
+  },
+  {
+    "item_name": "Paper Jewelry: 55 Projects for Reusing Paper"
+  },
+  {
+    "item_name": "The Time Garden: A Magical Journey and Coloring Book (Time Adult Coloring Books)"
+  },
+  {
+    "item_name": "Charlie and the Chocolate Factory"
+  },
+  {
+    "item_name": "The Super Awesome Coloring Book: 50 Super Awesome Designs for the Modern Coloring Enthusiast"
+  },
+  {
+    "item_name": "Tropical World: A Coloring Book Adventure (A Millie Marotta Adult Coloring Book)"
+  },
+  {
+    "item_name": "Food52 Baking: 60 Sensational Treats You Can Pull Off in a Snap (Food52 Works)"
+  },
+  {
+    "item_name": "Robo-Sauce"
+  },
+  {
+    "item_name": "Food52 Vegan: 60 Vegetable-Driven Recipes for Any Kitchen (Food52 Works)"
+  },
+  {
+    "item_name": "The Time Garden: A Magical Journey and Coloring Book (Time Adult Coloring Books)"
+  },
+  {
+    "item_name": "Trim Healthy Mama Cookbook: Eat Up and Slim Down with More Than 350 Healthy Recipes"
+  },
+  {
+    "item_name": "Baking with Cookie Molds: Secrets and Recipes for Making Amazing Handcrafted Cookies for Your Christmas, Holiday, Wedding, Tea, Party, Swap, Exchange, or Everyday Treat"
+  },
+  {
+    "item_name": "Cats in Paris: A Magical Coloring Book"
+  },
+  {
+    "item_name": "Little Felted Dogs: Easy Projects for Making Adorable Needle Felted Pups"
+  },
+  {
+    "item_name": "The Bee-Friendly Garden: Design an Abundant, Flower-Filled Yard that Nurtures Bees and Supports Biodiversity"
+  },
+  {
+    "item_name": "Make Way for Ducklings (Picture Puffin)"
+  },
+  {
+    "item_name": "Hamster Princess: Harriet the Invincible"
+  },
+  {
+    "item_name": "The Quilt Design Coloring Workbook: 91 Modern Art&ndash;Inspired Designs and Exercises"
+  },
+  {
+    "item_name": "Geeky LEGO Crafts: 21 Fun and Quirky Projects"
+  },
+  {
+    "item_name": "101 One-Dish Dinners: Hearty Recipes for the Dutch Oven, Skillet &amp; Casserole Pan"
+  },
+  {
+    "item_name": "The Night Voyage: A Magical Adventure and Coloring Book (Time Adult Coloring Books)"
+  },
+  {
+    "item_name": "The Art of Stone Painting: 30 Designs to Spark Your Creativity"
+  },
+  {
+    "item_name": "The Art of Leather Burning: Step-by-Step Pyrography Techniques"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Chasing Secrets"
+  },
+  {
+    "rank": 2,
+    "item_name": "The World of Laura Ingalls Wilder: The Frontier Landscapes that Inspired the Little House Books"
+  },
+  {
+    "rank": 3,
+    "item_name": "Journey: An Illustrated History of Travel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Space Case (Moon Base Alpha)"
+  },
+  {
+    "rank": 5,
+    "item_name": "As Waters Gone By"
+  },
+  {
+    "rank": 6,
+    "item_name": "Wonderland: A Coloring Book Inspired by Alice's Adventures"
+  },
+  {
+    "rank": 7,
+    "item_name": "Louisiana Saves the Library"
+  },
+  {
+    "rank": 8,
+    "item_name": "The New Family Cookbook"
+  },
+  {
+    "rank": 9,
+    "item_name": "Home to Paradise: The Coming Home Series  Book 3"
+  },
+  {
+    "rank": 10,
+    "item_name": "Masterpiece Marriage: Quilts of Love Series"
+  },
+  {
+    "rank": 11,
+    "item_name": "Oliver and the Seawigs"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Blessing (The Amish Cooking Class)"
+  },
+  {
+    "rank": 13,
+    "item_name": "A Season of Change: Seasons in Pinecraft - Book 1"
+  },
+  {
+    "rank": 14,
+    "item_name": "Railhead"
+  },
+  {
+    "rank": 15,
+    "item_name": "10 Ultimate Truths Girls Should Know"
+  },
+  {
+    "rank": 16,
+    "item_name": "Desmond Pucket Makes Monster Magic"
+  },
+  {
+    "rank": 17,
+    "item_name": "Conversations with Saint Bernard: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "Noah Webster: Man of Many Words"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Girl Who Could Not Dream"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 21,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Curse of Crow Hollow"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Mother's Love"
+  },
+  {
+    "rank": 24,
+    "item_name": "Make Ahead Bread: 100 Recipes for Melt-in-Your-Mouth Fresh Bread Every Day"
+  },
+  {
+    "rank": 25,
+    "item_name": "Duck in the Fridge (A Duck in the Fridge Book)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Otter, the Spotted Frog &amp; the Great Flood: A Creek Indian Story"
+  },
+  {
+    "rank": 27,
+    "item_name": "Out of the Ruins: The Golden Gate Chronicles - Book 1 (Golden Gate Chronicles Series)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Golden Braid"
+  },
+  {
+    "rank": 29,
+    "item_name": "Promise Lodge"
+  },
+  {
+    "rank": 30,
+    "item_name": "Frostborn (Thrones and Bones)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Sister Bear: A Norse Tale"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Fangirl's Guide to the Galaxy: A Handbook for Girl Geeks"
+  },
+  {
+    "rank": 33,
+    "item_name": "Quilted by Christmas: Quilts of Love Series"
+  },
+  {
+    "rank": 34,
+    "item_name": "So Not Okay: An Honest Look at Bullying from the Bystander (Mean Girl Makeover)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Peep Leap"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Adventures of Bubba Jones: Time Traveling Through the Great Smoky Mountains (A National Park Series)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Voyage of Lucy P. Simmons"
+  },
+  {
+    "rank": 38,
+    "item_name": "Tough As They Come"
+  },
+  {
+    "rank": 39,
+    "item_name": "Life After: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "A Stitch in Crime: Quilts of Love Series"
+  },
+  {
+    "rank": 41,
+    "item_name": "Dreamtreaders"
+  },
+  {
+    "rank": 42,
+    "item_name": "1946: The Making of the Modern World"
+  },
+  {
+    "rank": 43,
+    "item_name": "Grace (American Girl: Girl of the Year)"
+  },
+  {
+    "rank": 44,
+    "item_name": "How to Make a Wish"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Witch Hunter"
+  },
+  {
+    "rank": 46,
+    "item_name": "Texas Slow Cooker: 125 Recipes for the Lone Star State's Very Best Dishes, All Slow-Cooked to Perfection"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Choice"
+  },
+  {
+    "rank": 48,
+    "item_name": "Spirit Fighter (Son of Angels, Jonah Stone)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Farmers' Market Mishap: A Sequel to The Lopsided Christmas Cake"
+  },
+  {
+    "rank": 50,
+    "item_name": "Sky Jumpers: Book 1"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

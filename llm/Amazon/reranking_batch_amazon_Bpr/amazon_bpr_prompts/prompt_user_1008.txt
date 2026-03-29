@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "MURDER BY FIRE a gripping crime mystery full of twists"
+  },
+  {
+    "item_name": "LOW LAKE a gripping crime mystery full of dark secrets"
+  },
+  {
+    "item_name": "Deadly Recall (Jessie Cole)"
+  },
+  {
+    "item_name": "The Longest Silence (Shades of Death)"
+  },
+  {
+    "item_name": "Never Rest"
+  },
+  {
+    "item_name": "Hold Back the Dark (Bishop/Special Crimes Unit)"
+  },
+  {
+    "item_name": "The Child Next Door: An unputdownable psychological thriller with a brilliant twist"
+  },
+  {
+    "item_name": "Blonde Hair, Blue Eyes"
+  },
+  {
+    "item_name": "Tin Men: A Crime Novel"
+  },
+  {
+    "item_name": "Whisper the Dead: A Cotsworld village mystery (An Alex Duggins Mystery)"
+  },
+  {
+    "item_name": "Deadly Secrets: An absolutely gripping crime thriller (Detective Erika Foster) (Volume 6)"
+  },
+  {
+    "item_name": "The Nines (Volume 1)"
+  },
+  {
+    "item_name": "Doll Face"
+  },
+  {
+    "item_name": "There Once Was A Child"
+  },
+  {
+    "item_name": "The Girl With No Name: Absolutely gripping mystery and suspense (Detective Josie Quinn) (Volume 2)"
+  },
+  {
+    "item_name": "Pendle Fire"
+  },
+  {
+    "item_name": "Twisted Justice (Justice series) (Volume 13)"
+  },
+  {
+    "item_name": "The Perfect Mother: A Novel"
+  },
+  {
+    "item_name": "Alter Ego (A Jonathan Stride Novel)"
+  },
+  {
+    "item_name": "Her Last Word"
+  },
+  {
+    "item_name": "The Babysitter: A gripping psychological thriller with edge of your seat suspense"
+  },
+  {
+    "item_name": "The Abandoned"
+  },
+  {
+    "item_name": "Dead As A Doornail (A Kenni Lowry Mystery)"
+  },
+  {
+    "item_name": "The Good Twin"
+  },
+  {
+    "item_name": "Last Girl Gone: A Laura Chambers Novel"
+  },
+  {
+    "item_name": "Three Days Missing: A Novel of Psychological Suspense"
+  },
+  {
+    "item_name": "A Noise Downstairs: A Novel"
+  },
+  {
+    "item_name": "Our House"
+  },
+  {
+    "item_name": "Tear Me Apart"
+  },
+  {
+    "item_name": "I&#39;ve Been Watching You (The Forensic Files Book 1) eBook"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Stranger Inside"
+  },
+  {
+    "rank": 2,
+    "item_name": "Bitter Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Devil's Work"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Girl in the Ice: A gripping serial killer thriller (Detective Erika Foster crime thriller novel) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Night Stalker (Detective Erika Foster) (Volume 2)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Dead Souls: A gripping serial killer thriller with a shocking twist (Detective Kim Stone Crime Thriller Series) (Volume 6)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Hanover House"
+  },
+  {
+    "rank": 8,
+    "item_name": "Beautiful Maids All in a Row"
+  },
+  {
+    "rank": 9,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Blood Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Evil Games (D.I. Kim Stone)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Marriage Pact: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "Spare Change: Family Saga (A Wyattsville Novel Book 1) (Series name Family Saga)"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Steep Price (Tracy Crosswhite)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Walk Into Silence (Jo Larsen)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Ashley Bell"
+  },
+  {
+    "rank": 17,
+    "item_name": "STATELINE: A Dan Reno Novel (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Lone Wolf (An F.B.I. K-9 Novel)"
+  },
+  {
+    "rank": 19,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 20,
+    "item_name": "Dance with the Enemy (Enemy Series)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Only the Brave (The DS Allie Shenton Trilogy)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Good Liar"
+  },
+  {
+    "rank": 23,
+    "item_name": "Broken Bones: A gripping serial killer thriller (Detective Kim Stone Crime Thriller Series)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Closed Circles (Sandhamn Murders)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Passenger"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Cutaway: A Thriller"
+  },
+  {
+    "rank": 28,
+    "item_name": "True Crime Stories: 12 Shocking True Crime Murder Cases (True Crime Anthology) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Memory House: Memory House Collection (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Idea of You"
+  },
+  {
+    "rank": 31,
+    "item_name": "Fall"
+  },
+  {
+    "rank": 32,
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Watch Me Disappear: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Wreckage"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Beauty of the End"
+  },
+  {
+    "rank": 36,
+    "item_name": "You Will Pay"
+  },
+  {
+    "rank": 37,
+    "item_name": "Skewed"
+  },
+  {
+    "rank": 38,
+    "item_name": "Twisted"
+  },
+  {
+    "rank": 39,
+    "item_name": "Good Behavior (Letty Dobesh Chronicles)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Stillhouse Lake"
+  },
+  {
+    "rank": 41,
+    "item_name": "Ugly Young Thing (Strangers)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Kept Woman: A Novel (Will Trent)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Her Best Friend: A gripping psychological thriller"
+  },
+  {
+    "rank": 44,
+    "item_name": "Never Let You Go: A heart-stopping psychological thriller you won't be able to put down"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Stranger"
+  },
+  {
+    "rank": 46,
+    "item_name": "Blood Lines (Detective Kim Stone crime thriller series) (Volume 5)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Pop Goes the Weasel (A Helen Grace Thriller)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Girl You Lost"
+  },
+  {
+    "rank": 49,
+    "item_name": "Huntress Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Passenger 19 (A Jammer Davis Thriller)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

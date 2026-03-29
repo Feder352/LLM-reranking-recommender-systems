@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Monsterland (Monsterland Series) (Volume 1)"
+  },
+  {
+    "item_name": "Ratcatcher"
+  },
+  {
+    "item_name": "The Ghosts of Galway (Jack Taylor)"
+  },
+  {
+    "item_name": "The Inverted Pyramid (An Alex Vane Media Thriller, Book) (Volume 2)"
+  },
+  {
+    "item_name": "Open Primary (Ameritocracy) (Volume 1)"
+  },
+  {
+    "item_name": "The Wife Between Us: A Novel"
+  },
+  {
+    "item_name": "The Black Painting: A Novel"
+  },
+  {
+    "item_name": "Motion To Kill"
+  },
+  {
+    "item_name": "Vow of Silence (The Jill Shannon Murder Series)"
+  },
+  {
+    "item_name": "Gone on Sunday: A Cotton Lee Penn Historical Mystery (Cotton Lee Penn Historical Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "Ghosts in Macau (A Mac Ambrose Novella) eBook"
+  },
+  {
+    "item_name": "Bone Music (The Burning Girl)"
+  },
+  {
+    "item_name": "City of Gold (Matthew Connor Adventure Series)"
+  },
+  {
+    "item_name": "The Golden Crystal"
+  },
+  {
+    "item_name": "Paladine (Paladine Political Thriller Series) (Volume 1)"
+  },
+  {
+    "item_name": "True Fiction (Ian Ludlow Thrillers)"
+  },
+  {
+    "item_name": "Killer.com (Brent Marks Legal Thrillers Series) (Volume 5)"
+  },
+  {
+    "item_name": "Sometimes I Lie: A psychological thriller with a killer twist you'll never forget"
+  },
+  {
+    "item_name": "Factor Man"
+  },
+  {
+    "item_name": "STATELINE: A Dan Reno Novel (Volume 1)"
+  },
+  {
+    "item_name": "The Bone Church: A Novel"
+  },
+  {
+    "item_name": "Volcano Watch: The Forensic Geology Series"
+  },
+  {
+    "item_name": "The Sixth Day (A Brit in the FBI)"
+  },
+  {
+    "item_name": "Three Days in Seattle"
+  },
+  {
+    "item_name": "The Crooked Staircase: A Jane Hawk Novel"
+  },
+  {
+    "item_name": "These Haunts Are Made For Walking"
+  },
+  {
+    "item_name": "Hollywood Forbidden: A Hollywood Alphabet Series Thriller - Kindle edition"
+  },
+  {
+    "item_name": "Hollywood Games: A Hollywood Alphabet Series Thriller - Kindle edition"
+  },
+  {
+    "item_name": "Bloody Sunday: A Thriller (A Dewey Andreas Novel)"
+  },
+  {
+    "item_name": "The Forbidden Door: A Jane Hawk Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Dead Souls: A gripping serial killer thriller with a shocking twist (Detective Kim Stone Crime Thriller Series) (Volume 6)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Girl in the Ice: A gripping serial killer thriller (Detective Erika Foster crime thriller novel) (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Bitter Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Dead Key"
+  },
+  {
+    "rank": 5,
+    "item_name": "Passenger 19 (A Jammer Davis Thriller)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Last Girl (The Dominion Trilogy)"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Witness Above (Frank Palvicek Mysteries)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Devil's Work"
+  },
+  {
+    "rank": 9,
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Stranger Inside"
+  },
+  {
+    "rank": 11,
+    "item_name": "Huntress Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 13,
+    "item_name": "Vengeance is Mine: A Benjamin Tucker Mystery (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Lost Dog (A Gideon and Sirius Novel)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Shadows: A Jake Somers Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Prettiest One: A Thriller"
+  },
+  {
+    "rank": 17,
+    "item_name": "In The Dark"
+  },
+  {
+    "rank": 18,
+    "item_name": "Fall"
+  },
+  {
+    "rank": 19,
+    "item_name": "Little Boy Lost"
+  },
+  {
+    "rank": 20,
+    "item_name": "Fear Dreams"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Wind Guardian"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Stranger"
+  },
+  {
+    "rank": 23,
+    "item_name": "Rise of the Iron Eagle"
+  },
+  {
+    "rank": 24,
+    "item_name": "True Crime Stories: 12 Shocking True Crime Murder Cases (True Crime Anthology) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "Stranger at Sunset"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Naturalist"
+  },
+  {
+    "rank": 28,
+    "item_name": "Texas Vigilante"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Night Stalker (Detective Erika Foster) (Volume 2)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Resurrection America"
+  },
+  {
+    "rank": 31,
+    "item_name": "BEWARE THE PAST a gripping crime thriller with a huge twist"
+  },
+  {
+    "rank": 32,
+    "item_name": "And Then She Was GONE: A riveting new suspense novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Memory House: Memory House Collection (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Found, Near Water (A Christchurch Crime Thriller)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Wreckage"
+  },
+  {
+    "rank": 36,
+    "item_name": "Doing Harm: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Play Dead: A gripping serial killer thriller"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Night Bird (Frost Easton)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Flip (A Haunting On Long Island Series)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Burning Man (A Gideon and Sirius Novel)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Witness: A gripping psychological thriller with a surprising twist"
+  },
+  {
+    "rank": 42,
+    "item_name": "Broken Bones: A gripping serial killer thriller (Detective Kim Stone Crime Thriller Series)"
+  },
+  {
+    "rank": 43,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 44,
+    "item_name": "Livia Lone (A Livia Lone Novel)"
+  },
+  {
+    "rank": 45,
+    "item_name": "State vs. Lassiter (Jake Lassiter Series)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Evil Games (D.I. Kim Stone)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Terms of Use"
+  },
+  {
+    "rank": 48,
+    "item_name": "Eleven"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Mistake: An unputdownable psychological thriller with a brilliant twist"
+  },
+  {
+    "rank": 50,
+    "item_name": "Memory Man (Amos Decker series)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

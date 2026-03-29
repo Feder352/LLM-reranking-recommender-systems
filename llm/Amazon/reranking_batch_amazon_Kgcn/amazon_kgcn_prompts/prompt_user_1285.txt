@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Warlock: A Novel of Ancient Egypt (Novels of Ancient Egypt)"
+  },
+  {
+    "item_name": "Hotspur"
+  },
+  {
+    "item_name": "A Knight in Shining Armor"
+  },
+  {
+    "item_name": "Green Hills of Africa"
+  },
+  {
+    "item_name": "Ziggy Marley and Family Cookbook: Delicious Meals Made With Whole, Organic Ingredients from the Marley Kitchen"
+  },
+  {
+    "item_name": "River God, a Novel Of Ancient Egypt"
+  },
+  {
+    "item_name": "The Hobbit"
+  },
+  {
+    "item_name": "How to Win Friends and Influence People"
+  },
+  {
+    "item_name": "Hobbit"
+  },
+  {
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "item_name": "You Can't Spell America Without Me: The Really Tremendous Inside Story of My Fantastic First Year as President Donald J. Trump (A So-Called Parody)"
+  },
+  {
+    "item_name": "Shoot Like a Girl: One Woman's Dramatic Fight in Afghanistan and on the Home Front"
+  },
+  {
+    "item_name": "The Pioneer Woman: Black Heels to Tractor Wheels--A Love Story"
+  },
+  {
+    "item_name": "The Pioneer Woman Cooks: Food from My Frontier"
+  },
+  {
+    "item_name": "Make Your Bed: Little Things That Can Change Your Life...And Maybe the World"
+  },
+  {
+    "item_name": "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life"
+  },
+  {
+    "item_name": "Born to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never Seen"
+  },
+  {
+    "item_name": "Why Buddhism is True: The Science and Philosophy of Meditation and Enlightenment"
+  },
+  {
+    "item_name": "Driven to Distraction (Revised): Recognizing and Coping with Attention Deficit Disorder"
+  },
+  {
+    "item_name": "The Most Beautiful: My Life with Prince"
+  },
+  {
+    "item_name": "Zen in the Art of Archery"
+  },
+  {
+    "item_name": "Peak: Secrets from the New Science of Expertise"
+  },
+  {
+    "item_name": "Power of Positive Thinking for Young People"
+  },
+  {
+    "item_name": "Finding Ultra: Rejecting Middle Age, Becoming One of the World's Fittest Men, and Discovering Myself"
+  },
+  {
+    "item_name": "Declutter Your Mind: How to Stop Worrying, Relieve Anxiety, and Eliminate Negative Thinking"
+  },
+  {
+    "item_name": "OATrageous Oatmeals: Delicious &amp; Surprising Plant-Based Dishes From This Humble, Heart-Healthy Grain"
+  },
+  {
+    "item_name": "How Proust Can Change Your Life"
+  },
+  {
+    "item_name": "The Hero With a Thousand Faces (Paladin Books)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5094,
+    "item_name": "A Rabbi Talks with Jesus"
+  },
+  {
+    "rank": 2,
+    "item_id": 5214,
+    "item_name": "The Great Emergence: How Christianity Is Changing and Why (Emergent Village Resources for Communities of Faith)"
+  },
+  {
+    "rank": 3,
+    "item_id": 6002,
+    "item_name": "Perfect Madness: Motherhood in the Age of Anxiety"
+  },
+  {
+    "rank": 4,
+    "item_id": 5987,
+    "item_name": "The New Pearl Harbor: Disturbing Questions About the Bush Administration and 9/11"
+  },
+  {
+    "rank": 5,
+    "item_id": 284,
+    "item_name": "Condi vs. Hillary: The Next Great Presidential Race"
+  },
+  {
+    "rank": 6,
+    "item_id": 4148,
+    "item_name": "Crash Proof: How to Profit From the Coming Economic Collapse"
+  },
+  {
+    "rank": 7,
+    "item_id": 6014,
+    "item_name": "Beyond the Core: Expand Your Market Without Abandoning Your Roots"
+  },
+  {
+    "rank": 8,
+    "item_id": 6049,
+    "item_name": "The Ultimate Question: Driving Good Profits and True Growth"
+  },
+  {
+    "rank": 9,
+    "item_id": 5498,
+    "item_name": "The Biology Of Belief: Unleashing The Power Of Consciousness, Matter And Miracles"
+  },
+  {
+    "rank": 10,
+    "item_id": 1494,
+    "item_name": "Fearless: The Undaunted Courage and Ultimate Sacrifice of Navy SEAL Team SIX Operator Adam Brown"
+  },
+  {
+    "rank": 11,
+    "item_id": 5873,
+    "item_name": "The Missionary Position: Mother Teresa in Theory and Practice"
+  },
+  {
+    "rank": 12,
+    "item_id": 1009,
+    "item_name": "Don't Make a Black Woman Take Off Her Earrings"
+  },
+  {
+    "rank": 13,
+    "item_id": 2642,
+    "item_name": "In an Uncertain World: Tough Choices from Wall Street to Washington"
+  },
+  {
+    "rank": 14,
+    "item_id": 2174,
+    "item_name": "The Demon-Haunted World: Science as a Candle in the Dark"
+  },
+  {
+    "rank": 15,
+    "item_id": 5638,
+    "item_name": "Ask and It Is Given: Learning to Manifest Your Desires"
+  },
+  {
+    "rank": 16,
+    "item_id": 5456,
+    "item_name": "In Defense of Internment: The Case for Racial Profiling in World War II and the War on Terror"
+  },
+  {
+    "rank": 17,
+    "item_id": 2576,
+    "item_name": "Lincoln's Virtues: An Ethical Biography"
+  },
+  {
+    "rank": 18,
+    "item_id": 4682,
+    "item_name": "The Lady Tasting Tea: How Statistics Revolutionized Science in the Twentieth Century"
+  },
+  {
+    "rank": 19,
+    "item_id": 837,
+    "item_name": "How the Other Half Lives: Studies Among the Tenements of New York"
+  },
+  {
+    "rank": 20,
+    "item_id": 321,
+    "item_name": "Taken for a Ride: How Daimler-Benz Drove Off With Chrysler"
+  },
+  {
+    "rank": 21,
+    "item_id": 1559,
+    "item_name": "The Case for a Creator"
+  },
+  {
+    "rank": 22,
+    "item_id": 4298,
+    "item_name": "90 minutes at Entebbe"
+  },
+  {
+    "rank": 23,
+    "item_id": 4673,
+    "item_name": "The Myth of the Rational Voter: Why Democracies Choose Bad Policies"
+  },
+  {
+    "rank": 24,
+    "item_id": 743,
+    "item_name": "Success Built to Last: Creating a Life that Matters"
+  },
+  {
+    "rank": 25,
+    "item_id": 3763,
+    "item_name": "Exporting America: Why Corporate Greed Is Shipping American Jobs Overseas"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

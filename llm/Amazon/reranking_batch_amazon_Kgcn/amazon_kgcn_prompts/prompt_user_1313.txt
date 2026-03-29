@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "No Game for A Dame"
+  },
+  {
+    "item_name": "Before the Leap: An Inspirational Western Romance (Gold Valley Romance) (Volume 1)"
+  },
+  {
+    "item_name": "Mine"
+  },
+  {
+    "item_name": "Unexpected Eden"
+  },
+  {
+    "item_name": "The Ward's Bride: Border Series Prequel Novella"
+  },
+  {
+    "item_name": "Marrying Miss Marshal (Love Inspired Historical)"
+  },
+  {
+    "item_name": "The Captive"
+  },
+  {
+    "item_name": "Buying Love: A Maple Run Novel"
+  },
+  {
+    "item_name": "Love, One Summer in Bath: A Regency Romance Summer Collection: 8 Delightful Regency Summer Stories (Regency Romance Collections) (Volume 4)"
+  },
+  {
+    "item_name": "Irish Meadows (Courage to Dream)"
+  },
+  {
+    "item_name": "After the Fall: An Inspirational Western Romance (Gold Valley Romance) (Volume 2)"
+  },
+  {
+    "item_name": "Through the Mist: An Inspirational Western Romance (Gold Valley Romance) (Volume 3)"
+  },
+  {
+    "item_name": "Egyptian Mythology: A Fascinating Guide to Understanding the Gods, Goddesses, Monsters, and Mortals"
+  },
+  {
+    "item_name": "Challenge To Honor (The Masters at Arms)"
+  },
+  {
+    "item_name": "Highland Treasure: The Dreamer"
+  },
+  {
+    "item_name": "All the Way Home: A Novel"
+  },
+  {
+    "item_name": "When You Come Home: The True Love Story Of A Soldier's Heroism, His Wife's Sacrifice and the Resilience of America's Greatest Generation"
+  },
+  {
+    "item_name": "Hope's Bakery: A Contemporary Christian Romance (Magnolia Harbor) (Volume 1)"
+  },
+  {
+    "item_name": "Ashton: Lord of Truth (Lonely Lords) (Volume 13)"
+  },
+  {
+    "item_name": "The Lazarus File"
+  },
+  {
+    "item_name": "A Pirate's Curse (Legends of the Soaring Phoenix) (Volume 1)"
+  },
+  {
+    "item_name": "Above All Things (Steeple Hill Women's Fiction #77)"
+  },
+  {
+    "item_name": "TAMING THE HIGHLANDER (The Scottish Relic Trilogy)"
+  },
+  {
+    "item_name": "Fairytale"
+  },
+  {
+    "item_name": "A Treasure Concealed (Sapphire Brides)"
+  },
+  {
+    "item_name": "Counted With the Stars (Out From Egypt)"
+  },
+  {
+    "item_name": "Guardians: The Girl (Volume 1)"
+  },
+  {
+    "item_name": "Hidden (A McKenzie Ridge Novel) (Volume 2)"
+  },
+  {
+    "item_name": "Kissed by a Dark Prince (Volume 1)"
+  },
+  {
+    "item_name": "Four and a Half Shades of Fantasy"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 517,
+    "item_name": "Dear Cary: My Life with Cary Grant"
+  },
+  {
+    "rank": 2,
+    "item_id": 3942,
+    "item_name": "Don't Say A Word"
+  },
+  {
+    "rank": 3,
+    "item_id": 6205,
+    "item_name": "The Black Sheep (North Moon Bay Book 1) eBook"
+  },
+  {
+    "rank": 4,
+    "item_id": 5973,
+    "item_name": "Daughter of Twin Oaks (A Secret Refuge Series, No. 1)"
+  },
+  {
+    "rank": 5,
+    "item_id": 5522,
+    "item_name": "Have No Shame"
+  },
+  {
+    "rank": 6,
+    "item_id": 2422,
+    "item_name": "Wedding Vow Of Revenge"
+  },
+  {
+    "rank": 7,
+    "item_id": 3990,
+    "item_name": "Castaway Cove: A Shelter Bay Novel"
+  },
+  {
+    "rank": 8,
+    "item_id": 5530,
+    "item_name": "All A Heart Needs (Callaways #5)"
+  },
+  {
+    "rank": 9,
+    "item_id": 2804,
+    "item_name": "Draw 50 Animals"
+  },
+  {
+    "rank": 10,
+    "item_id": 5255,
+    "item_name": "Devil Takes a Bride (Knight Miscellany)"
+  },
+  {
+    "rank": 11,
+    "item_id": 2637,
+    "item_name": "The Villa (Random House Large Print)"
+  },
+  {
+    "rank": 12,
+    "item_id": 5305,
+    "item_name": "The Vow: The Kim and Krickitt Carpenter Story"
+  },
+  {
+    "rank": 13,
+    "item_id": 4541,
+    "item_name": "Something Wonderful"
+  },
+  {
+    "rank": 14,
+    "item_id": 2461,
+    "item_name": "Coulda Been A Cowboy"
+  },
+  {
+    "rank": 15,
+    "item_id": 3722,
+    "item_name": "The Guardian (Sparks, Nicholas)"
+  },
+  {
+    "rank": 16,
+    "item_id": 4906,
+    "item_name": "Superb and Sexy (Sky High Air)"
+  },
+  {
+    "rank": 17,
+    "item_id": 2460,
+    "item_name": "SEAL It with a Kiss: In Uniform (Harlequin Superromance, No. 833)"
+  },
+  {
+    "rank": 18,
+    "item_id": 2451,
+    "item_name": "Cowboys Don't Cry (Desire Large Print)"
+  },
+  {
+    "rank": 19,
+    "item_id": 6118,
+    "item_name": "Blackmailed"
+  },
+  {
+    "rank": 20,
+    "item_id": 2783,
+    "item_name": "Rogue's Honor (Saints of Seven Dials Series, Book 1)"
+  },
+  {
+    "rank": 21,
+    "item_id": 2437,
+    "item_name": "Dancing In The Moonlight (The Cowboys of Cold Creek)"
+  },
+  {
+    "rank": 22,
+    "item_id": 2457,
+    "item_name": "Cop of the Year (Count on a Cop) (Harlequin Superromance No. 774)"
+  },
+  {
+    "rank": 23,
+    "item_id": 2413,
+    "item_name": "Hired By The Cowboy"
+  },
+  {
+    "rank": 24,
+    "item_id": 2247,
+    "item_name": "Sinfully Sexy"
+  },
+  {
+    "rank": 25,
+    "item_id": 4000,
+    "item_name": "Moonrise"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

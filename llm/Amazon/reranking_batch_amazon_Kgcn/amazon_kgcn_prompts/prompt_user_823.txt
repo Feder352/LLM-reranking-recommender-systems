@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Death by Chocolate Lab (Lucky Paws Petsitting Mystery)"
+  },
+  {
+    "item_name": "Color Me Murder (Pen &amp; Ink)"
+  },
+  {
+    "item_name": "Assaulted Caramel (An Amish Candy Shop Mystery)"
+  },
+  {
+    "item_name": "Biscuits and Slashed Browns (A Country Store Mystery)"
+  },
+  {
+    "item_name": "Dial Meow for Murder (Lucky Paws Petsitting Mystery)"
+  },
+  {
+    "item_name": "Dead Man Talking: A Cozy Paranormal Mystery (The Happily Everlasting Series) (Volume 1)"
+  },
+  {
+    "item_name": "A Grave Issue: A Funeral Parlor Mystery"
+  },
+  {
+    "item_name": "Clairvoyant and Present Danger (A Bay Island Psychic Mystery)"
+  },
+  {
+    "item_name": "Lethal Licorice (An Amish Candy Shop Mystery)"
+  },
+  {
+    "item_name": "Cruel Candy (Cozy Corgi Mysteries)"
+  },
+  {
+    "item_name": "Creme Brle To Slay (Baker Street Cozy Mysteries) (Volume 3)"
+  },
+  {
+    "item_name": "Deja Moo (A Perfectly Proper Paranormal Museum Mystery)"
+  },
+  {
+    "item_name": "Death Crashes the Party (A Liv And Di In Dixie Mystery)"
+  },
+  {
+    "item_name": "Fooled Around and Spelled in Love: A Cozy Paranormal Mystery (The Happily Everlasting Series) (Volume 3)"
+  },
+  {
+    "item_name": "Pawprints &amp; Predicaments (Lucky Paws Petsitting Mystery)"
+  },
+  {
+    "item_name": "Eaves of Destruction (A Fixer-Upper Mystery)"
+  },
+  {
+    "item_name": "Lethal in Old Lace: A Consignment Shop Mystery"
+  },
+  {
+    "item_name": "Killer Music: A Cooper Harrington Detective Novel (Cooper Harrington Detective Novels) (Volume 1)"
+  },
+  {
+    "item_name": "It's Your Party, Die If You Want To (A Liv And Di In Dixie Mystery)"
+  },
+  {
+    "item_name": "A Quiet Life in the Country (A Lady Hardcastle Mystery)"
+  },
+  {
+    "item_name": "A Magical Match (Witchcraft Mystery)"
+  },
+  {
+    "item_name": "Wedding Cake Crumble (Cupcake Bakery Mystery)"
+  },
+  {
+    "item_name": "Lost Books and Old Bones: A Scottish Bookshop Mystery"
+  },
+  {
+    "item_name": "Blind Betrayal (Defenders of Justice)"
+  },
+  {
+    "item_name": "Murder in the Locked Library (A Book Retreat Mystery)"
+  },
+  {
+    "item_name": "In the Market for Murder (A Lady Hardcastle Mystery)"
+  },
+  {
+    "item_name": "Nun After The Other (A Giulia Driscoll Mystery)"
+  },
+  {
+    "item_name": "Curses and Cupcakes: A Cozy Paranormal Mystery (The Happily Everlasting Series) (Volume 6)"
+  },
+  {
+    "item_name": "Buried in Books (Bibliophile Mystery)"
+  },
+  {
+    "item_name": "Fear: Trump in the White House"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3445,
+    "item_name": "Grace Under Pressure (Manor House Mysteries, No. 1)"
+  },
+  {
+    "rank": 2,
+    "item_id": 3510,
+    "item_name": "Poisoned Prose (A Books by the Bay Mystery)"
+  },
+  {
+    "rank": 3,
+    "item_id": 3426,
+    "item_name": "Hail to the Chef (A White House Chef Mystery)"
+  },
+  {
+    "rank": 4,
+    "item_id": 3477,
+    "item_name": "Scandal in Skibbereen (A County Cork Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_id": 3467,
+    "item_name": "One Hot Murder (Victoria Square Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_id": 3389,
+    "item_name": "Murder Most Frothy (Coffeehouse Mysteries, No. 4)"
+  },
+  {
+    "rank": 7,
+    "item_id": 3401,
+    "item_name": "Organize Your Corpses (A Charlotte Adams Mystery)"
+  },
+  {
+    "rank": 8,
+    "item_id": 4035,
+    "item_name": "Throw in the Trowel (Flower Shop Mystery)"
+  },
+  {
+    "rank": 9,
+    "item_id": 3500,
+    "item_name": "Holiday Buzz (A Coffeehouse Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_id": 1723,
+    "item_name": "Pushing Up Daisies: A Dirty Business Mystery"
+  },
+  {
+    "rank": 11,
+    "item_id": 3503,
+    "item_name": "Golden Malicious (An Orchard Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_id": 1133,
+    "item_name": "Miss Julia Stirs Up Trouble: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 3439,
+    "item_name": "Eggsecutive Orders (A White House Chef Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_id": 6008,
+    "item_name": "Magick, Mayhem, and Mavericks: The Spirited History of Physical Chemistry"
+  },
+  {
+    "rank": 15,
+    "item_id": 3946,
+    "item_name": "Shoots to Kill (Flower Shop Mysteries, No. 7)"
+  },
+  {
+    "rank": 16,
+    "item_id": 3960,
+    "item_name": "Murder Melts in Your Mouth (Blackbird Sisters Mysteries, No. 7)"
+  },
+  {
+    "rank": 17,
+    "item_id": 4032,
+    "item_name": "Catch Me (Detective D. D. Warren)"
+  },
+  {
+    "rank": 18,
+    "item_id": 3891,
+    "item_name": "Cold Quarry (A Frank Palvicek Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_id": 3479,
+    "item_name": "Steeped in Evil (A Tea Shop Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_id": 3505,
+    "item_name": "Murder, She Barked: A Paws &amp; Claws Mystery"
+  },
+  {
+    "rank": 21,
+    "item_id": 3962,
+    "item_name": "A Glimpse of Evil (Psychic Eye Mysteries, No. 8)"
+  },
+  {
+    "rank": 22,
+    "item_id": 6180,
+    "item_name": "Murder in Steeple Martin (Libby Sarjeant Murder Mysteries)"
+  },
+  {
+    "rank": 23,
+    "item_id": 3408,
+    "item_name": "Decaffeinated Corpse (Coffeehouse Mysteries, No. 5)"
+  },
+  {
+    "rank": 24,
+    "item_id": 4050,
+    "item_name": "The Whole Cat and Caboodle (Second Chance Cat Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_id": 3918,
+    "item_name": "Dearly Depotted (Flower Shop Mysteries, No. 3)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

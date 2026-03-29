@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Addicted to Americana: Celebrating Classic &amp; Kitschy American Life &amp; Style"
+  },
+  {
+    "item_name": "How Not to Kill Your House Plant: Survival Tips for the Horticulturally Challenged"
+  },
+  {
+    "item_name": "Anne of Green Gables: A Graphic Novel"
+  },
+  {
+    "item_name": "Generations"
+  },
+  {
+    "item_name": "The Scarecrow Princess"
+  },
+  {
+    "item_name": "The Beautiful Ones: A Novel"
+  },
+  {
+    "item_name": "James Bond: Black Box"
+  },
+  {
+    "item_name": "Noble Vol. 1: God Shots"
+  },
+  {
+    "item_name": "Creatures of Will and Temper"
+  },
+  {
+    "item_name": "The Once and Future Queen"
+  },
+  {
+    "item_name": "Kiss Me at the Stroke of Midnight 1"
+  },
+  {
+    "item_name": "Rough Riders Volume 2: Riders on the Storm"
+  },
+  {
+    "item_name": "It Takes Two to Tumble: Seducing the Sedgwicks"
+  },
+  {
+    "item_name": "World History: From the Ancient World to the Information Age"
+  },
+  {
+    "item_name": "5 Steps to a 5: AP Biology 2018"
+  },
+  {
+    "item_name": "Vanguard (Genesis Fleet, The)"
+  },
+  {
+    "item_name": "The Unofficial Guide? to Walt Disney World? 2001 (Unofficial Guides)"
+  },
+  {
+    "item_name": "Manga Shakespeare: Romeo and Juliet"
+  },
+  {
+    "item_name": "Dragon Age: Knight Errant"
+  },
+  {
+    "item_name": "The Last Girl on Earth"
+  },
+  {
+    "item_name": "Wicked Charm"
+  },
+  {
+    "item_name": "Honor Among Thieves (Honors)"
+  },
+  {
+    "item_name": "Cardcaptor Sakura: Clear Card 1"
+  },
+  {
+    "item_name": "Lake Silence (World of the Others, The)"
+  },
+  {
+    "item_name": "Ash Princess"
+  },
+  {
+    "item_name": "CASINO ROYALE (The Ultimate James Bond Classic)"
+  },
+  {
+    "item_name": "James Bond 007. Casino Royale. Film Tie-In"
+  },
+  {
+    "item_name": "Spinning Silver: A Novel"
+  },
+  {
+    "item_name": "Nyxia Unleashed (The Nyxia Triad)"
+  },
+  {
+    "item_name": "Ignite the Stars"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Hazel Wood"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Eternity Cure (Blood of Eden)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Low, Vol. 1: The Delirium of Hope"
+  },
+  {
+    "rank": 4,
+    "item_name": "Denton Little's Deathdate (Denton Little Series)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Iron Queen (Iron Fey)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Secret Horses of Briar Hill"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Winner's Crime (The Winner's Trilogy)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Wildefire"
+  },
+  {
+    "rank": 9,
+    "item_name": "Saga, Vol. 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Geography of You and Me"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Corner of White: Book 1 of The Colors of Madeleine"
+  },
+  {
+    "rank": 12,
+    "item_name": "Missing"
+  },
+  {
+    "rank": 13,
+    "item_name": "And I Darken (The Conqueror's Trilogy)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Planet Tad"
+  },
+  {
+    "rank": 15,
+    "item_name": "Wolf by Wolf"
+  },
+  {
+    "rank": 16,
+    "item_name": "Seraphina"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Winner's Curse (The Winner's Trilogy)"
+  },
+  {
+    "rank": 18,
+    "item_name": "An Inheritance of Ashes"
+  },
+  {
+    "rank": 19,
+    "item_name": "Sway: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Iron Daughter"
+  },
+  {
+    "rank": 21,
+    "item_name": "Ricky Ricotta's Mighty Robot Book Set (7 Volumes)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Talon (The Talon Saga)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Forgetting"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Dark Days Club (A Lady Helen Novel)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Labyrinth Lost (Brooklyn Brujas)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Tyrant's Daughter"
+  },
+  {
+    "rank": 27,
+    "item_name": "Jillian Cade: (Fake) Paranormal Investigator"
+  },
+  {
+    "rank": 28,
+    "item_name": "Wayward, Vol. 1: String Theory"
+  },
+  {
+    "rank": 29,
+    "item_name": "Friends with Boys"
+  },
+  {
+    "rank": 30,
+    "item_name": "Ruin and Rising (The Shadow and Bone Trilogy)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Born of Illusion"
+  },
+  {
+    "rank": 32,
+    "item_name": "An Ember in the Ashes"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Witch Hunter"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Wrath &amp; the Dawn (The Wrath and the Dawn)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Lily and Dunkin"
+  },
+  {
+    "rank": 36,
+    "item_name": "Shade the Changing Girl Vol. 1: Earth Girl Made Easy (Young Animal)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Tethered Mage (Swords and Fire)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Dorothy Must Die"
+  },
+  {
+    "rank": 39,
+    "item_name": "Mechanica"
+  },
+  {
+    "rank": 40,
+    "item_name": "Frozen: Heart of Dread, Book One"
+  },
+  {
+    "rank": 41,
+    "item_name": "Exquisite Captive (Dark Caravan Cycle)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Cress"
+  },
+  {
+    "rank": 43,
+    "item_name": "City of Blades (The Divine Cities)"
+  },
+  {
+    "rank": 44,
+    "item_name": "A Thousand Pieces of You (Firebird)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Black River Falls"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Obsidian Blade (Klaatu Diskos)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Lockstep: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "rank": 49,
+    "item_name": "Forbidden"
+  },
+  {
+    "rank": 50,
+    "item_name": "Untold (The Lynburn Legacy Book 2)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

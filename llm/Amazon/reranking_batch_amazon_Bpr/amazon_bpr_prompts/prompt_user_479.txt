@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Undead and Unwed (Queen Betsy, Book 1)"
+  },
+  {
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "item_name": "Vision in White (The Bride Quartet, Book 1)"
+  },
+  {
+    "item_name": "Hotel on the Corner of Bitter and Sweet: A Novel"
+  },
+  {
+    "item_name": "Spying in High Heels"
+  },
+  {
+    "item_name": "My Year with Eleanor: A Memoir"
+  },
+  {
+    "item_name": "Five Days in Skye: A Novel (The MacDonald Family Trilogy)"
+  },
+  {
+    "item_name": "Maggie for Hire: Book One:  Maggie MacKay Magical Tracker Series"
+  },
+  {
+    "item_name": "The Lucky Dog Matchmaking Service"
+  },
+  {
+    "item_name": "Ive Got You Under My Skin (Thorndike Press Large Print Basic Series)"
+  },
+  {
+    "item_name": "Pioneer Girl: The Annotated Autobiography"
+  },
+  {
+    "item_name": "Love in a Nutshell (Random House Large Print)"
+  },
+  {
+    "item_name": "The Eighty-Dollar Champion: Snowman, The Horse That Inspired a Nation"
+  },
+  {
+    "item_name": "&quot;Tanks are Mighty Fine Things!&quot;: How Chrysler's Detroit Tank Arsenal Built the Tanks That Helped Win WWII"
+  },
+  {
+    "item_name": "I Capture the Castle (Red Fox Older Fiction)"
+  },
+  {
+    "item_name": "Semi-Charmed"
+  },
+  {
+    "item_name": "The Irish Cottage (Travel Romance Series BETH)"
+  },
+  {
+    "item_name": "I Capture the Castle (Red Fox Older Fiction)"
+  },
+  {
+    "item_name": "The Second Time Around (Clark, Mary Higgins)"
+  },
+  {
+    "item_name": "Table for Five"
+  },
+  {
+    "item_name": "Morning Comes Softly (Harper Monogram)"
+  },
+  {
+    "item_name": "The Sunday Wife: A Novel"
+  },
+  {
+    "item_name": "The naked and the dead"
+  },
+  {
+    "item_name": "The Eighty-Dollar Champion: Snowman, The Horse That Inspired a Nation"
+  },
+  {
+    "item_name": "April Lady (A Harper Monogram Regency)"
+  },
+  {
+    "item_name": "Family Tree: A Novel"
+  },
+  {
+    "item_name": "Fireside (The Lakeshore Chronicles)"
+  },
+  {
+    "item_name": "Madam, Will You Talk?"
+  },
+  {
+    "item_name": "Long May She Wave: 100 Stars and Stripes Collectible Postcards"
+  },
+  {
+    "item_name": "One True Mate 2: Dragon's Heat (Volume 2)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Skipping Christmas"
+  },
+  {
+    "rank": 2,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Divine Secrets of the Ya-Ya Sisterhood: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Secret Life of Bees"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 7,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 9,
+    "item_name": "A Knight in Shining Armor"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Lovely Bones: Deluxe Edition"
+  },
+  {
+    "rank": 12,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 13,
+    "item_name": "Red Dragon"
+  },
+  {
+    "rank": 14,
+    "item_name": "Ten Big Ones (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 15,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 17,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Drums of Autumn"
+  },
+  {
+    "rank": 19,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Five People You Meet in Heaven (Random House Large Print)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 22,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Cat in the Hat Comes Back: Green Back Book (Dr Seuss - Green Back Book)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 25,
+    "item_name": "Harry Potter And The Order Of The Phoenix"
+  },
+  {
+    "rank": 26,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Memoirs of a Geisha Uk"
+  },
+  {
+    "rank": 29,
+    "item_name": "Paradise Lost and Paradise Regained (Collins Classics)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Rescue (Random House Large Print)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Oh, the Thinks You Can Think! Green Back Book"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Brethren"
+  },
+  {
+    "rank": 33,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Killing Hour: An FBI Profiler Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 36,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Other Boleyn Girl"
+  },
+  {
+    "rank": 38,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 39,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 40,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 41,
+    "item_name": "Plum Lovin'"
+  },
+  {
+    "rank": 42,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 43,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 44,
+    "item_name": "High Five (Stephanie Plum, No. 5) (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 46,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Animal Dreams"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Private World of Georgette Heyer"
+  },
+  {
+    "rank": 49,
+    "item_name": "Sure of You"
+  },
+  {
+    "rank": 50,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

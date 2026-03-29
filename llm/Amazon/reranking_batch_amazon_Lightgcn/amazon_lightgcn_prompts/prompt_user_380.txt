@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Code Economy: A Forty-Thousand Year History"
+  },
+  {
+    "item_name": "The Call of Cthulhu and Other Weird Stories (Penguin Twentieth-Century Classics)"
+  },
+  {
+    "item_name": "Radical Technologies: The Design of Everyday Life"
+  },
+  {
+    "item_name": "Barking Up the Wrong Tree: The Surprising Science Behind Why Everything You Know About Success Is (Mostly) Wrong"
+  },
+  {
+    "item_name": "The Wisdom of Finance: Discovering Humanity in the World of Risk and Return"
+  },
+  {
+    "item_name": "The Four Tendencies: The Indispensable Personality Profiles That Reveal How to Make Your Life Better (and Other People's Lives Better, Too)"
+  },
+  {
+    "item_name": "Fantasyland: How America Went Haywire: A 500-Year History"
+  },
+  {
+    "item_name": "A Lot Like Christmas: Stories"
+  },
+  {
+    "item_name": "Little Soldiers: An American Boy, a Chinese School, and the Global Race to Achieve"
+  },
+  {
+    "item_name": "The Music Shop: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "The Music Shop [Jul 10, 2017] Joyce, Rachel"
+  },
+  {
+    "item_name": "Six Billion Shoppers: The Companies Winning the Global E-Commerce Boom"
+  },
+  {
+    "item_name": "Clean Protein: The Revolution that Will Reshape Your Body, Boost Your Energyand Save Our Planet"
+  },
+  {
+    "item_name": "Americana: A 400-Year History of American Capitalism"
+  },
+  {
+    "item_name": "The Scarecrow Princess"
+  },
+  {
+    "item_name": "After the Fire"
+  },
+  {
+    "item_name": "L'Appart: The Delights and Disasters of Making My Paris Home"
+  },
+  {
+    "item_name": "The Memo: Five Rules for Your Economic Liberation"
+  },
+  {
+    "item_name": "Up Is Not the Only Way: Rethinking Career Mobility"
+  },
+  {
+    "item_name": "Spring Garden (Japanese Novellas)"
+  },
+  {
+    "item_name": "Pause"
+  },
+  {
+    "item_name": "Blue Ocean Shift: Beyond Competing - Proven Steps to Inspire Confidence and Seize New Growth"
+  },
+  {
+    "item_name": "Rise and Grind: Outperform, Outwork, and Outhustle Your Way to a More Successful and Rewarding Life"
+  },
+  {
+    "item_name": "Dragon Age: Knight Errant"
+  },
+  {
+    "item_name": "Machine Learning: New and Collected Stories"
+  },
+  {
+    "item_name": "Machine Learning"
+  },
+  {
+    "item_name": "Kobane Calling: Greetings from Northern Syria"
+  },
+  {
+    "item_name": "Record of a Night too Brief (Japanese Novellas)"
+  },
+  {
+    "item_name": "The Chalk Man"
+  },
+  {
+    "item_name": "The City Where We Once Lived: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 47818,
+    "item_name": "So You've Been Publicly Shamed"
+  },
+  {
+    "rank": 2,
+    "item_id": 43920,
+    "item_name": "Y: The Last Man, Vol. 5: Ring of Truth"
+  },
+  {
+    "rank": 3,
+    "item_id": 74359,
+    "item_name": "Dragon Head, Vol. 3"
+  },
+  {
+    "rank": 4,
+    "item_id": 44133,
+    "item_name": "Shade the Changing Girl Vol. 1: Earth Girl Made Easy (Young Animal)"
+  },
+  {
+    "rank": 5,
+    "item_id": 27520,
+    "item_name": "The Best American Comics 2010 (The Best American Series)"
+  },
+  {
+    "rank": 6,
+    "item_id": 43420,
+    "item_name": "Reach Out: The Simple Strategy You Need to Expand Your Network and Increase Your Influence"
+  },
+  {
+    "rank": 7,
+    "item_id": 41864,
+    "item_name": "The Devourers: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_id": 56940,
+    "item_name": "Briggs Land Volume 1: State of Grace"
+  },
+  {
+    "rank": 9,
+    "item_id": 34036,
+    "item_name": "The Three-Body Problem (Remembrance of Earth's Past)"
+  },
+  {
+    "rank": 10,
+    "item_id": 11086,
+    "item_name": "Give a Girl a Knife: A Memoir"
+  },
+  {
+    "rank": 11,
+    "item_id": 14449,
+    "item_name": "The Lean Forward Moment: Telling Better Stories for Film, TV, and the Web"
+  },
+  {
+    "rank": 12,
+    "item_id": 34856,
+    "item_name": "Iron Man: Extremis"
+  },
+  {
+    "rank": 13,
+    "item_id": 26417,
+    "item_name": "Radical Hope: Letters of Love and Dissent in Dangerous Times"
+  },
+  {
+    "rank": 14,
+    "item_id": 49995,
+    "item_name": "The 100-Year Life: Living and Working in an Age of Longevity"
+  },
+  {
+    "rank": 15,
+    "item_id": 10058,
+    "item_name": "Lies, Incorporated: The World of Post-Truth Politics"
+  },
+  {
+    "rank": 16,
+    "item_id": 77907,
+    "item_name": "Is Islam an Enemy of the West? (Global Futures)"
+  },
+  {
+    "rank": 17,
+    "item_id": 69222,
+    "item_name": "Irredeemable: Volume 1"
+  },
+  {
+    "rank": 18,
+    "item_id": 42829,
+    "item_name": "How Not to Die: Discover the Foods Scientifically Proven to Prevent and Reverse Disease"
+  },
+  {
+    "rank": 19,
+    "item_id": 37083,
+    "item_name": "Thinking in New Boxes: A New Paradigm for Business Creativity"
+  },
+  {
+    "rank": 20,
+    "item_id": 78022,
+    "item_name": "Modern Leatherwork for Makers: Traditional Craft Techniques Meet CNC and 3D Printing"
+  },
+  {
+    "rank": 21,
+    "item_id": 10057,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 22,
+    "item_id": 44152,
+    "item_name": "Cave Carson Has a Cybernetic Eye Vol. 1: Going Underground (Young Animal)"
+  },
+  {
+    "rank": 23,
+    "item_id": 19506,
+    "item_name": "Sleeping Giant: How the New Working Class Will Transform America"
+  },
+  {
+    "rank": 24,
+    "item_id": 16007,
+    "item_name": "Voices in the Ocean: A Journey into the Wild and Haunting World of Dolphins"
+  },
+  {
+    "rank": 25,
+    "item_id": 63626,
+    "item_name": "Ball Peen Hammer"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

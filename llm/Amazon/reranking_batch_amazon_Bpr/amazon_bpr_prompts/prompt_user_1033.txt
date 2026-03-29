@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Blue Bloods (Blue Bloods, Book 1)"
+  },
+  {
+    "item_name": "Deadman Wonderland, Vol. 11"
+  },
+  {
+    "item_name": "Tokyo Ghoul, Vol. 2"
+  },
+  {
+    "item_name": "Ninth Key (The Mediator, Book 2)"
+  },
+  {
+    "item_name": "Lovesick"
+  },
+  {
+    "item_name": "Infinite Days"
+  },
+  {
+    "item_name": "Blue is for Nightmares (Stolarz Series)"
+  },
+  {
+    "item_name": "Secret (Elemental)"
+  },
+  {
+    "item_name": "With the Light: Raising an Autistic Child, Vol. 1"
+  },
+  {
+    "item_name": "That Wolf-Boy is Mine! 1"
+  },
+  {
+    "item_name": "Protecting His Own (Masters of the Shadowlands) (Volume 11)"
+  },
+  {
+    "item_name": "Fighting Dirty: An MMA Romance (An Ultimate Novel)"
+  },
+  {
+    "item_name": "Me and Earl and the Dying Girl (Revised Edition)"
+  },
+  {
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "item_name": "The Unexpected Everything"
+  },
+  {
+    "item_name": "The Promise of Amazing"
+  },
+  {
+    "item_name": "Golden"
+  },
+  {
+    "item_name": "The Forbidden Wish"
+  },
+  {
+    "item_name": "Romancing the Nerd"
+  },
+  {
+    "item_name": "Stars Above: A Lunar Chronicles Collection (The Lunar Chronicles)"
+  },
+  {
+    "item_name": "Walk the Edge (Thunder Road)"
+  },
+  {
+    "item_name": "Random"
+  },
+  {
+    "item_name": "The Marriage Trap (Marriage to a Billionaire)"
+  },
+  {
+    "item_name": "Winter"
+  },
+  {
+    "item_name": "In Trouble (Carolrhoda Lab)"
+  },
+  {
+    "item_name": "In Honor"
+  },
+  {
+    "item_name": "Nimona"
+  },
+  {
+    "item_name": "Kissing Under the Mistletoe"
+  },
+  {
+    "item_name": "Girl, Stolen: A Novel"
+  },
+  {
+    "item_name": "Dirty Little Secret"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "City of Glass (The Mortal Instruments)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 3,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 4,
+    "item_name": "Under the Never Sky"
+  },
+  {
+    "rank": 5,
+    "item_name": "Abandon"
+  },
+  {
+    "rank": 6,
+    "item_name": "Ruby Red (The Ruby Red Trilogy)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Heist Society (A Heist Society Novel)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Vampire Academy: Spirit Bound (book 5)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Entice"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Iron Daughter"
+  },
+  {
+    "rank": 11,
+    "item_name": "Clockwork Angel"
+  },
+  {
+    "rank": 12,
+    "item_name": "Last Sacrifice (Vampire Academy)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Wither (Chemical Garden)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The DUFF: (Designated Ugly Fat Friend)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Prodigy"
+  },
+  {
+    "rank": 16,
+    "item_name": "Hallowed: An Unearthly Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Inside Out"
+  },
+  {
+    "rank": 18,
+    "item_name": "Torment (Fallen)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Betrayed (A House of Night)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Fathomless (Fairy Tale Retelling)"
+  },
+  {
+    "rank": 21,
+    "item_name": "My Soul to Save (Soul Screamers Book 2)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Cross My Heart and Hope to Spy (Gallagher Girls)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Frostbite"
+  },
+  {
+    "rank": 24,
+    "item_name": "Eve"
+  },
+  {
+    "rank": 25,
+    "item_name": "Life as We Knew It"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Girl of Fire and Thorns"
+  },
+  {
+    "rank": 27,
+    "item_name": "Vampire Academy (Vampire Academy, Book 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Swoon"
+  },
+  {
+    "rank": 29,
+    "item_name": "Rules of Attraction (A Perfect Chemistry Novel)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Ink Exchange (Wicked Lovely)"
+  },
+  {
+    "rank": 31,
+    "item_name": "My Soul to Keep (Soul Screamers, Book 3)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Sisters Red (Fairy Tale Retelling)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Shadow and Bone (Grisha Trilogy)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Evermore: The Immortals"
+  },
+  {
+    "rank": 35,
+    "item_name": "Struck"
+  },
+  {
+    "rank": 36,
+    "item_name": "Arson: Book One in The Arson Trilogy"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Dream Thieves (The Raven Cycle)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Million Suns"
+  },
+  {
+    "rank": 39,
+    "item_name": "Wicked Lovely"
+  },
+  {
+    "rank": 40,
+    "item_name": "Fateful"
+  },
+  {
+    "rank": 41,
+    "item_name": "Magic Study (Study Series)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Hex Hall (A Hex Hall Novel)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Beautiful Creatures. by Kami Garcia &amp; Margaret Stohl"
+  },
+  {
+    "rank": 44,
+    "item_name": "Dreams of Gods &amp; Monsters (Daughter of Smoke &amp; Bone)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Once a Witch"
+  },
+  {
+    "rank": 46,
+    "item_name": "Cryer's Cross"
+  },
+  {
+    "rank": 47,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Coincidence of Callie &amp; Kayden"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Iron Knight (Iron Fey)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Once (Eve)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

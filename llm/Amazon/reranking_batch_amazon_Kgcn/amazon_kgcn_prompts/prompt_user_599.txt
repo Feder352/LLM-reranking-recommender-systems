@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "China, Inc.: How the Rise of the Next Superpower Challenges America and the World"
+  },
+  {
+    "item_name": "The Weather Makers: The History and Future Impact of Climate Change"
+  },
+  {
+    "item_name": "Did Muhammad Exist?: An Inquiry into Islam's Obscure Origins"
+  },
+  {
+    "item_name": "Why Nations Fail: The Origins of Power, Prosperity, and Poverty"
+  },
+  {
+    "item_name": "No, They Can't: Why Government Fails-But Individuals Succeed"
+  },
+  {
+    "item_name": "Gideon's Spies: The Secret History of the Mossad"
+  },
+  {
+    "item_name": "How Civilizations Die: (And Why Islam Is Dying Too)"
+  },
+  {
+    "item_name": "90 minutes at Entebbe"
+  },
+  {
+    "item_name": "Opus Dei: An Objective Look Behind the Myths and Reality of the Most Controversial Force in the Catholic Church"
+  },
+  {
+    "item_name": "Tortured for Christ"
+  },
+  {
+    "item_name": "Civilization: The West and the Rest"
+  },
+  {
+    "item_name": "The Quest: Energy, Security, and the Remaking of the Modern World"
+  },
+  {
+    "item_name": "SuperFreakonomics CD: Global Cooling, Patriotic Prostitutes, and Why Suicide Bombers Should Buy Life Insurance"
+  },
+  {
+    "item_name": "Twelve Years a Slave  Enhanced Edition by Dr. Sue Eakin Based on a Lifetime Project. New Info, Images, Maps"
+  },
+  {
+    "item_name": "The Jewish Century"
+  },
+  {
+    "item_name": "90 minutes at Entebbe"
+  },
+  {
+    "item_name": "The Wretched of the Earth"
+  },
+  {
+    "item_name": "The Smartest Kids in the World: And How They Got That Way"
+  },
+  {
+    "item_name": "90 minutes at Entebbe"
+  },
+  {
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "item_name": "The Little Prince&quot; and &quot;Letter to a Hostage&quot; (Penguin Modern Classics Translated Texts S.)"
+  },
+  {
+    "item_name": "The Last Panther - Slaughter of the Reich - The Halbe Kessel 1945"
+  },
+  {
+    "item_name": "Exposing the Real Che Guevara: And the Useful Idiots Who Idolize Him"
+  },
+  {
+    "item_name": "90 minutes at Entebbe"
+  },
+  {
+    "item_name": "90 minutes at Entebbe"
+  },
+  {
+    "item_name": "Inside the Third Reich"
+  },
+  {
+    "item_name": "The Healing of America: A Global Quest for Better, Cheaper, and Fairer Health Care"
+  },
+  {
+    "item_name": "The Fix: How Countries Use Crises to Solve the World's Worst Problems"
+  },
+  {
+    "item_name": "90 minutes at Entebbe"
+  },
+  {
+    "item_name": "The Fall of Rome: And the End of Civilization"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3855,
+    "item_name": "The Richest Man in Babylon"
+  },
+  {
+    "rank": 2,
+    "item_id": 3072,
+    "item_name": "Darwin: The Life of a Tormented Evolutionist"
+  },
+  {
+    "rank": 3,
+    "item_id": 4163,
+    "item_name": "The Dawn of Human Culture"
+  },
+  {
+    "rank": 4,
+    "item_id": 5205,
+    "item_name": "Deep Ancestry: Inside the Genographic Project"
+  },
+  {
+    "rank": 5,
+    "item_id": 4130,
+    "item_name": "Catching Fire: How Cooking Made Us Human"
+  },
+  {
+    "rank": 6,
+    "item_id": 1287,
+    "item_name": "The Republican Noise Machine: Right-Wing Media and How It Corrupts Democracy"
+  },
+  {
+    "rank": 7,
+    "item_id": 740,
+    "item_name": "The Chinese Century: The Rising Chinese Economy and Its Impact on the Global Economy, the Balance of Power, and Your Job"
+  },
+  {
+    "rank": 8,
+    "item_id": 5459,
+    "item_name": "At Any Cost: How Al Gore Tried to Steal the Election"
+  },
+  {
+    "rank": 9,
+    "item_id": 4680,
+    "item_name": "Why People Believe Weird Things: Pseudoscience, Superstition, and Other Confusions of Our Time"
+  },
+  {
+    "rank": 10,
+    "item_id": 1219,
+    "item_name": "Hidden Gospels: How the Search for Jesus Lost Its Way"
+  },
+  {
+    "rank": 11,
+    "item_id": 5169,
+    "item_name": "The Enemy Within: Saving America from the Liberal Assault on Our Schools, Faith, and Military"
+  },
+  {
+    "rank": 12,
+    "item_id": 4159,
+    "item_name": "The Dollar Crisis: Causes, Consequences, Cures"
+  },
+  {
+    "rank": 13,
+    "item_id": 5242,
+    "item_name": "The Perfect Heresy: The Revolutionary Life and Death of the Medieval Cathars"
+  },
+  {
+    "rank": 14,
+    "item_id": 2611,
+    "item_name": "Good Muslim, Bad Muslim: America, the Cold War, and the Roots of Terror"
+  },
+  {
+    "rank": 15,
+    "item_id": 1044,
+    "item_name": "Rise of the Vulcans: The History of Bush's War Cabinet"
+  },
+  {
+    "rank": 16,
+    "item_id": 168,
+    "item_name": "God's Politics: Why the Right Gets It Wrong and the Left Doesn't Get It"
+  },
+  {
+    "rank": 17,
+    "item_id": 25,
+    "item_name": "Trilobite"
+  },
+  {
+    "rank": 18,
+    "item_id": 2642,
+    "item_name": "In an Uncertain World: Tough Choices from Wall Street to Washington"
+  },
+  {
+    "rank": 19,
+    "item_id": 3012,
+    "item_name": "Globalization and Its Discontents"
+  },
+  {
+    "rank": 20,
+    "item_id": 5285,
+    "item_name": "Putin's Russia: Life in a Failing Democracy"
+  },
+  {
+    "rank": 21,
+    "item_id": 4763,
+    "item_name": "Red Star Rogue: The Untold Story of a Soviet Submarine's Nuclear Strike Attempt on the U.S."
+  },
+  {
+    "rank": 22,
+    "item_id": 5180,
+    "item_name": "Anatomy of Greed: The Unshredded Truth from an Enron Insider"
+  },
+  {
+    "rank": 23,
+    "item_id": 1236,
+    "item_name": "The Fat Tail: The Power of Political Knowledge for Strategic Investing"
+  },
+  {
+    "rank": 24,
+    "item_id": 1223,
+    "item_name": "The New American Militarism: How Americans Are Seduced by War"
+  },
+  {
+    "rank": 25,
+    "item_id": 5266,
+    "item_name": "Dwight D. Eisenhower"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

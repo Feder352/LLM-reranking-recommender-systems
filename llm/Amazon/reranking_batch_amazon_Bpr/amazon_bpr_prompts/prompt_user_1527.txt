@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Rogue to Avoid (Matchmaking for Wallflowers) (Volume 2)"
+  },
+  {
+    "item_name": "Desperate Bride"
+  },
+  {
+    "item_name": "One Step Behind"
+  },
+  {
+    "item_name": "The Hellion (Wicked Wallflowers)"
+  },
+  {
+    "item_name": "Lord of Temptation (Rogues to Riches) (Volume 4)"
+  },
+  {
+    "item_name": "Marry in Scandal (Marriage of Convenience)"
+  },
+  {
+    "item_name": "The Earl in My Bed (Rebellious Desires) (Volume 2)"
+  },
+  {
+    "item_name": "Scandal in Spades (Lords of Chance) (Volume 1)"
+  },
+  {
+    "item_name": "Passion Favors the Bold (Royal Rewards)"
+  },
+  {
+    "item_name": "The Most Dangerous Duke in London (Decadent Dukes Society)"
+  },
+  {
+    "item_name": "When a Lady Dares"
+  },
+  {
+    "item_name": "A Devil of a Duke (Decadent Dukes Society)"
+  },
+  {
+    "item_name": "Lady Rogue (Royal Rewards)"
+  },
+  {
+    "item_name": "Lord of Fortune (Legendary Rogues) (Volume 3)"
+  },
+  {
+    "item_name": "When A Lady Desires a Wicked Lord (Her Majesty's Most Secret Service) (Volume 3)"
+  },
+  {
+    "item_name": "Ladies of the Stone"
+  },
+  {
+    "item_name": "Someone to Care (A Westcott Novel)"
+  },
+  {
+    "item_name": "The Luck of the Bride: The Cavensham Heiresses"
+  },
+  {
+    "item_name": "A Duke Like No Other (Playful Brides)"
+  },
+  {
+    "item_name": "A Highlander's Christmas Kiss (Highland Heirs)"
+  },
+  {
+    "item_name": "The Duke Meets His Match (Infamous Somertons)"
+  },
+  {
+    "item_name": "Real Earls Break the Rules"
+  },
+  {
+    "item_name": "Married by Moonlight (Distinguished Rogues) (Volume 9)"
+  },
+  {
+    "item_name": "The Earl's Return (Marriage Mart Mayhem)"
+  },
+  {
+    "item_name": "A Mistress for Penndrake"
+  },
+  {
+    "item_name": "It's All About the Duke: The Rakes of St. James"
+  },
+  {
+    "item_name": "Lord of Secrets (Rogues to Riches) (Volume 5)"
+  },
+  {
+    "item_name": "Dangerous (The Outcasts)"
+  },
+  {
+    "item_name": "An Affair with a Spare (The Survivors)"
+  },
+  {
+    "item_name": "What Ales the Earl (The Widow's Brew Series)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Highland Duke (Lords of the Highlands)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Lord of Night (Rogues to Riches Book 3) (Volume 3)"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Duke Like No Other (Playful Brides)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Secrets of a Scandalous Heiress (Matchmaker Trilogy)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Dark Fancy"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Art of Sinning (The Sinful Suitors)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Bride Who Got Lucky: The Cavensham Heiresses"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Right Kind of Rogue (Playful Brides)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Lady Rogue (Royal Rewards)"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Sword for His Lady (Courtly Love)"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Diamond for a Duke (Seductive Scoundrels) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Dark Before the Rising Sun"
+  },
+  {
+    "rank": 13,
+    "item_name": "Ready Set Rogue: A Studies in Scandal Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Wallflower Most Wanted: A Studies in Scandal Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "Lord St. Claire's Angel (Zebra Regency Romance)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Warrior of Ice (Warriors of Ireland)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Sharp Shootin' Cowboy (Hot Cowboy Nights)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Hunter (Victorian Rebels)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Marrying the Wrong Earl"
+  },
+  {
+    "rank": 20,
+    "item_name": "Duke with Benefits (Studies in Scandal)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Undercover with the Earl (Brotherhood of the Sword)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Someone to Hold (A Westcott Novel)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Dangerous Gentlemen (Daughters of Sin)"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Most Devilish Rogue (A Most Series)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Devil in Spring: The Ravenels, Book 3"
+  },
+  {
+    "rank": 26,
+    "item_name": "Diary of an Accidental Wallflower: The Seduction Diaries"
+  },
+  {
+    "rank": 27,
+    "item_name": "Stormswept"
+  },
+  {
+    "rank": 28,
+    "item_name": "Dukes Prefer Blondes (The Dressmakers Series)"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Lady's Secret Weapon"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Wallflower's Wicked Wager (A Waltz with a Rogue Novella) (Volume 5)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Good Earls Don't Lie"
+  },
+  {
+    "rank": 32,
+    "item_name": "Windswept"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Duke of Desire (The Untouchables)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Lord of Pleasure"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Duke (Victorian Rebels)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Too Scot to Handle (Windham Brides)"
+  },
+  {
+    "rank": 37,
+    "item_name": "When a Marquis Chooses a Bride (The Worthingtons)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Put Up Your Duke: A Dukes Behaving Badly Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Most Dangerous Duke in London (Decadent Dukes Society)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Only a Duke Will Do"
+  },
+  {
+    "rank": 41,
+    "item_name": "Blaike: Secrets Gone Askew (Conundrums of the Misses Culpepper) (Volume 4)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Conqueror's Kiss"
+  },
+  {
+    "rank": 43,
+    "item_name": "One Moonlit Night (Moonlight Square: A Prequel Novella)"
+  },
+  {
+    "rank": 44,
+    "item_name": "My American Duchess"
+  },
+  {
+    "rank": 45,
+    "item_name": "If He's Noble (Wherlockes)"
+  },
+  {
+    "rank": 46,
+    "item_name": "How to Train Your Highlander (Broadswords and Ballrooms)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Blood Lust (The Sentinels)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Never Kiss a Highlander (The McTiernays)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Inconvenient Duchess"
+  },
+  {
+    "rank": 50,
+    "item_name": "When a Laird Loves a Lady (Highlander Vows: Entangled Hearts) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

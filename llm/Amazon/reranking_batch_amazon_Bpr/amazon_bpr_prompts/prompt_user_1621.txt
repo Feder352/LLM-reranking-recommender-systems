@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Charming Hannah (The Big Sky Series) (Volume 1)"
+  },
+  {
+    "item_name": "Playing House (Sydney Smoke Rugby Series) (Volume 5)"
+  },
+  {
+    "item_name": "Maybe This Time: A Whiskey and Weddings Novel"
+  },
+  {
+    "item_name": "Bad Bachelor (Bad Bachelors)"
+  },
+  {
+    "item_name": "It Might Be You (The Harrisons)"
+  },
+  {
+    "item_name": "The Sweet Spot (A Willamette Valley Romance)"
+  },
+  {
+    "item_name": "Not Quite Crazy"
+  },
+  {
+    "item_name": "Army Ranger with Benefits (At-Ease Ranch) (Volume 4)"
+  },
+  {
+    "item_name": "Pretty as a Peach (The Sex &amp; Sweet Tea Series) (Volume 4)"
+  },
+  {
+    "item_name": "Fast Burn (Body Armor)"
+  },
+  {
+    "item_name": "Long Shot (Hoops)"
+  },
+  {
+    "item_name": "Bad Boys After Dark: Brett (Bad Billionaires After Dark) (Volume 4)"
+  },
+  {
+    "item_name": "Tempting Little Tease (Forbidden Desires) (Volume 4)"
+  },
+  {
+    "item_name": "The Last King (The Kings)"
+  },
+  {
+    "item_name": "Embraced at Seaside (Sweet with Heat: Seaside Summers) (Volume 8)"
+  },
+  {
+    "item_name": "Too Hard to Resist (Wherever You Go) (Volume 3)"
+  },
+  {
+    "item_name": "The Pecker Briefs: Ford and Viveka's Story (The Legal Affairs Series) (Volume 7)"
+  },
+  {
+    "item_name": "Stay with Me (Return to Haven)"
+  },
+  {
+    "item_name": "Hot Response (Boston Fire)"
+  },
+  {
+    "item_name": "Caught Up in a Cowboy (Cowboys of Creedence)"
+  },
+  {
+    "item_name": "In the Eye of the Storm / Catering to the CEO"
+  },
+  {
+    "item_name": "Bro Code"
+  },
+  {
+    "item_name": "Hooked On You (The Chicago Rebels Series)"
+  },
+  {
+    "item_name": "Lovers at Seaside (Sweet with Heat: Seaside Summers) (Volume 9)"
+  },
+  {
+    "item_name": "Arrogant Devil"
+  },
+  {
+    "item_name": "I Flipping Love You"
+  },
+  {
+    "item_name": "The One You Can't Forget (The Ones Who Got Away)"
+  },
+  {
+    "item_name": "Atticus: A Womans Journey with the Worlds Worst Behaved Dog"
+  },
+  {
+    "item_name": "Rainy Day Friends: A Novel"
+  },
+  {
+    "item_name": "Deep Cover: A Love Over Duty Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Taking What's His"
+  },
+  {
+    "rank": 2,
+    "item_name": "In a Ranger's Arms"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Good Luck Sister: A Wildstone Novella"
+  },
+  {
+    "rank": 4,
+    "item_name": "Too Hot to Handle (Romancing the Clarksons)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Sinner's Steel: Sinner's Tribe Motorcycle Club (The Sinner's Tribe Motorcycle Club)"
+  },
+  {
+    "rank": 6,
+    "item_name": "One Snowy Night: A Heartbreaker Bay Christmas Novella"
+  },
+  {
+    "rank": 7,
+    "item_name": "Stealing Rose: A Novel (The Fowler Sisters)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Close Contact (Body Armor)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Falling for Her Enemy"
+  },
+  {
+    "rank": 10,
+    "item_name": "Final Siege (Love Over Duty)"
+  },
+  {
+    "rank": 11,
+    "item_name": "One More Kiss (Shaughnessy Brothers: Band on the Run)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Driven to Temptation"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Legend: A Sons of Texas Novel (The Sons of Texas)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Hold Me Until Forever"
+  },
+  {
+    "rank": 15,
+    "item_name": "Worked Up"
+  },
+  {
+    "rank": 16,
+    "item_name": "Playing with Seduction (The Players Club) (Volume 3)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Stirring Up Trouble (A Pine Mountain Novel)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Hot for the Fireman"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Hook Up"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Millionaire's Revenge"
+  },
+  {
+    "rank": 21,
+    "item_name": "The First Kiss of Spring: An Eternity Springs Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Wild Kisses (Wildwood)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Test"
+  },
+  {
+    "rank": 24,
+    "item_name": "One More Promise (Shaughnessy Brothers: Band on the Run)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Wilde At Heart"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Trouble with Mistletoe: A Heartbreaker Bay Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Dare to Take (Dare to Love)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Accidentally on Purpose: A Heartbreaker Bay Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Broken Honor (Hornet)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Claiming Alexis (Ace Security)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Crossing Promises (Cross Creek)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Tailored for Trouble: A Romantic Comedy (Happy Pants)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Chasing Christmas Eve: A Heartbreaker Bay Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Reckless (Rescue Squad)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Charmer (Harbor City) (Volume 2)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Baby Bombshell"
+  },
+  {
+    "rank": 37,
+    "item_name": "Damage Control: A Dirty Money Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Black Dawn (Titan Book 8)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Dare to Rock (Dare to Love) (Volume 5)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Wrecked"
+  },
+  {
+    "rank": 41,
+    "item_name": "Always My Girl (The Shaughnessy Brothers)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Rugged Texas Cowboy: Two Stories in One: Cowboy and the Captive, Cowboy and the Thief"
+  },
+  {
+    "rank": 43,
+    "item_name": "Playing With Fire"
+  },
+  {
+    "rank": 44,
+    "item_name": "Bad Boys After Dark: Mick (Bad Billionaires After Dark) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Collision Point: A Brute Force Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Close to You: A Fusion Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Playing with Fire (Hot in Chicago)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Winning the Billionaire (Seattle Bachelors)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Three-Week Arrangement"
+  },
+  {
+    "rank": 50,
+    "item_name": "Forbidden Promises (The O'Malleys)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

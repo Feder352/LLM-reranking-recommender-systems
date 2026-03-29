@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Paris Is Always a Good Idea: A Novel"
+  },
+  {
+    "item_name": "Dark Matter"
+  },
+  {
+    "item_name": "The Sun Also Rises (Scribner Classics)"
+  },
+  {
+    "item_name": "The Light of Paris"
+  },
+  {
+    "item_name": "The Story of Diva and Flea"
+  },
+  {
+    "item_name": "Commonwealth"
+  },
+  {
+    "item_name": "Commonwealth CD"
+  },
+  {
+    "item_name": "White Trash: The 400-Year Untold History of Class in America"
+  },
+  {
+    "item_name": "The After Party: A Novel"
+  },
+  {
+    "item_name": "The Borrowers"
+  },
+  {
+    "item_name": "Turbo Twenty-Three: A Stephanie Plum Novel"
+  },
+  {
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "item_name": "The Reader"
+  },
+  {
+    "item_name": "Neurotribes: The Legacy of Autism and the Future of Neurodiversity"
+  },
+  {
+    "item_name": "A Modern Way to Cook: 150+ Vegetarian Recipes for Quick, Flavor-Packed Meals"
+  },
+  {
+    "item_name": "The Rain in Portugal: Poems"
+  },
+  {
+    "item_name": "Lucy"
+  },
+  {
+    "item_name": "Return (Aaron Becker's Wordless Trilogy)"
+  },
+  {
+    "item_name": "The Dollhouse: A Novel"
+  },
+  {
+    "item_name": "The Train to Crystal City: FDR's Secret Prisoner Exchange Program and America's Only Family Internment Camp During World War II"
+  },
+  {
+    "item_name": "The Littlest Bigfoot"
+  },
+  {
+    "item_name": "Strangers in Their Own Land: Anger and Mourning on the American Right"
+  },
+  {
+    "item_name": "The Bread Baker's Apprentice: Mastering the Art of Extraordinary Bread"
+  },
+  {
+    "item_name": "The Year of Living Danishly: Uncovering the Secrets of the World's Happiest Country"
+  },
+  {
+    "item_name": "The Children of Green Knowe"
+  },
+  {
+    "item_name": "Sea Change: A TOON Graphic (TOON Graphics)"
+  },
+  {
+    "item_name": "Wake Up to the Joy of You: 52 Meditations and Practices for a Calmer, Happier Life"
+  },
+  {
+    "item_name": "One Crazy Summer"
+  },
+  {
+    "item_name": "Wolf in the Snow"
+  },
+  {
+    "item_name": "7 Ate 9"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 3,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 4,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Night"
+  },
+  {
+    "rank": 8,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Devil's Arithmetic (Puffin Modern Classics)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Hemingway's Girl"
+  },
+  {
+    "rank": 11,
+    "item_name": "Freedom"
+  },
+  {
+    "rank": 12,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 15,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Bees"
+  },
+  {
+    "rank": 17,
+    "item_name": "Wonder"
+  },
+  {
+    "rank": 18,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Life After Life: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Astrophysics for People in a Hurry"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Reader (Movie Tie-in Edition) (Vintage International)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Eyre Affair: A Thursday Next Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Vinegar Girl: William Shakespeare's The Taming of the Shrew Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Penelopiad (Faber Drama)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Skippy Dies: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "On Writing"
+  },
+  {
+    "rank": 32,
+    "item_name": "Oryx and Crake (Random House Large Print)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The White Tiger: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Stargirl (Stargirl Series)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Orlando (Vintage Classics)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Zookeeper's Wife: A War Story"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Forgotten Garden"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Reptile Room (A Series of Unfortunate Events, Book 2)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Go Set a Watchman: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 41,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 42,
+    "item_name": "When You Are Engulfed In Flames by David Sedaris"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Violinist's Thumb: And Other Lost Tales of Love, War, and Genius, as Written by Our Genetic Code"
+  },
+  {
+    "rank": 44,
+    "item_name": "Appointment in Samarra (Vintage Classics)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Half the Sky: Turning Oppression into Opportunity for Women Worldwide"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Thousand Autumns of Jacob de Zoet"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Graveyard Book"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Tales of Beedle the Bard, Standard Edition (Harry Potter)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Bone Clocks Limited Edition"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Wizard of Oz"
+  },
+  {
+    "item_name": "Journey on a Runaway Train (The Boxcar Children Great Adventure)"
+  },
+  {
+    "item_name": "National Velvet"
+  },
+  {
+    "item_name": "Tightropes and Teeter-Totters: Finding Balance in the Ups and Downs of Life"
+  },
+  {
+    "item_name": "The Innkeeper of Ivy Hill (Tales from Ivy Hill)"
+  },
+  {
+    "item_name": "Beauty and the Beast (Illustrated)"
+  },
+  {
+    "item_name": "Journey to the Centre of the Earth"
+  },
+  {
+    "item_name": "Huck: The Remarkable True Story of How One Lost Puppy Taught a Family--and a Whole Town--About Hope and Happy Endings"
+  },
+  {
+    "item_name": "My Cousin Rachel"
+  },
+  {
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "item_name": "The Magnolia Story"
+  },
+  {
+    "item_name": "Asking for Trouble (London Confidential)"
+  },
+  {
+    "item_name": "The Illusionist's Apprentice"
+  },
+  {
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "item_name": "Present Over Perfect: Leaving Behind Frantic for a Simpler, More Soulful Way of Living"
+  },
+  {
+    "item_name": "Below the Surface (A Code of Silence Novel)"
+  },
+  {
+    "item_name": "The Hunchback of Notre-Dame (Puffin Classics)"
+  },
+  {
+    "item_name": "The Christmas Bus"
+  },
+  {
+    "item_name": "The Hunchback of Notre Dame (Xist Classics) - Kindle edition"
+  },
+  {
+    "item_name": "The Return of Sherlock Holmes (The World's Classics)"
+  },
+  {
+    "item_name": "The Man Who Invented Christmas: How Charles Dickens's A Christmas Carol Rescued His Career and Revived Our Holiday Spirits"
+  },
+  {
+    "item_name": "The Man Who Invented CHRISTMAS"
+  },
+  {
+    "item_name": "12 Days at Bleakly Manor: Book 1 in Once Upon a Dickens Christmas"
+  },
+  {
+    "item_name": "Noelle: A Novel (A Dog Named Christmas)"
+  },
+  {
+    "item_name": "Mystery in White: A Christmas Crime Story (British Library Crime Classics)"
+  },
+  {
+    "item_name": "Coffin Scarcely Used"
+  },
+  {
+    "item_name": "Maud: A Novel Inspired by the Life of L.M. Montgomery"
+  },
+  {
+    "item_name": "The Word Exchange"
+  },
+  {
+    "item_name": "The Valley of Fear (The Oxford Sherlock Holmes)"
+  },
+  {
+    "item_name": "20,000 Leagues Under the Sea"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1116,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 2,
+    "item_id": 1552,
+    "item_name": "A Clash of Kings: A Song of Ice and Fire: Book Two"
+  },
+  {
+    "rank": 3,
+    "item_id": 1517,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 4,
+    "item_id": 971,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 5,
+    "item_id": 730,
+    "item_name": "Time Traveler's Wife"
+  },
+  {
+    "rank": 6,
+    "item_id": 322,
+    "item_name": "Smoke and Mirrors: Short Fictions and Illusions"
+  },
+  {
+    "rank": 7,
+    "item_id": 1125,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 8,
+    "item_id": 44,
+    "item_name": "A Feast for Crows"
+  },
+  {
+    "rank": 9,
+    "item_id": 1380,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 10,
+    "item_id": 2669,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 11,
+    "item_id": 4235,
+    "item_name": "Wonderstruck (Schneider Family Book Award - Middle School Winner)"
+  },
+  {
+    "rank": 12,
+    "item_id": 2411,
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "rank": 13,
+    "item_id": 1862,
+    "item_name": "The Eye of the World (The Wheel of Time, Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_id": 1495,
+    "item_name": "The Shining"
+  },
+  {
+    "rank": 15,
+    "item_id": 1730,
+    "item_name": "Heartsick (Archie Sheridan &amp; Gretchen Lowell)"
+  },
+  {
+    "rank": 16,
+    "item_id": 1187,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 17,
+    "item_id": 2285,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 18,
+    "item_id": 761,
+    "item_name": "We Have Always Lived in the Castle"
+  },
+  {
+    "rank": 19,
+    "item_id": 1059,
+    "item_name": "Angelology: A Novel (Angelology Series)"
+  },
+  {
+    "rank": 20,
+    "item_id": 4240,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 21,
+    "item_id": 1367,
+    "item_name": "Inkspell (Inkheart)"
+  },
+  {
+    "rank": 22,
+    "item_id": 119,
+    "item_name": "Monster (Coretta Scott King Honor Book)"
+  },
+  {
+    "rank": 23,
+    "item_id": 5653,
+    "item_name": "Code Name Verity"
+  },
+  {
+    "rank": 24,
+    "item_id": 4846,
+    "item_name": "City of Bones (The Mortal Instruments)"
+  },
+  {
+    "rank": 25,
+    "item_id": 1377,
+    "item_name": "Ptolemy's Gate (The Bartimaeus Trilogy, Book 3)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

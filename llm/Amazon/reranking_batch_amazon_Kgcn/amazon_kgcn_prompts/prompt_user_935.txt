@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "How to Think: A Survival Guide for a World at Odds"
+  },
+  {
+    "item_name": "Unveiling Grace: The Story of How We Found Our Way out of the Mormon Church"
+  },
+  {
+    "item_name": "The Way of the Dragon or the Way of the Lamb: Searching for Jesus Path of Power in a Church that Has Abandoned It"
+  },
+  {
+    "item_name": "The Art of Work: A Proven Path to Discovering What You Were Meant to Do"
+  },
+  {
+    "item_name": "The Wisdom of God: Letting His Truth and Goodness Direct Your Steps"
+  },
+  {
+    "item_name": "The More of Less"
+  },
+  {
+    "item_name": "Diary of a Jackwagon"
+  },
+  {
+    "item_name": "Life Is Better at the Beach: Inspirational Rules for Living Each Day Like You're at the Beach"
+  },
+  {
+    "item_name": "The ReWired Brain: Free Yourself of Negative Behaviors and Release Your Best Self"
+  },
+  {
+    "item_name": "The Temple and the Tabernacle: A Study of God's Dwelling Places from Genesis to Revelation"
+  },
+  {
+    "item_name": "A Day at the Beach: Devotions to Help You Relax, Reflect, and Renew"
+  },
+  {
+    "item_name": "Honestly: Getting Real about Jesus and Our Messy Lives"
+  },
+  {
+    "item_name": "Sacred Mundane: How to Find Freedom, Purpose, and Joy"
+  },
+  {
+    "item_name": "Gospel Questions, Gospel Answers"
+  },
+  {
+    "item_name": "CSB Apologetics Study Bible, Hardcover"
+  },
+  {
+    "item_name": "Blessed Are the Misfits: Great News for Believers who are Introverts, Spiritual Strugglers, or Just Feel Like They're Missing Something"
+  },
+  {
+    "item_name": "The Memo: Five Rules for Your Economic Liberation"
+  },
+  {
+    "item_name": "Get Out of That Pit: Straight Talk about God's Deliverance"
+  },
+  {
+    "item_name": "How Not to Get Rich: The Financial Misadventures of Mark Twain"
+  },
+  {
+    "item_name": "When Did Everybody Else Get So Old?: Indignities, Compromises, and the Unexpected Grace of Midlife"
+  },
+  {
+    "item_name": "Reading People: How Seeing the World through the Lens of Personality Changes Everything"
+  },
+  {
+    "item_name": "The Remarkable Ordinary: How to Stop, Look, and Listen to Life"
+  },
+  {
+    "item_name": "A Crazy, Holy Grace: The Healing Power of Pain and Memory"
+  },
+  {
+    "item_name": "The Sacred Slow: A Holy Departure From Fast Faith"
+  },
+  {
+    "item_name": "Everywhere You Go Theres a Zacchaeus Up a Tree: Small-Town Faith and Words of Wisdom from Roger Campbells Newspaper Columns"
+  },
+  {
+    "item_name": "The Gospel according to God: Rediscovering the Most Remarkable Chapter in the Old Testament"
+  },
+  {
+    "item_name": "Sacred Rest: Recover Your Life, Renew Your Energy, Restore Your Sanity"
+  },
+  {
+    "item_name": "Nourish: Discover God's Perfectly Balanced Plan for Your Body and Soul"
+  },
+  {
+    "item_name": "Unimaginable: What Our World Would Be Like Without Christianity"
+  },
+  {
+    "item_name": "The CEO Next Door: The 4 Behaviors that Transform Ordinary People into World-Class Leaders"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2624,
+    "item_name": "Culture Warrior (Random House Large Print)"
+  },
+  {
+    "rank": 2,
+    "item_id": 2065,
+    "item_name": "Grain Brain: The Surprising Truth about Wheat, Carbs,  and Sugar--Your Brain's Silent Killers"
+  },
+  {
+    "rank": 3,
+    "item_id": 2937,
+    "item_name": "Seminary Boy: A Memoir"
+  },
+  {
+    "rank": 4,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 5,
+    "item_id": 1559,
+    "item_name": "The Case for a Creator"
+  },
+  {
+    "rank": 6,
+    "item_id": 859,
+    "item_name": "The Black Swan: The Impact of the Highly Improbable"
+  },
+  {
+    "rank": 7,
+    "item_id": 4522,
+    "item_name": "Truman"
+  },
+  {
+    "rank": 8,
+    "item_id": 3742,
+    "item_name": "Hitch-22: A Memoir"
+  },
+  {
+    "rank": 9,
+    "item_id": 5803,
+    "item_name": "Salinger"
+  },
+  {
+    "rank": 10,
+    "item_id": 1007,
+    "item_name": "The Wal-Mart Effect: How the World's Most Powerful Company Really Works--and HowIt's Transforming the  American Economy"
+  },
+  {
+    "rank": 11,
+    "item_id": 5203,
+    "item_name": "Leap of Faith: Memoirs of an Unexpected Life"
+  },
+  {
+    "rank": 12,
+    "item_id": 676,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 13,
+    "item_id": 5230,
+    "item_name": "Over Time: My Life as a Sportswriter"
+  },
+  {
+    "rank": 14,
+    "item_id": 423,
+    "item_name": "Waiter Rant: Thanks for the Tip--Confessions of a Cynical Waiter"
+  },
+  {
+    "rank": 15,
+    "item_id": 4234,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 16,
+    "item_id": 1297,
+    "item_name": "American Creation: Triumphs and Tragedies at the Founding of the Republic"
+  },
+  {
+    "rank": 17,
+    "item_id": 1021,
+    "item_name": "Andrew Carnegie"
+  },
+  {
+    "rank": 18,
+    "item_id": 6130,
+    "item_name": "The Searchers: The Making of an American Legend"
+  },
+  {
+    "rank": 19,
+    "item_id": 5797,
+    "item_name": "The Roots of Obama's Rage"
+  },
+  {
+    "rank": 20,
+    "item_id": 1373,
+    "item_name": "Traitor to His Class: The Privileged Life and Radical Presidency of Franklin Delano Roosevelt"
+  },
+  {
+    "rank": 21,
+    "item_id": 4729,
+    "item_name": "To America: Personal Reflections of an Historian"
+  },
+  {
+    "rank": 22,
+    "item_id": 4250,
+    "item_name": "How Doctors Think"
+  },
+  {
+    "rank": 23,
+    "item_id": 1531,
+    "item_name": "Destiny of the Republic: A Tale of Madness, Medicine and the Murder of a President"
+  },
+  {
+    "rank": 24,
+    "item_id": 781,
+    "item_name": "The Pastures of Heaven (Penguin Great Books of the 20th Century)"
+  },
+  {
+    "rank": 25,
+    "item_id": 6079,
+    "item_name": "Now They Call Me Infidel: Why I Renounced Jihad for America, Israel, and the War on Terror"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

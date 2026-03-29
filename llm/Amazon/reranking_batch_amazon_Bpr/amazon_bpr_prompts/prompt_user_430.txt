@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Life She Was Given"
+  },
+  {
+    "item_name": "Prairie Fires: The American Dreams of Laura Ingalls Wilder"
+  },
+  {
+    "item_name": "Bluebird, Bluebird (Highway 59)"
+  },
+  {
+    "item_name": "Skyfaring: A Journey with a Pilot"
+  },
+  {
+    "item_name": "The Stars Beneath Our Feet"
+  },
+  {
+    "item_name": "The Ninth Hour: A Novel"
+  },
+  {
+    "item_name": "The Body in the Casket: A Faith Fairchild Mystery (Faith Fairchild Mysteries)"
+  },
+  {
+    "item_name": "The Darkest Child"
+  },
+  {
+    "item_name": "Midnight at the Bright Ideas Bookstore: A Novel"
+  },
+  {
+    "item_name": "Seven Days of Us: A Novel"
+  },
+  {
+    "item_name": "The Heirs: A Novel"
+  },
+  {
+    "item_name": "The Grave's a Fine and Private Place: A Flavia de Luce Novel"
+  },
+  {
+    "item_name": "Rules of Magic"
+  },
+  {
+    "item_name": "An American Marriage: A Novel"
+  },
+  {
+    "item_name": "The Rules of Magic: A Novel (The Practical Magic Series)"
+  },
+  {
+    "item_name": "Little House Reader, A (Little House Books)"
+  },
+  {
+    "item_name": "The Little House Books Set (Little House in the Big Woods / Farmer Boy / By the Shores of Silver Lake / The Long Winter / Little Town on the Prairie / These Happy Golden Years)"
+  },
+  {
+    "item_name": "Little House On The Prairie"
+  },
+  {
+    "item_name": "Alexander Hamilton"
+  },
+  {
+    "item_name": "The Gatekeepers: How the White House Chiefs of Staff Define Every Presidency"
+  },
+  {
+    "item_name": "Emma in the Night: A Novel"
+  },
+  {
+    "item_name": "In the Midst of Winter"
+  },
+  {
+    "item_name": "Beau Death (A Detective Peter Diamond Mystery)"
+  },
+  {
+    "item_name": "A Mortal Likeness: A Victorian Mystery (Victorian Mysteries)"
+  },
+  {
+    "item_name": "A Time of Love and Tartan (44 Scotland Street Series)"
+  },
+  {
+    "item_name": "Dangerous Crossing"
+  },
+  {
+    "item_name": "Before I Let Go"
+  },
+  {
+    "item_name": "Calypso"
+  },
+  {
+    "item_name": "Florida"
+  },
+  {
+    "item_name": "Clock Dance: A novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Life After Life: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Rosie Project"
+  },
+  {
+    "rank": 3,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 4,
+    "item_name": "My Name Is Lucy Barton: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Etta &amp; Otto &amp; Russell &amp; James Ome"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 7,
+    "item_name": "Room"
+  },
+  {
+    "rank": 8,
+    "item_name": "The chaperone."
+  },
+  {
+    "rank": 9,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Vinegar Girl: William Shakespeare's The Taming of the Shrew Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "Where'd You Go, Bernadette"
+  },
+  {
+    "rank": 13,
+    "item_name": "New Boy: William Shakespeare's Othello Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 15,
+    "item_name": "Paying Guests"
+  },
+  {
+    "rank": 16,
+    "item_name": "Norwegian by Night"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Forgotten Garden"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Collected Works of A. J. Fikry"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Truth According to Us: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Goldfinch: A Novel (Pulitzer Prize for Fiction)"
+  },
+  {
+    "rank": 21,
+    "item_name": "We Are All Completely Beside Ourselves: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Invention of Wings"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_name": "Fourth of July Creek: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Pearl that Broke Its Shell: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Still Alice"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Death of Bees: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 31,
+    "item_name": "One Good Turn"
+  },
+  {
+    "rank": 32,
+    "item_name": "Luckiest Girl Alive"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Immortalists"
+  },
+  {
+    "rank": 34,
+    "item_name": "Circling the Sun: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "And the Dark Sacred Night: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "From Bruges with Love (The Pieter Van In Mysteries)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Help"
+  },
+  {
+    "rank": 38,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The couple next door."
+  },
+  {
+    "rank": 40,
+    "item_name": "Britt-marie Was Here (Thorndike Core)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Don't You Cry"
+  },
+  {
+    "rank": 42,
+    "item_name": "Eligible: A modern retelling of Pride and Prejudice"
+  },
+  {
+    "rank": 43,
+    "item_name": "Reconstructing Amelia: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Vegetarian: A Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "Flora: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "All the Light We Cannot See"
+  },
+  {
+    "rank": 47,
+    "item_name": "Mr. Penumbra's 24-Hour Bookstore: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Story Hour: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Swans of Fifth Avenue: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Ice Beneath Her: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

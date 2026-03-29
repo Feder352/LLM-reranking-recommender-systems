@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Hammett Hex (A Book Collector Mystery)"
+  },
+  {
+    "item_name": "The Bishop's Legacy (World of Shadows)"
+  },
+  {
+    "item_name": "The Vatican Children (World of Shadows)"
+  },
+  {
+    "item_name": "The Glass Forest: A Novel"
+  },
+  {
+    "item_name": "Dark Sight: A Dark Sight Novel (Volume 1)"
+  },
+  {
+    "item_name": "The Immortalists"
+  },
+  {
+    "item_name": "Blinded (Elkridge Series)"
+  },
+  {
+    "item_name": "Batman: Nightwalker (DC Icons Series)"
+  },
+  {
+    "item_name": "Y is for Yesterday (A Kinsey Millhone Novel)"
+  },
+  {
+    "item_name": "Madonna in a Fur Coat"
+  },
+  {
+    "item_name": "Minced, Marinated, and Murdered (Gourmet Crimes)"
+  },
+  {
+    "item_name": "Victoria"
+  },
+  {
+    "item_name": "Rules of Magic"
+  },
+  {
+    "item_name": "The Rules of Magic: A Novel (The Practical Magic Series)"
+  },
+  {
+    "item_name": "The Language of Thorns: Midnight Tales and Dangerous Magic"
+  },
+  {
+    "item_name": "Cendrilla: A Fairytale (Perrault Chronicles)"
+  },
+  {
+    "item_name": "The Magestaff (The Seven Kingdoms)"
+  },
+  {
+    "item_name": "Lethal in Old Lace: A Consignment Shop Mystery"
+  },
+  {
+    "item_name": "The Academy (The Seven Kingdoms)"
+  },
+  {
+    "item_name": "Fifth Night (Writer's Retreat Southern Seashore Mystery) (Volume 5)"
+  },
+  {
+    "item_name": "The Secret Life of Mrs. London: A Novel"
+  },
+  {
+    "item_name": "Focus on Love"
+  },
+  {
+    "item_name": "Murder Games"
+  },
+  {
+    "item_name": "A Piece of the World"
+  },
+  {
+    "item_name": "The Nightingale: A Novel"
+  },
+  {
+    "item_name": "Leper of Saint Giles (Brother Cadfael Mysteries)"
+  },
+  {
+    "item_name": "Too Wyrd: The Runespell Series: Book 1"
+  },
+  {
+    "item_name": "The Cupid Caper (A Finley Goodhart Crime Caper) (Volume 1)"
+  },
+  {
+    "item_name": "Paris Ever After"
+  },
+  {
+    "item_name": "Home Fire: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "A Muddied Murder (A Greenhouse Mystery) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Clouds in My Coffee (The Country Club Murders) (Volume 3)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Lowcountry Boneyard (A Liz Talbot Mystery) (Volume 3)"
+  },
+  {
+    "rank": 4,
+    "item_name": "When the Grits Hit the Fan (A Country Store Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Deep End (The Country Club Murders) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 7,
+    "item_name": "Lowcountry Bombshell (A Liz Talbot Mystery) (Volume 2)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Southern Fried (A Kenni Lowry Mystery) (Volume 2)"
+  },
+  {
+    "rank": 9,
+    "item_name": "A Story to Kill (A Cat Latimer Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Killer Jam (Dewberry Farm Mysteries)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Pane and Suffering (A Webb's Glass Shop Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Three Sisters (Emily Castles Mysteries)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Romeow and Juliet (Whales and Tails Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Killer Retreat: A Downward Dog Mystery #2 (Downward Dog Mysteries)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Playing With Bonbon Fire: A Southern Chocolate Shop Mystery"
+  },
+  {
+    "rank": 16,
+    "item_name": "Guaranteed to Bleed (The Country Club Murders) (Volume 2)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Candy Corn Murder (A Lucy Stone Mystery)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Scheduled to Death"
+  },
+  {
+    "rank": 19,
+    "item_name": "Thread and Gone (A Mainely Needlepoint Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Kneading to Die (A Pawsitively Organic Mystery)"
+  },
+  {
+    "rank": 21,
+    "item_name": "If the Shoe Kills"
+  },
+  {
+    "rank": 22,
+    "item_name": "Lowcountry Boil (A Liz Talbot Mystery) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Dressed To Kill"
+  },
+  {
+    "rank": 24,
+    "item_name": "Of Murder and Men (A Cat Latimer Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "rank": 26,
+    "item_name": "A Dickens of a Murder (The Canterville Book Shop Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Cold as Ice (Country Club Murders)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Smugglers &amp; Scones (Moorehaven Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Beeline to Murder (A Henny Penny Farmette Mystery)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Cracked to Death (A Webb's Glass Shop Mystery)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Murder Strikes a Pose (A Downward Dog Mystery)"
+  },
+  {
+    "rank": 32,
+    "item_name": "If You've Got It, Haunt It (A Haunted Vintage Mystery)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Send in the Clowns (The Country Club Murders) (Volume 4)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Dying on the Vine: A Mystery (Kelsey McKenna Destination Wedding Mysteries)"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Cajun Christmas Killing: A Cajun Country Mystery"
+  },
+  {
+    "rank": 36,
+    "item_name": "Dangerously Dark (A Chocolate Whisperer Mystery)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Clammed Up (A Maine Clambake Mystery)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Killer Run (Tourist Trap Mysteries)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Death By Cashmere: A Seaside Knitters Mystery"
+  },
+  {
+    "rank": 40,
+    "item_name": "Pumpkins in Paradise: A Tj Jensen Paradise Lake Mystery (Tj Jensen Paradise Lake Mystery Book 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "An Appetite for Murder: A Key West Food Critic Mystery"
+  },
+  {
+    "rank": 42,
+    "item_name": "Passing through Perfect: Family Saga (A Wyattsville Novel Book 3) (Series name Family Saga) (Volume 3)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Murder at the Courthouse: A Hidden Springs Mystery (The Hidden Springs Mysteries)"
+  },
+  {
+    "rank": 44,
+    "item_name": "A Good Day to Buy (A Sarah W. Garage Sale Mystery)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Fatal Fiction"
+  },
+  {
+    "rank": 46,
+    "item_name": "Town in a Blueberry Jam: A Candy Holliday Murder Mystery"
+  },
+  {
+    "rank": 47,
+    "item_name": "Sink or Swim"
+  },
+  {
+    "rank": 48,
+    "item_name": "Death Among the Doilies (A Cora Crafts Mystery)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Rejected Writers Book Club (Southlea Bay Series) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "All Murders Final!: A Sarah W. Garage Sale Mystery"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

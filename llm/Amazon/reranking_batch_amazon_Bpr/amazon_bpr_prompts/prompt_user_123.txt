@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Seventh Most Important Thing"
+  },
+  {
+    "item_name": "In Good Company"
+  },
+  {
+    "item_name": "Blessing (Quaker Brides)"
+  },
+  {
+    "item_name": "Lady Maybe"
+  },
+  {
+    "item_name": "Your Sacred Yes: Trading Life-Draining Obligation for Freedom, Passion, and Joy"
+  },
+  {
+    "item_name": "Taming the To-Do List: How to Choose Your Best Work Every Day"
+  },
+  {
+    "item_name": "She's Almost a Teenager: Essential Conversations to Have Now"
+  },
+  {
+    "item_name": "The Horse of My Heart: Stories of the Horses We Love"
+  },
+  {
+    "item_name": "Murder at the Courthouse: A Hidden Springs Mystery (The Hidden Springs Mysteries)"
+  },
+  {
+    "item_name": "The Christmas Joy Ride"
+  },
+  {
+    "item_name": "A Long Walk to Water: Based on a True Story"
+  },
+  {
+    "item_name": "The Painter's Daughter"
+  },
+  {
+    "item_name": "Beyond the Silence"
+  },
+  {
+    "item_name": "Always Watching (Elite Guardians)"
+  },
+  {
+    "item_name": "Pure Soapmaking: How to Create Nourishing, Natural Skin Care Soaps"
+  },
+  {
+    "item_name": "On Lone Star Trail: A Novel (Texas Crossroads)"
+  },
+  {
+    "item_name": "The Reluctant Duchess (Ladies of the Manor)"
+  },
+  {
+    "item_name": "The Land of Stories: The Wishing Spell"
+  },
+  {
+    "item_name": "Murder Comes by Mail (The Hidden Springs Mysteries)"
+  },
+  {
+    "item_name": "The Mother Letters: Sharing the Laughter, Joy, Struggles, and Hope"
+  },
+  {
+    "item_name": "A Tapestry of Secrets"
+  },
+  {
+    "item_name": "Without Warning (Elite Guardians)"
+  },
+  {
+    "item_name": "The Quilt Design Coloring Workbook: 91 Modern Art&ndash;Inspired Designs and Exercises"
+  },
+  {
+    "item_name": "The Christmas Angel Project"
+  },
+  {
+    "item_name": "The Blessing of Humility"
+  },
+  {
+    "item_name": "Cable Left, Cable Right: 94 Knitted Cables"
+  },
+  {
+    "item_name": "A Beautiful Fall: A Novel"
+  },
+  {
+    "item_name": "Hope Prevails: Insights from a Doctor's Personal Journey through Depression"
+  },
+  {
+    "item_name": "A Note Yet Unsung (A Belmont Mansion Novel)"
+  },
+  {
+    "item_name": "Troubled Waters (Montana Rescue)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 2,
+    "item_name": "As Waters Gone By"
+  },
+  {
+    "rank": 3,
+    "item_name": "Home to Paradise: The Coming Home Series  Book 3"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Heiress of Winterwood (Whispers On The Moors)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 7,
+    "item_name": "Dwelling Places: Words to Live in Every Season"
+  },
+  {
+    "rank": 8,
+    "item_name": "A Stitch in Crime: Quilts of Love Series"
+  },
+  {
+    "rank": 9,
+    "item_name": "Fatal Trauma"
+  },
+  {
+    "rank": 10,
+    "item_name": "Threads of Grace (A Patch of Heaven Novel)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Dressed for Death (A Drew Farthering Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Choice"
+  },
+  {
+    "rank": 13,
+    "item_name": "Masterpiece Marriage: Quilts of Love Series"
+  },
+  {
+    "rank": 14,
+    "item_name": "Medical Judgment"
+  },
+  {
+    "rank": 15,
+    "item_name": "Sweeter Than Birdsong (Saddler's Legacy)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Critical Condition"
+  },
+  {
+    "rank": 17,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 18,
+    "item_name": "Annabel Lee (Coffey &amp; Hill)"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Fool and His Monet (Serena Jones Mysteries)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Coming Revolution: Signs from America's Past That Signal Our Nation's Future"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Christmas Singing: A Romance from the Heart of Amish Country (Apple Ridge)"
+  },
+  {
+    "rank": 22,
+    "item_name": "An Amish Wedding"
+  },
+  {
+    "rank": 23,
+    "item_name": "So Not Okay: An Honest Look at Bullying from the Bystander (Mean Girl Makeover)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Among the Fair Magnolias: Four Southern Love Stories"
+  },
+  {
+    "rank": 25,
+    "item_name": "Enemies of the Heart: Breaking Free from the Four Emotions That Control You"
+  },
+  {
+    "rank": 26,
+    "item_name": "A Season of Change: Seasons in Pinecraft - Book 1"
+  },
+  {
+    "rank": 27,
+    "item_name": "Song of Silence"
+  },
+  {
+    "rank": 28,
+    "item_name": "Imperfect Justice (Hidden Justice)"
+  },
+  {
+    "rank": 29,
+    "item_name": "12 Days at Bleakly Manor: Book 1 in Once Upon a Dickens Christmas"
+  },
+  {
+    "rank": 30,
+    "item_name": "Playing the Part"
+  },
+  {
+    "rank": 31,
+    "item_name": "A Wreath of Snow: A Victorian Christmas Novella"
+  },
+  {
+    "rank": 32,
+    "item_name": "Christmas in Apple Ridge: Three-in-One Collection: The Sound of Sleigh Bells, The Christmas Singing, NEW! The Dawn of Christmas"
+  },
+  {
+    "rank": 33,
+    "item_name": "Life After: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Tattered and Mended: The Art of Healing the Wounded Soul"
+  },
+  {
+    "rank": 35,
+    "item_name": "Love's Sacred Song: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Sweet Misfortune: A Novel (Virtues and Vices of the Old West)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Inheritance (Secrets of the Shetlands)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Anchor in the Storm (Waves of Freedom)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 40,
+    "item_name": "Rachel: A Novel (Wives of the Patriarchs) (Volume 3)"
+  },
+  {
+    "rank": 41,
+    "item_name": "God Gave Us You"
+  },
+  {
+    "rank": 42,
+    "item_name": "Quilted by Christmas: Quilts of Love Series"
+  },
+  {
+    "rank": 43,
+    "item_name": "Do Hard Things: A Teenage Rebellion Against Low Expectations"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Writing Desk"
+  },
+  {
+    "rank": 45,
+    "item_name": "Two Roads Home: A Chicory Inn Novel - Book 2"
+  },
+  {
+    "rank": 46,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 47,
+    "item_name": "God Gave Us Love (God Gave Us Series)"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Path Made Plain: Seasons in Pinecraft - Book 2"
+  },
+  {
+    "rank": 49,
+    "item_name": "Outlive Your Life: You Were Made to Make A Difference"
+  },
+  {
+    "rank": 50,
+    "item_name": "By the Light of the Silvery Moon"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

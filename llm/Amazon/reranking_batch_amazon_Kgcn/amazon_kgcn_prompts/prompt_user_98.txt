@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "These Happy Golden Years (Little House)"
+  },
+  {
+    "item_name": "These Happy Golden Years (Little House)"
+  },
+  {
+    "item_name": "These Happy Golden Years (Little House)"
+  },
+  {
+    "item_name": "These Happy Golden Years (Little House)"
+  },
+  {
+    "item_name": "The Long Winter"
+  },
+  {
+    "item_name": "The Long Winter"
+  },
+  {
+    "item_name": "Little House On The Prairie"
+  },
+  {
+    "item_name": "On the Banks of Plum Creek (Little House)"
+  },
+  {
+    "item_name": "On the Banks of Plum Creek (Little House)"
+  },
+  {
+    "item_name": "Blood, Money &amp; Power: How L.B.J. Killed J.F.K."
+  },
+  {
+    "item_name": "The 39 Steps (Vintage Classics)"
+  },
+  {
+    "item_name": "Blitzed"
+  },
+  {
+    "item_name": "Silent Coup: The Removal of a President"
+  },
+  {
+    "item_name": "Limitations"
+  },
+  {
+    "item_name": "The Battle of Britain: The Myth and the Reality"
+  },
+  {
+    "item_name": "All the President's Men"
+  },
+  {
+    "item_name": "All the President's Men"
+  },
+  {
+    "item_name": "The Miracle of Dunkirk"
+  },
+  {
+    "item_name": "Actual Innocence: Five Days to Execution, and Other Dispatches From the Wrongly Convicted"
+  },
+  {
+    "item_name": "Actual Innocence: Five Days to Execution, and Other Dispatches From the Wrongly Convicted"
+  },
+  {
+    "item_name": "Banana: The Fate of the Fruit That Changed the World"
+  },
+  {
+    "item_name": "Two Years Before the Mast: A Personal Narrative of Life at Sea (Penguin Classics)"
+  },
+  {
+    "item_name": "Two Years Before the Mast: A Personal Narrative of Life at Sea (Penguin Classics)"
+  },
+  {
+    "item_name": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI"
+  },
+  {
+    "item_name": "The Song of Bernadette (Religious Miracle Fiction Series)"
+  },
+  {
+    "item_name": "The Great Warming: Climate Change and the Rise and Fall of Civilizations"
+  },
+  {
+    "item_name": "Catastrophe: An Investigation into the Origins of the Modern World"
+  },
+  {
+    "item_name": "The Hound of the Baskervilles (Puffin Classics)"
+  },
+  {
+    "item_name": "The Complete Sherlock Holmes (Volume One)"
+  },
+  {
+    "item_name": "The Complete Sherlock Holmes (Volume One)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 221,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 2,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 3,
+    "item_id": 4522,
+    "item_name": "Truman"
+  },
+  {
+    "rank": 4,
+    "item_id": 2588,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 5,
+    "item_id": 676,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 6,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 7,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 8,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 9,
+    "item_id": 2931,
+    "item_name": "Blood and Thunder: An Epic of the American West"
+  },
+  {
+    "rank": 10,
+    "item_id": 5289,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 11,
+    "item_id": 674,
+    "item_name": "The Plague"
+  },
+  {
+    "rank": 12,
+    "item_id": 1698,
+    "item_name": "The World Without Us"
+  },
+  {
+    "rank": 13,
+    "item_id": 3730,
+    "item_name": "Dude, Where's My Country?"
+  },
+  {
+    "rank": 14,
+    "item_id": 4621,
+    "item_name": "Benjamin Franklin: An American Life"
+  },
+  {
+    "rank": 15,
+    "item_id": 4714,
+    "item_name": "1491: New Revelations of the Americas Before Columbus"
+  },
+  {
+    "rank": 16,
+    "item_id": 2621,
+    "item_name": "Ghost Soldiers: The Forgotten Epic Story of World War II's Most Dramatic Mission"
+  },
+  {
+    "rank": 17,
+    "item_id": 1509,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 18,
+    "item_id": 1205,
+    "item_name": "Homage to Catalonia"
+  },
+  {
+    "rank": 19,
+    "item_id": 4564,
+    "item_name": "Lincoln at Gettysburg: The Words That Re-Made America"
+  },
+  {
+    "rank": 20,
+    "item_id": 64,
+    "item_name": "In the Wake of the Plague: The Black Death and the World It Made"
+  },
+  {
+    "rank": 21,
+    "item_id": 4587,
+    "item_name": "The Consolations of Philosophy"
+  },
+  {
+    "rank": 22,
+    "item_id": 1297,
+    "item_name": "American Creation: Triumphs and Tragedies at the Founding of the Republic"
+  },
+  {
+    "rank": 23,
+    "item_id": 1843,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 24,
+    "item_id": 1415,
+    "item_name": "Dreams from My Father: A Story of Race and Inheritance"
+  },
+  {
+    "rank": 25,
+    "item_id": 1382,
+    "item_name": "If Democrats Had Any Brains, They'd Be Republicans"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

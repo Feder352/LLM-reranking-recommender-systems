@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "His Bloody Project: Documents Relating to the Case of Roderick Macrae (Man Booker Prize Finalist 2016)"
+  },
+  {
+    "item_name": "Guilty as Sin: Uncovering New Evidence of Corruption and How Hillary Clinton and the Democrats Derailed the FBI Investigation"
+  },
+  {
+    "item_name": "The Year of Voting Dangerously: The Derangement of American Politics"
+  },
+  {
+    "item_name": "The Art Book: Big Ideas Simply Explained"
+  },
+  {
+    "item_name": "The Fuzzy and the Techie: Why the Liberal Arts Will Rule the Digital World"
+  },
+  {
+    "item_name": "The Power of Meaning: Crafting a Life That Matters"
+  },
+  {
+    "item_name": "The Crime Book: Big Ideas Simply Explained"
+  },
+  {
+    "item_name": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI"
+  },
+  {
+    "item_name": "Irresistible: The Rise of Addictive Technology and the Business of Keeping Us Hooked"
+  },
+  {
+    "item_name": "Enduring Vietnam: An American Generation and Its War"
+  },
+  {
+    "item_name": "The Complacent Class: The Self-Defeating Quest for the American Dream"
+  },
+  {
+    "item_name": "Behave: The Biology of Humans at Our Best and Worst"
+  },
+  {
+    "item_name": "Behave: The Biology of Humans at Our Best and Worst"
+  },
+  {
+    "item_name": "The Fact of a Body: A Murder and a Memoir"
+  },
+  {
+    "item_name": "Abortion: A Rational Look at An Emotional Issue"
+  },
+  {
+    "item_name": "Lillian Boxfish Takes a Walk: A Novel"
+  },
+  {
+    "item_name": "How the Right Lost Its Mind"
+  },
+  {
+    "item_name": "Hunger: A Memoir of (My) Body"
+  },
+  {
+    "item_name": "Aging Thoughtfully: Conversations about Retirement, Romance, Wrinkles, and Regret"
+  },
+  {
+    "item_name": "How to Think: A Survival Guide for a World at Odds"
+  },
+  {
+    "item_name": "The Four: The Hidden DNA of Amazon, Apple, Facebook, and Google"
+  },
+  {
+    "item_name": "Collusion: Secret Meetings, Dirty Money, and How Russia Helped Donald Trump Win"
+  },
+  {
+    "item_name": "Enlightenment Now: The Case for Reason, Science, Humanism, and Progress [Paperback] [Feb 12, 2018] Steven Pinker"
+  },
+  {
+    "item_name": "Nothing to Be Frightened Of"
+  },
+  {
+    "item_name": "How Democracies Die"
+  },
+  {
+    "item_name": "The Sixth Extinction: An Unnatural History"
+  },
+  {
+    "item_name": "Elastic: Flexible Thinking in a Time of Change"
+  },
+  {
+    "item_name": "The West and the Rest: Globalization and the Terrorist Threat"
+  },
+  {
+    "item_name": "A Higher Loyalty: Truth, Lies, and Leadership"
+  },
+  {
+    "item_name": "The Hunchback of Notre Dame (Xist Classics) - Kindle edition"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5299,
+    "item_name": "Winter Journal"
+  },
+  {
+    "rank": 2,
+    "item_id": 2955,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 3,
+    "item_id": 2890,
+    "item_name": "Lean In: Women, Work, and the Will to Lead"
+  },
+  {
+    "rank": 4,
+    "item_id": 1460,
+    "item_name": "Dear Life: Stories"
+  },
+  {
+    "rank": 5,
+    "item_id": 1994,
+    "item_name": "The Goldfinch: A Novel (Pulitzer Prize for Fiction)"
+  },
+  {
+    "rank": 6,
+    "item_id": 6070,
+    "item_name": "The Interestings: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_id": 487,
+    "item_name": "Game Change: Obama and the Clintons, McCain and Palin, and the Race of a Lifetime"
+  },
+  {
+    "rank": 8,
+    "item_id": 302,
+    "item_name": "Billy Lynn's Long Halftime Walk"
+  },
+  {
+    "rank": 9,
+    "item_id": 1536,
+    "item_name": "Hallucinations"
+  },
+  {
+    "rank": 10,
+    "item_id": 1304,
+    "item_name": "The Case for God"
+  },
+  {
+    "rank": 11,
+    "item_id": 1543,
+    "item_name": "What We Talk About When We Talk About Anne Frank: Stories"
+  },
+  {
+    "rank": 12,
+    "item_id": 1545,
+    "item_name": "Wave"
+  },
+  {
+    "rank": 13,
+    "item_id": 553,
+    "item_name": "State of Wonder"
+  },
+  {
+    "rank": 14,
+    "item_id": 4589,
+    "item_name": "The Warmth of Other Suns: The Epic Story of America's Great Migration"
+  },
+  {
+    "rank": 15,
+    "item_id": 1540,
+    "item_name": "Ancient Light (Vintage International)"
+  },
+  {
+    "rank": 16,
+    "item_id": 41,
+    "item_name": "Open: An Autobiography"
+  },
+  {
+    "rank": 17,
+    "item_id": 5349,
+    "item_name": "Let's Take the Long Way Home: A Memoir of Friendship"
+  },
+  {
+    "rank": 18,
+    "item_id": 4123,
+    "item_name": "This Is Where I Leave You: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_id": 2878,
+    "item_name": "The Imperfectionists: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_id": 1466,
+    "item_name": "The Woman Upstairs"
+  },
+  {
+    "rank": 21,
+    "item_id": 2888,
+    "item_name": "Colorless Tsukuru Tazaki and His Years of Pilgrimage: A novel"
+  },
+  {
+    "rank": 22,
+    "item_id": 2052,
+    "item_name": "The Lifeboat: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_id": 1524,
+    "item_name": "All the Birds, Singing: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_id": 1452,
+    "item_name": "Parrot and Olivier in America"
+  },
+  {
+    "rank": 25,
+    "item_id": 1301,
+    "item_name": "The Sea (Man Booker Prize)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

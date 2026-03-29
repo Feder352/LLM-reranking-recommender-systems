@@ -1,0 +1,233 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Sleeping Beauty"
+  },
+  {
+    "item_name": "All About Eve"
+  },
+  {
+    "item_name": "All Quiet on the Western Front"
+  },
+  {
+    "item_name": "Twister"
+  },
+  {
+    "item_name": "Parent Trap, The"
+  },
+  {
+    "item_name": "Chicken Run"
+  },
+  {
+    "item_name": "Duel in the Sun"
+  },
+  {
+    "item_name": "Five Senses, The"
+  },
+  {
+    "item_name": "Everything You Always Wanted to Know About Sex"
+  },
+  {
+    "item_name": "Kid, The"
+  },
+  {
+    "item_name": "MacKenna's Gold"
+  },
+  {
+    "item_name": "Pawnbroker, The"
+  },
+  {
+    "item_name": "Patriot, The"
+  },
+  {
+    "item_name": "Perfect Storm, The"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 100,
+    "item_name": "Guns of Navarone, The"
+  },
+  {
+    "rank": 2,
+    "item_id": 1748,
+    "item_name": "Cat Ballou"
+  },
+  {
+    "rank": 3,
+    "item_id": 1567,
+    "item_name": "Anchors Aweigh"
+  },
+  {
+    "rank": 4,
+    "item_id": 410,
+    "item_name": "Roustabout"
+  },
+  {
+    "rank": 5,
+    "item_id": 718,
+    "item_name": "African Queen, The"
+  },
+  {
+    "rank": 6,
+    "item_id": 116,
+    "item_name": "Doctor Zhivago"
+  },
+  {
+    "rank": 7,
+    "item_id": 1693,
+    "item_name": "Flying Tigers"
+  },
+  {
+    "rank": 8,
+    "item_id": 720,
+    "item_name": "White Christmas"
+  },
+  {
+    "rank": 9,
+    "item_id": 1707,
+    "item_name": "U-571"
+  },
+  {
+    "rank": 10,
+    "item_id": 648,
+    "item_name": "Meet Me in St. Louis"
+  },
+  {
+    "rank": 11,
+    "item_id": 1640,
+    "item_name": "Man and a Woman, A (Un Homme et une Femme)"
+  },
+  {
+    "rank": 12,
+    "item_id": 1699,
+    "item_name": "Captain Horatio Hornblower"
+  },
+  {
+    "rank": 13,
+    "item_id": 1694,
+    "item_name": "Fighting Seabees, The"
+  },
+  {
+    "rank": 14,
+    "item_id": 1474,
+    "item_name": "Thunderbolt and Lightfoot"
+  },
+  {
+    "rank": 15,
+    "item_id": 1627,
+    "item_name": "Holiday Inn"
+  },
+  {
+    "rank": 16,
+    "item_id": 651,
+    "item_name": "Gold Rush, The"
+  },
+  {
+    "rank": 17,
+    "item_id": 2123,
+    "item_name": "Bank Dick, The"
+  },
+  {
+    "rank": 18,
+    "item_id": 137,
+    "item_name": "French Connection, The"
+  },
+  {
+    "rank": 19,
+    "item_id": 2212,
+    "item_name": "On the Town"
+  },
+  {
+    "rank": 20,
+    "item_id": 2314,
+    "item_name": "East-West (Est-ouest)"
+  },
+  {
+    "rank": 21,
+    "item_id": 1571,
+    "item_name": "South Pacific"
+  },
+  {
+    "rank": 22,
+    "item_id": 765,
+    "item_name": "Annie Hall"
+  },
+  {
+    "rank": 23,
+    "item_id": 2034,
+    "item_name": "Run Silent, Run Deep"
+  },
+  {
+    "rank": 24,
+    "item_id": 850,
+    "item_name": "Around the World in 80 Days"
+  },
+  {
+    "rank": 25,
+    "item_id": 1790,
+    "item_name": "Great Race, The"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

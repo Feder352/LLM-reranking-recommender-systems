@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Christmas Hope: A Novel"
+  },
+  {
+    "item_name": "A Killing in the Hills (Bell Elkins Novels)"
+  },
+  {
+    "item_name": "Gone (Michael Bennett)"
+  },
+  {
+    "item_name": "Bitter River: A Novel (Bell Elkins Novels)"
+  },
+  {
+    "item_name": "Appaloosa"
+  },
+  {
+    "item_name": "Resolution"
+  },
+  {
+    "item_name": "Brimstone"
+  },
+  {
+    "item_name": "Blue-Eyed Devil"
+  },
+  {
+    "item_name": "Through the Evil Days (Clare Fergusson/Russ Van Alstyne Mysteries)"
+  },
+  {
+    "item_name": "Murder on the Prowl (Mrs. Murphy Mysteries)"
+  },
+  {
+    "item_name": "At Home in Mitford"
+  },
+  {
+    "item_name": "In the Company of Others (Father Tim)"
+  },
+  {
+    "item_name": "Cross My Heart (Alex Cross)"
+  },
+  {
+    "item_name": "Once We Were Brothers"
+  },
+  {
+    "item_name": "My Story"
+  },
+  {
+    "item_name": "Stardoc"
+  },
+  {
+    "item_name": "Midwives"
+  },
+  {
+    "item_name": "Death on Blackheath: A Charlotte and Thomas Pitt Novel"
+  },
+  {
+    "item_name": "Skeletons at the Feast: A Novel"
+  },
+  {
+    "item_name": "New York: The Novel"
+  },
+  {
+    "item_name": "Airtight"
+  },
+  {
+    "item_name": "Play Dead: A Novel"
+  },
+  {
+    "item_name": "Close Your Eyes, Hold Hands (Vintage Contemporaries)"
+  },
+  {
+    "item_name": "The Archived"
+  },
+  {
+    "item_name": "The Pyramid: The Origins of Kurt Wallander"
+  },
+  {
+    "item_name": "The White Lioness"
+  },
+  {
+    "item_name": "Sidetracked (Kurt Wallander Mystery)"
+  },
+  {
+    "item_name": "One Step Behind: Kurt Wallander"
+  },
+  {
+    "item_name": "Windigo Island: A Novel (Cork O'Connor Mystery Series)"
+  },
+  {
+    "item_name": "Seeking Allah, Finding Jesus: A Devout Muslim Encounters Christianity"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5854,
+    "item_name": "Skipping Christmas"
+  },
+  {
+    "rank": 2,
+    "item_id": 27953,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 3,
+    "item_id": 10339,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 4,
+    "item_id": 18969,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 5,
+    "item_id": 7307,
+    "item_name": "Maisie Dobbs (Book 1)"
+  },
+  {
+    "rank": 6,
+    "item_id": 74711,
+    "item_name": "The Show Must Go On/The Cry and the Covenant/Autobiography of Will Rogers/Cry, the Beloved Country (Reader's Digest Condensed Books, Volume 1: 1950)"
+  },
+  {
+    "rank": 7,
+    "item_id": 74923,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 8,
+    "item_id": 75675,
+    "item_name": "The Day Of The Jackal"
+  },
+  {
+    "rank": 9,
+    "item_id": 74721,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 10,
+    "item_id": 823,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 11,
+    "item_id": 20358,
+    "item_name": "Tripwire (Jack Reacher, No. 3)"
+  },
+  {
+    "rank": 12,
+    "item_id": 9393,
+    "item_name": "Two for the Dough (Stephanie Plum, No. 2)"
+  },
+  {
+    "rank": 13,
+    "item_id": 15099,
+    "item_name": "L. A. Requiem (Elvis Cole)"
+  },
+  {
+    "rank": 14,
+    "item_id": 11209,
+    "item_name": "The Columbus Affair: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 15,
+    "item_id": 6579,
+    "item_name": "Three to Get Deadly (Stephanie Plum, No. 3)"
+  },
+  {
+    "rank": 16,
+    "item_id": 18912,
+    "item_name": "Persuader (Jack Reacher, No. 7)"
+  },
+  {
+    "rank": 17,
+    "item_id": 16620,
+    "item_name": "Monday Mourning: (Temperance Brennan 7)"
+  },
+  {
+    "rank": 18,
+    "item_id": 12195,
+    "item_name": "Twelve Sharp (A Stephanie Plum Novel) (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 19,
+    "item_id": 21633,
+    "item_name": "A Royal Pain (A Royal Spyness Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_id": 13479,
+    "item_name": "Echo Park (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 21,
+    "item_id": 12007,
+    "item_name": "A Presumption of Death: A New Lord Peter Wimsey/Harriet Vane Mystery"
+  },
+  {
+    "rank": 22,
+    "item_id": 21205,
+    "item_name": "The Bourne Identity"
+  },
+  {
+    "rank": 23,
+    "item_id": 13585,
+    "item_name": "4th Of July"
+  },
+  {
+    "rank": 24,
+    "item_id": 7754,
+    "item_name": "Whiteout"
+  },
+  {
+    "rank": 25,
+    "item_id": 11841,
+    "item_name": "Four to Score (Stephanie Plum, No. 4) (Stephanie Plum Novels)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

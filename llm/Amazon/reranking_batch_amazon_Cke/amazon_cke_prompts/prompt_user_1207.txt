@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Nocte"
+  },
+  {
+    "item_name": "The Unimaginable"
+  },
+  {
+    "item_name": "Isla and the Happily Ever After"
+  },
+  {
+    "item_name": "Virgin: a Novel (Girl cover)"
+  },
+  {
+    "item_name": "On Dublin Street (On Dublin Street Series)"
+  },
+  {
+    "item_name": "Before Jamaica Lane (On Dublin Street Series)"
+  },
+  {
+    "item_name": "Flying"
+  },
+  {
+    "item_name": "Tied (The Tangled Series)"
+  },
+  {
+    "item_name": "Running on Empty"
+  },
+  {
+    "item_name": "Recovery"
+  },
+  {
+    "item_name": "Running in Place (Mending Hearts) (Volume 2)"
+  },
+  {
+    "item_name": "Not Yet"
+  },
+  {
+    "item_name": "This Is Falling (The Falling Series) (Volume 1)"
+  },
+  {
+    "item_name": "Love, in Spanish"
+  },
+  {
+    "item_name": "Hard Knox: The Outsider Chronicles"
+  },
+  {
+    "item_name": "After the Rain: A Novel"
+  },
+  {
+    "item_name": "Rock My Body (Black Falcon 4)"
+  },
+  {
+    "item_name": "Owning Violet: A Novel (The Fowler Sisters)"
+  },
+  {
+    "item_name": "Dirty Rowdy Thing (Wild Seasons)"
+  },
+  {
+    "item_name": "After I Do: A Novel"
+  },
+  {
+    "item_name": "Beautiful Beloved (Serie Beautiful en francais) (French Edition)"
+  },
+  {
+    "item_name": "Blocked"
+  },
+  {
+    "item_name": "Happily Ever After: A Novel"
+  },
+  {
+    "item_name": "Hero"
+  },
+  {
+    "item_name": "Confess: A Novel"
+  },
+  {
+    "item_name": "Fisher's Light"
+  },
+  {
+    "item_name": "Black Iris"
+  },
+  {
+    "item_name": "Pucked"
+  },
+  {
+    "item_name": "Wicked Fall (Wicked Horse) (Volume 1)"
+  },
+  {
+    "item_name": "With a Twist (Bad Habits) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5892,
+    "item_name": "Wallbanger (The Cocktail Series)"
+  },
+  {
+    "rank": 2,
+    "item_id": 5906,
+    "item_name": "Tangled (The Tangled Series)"
+  },
+  {
+    "rank": 3,
+    "item_id": 5907,
+    "item_name": "Remy (The REAL series)"
+  },
+  {
+    "rank": 4,
+    "item_id": 5528,
+    "item_name": "Crashed (The Driven Trilogy)"
+  },
+  {
+    "rank": 5,
+    "item_id": 664,
+    "item_name": "Better When He's Bad: A Welcome to the Point Novel"
+  },
+  {
+    "rank": 6,
+    "item_id": 5886,
+    "item_name": "A Beautiful Wedding"
+  },
+  {
+    "rank": 7,
+    "item_id": 5532,
+    "item_name": "Fixed On You (Fixed - Book 1) (Fixed Series) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_id": 5920,
+    "item_name": "Rock the Heart (Black Falcon)"
+  },
+  {
+    "rank": 9,
+    "item_id": 5516,
+    "item_name": "Infinite Possibilities: The Secret Life of Amy Bensen Book Two (Volume 2)"
+  },
+  {
+    "rank": 10,
+    "item_id": 3531,
+    "item_name": "Reaper's Legacy (Reapers Motorcycle Club)"
+  },
+  {
+    "rank": 11,
+    "item_id": 6198,
+    "item_name": "Alpha"
+  },
+  {
+    "rank": 12,
+    "item_id": 5955,
+    "item_name": "Worth the Fight"
+  },
+  {
+    "rank": 13,
+    "item_id": 5524,
+    "item_name": "Falling Into You"
+  },
+  {
+    "rank": 14,
+    "item_id": 5948,
+    "item_name": "Conquer Your Love"
+  },
+  {
+    "rank": 15,
+    "item_id": 5963,
+    "item_name": "Night After Night (Seductive Nights: Julia &amp; Clay Book 1) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_id": 5961,
+    "item_name": "Beyond Me: Sex on the Beach"
+  },
+  {
+    "rank": 17,
+    "item_id": 5966,
+    "item_name": "Phenomenal X (Hard Knocks)"
+  },
+  {
+    "rank": 18,
+    "item_id": 5881,
+    "item_name": "Slammed"
+  },
+  {
+    "rank": 19,
+    "item_id": 5933,
+    "item_name": "A Different Blue"
+  },
+  {
+    "rank": 20,
+    "item_id": 3530,
+    "item_name": "Devil's Game (Reapers Motorcycle Club)"
+  },
+  {
+    "rank": 21,
+    "item_id": 3519,
+    "item_name": "Gabriel's Redemption (Gabriel's Inferno)"
+  },
+  {
+    "rank": 22,
+    "item_id": 5945,
+    "item_name": "Forever You"
+  },
+  {
+    "rank": 23,
+    "item_id": 5947,
+    "item_name": "Beauty from Surrender (Beauty Series #2) (Volume 2)"
+  },
+  {
+    "rank": 24,
+    "item_id": 6163,
+    "item_name": "Breathe With Me (With Me In Seattle) (Volume 7)"
+  },
+  {
+    "rank": 25,
+    "item_id": 2386,
+    "item_name": "Blue Lines: The Assassins Series"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

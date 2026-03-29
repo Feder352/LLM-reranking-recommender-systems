@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Winston Churchill (Christian Encounters Series)"
+  },
+  {
+    "item_name": "Bye Bye, Miss American Empire: Neighborhood Patriots, Backcountry Rebels, and their Underdog Crusades to Redraw America's Political Map"
+  },
+  {
+    "item_name": "Hamlet's BlackBerry: Building a Good Life in the Digital Age"
+  },
+  {
+    "item_name": "William F. Buckley (Christian Encounters Series)"
+  },
+  {
+    "item_name": "A Small Furry Hope: Dog Rescue and the Meaning of Life"
+  },
+  {
+    "item_name": "The Revolutionary Paul Revere"
+  },
+  {
+    "item_name": "Flight from Monticello: Thomas Jefferson at War"
+  },
+  {
+    "item_name": "To End All Wars: How the First World War Divided Britain"
+  },
+  {
+    "item_name": "The Imperial Cruise: A Secret History of Empire and War"
+  },
+  {
+    "item_name": "Mr. Chartwell"
+  },
+  {
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "item_name": "Lost Kingdom: Hawaii's Last Queen, the Sugar Kings and America's First Imperial Adventure"
+  },
+  {
+    "item_name": "The Starboard Sea: A Novel"
+  },
+  {
+    "item_name": "The Mission Myth: Building Nonprofit Momentum Through Better Business"
+  },
+  {
+    "item_name": "Churchill Style: The Art of Being Winston Churchill"
+  },
+  {
+    "item_name": "The Year of the Gadfly"
+  },
+  {
+    "item_name": "Return of the Thin Man: Two never-before-published novellas featuring Nick &amp; Nora Charles"
+  },
+  {
+    "item_name": "Empire of the Summer Moon: Quanah Parker and the Rise and Fall of the Comanches, the Most Powerful Indian Tribe in American History"
+  },
+  {
+    "item_name": "Seduced by Secrets: Inside the Stasi's Spy-Tech World"
+  },
+  {
+    "item_name": "Wilson"
+  },
+  {
+    "item_name": "The King of Sports: Football's Impact on America"
+  },
+  {
+    "item_name": "Countrymen: The Untold Story of How Denmark's Jews Escaped the Nazis, of the Courage of Their Fellow Danes--and of the Extraordinary Role of the SS"
+  },
+  {
+    "item_name": "This Is Paradise: Stories"
+  },
+  {
+    "item_name": "The War That Ended Peace: The Road to 1914"
+  },
+  {
+    "item_name": "Fatal Enquiry: A Barker &amp; Llewelyn Novel"
+  },
+  {
+    "item_name": "Faithful Unto Death (A Sugar Land Mystery)"
+  },
+  {
+    "item_name": "Jet Set: The People, the Planes, the Glamour, and the Romance in Aviation's Glory Years"
+  },
+  {
+    "item_name": "One Man Against the World: The Tragedy of Richard Nixon"
+  },
+  {
+    "item_name": "Seattle Justice: The Rise and Fall of the Police Payoff System in Seattle"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 2,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 3,
+    "item_id": 996,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 4,
+    "item_id": 451,
+    "item_name": "The Way of the World: A Story of Truth and Hope in an Age of Extremism"
+  },
+  {
+    "rank": 5,
+    "item_id": 5462,
+    "item_name": "The Professors:  The 101 Most Dangerous Academics in America"
+  },
+  {
+    "rank": 6,
+    "item_id": 1387,
+    "item_name": "13 Bankers: The Wall Street Takeover and the Next Financial Meltdown"
+  },
+  {
+    "rank": 7,
+    "item_id": 2618,
+    "item_name": "The Age of American Unreason"
+  },
+  {
+    "rank": 8,
+    "item_id": 136,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 9,
+    "item_id": 3779,
+    "item_name": "Microtrends: The Small Forces Behind Tomorrow's Big Changes"
+  },
+  {
+    "rank": 10,
+    "item_id": 4213,
+    "item_name": "Economics in One Lesson: The Shortest and Surest Way to Understand Basic Economics"
+  },
+  {
+    "rank": 11,
+    "item_id": 3742,
+    "item_name": "Hitch-22: A Memoir"
+  },
+  {
+    "rank": 12,
+    "item_id": 1028,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 13,
+    "item_id": 818,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 14,
+    "item_id": 4595,
+    "item_name": "The Crisis of Islam: Holy War and Unholy Terror"
+  },
+  {
+    "rank": 15,
+    "item_id": 4564,
+    "item_name": "Lincoln at Gettysburg: The Words That Re-Made America"
+  },
+  {
+    "rank": 16,
+    "item_id": 5174,
+    "item_name": "America Alone: The End of the World As We Know It"
+  },
+  {
+    "rank": 17,
+    "item_id": 2893,
+    "item_name": "My Promised Land: The Triumph and Tragedy of Israel"
+  },
+  {
+    "rank": 18,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 19,
+    "item_id": 4136,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 20,
+    "item_id": 5282,
+    "item_name": "Overthrow: America's Century of Regime Change from Hawaii to Iraq"
+  },
+  {
+    "rank": 21,
+    "item_id": 1235,
+    "item_name": "The Accidental Guerrilla: Fighting Small Wars in the Midst of a Big One"
+  },
+  {
+    "rank": 22,
+    "item_id": 3016,
+    "item_name": "The Wealth and Poverty of Nations: Why Some Are So Rich and Some So Poor"
+  },
+  {
+    "rank": 23,
+    "item_id": 3068,
+    "item_name": "The Three Trillion Dollar War: The True Cost of the Iraq Conflict"
+  },
+  {
+    "rank": 24,
+    "item_id": 5304,
+    "item_name": "My Lunches with Orson: Conversations between Henry Jaglom and Orson Welles"
+  },
+  {
+    "rank": 25,
+    "item_id": 2541,
+    "item_name": "Longitudes and Attitudes: Exploring the World After September 11"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

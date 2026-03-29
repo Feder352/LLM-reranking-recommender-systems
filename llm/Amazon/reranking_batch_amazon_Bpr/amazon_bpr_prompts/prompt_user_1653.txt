@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Blood Heart (Immortal Curse Series)"
+  },
+  {
+    "item_name": "Friend Zone (Friend Zone Series)"
+  },
+  {
+    "item_name": "The Dragon King's Prisoner: A Paranormal Romance (Separated by Time) (Volume 1)"
+  },
+  {
+    "item_name": "Tequila Haze (The Tequila Duet) (Volume 1)"
+  },
+  {
+    "item_name": "Perfect Love Story"
+  },
+  {
+    "item_name": "Gold Digger: A Whisky's Novel"
+  },
+  {
+    "item_name": "Keeping 6 (Rock Point) (Volume 1)"
+  },
+  {
+    "item_name": "The Replacement Wife"
+  },
+  {
+    "item_name": "Billionaire Matchmaker"
+  },
+  {
+    "item_name": "Deliciously Damaged: Reckless Bastards MC"
+  },
+  {
+    "item_name": "Daddy's Little Angel"
+  },
+  {
+    "item_name": "Hard Love"
+  },
+  {
+    "item_name": "Asphalt Cowboy's Girl"
+  },
+  {
+    "item_name": "Bare: A Hollywood Romance"
+  },
+  {
+    "item_name": "Dirty Little Secret: A Secret Baby-Second Chance Romance (The Sons of Sin Series) (Volume 1)"
+  },
+  {
+    "item_name": "Vow of Retribution (Vow Series) (Volume 1)"
+  },
+  {
+    "item_name": "Accidental Fiance"
+  },
+  {
+    "item_name": "No Cowboy Required (The Biggest Love Story) (Volume 1)"
+  },
+  {
+    "item_name": "Everything That Follows: A Novel"
+  },
+  {
+    "item_name": "Breathe (Rosewood Bay) (Volume 2)"
+  },
+  {
+    "item_name": "Lie to Me: A Bad Boy's Accidental Marriage Romance"
+  },
+  {
+    "item_name": "The Controversial Princess (Smoke &amp; Mirrors Duology)"
+  },
+  {
+    "item_name": "Beneath Your Beautiful (The Beautiful Series)"
+  },
+  {
+    "item_name": "Claiming Her"
+  },
+  {
+    "item_name": "Fight (Fate) (Volume 1)"
+  },
+  {
+    "item_name": "Tied Down (Nailed Down) (Volume 2)"
+  },
+  {
+    "item_name": "Fixed Forever (Volume 5)"
+  },
+  {
+    "item_name": "Drenched with a Duke (Ravishing Regencies) (Volume 2)"
+  },
+  {
+    "item_name": "Moonlight Seduction: A de Vincent Novel (de Vincent series)"
+  },
+  {
+    "item_name": "Freed (Rosewood Bay) (Volume 3)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "SEAL's Touch: A Dirty Bad Boy Romance (Small Town SEALs)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Date The Billionaire"
+  },
+  {
+    "rank": 3,
+    "item_name": "Keeping Her (Keep Me Series) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Bound for Life (Bound to the Bad Boy) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Shared: A Dark MFM Menage Romance"
+  },
+  {
+    "rank": 6,
+    "item_name": "Hostage of the Hitman: A Bad Boy Mafia Romance"
+  },
+  {
+    "rank": 7,
+    "item_name": "One More Night: A Second Chance Romance (One More Series)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Devils &amp; Rye (Top Shelf) (Volume 4)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Cold Hearted"
+  },
+  {
+    "rank": 10,
+    "item_name": "The CEO &amp; I"
+  },
+  {
+    "rank": 11,
+    "item_name": "One More Kiss: A Second Chance Romance (One More Series)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Mr. Fiance"
+  },
+  {
+    "rank": 13,
+    "item_name": "Two Wrongs (Trouble by Numbers) (Volume 2)"
+  },
+  {
+    "rank": 14,
+    "item_name": "How We Fall"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Baby Mission"
+  },
+  {
+    "rank": 16,
+    "item_name": "Her Billionaire Bosses: A Menage Romance"
+  },
+  {
+    "rank": 17,
+    "item_name": "Torn: A Dark Bad Boy Romance"
+  },
+  {
+    "rank": 18,
+    "item_name": "Trapped in the Cabin"
+  },
+  {
+    "rank": 19,
+    "item_name": "Queen of My Heart (Life Won't Wait) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Mine: MMF Bisexual Menage Romance"
+  },
+  {
+    "rank": 21,
+    "item_name": "Single Dad's Sweetheart"
+  },
+  {
+    "rank": 22,
+    "item_name": "Professor Next Door"
+  },
+  {
+    "rank": 23,
+    "item_name": "Billionaire Daddy's Virgin"
+  },
+  {
+    "rank": 24,
+    "item_name": "Teach (City of Sinners) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Boxer Next Door"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Boy Friend"
+  },
+  {
+    "rank": 27,
+    "item_name": "Second Chance Draft: A Second Chance Sports Romance (Pass To Win)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Mr. Darcy's Kiss"
+  },
+  {
+    "rank": 29,
+    "item_name": "Stud Muffin (Irresistible Bachelors) (Volume 4)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Babyjacked: A Payne Brothers Romance"
+  },
+  {
+    "rank": 31,
+    "item_name": "Catching Fireflies"
+  },
+  {
+    "rank": 32,
+    "item_name": "Professor with Benefits"
+  },
+  {
+    "rank": 33,
+    "item_name": "Surprise Daddy"
+  },
+  {
+    "rank": 34,
+    "item_name": "His Muse: A Dark Alpha Bad Boy Romance"
+  },
+  {
+    "rank": 35,
+    "item_name": "Bound to the Mafia (Bound to the Bad Boy) (Volume 2)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Ruin Me: Vegas Knights"
+  },
+  {
+    "rank": 37,
+    "item_name": "Velocity (A Dangerous Bad Boy Romance)"
+  },
+  {
+    "rank": 38,
+    "item_name": "His To Keep"
+  },
+  {
+    "rank": 39,
+    "item_name": "Dirty Liar: An Irish Mafia Romance"
+  },
+  {
+    "rank": 40,
+    "item_name": "Rescue Me: A Bad Boy Romance"
+  },
+  {
+    "rank": 41,
+    "item_name": "Inked: A Bad Boy Next Door Romance"
+  },
+  {
+    "rank": 42,
+    "item_name": "Risky Pleasures (The Risky Series)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Delicate Scars"
+  },
+  {
+    "rank": 44,
+    "item_name": "Kerr: Paranormal Sci-Fi Alien Romance (lien Mates)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Against All Odds: A Secret Baby Romance"
+  },
+  {
+    "rank": 46,
+    "item_name": "Vengeful Seduction: A Submissives Secrets Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "His Possession: A Bad Boy Mafia Romance"
+  },
+  {
+    "rank": 48,
+    "item_name": "Pretend You're Mine"
+  },
+  {
+    "rank": 49,
+    "item_name": "Educate Him (Highland Park Chronicles) (Volume 2)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Dirty Debt"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Cruel Candy (Cozy Corgi Mysteries)"
+  },
+  {
+    "item_name": "Double Dog Dare (A Davis Way Crime Caper) (Volume 7)"
+  },
+  {
+    "item_name": "Natural Thorn Killer (A Rose City Mystery)"
+  },
+  {
+    "item_name": "The Bengal Identity (A Cat Groomer Mystery)"
+  },
+  {
+    "item_name": "Murder with a Cherry on Top (A Lickety Splits Mystery)"
+  },
+  {
+    "item_name": "Murder, She Knit (A Knit &amp; Nibble Mystery)"
+  },
+  {
+    "item_name": "Til Death Do Us Party (A Liv And Di In Dixie Mystery)"
+  },
+  {
+    "item_name": "A Riesling to Die"
+  },
+  {
+    "item_name": "Uneasy Prey (A Zoe Chambers Mystery) (Volume 6)"
+  },
+  {
+    "item_name": "A Manor of Murder"
+  },
+  {
+    "item_name": "Whisper the Dead: A Cotsworld village mystery (An Alex Duggins Mystery)"
+  },
+  {
+    "item_name": "Other People's Houses"
+  },
+  {
+    "item_name": "Cinco de Murder (A Taste of Texas Mystery)"
+  },
+  {
+    "item_name": "Fiction Can Be Murder (A Mystery Writer's Mystery)"
+  },
+  {
+    "item_name": "Death by the Sea"
+  },
+  {
+    "item_name": "Bad Neighbors: An Agnes and Effie Mystery"
+  },
+  {
+    "item_name": "The Shadow of Death: A Sister Agatha and Father Selwyn Mystery (Sister Agatha and Father Selwyn Mysteries)"
+  },
+  {
+    "item_name": "Night Moves: An Alex Delaware Novel"
+  },
+  {
+    "item_name": "Murder at the Mushroom Festival"
+  },
+  {
+    "item_name": "Nun After The Other (A Giulia Driscoll Mystery)"
+  },
+  {
+    "item_name": "The Llama of Death (Gunn Zoo Series)"
+  },
+  {
+    "item_name": "Murder on Union Square (A Gaslight Mystery)"
+  },
+  {
+    "item_name": "Dead As A Doornail (A Kenni Lowry Mystery)"
+  },
+  {
+    "item_name": "Flowers and Foul Play: A Magic Garden Mystery"
+  },
+  {
+    "item_name": "Lowcountry Bookshop (A Liz Talbot Mystery)"
+  },
+  {
+    "item_name": "Where the Fire Falls: A Vintage National Parks Novel"
+  },
+  {
+    "item_name": "Shadow Dancing (The Country Club Murders)"
+  },
+  {
+    "item_name": "Buried in Books (Bibliophile Mystery)"
+  },
+  {
+    "item_name": "Ruff Justice (Melanie Travis Canine Mystery)"
+  },
+  {
+    "item_name": "Rescued: An Andy Carpenter Mystery (An Andy Carpenter Novel)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "A Killer Ball at Honeychurch Hall"
+  },
+  {
+    "rank": 2,
+    "item_name": "A Deadly Grind (A Vintage Kitchen Mystery)"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Dickens of a Murder (The Canterville Book Shop Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Dream a Little Scream (A Dream Club Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Murder Buys a T-Shirt (Haunted Souvenir Shop)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Reining in Murder (A Carson Stables Mystery)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Writing All Wrongs (A Books by the Bay Mystery)"
+  },
+  {
+    "rank": 8,
+    "item_name": "To Helvetica and Back (A Dangerous Type Mystery)"
+  },
+  {
+    "rank": 9,
+    "item_name": "On Borrowed Time (A Library Lover's Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Pressing the Issue (A Cookbook Nook Mystery) (Volume 6)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Cracked to Death (A Webb's Glass Shop Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Killer Jam (Dewberry Farm Mysteries)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Organized for Murder: Organized Mysteries book #1 (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Death Crashes the Party (A Liv And Di In Dixie Mystery)"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Killer Plot (A Books by the Bay Mystery)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Berried Secrets (A Cranberry Cove Mystery)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Pouncing on Murder (A Bookmobile Cat Mystery)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Clammed Up (A Maine Clambake Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Title Wave (A Booktown Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Pillow Stalk"
+  },
+  {
+    "rank": 21,
+    "item_name": "A Killer Collection: A Collectible Mystery"
+  },
+  {
+    "rank": 22,
+    "item_name": "A Fatal Collection (A Keepsake Cove Mystery)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Widow's Tears (China Bayles Mystery)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Once Upon a Grind (A Coffeehouse Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Rock-a-Bye Bones: A Sarah Booth Delaney Mystery"
+  },
+  {
+    "rank": 26,
+    "item_name": "Cloche and Dagger (A Hat Shop Mystery)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Arsenic with Austen: A Mystery (Crime with the Classics)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Dying on the Vine: A Mystery (Kelsey McKenna Destination Wedding Mysteries)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Killing in C Sharp (A Gethsemane Brown Mystery) (Volume 3)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Fixin' To Die (A Kenni Lowry Mystery) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Threads of Evidence (A Mainely Needlepoint Mystery)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Twisted Threads (Mainely Needlepoint Mystery)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Murder in an Irish Village (Irish Village Mystery)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Death Runs Adrift (The Gray Whale Inn Mysteries)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Suede to Rest"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Cajun Christmas Killing: A Cajun Country Mystery"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Cat, the Sneak and the Secret (Cats in Trouble Mystery)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Kneaded to Death (A Bread Shop Mystery)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Marsh Madness (A Book Collector Mystery)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Decanting a Murder (A Sommelier Mystery)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Final Reveille (A Living History Museum Mystery)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Gossamer Ghost (A Scrapbooking Mystery)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Tempest in a Teapot (A Teapot Collector Mystery)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Deadly Tasting (Winemaker Detective)"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Killer Retreat: A Downward Dog Mystery #2 (Downward Dog Mysteries)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Final Sentence (A Cookbook Nook Mystery)"
+  },
+  {
+    "rank": 47,
+    "item_name": "30 Second Death"
+  },
+  {
+    "rank": 48,
+    "item_name": "Mission to Murder"
+  },
+  {
+    "rank": 49,
+    "item_name": "Death Takes Priority (A Postmistress Mystery)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Dead Man Talking: A Cozy Paranormal Mystery (The Happily Everlasting Series) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

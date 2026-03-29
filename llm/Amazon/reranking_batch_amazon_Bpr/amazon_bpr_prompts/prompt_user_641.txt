@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Deep of the Sound (Bluewater Bay)"
+  },
+  {
+    "item_name": "Rattlesnake"
+  },
+  {
+    "item_name": "The Heart of Falcon Ridge: The McLendon Family Saga Book 1 (Volume 1)"
+  },
+  {
+    "item_name": "Losing It"
+  },
+  {
+    "item_name": "Faking It (Losing It)"
+  },
+  {
+    "item_name": "Betting on Forever (The Breakfast Club) (Volume 2)"
+  },
+  {
+    "item_name": "Promises: Part I (The Bounty Hunters) (Volume 1)"
+  },
+  {
+    "item_name": "Listen To The Moon"
+  },
+  {
+    "item_name": "Embracing His Syn"
+  },
+  {
+    "item_name": "You Can See Me"
+  },
+  {
+    "item_name": "Nothing Special (Volume 1)"
+  },
+  {
+    "item_name": "Defined By Deceit"
+  },
+  {
+    "item_name": "Don't Judge (Nothing Special) (Volume 4)"
+  },
+  {
+    "item_name": "Jockblocked (Gridiron) (Volume 2)"
+  },
+  {
+    "item_name": "Promises, Part II (Bounty Hunters) (Volume 2)"
+  },
+  {
+    "item_name": "Here Comes Trouble (Nothing Special) (Volume 3)"
+  },
+  {
+    "item_name": "Jockblocked: Gridiron, Book 2"
+  },
+  {
+    "item_name": "Bounty (Colorado Mountain Series) (Volume 7)"
+  },
+  {
+    "item_name": "Pent Up"
+  },
+  {
+    "item_name": "Wolfsong"
+  },
+  {
+    "item_name": "Abducted: The Alien Mate Index Book 1: (Alien Warrior BBW Scifi Paranormal Romance) (Volume 1)"
+  },
+  {
+    "item_name": "Cocky Bastard"
+  },
+  {
+    "item_name": "Rocky Mountain Romance (Six Pack Ranch) (Volume 7)"
+  },
+  {
+    "item_name": "Raze"
+  },
+  {
+    "item_name": "Wicked for You (A Wicked Lovers Novel)"
+  },
+  {
+    "item_name": "Falling in Deeper (A Wicked Lovers Novel)"
+  },
+  {
+    "item_name": "Complicated"
+  },
+  {
+    "item_name": "The Hookup (Moonlight and Motor Oil Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Farthest Edge (The Honey Series)"
+  },
+  {
+    "item_name": "THE DEEP END (The Honey Series)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Trust (Temptation Series) (Volume 3)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Hard As You Can: A Hard Ink Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Raw"
+  },
+  {
+    "rank": 4,
+    "item_name": "Aced"
+  },
+  {
+    "rank": 5,
+    "item_name": "Lady Luck (Colorado Mountain)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Devil's Game (Reapers Motorcycle Club)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Try (Temptation Series)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Down to You (A Bad Boys Novel)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Manwhore"
+  },
+  {
+    "rank": 10,
+    "item_name": "Perfection: A Neighbor From Hell Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "Long Hard Ride (Rough Riders)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Owning Violet: A Novel (The Fowler Sisters)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Undeniable"
+  },
+  {
+    "rank": 14,
+    "item_name": "Rock Hard (Rock Kiss)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Pulse: Book Two in the Collide Series"
+  },
+  {
+    "rank": 16,
+    "item_name": "Collide: Book One in the Collide Series"
+  },
+  {
+    "rank": 17,
+    "item_name": "Scandal Never Sleeps (The Perfect Gentlemen)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Dark Lover (Black Dagger Brotherhood, Book 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Tigers and Devils"
+  },
+  {
+    "rank": 20,
+    "item_name": "Borrowing Blue: A Made Marian Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "Hard to Come By: A Hard Ink Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Breakaway"
+  },
+  {
+    "rank": 23,
+    "item_name": "Driven ((The Driven Trilogy))"
+  },
+  {
+    "rank": 24,
+    "item_name": "On Dublin Street (On Dublin Street Series)"
+  },
+  {
+    "rank": 25,
+    "item_name": "For Real (Spires)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Wildest Dreams (The Fantasyland Series) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Wild Man (Dream Man)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Pucked"
+  },
+  {
+    "rank": 29,
+    "item_name": "Worth the Fight"
+  },
+  {
+    "rank": 30,
+    "item_name": "Rock Chick Rescue (Volume 2)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Rock Chick Renegade (Volume 4)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Everything for Us (A Bad Boys Novel)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Night is Darkest"
+  },
+  {
+    "rank": 34,
+    "item_name": "Taint: A Sexual Education Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Honor: The Breaking Point"
+  },
+  {
+    "rank": 36,
+    "item_name": "Sustained (The Legal Briefs Series)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Until Nico (Until Series) (Volume 4)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Rock Courtship: A Rock Kiss Novella"
+  },
+  {
+    "rank": 39,
+    "item_name": "In His Keeping: A Slow Burn Novel (Slow Burn Novels)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Hell's Knights (The MC Sinners Series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Rock the Heart (Black Falcon)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Seducing Cinderella (Fighting for Love)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Hard to Be Good: A Hard Ink Novella"
+  },
+  {
+    "rank": 44,
+    "item_name": "Misfits (Urban Soul)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Forgotten Sins (Sin Brothers)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Wallbanger (The Cocktail Series)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Fair Game"
+  },
+  {
+    "rank": 48,
+    "item_name": "Making Faces"
+  },
+  {
+    "rank": 49,
+    "item_name": "If I Were You: Inside Out Trilogy (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Lover At Last: A Novel of the Black Dagger Brotherhood"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

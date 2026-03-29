@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Story of Kullervo"
+  },
+  {
+    "item_name": "Saint's Blood (The Greatcoats)"
+  },
+  {
+    "item_name": "Seven Skeletons: The Evolution of the World's Most Famous Human Fossils"
+  },
+  {
+    "item_name": "Vinegar Girl: William Shakespeare's The Taming of the Shrew Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "item_name": "The Heart Goes Last: A Novel"
+  },
+  {
+    "item_name": "The Invisible Library (The Invisible Library Novel)"
+  },
+  {
+    "item_name": "Do Not Bring Your Dragon to the Library (Na)"
+  },
+  {
+    "item_name": "I.D."
+  },
+  {
+    "item_name": "Hidden Universe Travel Guides: The Complete Marvel Cosmos: With Notes by the Guardians of the Galaxy"
+  },
+  {
+    "item_name": "Flock Together: A Love Affair with Extinct Birds"
+  },
+  {
+    "item_name": "At the Edge of the Orchard"
+  },
+  {
+    "item_name": "The Wanderers"
+  },
+  {
+    "item_name": "Borne: A Novel"
+  },
+  {
+    "item_name": "Strange Medicine: A Shocking History of Real Medical Practices Through the Ages"
+  },
+  {
+    "item_name": "The Regional Office Is Under Attack!: A Novel"
+  },
+  {
+    "item_name": "Lincoln in the Bardo: A Novel"
+  },
+  {
+    "item_name": "Empress of a Thousand Skies"
+  },
+  {
+    "item_name": "Spill Zone Book 1"
+  },
+  {
+    "item_name": "Central Station"
+  },
+  {
+    "item_name": "Flashfall"
+  },
+  {
+    "item_name": "New Boy: William Shakespeare's Othello Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "item_name": "Beren and Luthien"
+  },
+  {
+    "item_name": "Our Dark Duet (Monsters of Verity)"
+  },
+  {
+    "item_name": "This Savage Song (Monsters of Verity)"
+  },
+  {
+    "item_name": "The Space Between the Stars"
+  },
+  {
+    "item_name": "The Waking Land"
+  },
+  {
+    "item_name": "Amatka"
+  },
+  {
+    "item_name": "Railhead"
+  },
+  {
+    "item_name": "The Power"
+  },
+  {
+    "item_name": "The Girl in the Tower: A Novel (Winternight Trilogy)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 2,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 4,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 5,
+    "item_name": "Hyperbole and a Half: Unfortunate Situations, Flawed Coping Mechanisms, Mayhem, and Other Things That Happened"
+  },
+  {
+    "rank": 6,
+    "item_name": "American Gods"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Eyre Affair: A Thursday Next Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 9,
+    "item_name": "Saga, Vol. 2"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Golem and the Jinni: A Novel (P.S.)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Smoke and Mirrors: Short Fictions and Illusions"
+  },
+  {
+    "rank": 12,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 13,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Armada (Easton Press)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 16,
+    "item_name": "Old Man's War"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Amber Spyglass"
+  },
+  {
+    "rank": 18,
+    "item_name": "Dead And Gone: A Sookie Stackhouse Novel (Sookie Stackhouse/True Blood)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Last Policeman"
+  },
+  {
+    "rank": 20,
+    "item_name": "ARTEMIS FOWL - The Eternity Code"
+  },
+  {
+    "rank": 21,
+    "item_name": "Dark Matter"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 24,
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Magicians: A Novel (Magicians Trilogy)"
+  },
+  {
+    "rank": 26,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Saga, Vol. 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Hansel and Gretel Standard Edition: A TOON Graphic"
+  },
+  {
+    "rank": 29,
+    "item_name": "20,000 Leagues Under the Sea"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Slow Regard of Silent Things (Kingkiller Chronicle)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Gregor The Overlander (Underland Chronicles)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "rank": 33,
+    "item_name": "Sourcery"
+  },
+  {
+    "rank": 34,
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Republic of Thieves (Gentleman Bastards)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Clockwork Angel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Wildefire"
+  },
+  {
+    "rank": 39,
+    "item_name": "Dune"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Perks Of Being A Wallflower (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Snuff: A Novel of Discworld"
+  },
+  {
+    "rank": 42,
+    "item_name": "MaddAddam (MaddAddam Trilogy)"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Tale Dark and Grimm"
+  },
+  {
+    "rank": 44,
+    "item_name": "5 Very Good Reasons to Punch a Dolphin in the Mouth (And Other Useful Guides) (The Oatmeal)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Annihilation (The Southern Reach Trilogy)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Last Werewolf"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Name of the Wind (Kingkiller Chronicles, Day 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Sparrow: A Novel (The Sparrow Series)"
+  },
+  {
+    "rank": 50,
+    "item_name": "ITEM_B0010SKUG0"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

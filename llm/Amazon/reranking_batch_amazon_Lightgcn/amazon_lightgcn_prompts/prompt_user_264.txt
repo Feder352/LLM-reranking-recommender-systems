@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Bryant &amp; May: Wild Chamber: A Peculiar Crimes Unit Mystery"
+  },
+  {
+    "item_name": "Wallis in Love: The Untold Life of the Duchess of Windsor, the Woman Who Changed the Monarchy"
+  },
+  {
+    "item_name": "Protected by the Shadows (An Irene Huss Investigation)"
+  },
+  {
+    "item_name": "Two Kinds of Truth (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "This Is What Happened"
+  },
+  {
+    "item_name": "A Reckoning in the Back Country: A Samuel Craddock Mystery"
+  },
+  {
+    "item_name": "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life"
+  },
+  {
+    "item_name": "Educated: A Memoir"
+  },
+  {
+    "item_name": "Something Like Happy: A Novel"
+  },
+  {
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "item_name": "The Wolf, the Duck, and the Mouse"
+  },
+  {
+    "item_name": "Surprise Me: A Novel"
+  },
+  {
+    "item_name": "Surprise Me"
+  },
+  {
+    "item_name": "Creepy Pair of Underwear!"
+  },
+  {
+    "item_name": "The Story of Snowflake and Inkdrop"
+  },
+  {
+    "item_name": "Vegangelical: How Caring for Animals Can Shape Your Faith"
+  },
+  {
+    "item_name": "Hit Makers: The Science of Popularity in an Age of Distraction"
+  },
+  {
+    "item_name": "If Apples Had Teeth"
+  },
+  {
+    "item_name": "The Reading Group"
+  },
+  {
+    "item_name": "The Wife Between Us: A Novel"
+  },
+  {
+    "item_name": "Need To Know"
+  },
+  {
+    "item_name": "The Girls in the Picture: A Novel"
+  },
+  {
+    "item_name": "Coffin Scarcely Used"
+  },
+  {
+    "item_name": "Coffin Scarcely Used"
+  },
+  {
+    "item_name": "Carnegie's Maid: A Novel"
+  },
+  {
+    "item_name": "Compelling Evidence"
+  },
+  {
+    "item_name": "The Arraignment (Paul Madriani Novels)"
+  },
+  {
+    "item_name": "The Jury"
+  },
+  {
+    "item_name": "Putting It Together Again When It's All Fallen Apart: 7 Principles for Rebuilding Your Life"
+  },
+  {
+    "item_name": "Noah's Ark"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 10167,
+    "item_name": "The Saturday Big Tent Wedding Party (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "rank": 2,
+    "item_id": 22983,
+    "item_name": "Click, Clack, Moo: Cows That Type"
+  },
+  {
+    "rank": 3,
+    "item_id": 584,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 4,
+    "item_id": 48698,
+    "item_name": "The Lost City of the Monkey God: A True Story"
+  },
+  {
+    "rank": 5,
+    "item_id": 76816,
+    "item_name": "By Marie Kondo The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing (Unabridged CD) [Audio CD]"
+  },
+  {
+    "rank": 6,
+    "item_id": 6905,
+    "item_name": "The Very Hungry Caterpillar (Picture Puffins)"
+  },
+  {
+    "rank": 7,
+    "item_id": 5646,
+    "item_name": "The Life-Changing Magic of Tidying: A simple, effective way to banish clutter forever"
+  },
+  {
+    "rank": 8,
+    "item_id": 26871,
+    "item_name": "Walden on Wheels: On The Open Road from Debt to Freedom"
+  },
+  {
+    "rank": 9,
+    "item_id": 6693,
+    "item_name": "Year in Provence"
+  },
+  {
+    "rank": 10,
+    "item_id": 6994,
+    "item_name": "Three Cups of Tea"
+  },
+  {
+    "rank": 11,
+    "item_id": 10339,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 12,
+    "item_id": 1707,
+    "item_name": "Alexander and the Terrible, Horrible, No Good, Very Bad Day Low Price"
+  },
+  {
+    "rank": 13,
+    "item_id": 957,
+    "item_name": "Betty Crocker's New Cookbook: Everything You Need to Know to Cook (8th Ed.)"
+  },
+  {
+    "rank": 14,
+    "item_id": 5814,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 15,
+    "item_id": 9923,
+    "item_name": "The Miracle at Speedy Motors (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "rank": 16,
+    "item_id": 6886,
+    "item_name": "Make Way for Ducklings (Picture Puffin)"
+  },
+  {
+    "rank": 17,
+    "item_id": 19006,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 18,
+    "item_id": 10989,
+    "item_name": "The Handsome Man's De Luxe Caf: No. 1 Ladies' Detective Agency (15) (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "rank": 19,
+    "item_id": 9317,
+    "item_name": "How We Learn: The Surprising Truth About When, Where and Why it Happens"
+  },
+  {
+    "rank": 20,
+    "item_id": 959,
+    "item_name": "How To Cook Everything: Simple Recipes for Great Food"
+  },
+  {
+    "rank": 21,
+    "item_id": 40691,
+    "item_name": "Chinese Turkestan: A Photographic Journey Through an Ancient Civilization"
+  },
+  {
+    "rank": 22,
+    "item_id": 10078,
+    "item_name": "The Double Comfort Safari Club (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "rank": 23,
+    "item_id": 74500,
+    "item_name": "Frog and Toad are Friends"
+  },
+  {
+    "rank": 24,
+    "item_id": 3635,
+    "item_name": "Elegy for Eddie: A Maisie Dobbs Novel"
+  },
+  {
+    "rank": 25,
+    "item_id": 6815,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

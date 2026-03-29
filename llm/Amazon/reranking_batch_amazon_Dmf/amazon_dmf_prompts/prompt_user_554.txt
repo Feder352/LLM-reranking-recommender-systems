@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Eight Men Out: The Black Sox and the 1919 World Series (The Black Sox &amp; the 1919 World Series)"
+  },
+  {
+    "item_name": "Think Like a Freak: The Authors of Freakonomics Offer to Retrain Your Brain"
+  },
+  {
+    "item_name": "A Well-Paid Slave: Curt Flood's Fight for Free Agency in Professional Sports"
+  },
+  {
+    "item_name": "The Great Divide: Unequal Societies and What We Can Do About Them"
+  },
+  {
+    "item_name": "The Upright Thinkers: The Human Journey from Living in Trees to Understanding the Cosmos"
+  },
+  {
+    "item_name": "A Bone to Pick: The good and bad news about food, with wisdom and advice on diets, food safety, GMOs, farming, and more"
+  },
+  {
+    "item_name": "The Influence Machine: The U.S. Chamber of Commerce and the Corporate Capture of American Life"
+  },
+  {
+    "item_name": "Faith Versus Fact: Why Science and Religion Are Incompatible"
+  },
+  {
+    "item_name": "Misbehaving: The Making of Behavioral Economics"
+  },
+  {
+    "item_name": "Misbehaving"
+  },
+  {
+    "item_name": "How Not to Be Wrong: The Power of Mathematical Thinking"
+  },
+  {
+    "item_name": "Ignorance: How It Drives Science"
+  },
+  {
+    "item_name": "Yes, My Accent Is Real"
+  },
+  {
+    "item_name": "Dark Disciple: Star Wars"
+  },
+  {
+    "item_name": "Concussion (Movie Tie-in Edition)"
+  },
+  {
+    "item_name": "Innumeracy: Mathematical Illiteracy and Its Consequences"
+  },
+  {
+    "item_name": "Brain Maker: The Power of Gut Microbes to Heal and Protect Your Brainfor Life"
+  },
+  {
+    "item_name": "Concrete Economics: The Hamilton Approach to Economic Growth and Policy"
+  },
+  {
+    "item_name": "Listen, Liberal: Or, What Ever Happened to the Party of the People?"
+  },
+  {
+    "item_name": "Dark Money: The Hidden History of the Billionaires Behind the Rise of the Radical Right"
+  },
+  {
+    "item_name": "Lies, Incorporated: The World of Post-Truth Politics"
+  },
+  {
+    "item_name": "The Betrayal: The 1919 World Series and the Birth of Modern Baseball"
+  },
+  {
+    "item_name": "Herbert Hoover in the White House: The Ordeal of the Presidency"
+  },
+  {
+    "item_name": "Rampage Nation: Securing America from Mass Shootings"
+  },
+  {
+    "item_name": "Economism: Bad Economics and the Rise of Inequality"
+  },
+  {
+    "item_name": "Islam and the Future of Tolerance: A Dialogue"
+  },
+  {
+    "item_name": "The Madhouse Effect: How Climate Change Denial Is Threatening Our Planet, Destroying Our Politics, and Driving Us Crazy"
+  },
+  {
+    "item_name": "The Death of Expertise: The Campaign against Established Knowledge and Why it Matters"
+  },
+  {
+    "item_name": "Harrington on Hold 'em Expert Strategy for No Limit Tournaments, Vol. 1: Strategic Play"
+  },
+  {
+    "item_name": "Trumpocracy: The Corruption of the American Republic"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 74858,
+    "item_name": "The Old Man and the Sea"
+  },
+  {
+    "rank": 2,
+    "item_id": 37,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 3,
+    "item_id": 6680,
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "rank": 4,
+    "item_id": 76371,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 5,
+    "item_id": 75993,
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "rank": 6,
+    "item_id": 74719,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 7,
+    "item_id": 27953,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 8,
+    "item_id": 565,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 9,
+    "item_id": 76019,
+    "item_name": "By Winston S. Churchill - Triumph and Tragedy: 1st (first) Edition"
+  },
+  {
+    "rank": 10,
+    "item_id": 6920,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 11,
+    "item_id": 74923,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 12,
+    "item_id": 47924,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 13,
+    "item_id": 7105,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 14,
+    "item_id": 16,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 15,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 16,
+    "item_id": 20211,
+    "item_name": "The Hinge of Fate (The Second World War)"
+  },
+  {
+    "rank": 17,
+    "item_id": 584,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 18,
+    "item_id": 1881,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 19,
+    "item_id": 951,
+    "item_name": "The Call of the Wild with related readings"
+  },
+  {
+    "rank": 20,
+    "item_id": 9963,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 21,
+    "item_id": 990,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 22,
+    "item_id": 9641,
+    "item_name": "The Illustrated Hitch-hiker's Guide to the Galaxy"
+  },
+  {
+    "rank": 23,
+    "item_id": 989,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 24,
+    "item_id": 14751,
+    "item_name": "Katherine"
+  },
+  {
+    "rank": 25,
+    "item_id": 6508,
+    "item_name": "My Antonia (The Great Plains Trilogy)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

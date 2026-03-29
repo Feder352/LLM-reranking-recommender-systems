@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Her Pregnancy Bombshell (Summer at Villa Rosa)"
+  },
+  {
+    "item_name": "Behind the Scenes (Apart From the Crowd)"
+  },
+  {
+    "item_name": "True to You (A Bradford Sisters Romance)"
+  },
+  {
+    "item_name": "A Name Unknown (Shadows Over England)"
+  },
+  {
+    "item_name": "Heart on the Line"
+  },
+  {
+    "item_name": "The Little French Bistro: A Novel"
+  },
+  {
+    "item_name": "Sandpiper Cove: A Hope Harbor Novel"
+  },
+  {
+    "item_name": "Jefferson's America: The President, the Purchase, and the Explorers Who Transformed a Nation"
+  },
+  {
+    "item_name": "The Case of the Clobbered Cad (Nosy Parkers Mysteries) (Volume 2)"
+  },
+  {
+    "item_name": "Bringing Maggie Home: A Novel"
+  },
+  {
+    "item_name": "Holiday Cookies: Showstopping Recipes to Sweeten the Season"
+  },
+  {
+    "item_name": "The Woman Who Couldn't Scream: A Novel (The Virtue Falls Series)"
+  },
+  {
+    "item_name": "Many Sparrows: A Novel"
+  },
+  {
+    "item_name": "Stock the Crock: 100 Must-Have Slow-Cooker Recipes, 200 Variations for Every Appetite"
+  },
+  {
+    "item_name": "The Last Move"
+  },
+  {
+    "item_name": "Dangerous Illusions (Code of Honor)"
+  },
+  {
+    "item_name": "Valerie's Home Cooking: More than 100 Delicious Recipes to Share with Friends and Family"
+  },
+  {
+    "item_name": "The Two of Us"
+  },
+  {
+    "item_name": "Nourished: A Memoir of Food, Faith &amp; Enduring Love (with Recipes)"
+  },
+  {
+    "item_name": "How to Find Love in a Bookshop"
+  },
+  {
+    "item_name": "Secret Lessons With The Rake (Hadley's Hellions)"
+  },
+  {
+    "item_name": "Vanishing Point: A Nikki Boyd Novel"
+  },
+  {
+    "item_name": "Too Far Down (The Cimarron Legacy)"
+  },
+  {
+    "item_name": "Holding the Fort (The Fort Reno Series)"
+  },
+  {
+    "item_name": "Out of the Ordinary (Apart From the Crowd)"
+  },
+  {
+    "item_name": "Inconvenient Beauty (Hawthorne House)"
+  },
+  {
+    "item_name": "Crisis Shot (The Line of Duty)"
+  },
+  {
+    "item_name": "Enchanted Isle"
+  },
+  {
+    "item_name": "Oath of Honor (Blue Justice)"
+  },
+  {
+    "item_name": "L'Appart: The Delights and Disasters of Making My Paris Home"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Beauty for Ashes (A Hickory Ridge Romance)"
+  },
+  {
+    "rank": 2,
+    "item_name": "STARRY NIGHT"
+  },
+  {
+    "rank": 3,
+    "item_name": "One Perfect Spring: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Fair Play: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Writing Desk"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Inn at Ocean's Edge (Sunset Cove)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Before We Were Yours: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Stars Over Sunset Boulevard"
+  },
+  {
+    "rank": 9,
+    "item_name": "Ever After: A Nantucket Brides Novel (Nantucket Brides Trilogy)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Big Sky River"
+  },
+  {
+    "rank": 11,
+    "item_name": "Short-Straw Bride"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Hero (Thunder Point)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Take Me Tonight (The Bullet Catchers, Book 3)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Three Little Words (Fool's Gold, Book 13)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Captive Heart"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Wedding Dress"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Christmas Cat"
+  },
+  {
+    "rank": 18,
+    "item_name": "House of Mercy"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Most Inconvenient Marriage"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Heiress of Winterwood (Whispers On The Moors)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Secretly Smitten"
+  },
+  {
+    "rank": 22,
+    "item_name": "Three Sisters"
+  },
+  {
+    "rank": 23,
+    "item_name": "Waiting On You (The Blue Heron Series)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Blue Moon Promise (Under Texas Stars)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Christmas Roses"
+  },
+  {
+    "rank": 26,
+    "item_name": "The View from Rainshadow Bay (A Lavender Tides Novel)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Austen Escape"
+  },
+  {
+    "rank": 28,
+    "item_name": "Tattered and Mended: The Art of Healing the Wounded Soul"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Avalon Ladies Scrapbooking Society: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 31,
+    "item_name": "What We Find (Sullivan's Crossing)"
+  },
+  {
+    "rank": 32,
+    "item_name": "A Season of Change: Seasons in Pinecraft - Book 1"
+  },
+  {
+    "rank": 33,
+    "item_name": "Danger in the Shadows"
+  },
+  {
+    "rank": 34,
+    "item_name": "Chance of Loving You: Romance Collection (Thorndike Press Large Print Christian Fiction)"
+  },
+  {
+    "rank": 35,
+    "item_name": "driftwood lane (Nantucket)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Red Door Inn: A Novel (Prince Edward Island Dreams)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Twilight at Blueberry Barrens (A Sunset Cove Novel)"
+  },
+  {
+    "rank": 38,
+    "item_name": "When a Secret Kills: A Novel (Deadly Reunions)"
+  },
+  {
+    "rank": 39,
+    "item_name": "A Plain and Simple Heart (The Amish of Apple Grove)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Wild Man Creek (A Virgin River Novel)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Best Man (The Blue Heron Series)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Newsmakers (A Newsmakers Novel)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Masterpiece Marriage: Quilts of Love Series"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Perfect Stranger"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Girls of Mischief Bay"
+  },
+  {
+    "rank": 46,
+    "item_name": "Snowfall on Haven Point"
+  },
+  {
+    "rank": 47,
+    "item_name": "Anything for You (The Blue Heron Series)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Shadows of the Past: A Novel (Logan Point) (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Christmas at Harmony Hill: A Shaker Story"
+  },
+  {
+    "rank": 50,
+    "item_name": "Downfall (An Intervention Novel)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

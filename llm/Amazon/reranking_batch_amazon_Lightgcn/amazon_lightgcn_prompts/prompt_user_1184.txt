@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Sea Room"
+  },
+  {
+    "item_name": "Mrs. Roosevelt's Confidante: A Maggie Hope Mystery"
+  },
+  {
+    "item_name": "His Right Hand (A Linda Wallheim Mystery)"
+  },
+  {
+    "item_name": "Carrying Albert Home: The Somewhat True Story of a Man, His Wife, and Her Alligator"
+  },
+  {
+    "item_name": "A Ghostly Murder: A Ghostly Southern Mystery (Ghostly Southern Mysteries)"
+  },
+  {
+    "item_name": "Bryant &amp; May and the Burning Man: A Peculiar Crimes Unit Mystery"
+  },
+  {
+    "item_name": "I Really Like Slop! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "The Considerate Killer (A Nina Borg Novel)"
+  },
+  {
+    "item_name": "Summer at Little Beach Street Bakery: A Novel"
+  },
+  {
+    "item_name": "The Murder of Mary Russell (Mary Russell &amp; Sherlock Holmes)"
+  },
+  {
+    "item_name": "Mother Bruce"
+  },
+  {
+    "item_name": "Breakdown: An Alex Delaware Novel"
+  },
+  {
+    "item_name": "Cat Shout for Joy: A Joe Grey Mystery (Joe Grey Mystery Series)"
+  },
+  {
+    "item_name": "The Agency 1: A Spy in the House"
+  },
+  {
+    "item_name": "Rough Riders: Theodore Roosevelt, His Cowboy Regiment, and the Immortal Charge Up San Juan Hill"
+  },
+  {
+    "item_name": "I Will Take A Nap! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Diana's Altar (A Detective Joe Sandilands Novel)"
+  },
+  {
+    "item_name": "The Body in the Wardrobe: A Faith Fairchild Mystery"
+  },
+  {
+    "item_name": "Will Tanner: U.S. Deputy Marshal (A Will Tanner Western)"
+  },
+  {
+    "item_name": "Daniel Silva Thriller 6"
+  },
+  {
+    "item_name": "The Pursuit: A Fox and O'Hare Novel"
+  },
+  {
+    "item_name": "Ordinary Grace (Thorndike Press Large Print Mystery)"
+  },
+  {
+    "item_name": "The Thank You Book (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "I Shot the Buddha (A Dr. Siri Paiboun Mystery)"
+  },
+  {
+    "item_name": "Curious Minds: A Knight and Moon Novel"
+  },
+  {
+    "item_name": "Players: The Story of Sports and Money, and the Visionaries Who Fought to Create a Revolution"
+  },
+  {
+    "item_name": "What Elephants Know"
+  },
+  {
+    "item_name": "The Obsidian Chamber (Agent Pendergast series)"
+  },
+  {
+    "item_name": "Thrice the Brinded Cat Hath Mew'd: A Flavia de Luce Novel"
+  },
+  {
+    "item_name": "Not My Mother's Kitchen: Rediscovering Italian-American Cooking Through Stories and Recipes"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 30959,
+    "item_name": "In Such Good Company: Eleven Years of Laughter, Mayhem, and Fun in the Sandbox"
+  },
+  {
+    "rank": 2,
+    "item_id": 740,
+    "item_name": "The Day The Crayons Quit"
+  },
+  {
+    "rank": 3,
+    "item_id": 41786,
+    "item_name": "Serafina and the Black Cloak"
+  },
+  {
+    "rank": 4,
+    "item_id": 30972,
+    "item_name": "Hag-Seed (Hogarth Shakespeare)"
+  },
+  {
+    "rank": 5,
+    "item_id": 62253,
+    "item_name": "The Most Magnificent Thing"
+  },
+  {
+    "rank": 6,
+    "item_id": 62255,
+    "item_name": "Lester's Dreadful Sweaters"
+  },
+  {
+    "rank": 7,
+    "item_id": 32169,
+    "item_name": "Glass Houses (Chief Inspector Gamache)"
+  },
+  {
+    "rank": 8,
+    "item_id": 10908,
+    "item_name": "The Sweetness at the Bottom of the Pie: A Flavia de Luce Mystery"
+  },
+  {
+    "rank": 9,
+    "item_id": 48698,
+    "item_name": "The Lost City of the Monkey God: A True Story"
+  },
+  {
+    "rank": 10,
+    "item_id": 23103,
+    "item_name": "Coffin Scarcely Used"
+  },
+  {
+    "rank": 11,
+    "item_id": 23056,
+    "item_name": "Knuffle Bunny"
+  },
+  {
+    "rank": 12,
+    "item_id": 7189,
+    "item_name": "The Book With No Pictures"
+  },
+  {
+    "rank": 13,
+    "item_id": 6886,
+    "item_name": "Make Way for Ducklings (Picture Puffin)"
+  },
+  {
+    "rank": 14,
+    "item_id": 28752,
+    "item_name": "March: Book Three (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 15,
+    "item_id": 4178,
+    "item_name": "A Dangerous Place: A Maisie Dobbs Novel"
+  },
+  {
+    "rank": 16,
+    "item_id": 11074,
+    "item_name": "Prince Charles: The Passions and Paradoxes of an Improbable Life"
+  },
+  {
+    "rank": 17,
+    "item_id": 44989,
+    "item_name": "The Secrets of Wishtide (A Laetitia Rodd Mystery)"
+  },
+  {
+    "rank": 18,
+    "item_id": 65683,
+    "item_name": "Beau Death (A Detective Peter Diamond Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_id": 18461,
+    "item_name": "The Bear Ate Your Sandwich"
+  },
+  {
+    "rank": 20,
+    "item_id": 21138,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 21,
+    "item_id": 25568,
+    "item_name": "Vinegar Girl: William Shakespeare's The Taming of the Shrew Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "rank": 22,
+    "item_id": 62319,
+    "item_name": "The Cheshire Cheese Cat: A Dickens of a Tale"
+  },
+  {
+    "rank": 23,
+    "item_id": 54662,
+    "item_name": "From Bruges with Love (The Pieter Van In Mysteries)"
+  },
+  {
+    "rank": 24,
+    "item_id": 22110,
+    "item_name": "The Twelve Clues of Christmas: A Royal Spyness Mystery"
+  },
+  {
+    "rank": 25,
+    "item_id": 11123,
+    "item_name": "My Name Is Lucy Barton: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

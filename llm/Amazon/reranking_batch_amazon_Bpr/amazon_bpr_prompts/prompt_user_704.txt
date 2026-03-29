@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Rules of Civility: A Novel"
+  },
+  {
+    "item_name": "I Am, I Am, I Am: Seventeen Brushes with Death"
+  },
+  {
+    "item_name": "Sing, Unburied, Sing: A Novel"
+  },
+  {
+    "item_name": "The Bad Daughter: A Novel"
+  },
+  {
+    "item_name": "A Time of Love and Tartan (44 Scotland Street Series)"
+  },
+  {
+    "item_name": "His Bloody Project: Documents Relating to the Case of Roderick Macrae (Man Booker Prize Finalist 2016)"
+  },
+  {
+    "item_name": "The Wife Between Us: A Novel"
+  },
+  {
+    "item_name": "Grist Mill Road"
+  },
+  {
+    "item_name": "The Immortalists"
+  },
+  {
+    "item_name": "Girl in Snow: A Novel"
+  },
+  {
+    "item_name": "Our Kind of Cruelty: A Novel"
+  },
+  {
+    "item_name": "The Great Alone: A Novel"
+  },
+  {
+    "item_name": "Trust No One: A Thriller"
+  },
+  {
+    "item_name": "Back to the Future: The Classic Illustrated Storybook (Pop Classics)"
+  },
+  {
+    "item_name": "A Piece of the World"
+  },
+  {
+    "item_name": "You Think It, I'll Say It: Stories"
+  },
+  {
+    "item_name": "The Underworld: A Novel"
+  },
+  {
+    "item_name": "Star of the North: A Novel"
+  },
+  {
+    "item_name": "American by Day"
+  },
+  {
+    "item_name": "The Punishment She Deserves: A Lynley Novel"
+  },
+  {
+    "item_name": "Warlight: A novel"
+  },
+  {
+    "item_name": "The Pisces: A Novel"
+  },
+  {
+    "item_name": "Visible Empire"
+  },
+  {
+    "item_name": "The Very Marrow of Our Bones: A Novel"
+  },
+  {
+    "item_name": "There There: A novel"
+  },
+  {
+    "item_name": "Rough Animals: An American Western Thriller"
+  },
+  {
+    "item_name": "Clock Dance: A novel"
+  },
+  {
+    "item_name": "Beneath a Scarlet Sky (Center Point Large Print)"
+  },
+  {
+    "item_name": "The Other Woman: A Novel"
+  },
+  {
+    "item_name": "The Cabin at the End of the World: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Rosie Project"
+  },
+  {
+    "rank": 2,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Freedom"
+  },
+  {
+    "rank": 4,
+    "item_name": "The chaperone."
+  },
+  {
+    "rank": 5,
+    "item_name": "The Sense of an Ending"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Widower's Tale: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "City of Secrets: A Novel - Kindle edition"
+  },
+  {
+    "rank": 8,
+    "item_name": "Fourth of July Creek: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "We Are Water: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Mothers, Tell Your Daughters: Stories"
+  },
+  {
+    "rank": 11,
+    "item_name": "Idaho"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Art of Fielding: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "Life Drawing: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Brooklyn: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Lovers: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "Caribou Island: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Still Life with Bread Crumbs: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Art of Hearing Heartbeats: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Invention of Wings"
+  },
+  {
+    "rank": 20,
+    "item_name": "Where'd You Go, Bernadette"
+  },
+  {
+    "rank": 21,
+    "item_name": "Hyacinth Girls: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Leisure Seeker: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "Still Alice"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Woman Upstairs"
+  },
+  {
+    "rank": 25,
+    "item_name": "A gentleman in Moscow"
+  },
+  {
+    "rank": 26,
+    "item_name": "Americanah"
+  },
+  {
+    "rank": 27,
+    "item_name": "Etta &amp; Otto &amp; Russell &amp; James Ome"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Horse Walks into a Bar: A novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Girls: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Vacationers"
+  },
+  {
+    "rank": 31,
+    "item_name": "On Chesil Beach"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Kitchen House: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Maine"
+  },
+  {
+    "rank": 34,
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Long Song: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Macbeth"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Light Between Oceans: The heartbreaking Richard and Judy bestseller"
+  },
+  {
+    "rank": 40,
+    "item_name": "A Reliable Wife (Thorndike Core)"
+  },
+  {
+    "rank": 41,
+    "item_name": "A Hologram for the King: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Death of Santini: The Story of a Father and His Son"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "My Name Is Lucy Barton: A Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Pearl that Broke Its Shell: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "All the Living"
+  },
+  {
+    "rank": 47,
+    "item_name": "Under the Wide and Starry Sky: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "We Are All Completely Beside Ourselves: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Ice Beneath Her: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Goldfinch: A Novel (Pulitzer Prize for Fiction)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

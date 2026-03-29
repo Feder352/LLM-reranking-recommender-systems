@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Long Lost (Myron Bolitar)"
+  },
+  {
+    "item_name": "Roadside Crosses: Kathryn Dance Book 2 (Kathryn Dance thrillers)"
+  },
+  {
+    "item_name": "Rough Country (A Virgil Flowers Novel)"
+  },
+  {
+    "item_name": "The Silent Hour (Lincoln Perry)"
+  },
+  {
+    "item_name": "Pursuit of Honor: A Thriller (Mitch Rapp)"
+  },
+  {
+    "item_name": "House Secrets"
+  },
+  {
+    "item_name": "Dark of the Moon (A Virgil Flowers Novel)"
+  },
+  {
+    "item_name": "Nine Dragons (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Invisible Prey (Lucas Davenport Mysteries)"
+  },
+  {
+    "item_name": "The Disciple (Tommy Carmellini, Book 4)"
+  },
+  {
+    "item_name": "Blood Safari"
+  },
+  {
+    "item_name": "Hollywood Moon: A Novel (Hollywood Station)"
+  },
+  {
+    "item_name": "Kisser: A Stone Barrington Novel"
+  },
+  {
+    "item_name": "I, Sniper (Bob Lee Swagger Novels)"
+  },
+  {
+    "item_name": "The Art of Racing in the Rain"
+  },
+  {
+    "item_name": "Hollywood Crows: A Novel"
+  },
+  {
+    "item_name": "The Night Monster: A Novel of Suspense (Jack Carpenter)"
+  },
+  {
+    "item_name": "The Sculptor"
+  },
+  {
+    "item_name": "Money to Burn: A Novel of Suspense"
+  },
+  {
+    "item_name": "Clean Kill: A Sniper Novel (Kyle Swanson Sniper Novels)"
+  },
+  {
+    "item_name": "The Killer"
+  },
+  {
+    "item_name": "The Burying Place: A Novel (Jonathan Stride)"
+  },
+  {
+    "item_name": "Storm Prey"
+  },
+  {
+    "item_name": "Supreme Justice: A Novel of Suspense (Dana Cutler Series)"
+  },
+  {
+    "item_name": "61 Hours: A Reacher Novel"
+  },
+  {
+    "item_name": "Strip (Otto Penzler Books)"
+  },
+  {
+    "item_name": "The Rule of Nine: A Paul Madriani Novel (Paul Madriani Novels)"
+  },
+  {
+    "item_name": "The Burning Wire"
+  },
+  {
+    "item_name": "The Rembrandt Affair (Gabriel Allon)"
+  },
+  {
+    "item_name": "The Cabal (McGarvey)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 170,
+    "item_name": "Skeleton Man"
+  },
+  {
+    "rank": 2,
+    "item_id": 4786,
+    "item_name": "The Watchman"
+  },
+  {
+    "rank": 3,
+    "item_id": 3226,
+    "item_name": "Now and Then (Spenser Mystery)"
+  },
+  {
+    "rank": 4,
+    "item_id": 1006,
+    "item_name": "Death Without Company: A Longmire Mystery"
+  },
+  {
+    "rank": 5,
+    "item_id": 2044,
+    "item_name": "Lost Light"
+  },
+  {
+    "rank": 6,
+    "item_id": 3170,
+    "item_name": "Back Story (Spenser Mystery)"
+  },
+  {
+    "rank": 7,
+    "item_id": 1928,
+    "item_name": "The Black Ice (Harry Bosch)"
+  },
+  {
+    "rank": 8,
+    "item_id": 1118,
+    "item_name": "Interred with Their Bones"
+  },
+  {
+    "rank": 9,
+    "item_id": 3169,
+    "item_name": "Appaloosa"
+  },
+  {
+    "rank": 10,
+    "item_id": 2189,
+    "item_name": "The Murder Book (Alex Delaware)"
+  },
+  {
+    "rank": 11,
+    "item_id": 4748,
+    "item_name": "In the Moon of Red Ponies: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_id": 2012,
+    "item_name": "Hollywood Station: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 3179,
+    "item_name": "School Days (Spenser Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_id": 2855,
+    "item_name": "Tell No One"
+  },
+  {
+    "rank": 15,
+    "item_id": 3176,
+    "item_name": "The Prince of Beverly Hills"
+  },
+  {
+    "rank": 16,
+    "item_id": 824,
+    "item_name": "Puffin Essentials Stone Cold (Puffin Teenage Fiction)"
+  },
+  {
+    "rank": 17,
+    "item_id": 1917,
+    "item_name": "Trunk Music (Harry Bosch Novels)"
+  },
+  {
+    "rank": 18,
+    "item_id": 2819,
+    "item_name": "The Final Detail: A Myron Bolitar Novel (Myron Bolitar Mysteries)"
+  },
+  {
+    "rank": 19,
+    "item_id": 2050,
+    "item_name": "Blood Work"
+  },
+  {
+    "rank": 20,
+    "item_id": 953,
+    "item_name": "Theodore Boone: Kid Lawyer"
+  },
+  {
+    "rank": 21,
+    "item_id": 4342,
+    "item_name": "Full Dark House: A Peculiar Crimes Unit Mystery"
+  },
+  {
+    "rank": 22,
+    "item_id": 1821,
+    "item_name": "Knots and Crosses: An Inspector Rebus Novel (Inspector Rebus Novels)"
+  },
+  {
+    "rank": 23,
+    "item_id": 2272,
+    "item_name": "A Dangerous Man: A Novel (Henry Thompson)"
+  },
+  {
+    "rank": 24,
+    "item_id": 111,
+    "item_name": "Hit List"
+  },
+  {
+    "rank": 25,
+    "item_id": 2010,
+    "item_name": "The Black Box (A Harry Bosch Novel)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

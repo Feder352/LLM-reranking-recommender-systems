@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Three Act Tragedy (Poirot)"
+  },
+  {
+    "item_name": "The Sentry (Joe Pike)"
+  },
+  {
+    "item_name": "Buffy the Vampire Slayer Season 8 Volume 7: Twilight"
+  },
+  {
+    "item_name": "To Fetch a Thief: A Chet and Bernie Mystery (The Chet and Bernie Mystery Series)"
+  },
+  {
+    "item_name": "A Trace of Smoke (Hannah Vogel Novels)"
+  },
+  {
+    "item_name": "Jeannie Out of the Bottle"
+  },
+  {
+    "item_name": "The Trinity Six: A Novel"
+  },
+  {
+    "item_name": "Under the Dome"
+  },
+  {
+    "item_name": "Full Service: My Adventures in Hollywood and the Secret Sex Live of the Stars"
+  },
+  {
+    "item_name": "The Chocolate War"
+  },
+  {
+    "item_name": "The Black Box (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Sweet Judy Blue Eyes: My Life in Music"
+  },
+  {
+    "item_name": "Gone Girl"
+  },
+  {
+    "item_name": "The Redgraves: A Family Epic"
+  },
+  {
+    "item_name": "Rin Tin Tin: The Life and the Legend"
+  },
+  {
+    "item_name": "Shake Hands Forever"
+  },
+  {
+    "item_name": "Rita Moreno: Memorias (Spanish Edition)"
+  },
+  {
+    "item_name": "As I Knew Him: My Dad, Rod Serling"
+  },
+  {
+    "item_name": "Provence, 1970: M.F.K. Fisher, Julia Child, James Beard, and the Reinvention of American Taste"
+  },
+  {
+    "item_name": "The A. B. C. Murders: A Hercule Poirot Mystery"
+  },
+  {
+    "item_name": "Death Comes as the End"
+  },
+  {
+    "item_name": "The Bad Always Die Twice"
+  },
+  {
+    "item_name": "A Fine Romance"
+  },
+  {
+    "item_name": "Andy and Don: The Making of a Friendship and a Classic American TV Show"
+  },
+  {
+    "item_name": "The Witch of Lime Street: Sance, Seduction, and Houdini in the Spirit World"
+  },
+  {
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "item_name": "22/11/63"
+  },
+  {
+    "item_name": "The Bad Girl: A Novel"
+  },
+  {
+    "item_name": "Christodora: A Novel"
+  },
+  {
+    "item_name": "I Loved Her in the Movies: Memories of Hollywood's Legendary Actresses"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 2,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 3,
+    "item_name": "PREY."
+  },
+  {
+    "rank": 4,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 5,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Day Of The Jackal"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 8,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Fifth Witness (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Reading &quot;Lolita&quot; in Tehran: A Memoir in Books"
+  },
+  {
+    "rank": 12,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Enemy (Jack Reacher, No. 8)"
+  },
+  {
+    "rank": 14,
+    "item_name": "March of the Penguins: Companion to the Major Motion Picture"
+  },
+  {
+    "rank": 15,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Secret Supper"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 20,
+    "item_name": "S is for Silence"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 22,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 24,
+    "item_name": "Midnight in the Garden of Good and Evil (AUDIO CD)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Blue Shoes and Happiness"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Manchurian Candidate"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Show Must Go On/The Cry and the Covenant/Autobiography of Will Rogers/Cry, the Beloved Country (Reader's Digest Condensed Books, Volume 1: 1950)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 29,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Brass Verdict: A Novel (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Maisie Dobbs (Book 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Gangs of New York"
+  },
+  {
+    "rank": 34,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Things They Carried (Contemporary American Fiction)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Krakatoa: The Day the World Exploded: August 27, 1883"
+  },
+  {
+    "rank": 37,
+    "item_name": "State of Fear"
+  },
+  {
+    "rank": 38,
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  },
+  {
+    "rank": 39,
+    "item_name": "The White Tiger: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 41,
+    "item_name": "Best Sellers from Reader's Digest Condensed Books The Source, Intern, Hotel St. Gregory, To Sir, with Love"
+  },
+  {
+    "rank": 42,
+    "item_name": "John Adams"
+  },
+  {
+    "rank": 43,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 44,
+    "item_name": "Portrait of a Killer : Jack the Ripper - Case Closed"
+  },
+  {
+    "rank": 45,
+    "item_name": "Ghost Soldiers: The Forgotten Epic Story of World War II's Most Dramatic Mission"
+  },
+  {
+    "rank": 46,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 47,
+    "item_name": "Azincourt"
+  },
+  {
+    "rank": 48,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 49,
+    "item_name": "A confederacy of dunces"
+  },
+  {
+    "rank": 50,
+    "item_name": "Flags of Our Fathers: Heroes of Iwo Jima"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

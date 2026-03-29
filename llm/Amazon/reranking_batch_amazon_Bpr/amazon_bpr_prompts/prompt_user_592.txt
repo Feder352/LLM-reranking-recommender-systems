@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "You Don't Love Me Yet: A Novel"
+  },
+  {
+    "item_name": "The Dinner Party: Stories"
+  },
+  {
+    "item_name": "The Collected Works of A. J. Fikry"
+  },
+  {
+    "item_name": "The World of Tomorrow"
+  },
+  {
+    "item_name": "Great House: A Novel"
+  },
+  {
+    "item_name": "36 Arguments for the Existence of God: A Work of Fiction"
+  },
+  {
+    "item_name": "The Pigeon Tunnel"
+  },
+  {
+    "item_name": "A Spot of Bother"
+  },
+  {
+    "item_name": "Dominion"
+  },
+  {
+    "item_name": "A Brief History of Everyone Who Ever Lived: The Human Story Retold Through Our Genes"
+  },
+  {
+    "item_name": "Man Walks Into a Room"
+  },
+  {
+    "item_name": "Artist Of The Floating World"
+  },
+  {
+    "item_name": "Artist Of The Floating World"
+  },
+  {
+    "item_name": "Artist Of The Floating World"
+  },
+  {
+    "item_name": "Artist Of The Floating World"
+  },
+  {
+    "item_name": "Artist Of The Floating World"
+  },
+  {
+    "item_name": "Artist Of The Floating World"
+  },
+  {
+    "item_name": "Artist Of The Floating World"
+  },
+  {
+    "item_name": "Artist Of The Floating World"
+  },
+  {
+    "item_name": "Artist Of The Floating World"
+  },
+  {
+    "item_name": "Artist Of The Floating World"
+  },
+  {
+    "item_name": "Artist Of The Floating World"
+  },
+  {
+    "item_name": "Artist Of The Floating World"
+  },
+  {
+    "item_name": "An Artist of the Floating World (Penguin Drop Caps)"
+  },
+  {
+    "item_name": "The 25th Hour"
+  },
+  {
+    "item_name": "Artist Of The Floating World"
+  },
+  {
+    "item_name": "Hot Milk"
+  },
+  {
+    "item_name": "Mercury: A Novel"
+  },
+  {
+    "item_name": "Celine: A novel"
+  },
+  {
+    "item_name": "Inventing Japan, 1853-1964 (Modern Library Chronicles)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The White Tiger: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Brooklyn: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Year of Magical Thinking Playscript. Joan Didion"
+  },
+  {
+    "rank": 4,
+    "item_name": "Disgrace: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 6,
+    "item_name": "Canada"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Thousand Autumns of Jacob de Zoet"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Things They Carried (Contemporary American Fiction)"
+  },
+  {
+    "rank": 9,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Art of Fielding: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "Appointment in Samarra (Vintage Classics)"
+  },
+  {
+    "rank": 12,
+    "item_name": "HHhH: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Bluest Eye (Vintage International)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Narrow Road to the Deep North: A novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "Bel Canto: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "Lincoln in the Bardo: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "White Teeth"
+  },
+  {
+    "rank": 18,
+    "item_name": "Exit Ghost"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Horse Walks into a Bar: A novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 21,
+    "item_name": "Tenth of December: Stories"
+  },
+  {
+    "rank": 22,
+    "item_name": "Bait And Switch: The (Futile) Pursuit of the American Dream"
+  },
+  {
+    "rank": 23,
+    "item_name": "Darkness Visible"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Infatuations"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Buried Giant: A novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "A Hologram for the King: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "A Visit from the Goon Squad"
+  },
+  {
+    "rank": 28,
+    "item_name": "Three Junes"
+  },
+  {
+    "rank": 29,
+    "item_name": "Climate of Uncertainty: A Balanced Look at Global Warming &amp; Renewable Energy (Paperback) - Common"
+  },
+  {
+    "rank": 30,
+    "item_name": "Cleopatra: A Life"
+  },
+  {
+    "rank": 31,
+    "item_name": "Visitation (New Directions Paperbook)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 34,
+    "item_name": "Falling Man: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Nutshell: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "rank": 37,
+    "item_name": "Hotel Du Lac"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Sea (Man Booker Prize)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 40,
+    "item_name": "Reading &quot;Lolita&quot; in Tehran: A Memoir in Books"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Testament of Mary"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Bookshop"
+  },
+  {
+    "rank": 43,
+    "item_name": "All the Living"
+  },
+  {
+    "rank": 44,
+    "item_name": "Interpreter of Maladies"
+  },
+  {
+    "rank": 45,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Other Hand"
+  },
+  {
+    "rank": 47,
+    "item_name": "Tree of Smoke"
+  },
+  {
+    "rank": 48,
+    "item_name": "When You Are Engulfed In Flames by David Sedaris"
+  },
+  {
+    "rank": 49,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Emperor of All Maladies: A Biography of Cancer"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

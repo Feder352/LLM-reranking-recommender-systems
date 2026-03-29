@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Just Fine the Way They Are: From Dirt Roads to Rail Roads to Interstates"
+  },
+  {
+    "item_name": "Kathryn the Grape's Colorful Adventure (Family Choice Award &amp; Mom's Choice Award Winner)"
+  },
+  {
+    "item_name": "Triple Shot (A Maggy Thorsen Mystery)"
+  },
+  {
+    "item_name": "Sinners &amp; Saints"
+  },
+  {
+    "item_name": "Ten: How Would You Rate Your Life"
+  },
+  {
+    "item_name": "The Great Grammar Book"
+  },
+  {
+    "item_name": "When Rain Falls (Victory Gospel Series #1)"
+  },
+  {
+    "item_name": "Inseparable"
+  },
+  {
+    "item_name": "When Morning Comes: A Family Affair Novel"
+  },
+  {
+    "item_name": "Stand by Me (SouledOut Sisters)"
+  },
+  {
+    "item_name": "A Good Excuse To Be Bad"
+  },
+  {
+    "item_name": "Soul Sisters"
+  },
+  {
+    "item_name": "Red Rain: A Novel"
+  },
+  {
+    "item_name": "The Ex-Wife"
+  },
+  {
+    "item_name": "Um ... Mommy, I Think I Flushed My Brother Down The Toilet - Kindle edition"
+  },
+  {
+    "item_name": "The House"
+  },
+  {
+    "item_name": "The Night Horses"
+  },
+  {
+    "item_name": "When Memories Fade (Victory Gospel Series, No. 2)"
+  },
+  {
+    "item_name": "First Class to New York (First Class Novels) (Volume 1)"
+  },
+  {
+    "item_name": "Deep Fried Trouble (Eugeena Patterson Mysteries)"
+  },
+  {
+    "item_name": "The Daniel Plan: 40 Days to a Healthier Life"
+  },
+  {
+    "item_name": "When Perfection Fails: Victory Gospel Series"
+  },
+  {
+    "item_name": "The Earth Bleeds Red"
+  },
+  {
+    "item_name": "Midnight Play (The Blue Dynasty)"
+  },
+  {
+    "item_name": "A Christmas Prayer"
+  },
+  {
+    "item_name": "Living Courageously: You Can Face Anything, Just Do It Afraid"
+  },
+  {
+    "item_name": "Sisters in the Wilderness: The Challenge of Womanist God-Talk"
+  },
+  {
+    "item_name": "Broken Heart (The Reed Family) (Volume 1)"
+  },
+  {
+    "item_name": "The Flip (Romance in Rehoboth) (Volume 2)"
+  },
+  {
+    "item_name": "An American Marriage: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Blended Families: An Anthology"
+  },
+  {
+    "rank": 2,
+    "item_name": "Murder, Mayhem &amp; a Fine Man: An Amanda Bell Brown Mystery"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Pastor's Husband"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Gifted: How to Live the Life of Your Dreams"
+  },
+  {
+    "rank": 5,
+    "item_name": "Sugar: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Betrayal (Urban Books)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Buying Time (Dre Thomas Series)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Looker: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "A Dollar Outta Fifteen Cent 4: Money Makes the World Go 'Round"
+  },
+  {
+    "rank": 10,
+    "item_name": "Don't Blame the Devil"
+  },
+  {
+    "rank": 11,
+    "item_name": "Friends &amp; Foes"
+  },
+  {
+    "rank": 12,
+    "item_name": "Fearless: Imagine Your Life Without Fear"
+  },
+  {
+    "rank": 13,
+    "item_name": "Death, Deceit &amp; Some Smooth Jazz (Amanda Bell Brown Mysteries, No. 2)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Try Darkness (Ty Buchanan Legal Thriller #2)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Silver Sparrow"
+  },
+  {
+    "rank": 16,
+    "item_name": "Creatively Ever After: A Path to Innovation"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Secret She Kept"
+  },
+  {
+    "rank": 18,
+    "item_name": "Win Friends and Customers: Relationship and Business Success from Empathic Acknowledging"
+  },
+  {
+    "rank": 19,
+    "item_name": "Dying for Revenge (Gideon Series)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Camilla's Roses"
+  },
+  {
+    "rank": 21,
+    "item_name": "True to the Game (True to the Game Trilogy)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Between Lovers"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Case for a Creator"
+  },
+  {
+    "rank": 24,
+    "item_name": "How Starbucks Saved My Life: A Son of Privilege Learns to Live Like Everyone Else"
+  },
+  {
+    "rank": 25,
+    "item_name": "Don't Make a Black Woman Take Off Her Earrings"
+  },
+  {
+    "rank": 26,
+    "item_name": "Where the Line Bleeds: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "If The Shoe Fits (Sassy Sistahood, Book 2) (Life, Faith &amp; Getting It Right #18) (Steeple Hill Cafe)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Summer Sisters"
+  },
+  {
+    "rank": 29,
+    "item_name": "Counterfeit Gods: The Empty Promises of Money, Sex, and Power, and the Only Hope that Matters"
+  },
+  {
+    "rank": 30,
+    "item_name": "Shades of Jade: A Novel (Strivers Row)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Passion Of Mary Margaret"
+  },
+  {
+    "rank": 32,
+    "item_name": "Fixin' Tyrone (Indigo)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Five People You Meet in Heaven (Random House Large Print)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Passover by Design: Picture-perfect Kosher by Design recipes for the holiday (Kosher by Design)"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Light to My Path"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Reunion: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Sleeping with Strangers (Gideon Series)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Dark Lilly E."
+  },
+  {
+    "rank": 39,
+    "item_name": "A Sinful Calling (A Reverend Curtis Black Novel)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Chocolate Beach"
+  },
+  {
+    "rank": 41,
+    "item_name": "Passin'"
+  },
+  {
+    "rank": 42,
+    "item_name": "Friends of the Wigwam: A Civil War Story"
+  },
+  {
+    "rank": 43,
+    "item_name": "Abuse of Discretion (Dre Thomas Series)"
+  },
+  {
+    "rank": 44,
+    "item_name": "She Ain't The One (A Man's World Series)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Baby Brother's Blues: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Imitation of Christ (Penguin Classics)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Songs of Deliverance"
+  },
+  {
+    "rank": 48,
+    "item_name": "When Cancer Hits: Your Complete Guide To Taking Care of YOU Through Treatment"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Moses Expedition: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Simply from Scratch"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

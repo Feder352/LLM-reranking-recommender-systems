@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Her One True Love"
+  },
+  {
+    "item_name": "Claiming Her Innocence"
+  },
+  {
+    "item_name": "Crossing the Line (Cross Creek)"
+  },
+  {
+    "item_name": "Ethan's Daughter (Templeton Cove Stories)"
+  },
+  {
+    "item_name": "The Deal"
+  },
+  {
+    "item_name": "Give Murder A Hand: Lizzie Book 2 (The Westport Mysteries)"
+  },
+  {
+    "item_name": "His Christmas Miracle"
+  },
+  {
+    "item_name": "Adam (7 Brides for 7 Soldiers)"
+  },
+  {
+    "item_name": "Forgetting the Billionaire: A Clean Billionaire Romance (Volume 1)"
+  },
+  {
+    "item_name": "Forgiving the Billionaire (A Clean Billionaire Romance) (Volume 2)"
+  },
+  {
+    "item_name": "Crash and Burn"
+  },
+  {
+    "item_name": "Married Till Christmas (The Bravos of Justice Creek)"
+  },
+  {
+    "item_name": "Reckless Heat: A Hostile Operations Team Prequel"
+  },
+  {
+    "item_name": "Christmas on Crimson Mountain (Crimson, Colorado)"
+  },
+  {
+    "item_name": "Survival Instinct"
+  },
+  {
+    "item_name": "Witch Is When It All Began (A Witch P.I. Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Snowbound With An Heiress: Snowbound with an Heiress / the Maverick's Snowbound Christmas (Montana Mavericks: the Great Family Roundup, Book 5)"
+  },
+  {
+    "item_name": "Sit...Stay...Beg (The Dogfather) (Volume 1)"
+  },
+  {
+    "item_name": "Christmas Stray"
+  },
+  {
+    "item_name": "The Second Chance Caf&eacute; (A Hope Springs Novel)"
+  },
+  {
+    "item_name": "The Lady The Duke And The Gentleman: A Historical Regency Romance Novel"
+  },
+  {
+    "item_name": "Sweet Girl (Titan)"
+  },
+  {
+    "item_name": "Burned by a Kiss: The Star Canyon Series - Book One"
+  },
+  {
+    "item_name": "Turquoise Mountain (Iron Feather Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "Forever a Father (The Delaneys of Sandpiper Beach)"
+  },
+  {
+    "item_name": "The Man She Knew (By Way of the Lighthouse)"
+  },
+  {
+    "item_name": "It Might Be You (The Harrisons)"
+  },
+  {
+    "item_name": "Dirty Deeds"
+  },
+  {
+    "item_name": "Reunited with the Sheriff (The Delaneys of Sandpiper Beach)"
+  },
+  {
+    "item_name": "Double Dog Dare (The Dogfather) (Volume 7)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Not Quite Enough"
+  },
+  {
+    "rank": 2,
+    "item_name": "Fire Away (Somewhere, TX) (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Back in the Game: A Stardust, Texas Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Come Home To Me: A Homefront Novella (Homefront .5)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Woman Who Couldn't Scream: A Novel (The Virtue Falls Series)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Almost A Bride (Wyoming Wildflowers)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Adam (Farraday Country) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Deadly Obsession (Harlequin Romantic Suspense)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The CEO's Unexpected Child (Billionaires and Babies)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Promise Cove: A Pelican Pointe Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "One Wish (Thunder Point)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Meeting of the Mustangs"
+  },
+  {
+    "rank": 13,
+    "item_name": "Love and Protect (Heroes of Evers, Texas) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Surrender my Love (The Bradens at Peaceful Harbor, Book 2) (Love in Bloom: The Bradens)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Married to the Military"
+  },
+  {
+    "rank": 16,
+    "item_name": "Bane (The Westmorelands)"
+  },
+  {
+    "rank": 17,
+    "item_name": "You and Only You (Blessings, Georgia)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Cowboy Stole My Heart: A River Ranch Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Taken by Love (The Bradens at Trusty, Book 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Billionaire Takes All (The Sinclairs)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Chasing I Do: The Eastons (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Sinful: A Bitter Creek Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "Special Forces Savior (Omega Sector: Critical Response)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Stone's Surrender: (A SEALs of Honor World Novel) (Heroes for Hire) (Volume 2)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Treasured by Thursday (Weekday Brides)"
+  },
+  {
+    "rank": 26,
+    "item_name": "A New Leash on Love (Rescue Me)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Until We Touch (Fool's Gold,  Book 17)"
+  },
+  {
+    "rank": 28,
+    "item_name": "SEAL's Promise"
+  },
+  {
+    "rank": 29,
+    "item_name": "Wyoming Tough"
+  },
+  {
+    "rank": 30,
+    "item_name": "King of Clubs (Aces &amp; Eights)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Hanover House"
+  },
+  {
+    "rank": 32,
+    "item_name": "Before I Knew (The Cabots)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Once a Rancher (The Carsons of Mustang Creek)"
+  },
+  {
+    "rank": 34,
+    "item_name": "What Love Can Do"
+  },
+  {
+    "rank": 35,
+    "item_name": "Sugar Pine Trail: A Small-Town Christmas Romance (Haven Point)"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Girl's Guide to Moving On: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Until You Loved Me (Silver Springs)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Montana Cherries (The Wildes of Birch Bay)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Triple the Fun (Billionaires and Babies)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Christmas Cowboy Hero (Heart of Texas)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Show Me (A Love Me Novel)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Safe by the Marshal's Side (Witness Protection)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Reclaim My Heart"
+  },
+  {
+    "rank": 44,
+    "item_name": "In a Ranger's Arms"
+  },
+  {
+    "rank": 45,
+    "item_name": "Into Dust (The Montana Hamiltons)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Rising Star (A Shooting Stars Novel)"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Cold Dark Place (Cold Justice) (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Against the Sun (The Raines of Wind Canyon)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Somebody to Love: A Cupid, Texas Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "The First Kiss of Spring: An Eternity Springs Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

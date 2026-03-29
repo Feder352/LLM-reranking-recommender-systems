@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "My Holiday in North Korea: The Funniest/Worst Place on Earth"
+  },
+  {
+    "item_name": "My Holiday in North Korea"
+  },
+  {
+    "item_name": "The Man in the High Castle (Essential Penguin)"
+  },
+  {
+    "item_name": "Virtual Billions: The Genius, the Drug Lord, and the Ivy League Twins behind the Rise of Bitcoin"
+  },
+  {
+    "item_name": "Can't We Talk about Something More Pleasant?: A Memoir"
+  },
+  {
+    "item_name": "For Dog's Sake!: A Simple Guide to Protecting Your Pup from Unsafe Foods, Everyday Dangers, and Bad Situations"
+  },
+  {
+    "item_name": "The Age of Napoleon (Modern Library Chronicles)"
+  },
+  {
+    "item_name": "The Orphan Master's Son: A Novel"
+  },
+  {
+    "item_name": "Great North Road [Paperback] [Apr 11, 2013] Peter F. Hamilton"
+  },
+  {
+    "item_name": "Shore of Women"
+  },
+  {
+    "item_name": "Clinton Cash: The Untold Story of How and Why Foreign Governments and Businesses Helped Make Bill and Hillary Rich"
+  },
+  {
+    "item_name": "The Last Madam: A Life In The New Orleans Underworld"
+  },
+  {
+    "item_name": "Chancers: Addiction, Prison, Recovery, Love: One Couple's Memoir"
+  },
+  {
+    "item_name": "Tender at the Bone (Cassette)"
+  },
+  {
+    "item_name": "Freedom's Landing"
+  },
+  {
+    "item_name": "In This House of Brede"
+  },
+  {
+    "item_name": "Mr. Rochester"
+  },
+  {
+    "item_name": "Commissary Kitchen: My Infamous Prison Cookbook"
+  },
+  {
+    "item_name": "You Will Pay"
+  },
+  {
+    "item_name": "Threads: From the Refugee Crisis"
+  },
+  {
+    "item_name": "Monk's Hood (Brother Cadfael Mysteries)"
+  },
+  {
+    "item_name": "Mildred Pierce (Wisconsin / Warner Bros. Screenplays)"
+  },
+  {
+    "item_name": "The Honeymoon: A Novel of George Eliot"
+  },
+  {
+    "item_name": "Foundation's Edge"
+  },
+  {
+    "item_name": "Love Those Eyes"
+  },
+  {
+    "item_name": "Negotiate the Best Lease for Your Business"
+  },
+  {
+    "item_name": "Fairy Tail Day Planner"
+  },
+  {
+    "item_name": "On the Road and Off the Record with Leonard Bernstein: My Years with the Exasperating Genius"
+  },
+  {
+    "item_name": "How to Be a Fashion Designer"
+  },
+  {
+    "item_name": "Between Planets"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 2,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 4,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 6,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 7,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 14,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Jungle (The Penguin American Library)"
+  },
+  {
+    "rank": 16,
+    "item_name": "1776 : America and Britain at War"
+  },
+  {
+    "rank": 17,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Anthem"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Hound of the Baskervilles (Puffin Classics)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 23,
+    "item_name": "Where the Wild Things Are"
+  },
+  {
+    "rank": 24,
+    "item_name": "Night"
+  },
+  {
+    "rank": 25,
+    "item_name": "Undaunted Courage: Meriwether Lewis, Thomas Jefferson, And The Opening Of The American West"
+  },
+  {
+    "rank": 26,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 27,
+    "item_name": "Maltese Falcon (Picador Books)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Little House On The Prairie"
+  },
+  {
+    "rank": 29,
+    "item_name": "Seabiscuit: An American Legend"
+  },
+  {
+    "rank": 30,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Complete Sherlock Holmes (Volume One)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 33,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Liberal Fascism: The Secret History of the Left from Mussolini to the Politics of Meaning"
+  },
+  {
+    "rank": 38,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 39,
+    "item_name": "Angels &amp; Demons (Random House Large Print)"
+  },
+  {
+    "rank": 40,
+    "item_name": "How to Win Friends and Influence People"
+  },
+  {
+    "rank": 41,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 42,
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "rank": 43,
+    "item_name": "Alexander Hamilton"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Alchemist"
+  },
+  {
+    "rank": 45,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 46,
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "rank": 47,
+    "item_name": "Treasure Island (Penguin Classics)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Jungle Book (Collins Classics)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Tortured for Christ"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Flood: A Novel"
+  },
+  {
+    "item_name": "The Illustrated Mahabharata: The Definitive Guide to India s Greatest Epic"
+  },
+  {
+    "item_name": "A Simple Wish (Simple Gifts)"
+  },
+  {
+    "item_name": "Woman Enters Left: A Novel"
+  },
+  {
+    "item_name": "White Chrysanthemum"
+  },
+  {
+    "item_name": "The Japanese Lover"
+  },
+  {
+    "item_name": "The Cat Who Came Back for Christmas: How a Cat Brought a Family the Gift of Love"
+  },
+  {
+    "item_name": "Waiting For Doggo"
+  },
+  {
+    "item_name": "The Solace of Trees: A Novel"
+  },
+  {
+    "item_name": "Tru &amp; Nelle: A Christmas Tale"
+  },
+  {
+    "item_name": "Island Beneath the Sea: A Novel"
+  },
+  {
+    "item_name": "Between Black and White (McMurtrie and Drake Legal Thrillers)"
+  },
+  {
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "item_name": "The Big Bad Wolf -- 2004 publication"
+  },
+  {
+    "item_name": "The Very Thought of You: A Novel"
+  },
+  {
+    "item_name": "Crow Mountain"
+  },
+  {
+    "item_name": "Total Control"
+  },
+  {
+    "item_name": "Too Shattered for Mending"
+  },
+  {
+    "item_name": "Only Killers and Thieves: A Novel"
+  },
+  {
+    "item_name": "Playing Atari with Saddam Hussein: Based on a True Story"
+  },
+  {
+    "item_name": "March Forward, Girl: From Young Warrior to Little Rock Nine"
+  },
+  {
+    "item_name": "Ghost Boys"
+  },
+  {
+    "item_name": "Educated: A Memoir"
+  },
+  {
+    "item_name": "The Night Diary"
+  },
+  {
+    "item_name": "How to American: An Immigrant's Guide to Disappointing Your Parents"
+  },
+  {
+    "item_name": "The Gingerbread Man (Brighter Child Keepsake Stories)"
+  },
+  {
+    "item_name": "Millard Salter's Last Day"
+  },
+  {
+    "item_name": "The Swiss Courier"
+  },
+  {
+    "item_name": "Amish Cooking Class - The Celebration"
+  },
+  {
+    "item_name": "Cook's Illustrated Baking Book"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "City of Women"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Preservationist: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Pilgrim's Wilderness: A True Story of Faith and Madness on the Alaska Frontier"
+  },
+  {
+    "rank": 5,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Help"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Light Between Oceans: The heartbreaking Richard and Judy bestseller"
+  },
+  {
+    "rank": 8,
+    "item_name": "Still Alice"
+  },
+  {
+    "rank": 9,
+    "item_name": "Orphan Train: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "White Houses: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The chaperone."
+  },
+  {
+    "rank": 12,
+    "item_name": "Etta &amp; Otto &amp; Russell &amp; James Ome"
+  },
+  {
+    "rank": 13,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Invention of Wings"
+  },
+  {
+    "rank": 16,
+    "item_name": "The World of Laura Ingalls Wilder: The Frontier Landscapes that Inspired the Little House Books"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Forgotten Garden"
+  },
+  {
+    "rank": 18,
+    "item_name": "Elegy for Eddie: A Maisie Dobbs Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Secrets of Wishtide (A Laetitia Rodd Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Fifth Petal"
+  },
+  {
+    "rank": 21,
+    "item_name": "Minding Frankie"
+  },
+  {
+    "rank": 22,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Secrets of Flight: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Victoria"
+  },
+  {
+    "rank": 25,
+    "item_name": "Saving CeeCee Honeycutt"
+  },
+  {
+    "rank": 26,
+    "item_name": "Summer House with Swimming Pool: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Last Queen"
+  },
+  {
+    "rank": 28,
+    "item_name": "Rules of Magic"
+  },
+  {
+    "rank": 29,
+    "item_name": "Circling the Sun: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Pearl that Broke Its Shell: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Readers of Broken Wheel Recommend"
+  },
+  {
+    "rank": 32,
+    "item_name": "An Unmarked Grave (Bess Crawford Mysteries)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Room"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Bird Sisters: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Keeper of Secrets"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Summer Before the War: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Orphan&#39;s Tale"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 39,
+    "item_name": "Before We Were Yours: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Death of Bees: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "Norwegian by Night"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Silent Sister: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "In Such Good Company: Eleven Years of Laughter, Mayhem, and Fun in the Sandbox"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Orphan's Tale: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "From Bruges with Love (The Pieter Van In Mysteries)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Art Forger"
+  },
+  {
+    "rank": 48,
+    "item_name": "Banana Cream Pie Murder (A Hannah Swensen Mystery)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Olive Kitteridge"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Last Ballad: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

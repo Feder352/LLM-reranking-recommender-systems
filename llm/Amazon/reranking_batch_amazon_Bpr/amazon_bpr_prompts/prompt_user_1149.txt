@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dangerous Waters (Lantern Beach) (Volume 4)"
+  },
+  {
+    "item_name": "Where I Belong (Pine Valley) (Volume 2)"
+  },
+  {
+    "item_name": "Bachelor Remedy (Seasons of Alaska)"
+  },
+  {
+    "item_name": "Treacherous Trails (Gold Country Cowboys)"
+  },
+  {
+    "item_name": "The Weaver's Daughter: A Regency Romance Novel"
+  },
+  {
+    "item_name": "Presumption and Partiality (Vintage Jane Austen) (Volume 5)"
+  },
+  {
+    "item_name": "Accidental Guardian (High Sierra Sweethearts)"
+  },
+  {
+    "item_name": "Pelican Point: A Hope Harbor Novel"
+  },
+  {
+    "item_name": "Julie"
+  },
+  {
+    "item_name": "Honeysuckle Dreams (A Blue Ridge Romance)"
+  },
+  {
+    "item_name": "Falling for You (A Bradford Sisters Romance)"
+  },
+  {
+    "item_name": "Lone Witness (Atlanta Justice)"
+  },
+  {
+    "item_name": "Storm Front (Montana Rescue)"
+  },
+  {
+    "item_name": "Things I Never Told You (Thatcher Sisters)"
+  },
+  {
+    "item_name": "No Less Days"
+  },
+  {
+    "item_name": "The Rancher's Secret Child (Bluebonnet Springs)"
+  },
+  {
+    "item_name": "Theory of Happily Ever After"
+  },
+  {
+    "item_name": "Cold Case: (Cold Harbor Book 4)"
+  },
+  {
+    "item_name": "The Firefighter's Twins"
+  },
+  {
+    "item_name": "Just Let Go"
+  },
+  {
+    "item_name": "More Than Meets the Eye"
+  },
+  {
+    "item_name": "To Claim Her Heart"
+  },
+  {
+    "item_name": "The Orphan's Wish"
+  },
+  {
+    "item_name": "Dead Drift (Chesapeake Valor)"
+  },
+  {
+    "item_name": "Sons of Blackbird Mountain (A Blackbird Mountain Novel)"
+  },
+  {
+    "item_name": "Hope of Azure Springs"
+  },
+  {
+    "item_name": "Darkwater Secrets (Darkwater Inn)"
+  },
+  {
+    "item_name": "Thirst of Steel (The Tox Files)"
+  },
+  {
+    "item_name": "The Patriot Bride: Daughters of the Mayflower - book 4"
+  },
+  {
+    "item_name": "Reckoning at Gossamer Pond"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Golden Braid"
+  },
+  {
+    "rank": 2,
+    "item_name": "Beyond All Dreams"
+  },
+  {
+    "rank": 3,
+    "item_name": "Tried and True (Wild at Heart) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Through Waters Deep (Waves of Freedom)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Kissed by a Cowboy (A Four of Hearts Ranch Romance)"
+  },
+  {
+    "rank": 6,
+    "item_name": "A Fool and His Monet (Serena Jones Mysteries)"
+  },
+  {
+    "rank": 7,
+    "item_name": "For Love and Honor"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Heiress of Winterwood (Whispers On The Moors)"
+  },
+  {
+    "rank": 9,
+    "item_name": "A Respectable Actress"
+  },
+  {
+    "rank": 10,
+    "item_name": "True to You (A Bradford Sisters Romance)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Wedding Dress"
+  },
+  {
+    "rank": 12,
+    "item_name": "Where Trust Lies (Return to the Canadian West)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Undaunted Hope (Beacons of Hope)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Sea Rose Lane: A Hope Harbor Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "Hearts Made Whole (Beacons of Hope)"
+  },
+  {
+    "rank": 16,
+    "item_name": "A Heart's Obsession (A Journey of the Heart)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Painter's Daughter"
+  },
+  {
+    "rank": 18,
+    "item_name": "Winter in Full Bloom"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Tapestry of Secrets"
+  },
+  {
+    "rank": 20,
+    "item_name": "A Love Like Ours (Porter Family Novels)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Just a Kiss (A Summer Harbor Novel)"
+  },
+  {
+    "rank": 22,
+    "item_name": "How to Catch a Prince (Royal Wedding Series)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Counting on a Cowboy (A Four of Hearts Ranch Romance)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Elusive Miss Ellison (Regency Brides: A Legacy of Grace)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Dawn at Emberwilde (A Treasures of Surrey Novel)"
+  },
+  {
+    "rank": 26,
+    "item_name": "My Heart Belongs on Mackinac Island: Maude&rsquo;s Mooring"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Red Door Inn: A Novel (Prince Edward Island Dreams)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Prelude for a Lord"
+  },
+  {
+    "rank": 29,
+    "item_name": "Dressed for Death (A Drew Farthering Mystery)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Every Girl Gets Confused: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Annabel Lee (Coffey &amp; Hill)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Gathering the Threads: A Novel (The Amish of Summer Grove)"
+  },
+  {
+    "rank": 33,
+    "item_name": "A Marriage in Middlebury"
+  },
+  {
+    "rank": 34,
+    "item_name": "To Follow Her Heart: A Novel (The Southold Chronicles) (Volume 3)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Sea Keeper's Daughters (A Carolina Heirlooms Novel)"
+  },
+  {
+    "rank": 36,
+    "item_name": "When I Fall in Love (Christiansen Family)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Inheritance (Secrets of the Shetlands)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Phoebe's Light (Nantucket Legacy)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Talon: Combat Tracking Team (A Breed Apart)"
+  },
+  {
+    "rank": 40,
+    "item_name": "A Sweet Misfortune: A Novel (Virtues and Vices of the Old West)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Freedom's Price: A Novel (Keys of Promise)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Cold-Case Christianity for Kids: Investigate Jesus with a Real Detective"
+  },
+  {
+    "rank": 43,
+    "item_name": "No Other Will Do"
+  },
+  {
+    "rank": 44,
+    "item_name": "Rachel: A Novel (Wives of the Patriarchs) (Volume 3)"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Place in His Heart: A Novel (The Southold Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Justice Delayed"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Trouble with Patience: A Novel (Virtues and Vices of the Old West) (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Meant to Be Mine"
+  },
+  {
+    "rank": 49,
+    "item_name": "A Most Inconvenient Marriage"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Gift Of Christmas Past: A Southern Romance"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

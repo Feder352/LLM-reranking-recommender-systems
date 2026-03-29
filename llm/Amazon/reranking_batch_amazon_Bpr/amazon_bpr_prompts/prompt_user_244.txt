@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "In the Woods: A Novel"
+  },
+  {
+    "item_name": "The Rain in Portugal: Poems"
+  },
+  {
+    "item_name": "Kindred: A Graphic Novel Adaptation"
+  },
+  {
+    "item_name": "An Enemy of the People (Penguin Plays)"
+  },
+  {
+    "item_name": "1946: The Making of the Modern World"
+  },
+  {
+    "item_name": "Old Scores: A Barker &amp; Llewelyn Novel"
+  },
+  {
+    "item_name": "Bad Boy Brawly Brown (Easy Rawlins Mystery)"
+  },
+  {
+    "item_name": "The Likeness"
+  },
+  {
+    "item_name": "The Shadow District: A Thriller (The Flovent and Thorson Thrillers)"
+  },
+  {
+    "item_name": "Walkin' the Dog"
+  },
+  {
+    "item_name": "Faithful Place"
+  },
+  {
+    "item_name": "Brothers at Arms: American Independence and the Men of France and Spain Who Saved It"
+  },
+  {
+    "item_name": "A Brief History of Everyone Who Ever Lived: The Human Story Retold Through Our Genes"
+  },
+  {
+    "item_name": "And Only to Deceive"
+  },
+  {
+    "item_name": "The Trespasser: A Novel"
+  },
+  {
+    "item_name": "The Boy on the Bridge"
+  },
+  {
+    "item_name": "The Unwomanly Face of War [Jul 25, 2017] Alexievich, Svetlana; Pevear, Richard and Volokhonsky, Larissa"
+  },
+  {
+    "item_name": "Broken Harbor: A Novel (Dublin Murder Squad)"
+  },
+  {
+    "item_name": "Boxers (Boxers &amp; Saints)"
+  },
+  {
+    "item_name": "Murder as a Fine Art (Thomas and Emily De Quincey)"
+  },
+  {
+    "item_name": "Little Scarlet: An Easy Rawlins Mystery"
+  },
+  {
+    "item_name": "The Silk Roads: A New History of the World"
+  },
+  {
+    "item_name": "The Shadow Land: A Novel"
+  },
+  {
+    "item_name": "The Third Horseman: A Story of Weather, War, and the Famine History Forgot"
+  },
+  {
+    "item_name": "Inspector of the Dead"
+  },
+  {
+    "item_name": "Greeks Bearing Gifts (A Bernie Gunther Novel)"
+  },
+  {
+    "item_name": "The Woman in the Water: A Prequel to the Charles Lenox Series (Charles Lenox Mysteries)"
+  },
+  {
+    "item_name": "GONE FISHIN: Featuring an Original Easy Rawlins Short Story Smoke"
+  },
+  {
+    "item_name": "His Bloody Project: Documents Relating to the Case of Roderick Macrae (Man Booker Prize Finalist 2016)"
+  },
+  {
+    "item_name": "The Saint of Wolves and Butchers"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 2,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 4,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Memoirs of a Geisha Uk"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 7,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Eyre Affair: A Thursday Next Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Amazing Adventures of Kavalier &amp; Clay"
+  },
+  {
+    "rank": 11,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 12,
+    "item_name": "One, Two, Buckle My Shoe"
+  },
+  {
+    "rank": 13,
+    "item_name": "I Am Legend"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 17,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 21,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 23,
+    "item_name": "Power and the Glory"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 25,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 26,
+    "item_name": "For Whom the Bell Tolls"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Murder of Roger Ackroyd (Poirot)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Crime and Punishment (Classics)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Starship Troopers"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Mother Tongue - English And How It Got That Way"
+  },
+  {
+    "rank": 32,
+    "item_name": "Carter Beats the Devil"
+  },
+  {
+    "rank": 33,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 34,
+    "item_name": "Life of Pi"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Canticle for Leibowitz"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 37,
+    "item_name": "Disgrace: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Light in August (Modern Library College Editions Series)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Yiddish Policemen's Union: A Novel (P.S.)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 41,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 42,
+    "item_name": "Of Human Bondage (Bantam Classics)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Alas, Babylon"
+  },
+  {
+    "rank": 45,
+    "item_name": "Twenty Thousand Leagues Under the Sea (Vintage Classics)"
+  },
+  {
+    "rank": 46,
+    "item_name": "I, Robot"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Road"
+  },
+  {
+    "rank": 48,
+    "item_name": "Portrait of a Killer : Jack the Ripper - Case Closed"
+  },
+  {
+    "rank": 49,
+    "item_name": "Night"
+  },
+  {
+    "rank": 50,
+    "item_name": "The White Tiger: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

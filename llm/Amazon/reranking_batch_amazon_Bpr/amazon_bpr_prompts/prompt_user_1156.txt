@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "In the Shadow of Revenge - Kindle edition"
+  },
+  {
+    "item_name": "Sisters In Love (Snow Sisters)"
+  },
+  {
+    "item_name": "Twerp (Twerp Series)"
+  },
+  {
+    "item_name": "Will in Scarlet"
+  },
+  {
+    "item_name": "Captain No Beard: Strangers on the High Seas, Book 4 of the Captain No Beard Series (A Captain No Beard Story)"
+  },
+  {
+    "item_name": "Stillwell: A Haunting on Long Island (A Haunting on Long Island Series)"
+  },
+  {
+    "item_name": "Chase Tinker and the House of Secrets"
+  },
+  {
+    "item_name": "Abe Lincoln: Public Enemy No. 1"
+  },
+  {
+    "item_name": "Seedlings: Fables from the Forest"
+  },
+  {
+    "item_name": "Just Ask the Universe: A No-Nonsense Guide to Manifesting your Dreams (Manifesting Your Dreams Collection)"
+  },
+  {
+    "item_name": "Darkness Bound (A Night Prowler Novel)"
+  },
+  {
+    "item_name": "The Companions: The Sundering, Book I"
+  },
+  {
+    "item_name": "The Godborn: The Sundering, Book II"
+  },
+  {
+    "item_name": "The Silver Chain (Unbreakable Trilogy, Book 1)"
+  },
+  {
+    "item_name": "The Red Queen Dies: A Mystery (Detective Hannah McCabe)"
+  },
+  {
+    "item_name": "Mister Max: The Book of Lost Things: Mister Max 1"
+  },
+  {
+    "item_name": "Sky Jumpers: Book 1"
+  },
+  {
+    "item_name": "The Troop"
+  },
+  {
+    "item_name": "The Hockey Saint (The Forever Friends Series)"
+  },
+  {
+    "item_name": "The Word Exchange"
+  },
+  {
+    "item_name": "Dog Gone, Back Soon"
+  },
+  {
+    "item_name": "The Here and Now"
+  },
+  {
+    "item_name": "We Are the Goldens"
+  },
+  {
+    "item_name": "Here and Again"
+  },
+  {
+    "item_name": "If you were me and lived in... Australia: A Child's Introduction to Cultures around the World (Volume 8)"
+  },
+  {
+    "item_name": "The Crew Goes Coconuts!: A Captain No Beard Story (Volume 6)"
+  },
+  {
+    "item_name": "Whaley's Big Adventure: Presented by Carole P. Roman"
+  },
+  {
+    "item_name": "Hitched"
+  },
+  {
+    "item_name": "ExtraLife, Inc."
+  },
+  {
+    "item_name": "Deadly Passage"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Monsterland (Monsterland Series) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Survival, Book 1 of The Guardians of Vesturon: The Guardians of Vesturon (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Wind Catcher (Chosen)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Game: The Sequel to I Hunt Killers"
+  },
+  {
+    "rank": 5,
+    "item_name": "Jaguar Sun"
+  },
+  {
+    "rank": 6,
+    "item_name": "Madison's Song"
+  },
+  {
+    "rank": 7,
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "rank": 8,
+    "item_name": "Finding Cinderella: A Novella"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Publicist"
+  },
+  {
+    "rank": 10,
+    "item_name": "Epic: Dawn of Destiny"
+  },
+  {
+    "rank": 11,
+    "item_name": "Rockin' Chair"
+  },
+  {
+    "rank": 12,
+    "item_name": "Ever Shade: A Dark Faerie Tale"
+  },
+  {
+    "rank": 13,
+    "item_name": "Shadow of Time"
+  },
+  {
+    "rank": 14,
+    "item_name": "Sanctuary"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Sands Of Time (Witching Pen Novellas)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Mama Cried eBook"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Hanging Tree: A Novella"
+  },
+  {
+    "rank": 18,
+    "item_name": "The History Major: A Novella"
+  },
+  {
+    "rank": 19,
+    "item_name": "If You Were Me and Lived in...Colonial America: An Introduction to Civilizations Throughout Time (Volume 9)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Flip (A Haunting On Long Island Series)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Oh Susannah: It's in the Bag (An Oh Susannah Story)"
+  },
+  {
+    "rank": 22,
+    "item_name": "At the Sharp End of Lightning (Oceanlight) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Grimnirs (Runes) (Volume 3)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Beautiful Disaster"
+  },
+  {
+    "rank": 25,
+    "item_name": "Being a Captain is Hard Work: A Captain No Beard Story (Volume 10)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Shelf Life: The Publicist - Book Two"
+  },
+  {
+    "rank": 27,
+    "item_name": "Rarity From the Hollow"
+  },
+  {
+    "rank": 28,
+    "item_name": "Rippler: Book One in the Ripple Series"
+  },
+  {
+    "rank": 29,
+    "item_name": "Brightest Kind of Darkness"
+  },
+  {
+    "rank": 30,
+    "item_name": "Twelve to Murder: A Mac Faraday Mystery"
+  },
+  {
+    "rank": 31,
+    "item_name": "Dream Student (The Dream Doctor Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Harvesting"
+  },
+  {
+    "rank": 33,
+    "item_name": "Survivor Roundup (Zombie West)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Resthaven"
+  },
+  {
+    "rank": 35,
+    "item_name": "Time of Death: Induction (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Rise of the Iron Eagle"
+  },
+  {
+    "rank": 37,
+    "item_name": "If You Were Me and Lived in...the American West: An Introduction to Civilizations Throughout Time (Volume 10)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Open Minds: (Mindjack Series Book 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Growl"
+  },
+  {
+    "rank": 40,
+    "item_name": "If You Were Me and Lived in... Elizabethan England: An Introduction to Civilizations Throughout Time (Volume 8)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Jack Templar Monster Hunter: The Jack Templar Chronicles: Book One"
+  },
+  {
+    "rank": 42,
+    "item_name": "Bitter Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Holdout"
+  },
+  {
+    "rank": 44,
+    "item_name": "Night of the Purple Moon (The Toucan Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Rae of Hope"
+  },
+  {
+    "rank": 46,
+    "item_name": "Kaitlin's Tale"
+  },
+  {
+    "rank": 47,
+    "item_name": "Ashes (Ashes #1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Opal Fire: A Stacy Justice Mystery"
+  },
+  {
+    "rank": 49,
+    "item_name": "In Leah's Wake"
+  },
+  {
+    "rank": 50,
+    "item_name": "Firefly Hollow"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

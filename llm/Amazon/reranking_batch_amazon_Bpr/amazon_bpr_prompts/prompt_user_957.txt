@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Beau Death (A Detective Peter Diamond Mystery)"
+  },
+  {
+    "item_name": "The Once and Future Queen"
+  },
+  {
+    "item_name": "It Happened at Two in the Morning"
+  },
+  {
+    "item_name": "Anatomy of a Scandal: The brilliant, must-read novel of 2018"
+  },
+  {
+    "item_name": "Creatures of Will and Temper"
+  },
+  {
+    "item_name": "This Is What Happened"
+  },
+  {
+    "item_name": "Improv Nation: How We Made a Great American Art"
+  },
+  {
+    "item_name": "The Mitford Murders: A Mystery"
+  },
+  {
+    "item_name": "The Little Red Wolf"
+  },
+  {
+    "item_name": "The Story of Snowflake and Inkdrop"
+  },
+  {
+    "item_name": "Tempests and Slaughter (The Numair Chronicles, Book One)"
+  },
+  {
+    "item_name": "If Apples Had Teeth"
+  },
+  {
+    "item_name": "Noir: A Novel"
+  },
+  {
+    "item_name": "Mister Tender's Girl: A Novel"
+  },
+  {
+    "item_name": "Asymmetry: A Novel"
+  },
+  {
+    "item_name": "The Missing Hours"
+  },
+  {
+    "item_name": "Twenty-one Days: A Daniel Pitt Novel"
+  },
+  {
+    "item_name": "Holmes Entangled"
+  },
+  {
+    "item_name": "Anatomy of a Miracle: A Novel*"
+  },
+  {
+    "item_name": "The Comedown: A Novel"
+  },
+  {
+    "item_name": "Macbeth"
+  },
+  {
+    "item_name": "Murder at Half Moon Gate (A Wrexford &amp; Sloane Mystery)"
+  },
+  {
+    "item_name": "From the Corner of the Oval: A Memoir"
+  },
+  {
+    "item_name": "The Escape Artist"
+  },
+  {
+    "item_name": "On the Road and Off the Record with Leonard Bernstein: My Years with the Exasperating Genius"
+  },
+  {
+    "item_name": "Green Lantern: Earth One Vol. 1"
+  },
+  {
+    "item_name": "London Rules: Jackson Lamb Thriller 5"
+  },
+  {
+    "item_name": "Reporter: A Memoir"
+  },
+  {
+    "item_name": "Neverworld Wake"
+  },
+  {
+    "item_name": "A Death of No Importance: A Novel (A Jane Prescott Novel)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 2,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Antagonist"
+  },
+  {
+    "rank": 4,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Last Whisper in the Dark: A Novel (Terrier Rand)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Hour of the Wolf"
+  },
+  {
+    "rank": 7,
+    "item_name": "Tomorrow and Tomorrow"
+  },
+  {
+    "rank": 8,
+    "item_name": "Cookie's Case (The Tug Wyler Mysteries)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Ruins of War: A Mason Collins Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Hangman: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Boyfriend"
+  },
+  {
+    "rank": 12,
+    "item_name": "We Install: And Other Stories"
+  },
+  {
+    "rank": 13,
+    "item_name": "From Bruges with Love (The Pieter Van In Mysteries)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Library at Mount Char"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Land of Decoration"
+  },
+  {
+    "rank": 16,
+    "item_name": "Haunted (A Hannah Smith Novel)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Daredevils: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "China Rich Girlfriend: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Bryant &amp; May and the Burning Man: A Peculiar Crimes Unit Mystery"
+  },
+  {
+    "rank": 20,
+    "item_name": "Plaster City (Jimmy Veeder Fiasco)"
+  },
+  {
+    "rank": 21,
+    "item_name": "And Sometimes I Wonder About You: A Leonid McGill Mystery"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Ghost Fields (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Horrorstor: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Psychopath Whisperer: The Science of Those Without Conscience"
+  },
+  {
+    "rank": 25,
+    "item_name": "Bitter Remains: A Custody Battle, A Gruesome Crime, and the Mother Who Paid the Ultimate Price"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Innocent Sleep: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Travelers: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Forsaken (A Quinn Colson Novel)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Bad Wolf: A Novel (Pia Kirchhoff and Oliver von Bodenstein)"
+  },
+  {
+    "rank": 31,
+    "item_name": "In the Valley of the Sun: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Ice Beneath Her: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Genome: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Color Master"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Abyss Beyond Dreams: A Novel of the Commonwealth (Commonwealth: Chronicle of the Fallers)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The True Tale of the Monster Billy Dean"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Regional Office Is Under Attack!: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Sometimes the Wolf: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Seven Days"
+  },
+  {
+    "rank": 40,
+    "item_name": "MaddAddam (MaddAddam Trilogy)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Hollow World"
+  },
+  {
+    "rank": 42,
+    "item_name": "Copper Heart (Maria Kallio)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Ten Lords A-Leaping: A Father Christmas Mystery"
+  },
+  {
+    "rank": 44,
+    "item_name": "Girl Waits with Gun (A Kopp Sisters Novel)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Man in the Monster: Inside the Mind of a Serial Killer"
+  },
+  {
+    "rank": 46,
+    "item_name": "Trust No One: A Thriller"
+  },
+  {
+    "rank": 47,
+    "item_name": "White Houses: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Muse: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "The 8th Circle: A Thriller (A Danny Ryan Thriller)"
+  },
+  {
+    "rank": 50,
+    "item_name": "City of Blades (The Divine Cities)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

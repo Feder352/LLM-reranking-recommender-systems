@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dark Matter"
+  },
+  {
+    "item_name": "The Lieutenants: Brotherhood of War"
+  },
+  {
+    "item_name": "Tom Clancy True Faith and Allegiance (A Jack Ryan Novel)"
+  },
+  {
+    "item_name": "An Officer and a Spy"
+  },
+  {
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "item_name": "The War Planners"
+  },
+  {
+    "item_name": "The Stepford Wives"
+  },
+  {
+    "item_name": "Split Second"
+  },
+  {
+    "item_name": "Wired"
+  },
+  {
+    "item_name": "Amped"
+  },
+  {
+    "item_name": "Mind's Eye"
+  },
+  {
+    "item_name": "BrainWeb"
+  },
+  {
+    "item_name": "Game Changer"
+  },
+  {
+    "item_name": "Quantum Lens"
+  },
+  {
+    "item_name": "Quantum Space (Quantum Series)"
+  },
+  {
+    "item_name": "The Cure: A Novel"
+  },
+  {
+    "item_name": "Fields of Fire (Frontlines)"
+  },
+  {
+    "item_name": "Chains of Command (Frontlines)"
+  },
+  {
+    "item_name": "Ike's Bluff: President Eisenhower's Secret Battle to Save the World"
+  },
+  {
+    "item_name": "The Cuban Affair"
+  },
+  {
+    "item_name": "A Clash of Kings: A Song of Ice and Fire: Book Two"
+  },
+  {
+    "item_name": "A Storm of Swords (HBO Tie-in Edition): A Song of Ice and Fire: Book Three"
+  },
+  {
+    "item_name": "A Feast for Crows (Song of Ice and Fire)"
+  },
+  {
+    "item_name": "A Feast for Crows"
+  },
+  {
+    "item_name": "A Dance with Dragons"
+  },
+  {
+    "item_name": "A Knight of the Seven Kingdoms: Being the Adventures of Ser Duncan the Tall, and His Squire, Egg"
+  },
+  {
+    "item_name": "Munich"
+  },
+  {
+    "item_name": "AN Innocent Client (Joe Dillard)"
+  },
+  {
+    "item_name": "Flash"
+  },
+  {
+    "item_name": "In Good Faith (Joe Dillard)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Years Of Rice And Salt"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 6,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 7,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Forge of God"
+  },
+  {
+    "rank": 11,
+    "item_name": "Eye of the Needle"
+  },
+  {
+    "rank": 12,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 13,
+    "item_name": "Fahrenheit 451"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Curse of Chalion (Chalion series)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Android's Dream"
+  },
+  {
+    "rank": 16,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 17,
+    "item_name": "Pirate Latitudes"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Black Echo (Harry Bosch)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Enemy (Jack Reacher, No. 8)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Day of the Triffids (Popular Penguins)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Friday"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Fire upon the Deep"
+  },
+  {
+    "rank": 24,
+    "item_name": "Forever War, The"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 26,
+    "item_name": "A Meeting at Corvallis (Dies the Fire, Book 3)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 28,
+    "item_name": "State of Fear"
+  },
+  {
+    "rank": 29,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 30,
+    "item_name": "Confessor: Chainfire Trilogy, Part 3 (Sword Of Truth, Book 11)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Alchemist"
+  },
+  {
+    "rank": 32,
+    "item_name": "The First Circle (English and Russian Edition)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Out of Sight"
+  },
+  {
+    "rank": 35,
+    "item_name": "Along Came a Spider"
+  },
+  {
+    "rank": 36,
+    "item_name": "Calculating God"
+  },
+  {
+    "rank": 37,
+    "item_name": "Lord Jim (New School Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Lost World"
+  },
+  {
+    "rank": 39,
+    "item_name": "Days of Infamy: A Novel of Alternate History"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Appeal"
+  },
+  {
+    "rank": 41,
+    "item_name": "Hunt for Red October"
+  },
+  {
+    "rank": 42,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Omega"
+  },
+  {
+    "rank": 44,
+    "item_name": "Jaws"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Mayor of Casterbridge (Penguin Classics)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Generation Kill: Devil Dogs, Iceman, Captain America and The New Face of American War"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Princess of Mars (Penguin Classics)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 49,
+    "item_name": "ICON"
+  },
+  {
+    "rank": 50,
+    "item_name": "A Wrinkle in Time"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

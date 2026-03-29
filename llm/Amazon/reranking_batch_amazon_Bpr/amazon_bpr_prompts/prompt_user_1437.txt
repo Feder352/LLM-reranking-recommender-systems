@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Outlaw: Hell's Seven MC Biker Romance"
+  },
+  {
+    "item_name": "a fighting chance (Free at last series)"
+  },
+  {
+    "item_name": "SEAL of Approval"
+  },
+  {
+    "item_name": "A Crime of Passion Fruit: A Bakeshop Mystery"
+  },
+  {
+    "item_name": "Running Hot"
+  },
+  {
+    "item_name": "Suddenly Engaged (A Lake Haven Novel)"
+  },
+  {
+    "item_name": "Links"
+  },
+  {
+    "item_name": "When the Scoundrel Sins (Capturing the Carlisles)"
+  },
+  {
+    "item_name": "The Chef's Mail Order Bride (Wild West Frontier Brides) (Volume 1)"
+  },
+  {
+    "item_name": "Score: Hell's Seven MC Biker Romance"
+  },
+  {
+    "item_name": "One More Kiss: A Second Chance Romance (One More Series)"
+  },
+  {
+    "item_name": "Prairie Heat: Cowboys of the Flint Hills (Volume 1)"
+  },
+  {
+    "item_name": "SEAL'D In Deep: Hell's Seven Biker Romance"
+  },
+  {
+    "item_name": "My Heart Belongs in Castle Gate, Utah: Leanna's Choice"
+  },
+  {
+    "item_name": "Date The Billionaire"
+  },
+  {
+    "item_name": "A Hero's Honor: Resolution Ranch (Flint Hills Military Heroes) (Volume 1)"
+  },
+  {
+    "item_name": "Clarissa and the Cowboy: An opposites-attract romance"
+  },
+  {
+    "item_name": "Cowboy Christmas Guardian (Gold Country Cowboys)"
+  },
+  {
+    "item_name": "Redheads Have More Fun"
+  },
+  {
+    "item_name": "Found Among the Ashes"
+  },
+  {
+    "item_name": "Rugged Texas Cowboy: Two Stories in One: Cowboy and the Captive, Cowboy and the Thief"
+  },
+  {
+    "item_name": "DAX Bad Boys Of Willow Valley"
+  },
+  {
+    "item_name": "Solve by Christmas"
+  },
+  {
+    "item_name": "Cowboy Stole My Heart: A River Ranch Novel"
+  },
+  {
+    "item_name": "Christmas, A Cat and Cardiac Arrest (The Heather's Forge Mystery Series) (Volume 1)"
+  },
+  {
+    "item_name": "Love by the Numbers"
+  },
+  {
+    "item_name": "Auctioned to the Biker"
+  },
+  {
+    "item_name": "Vegas Dumb Luck: A P. J. Stone Romance"
+  },
+  {
+    "item_name": "Shot in the Dark (A Coffeehouse Mystery)"
+  },
+  {
+    "item_name": "Return to Walhalla"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Three Sisters (Emily Castles Mysteries)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Hanover Square Affair"
+  },
+  {
+    "rank": 3,
+    "item_name": "Remembering Christmas: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Dante's Gift (A Chicago Christmas) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Red Door Inn: A Novel (Prince Edward Island Dreams)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Lady's Slipper: A Novel (Reading Group Gold)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Sixty Acres and a Bride"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Viscount's Christmas Temptation (Dukes of War) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Hazardous Duty (Squeaky Clean Mysteries, No. 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Christmas at Harmony Hill: A Shaker Story"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Beauty Bride"
+  },
+  {
+    "rank": 12,
+    "item_name": "Focus on Love"
+  },
+  {
+    "rank": 13,
+    "item_name": "When the Grits Hit the Fan (A Country Store Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Miss Match (No Match for Love) (Volume 3)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Time and Again: Book 1 in the History Mystery Series"
+  },
+  {
+    "rank": 16,
+    "item_name": "Vangie Vale and the Murdered Macaron (The Matchbaker Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Thief's Countess: Border Series Book 1"
+  },
+  {
+    "rank": 18,
+    "item_name": "Rules of Murder (A Drew Farthering Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Rekindled (Fountain Creek Chronicles, Book One)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Shunned No More: A Lady Forsaken, Book One (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "A Heart Divided: A Novel (Heart of the Rockies)"
+  },
+  {
+    "rank": 22,
+    "item_name": "This Fine Life: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Elusive Miss Ellison (Regency Brides: A Legacy of Grace)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Bad Luck Wedding Dress (Bad Luck Wedding Series) (The Bad Luck Brides)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Reformer (Power of the Matchmaker) (Volume 12)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Earls Just Want to Have Fun (Covent Garden Cubs)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Deeply Devoted: A Novel (The Blue Willow Brides) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Sister's Wish: The Charmed Amish Life, Book Three"
+  },
+  {
+    "rank": 29,
+    "item_name": "To Helvetica and Back (A Dangerous Type Mystery)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Shadows of the Past: A Novel (Logan Point) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Fall of Lord Drayson (Tanglewood) (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Christmas Dog, The"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Governess of Highland Hall: A Novel (Edwardian Brides)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Winter in Full Bloom"
+  },
+  {
+    "rank": 35,
+    "item_name": "How to Capture a Duke (Matchmaking for Wallflowers) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Christmas at Harrington's"
+  },
+  {
+    "rank": 37,
+    "item_name": "Quest of Honor (Searching Hearts) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Hearth in Candlewood (The Candlewood Trilogy, Book 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "A Passion Most Pure (Daughters of Boston, Book 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Isabella: Braveheart of France"
+  },
+  {
+    "rank": 41,
+    "item_name": "Address to Die For"
+  },
+  {
+    "rank": 42,
+    "item_name": "Absolute Liability: A Southern Fraud Thriller"
+  },
+  {
+    "rank": 43,
+    "item_name": "AN Undeniable Rogue: The Rogue's Club (Zebra Ballad Romance)"
+  },
+  {
+    "rank": 44,
+    "item_name": "For Love of the Duke (Heart of a Duke) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "By the Light of the Silvery Moon"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Inconvenient Duchess"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Time to Love (Quilts of Lancaster County, Book 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Colonel's Lady"
+  },
+  {
+    "rank": 49,
+    "item_name": "Lord of Pleasure (Rogues to Riches) (Volume 2)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Dare to Love Again: A Novel (The Heart of San Francisco) (Volume 2)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Forbidden"
+  },
+  {
+    "item_name": "Tiny Pretty Things"
+  },
+  {
+    "item_name": "I Am Crying All Inside: And Other Stories (The Complete Short Fiction of Clifford D. Simak)"
+  },
+  {
+    "item_name": "Dead Wake: The Last Crossing of the Lusitania"
+  },
+  {
+    "item_name": "Working for Bigfoot"
+  },
+  {
+    "item_name": "Dark Side of the Road, The: A country house murder mystery with a supernatural twist (An Ishmael Jones Mystery)"
+  },
+  {
+    "item_name": "The Shepherd's Crown (Tiffany Aching)"
+  },
+  {
+    "item_name": "The Best American Science Fiction and Fantasy 2015 (The Best American Series )"
+  },
+  {
+    "item_name": "Dynasty: The Rise and Fall of the House of Caesar"
+  },
+  {
+    "item_name": "Stop the Presses! (The Nero Wolfe Mysteries)"
+  },
+  {
+    "item_name": "Wild by Nature: From Siberia to Australia, Three Years Alone in the Wilderness on Foot"
+  },
+  {
+    "item_name": "Staked (The Iron Druid Chronicles)"
+  },
+  {
+    "item_name": "The Mathews Men: Seven Brothers and the War Against Hitler's U-boats"
+  },
+  {
+    "item_name": "The Menagerie: Animal Portraits to Color"
+  },
+  {
+    "item_name": "And Then All Hell Broke Loose: Two Decades in the Middle East"
+  },
+  {
+    "item_name": "The Bee Book: Discover the Wonder of Bees and How to Protect Them for Generations to Come"
+  },
+  {
+    "item_name": "Jefferson's America: The President, the Purchase, and the Explorers Who Transformed a Nation"
+  },
+  {
+    "item_name": "Rough Riders: Theodore Roosevelt, His Cowboy Regiment, and the Immortal Charge Up San Juan Hill"
+  },
+  {
+    "item_name": "The Hunt: The Outcome Is Never Certain"
+  },
+  {
+    "item_name": "League of Dragons (The Temeraire Series)"
+  },
+  {
+    "item_name": "Pathfinder Roleplaying Game: Beginner Box"
+  },
+  {
+    "item_name": "Murder, Stage Left (The Nero Wolfe Mysteries)"
+  },
+  {
+    "item_name": "Norse Mythology CD"
+  },
+  {
+    "item_name": "Besieged: Stories from the Iron Druid Chronicles"
+  },
+  {
+    "item_name": "Beforelife"
+  },
+  {
+    "item_name": "Guardians of the Gryphon's Claw (A Sam London Adventure)"
+  },
+  {
+    "item_name": "Beyond the Castle: A Guide to Discovering Your Happily Ever After"
+  },
+  {
+    "item_name": "Best American Science Fiction and Fantasy 2017 (The Best American Series )"
+  },
+  {
+    "item_name": "DC Comics Justice League The Ultimate Guide"
+  },
+  {
+    "item_name": "Kill the Farm Boy: The Tales of Pell"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Golem and the Jinni: A Novel (P.S.)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Smoke Gets in Your Eyes: And Other Lessons from the Crematory"
+  },
+  {
+    "rank": 4,
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Ricky Ricotta's Mighty Robot (Astro-Activity Book O'Fun) by Pilkey, Dav (unknown Edition) [Paperback(2006)]"
+  },
+  {
+    "rank": 6,
+    "item_name": "Railhead"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Song of the Quarkbeast: The Chronicles of Kazam, Book 2"
+  },
+  {
+    "rank": 8,
+    "item_name": "Enter the Saint"
+  },
+  {
+    "rank": 9,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "I Am Princess X"
+  },
+  {
+    "rank": 12,
+    "item_name": "Chasing Secrets"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Voyage of Lucy P. Simmons"
+  },
+  {
+    "rank": 14,
+    "item_name": "Battleship: A Daring Heiress, a Teenage Jockey, and America's Horse"
+  },
+  {
+    "rank": 15,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 16,
+    "item_name": "A Creature of Moonlight"
+  },
+  {
+    "rank": 17,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 18,
+    "item_name": "Dark Disciple: Star Wars"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Scarecrow Princess"
+  },
+  {
+    "rank": 20,
+    "item_name": "Ricky Ricotta's Mighty Robot Book Set (7 Volumes)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Last Unicorn"
+  },
+  {
+    "rank": 22,
+    "item_name": "Pawn's Gambit: And Other Stratagems"
+  },
+  {
+    "rank": 23,
+    "item_name": "The True Tale of the Monster Billy Dean"
+  },
+  {
+    "rank": 24,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Ex-Purgatory (Ex-Heroes)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Book of Esther: A  Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Abyss Beyond Dreams: A Novel of the Commonwealth (Commonwealth: Chronicle of the Fallers)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Blackout (Oxford Time Travel)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Borderline (The Arcadia Project)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Hero's Guide to Saving Your Kingdom"
+  },
+  {
+    "rank": 32,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Finches of Mars"
+  },
+  {
+    "rank": 34,
+    "item_name": "Saga, Vol. 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Sound of Music Story: How A Beguiling Young Novice, A Handsome Austrian Captain, and Ten Singing von Trapp Children Inspired the Most Beloved Film of All Time"
+  },
+  {
+    "rank": 36,
+    "item_name": "Dreaming Spies: A Novel of Suspense Featuring Mary Russell and Sherlock Holmes"
+  },
+  {
+    "rank": 37,
+    "item_name": "Wool - Omnibus Edition"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Local Habitation (October Daye)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Borrowers"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Graveyard Book"
+  },
+  {
+    "rank": 41,
+    "item_name": "MaddAddam (MaddAddam Trilogy)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Drunken Botanist"
+  },
+  {
+    "rank": 43,
+    "item_name": "William Shakespeare's Star Wars"
+  },
+  {
+    "rank": 44,
+    "item_name": "What If?: Serious Scientific Answers to Absurd Hypothetical Questions"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Murder of Magpies: A Novel (Sam Clair)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Best of All Possible Worlds: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Age of Myth: Book One of The Legends of the First Empire"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Saint Closes the Case"
+  },
+  {
+    "rank": 50,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

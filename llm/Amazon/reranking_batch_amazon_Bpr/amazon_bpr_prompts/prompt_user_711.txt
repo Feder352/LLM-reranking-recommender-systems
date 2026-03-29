@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Money: The Unauthorized Biography"
+  },
+  {
+    "item_name": "Berlin: The Downfall, 1945"
+  },
+  {
+    "item_name": "Blind Man's Bluff: The Untold Story of American Submarine Espionage"
+  },
+  {
+    "item_name": "Paradox: The Nine Greatest Enigmas in Physics"
+  },
+  {
+    "item_name": "The Theoretical Minimum: What You Need to Know to Start Doing Physics"
+  },
+  {
+    "item_name": "The Illustrated A Brief History of Time and The Universe in a Nutshell"
+  },
+  {
+    "item_name": "The Universe in a Nutshell"
+  },
+  {
+    "item_name": "D-Day [Sound Recording]: The Battle for Normandy"
+  },
+  {
+    "item_name": "War of Two: Alexander Hamilton, Aaron Burr, and the Duel that Stunned the Nation"
+  },
+  {
+    "item_name": "The Six Wives of Henry VIII"
+  },
+  {
+    "item_name": "The End: The Defiance and Destruction of Hitler's Germany, 1944-1945"
+  },
+  {
+    "item_name": "Longest Winter"
+  },
+  {
+    "item_name": "Victoria: A Life"
+  },
+  {
+    "item_name": "Victoria: A Life"
+  },
+  {
+    "item_name": "A History of the Ancient Near East: ca. 3000-323 BC (Blackwell History of the Ancient World)"
+  },
+  {
+    "item_name": "Breakfast of Champions CD Unabridged"
+  },
+  {
+    "item_name": "Welcome to the Monkey House Unabridged CD"
+  },
+  {
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "item_name": "Breakfast of Champions CD Unabridged"
+  },
+  {
+    "item_name": "God Bless You, Mr. Rosewater: A Novel"
+  },
+  {
+    "item_name": "Cat's Cradle (Essential Penguin)"
+  },
+  {
+    "item_name": "Player Piano: A Novel"
+  },
+  {
+    "item_name": "Dividing the Spoils: The War for Alexander the Great's Empire (Ancient Warfare and Civilization)"
+  },
+  {
+    "item_name": "Islam : A Short History (Universal History)"
+  },
+  {
+    "item_name": "In the Shadow of the Sword: The Birth of Islam and the Rise of the Global Arab Empire"
+  },
+  {
+    "item_name": "Ottoman Centuries"
+  },
+  {
+    "item_name": "The Great Game: On Secret Service in High Asia"
+  },
+  {
+    "item_name": "All the Shah's Men: An American Coup and the Roots of Middle East Terror"
+  },
+  {
+    "item_name": "All the Shah's Men: An American Coup and the Roots of Middle East Terror"
+  },
+  {
+    "item_name": "Leonardo da Vinci"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 2,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 3,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 6,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 7,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 8,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 9,
+    "item_name": "All the Shah's Men: An American Coup and the Roots of Middle East Terror"
+  },
+  {
+    "rank": 10,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 11,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 12,
+    "item_name": "Breakthrough: Elizabeth Hughes, the Discovery of Insulin, and the Making of a Medical Miracle"
+  },
+  {
+    "rank": 13,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 14,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 15,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Gettysburg Gospel: The Lincoln Speech That Nobody Knows (Simon &amp; Schuster Lincoln Library)"
+  },
+  {
+    "rank": 19,
+    "item_name": "What Jesus Meant"
+  },
+  {
+    "rank": 20,
+    "item_name": "Misquoting Jesus: The Story Behind Who Changed the Bible and Why"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 22,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 23,
+    "item_name": "How I Helped O. J. Get Away With Murder: The Shocking Inside Story of Violence, Loyalty, Regret, and Remorse"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Bell Curve: Intelligence and Class Structure in American Life"
+  },
+  {
+    "rank": 25,
+    "item_name": "At Any Cost: How Al Gore Tried to Steal the Election"
+  },
+  {
+    "rank": 26,
+    "item_name": "Fabric Of Reality (Penguin Science)"
+  },
+  {
+    "rank": 27,
+    "item_name": "A Godly Hero: The Life of William Jennings Bryan"
+  },
+  {
+    "rank": 28,
+    "item_name": "King Leopold's Ghost: A Story of Greed, Terror, and Heroism in Colonial Africa"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Price of Inequality: How Today's Divided Society Endangers Our Future"
+  },
+  {
+    "rank": 31,
+    "item_name": "Why Nations Fail: The Origins of Power, Prosperity, and Poverty"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Prophet"
+  },
+  {
+    "rank": 33,
+    "item_name": "A Universe from Nothing: Why There Is Something Rather than Nothing"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 35,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 36,
+    "item_name": "Why God Won't Go Away: Brain Science and the Biology of Belief"
+  },
+  {
+    "rank": 37,
+    "item_name": "In Defense of Food: An Eater's Manifesto"
+  },
+  {
+    "rank": 38,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 39,
+    "item_name": "Neptune's Inferno: The U.S. Navy at Guadalcanal"
+  },
+  {
+    "rank": 40,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 41,
+    "item_name": "Tortilla Flat"
+  },
+  {
+    "rank": 42,
+    "item_name": "1491: New Revelations of the Americas Before Columbus"
+  },
+  {
+    "rank": 43,
+    "item_name": "Factory Girls: From Village to City in a Changing China"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Popes Against the Jews: The Vatican's Role in the Rise of Modern Anti-Semitism"
+  },
+  {
+    "rank": 45,
+    "item_name": "Justice: What's the Right Thing to Do?"
+  },
+  {
+    "rank": 46,
+    "item_name": "Why Evolution Is True"
+  },
+  {
+    "rank": 47,
+    "item_name": "Liberal Fascism: The Secret History of the Left from Mussolini to the Politics of Meaning"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 49,
+    "item_name": "Siddhartha: An Indian Tale (Penguin Twentieth-Century Classics)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Fields of Blood: Religion and the History of Violence"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

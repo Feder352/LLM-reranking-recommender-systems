@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Rampant (Killer Unicorns, Book 1)"
+  },
+  {
+    "item_name": "Second Grave on the Left (Charley Davidson)"
+  },
+  {
+    "item_name": "Girl on the Verge"
+  },
+  {
+    "item_name": "Zoo City"
+  },
+  {
+    "item_name": "Hunting Ground (Alpha and Omega)"
+  },
+  {
+    "item_name": "The Viscount Who Loved Me (Bridgertons)"
+  },
+  {
+    "item_name": "Simply Irresistible (Lucky Harbor)"
+  },
+  {
+    "item_name": "Duke of Midnight"
+  },
+  {
+    "item_name": "The Iron Duke (A Novel of the Iron Seas)"
+  },
+  {
+    "item_name": "Wild Man (Dream Man)"
+  },
+  {
+    "item_name": "Drag Teen"
+  },
+  {
+    "item_name": "The Secret of a Heart Note"
+  },
+  {
+    "item_name": "Shadowshaper (Shadowshaper Cypher)"
+  },
+  {
+    "item_name": "The Girl from Everywhere"
+  },
+  {
+    "item_name": "The Thief (The Queen's Thief, Book 1)"
+  },
+  {
+    "item_name": "Warrior's Woman (Ly-San-Ter Family)"
+  },
+  {
+    "item_name": "Desperate Duchesses"
+  },
+  {
+    "item_name": "Third Grave Dead Ahead"
+  },
+  {
+    "item_name": "Fourth Grave Beneath My Feet"
+  },
+  {
+    "item_name": "An Offer From a Gentleman (Bridgertons)"
+  },
+  {
+    "item_name": "History Is All You Left Me"
+  },
+  {
+    "item_name": "Georgia Peaches and Other Forbidden Fruit"
+  },
+  {
+    "item_name": "Romancing Mister Bridgerton (Bridgertons)"
+  },
+  {
+    "item_name": "Strange the Dreamer"
+  },
+  {
+    "item_name": "Great"
+  },
+  {
+    "item_name": "Slightly Married"
+  },
+  {
+    "item_name": "Fair Game (Alpha and Omega)"
+  },
+  {
+    "item_name": "If You Give a Rake a Ruby (Jewels of the Ton)"
+  },
+  {
+    "item_name": "The Shack"
+  },
+  {
+    "item_name": "My Reckless Valentine"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 2,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 3,
+    "item_name": "Vampire Academy: Spirit Bound (book 5)"
+  },
+  {
+    "rank": 4,
+    "item_name": "City of Glass (The Mortal Instruments)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Silence"
+  },
+  {
+    "rank": 6,
+    "item_name": "Bloodlines: Silver Shadows (book 5)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Scarlet (Lunar Chronicles, Book 2)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Easy"
+  },
+  {
+    "rank": 9,
+    "item_name": "Cress"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Eternity Cure (Blood of Eden)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Iron Daughter"
+  },
+  {
+    "rank": 12,
+    "item_name": "The DUFF: (Designated Ugly Fat Friend)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Eve"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Iron King"
+  },
+  {
+    "rank": 15,
+    "item_name": "Dark Frost (The Mythos Academy)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Take Me On"
+  },
+  {
+    "rank": 17,
+    "item_name": "Silence Fallen (A Mercy Thompson Novel)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Hard Bitten (Chicagoland Vampires)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Crash into You"
+  },
+  {
+    "rank": 20,
+    "item_name": "A Court of Thorns and Roses"
+  },
+  {
+    "rank": 21,
+    "item_name": "Fallen"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Immortal Rules (Blood of Eden)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Cross My Heart and Hope to Spy (Gallagher Girls)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Lover Avenged (Black Dagger Brotherhood, Book 7)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Ugly Love: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "Gunmetal Magic"
+  },
+  {
+    "rank": 27,
+    "item_name": "Torment (Fallen)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Last Sacrifice (Vampire Academy)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Hex Hall (A Hex Hall Novel)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Alice in Zombieland"
+  },
+  {
+    "rank": 31,
+    "item_name": "From This Moment On (Sullivans)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Catching Jordan (Hundred Oaks)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Sea of Tranquility: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Sweet Evil"
+  },
+  {
+    "rank": 35,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 36,
+    "item_name": "Firelight"
+  },
+  {
+    "rank": 37,
+    "item_name": "Down to You (A Bad Boys Novel)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Prodigy"
+  },
+  {
+    "rank": 39,
+    "item_name": "Fathomless (Fairy Tale Retelling)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Spider's Bite (Elemental Assassin, Book 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Breathe (Sea Breeze)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Ten"
+  },
+  {
+    "rank": 44,
+    "item_name": "Unearthly"
+  },
+  {
+    "rank": 45,
+    "item_name": "Forgotten"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Girl in the Steel Corset"
+  },
+  {
+    "rank": 47,
+    "item_name": "Hourglass"
+  },
+  {
+    "rank": 48,
+    "item_name": "Hush, Hush"
+  },
+  {
+    "rank": 49,
+    "item_name": "Etiquette &amp; Espionage (Finishing School)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Chain Reaction (A Perfect Chemistry Novel)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

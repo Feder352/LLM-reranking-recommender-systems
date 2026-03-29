@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Place For Miss Snow"
+  },
+  {
+    "item_name": "Infected"
+  },
+  {
+    "item_name": "Southern Charmed"
+  },
+  {
+    "item_name": "Between Heaven and Earth (Power of the Matchmaker)"
+  },
+  {
+    "item_name": "The Lost and the Found"
+  },
+  {
+    "item_name": "Ella's Will"
+  },
+  {
+    "item_name": "Welcome to Wonderland #1: Home Sweet Motel"
+  },
+  {
+    "item_name": "The Secret Horses of Briar Hill"
+  },
+  {
+    "item_name": "Kept Secrets"
+  },
+  {
+    "item_name": "The Fall of Lord Drayson (Tanglewood) (Volume 1)"
+  },
+  {
+    "item_name": "Defenders of the Family"
+  },
+  {
+    "item_name": "A Convenient Christmas Wedding (Frontier Bachelors)"
+  },
+  {
+    "item_name": "Love's Broken Road"
+  },
+  {
+    "item_name": "Love and Fat-Free Cheese"
+  },
+  {
+    "item_name": "To Suit a Suitor"
+  },
+  {
+    "item_name": "the dragon of the month club (Volume 1)"
+  },
+  {
+    "item_name": "Not A Word"
+  },
+  {
+    "item_name": "The Dragons of Alsace Farm"
+  },
+  {
+    "item_name": "Healing of the Heart (Secrets of Sterling Street)"
+  },
+  {
+    "item_name": "Walk of Infamy (Rhea Jensen Series)"
+  },
+  {
+    "item_name": "You've Got This! How to Look Up When Life Has You Down"
+  },
+  {
+    "item_name": "For Sale by Owner"
+  },
+  {
+    "item_name": "Keys To The Demon Prison (Turtleback School &amp; Library Binding Edition) (Fablehaven)"
+  },
+  {
+    "item_name": "This Is Not a Werewolf Story"
+  },
+  {
+    "item_name": "To Move the World (Power of the Matchmaker)"
+  },
+  {
+    "item_name": "Winter Sky"
+  },
+  {
+    "item_name": "Christmas in the Cove"
+  },
+  {
+    "item_name": "The Reformer (Power of the Matchmaker) (Volume 12)"
+  },
+  {
+    "item_name": "No Holly for Christmas (A Magic City Duo) (Volume 2)"
+  },
+  {
+    "item_name": "Bai Tide: A Bai Hsu Mystery"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Silver Bells Collection (A Timeless Romance Anthology) (Volume 9)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Heart's Journey"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Gentleman's Deception"
+  },
+  {
+    "rank": 4,
+    "item_name": "Prejudice Meets Pride (Meet Your Match, book 1) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Do Over"
+  },
+  {
+    "rank": 6,
+    "item_name": "Love, Jane"
+  },
+  {
+    "rank": 7,
+    "item_name": "Happily Ever After Collection (A Timeless Romance Anthology) (Volume 20)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Lady Helen Finds Her Song"
+  },
+  {
+    "rank": 9,
+    "item_name": "Deadly Inheritance"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Match Maker: The Husband Maker, Book 2 (Volume 2)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Perfectly You (The Perfect Series)"
+  },
+  {
+    "rank": 12,
+    "item_name": "One Little Match"
+  },
+  {
+    "rank": 13,
+    "item_name": "To Win a Lady's Heart"
+  },
+  {
+    "rank": 14,
+    "item_name": "Redeem This (Tenderness and Terror (Clean Romantic Suspense)) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Governess"
+  },
+  {
+    "rank": 16,
+    "item_name": "Spotlight (Saint Squad)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Love at First Note"
+  },
+  {
+    "rank": 18,
+    "item_name": "Witness in the Dark"
+  },
+  {
+    "rank": 19,
+    "item_name": "Fires of Invention (Mysteries of Cove)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Eleanor and the Iron King"
+  },
+  {
+    "rank": 21,
+    "item_name": "Christmas Grace"
+  },
+  {
+    "rank": 22,
+    "item_name": "Just Ella (Books of Dalthia)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Defiance"
+  },
+  {
+    "rank": 24,
+    "item_name": "Eve: In the Beginning"
+  },
+  {
+    "rank": 25,
+    "item_name": "All I Want: Three couples. Three Stories. One Holiday"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Nobleman's Governess Bride (The Glass Slipper Chronicles)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Check Me Out (Proper Romance Contemporary)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Drops of Gold"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Song of Copper Creek"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Fine Gentleman"
+  },
+  {
+    "rank": 31,
+    "item_name": "An Inconvenient Romance"
+  },
+  {
+    "rank": 32,
+    "item_name": "California Dreamin' Collection (A Timeless Romance Anthology) (Volume 11)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Son of War, Daughter of Chaos"
+  },
+  {
+    "rank": 34,
+    "item_name": "My Dearest Enemy"
+  },
+  {
+    "rank": 35,
+    "item_name": "My Loving Vigil Keeping"
+  },
+  {
+    "rank": 36,
+    "item_name": "Lightning Struck (Brothers Maledetti)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Chemistry Lessons"
+  },
+  {
+    "rank": 38,
+    "item_name": "Swept Up By the Sea: A Romantic Fairy Tale"
+  },
+  {
+    "rank": 39,
+    "item_name": "For This We Are Soldiers: Tales of the Frontier Army"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Fall of Lord Drayson (Tanglewood) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "A Tangled Inheritance"
+  },
+  {
+    "rank": 42,
+    "item_name": "Ashes on the Moor (Proper Romance Victorian)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Mile 21"
+  },
+  {
+    "rank": 44,
+    "item_name": "Twelve Days in December (A Hearthfire Romance)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Outlaw's Secret (Love Inspired Historical)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Sense and Sensibility: A Latter-day Tale"
+  },
+  {
+    "rank": 47,
+    "item_name": "Summer House Party (Timeless Regency Collection) (Volume 4)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Pursuit of Lady Harriett (Tanglewood) (Volume 3)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Lady Emma's Campaign (Regency Romance)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Rapunzel Untangled"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

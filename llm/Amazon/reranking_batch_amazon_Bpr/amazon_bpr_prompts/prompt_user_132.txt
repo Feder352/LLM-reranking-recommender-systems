@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Conscience of a Conservative (The James Madison Library in American Politics)"
+  },
+  {
+    "item_name": "The How Can It Be Gluten Free Cookbook: Revolutionary Techniques. Groundbreaking Recipes."
+  },
+  {
+    "item_name": "The How Can It Be Gluten Free Cookbook by Editors at America's Test Kitchen (1 March, 2014) [Paperback]"
+  },
+  {
+    "item_name": "Giving: How Each of Us Can Change the World"
+  },
+  {
+    "item_name": "The Cobra Event: A Novel"
+  },
+  {
+    "item_name": "Letters from a Nut"
+  },
+  {
+    "item_name": "Harpo Speaks!"
+  },
+  {
+    "item_name": "One, Two, Buckle My Shoe"
+  },
+  {
+    "item_name": "An Hour Before Daylight: Memories of a Rural Boyhood"
+  },
+  {
+    "item_name": "ZUCKERMAN UNBOUND"
+  },
+  {
+    "item_name": "A Twisted Faith: A Minister's Obsession and the Murder That Destroyed a Church"
+  },
+  {
+    "item_name": "Beautiful You"
+  },
+  {
+    "item_name": "Tears of a Tiger (Hazelwood High Trilogy)"
+  },
+  {
+    "item_name": "Gerald R. Ford (The American Presidents: Thorndike Press Large Print Biography Series)"
+  },
+  {
+    "item_name": "Only You Can Save Mankind (Johnny Maxwell Trilogy)"
+  },
+  {
+    "item_name": "To Have and To Kill: Nurse Melanie McGuire, an Illicit Affair, and the Gruesome Murder of Her Husband"
+  },
+  {
+    "item_name": "Stupid American History: Tales of Stupidity, Strangeness, and Mythconceptions (Stupid History)"
+  },
+  {
+    "item_name": "The Groucho Letters: Letters from and to Groucho Marx"
+  },
+  {
+    "item_name": "Unwind (Unwind Dystology)"
+  },
+  {
+    "item_name": "Pygmy"
+  },
+  {
+    "item_name": "Enders"
+  },
+  {
+    "item_name": "Fatal : The Poisonous Life of a Female Serial Killer"
+  },
+  {
+    "item_name": "A Thousand Splendid Suns: A Novel"
+  },
+  {
+    "item_name": "Finding Darwin's God: A Scientist's Search for Common Ground Between God and Evolution"
+  },
+  {
+    "item_name": "Facing Your Giants: A David and Goliath Story for Everyday People"
+  },
+  {
+    "item_name": "Write it When I'm Gone: Remarkable Off-the-Record Conversations with Gerald R. Ford"
+  },
+  {
+    "item_name": "The Humbling (Vintage International)"
+  },
+  {
+    "item_name": "Peaks and Valleys: Making Good and Bad Times Work for You--at Work and in Life"
+  },
+  {
+    "item_name": "The Night in Question: Stories"
+  },
+  {
+    "item_name": "The Force Awakens (Star Wars)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 3,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 4,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 6,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 8,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 10,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Crime and Punishment (Classics)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 17,
+    "item_name": "A Connecticut Yankee in King Arthur's Court (Penguin Classics)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 19,
+    "item_name": "Treasure Island (Penguin Classics)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Light in August (Modern Library College Editions Series)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Maus: My Father Bleeds History Pt. 1: A Survivor's Tale (Penguin Graphic Fiction)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 23,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Elements of Style, Third Edition"
+  },
+  {
+    "rank": 25,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Dreamcatcher"
+  },
+  {
+    "rank": 27,
+    "item_name": "Dune"
+  },
+  {
+    "rank": 28,
+    "item_name": "SuperFreakonomics CD: Global Cooling, Patriotic Prostitutes, and Why Suicide Bombers Should Buy Life Insurance"
+  },
+  {
+    "rank": 29,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 30,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 32,
+    "item_name": "To Your Scattered Bodies Go (Riverworld Saga, Book 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Dune (Penguin Galaxy)"
+  },
+  {
+    "rank": 34,
+    "item_name": "For Whom the Bell Tolls"
+  },
+  {
+    "rank": 35,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 36,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 37,
+    "item_name": "I, Robot"
+  },
+  {
+    "rank": 38,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 39,
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Amazing Adventures of Kavalier &amp; Clay"
+  },
+  {
+    "rank": 41,
+    "item_name": "John Adams"
+  },
+  {
+    "rank": 42,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 44,
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  },
+  {
+    "rank": 45,
+    "item_name": "God Is Not Great: How Religion Poisons Everything"
+  },
+  {
+    "rank": 46,
+    "item_name": "All Quiet on the Western Front (World War I) by Erich Maria Remarque (2014-03-15)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Les Miserables (Penguin Classics)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 50,
+    "item_name": "On Writing: A Memoir of the Craft"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

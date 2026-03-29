@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Spark Joy: An Illustrated Master Class on the Art of Organizing and Tidying Up (The Life Changing Magic of Tidying Up)"
+  },
+  {
+    "item_name": "Scholastic Success With: Tests: Math Workbook: Grade 6 (Scholastic Success with Workbooks: Tests Math)"
+  },
+  {
+    "item_name": "Wait Till Next Year : A Memoir (AUDIO CASSETTE)"
+  },
+  {
+    "item_name": "X (A Kinsey Millhone Novel)"
+  },
+  {
+    "item_name": "Tricky Twenty-Two: A Stephanie Plum Novel"
+  },
+  {
+    "item_name": "Scholastic Success With: Tests: Math Workbook: Grade 6 (Scholastic Success with Workbooks: Tests Math)"
+  },
+  {
+    "item_name": "Jesse James: Last Rebel of the Civil War"
+  },
+  {
+    "item_name": "The Crossing (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Cross Justice (Alex Cross)"
+  },
+  {
+    "item_name": "Scholastic Success With: Tests: Math Workbook: Grade 6 (Scholastic Success with Workbooks: Tests Math)"
+  },
+  {
+    "item_name": "Flesh and Blood CD: A Scarpetta Novel (Kay Scarpetta Series)"
+  },
+  {
+    "item_name": "The Wrong Side of Goodbye (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "The Official Scrabble Players Dictionary"
+  },
+  {
+    "item_name": "The Black Box (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Complete Stories and Poems of Edgar Allan Poe"
+  },
+  {
+    "item_name": "Bill O'Reilly's Legends and Lies: The Real West"
+  },
+  {
+    "item_name": "The Late Show"
+  },
+  {
+    "item_name": "The Black Echo (Harry Bosch)"
+  },
+  {
+    "item_name": "Lancaster and York: The Wars of the Roses"
+  },
+  {
+    "item_name": "First 100 Words (Bright Baby)"
+  },
+  {
+    "item_name": "Dr. Seuss's ABC An Amazing Alphabet Book! (Bright and Early Board Books Super-Sized Edition)"
+  },
+  {
+    "item_name": "Moo Baa La La La"
+  },
+  {
+    "item_name": "The Tudors"
+  },
+  {
+    "item_name": "Liz: An Intimate Biography of Elizabeth Taylor"
+  },
+  {
+    "item_name": "Two Kinds of Truth (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Hardcore Twenty-Four: A Stephanie Plum Novel"
+  },
+  {
+    "item_name": "The Secret Rooms"
+  },
+  {
+    "item_name": "Y is for Yesterday (A Kinsey Millhone Novel)"
+  },
+  {
+    "item_name": "The Three Musketeers (Penguin Classics Deluxe Edition)"
+  },
+  {
+    "item_name": "The Man in the Iron Mask (Oxford World's Classics)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1292,
+    "item_name": "The Senator's Wife"
+  },
+  {
+    "rank": 2,
+    "item_id": 3824,
+    "item_name": "The Unlikely Pilgrimage of Harold Fry: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_id": 3259,
+    "item_name": "City of Women"
+  },
+  {
+    "rank": 4,
+    "item_id": 4437,
+    "item_name": "Still Alice"
+  },
+  {
+    "rank": 5,
+    "item_id": 1125,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 6,
+    "item_id": 5309,
+    "item_name": "Out of My League"
+  },
+  {
+    "rank": 7,
+    "item_id": 2346,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_id": 553,
+    "item_name": "State of Wonder"
+  },
+  {
+    "rank": 9,
+    "item_id": 4283,
+    "item_name": "Father's Day: A Journey into the Mind and Heart of My Extraordinary Son"
+  },
+  {
+    "rank": 10,
+    "item_id": 1994,
+    "item_name": "The Goldfinch: A Novel (Pulitzer Prize for Fiction)"
+  },
+  {
+    "rank": 11,
+    "item_id": 1510,
+    "item_name": "The Society of Timid Souls: or, How To Be Brave"
+  },
+  {
+    "rank": 12,
+    "item_id": 5550,
+    "item_name": "The Last Enchantments: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 1462,
+    "item_name": "Under the Wide and Starry Sky: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_id": 1490,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_id": 3245,
+    "item_name": "The Husband's Secret"
+  },
+  {
+    "rank": 16,
+    "item_id": 5784,
+    "item_name": "The Kitchen House: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_id": 1464,
+    "item_name": "Maine"
+  },
+  {
+    "rank": 18,
+    "item_id": 313,
+    "item_name": "The Last Anniversary: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_id": 1475,
+    "item_name": "Provence, 1970: M.F.K. Fisher, Julia Child, James Beard, and the Reinvention of American Taste"
+  },
+  {
+    "rank": 20,
+    "item_id": 2609,
+    "item_name": "That Old Cape Magic"
+  },
+  {
+    "rank": 21,
+    "item_id": 2129,
+    "item_name": "The Shack"
+  },
+  {
+    "rank": 22,
+    "item_id": 1332,
+    "item_name": "A Week in Winter"
+  },
+  {
+    "rank": 23,
+    "item_id": 518,
+    "item_name": "Porch Lights: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_id": 2322,
+    "item_name": "Never Tell Our Business to Strangers: A Memoir"
+  },
+  {
+    "rank": 25,
+    "item_id": 610,
+    "item_name": "There Was an Old Woman: A Novel of Suspense"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

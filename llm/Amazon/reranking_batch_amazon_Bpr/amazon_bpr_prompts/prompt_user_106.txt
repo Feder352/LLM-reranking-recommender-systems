@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Encyclopedia Brown, Boy Detective"
+  },
+  {
+    "item_name": "Rise of the Earth Dragon: A Branches Book (Dragon Masters #1)"
+  },
+  {
+    "item_name": "Fairest of All (Whatever After #1)"
+  },
+  {
+    "item_name": "Frindle"
+  },
+  {
+    "item_name": "Meet the Bigfeet (The Yeti Files #1)"
+  },
+  {
+    "item_name": "A Week in the Woods"
+  },
+  {
+    "item_name": "We the Children (Benjamin Pratt and the Keepers of the School)"
+  },
+  {
+    "item_name": "Little Bear (An I Can Read Book)"
+  },
+  {
+    "item_name": "I Wish You More"
+  },
+  {
+    "item_name": "The Chameleon: Life-Changing Wisdom for Anyone Who has a Personality or Knows Someone Who Does"
+  },
+  {
+    "item_name": "A Dark Inheritance (UFiles #1)"
+  },
+  {
+    "item_name": "One of the Few: A Marine Fighter Pilot's Reconnaissance of the Christian Worldview"
+  },
+  {
+    "item_name": "Borrowed Time"
+  },
+  {
+    "item_name": "The Lemonade War (The Lemonade War Series)"
+  },
+  {
+    "item_name": "Little Bear (An I Can Read Book)"
+  },
+  {
+    "item_name": "Domination (A C.H.A.O.S. Novel)"
+  },
+  {
+    "item_name": "Lost and Found"
+  },
+  {
+    "item_name": "Leonard: My Fifty-Year Friendship with a Remarkable Man"
+  },
+  {
+    "item_name": "Where's Spot?"
+  },
+  {
+    "item_name": "Bang"
+  },
+  {
+    "item_name": "Asp of Ascension (A Nerfertari Hughes Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "item_name": "Will Wilder: The Relic of Perilous Falls"
+  },
+  {
+    "item_name": "Polar Bear Night (New York Times Best Illustrated Children's Books (Awards))"
+  },
+  {
+    "item_name": "The Last Namsara (Iskari)"
+  },
+  {
+    "item_name": "Ordering Your Private World"
+  },
+  {
+    "item_name": "Dying For Revenge: The Lady Doc Murders - Book One (Volume 1)"
+  },
+  {
+    "item_name": "Stealing Jenny"
+  },
+  {
+    "item_name": "Frost"
+  },
+  {
+    "item_name": "Time Bomb"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 2,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Speak"
+  },
+  {
+    "rank": 5,
+    "item_name": "Wither (Chemical Garden)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Life as We Knew It"
+  },
+  {
+    "rank": 8,
+    "item_name": "Ice"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Clockwork Three"
+  },
+  {
+    "rank": 10,
+    "item_name": "Percy Jackson and the Sea of Monsters (Book 2)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Knife of Never Letting Go: Chaos Walking: Book One"
+  },
+  {
+    "rank": 12,
+    "item_name": "Leviathan"
+  },
+  {
+    "rank": 13,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Healers Apprentice"
+  },
+  {
+    "rank": 16,
+    "item_name": "So You Want to Be a Wizard"
+  },
+  {
+    "rank": 17,
+    "item_name": "Princess Academy"
+  },
+  {
+    "rank": 18,
+    "item_name": "American Born Chinese"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Lying Game"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Son of Neptune (Heroes of Olympus Book 2)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Last Unicorn"
+  },
+  {
+    "rank": 22,
+    "item_name": "Fairest"
+  },
+  {
+    "rank": 23,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 24,
+    "item_name": "Bitterblue (Graceling)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Rip Tide (Dark Life, Book 2)"
+  },
+  {
+    "rank": 26,
+    "item_name": "ARTEMIS FOWL - The Eternity Code"
+  },
+  {
+    "rank": 27,
+    "item_name": "Calamity Jack"
+  },
+  {
+    "rank": 28,
+    "item_name": "Pillage"
+  },
+  {
+    "rank": 29,
+    "item_name": "Magic Tree House Collection Volume 1: Books 1-4: #1 Dinosaurs Before Dark; #2 The Knight at Dawn; #3 Mummies in the Morning; #4 Pirates Past Noon (Magic Tree House (R))"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Wee Free Men: A Story of Discworld"
+  },
+  {
+    "rank": 31,
+    "item_name": "The False Prince (The Ascendance Trilogy, Book 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Inside Out and Back Again"
+  },
+  {
+    "rank": 33,
+    "item_name": "Howl's Moving Castle"
+  },
+  {
+    "rank": 34,
+    "item_name": "Hyperbole and a Half: Unfortunate Situations, Flawed Coping Mechanisms, Mayhem, and Other Things That Happened"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Tales of Beedle the Bard, Standard Edition (Harry Potter)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Treasure Island (Penguin Classics)"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Storm of Swords (HBO Tie-in Edition): A Song of Ice and Fire: Book Three"
+  },
+  {
+    "rank": 38,
+    "item_name": "Goliath (The Leviathan Trilogy)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Eona"
+  },
+  {
+    "rank": 40,
+    "item_name": "When You Reach Me (Yearling Newbery)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Invention of Hugo Cabret"
+  },
+  {
+    "rank": 43,
+    "item_name": "Vampire Kisses"
+  },
+  {
+    "rank": 44,
+    "item_name": "Fallen"
+  },
+  {
+    "rank": 45,
+    "item_name": "Ink Exchange (Wicked Lovely)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 47,
+    "item_name": "Matched"
+  },
+  {
+    "rank": 48,
+    "item_name": "Prophecy of the Sisters (Prophecy of the Sisters Trilogy)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Hero (The Woodcutter Sisters)"
+  },
+  {
+    "rank": 50,
+    "item_name": "What If?: Serious Scientific Answers to Absurd Hypothetical Questions"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

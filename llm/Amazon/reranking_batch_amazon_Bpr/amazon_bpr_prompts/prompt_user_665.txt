@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "It IS About Islam: Exposing the Truth About ISIS, Al Qaeda, Iran, and the Caliphate (The Control Series)"
+  },
+  {
+    "item_name": "Oathkeeper"
+  },
+  {
+    "item_name": "Small Data: The Tiny Clues That Uncover Huge Trends"
+  },
+  {
+    "item_name": "Embracing the Wild in Your Dog: An understanding of the authors of your dog's behavior - nature and the wolf"
+  },
+  {
+    "item_name": "The Art of People: 11 Simple People Skills That Will Get You Everything You Want"
+  },
+  {
+    "item_name": "Write Your Tale Off!"
+  },
+  {
+    "item_name": "Superforecasting: The Art and Science of Prediction"
+  },
+  {
+    "item_name": "Extinction End (The Extinction Cycle Book 5)"
+  },
+  {
+    "item_name": "Extinction Horizon(The Extinction Cycle Book 1)"
+  },
+  {
+    "item_name": "Extinction Evolution (The Extinction Cycle Book 4)"
+  },
+  {
+    "item_name": "Extinction Edge (The Extinction Cycle Book 2)"
+  },
+  {
+    "item_name": "Extinction Age (The Extinction Cycle Book 3)"
+  },
+  {
+    "item_name": "Thoughtfully Ruthless: The Key to Exponential Growth"
+  },
+  {
+    "item_name": "Crisis of Character: A White House Secret Service Officer Discloses His Firsthand Experience with Hillary, Bill, and How They Operate"
+  },
+  {
+    "item_name": "Hell Divers (Hell Divers Series, Book 1)"
+  },
+  {
+    "item_name": "CEO at 20: A Little Book for Big Dreams"
+  },
+  {
+    "item_name": "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life"
+  },
+  {
+    "item_name": "Indecent"
+  },
+  {
+    "item_name": "The Little Voice"
+  },
+  {
+    "item_name": "Uscolia"
+  },
+  {
+    "item_name": "Irresistible: The Rise of Addictive Technology and the Business of Keeping Us Hooked"
+  },
+  {
+    "item_name": "Rome Stories (Everyman's Library Pocket Classics Series)"
+  },
+  {
+    "item_name": "I Can't Make This Up: Life Lessons"
+  },
+  {
+    "item_name": "Lincoln in the Bardo: A Novel"
+  },
+  {
+    "item_name": "The Innovation Revolution: Discover the Genius Hiding in Plain Sight"
+  },
+  {
+    "item_name": "Cadillac Desert"
+  },
+  {
+    "item_name": "Six Billion Shoppers: The Companies Winning the Global E-Commerce Boom"
+  },
+  {
+    "item_name": "Killing Marketing: How Innovative Businesses Are Turning Marketing Cost Into Profit"
+  },
+  {
+    "item_name": "Glock: The Rise of America's Gun"
+  },
+  {
+    "item_name": "Churchill: A life"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 4,
+    "item_name": "Made to Stick: Why Some Ideas Take Hold and Others Come Unstuck"
+  },
+  {
+    "rank": 5,
+    "item_name": "The 48 Laws of Power"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 8,
+    "item_name": "Think and Grow Rich"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 10,
+    "item_name": "The 4-hour Workweek: Escape the 9-5, Live Anywhere and Join the New Rich"
+  },
+  {
+    "rank": 11,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 12,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  },
+  {
+    "rank": 14,
+    "item_name": "SuperFreakonomics CD: Global Cooling, Patriotic Prostitutes, and Why Suicide Bombers Should Buy Life Insurance"
+  },
+  {
+    "rank": 15,
+    "item_name": "Rework: Change The Way You Work Forever"
+  },
+  {
+    "rank": 16,
+    "item_name": "Outliers, The Story of Success"
+  },
+  {
+    "rank": 17,
+    "item_name": "7 Habits Of Highly Effective People"
+  },
+  {
+    "rank": 18,
+    "item_name": "To Sell is Human: The Surprising Truth About Persuading, Convincing, and Influencing Others"
+  },
+  {
+    "rank": 19,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 20,
+    "item_name": "Einstein: His Life and Universe"
+  },
+  {
+    "rank": 21,
+    "item_name": "Good to Great CD: Why Some Companies Make the Leap.And Others Don't"
+  },
+  {
+    "rank": 22,
+    "item_name": "Talk Like TED: The 9 Public-Speaking Secrets of the World's Top Minds"
+  },
+  {
+    "rank": 23,
+    "item_name": "Fooled By Randomness: The Hidden Role of Chance in Life and in the Markets"
+  },
+  {
+    "rank": 24,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Talent Code: Greatness Isn't Born. It's Grown."
+  },
+  {
+    "rank": 26,
+    "item_name": "The Dumbest Generation: How the Digital Age Stupefies Young Americans and Jeopardizes Our Future (Or, Don't Trust Anyone Under 30)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Medici Effect: What Elephants and Epidemics Can Teach Us About Innovation"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Bell Curve: Intelligence and Class Structure in American Life"
+  },
+  {
+    "rank": 30,
+    "item_name": "Predictably Irrational: The Hidden Forces That Shape Our Decisions"
+  },
+  {
+    "rank": 31,
+    "item_name": "Justice: What's the Right Thing to Do?"
+  },
+  {
+    "rank": 32,
+    "item_name": "A Universe from Nothing: Why There Is Something Rather than Nothing"
+  },
+  {
+    "rank": 33,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Gamble: General Petraeus and the American Military Adventure in Iraq"
+  },
+  {
+    "rank": 35,
+    "item_name": "The New Depression: The Breakdown of the Paper Money Economy"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Story of Philosophy (Touchstone Books) (Touchstone Books (Paperback))"
+  },
+  {
+    "rank": 37,
+    "item_name": "Uncontrolled: The Surprising Payoff of Trial-and-Error for Business, Politics, and Society"
+  },
+  {
+    "rank": 38,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 39,
+    "item_name": "Talent is Overrated: What Really Separates World-Class Performers from Everybody Else"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Seat of the Soul"
+  },
+  {
+    "rank": 41,
+    "item_name": "Malcolm Gladwell: David and Goliath : Underdogs, Misfits, and the Art of Battling Giants (Large Print Hardcover); 2013 Edition"
+  },
+  {
+    "rank": 42,
+    "item_name": "How to Win Friends and Influence People"
+  },
+  {
+    "rank": 43,
+    "item_name": "Man's Search for Meaning: An Introduction to Logotherapy, Revised and Enlarged Edition"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 45,
+    "item_name": "Money: The Unauthorized Biography"
+  },
+  {
+    "rank": 46,
+    "item_name": "Salt Sugar Fat: How the Food Giants Hooked Us"
+  },
+  {
+    "rank": 47,
+    "item_name": "Darkness Visible"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 49,
+    "item_name": "1776 : America and Britain at War"
+  },
+  {
+    "rank": 50,
+    "item_name": "The One Thing: The Surprisingly Simple Truth Behind Extraordinary Results"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

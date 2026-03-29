@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Flame in the Dark (A Soulwood Novel)"
+  },
+  {
+    "item_name": "A Duke in Shining Armor: Difficult Dukes"
+  },
+  {
+    "item_name": "Kiss Kiss Bang: An Iron Clad Security Novel"
+  },
+  {
+    "item_name": "Dangerously Divine (A Broken Riders Novel)"
+  },
+  {
+    "item_name": "Heart on Fire (The Kingmaker Chronicles)"
+  },
+  {
+    "item_name": "The Billionaire's Unexpected Baby (Winning the Billionaire) (Volume 2)"
+  },
+  {
+    "item_name": "A Devil in Scotland: A No Ordinary Hero Novel"
+  },
+  {
+    "item_name": "Baby, I'm Howling For You (Alphaville)"
+  },
+  {
+    "item_name": "Final Siege (Love Over Duty)"
+  },
+  {
+    "item_name": "When the Stars Come Out: A Cottonbloom Novel"
+  },
+  {
+    "item_name": "Cajun Crazy: A Cajun Novel"
+  },
+  {
+    "item_name": "Burn Bright"
+  },
+  {
+    "item_name": "Lake Silence (World of the Others, The)"
+  },
+  {
+    "item_name": "Darkest Night: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "item_name": "Ink: A Love Story on 7th and Main (Love Stories on 7th and Main) (Volume 1)"
+  },
+  {
+    "item_name": "Hot and Badgered (The Honey Badger Chronicles)"
+  },
+  {
+    "item_name": "Eight Simple Rules for Dating a Dragon: A Novel of the Embraced"
+  },
+  {
+    "item_name": "The Undercover Billionaire: A Billionaire SEAL Romance (The Tate Brothers)"
+  },
+  {
+    "item_name": "Deadly Secret: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "item_name": "Accidentally Married"
+  },
+  {
+    "item_name": "Dark Queen (Jane Yellowrock)"
+  },
+  {
+    "item_name": "A Duke Like No Other (Playful Brides)"
+  },
+  {
+    "item_name": "I Am Justice (Black Ops Confidential)"
+  },
+  {
+    "item_name": "Planet Dragos: A Novella of the Elder Races"
+  },
+  {
+    "item_name": "It's All About the Duke: The Rakes of St. James"
+  },
+  {
+    "item_name": "Ocean Light (Psy-Changeling Trinity)"
+  },
+  {
+    "item_name": "Venom in the Veins: An Elemental Assassin Book (Volume 17)"
+  },
+  {
+    "item_name": "Vampire's Faith"
+  },
+  {
+    "item_name": "Iron and Magic: (The Iron Covenant Book 1) (Volume 1)"
+  },
+  {
+    "item_name": "Kill the Farm Boy: The Tales of Pell"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Wolf with Benefits (Brava Paranormal Romance)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Magic Shifts (Kate Daniels)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Archangel's Blade (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Rising Darkness (A Game of Shadows Novel)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Eighth Grave After Dark"
+  },
+  {
+    "rank": 6,
+    "item_name": "Archangel's Consort (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Murder of Crows (A Novel of the Others)"
+  },
+  {
+    "rank": 8,
+    "item_name": "When Darkness Ends (Guardians Of Eternity)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Vision in Silver (A Novel of the Others)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Blood Assassin (The Sentinels)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Wild Invitation: A Psy-Changeling Collection (Psy/Changelings)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Caressed By Ice (Psy-Changelings, Book 3)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Dragon Bound (Elder Races)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Iced: Fever Series Book 6"
+  },
+  {
+    "rank": 15,
+    "item_name": "Magic Bleeds (Kate Daniels)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Magic Strikes (Kate Daniels)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Dragon Fall"
+  },
+  {
+    "rank": 18,
+    "item_name": "Revenant: Number 7 in series (Demonica Novel)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "Guarded (A Tidewater Novel)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Marked In Flesh (A Novel of the Others)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Tangle of Need (Psy/Changeling)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Darkest Secret (Lords of the Underworld)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Sharpest Blade (Shadow Reader)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Time Untime (Dark-Hunter Novels)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Better Homes and Hauntings"
+  },
+  {
+    "rank": 27,
+    "item_name": "Sweep In Peace (Innkeeper Chronicles) (Volume 2)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Dancing With the Devil (Nikki &amp; Michael)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Black Arts (Jane Yellowrock)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Witch With No Name"
+  },
+  {
+    "rank": 31,
+    "item_name": "Dark Lover (Black Dagger Brotherhood, Book 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Magic Burns (Kate Daniels)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Burned: A Fever Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Her Lone Wolf (X-Ops)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Slave to Sensation (Psy-Changelings, Book 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Night Shift"
+  },
+  {
+    "rank": 37,
+    "item_name": "Bear Meets Girl (The Pride Series)"
+  },
+  {
+    "rank": 38,
+    "item_name": "EVER AFTER PB"
+  },
+  {
+    "rank": 39,
+    "item_name": "Crimson Death (Anita Blake, Vampire Hunter)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Sins of the Night (Dark-Hunter, Book 8), Cover may vary"
+  },
+  {
+    "rank": 41,
+    "item_name": "Black Widow (Elemental Assassin)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Reap the Wind (Cassie Palmer)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Darkness Unmasked (Dark Angels)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Feversong: A Fever Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "Magic Breaks (Kate Daniels)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Heart of the Hunter"
+  },
+  {
+    "rank": 47,
+    "item_name": "Jason (Anita Blake, Vampire Hunter)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Fair Game (Alpha and Omega)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Burn for Me (Hidden Legacy)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Warrior Prince: Dragon Lords Book Four"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

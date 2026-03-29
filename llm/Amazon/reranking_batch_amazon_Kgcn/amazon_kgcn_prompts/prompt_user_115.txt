@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Namesake"
+  },
+  {
+    "item_name": "The Namesake"
+  },
+  {
+    "item_name": "Stealing the General: The Great Locomotive Chase and the First Medal of Honor"
+  },
+  {
+    "item_name": "Fahrenheit 451"
+  },
+  {
+    "item_name": "The New American Militarism: How Americans Are Seduced by War"
+  },
+  {
+    "item_name": "Bringing Down the House: The Inside Story of Six M.I.T. Students Who Took Vegas for Millions"
+  },
+  {
+    "item_name": "Big Russ and Me (Random House Large Print)"
+  },
+  {
+    "item_name": "The Selling of the President: The Classical Account of the Packaging of a Candidate"
+  },
+  {
+    "item_name": "Timeline"
+  },
+  {
+    "item_name": "Napoleon's Pyramids (Ethan Gage Adventures)"
+  },
+  {
+    "item_name": "Mary, Mary"
+  },
+  {
+    "item_name": "The Predators' Ball: The Inside Story of Drexel Burnham and the Rise of the JunkBond Raiders"
+  },
+  {
+    "item_name": "Up Till Now: The Autobiography"
+  },
+  {
+    "item_name": "The Ethical Brain: The Science of Our Moral Dilemmas"
+  },
+  {
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "item_name": "Memories of My Melancholy Whores. Gabriel Garca Mrquez"
+  },
+  {
+    "item_name": "Hedge Hunters: Hedge Fund Masters on the Rewards, the Risk, and the Reckoning (Bloomberg)"
+  },
+  {
+    "item_name": "Write it When I'm Gone: Remarkable Off-the-Record Conversations with Gerald R. Ford"
+  },
+  {
+    "item_name": "Wonderful Tonight: George Harrison, Eric Clapton, and Me"
+  },
+  {
+    "item_name": "The Gift of Fear : Survival Signals That Protect Us from Violence"
+  },
+  {
+    "item_name": "The Little Book of Common Sense Investing: The Only Way to Guarantee Your Fair Share of Stock Market Returns"
+  },
+  {
+    "item_name": "Terrorist"
+  },
+  {
+    "item_name": "John F. Kennedy"
+  },
+  {
+    "item_name": "The Secret Teachings of All Ages"
+  },
+  {
+    "item_name": "We Were Soldiers Once...and Young: Ia Drang - The Battle That Changed the War in Vietnam"
+  },
+  {
+    "item_name": "The Final Days"
+  },
+  {
+    "item_name": "The Secret (Unabridged, 4-CD Set)"
+  },
+  {
+    "item_name": "Portrait of a Killer : Jack the Ripper - Case Closed"
+  },
+  {
+    "item_name": "Den of Thieves"
+  },
+  {
+    "item_name": "Money for Nothing: One Man's Journey through the Dark Side of Lottery Millions"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 4522,
+    "item_name": "Truman"
+  },
+  {
+    "rank": 2,
+    "item_id": 2931,
+    "item_name": "Blood and Thunder: An Epic of the American West"
+  },
+  {
+    "rank": 3,
+    "item_id": 1468,
+    "item_name": "Revolutionary Summer: The Birth of American Independence"
+  },
+  {
+    "rank": 4,
+    "item_id": 1559,
+    "item_name": "The Case for a Creator"
+  },
+  {
+    "rank": 5,
+    "item_id": 1297,
+    "item_name": "American Creation: Triumphs and Tragedies at the Founding of the Republic"
+  },
+  {
+    "rank": 6,
+    "item_id": 5289,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 7,
+    "item_id": 4621,
+    "item_name": "Benjamin Franklin: An American Life"
+  },
+  {
+    "rank": 8,
+    "item_id": 2907,
+    "item_name": "Case Closed: Lee Harvey Oswald and the Assassination of JFK"
+  },
+  {
+    "rank": 9,
+    "item_id": 1007,
+    "item_name": "The Wal-Mart Effect: How the World's Most Powerful Company Really Works--and HowIt's Transforming the  American Economy"
+  },
+  {
+    "rank": 10,
+    "item_id": 1509,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 11,
+    "item_id": 1382,
+    "item_name": "If Democrats Had Any Brains, They'd Be Republicans"
+  },
+  {
+    "rank": 12,
+    "item_id": 2624,
+    "item_name": "Culture Warrior (Random House Large Print)"
+  },
+  {
+    "rank": 13,
+    "item_id": 4358,
+    "item_name": "Confederates in the Attic"
+  },
+  {
+    "rank": 14,
+    "item_id": 2628,
+    "item_name": "The Botany of Desire: A Plant's-Eye View of the World"
+  },
+  {
+    "rank": 15,
+    "item_id": 2073,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 16,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 17,
+    "item_id": 213,
+    "item_name": "How Soccer Explains the World"
+  },
+  {
+    "rank": 18,
+    "item_id": 1415,
+    "item_name": "Dreams from My Father: A Story of Race and Inheritance"
+  },
+  {
+    "rank": 19,
+    "item_id": 68,
+    "item_name": "The Paradox of Choice: Why More Is Less"
+  },
+  {
+    "rank": 20,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 21,
+    "item_id": 1228,
+    "item_name": "The Meaning of Everything: The Story of the Oxford English Dictionary"
+  },
+  {
+    "rank": 22,
+    "item_id": 4587,
+    "item_name": "The Consolations of Philosophy"
+  },
+  {
+    "rank": 23,
+    "item_id": 64,
+    "item_name": "In the Wake of the Plague: The Black Death and the World It Made"
+  },
+  {
+    "rank": 24,
+    "item_id": 1698,
+    "item_name": "The World Without Us"
+  },
+  {
+    "rank": 25,
+    "item_id": 5272,
+    "item_name": "Freethinkers: A History of American Secularism"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

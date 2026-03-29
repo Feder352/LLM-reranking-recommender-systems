@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "item_name": "22/11/63"
+  },
+  {
+    "item_name": "Erasing Hell: What God Said About Eternity, and the Things We've Made Up"
+  },
+  {
+    "item_name": "One Season of Hope"
+  },
+  {
+    "item_name": "A Pagan's Nightmare: A Novel"
+  },
+  {
+    "item_name": "Red Star Rogue: The Untold Story of a Soviet Submarine's Nuclear Strike Attempt on the U.S."
+  },
+  {
+    "item_name": "Luther"
+  },
+  {
+    "item_name": "The Madhouse Effect: How Climate Change Denial Is Threatening Our Planet, Destroying Our Politics, and Driving Us Crazy"
+  },
+  {
+    "item_name": "One Day (Vintage Contemporaries)"
+  },
+  {
+    "item_name": "Stalin's Daughter: The Extraordinary and Tumultuous Life of Svetlana Alliluyeva"
+  },
+  {
+    "item_name": "The Amateur: Barack Obama in the White House"
+  },
+  {
+    "item_name": "The Greatest Zombie Movie Ever"
+  },
+  {
+    "item_name": "Prince Charles: The Passions and Paradoxes of an Improbable Life"
+  },
+  {
+    "item_name": "41: A Portrait of My Father"
+  },
+  {
+    "item_name": "Decision Points"
+  },
+  {
+    "item_name": "The Highway Kind: Tales of Fast Cars, Desperate Drivers, and Dark Roads: Original Stories by Michael Connelly, George Pelecanos, C. J. Box, Diana Gabaldon, Ace Atkins &amp; Others"
+  },
+  {
+    "item_name": "Finding Winnie: The True Story of the World's Most Famous Bear"
+  },
+  {
+    "item_name": "We Don't Need Roads: The Making of the Back to the Future Trilogy"
+  },
+  {
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "item_name": "I Killed: True Stories of the Road from America's Top Comics"
+  },
+  {
+    "item_name": "David and Goliath (A Little Golden Book)"
+  },
+  {
+    "item_name": "Ms. Marvel Volume 1: No Normal"
+  },
+  {
+    "item_name": "The Crisis of Islam: Holy War and Unholy Terror"
+  },
+  {
+    "item_name": "Dear Leader: Poet, Spy, Escapee--A Look Inside North Korea"
+  },
+  {
+    "item_name": "Shatner Rules: Your Guide to Understanding the Shatnerverse and the World at Large"
+  },
+  {
+    "item_name": "You Can't Spell America Without Me: The Really Tremendous Inside Story of My Fantastic First Year as President Donald J. Trump (A So-Called Parody)"
+  },
+  {
+    "item_name": "Seven Years in Tibet"
+  },
+  {
+    "item_name": "Storms of My Grandchildren: The Truth About the Coming Climate Catastrophe and Our Last Chance to Save Humanity"
+  },
+  {
+    "item_name": "Bad Money: The Inexcusable Failure of American Finance: An Update to Bad Money (A Penguin Group eSpecial from Penguin Books)"
+  },
+  {
+    "item_name": "Under the Overpass: A Journey of Faith on the Streets of America"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 76442,
+    "item_name": "Night"
+  },
+  {
+    "rank": 2,
+    "item_id": 75568,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 3,
+    "item_id": 9963,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 4,
+    "item_id": 7043,
+    "item_name": "Outliers, The Story of Success"
+  },
+  {
+    "rank": 5,
+    "item_id": 74439,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 6,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 7,
+    "item_id": 584,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 8,
+    "item_id": 7156,
+    "item_name": "Dog Days (Diary of a Wimpy Kid)"
+  },
+  {
+    "rank": 9,
+    "item_id": 6721,
+    "item_name": "The Jungle (The Penguin American Library)"
+  },
+  {
+    "rank": 10,
+    "item_id": 74663,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 11,
+    "item_id": 75897,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 12,
+    "item_id": 6920,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 13,
+    "item_id": 19564,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 14,
+    "item_id": 597,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 15,
+    "item_id": 74802,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 16,
+    "item_id": 73460,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 17,
+    "item_id": 1844,
+    "item_name": "Freakonomics: A Rogue Economist Explores the Hidden Side of Everything - by Steven D. Levitt &amp; Stephen J. Dubner"
+  },
+  {
+    "rank": 18,
+    "item_id": 31436,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 19,
+    "item_id": 10130,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 20,
+    "item_id": 7284,
+    "item_name": "David and Goliath: Art of Battling Giants (A)"
+  },
+  {
+    "rank": 21,
+    "item_id": 6277,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 22,
+    "item_id": 989,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 23,
+    "item_id": 6994,
+    "item_name": "Three Cups of Tea"
+  },
+  {
+    "rank": 24,
+    "item_id": 800,
+    "item_name": "Lost in Shangri-La: Escape from a Hidden World"
+  },
+  {
+    "rank": 25,
+    "item_id": 14756,
+    "item_name": "On Writing"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

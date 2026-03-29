@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Tinderbox (Flashpoint) (Volume 1)"
+  },
+  {
+    "item_name": "Not Another New Year's"
+  },
+  {
+    "item_name": "Must Love Mistletoe"
+  },
+  {
+    "item_name": "Justice for Corrie (Badge of Honor: Texas Heroes) (Volume 3)"
+  },
+  {
+    "item_name": "The Consequence of Seduction"
+  },
+  {
+    "item_name": "The Trouble with Mistletoe: A Heartbreaker Bay Novel"
+  },
+  {
+    "item_name": "Breaching His Defenses (Love Hack) (Volume 1)"
+  },
+  {
+    "item_name": "No Matter What"
+  },
+  {
+    "item_name": "More Than Once (Chasing The Dream) (Volume 4)"
+  },
+  {
+    "item_name": "Night's Landing"
+  },
+  {
+    "item_name": "Simply Irresistible (Flatiron Five)"
+  },
+  {
+    "item_name": "Shopping for a Billionaire's Honeymoon (Volume 11)"
+  },
+  {
+    "item_name": "The Abalone Shell (Sea Glass Cove) (Volume 1)"
+  },
+  {
+    "item_name": "Libriomancer (Magic Ex Libris)"
+  },
+  {
+    "item_name": "Bayside Desires (Bayside Summers) (Volume 1)"
+  },
+  {
+    "item_name": "Unloved, a love story"
+  },
+  {
+    "item_name": "Stay With Me (Last Frontier Lodge Novels) (Volume 5)"
+  },
+  {
+    "item_name": "Trace: A Joe Gunther Novel (Joe Gunther Series)"
+  },
+  {
+    "item_name": "Wolf Signs (Granite Lake Wolves) (Volume 1)"
+  },
+  {
+    "item_name": "The Trapped Girl (Tracy Crosswhite)"
+  },
+  {
+    "item_name": "Close to Home (Tracy Crosswhite)"
+  },
+  {
+    "item_name": "Chaos: Mayhem Series #3 (Mayhem Book)"
+  },
+  {
+    "item_name": "Animal Attraction (An Animal Magnetism Novel)"
+  },
+  {
+    "item_name": "Holding Onto Forever (The Beaumont Series - Next Generation) (Volume 1)"
+  },
+  {
+    "item_name": "Cold Fear"
+  },
+  {
+    "item_name": "Crescent Hill"
+  },
+  {
+    "item_name": "The Teacher's Billionaire: The Sherbrookes of Newport Book 1"
+  },
+  {
+    "item_name": "Talk to Me: Public Lives Series, Part 1 (Volume 1)"
+  },
+  {
+    "item_name": "Watch for the Dead (Relatively Dead Book 4) eBook"
+  },
+  {
+    "item_name": "The One You Can't Forget (The Ones Who Got Away)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Whiskey Rebellion: An Addison Holmes Mystery"
+  },
+  {
+    "rank": 2,
+    "item_name": "Fatal Affair: Book One of the Fatal Series: One Night with You"
+  },
+  {
+    "rank": 3,
+    "item_name": "Haunted on Bourbon Street"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Navy SEAL's E-Mail Order Bride (Heroes of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Trouble in Mudbug"
+  },
+  {
+    "rank": 6,
+    "item_name": "Kill the Competition"
+  },
+  {
+    "rank": 7,
+    "item_name": "Nora Roberts Land (Dare Valley)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Wife by Wednesday (Weekday Brides)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Opposite of Wild (Clover Park) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The All-Star Antes Up (Wager of Hearts)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Crazy Little Thing (A Bell Harbor Novel)"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Cold Dark Place (Cold Justice) (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Deathwatch: Broslin Creek"
+  },
+  {
+    "rank": 14,
+    "item_name": "Almost A Bride (Wyoming Wildflowers)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Louisiana Longshot: A Miss Fortune Mystery (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Southern Spirits (Southern Ghost Hunter Mysteries)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Hanover House"
+  },
+  {
+    "rank": 18,
+    "item_name": "Everything We Keep: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Innocent in Las Vegas: A Humorous Tiffany Black Mystery (Tiffany Black Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Kidnapped: A Romantic Suspense Novel (Edgars Family)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Seduced by Sunday (Weekday Brides)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Gathering Prey (A Prey Novel)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Protecting Caroline (SEAL of Protection) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Hell on Wheels (Black Knights Inc.)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Top Secret Twenty-One (Stephanie Plum)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Spiraled (Callahan &amp; McLane)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Treasured by Thursday (Weekday Brides)"
+  },
+  {
+    "rank": 29,
+    "item_name": "When Lightning Strikes (Whiskey Creek)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Up to the Challenge (An Anchor Island Novel)"
+  },
+  {
+    "rank": 31,
+    "item_name": "First Do No Evil (Blood Secrets)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Huntress Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Silent Fall"
+  },
+  {
+    "rank": 34,
+    "item_name": "Jagged (Colorado Mountain)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Tycoon Takedown (Lone Star Burn)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Body Departed"
+  },
+  {
+    "rank": 37,
+    "item_name": "Protecting Fiona (SEAL of Protection) (Volume 3)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "rank": 39,
+    "item_name": "Sisters In Love (Snow Sisters)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Midnight Exposure (The Midnight Series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Winters Heat (Titan)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Deathscape (Broslin Creek) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Yorkshire Christmas"
+  },
+  {
+    "rank": 44,
+    "item_name": "Christmas at Copper Mountain (Taming of the Sheenans) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Doctor's Fake Fiancee (a Red River novel)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Hot Pursuit: A Hostile Operations Team Novel (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "To Catch A Bad Guy (Book One): Janet Maple Series (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Forged in Fire (A Red-Hot SEALs Novel)"
+  },
+  {
+    "rank": 49,
+    "item_name": "A Merciful Death (Mercy Kilpatrick)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Come Home To Me: A Homefront Novella (Homefront .5)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

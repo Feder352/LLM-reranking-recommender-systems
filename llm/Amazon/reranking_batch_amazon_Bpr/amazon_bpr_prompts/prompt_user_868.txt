@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "What's Become of Her: A Novel"
+  },
+  {
+    "item_name": "The Story of Arthur Truluv: A Novel"
+  },
+  {
+    "item_name": "Coach Wooden and Me: Our 50-Year Friendship On and Off the Court"
+  },
+  {
+    "item_name": "Sensemaking: The Power of the Humanities in the Age of the Algorithm"
+  },
+  {
+    "item_name": "Pre-Suasion: A Revolutionary Way to Influence and Persuade"
+  },
+  {
+    "item_name": "Cruel Winter: A County Cork Mystery"
+  },
+  {
+    "item_name": "An American Sickness: How Healthcare Became Big Business and How You Can Take It Back (Random House Large Print)"
+  },
+  {
+    "item_name": "Sucktown, Alaska"
+  },
+  {
+    "item_name": "The Undertaker's Daughter (The Family Secrets series)"
+  },
+  {
+    "item_name": "The Silent Second: A Chuck Restic Mystery (Chuck Restic Mysteries)"
+  },
+  {
+    "item_name": "Crossings: A Doctor-Soldier's Story"
+  },
+  {
+    "item_name": "Three Strikes (An Audrey Harte novel)"
+  },
+  {
+    "item_name": "The Book of Separation: A Memoir"
+  },
+  {
+    "item_name": "The Usual Santas: A Collection of Soho Crime Christmas Capers"
+  },
+  {
+    "item_name": "Dynamic Communication: 27 Strategies to Grow, Lead, and Manage Your Business"
+  },
+  {
+    "item_name": "Brass: A Novel"
+  },
+  {
+    "item_name": "The Last Christians: Stories of Persecution, Flight, and Resilience in the Middle East"
+  },
+  {
+    "item_name": "A Christmas Return: A Novel"
+  },
+  {
+    "item_name": "Friction: Passion Brands in the Age of Disruption"
+  },
+  {
+    "item_name": "Think Before You Like: Social Media's Effect on the Brain and the Tools You Need to Navigate Your Newsfeed"
+  },
+  {
+    "item_name": "Two Girls Down: A Novel"
+  },
+  {
+    "item_name": "Killing Marketing: How Innovative Businesses Are Turning Marketing Cost Into Profit"
+  },
+  {
+    "item_name": "Until Tomorrow, Mr. Marsworth"
+  },
+  {
+    "item_name": "My Name Is Venus Black: A Novel"
+  },
+  {
+    "item_name": "Waiting For Doggo"
+  },
+  {
+    "item_name": "Bluebird, Bluebird"
+  },
+  {
+    "item_name": "Bluebird, Bluebird (Highway 59)"
+  },
+  {
+    "item_name": "Saving Sophie: A Novel (Liam Taggart and Catherine Lockhart)"
+  },
+  {
+    "item_name": "The Woman in the Camphor Trunk: An Anna Blanc Mystery"
+  },
+  {
+    "item_name": "Cold Earth: A Shetland Mystery (Shetland Island Mysteries)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "When Breath Becomes Air"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Red Bandanna: A Life. A Choice. A Legacy."
+  },
+  {
+    "rank": 4,
+    "item_name": "Minding Frankie"
+  },
+  {
+    "rank": 5,
+    "item_name": "At Home: A Short History of Private Life (Random House Large Print)"
+  },
+  {
+    "rank": 6,
+    "item_name": "All I Did Was Shoot My Man: A Leonid McGill Mystery"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 8,
+    "item_name": "Telling the Bees"
+  },
+  {
+    "rank": 9,
+    "item_name": "Fantasyland: How America Went Haywire: A 500-Year History"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Rooster Bar"
+  },
+  {
+    "rank": 11,
+    "item_name": "How Starbucks Saved My Life: A Son of Privilege Learns to Live Like Everyone Else"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Columbus Affair: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Made to Stick: Why Some Ideas Take Hold and Others Come Unstuck"
+  },
+  {
+    "rank": 14,
+    "item_name": "You Disappear"
+  },
+  {
+    "rank": 15,
+    "item_name": "Last Days of Night"
+  },
+  {
+    "rank": 16,
+    "item_name": "Prayers For People Who Say They Can't Pray"
+  },
+  {
+    "rank": 17,
+    "item_name": "Fire Shut Up in My Bones"
+  },
+  {
+    "rank": 18,
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Ghost Fields (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Disney Way"
+  },
+  {
+    "rank": 21,
+    "item_name": "Everybody Lies: Big Data, New Data, and What the Internet Can Tell Us About Who We Really Are"
+  },
+  {
+    "rank": 22,
+    "item_name": "Dark Tort (Goldy Culinary Mysteries, Book 13)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 24,
+    "item_name": "Steve Jobs: A Biography"
+  },
+  {
+    "rank": 25,
+    "item_name": "I Am Charlotte Simmons"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Wrong Girl (Jane Ryland)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Sweet Revenge (Goldy Schulz)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Good Lord Bird: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Fixer"
+  },
+  {
+    "rank": 30,
+    "item_name": "Secrets of State"
+  },
+  {
+    "rank": 31,
+    "item_name": "Loss of Innocence"
+  },
+  {
+    "rank": 32,
+    "item_name": "What the Dead Know"
+  },
+  {
+    "rank": 33,
+    "item_name": "Miss Kopp's Midnight Confessions (A Kopp Sisters Novel)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Big Data at Work: Dispelling the Myths, Uncovering the Opportunities"
+  },
+  {
+    "rank": 35,
+    "item_name": "All Who Go Do Not Return: A Memoir"
+  },
+  {
+    "rank": 36,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 37,
+    "item_name": "Dry Bones: A Longmire Mystery"
+  },
+  {
+    "rank": 38,
+    "item_name": "Political Suicide: A Thriller (Dr. Lou Welcome)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Wolf: A True Story of Survival and Obsession in the West"
+  },
+  {
+    "rank": 40,
+    "item_name": "I Remember Nothing: and Other Reflections"
+  },
+  {
+    "rank": 41,
+    "item_name": "An Impartial Witness: A Bess Crawford Mystery (Bess Crawford Mysteries)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Stranger in the Woods: The Extraordinary Story of the Last True Hermit"
+  },
+  {
+    "rank": 43,
+    "item_name": "HILLBILLY ELEGY- PB"
+  },
+  {
+    "rank": 44,
+    "item_name": "How We Learn: The Surprising Truth About When, Where and Why it Happens"
+  },
+  {
+    "rank": 45,
+    "item_name": "Mennonite in a Little Black Dress: A Memoir of Going Home"
+  },
+  {
+    "rank": 46,
+    "item_name": "Nine Dragons (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Life-Changing Magic of Tidying: A simple, effective way to banish clutter forever"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 49,
+    "item_name": "Empire of Sin: A Story of Sex, Jazz, Murder, and the Battle for Modern New Orleans"
+  },
+  {
+    "rank": 50,
+    "item_name": "Full of Grace"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

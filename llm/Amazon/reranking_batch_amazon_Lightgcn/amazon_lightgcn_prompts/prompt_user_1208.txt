@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Death &amp; the Redheaded Woman (An Auction Block Mystery)"
+  },
+  {
+    "item_name": "The Final Vow (A Living History Museum Mystery)"
+  },
+  {
+    "item_name": "Death &amp; the Brewmaster's Widow (An Auction Block Mystery)"
+  },
+  {
+    "item_name": "Purring around the Christmas Tree (A Pawsitively Organic Mystery)"
+  },
+  {
+    "item_name": "Hummus and Homicide (A Kebab Kitchen Mystery)"
+  },
+  {
+    "item_name": "I Know What You Bid Last Summer (A Sarah W. Garage Sale Mystery)"
+  },
+  {
+    "item_name": "A Killing at Cotton Hill: A Samuel Craddock Mystery (Samuel Craddock Mysteries)"
+  },
+  {
+    "item_name": "Lethal in Old Lace: A Consignment Shop Mystery"
+  },
+  {
+    "item_name": "Bad Neighbors: An Agnes and Effie Mystery"
+  },
+  {
+    "item_name": "Green Eggs and Ham"
+  },
+  {
+    "item_name": "Murder Simply Brewed (An Amish Village Mystery)"
+  },
+  {
+    "item_name": "Wedding Cake Crumble (Cupcake Bakery Mystery)"
+  },
+  {
+    "item_name": "A Magical Match (Witchcraft Mystery)"
+  },
+  {
+    "item_name": "A Crime of Poison (A Silver Six Mystery)"
+  },
+  {
+    "item_name": "Hark the Herald Angels Slay (A Year-Round Christmas Mystery)"
+  },
+  {
+    "item_name": "A Time of Love and Tartan (44 Scotland Street Series)"
+  },
+  {
+    "item_name": "Scot Free (A Last Ditch Mystery)"
+  },
+  {
+    "item_name": "Death &amp; the Viking's Daughter (An Auction Block Mystery)"
+  },
+  {
+    "item_name": "Fiction Can Be Murder (A Mystery Writer's Mystery)"
+  },
+  {
+    "item_name": "A Borrowed Dream (Cimarron Creek Trilogy)"
+  },
+  {
+    "item_name": "The Darling Dahlias and the Unlucky Clover"
+  },
+  {
+    "item_name": "Lost Books and Old Bones: A Scottish Bookshop Mystery"
+  },
+  {
+    "item_name": "Death by Dumpling: A Noodle Shop Mystery"
+  },
+  {
+    "item_name": "Another One Bites the Crust: A Bakeshop Mystery"
+  },
+  {
+    "item_name": "Sidney Chambers and The Persistence of Love (Grantchester)"
+  },
+  {
+    "item_name": "Pawprints &amp; Predicaments (Lucky Paws Petsitting Mystery)"
+  },
+  {
+    "item_name": "Murder, She Knit (A Knit &amp; Nibble Mystery)"
+  },
+  {
+    "item_name": "Expiration Date (A Cook-Off Mystery)"
+  },
+  {
+    "item_name": "Twelve Slays of Christmas: A Christmas Tree Farm Mystery"
+  },
+  {
+    "item_name": "Read Herring Hunt (Mystery Bookshop Mysteries)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 41919,
+    "item_name": "The Calamity Caf (A Down South Caf Mystery)"
+  },
+  {
+    "rank": 2,
+    "item_id": 22040,
+    "item_name": "Hearse and Buggy (An Amish Mystery)"
+  },
+  {
+    "rank": 3,
+    "item_id": 65764,
+    "item_name": "When the Grits Hit the Fan (A Country Store Mystery)"
+  },
+  {
+    "rank": 4,
+    "item_id": 22400,
+    "item_name": "Murder in the Mystery Suite (A Book Retreat Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_id": 22557,
+    "item_name": "Dream a Little Scream (A Dream Club Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_id": 54352,
+    "item_name": "A Story to Kill (A Cat Latimer Mystery)"
+  },
+  {
+    "rank": 7,
+    "item_id": 71783,
+    "item_name": "Pressing the Issue (A Cookbook Nook Mystery) (Volume 6)"
+  },
+  {
+    "rank": 8,
+    "item_id": 58258,
+    "item_name": "30 Second Death"
+  },
+  {
+    "rank": 9,
+    "item_id": 22393,
+    "item_name": "Tempest in a Teapot (A Teapot Collector Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_id": 22292,
+    "item_name": "Final Sentence (A Cookbook Nook Mystery)"
+  },
+  {
+    "rank": 11,
+    "item_id": 22351,
+    "item_name": "The Silence of the Library (Cat in the Stacks Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_id": 21768,
+    "item_name": "Sew Deadly (Southern Sewing Circle Series)"
+  },
+  {
+    "rank": 13,
+    "item_id": 22789,
+    "item_name": "Toasting Up Trouble (A Dinner Club Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_id": 22581,
+    "item_name": "Putting on the Witch (Retired Witches Mysteries)"
+  },
+  {
+    "rank": 15,
+    "item_id": 22233,
+    "item_name": "The Skeleton Takes a Bow (A Family Skeleton Mystery)"
+  },
+  {
+    "rank": 16,
+    "item_id": 22228,
+    "item_name": "Stirring the Plot (A Cookbook Nook Mystery)"
+  },
+  {
+    "rank": 17,
+    "item_id": 22768,
+    "item_name": "&Eacute;clair and Present Danger (An Emergency Dessert Squad Mystery)"
+  },
+  {
+    "rank": 18,
+    "item_id": 64065,
+    "item_name": "Killer Run (Tourist Trap Mysteries)"
+  },
+  {
+    "rank": 19,
+    "item_id": 58690,
+    "item_name": "A Dickens of a Murder (The Canterville Book Shop Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_id": 22720,
+    "item_name": "Breach of Crust (A Charmed Pie Shoppe Mystery)"
+  },
+  {
+    "rank": 21,
+    "item_id": 58220,
+    "item_name": "Death in Advertising"
+  },
+  {
+    "rank": 22,
+    "item_id": 22628,
+    "item_name": "Black Cat Crossing (A Bad Luck Cat Mystery)"
+  },
+  {
+    "rank": 23,
+    "item_id": 64088,
+    "item_name": "Address to Die For"
+  },
+  {
+    "rank": 24,
+    "item_id": 22820,
+    "item_name": "Dial M for Mousse (An Emergency Dessert Squad Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_id": 22587,
+    "item_name": "A First Date with Death (A Love or Money Mystery)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Dr Pepper Prophecies"
+  },
+  {
+    "item_name": "The Fine Art of Deception: Undoing Time (Volume 1)"
+  },
+  {
+    "item_name": "Seaside Letters (Nantucket Love Story)"
+  },
+  {
+    "item_name": "Unbreak My Heart"
+  },
+  {
+    "item_name": "The Secret Life of Anna Blanc (An Anna Blanc Mystery)"
+  },
+  {
+    "item_name": "Idyll Threats: A Thomas Lynch Novel"
+  },
+  {
+    "item_name": "Summer Flings and Dancing Dreams: A hilariously funny, uplifting romantic comedy"
+  },
+  {
+    "item_name": "The Lobster Chronicles: Life on a Very Small Island"
+  },
+  {
+    "item_name": "Her Every Fear: A Novel"
+  },
+  {
+    "item_name": "How to Change a Life"
+  },
+  {
+    "item_name": "The Forgotten Room"
+  },
+  {
+    "item_name": "A Stranger in the House (Random House Large Print)"
+  },
+  {
+    "item_name": "Manderley Forever: A Biography of Daphne du Maurier"
+  },
+  {
+    "item_name": "The End of Temperance Dare: A Novel"
+  },
+  {
+    "item_name": "The Dire King: A Jackaby Novel"
+  },
+  {
+    "item_name": "Belzhar"
+  },
+  {
+    "item_name": "Crazy Love You"
+  },
+  {
+    "item_name": "Beastly Bones: A Jackaby Novel"
+  },
+  {
+    "item_name": "The Pioneer Woman: Black Heels to Tractor Wheels--A Love Story"
+  },
+  {
+    "item_name": "The Loveliest Chocolate Shop in Paris"
+  },
+  {
+    "item_name": "Lily and the Octopus"
+  },
+  {
+    "item_name": "The Vanishing"
+  },
+  {
+    "item_name": "The Fate of Mercy Alban"
+  },
+  {
+    "item_name": "Z: A Novel of Zelda Fitzgerald"
+  },
+  {
+    "item_name": "Secrets of the Dead: A serial killer thriller that will have you hooked (Detective Robyn Carter crime thriller series) (Volume 2)"
+  },
+  {
+    "item_name": "Heartbroken: A Novel"
+  },
+  {
+    "item_name": "To Be Where You Are (A Mitford Novel)"
+  },
+  {
+    "item_name": "If the Creek Don't Rise: A Novel (Turtleback School &amp; Library Binding)"
+  },
+  {
+    "item_name": "The Missing Girls: A serial killer thriller with a twist (Detective Robyn Carter crime thriller series) (Volume 3)"
+  },
+  {
+    "item_name": "The Cafe by the Sea: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 2,
+    "item_name": "After You: A Novel (Me Before You Trilogy)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Big Little Lies"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Passenger"
+  },
+  {
+    "rank": 6,
+    "item_name": "My Not So Perfect Life: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "Six Years"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Other Daughter: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Light Between Oceans: The heartbreaking Richard and Judy bestseller"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Man Called Ove (Thorndike Press Large Print Core Series)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Before I Go to Sleep: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Wife Between Us: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Couple Next Door"
+  },
+  {
+    "rank": 15,
+    "item_name": "Everything We Keep: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Language of Flowers"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Truth According to Us: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "We Were Liars"
+  },
+  {
+    "rank": 19,
+    "item_name": "Commonwealth CD"
+  },
+  {
+    "rank": 20,
+    "item_name": "That Night"
+  },
+  {
+    "rank": 21,
+    "item_name": "Before We Were Yours: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Lilac Girls"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Perfume Collector: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Orphan Train: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_name": "Rules of Magic"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Bookstore: A Book Club Recommendation!"
+  },
+  {
+    "rank": 27,
+    "item_name": "Everything You Want Me to Be: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Blackberry Winter: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Cuckoo's Calling (Cormoran Strike)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Eligible: A modern retelling of Pride and Prejudice"
+  },
+  {
+    "rank": 31,
+    "item_name": "Gone Girl"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Kitchen House: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 34,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Into the Water: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Summer House with Swimming Pool: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Marriage Pact: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Labor Day: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Tea Girl of Hummingbird Lane: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Help"
+  },
+  {
+    "rank": 42,
+    "item_name": "Among the Ten Thousand Things: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Casual Vacancy 1st (first) Edition by Rowling, J.K. published by Little, Brown and Company (2012) Hardcover"
+  },
+  {
+    "rank": 44,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Sea of Tranquility: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Fractured"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Kept Woman: A Novel (Will Trent)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Sharp Objects"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Paper Magician"
+  },
+  {
+    "rank": 50,
+    "item_name": "Merry and Bright: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

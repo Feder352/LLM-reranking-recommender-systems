@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Rescued by Qaiyaan: Galactic Pirate Brides Book One (Volume 1)"
+  },
+  {
+    "item_name": "Beautifully Broken: Reckless Bastards MC"
+  },
+  {
+    "item_name": "Stealing the Biker's Heart (Dogs of Fire: Savannah) (Volume 2)"
+  },
+  {
+    "item_name": "Proper Ink (Jaded Lily) (Volume 2)"
+  },
+  {
+    "item_name": "Driving Whiskey Wild"
+  },
+  {
+    "item_name": "Undertaker: An Evil Dead MC Story (The Evil Dead MC Series) (Volume 8)"
+  },
+  {
+    "item_name": "Claiming Felicity (Ace Security)"
+  },
+  {
+    "item_name": "Just Say Yes: Escape to New Zealand, Book 10"
+  },
+  {
+    "item_name": "Sinfully Scarred: Reckless Bastards MC"
+  },
+  {
+    "item_name": "Badd Motherf*cker (Badd Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "Eternal Mourning (Talon Pack) (Volume 7)"
+  },
+  {
+    "item_name": "Ride Dirty: A Raven Riders Novella"
+  },
+  {
+    "item_name": "Refuse to Lose (A Coach's Love) (Volume 1)"
+  },
+  {
+    "item_name": "Coven (Soulmark Series Book 1): Lycan &amp; Vampire Soulmark Series"
+  },
+  {
+    "item_name": "Until Nico (Until Series) (Volume 4)"
+  },
+  {
+    "item_name": "Not His Vampire: Vampire Romance (Not This Series) (Volume 3)"
+  },
+  {
+    "item_name": "Until Harmony: Until Her/ Until Him book 6"
+  },
+  {
+    "item_name": "IVAN (Her Russian Protector #1): Her Russian Protector #1"
+  },
+  {
+    "item_name": "Born of Darkness: A Hunter Legacy Novel (Midnight Breed Hunter Legacy) (Volume 1)"
+  },
+  {
+    "item_name": "Hidden Scars"
+  },
+  {
+    "item_name": "Whiskey Chaser (Bootleg Springs) (Volume 1)"
+  },
+  {
+    "item_name": "Justice (Creed Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "Judgment Road (Torpedo Ink)"
+  },
+  {
+    "item_name": "DUKE (CREED MC)"
+  },
+  {
+    "item_name": "From The Ruins"
+  },
+  {
+    "item_name": "Maybe Don't Wanna (The Simple Man Series) (Volume 2)"
+  },
+  {
+    "item_name": "UnScripted: An older man finds his younger woman and together, true love (CREED MC)"
+  },
+  {
+    "item_name": "Deliciously Damaged: Reckless Bastards MC"
+  },
+  {
+    "item_name": "Fighter's Claim (Devils Wind) (Volume 1)"
+  },
+  {
+    "item_name": "Phoenix Bar: A Steel Demons MC Novel (Volume 1) by Annelise Reynolds (2015-07-20)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "My Protector (Bewitched and Bewildered) (Volume 2)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Bear the Heat (Fire Bears) (Volume 3)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Air Ryder (Harper's Mountains) (Volume 3)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Tempted by Fire: Dragons of Bloodfire"
+  },
+  {
+    "rank": 5,
+    "item_name": "Twice the Growl (BBW Paranormal Shape Shifter Romance): A BBW in need of a date + Two hot Alphas looking for a mate = The hottest triad ever. (Paranormal Dating Agency) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Lumberjack Werebear (Saw Bears) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Curves 'em Right (BBW Paranormal Shape Shifter Romance) (Paranormal Dating Agency) (Volume 4)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Bloodrunner Dragon (Harper's Mountains) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "There's Snow Escape (Paranormal Dating Agency) (Volume 7)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Bear the Burn (Fire Bears) (Volume 2)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Ink Inspired (Montgomery Ink)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Claiming His Mate (A Werewolf Romance)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Last Immortal Dragon"
+  },
+  {
+    "rank": 14,
+    "item_name": "Kodiak's Claim (Kodiak Point)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Werewolf Cowboy (Moonbound) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Feral Sins (The Phoenix Pack Series)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Rocco: A Mafia Romance (Ruin &amp; Revenge)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Awakened by Fire: Dragons of Bloodfire 2"
+  },
+  {
+    "rank": 19,
+    "item_name": "When An Alpha Purrs (A Lion's Pride) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Red Havoc Rogue (Red Havoc Panthers) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Lumberman Werebear (Saw Bears) (Volume 7)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Scaling Her Dragon (Paranormal Dating Agency) (Volume 8)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Brukr (Scifi Alien Weredragon Romance) (Dragons of Preor) (Volume 8)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Blackwing Beast (Kane's Mountains) (Volume 3)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Fealty of the Bear (Hells Canyon Shifters) (Volume 2)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Outlaw's Bride: Grizzlies MC Romance (Outlaw Love)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Billionaire Banker Series Box Set 1-3"
+  },
+  {
+    "rank": 28,
+    "item_name": "Protecting Caroline (SEAL of Protection) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Mate for the Beta"
+  },
+  {
+    "rank": 30,
+    "item_name": "Rendan (Scifi Alien Dragon Romance) (Dragons of Preor) (Volume 4)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Unexpectedly Mated (Sassy Mates) (Volume 3)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Tempting Rever"
+  },
+  {
+    "rank": 33,
+    "item_name": "Big Bad Bear"
+  },
+  {
+    "rank": 34,
+    "item_name": "Heart of the Hunter"
+  },
+  {
+    "rank": 35,
+    "item_name": "Protecting Melody (SEAL of Protection) (Volume 7)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Woodsman Werebear (Saw Bears) (Volume 6)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Tristan's Lyceum Wolves (Immortals of New Orleans Book 3)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Lowlander Silverback (Gray Back Bears) (Volume 5)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Bear My Soul (Fire Bears) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Act of Mercy (PSI-Ops / Immortal Ops)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Bear Fur Hire (Bears Fur Hire) (Volume 2)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Axman Werebear (Saw Bears) (Volume 5)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Lion's Shared Bride"
+  },
+  {
+    "rank": 44,
+    "item_name": "Luca's Magic Embrace"
+  },
+  {
+    "rank": 45,
+    "item_name": "Liulf: Alpha of the Mahdrah Ahlee (New Scotia Pack) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Montana SEAL (Brotherhood Protectors) (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Sawman Werebear (Saw Bears) (Volume 4)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Alion King (Paranormal Dating Agency) (Volume 6)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Darkest Before Dawn (A KGI Novel)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Alpha Defender"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Red Mist (A Scarpetta Novel)"
+  },
+  {
+    "item_name": "The Hunter (Wyatt Hunt Novel)"
+  },
+  {
+    "item_name": "Love in a Nutshell (Random House Large Print)"
+  },
+  {
+    "item_name": "The Rope: An Anna Pigeon Novel (Anna Pigeon Mysteries)"
+  },
+  {
+    "item_name": "Blood Games"
+  },
+  {
+    "item_name": "Pleating for Mercy (Magical Dressmaking Mystery, Book 1)"
+  },
+  {
+    "item_name": "The Chalk Girl (A Mallory Novel)"
+  },
+  {
+    "item_name": "Faith: A Novel"
+  },
+  {
+    "item_name": "A Fitting End: A Magical Dressmaking Mystery (A Dressmaker's Mystery)"
+  },
+  {
+    "item_name": "Little Black Dress: A Novel"
+  },
+  {
+    "item_name": "Absolute Liability: A Southern Fraud Thriller"
+  },
+  {
+    "item_name": "Left for Dead: A Novel (Ali Reynolds)"
+  },
+  {
+    "item_name": "Catch Me (Detective D. D. Warren)"
+  },
+  {
+    "item_name": "Sonoma Rose (Elm Creek Quilts)"
+  },
+  {
+    "item_name": "Half-Past Dawn"
+  },
+  {
+    "item_name": "Room"
+  },
+  {
+    "item_name": "Guilty Wives"
+  },
+  {
+    "item_name": "Wicked Business (Lizzy and Diesel)"
+  },
+  {
+    "item_name": "Gone Missing: A Thriller (Kate Burkholder)"
+  },
+  {
+    "item_name": "Book Lover"
+  },
+  {
+    "item_name": "The Inquisitor's Key: A Body Farm Novel"
+  },
+  {
+    "item_name": "The Violets of March: A Novel"
+  },
+  {
+    "item_name": "Notorious Nineteen: A Stephanie Plum Novel"
+  },
+  {
+    "item_name": "Daddys Gone A Hunting (Thorndike Press Large Print Basic Series)"
+  },
+  {
+    "item_name": "Widow's Tears (China Bayles Mystery)"
+  },
+  {
+    "item_name": "Killer in Crinolines (A Consignment Shop Mystery)"
+  },
+  {
+    "item_name": "Killer Ambition (A Rachel Knight Novel)"
+  },
+  {
+    "item_name": "Keep Quiet"
+  },
+  {
+    "item_name": "Vintage: A Novel"
+  },
+  {
+    "item_name": "The Look of Love: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Fifth Witness (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Silent in the Grave"
+  },
+  {
+    "rank": 3,
+    "item_name": "To Fetch a Thief: A Chet and Bernie Mystery (The Chet and Bernie Mystery Series)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Sizzling Sixteen (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Dead Wrong (Joanna Brady Mysteries, Book 12)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The 6th Target"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Brass Verdict: A Novel (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Drop (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 9,
+    "item_name": "14th Deadly Sin (Women's Murder Club)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Crossing Places (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Touch &amp; Go (A Tessa Leoni Novel)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Help"
+  },
+  {
+    "rank": 13,
+    "item_name": "Unlucky 13 (Women's Murder Club)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Dead by Midnight (Death on Demand)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Silent in the Sanctuary: A Lady Julia Grey Mystery"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Confession: An Inspector Ian Rutledge Mystery (Inspector Ian Rutledge Mysteries)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Surgeon (with Bonus Content): A Rizzoli &amp; Isles Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "Dry Bones: A Longmire Mystery"
+  },
+  {
+    "rank": 19,
+    "item_name": "Missing You"
+  },
+  {
+    "rank": 20,
+    "item_name": "11th Hour (Women's Murder Club)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Collectors"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Boy in the Suitcase (A Nina Borg Novel)"
+  },
+  {
+    "rank": 23,
+    "item_name": "10th Anniversary"
+  },
+  {
+    "rank": 24,
+    "item_name": "I'll Walk Alone (Thorndike Press Large Print Basic)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Reversal (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Catch Me (Detective D. D. Warren)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Beautiful Mystery: A Chief Inspector Gamache Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Lady of the Rivers: A Novel (The Plantagenet and Tudor Novels)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Winter Study (Anna Pigeon)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Day Of The Jackal"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Heist: A Novel (Fox and O'Hare)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Suspect"
+  },
+  {
+    "rank": 33,
+    "item_name": "Think Twice"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Yard"
+  },
+  {
+    "rank": 35,
+    "item_name": "One Good Turn"
+  },
+  {
+    "rank": 36,
+    "item_name": "Live Wire (Myron Bolitar)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Suspicion"
+  },
+  {
+    "rank": 38,
+    "item_name": "Fool Me Once"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Concrete Blonde (Harry Bosch)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Buried in a Bog (A County Cork Mystery)"
+  },
+  {
+    "rank": 41,
+    "item_name": "3rd Degree"
+  },
+  {
+    "rank": 42,
+    "item_name": "A Christmas Garland: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Cruelest Month (Three Pines Mysteries, No. 3)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Eleven on Top"
+  },
+  {
+    "rank": 45,
+    "item_name": "Gone Missing: A Thriller (Kate Burkholder)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Vanished (Nick Heller)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Burning Room (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Like This, For Ever"
+  },
+  {
+    "rank": 49,
+    "item_name": "To Have and to Kill (Piper Donovan/Wedding Cake Mysteries)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Messenger of Truth: A Maisie Dobbs Novel (Maisie Dobbs Novels)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

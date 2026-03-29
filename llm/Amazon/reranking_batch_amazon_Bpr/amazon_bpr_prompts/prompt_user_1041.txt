@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Wraithborn (Benitez Edition)"
+  },
+  {
+    "item_name": "Green Lanterns Vol. 3: Polarity (Rebirth) (Green Lantern: Dc Universe Rebirth)"
+  },
+  {
+    "item_name": "Artemis"
+  },
+  {
+    "item_name": "Rough Riders Volume 2: Riders on the Storm"
+  },
+  {
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "item_name": "Things We Lost in the Fire: Stories"
+  },
+  {
+    "item_name": "Batman: Detective Comics Vol. 3: League of Shadows (Rebirth) (Batman: Detective Comics Universe Rebirth)"
+  },
+  {
+    "item_name": "Charlaine Harris' Grave Surprise (Signed Limited Edition)"
+  },
+  {
+    "item_name": "The Clancys of Queens: A Memoir"
+  },
+  {
+    "item_name": "The Clancys of Queens: A Memoir"
+  },
+  {
+    "item_name": "Anne of Green Gables: A Graphic Novel"
+  },
+  {
+    "item_name": "Super Sons Vol. 1: When I Grow Up (Rebirth) (Super Sons: Rebirth)"
+  },
+  {
+    "item_name": "Batwoman Vol. 1: The Many Arms of Death (Rebirth)"
+  },
+  {
+    "item_name": "Wonder Woman Vol. 4: Godwatch (Rebirth)"
+  },
+  {
+    "item_name": "Noble Vol. 1: God Shots"
+  },
+  {
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "item_name": "The Great Race: The Story of the Chinese Zodiac"
+  },
+  {
+    "item_name": "The Flash Vol. 4: Running Scared (Rebirth)"
+  },
+  {
+    "item_name": "Sirius: A Novel About the Little Dog Who Almost Changed History"
+  },
+  {
+    "item_name": "Random Illustrated Facts: A Collection of Curious, Weird, and Totally Not Boring Things to Know"
+  },
+  {
+    "item_name": "Battle Angel Alita Deluxe Edition 1"
+  },
+  {
+    "item_name": "Erik the Lone Wolf"
+  },
+  {
+    "item_name": "Slade House: A Novel"
+  },
+  {
+    "item_name": "All Star Batman Vol. 3: The First Ally"
+  },
+  {
+    "item_name": "Nick and Tesla's Robot Army Rampage: A Mystery with Hoverbots, Bristle Bots, and Other Robots You Can Build Yourself"
+  },
+  {
+    "item_name": "CITY, 1"
+  },
+  {
+    "item_name": "Big Mushy Happy Lump: A Sarah's Scribbles Collection"
+  },
+  {
+    "item_name": "Great Cape of Colors - Capa de colores: (English-Spanish with pronunciation guide) (Careers for Kids) (English and Spanish Edition)"
+  },
+  {
+    "item_name": "Dark Nights: Metal: Deluxe Edition"
+  },
+  {
+    "item_name": "National Parks of the USA"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Manifest Destiny Volume 1: Flora &amp; Fauna"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ghostbusters: Who Ya Gonna Call?"
+  },
+  {
+    "rank": 3,
+    "item_name": "Monstress Volume 1: Awakening"
+  },
+  {
+    "rank": 4,
+    "item_name": "Dark Side of the Road, The: A country house murder mystery with a supernatural twist (An Ishmael Jones Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Scarecrow Princess"
+  },
+  {
+    "rank": 6,
+    "item_name": "Batgirl Vol. 1: Beyond Burnside (Rebirth)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Birthright, Vol. 2: Call to Adventure"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Shadow Hero (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Umbral Volume 1"
+  },
+  {
+    "rank": 11,
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Spencer &amp; Locke"
+  },
+  {
+    "rank": 13,
+    "item_name": "Lady Mechanika Volume 1: Mystery of the Mechanical Corpse"
+  },
+  {
+    "rank": 14,
+    "item_name": "Oliver and the Seawigs"
+  },
+  {
+    "rank": 15,
+    "item_name": "14"
+  },
+  {
+    "rank": 16,
+    "item_name": "Bitch Planet Volume 2: President Bitch"
+  },
+  {
+    "rank": 17,
+    "item_name": "Rat Queens Volume 1: Sass &amp; Sorcery"
+  },
+  {
+    "rank": 18,
+    "item_name": "Klaw: The First Cycle"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Secret Horses of Briar Hill"
+  },
+  {
+    "rank": 20,
+    "item_name": "Rat Queens Volume 4: High Fantasies"
+  },
+  {
+    "rank": 21,
+    "item_name": "October Faction Volume 1"
+  },
+  {
+    "rank": 22,
+    "item_name": "Hidden Universe Travel Guides: The Complete Marvel Cosmos: With Notes by the Guardians of the Galaxy"
+  },
+  {
+    "rank": 23,
+    "item_name": "Batman Vol. 3: I Am Bane (Rebirth)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Harley Quinn Vol. 2: Joker Loves Harley (Rebirth)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Disney Tim Burton's The Nightmare Before Christmas: Special Collector's Manga (Hardcover)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Harley Quinn Vol. 1: Die Laughing (Rebirth) (Harley Quinn: DC Universe Rebirth)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Long Way to a Small, Angry Planet (Wayfarers)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Saga Volume 6"
+  },
+  {
+    "rank": 29,
+    "item_name": "Saga, Vol. 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Shade the Changing Girl Vol. 1: Earth Girl Made Easy (Young Animal)"
+  },
+  {
+    "rank": 31,
+    "item_name": "I Am Crying All Inside: And Other Stories (The Complete Short Fiction of Clifford D. Simak)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Serafina and the Black Cloak"
+  },
+  {
+    "rank": 33,
+    "item_name": "I.D."
+  },
+  {
+    "rank": 34,
+    "item_name": "Monstress Volume 2: The Blood"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Beauty Volume 1"
+  },
+  {
+    "rank": 36,
+    "item_name": "Rat Queens Volume 3: Demons"
+  },
+  {
+    "rank": 37,
+    "item_name": "Injustice: Gods Among Us: Year Five Vol. 2"
+  },
+  {
+    "rank": 38,
+    "item_name": "Rockstars Volume 1: Nativity in Blacklight"
+  },
+  {
+    "rank": 39,
+    "item_name": "Wytches, Vol. 1"
+  },
+  {
+    "rank": 40,
+    "item_name": "Uncanny X-Men Volume 5: The Omega Mutant"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Devourers: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "Hilda and the Midnight Giant (Nobrow Edition) (Hildafolk)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Railhead"
+  },
+  {
+    "rank": 44,
+    "item_name": "Bookhunter"
+  },
+  {
+    "rank": 45,
+    "item_name": "Baltimore, Volume 1: The Plague Ships"
+  },
+  {
+    "rank": 46,
+    "item_name": "Hilda and the Black Hound: Book 4 (Hildafolk)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Multiversity Deluxe Edition"
+  },
+  {
+    "rank": 48,
+    "item_name": "Vision Vol. 2: Little Better Than a Beast"
+  },
+  {
+    "rank": 49,
+    "item_name": "If: A Mind-Bending New Way of Looking at Big Ideas and Numbers"
+  },
+  {
+    "rank": 50,
+    "item_name": "Superman and the Miserable, Rotten, No Fun, Really Bad Day"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

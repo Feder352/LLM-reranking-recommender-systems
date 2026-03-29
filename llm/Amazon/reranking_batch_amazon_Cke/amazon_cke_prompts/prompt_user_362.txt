@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Skeleton Man"
+  },
+  {
+    "item_name": "Maggie Bright: A Novel of Dunkirk"
+  },
+  {
+    "item_name": "The Haunted Fixer-Upper (A Haunted Renovation Mystery Book 2) eBook"
+  },
+  {
+    "item_name": "A Dead Red Alibi: #4 in the Dead Red Mystery Series (Volume 4)"
+  },
+  {
+    "item_name": "Secrets (The Michelli Family Series #1)"
+  },
+  {
+    "item_name": "Just Different Devils (Hetta Coffey) (Volume 7)"
+  },
+  {
+    "item_name": "A Hope Revealed: Prescott Pioneers #4"
+  },
+  {
+    "item_name": "The Forever Stone"
+  },
+  {
+    "item_name": "The Girl From the Train"
+  },
+  {
+    "item_name": "Killer Jam (Dewberry Farm Mysteries)"
+  },
+  {
+    "item_name": "Cold Hollow"
+  },
+  {
+    "item_name": "Pause to Rewind"
+  },
+  {
+    "item_name": "The Accidental Life Of Greg Millar"
+  },
+  {
+    "item_name": "The Advocate"
+  },
+  {
+    "item_name": "When Danger Calls (Five Star Expressions)"
+  },
+  {
+    "item_name": "Louisiana Longshot: A Miss Fortune Mystery (Volume 1)"
+  },
+  {
+    "item_name": "Grave Homecoming (A Maddie Graves Mystery Book 1) - Kindle edition"
+  },
+  {
+    "item_name": "Bundle of Trouble (A Maternal Instincts Mystery)"
+  },
+  {
+    "item_name": "Murder on the Candlelight Tour (A Wilmington, N.C., Mystery)"
+  },
+  {
+    "item_name": "Long Journey Home: A Young Girl's Memoir of Surviving the Holocaust"
+  },
+  {
+    "item_name": "Murder At The Rocks: A Fitzjohn Mystery"
+  },
+  {
+    "item_name": "A Lifetime to Share (Oregon Trail Dreamin') (Volume 2)"
+  },
+  {
+    "item_name": "The Dirty Parts of the Bible: A Novel"
+  },
+  {
+    "item_name": "A Dead Husband (Jessica HuntingtonDesert Cities Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Gone with the Wings (Meera Patel Cozy Mystery Series)"
+  },
+  {
+    "item_name": "The Ghost of Marlow House (Haunting Danielle) (Volume 1)"
+  },
+  {
+    "item_name": "Sea to Sky (A Hunter Rayne Highway Mystery, Book 3) eBook"
+  },
+  {
+    "item_name": "RUBY (Dakotah Treasures"
+  },
+  {
+    "item_name": "Trail of Thread: A Woman's Westward Journey (Book 1 of Trail of Thread Series.) (Volume 1)"
+  },
+  {
+    "item_name": "One Thousand White Women by Fergus, Jim 1 edition (2007)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5167,
+    "item_name": "The Great Eight: How to Be Happy Even When You Have Every Reason to Be Miserable"
+  },
+  {
+    "rank": 2,
+    "item_id": 5209,
+    "item_name": "Dying to Read: A Novel (The Cate Kinkaid Files-Book 1)"
+  },
+  {
+    "rank": 3,
+    "item_id": 2525,
+    "item_name": "A Very Special Delivery (Love Inspired #349)"
+  },
+  {
+    "rank": 4,
+    "item_id": 4016,
+    "item_name": "AN Innocent Client (Joe Dillard)"
+  },
+  {
+    "rank": 5,
+    "item_id": 3680,
+    "item_name": "Breath of Scandal"
+  },
+  {
+    "rank": 6,
+    "item_id": 3267,
+    "item_name": "Field of Prey"
+  },
+  {
+    "rank": 7,
+    "item_id": 4185,
+    "item_name": "Secrets of Midnight (The Man of My Dreams Series Book 1)"
+  },
+  {
+    "rank": 8,
+    "item_id": 5202,
+    "item_name": "Heat Rises (Nikki Heat)"
+  },
+  {
+    "rank": 9,
+    "item_id": 2398,
+    "item_name": "Black Irish: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_id": 5922,
+    "item_name": "Stranger in Town"
+  },
+  {
+    "rank": 11,
+    "item_id": 4986,
+    "item_name": "Louisiana Hotshot: A Talba Wallis Novel"
+  },
+  {
+    "rank": 12,
+    "item_id": 5200,
+    "item_name": "Whiskey Sour: A Jack Daniels Mystery (A Jacqueline Jack Daniels Mystery)"
+  },
+  {
+    "rank": 13,
+    "item_id": 4972,
+    "item_name": "Full Disclosure"
+  },
+  {
+    "rank": 14,
+    "item_id": 3875,
+    "item_name": "A Witness Above (Frank Palvicek Mysteries)"
+  },
+  {
+    "rank": 15,
+    "item_id": 4022,
+    "item_name": "Six Years"
+  },
+  {
+    "rank": 16,
+    "item_id": 4696,
+    "item_name": "The Littlest Cowboy (The Texas Brand) (Silhouette Intimate Moments, No 716)"
+  },
+  {
+    "rank": 17,
+    "item_id": 3814,
+    "item_name": "Odd Mom Out (Bellevue Wives, Book 1)"
+  },
+  {
+    "rank": 18,
+    "item_id": 5171,
+    "item_name": "Every Fear"
+  },
+  {
+    "rank": 19,
+    "item_id": 6100,
+    "item_name": "Radical: Taking Back Your Faith From the American Dream"
+  },
+  {
+    "rank": 20,
+    "item_id": 3251,
+    "item_name": "The Ranger (Quinn Colson Novels)"
+  },
+  {
+    "rank": 21,
+    "item_id": 5207,
+    "item_name": "The Christmas Bus"
+  },
+  {
+    "rank": 22,
+    "item_id": 5821,
+    "item_name": "The Target"
+  },
+  {
+    "rank": 23,
+    "item_id": 5925,
+    "item_name": "Dirty Little Secrets: A J.J. Graves Mystery"
+  },
+  {
+    "rank": 24,
+    "item_id": 4331,
+    "item_name": "The Arkansas River (River West, Book 6)"
+  },
+  {
+    "rank": 25,
+    "item_id": 2358,
+    "item_name": "Cover of Snow: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "They Can't Kill Us All: Ferguson, Baltimore, and a New Era in America's Racial Justice Movement"
+  },
+  {
+    "item_name": "Kill the Next One"
+  },
+  {
+    "item_name": "The Killer in Me"
+  },
+  {
+    "item_name": "Love and First Sight"
+  },
+  {
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "item_name": "Difficult Women"
+  },
+  {
+    "item_name": "History Is All You Left Me"
+  },
+  {
+    "item_name": "Loving vs. Virginia: A Documentary Novel of the Landmark Civil Rights Case"
+  },
+  {
+    "item_name": "The You I've Never Known"
+  },
+  {
+    "item_name": "Wintersong: A Novel"
+  },
+  {
+    "item_name": "The Impossible Fortress"
+  },
+  {
+    "item_name": "The Land of Nod"
+  },
+  {
+    "item_name": "The Beast Is an Animal"
+  },
+  {
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "item_name": "The Fall of Lisa Bellow: A Novel"
+  },
+  {
+    "item_name": "Nightlights"
+  },
+  {
+    "item_name": "A Crown of Wishes (Star-Touched)"
+  },
+  {
+    "item_name": "Waking Gods: Themis Files Book 2"
+  },
+  {
+    "item_name": "Bitch Planet Volume 2: President Bitch"
+  },
+  {
+    "item_name": "Lady Mechanika TP Vol 03: The Lost Boys of West Abbey"
+  },
+  {
+    "item_name": "Lessons from Shadow: My Life Lessons for Boys and Girls"
+  },
+  {
+    "item_name": "Star Trek Cats"
+  },
+  {
+    "item_name": "Kindred: A Graphic Novel Adaptation"
+  },
+  {
+    "item_name": "Final Girls: A Novel"
+  },
+  {
+    "item_name": "All Our Wrong Todays: A BBC Radio 2 Book Club Choice 2017"
+  },
+  {
+    "item_name": "Fetch: How a Bad Dog Brought Me Home"
+  },
+  {
+    "item_name": "Into the Drowning Deep"
+  },
+  {
+    "item_name": "Incognegro"
+  },
+  {
+    "item_name": "Only Human (The Themis Files)"
+  },
+  {
+    "item_name": "Manfried the Man: A Graphic Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2174,
+    "item_name": "The Demon-Haunted World: Science as a Candle in the Dark"
+  },
+  {
+    "rank": 2,
+    "item_id": 5774,
+    "item_name": "Blankets: An Illustrated Novel"
+  },
+  {
+    "rank": 3,
+    "item_id": 5748,
+    "item_name": "Battle Royale: The Novel"
+  },
+  {
+    "rank": 4,
+    "item_id": 4259,
+    "item_name": "Genesis"
+  },
+  {
+    "rank": 5,
+    "item_id": 6127,
+    "item_name": "Saga, Vol. 3"
+  },
+  {
+    "rank": 6,
+    "item_id": 3066,
+    "item_name": "End This Depression Now!"
+  },
+  {
+    "rank": 7,
+    "item_id": 3598,
+    "item_name": "The Book of Three (Pyrdain Chronicles)"
+  },
+  {
+    "rank": 8,
+    "item_id": 6097,
+    "item_name": "Boxers (Boxers &amp; Saints)"
+  },
+  {
+    "rank": 9,
+    "item_id": 4321,
+    "item_name": "The Farthest Shore (The Earthsea Cycle, Book 3)"
+  },
+  {
+    "rank": 10,
+    "item_id": 5158,
+    "item_name": "The Road to Civil War"
+  },
+  {
+    "rank": 11,
+    "item_id": 5619,
+    "item_name": "Before Watchmen: Comedian/Rorschach (Beyond Watchmen)"
+  },
+  {
+    "rank": 12,
+    "item_id": 1747,
+    "item_name": "American Born Chinese"
+  },
+  {
+    "rank": 13,
+    "item_id": 1424,
+    "item_name": "The Book of General Ignorance"
+  },
+  {
+    "rank": 14,
+    "item_id": 4276,
+    "item_name": "VALIS (Valis Trilogy)"
+  },
+  {
+    "rank": 15,
+    "item_id": 971,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 16,
+    "item_id": 1404,
+    "item_name": "Incognito: The Secret Lives of the Brain"
+  },
+  {
+    "rank": 17,
+    "item_id": 178,
+    "item_name": "Autobiography of a Face"
+  },
+  {
+    "rank": 18,
+    "item_id": 3546,
+    "item_name": "The Invention of Hugo Cabret"
+  },
+  {
+    "rank": 19,
+    "item_id": 6128,
+    "item_name": "Chew Volume 1: Tasters Choice"
+  },
+  {
+    "rank": 20,
+    "item_id": 3599,
+    "item_name": "The Castle of Llyr (Pyrdain Chronicles)"
+  },
+  {
+    "rank": 21,
+    "item_id": 1135,
+    "item_name": "Flowers for Algernon"
+  },
+  {
+    "rank": 22,
+    "item_id": 1887,
+    "item_name": "I Am Legend"
+  },
+  {
+    "rank": 23,
+    "item_id": 5968,
+    "item_name": "Blue Is the Warmest Color"
+  },
+  {
+    "rank": 24,
+    "item_id": 5277,
+    "item_name": "Deep Economy: The Wealth of Communities and the Durable Future"
+  },
+  {
+    "rank": 25,
+    "item_id": 888,
+    "item_name": "Word Freak: Heartbreak, Triumph, Genius, and Obsession in the World of Competitive Scrabble Players"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

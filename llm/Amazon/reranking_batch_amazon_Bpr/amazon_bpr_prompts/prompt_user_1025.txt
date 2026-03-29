@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Impact (Fuzed Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Missouri Loves Company (Rip Lane) (Volume 1)"
+  },
+  {
+    "item_name": "True Conviction (Adrian Hell) (Volume 1)"
+  },
+  {
+    "item_name": "A Treasure to Die for (Books to Die for)"
+  },
+  {
+    "item_name": "The Legend of Devil's Creek"
+  },
+  {
+    "item_name": "KILLING MAINE"
+  },
+  {
+    "item_name": "Infection: Sympatico Syndrome (Volume 1)"
+  },
+  {
+    "item_name": "Shadow Games (Time Jumper Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Foundation: Jack Emery 1"
+  },
+  {
+    "item_name": "Silicon Man"
+  },
+  {
+    "item_name": "Girl Fights Back (The Emily Kane Adventures) (Volume 1)"
+  },
+  {
+    "item_name": "Threads That Bind: The Havoc Chronicles"
+  },
+  {
+    "item_name": "A Lifetime to Share (Oregon Trail Dreamin') (Volume 2)"
+  },
+  {
+    "item_name": "Soldier of Fortune: A Gideon Quinn Adventure"
+  },
+  {
+    "item_name": "Navajo Autumn: A Navajo Nation Mystery (Volume 1)"
+  },
+  {
+    "item_name": "Likely Suspects"
+  },
+  {
+    "item_name": "The Matriarch Matrix"
+  },
+  {
+    "item_name": "The Girl Who Wrote The New York Times Bestseller (Thaddeus Murfee Legal Thrillers)"
+  },
+  {
+    "item_name": "Sea of Crises"
+  },
+  {
+    "item_name": "Contract: Snatch (Sei Assassin Thriller Book 1) - Kindle edition"
+  },
+  {
+    "item_name": "Paladine (Paladine Political Thriller Series) (Volume 1)"
+  },
+  {
+    "item_name": "Dark Lava"
+  },
+  {
+    "item_name": "Cold Blooded II - Killer Moves (Nick McCarty) (Volume 2)"
+  },
+  {
+    "item_name": "Devils And Dust: A Jack Keller Novel"
+  },
+  {
+    "item_name": "Blood Gold (The Wanderer) (Volume 2)"
+  },
+  {
+    "item_name": "City of Gold (Matthew Connor Adventure Series)"
+  },
+  {
+    "item_name": "Cabal of The Westford Knight: Templars at the Newport Tower (Book #1 in the Templars in America Series)"
+  },
+  {
+    "item_name": "Longshot Into The West: A hidden part of the Civil War affects lives, property and nations' futures (Volume 2)"
+  },
+  {
+    "item_name": "Sinnerman"
+  },
+  {
+    "item_name": "Vengeance Road"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Trick Question (Tubby Dubonnet Mysteries)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Black: Black Series (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Ravage"
+  },
+  {
+    "rank": 4,
+    "item_name": "Deadly Stillwater"
+  },
+  {
+    "rank": 5,
+    "item_name": "Night of the Assassin: Assassin series prequel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Wired"
+  },
+  {
+    "rank": 7,
+    "item_name": "No Such Thing As Werewolves"
+  },
+  {
+    "rank": 8,
+    "item_name": "Bubba and the 12 Deadly Days of Christmas: A Bubba Mystery"
+  },
+  {
+    "rank": 9,
+    "item_name": "Loose Ends (California Corwin P.I. Mystery) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Deadly Distance (Jack Noble #2)"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Touch of Deceit (A Nick Bracco Thriller Book 1) eBook"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Jakarta Pandemic"
+  },
+  {
+    "rank": 13,
+    "item_name": "Dead Line (A Cal Murphy Thriller) (Volume 2)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Itsy Bitsy Spider: Emma Frost #1"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Last Survivors: A Dystopian Society in a Post Apocalyptic World (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Grave Man - A Sam Prichard Novel (The Sam Prichard Series) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Cruel Justice (Justice Series) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Devil's Grin - A Crime Novel featuring Anna Kronberg and Sherlock Holmes"
+  },
+  {
+    "rank": 19,
+    "item_name": "Ashes (Ashes #1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Oath of Office (a Luke Stone Thriller-Book #2)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Broken Ferns"
+  },
+  {
+    "rank": 22,
+    "item_name": "Taboo: CSI Reilly Steel #1 (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Big Bend"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Field of Red"
+  },
+  {
+    "rank": 25,
+    "item_name": "A View to Die For (Books To Die For) (Volume 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Rose Hill: Rose Hill Mystery Series"
+  },
+  {
+    "rank": 27,
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "rank": 28,
+    "item_name": "To Catch A Bad Guy (Book One): Janet Maple Series (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "STATELINE: A Dan Reno Novel (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Founders' Keeper (A David and Martin Yerxa Thriller) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The President's Henchman"
+  },
+  {
+    "rank": 32,
+    "item_name": "Broken (Nevada James #1) (Nevada James Mysteries) - Kindle edition"
+  },
+  {
+    "rank": 33,
+    "item_name": "Harbored Secrets"
+  },
+  {
+    "rank": 34,
+    "item_name": "Cruelest Month"
+  },
+  {
+    "rank": 35,
+    "item_name": "Sea Sick"
+  },
+  {
+    "rank": 36,
+    "item_name": "Frozen Past"
+  },
+  {
+    "rank": 37,
+    "item_name": "Fallen Palm: A Jesse McDermitt Novel (Caribbean Adventure Series) (Volume 2)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Debt Of Fear"
+  },
+  {
+    "rank": 39,
+    "item_name": "The One You Love: Emma Holden Suspense Mystery Trilogy: Book One (Emma Holden Trilogy)"
+  },
+  {
+    "rank": 40,
+    "item_name": "A Reason to Live: Marty Singer Mystery #1"
+  },
+  {
+    "rank": 41,
+    "item_name": "Maids of Misfortune: A Victorian San Francisco Mystery"
+  },
+  {
+    "rank": 42,
+    "item_name": "Deadly Coast"
+  },
+  {
+    "rank": 43,
+    "item_name": "ABSOLUTION-Edition2: A Frank Renzi Novel (Frank Renzi novels)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Perfect Crime eBook"
+  },
+  {
+    "rank": 45,
+    "item_name": "Blood Of Others"
+  },
+  {
+    "rank": 46,
+    "item_name": "Gone Bad: A Jon Reznick Short Story (Jon Reznick Assassin Series)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Bloody Mary (Jack Daniels Mysteries)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Just Add Water (Hetta Coffey Series) (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Hostile Witness"
+  },
+  {
+    "rank": 50,
+    "item_name": "Once Gone (a Riley Paige Mystery--Book #1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

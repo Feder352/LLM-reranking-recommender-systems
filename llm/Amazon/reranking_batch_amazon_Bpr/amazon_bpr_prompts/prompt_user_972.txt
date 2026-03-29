@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Smoke on the Water: Sisters of the Craft"
+  },
+  {
+    "item_name": "The Gargoyle Gets His Girl (Nocturne Falls) (Volume 3)"
+  },
+  {
+    "item_name": "Cursed Moon (Prospero's War)"
+  },
+  {
+    "item_name": "Eighth Grave After Dark"
+  },
+  {
+    "item_name": "The Alloy of Law: A Mistborn Novel"
+  },
+  {
+    "item_name": "Caged Magic (Wing Slayer Hunter) (Volume 5)"
+  },
+  {
+    "item_name": "Crucible Zero (A House Immortal Novel)"
+  },
+  {
+    "item_name": "The Skeleton in the Closet (Southern Ghost Hunter Mysteries) (Volume 2)"
+  },
+  {
+    "item_name": "Getting Wilde: Immortal Vegas, Book 1 (Volume 1)"
+  },
+  {
+    "item_name": "Lumberjack In Love"
+  },
+  {
+    "item_name": "Archangel's Enigma (A Guild Hunter Novel)"
+  },
+  {
+    "item_name": "Menagerie"
+  },
+  {
+    "item_name": "Fated (Servants of Fate)"
+  },
+  {
+    "item_name": "Beneath a Waning Moon: a duo of Gothic romances"
+  },
+  {
+    "item_name": "Dragos Goes to Washington (Elder Races)"
+  },
+  {
+    "item_name": "Passion Ignites: A Dragon Romance (Dark Kings)"
+  },
+  {
+    "item_name": "Waking Hearts (Cambio Springs Mysteries) (Volume 3)"
+  },
+  {
+    "item_name": "Feel the Burn (Dragon Kin)"
+  },
+  {
+    "item_name": "Dead Eye (A Tiger's Eye Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Shadow Touched"
+  },
+  {
+    "item_name": "Imitation and Alchemy: An Elemental Legacy Novella (Volume 2)"
+  },
+  {
+    "item_name": "Shadowbound (The Dark Arts) (Volume 1)"
+  },
+  {
+    "item_name": "Boundary Born (Boundary Magic)"
+  },
+  {
+    "item_name": "Reliquary"
+  },
+  {
+    "item_name": "The Staff and the Blade: Irin Chronicles Book Four (Volume 4)"
+  },
+  {
+    "item_name": "Forged in Smoke (A Red-Hot SEALs Novel)"
+  },
+  {
+    "item_name": "One Fell Sweep (Innkeeper Chronicles)"
+  },
+  {
+    "item_name": "Hard Breaker: A Beauty and Beast Novel (Gargoyles Series)"
+  },
+  {
+    "item_name": "Eight Simple Rules for Dating a Dragon: A Novel of the Embraced"
+  },
+  {
+    "item_name": "Bone Driven (The Foundling Series)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Dead Heat: An Alpha and Omega novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Archangel's Heart (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Wolf with Benefits (Brava Paranormal Romance)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Archangel's Consort (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Magic Binds (Kate Daniels)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Dragon Bound (Elder Races)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Mercury&#39;s War: A Novel of the Breeds - Kindle edition"
+  },
+  {
+    "rank": 8,
+    "item_name": "Vision in Silver (A Novel of the Others)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Silence Fallen (A Mercy Thompson Novel)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Magic Shifts (Kate Daniels)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Marked In Flesh (A Novel of the Others)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Magic Bleeds (Kate Daniels)"
+  },
+  {
+    "rank": 13,
+    "item_name": "When Darkness Comes (Guardians of Eternity, Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Grave Memory (Alex Craft)"
+  },
+  {
+    "rank": 15,
+    "item_name": "How to Marry a Millionaire Vampire (Love at Stake, Book 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Wild Invitation: A Psy-Changeling Collection (Psy/Changelings)"
+  },
+  {
+    "rank": 17,
+    "item_name": "A Hunger Like No Other (Immortals After Dark, Book 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Dark Lover (Black Dagger Brotherhood, Book 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Web of Lies (Elemental Assassin, Book 2)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Firelight (Darkest London)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Mercy Blade (Jane Yellowrock, Book 3)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Heart of the Hunter"
+  },
+  {
+    "rank": 23,
+    "item_name": "Ashes of Midnight (The Midnight Breed, Book 6)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Blood Cross (Jane Yellowrock, Book 2)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Poison Promise (Elemental Assassin)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Iced: Fever Series Book 6"
+  },
+  {
+    "rank": 27,
+    "item_name": "Enslave Me Sweetly (Alien Huntress, Book 2)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Frost Burned (Mercy Thompson)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Spider's Bite (Elemental Assassin, Book 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "On the Edge"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Witch With No Name"
+  },
+  {
+    "rank": 32,
+    "item_name": "Fatal Circle (Persephone Alcmedi, Book 3)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Justice Calling (The Twenty-Sided Sorceress) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Hot and Badgered (The Honey Badger Chronicles)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Slave to Sensation (Psy-Changelings, Book 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Burn for Me (Hidden Legacy)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Magic Stars (Grey Wolf) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Notorious Pleasures (Maiden Lane)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Beautiful Ashes (Broken Destiny)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Hunted by a Jaguar: Eternal Mates Romance Series"
+  },
+  {
+    "rank": 41,
+    "item_name": "Broken Soul (Jane Yellowrock)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Born to Darkness (with bonus short story Shane's Last Stand)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Shadow's End (Elder Races)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Night Shift"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Sharpest Blade (Shadow Reader)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Shadow's Edge (A Night Prowler Novel)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Darkest Pleasure (Lords of the Underworld)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Unleash the Night (Dark-Hunter, Book 9)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Shadow's Claim (Immortals After Dark)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Magical Christmas Cat"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

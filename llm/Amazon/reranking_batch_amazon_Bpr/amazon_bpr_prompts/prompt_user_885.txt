@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Whistler"
+  },
+  {
+    "item_name": "The General vs. the President: MacArthur and Truman at the Brink of Nuclear War"
+  },
+  {
+    "item_name": "The Wrong Side of Goodbye (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Who Killed These Girls?: Cold Case: The Yogurt Shop Murders"
+  },
+  {
+    "item_name": "Pearl Harbor: From Infamy to Greatness"
+  },
+  {
+    "item_name": "Ray &amp; Joan: The Man Who Made the McDonald's Fortune and the Woman Who Gave It All Away"
+  },
+  {
+    "item_name": "The Stranger in the Woods: The Extraordinary Story of the Last True Hermit"
+  },
+  {
+    "item_name": "The Fleet at Flood Tide: America at Total War in the Pacific, 1944-1945"
+  },
+  {
+    "item_name": "High Noon: The Hollywood Blacklist and the Making of an American Classic"
+  },
+  {
+    "item_name": "Dynastic, Bombastic, Fantastic: Reggie, Rollie, Catfish, and Charlie Finleys Swingin As"
+  },
+  {
+    "item_name": "Astrophysics for People in a Hurry"
+  },
+  {
+    "item_name": "A Long Way Home"
+  },
+  {
+    "item_name": "Hue 1968: A Turning Point of the American War in Vietnam"
+  },
+  {
+    "item_name": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI"
+  },
+  {
+    "item_name": "Camino Island: A Novel"
+  },
+  {
+    "item_name": "Last Hope Island: Britain, Occupied Europe, and the Brotherhood That Helped Turn the Tide of War"
+  },
+  {
+    "item_name": "American Fire: Love, Arson, and Life in a Vanishing Land"
+  },
+  {
+    "item_name": "The American Spirit: Who We Are and What We Stand For"
+  },
+  {
+    "item_name": "The Late Show"
+  },
+  {
+    "item_name": "Blood in the Water: The Attica Prison Uprising of 1971 and Its Legacy"
+  },
+  {
+    "item_name": "The Road to Jonestown: Jim Jones and Peoples Temple"
+  },
+  {
+    "item_name": "The Long Haul: A Trucker's Tales of Life on the Road"
+  },
+  {
+    "item_name": "Don't Let Go"
+  },
+  {
+    "item_name": "The Train to Crystal City: FDR's Secret Prisoner Exchange Program and America's Only Family Internment Camp During World War II"
+  },
+  {
+    "item_name": "The Blood of Emmett Till"
+  },
+  {
+    "item_name": "Two Kinds of Truth (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "The Accidental President: Harry S. Truman and the Four Months That Changed the World"
+  },
+  {
+    "item_name": "A River in Darkness: One Man's Escape from North Korea"
+  },
+  {
+    "item_name": "The Taking of K-129: How the CIA Used Howard Hughes to Steal a Russian Sub in the Most Daring Covert Operation in History (Random House Large Print)"
+  },
+  {
+    "item_name": "The Rooster Bar"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 2,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 3,
+    "item_name": "Krakatoa: The Day the World Exploded: August 27, 1883"
+  },
+  {
+    "rank": 4,
+    "item_name": "7 Habits Of Highly Effective People"
+  },
+  {
+    "rank": 5,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 7,
+    "item_name": "Justice: What's the Right Thing to Do?"
+  },
+  {
+    "rank": 8,
+    "item_name": "7 Habits of Highly Effective People"
+  },
+  {
+    "rank": 9,
+    "item_name": "Mayflower. A story of Community, Courage and War"
+  },
+  {
+    "rank": 10,
+    "item_name": "Lefty: An American Odyssey"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Gamble: General Petraeus and the American Military Adventure in Iraq"
+  },
+  {
+    "rank": 13,
+    "item_name": "Judgment Ridge: The True Story Behind the Dartmouth Murders"
+  },
+  {
+    "rank": 14,
+    "item_name": "Arguably"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Big Rich: The Rise and Fall of the Greatest Texas Oil Fortunes"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 17,
+    "item_name": "All Hell Let Loose: The World at War 1939-1945"
+  },
+  {
+    "rank": 18,
+    "item_name": "Truman"
+  },
+  {
+    "rank": 19,
+    "item_name": "Benjamin Franklin: An American Life"
+  },
+  {
+    "rank": 20,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Bait And Switch: The (Futile) Pursuit of the American Dream"
+  },
+  {
+    "rank": 22,
+    "item_name": "Einstein: His Life and Universe"
+  },
+  {
+    "rank": 23,
+    "item_name": "When Breath Becomes Air"
+  },
+  {
+    "rank": 24,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 25,
+    "item_name": "Thomas Jefferson and the Tripoli Pirates: The Forgotten War That Changed American History"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Next 100 Years: A Forecast for the 21st Century"
+  },
+  {
+    "rank": 27,
+    "item_name": "How Doctors Think"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Gettysburg Gospel: The Lincoln Speech That Nobody Knows (Simon &amp; Schuster Lincoln Library)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 30,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Innocent Man: Murder and Injustice in a Small Town"
+  },
+  {
+    "rank": 32,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 33,
+    "item_name": "Bunker Hill: A City, A Siege, A Revolution"
+  },
+  {
+    "rank": 34,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 35,
+    "item_name": "Killing Kennedy: The End of Camelot"
+  },
+  {
+    "rank": 36,
+    "item_name": "Just How Stupid Are We?: Facing the Truth About the American Voter"
+  },
+  {
+    "rank": 37,
+    "item_name": "John F. Kennedy"
+  },
+  {
+    "rank": 38,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 39,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 40,
+    "item_name": "1776 : America and Britain at War"
+  },
+  {
+    "rank": 41,
+    "item_name": "Blood Feud: The Clintons vs. The Obamas"
+  },
+  {
+    "rank": 42,
+    "item_name": "Going Clear: Scientology, Hollywood, and the Prison of Belief"
+  },
+  {
+    "rank": 43,
+    "item_name": "Colonel Roosevelt"
+  },
+  {
+    "rank": 44,
+    "item_name": "What Hath God Wrought: The Transformation of America, 1815-1848 (The Oxford History of the United States, Vol. 5)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Dark Money: The Hidden History of the Billionaires Behind the Rise of the Radical Right"
+  },
+  {
+    "rank": 46,
+    "item_name": "Rough Riders: Theodore Roosevelt, His Cowboy Regiment, and the Immortal Charge Up San Juan Hill"
+  },
+  {
+    "rank": 47,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Manchurian Candidate"
+  },
+  {
+    "rank": 49,
+    "item_name": "GUNS, GERMS AND STEEL - A Short History of Everybody for the Last 13,000 Years"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Bully Pulpit: Theodore Roosevelt, William Howard Taft, and the Golden Age of Journalism"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

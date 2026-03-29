@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Deadly Dance (A David Vogel Mystery)"
+  },
+  {
+    "item_name": "The Widows of Malabar Hill (A Mystery of 1920s India)"
+  },
+  {
+    "item_name": "Unnatural Causes: A Dr. Katie LeClair Mystery"
+  },
+  {
+    "item_name": "A Map of the Dark (The Searchers)"
+  },
+  {
+    "item_name": "Best Friends Forever"
+  },
+  {
+    "item_name": "The Missing Hours"
+  },
+  {
+    "item_name": "Force of Nature: A Novel"
+  },
+  {
+    "item_name": "The Wrong Sister"
+  },
+  {
+    "item_name": "Twenty-one Days: A Daniel Pitt Novel"
+  },
+  {
+    "item_name": "Night Moves: An Alex Delaware Novel"
+  },
+  {
+    "item_name": "A Wolf in the Woods: An Ozarks Mystery (Ozarks Mysteries)"
+  },
+  {
+    "item_name": "The Bengal Identity (A Cat Groomer Mystery)"
+  },
+  {
+    "item_name": "The Echo Killing: A Mystery (A Harper McClain Mystery)"
+  },
+  {
+    "item_name": "The Third Victim: A Novel"
+  },
+  {
+    "item_name": "Death by Dumpling: A Noodle Shop Mystery"
+  },
+  {
+    "item_name": "See Also Proof: A Marjorie Trumaine Mystery (Marjorie Trumaine Mysteries)"
+  },
+  {
+    "item_name": "After Anna"
+  },
+  {
+    "item_name": "The Shadow of Death: A Sister Agatha and Father Selwyn Mystery (Sister Agatha and Father Selwyn Mysteries)"
+  },
+  {
+    "item_name": "The Diva Cooks up a Storm (Domestic Diva)"
+  },
+  {
+    "item_name": "A Dash of Love: Based on the Hallmark Channel Original Movie"
+  },
+  {
+    "item_name": "The Favorite Sister"
+  },
+  {
+    "item_name": "The Gaslight Stalker: Nobody is safe in Whitechapel... (Esther &amp; Jack Enright Mystery)"
+  },
+  {
+    "item_name": "She Loves You (Yeah, Yeah, Yeah)"
+  },
+  {
+    "item_name": "Last Girl Gone: A Laura Chambers Novel"
+  },
+  {
+    "item_name": "Three Days Missing: A Novel of Psychological Suspense"
+  },
+  {
+    "item_name": "Believe Me: A Novel"
+  },
+  {
+    "item_name": "Ruff Justice (Melanie Travis Canine Mystery)"
+  },
+  {
+    "item_name": "Abandoned: A Novel (Max Revere Novels)"
+  },
+  {
+    "item_name": "Tear Me Apart"
+  },
+  {
+    "item_name": "When the Lights Go Out"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "When the Grits Hit the Fan (A Country Store Mystery)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 3,
+    "item_name": "That Darkness (A Gardiner and Renner Novel)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Dry Bones: A Longmire Mystery"
+  },
+  {
+    "rank": 5,
+    "item_name": "Thread and Gone (A Mainely Needlepoint Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_name": "All Fudged Up (A Candy-coated Mystery)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Deep End (The Country Club Murders) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Elementary, She Read: A Sherlock Holmes Bookshop Mystery"
+  },
+  {
+    "rank": 9,
+    "item_name": "Writing All Wrongs (A Books by the Bay Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Bearly Departed (A Teddy Bear Mystery)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Marsh Madness (A Book Collector Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Twisted Threads (Mainely Needlepoint Mystery)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Kneading to Die (A Pawsitively Organic Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Cat Got Your Diamonds: A Kitty Couture Mystery"
+  },
+  {
+    "rank": 15,
+    "item_name": "Pane and Suffering (A Webb's Glass Shop Mystery)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Karma's a Killer (A Downward Dog Mystery)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Every Trick in the Book (A Novel Idea Mystery)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Dream a Little Scream (A Dream Club Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Once Upon a Grind (A Coffeehouse Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_name": "On Borrowed Time (A Library Lover's Mystery)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Diva Digs Up the Dirt (A Domestic Diva Mystery)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Bless Her Dead Little Heart (A Southern Ladies Mystery)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Body on the Bayou: A Cajun Country Mystery"
+  },
+  {
+    "rank": 24,
+    "item_name": "Gone but Knot Forgotten (A Quilting Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_name": "A Muddied Murder (A Greenhouse Mystery) (Volume 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "To Helvetica and Back (A Dangerous Type Mystery)"
+  },
+  {
+    "rank": 27,
+    "item_name": "A Killer Plot (A Books by the Bay Mystery)"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Treacherous Curse (A Veronica Speedwell Mystery)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Egg Drop Dead (A Cackleberry Club Mystery)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Silence of the Library (Cat in the Stacks Mystery)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Buried in a Bog (A County Cork Mystery)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Tempest in the Tea Leaves (A Fortune Teller Mystery)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Killer Jam (Dewberry Farm Mysteries)"
+  },
+  {
+    "rank": 34,
+    "item_name": "A Whole Latte Murder (Java Jive Mystery)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Clammed Up (A Maine Clambake Mystery)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Gossamer Ghost (A Scrapbooking Mystery)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Death by Chocolate Cherry Cheesecake (A Death by Chocolate Mystery)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Rest Ye Murdered Gentlemen (A Year-Round Christmas Mystery)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Buttercream Bump Off (Cupcake Bakery Mystery)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Banana Cream Pie Murder (A Hannah Swensen Mystery)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Ghost and Mrs. Mewer (A Paws &amp; Claws Mystery)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Braking for Bodies (A Cycle Path Mystery)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Nightmares Can Be Murder (A Dream Club Mystery)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Whole Town's Talking: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 45,
+    "item_name": "If the Shoe Kills"
+  },
+  {
+    "rank": 46,
+    "item_name": "To Have and to Kill (Piper Donovan/Wedding Cake Mysteries)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Musseled Out (A Maine Clambake Mystery)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Twelve Clues of Christmas: A Royal Spyness Mystery"
+  },
+  {
+    "rank": 49,
+    "item_name": "Pouncing on Murder (A Bookmobile Cat Mystery)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Death Is Like a Box of Chocolates (A Chocolate Covered Mystery)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

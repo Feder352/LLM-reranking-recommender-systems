@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "High-Powered, Hot-Blooded (Man of the Month)"
+  },
+  {
+    "item_name": "Ruthless Magnate, Convenient Wife"
+  },
+  {
+    "item_name": "Something About You (An FBI/US Attorney Novel)"
+  },
+  {
+    "item_name": "Chasing Perfect (Fool's Gold, Book 1)"
+  },
+  {
+    "item_name": "Almost Perfect (Fool's Gold, Book 2)"
+  },
+  {
+    "item_name": "One Night...Nine-Month Scandal (Mills and Boon Modern)"
+  },
+  {
+    "item_name": "His Virgin Acquisition (Mills and Boon Modern)"
+  },
+  {
+    "item_name": "The Greek's Pregnant Lover"
+  },
+  {
+    "item_name": "In Too Deep: An Anthology (A Summer for Scandal)"
+  },
+  {
+    "item_name": "Lead Me On (Tumble Creek)"
+  },
+  {
+    "item_name": "Hot Westmoreland Nights (The Westmorelands)"
+  },
+  {
+    "item_name": "Finding Perfect (Fool's Gold, Book 3)"
+  },
+  {
+    "item_name": "His Virgin Acquisition (Mills and Boon Modern)"
+  },
+  {
+    "item_name": "The Twelve Nights of Christmas"
+  },
+  {
+    "item_name": "The Proud Wife"
+  },
+  {
+    "item_name": "For Duty's Sake"
+  },
+  {
+    "item_name": "Lip Service (Lone Star Sisters, Book 2)"
+  },
+  {
+    "item_name": "The Man She Loves To Hate"
+  },
+  {
+    "item_name": "Bride for Real"
+  },
+  {
+    "item_name": "The Marriage Betrayal"
+  },
+  {
+    "item_name": "Only Yours (Fool's Gold, Book 5)"
+  },
+  {
+    "item_name": "Lip Service (Lone Star Sisters, Book 2)"
+  },
+  {
+    "item_name": "10th Anniversary Collector's Edition: Cowboys Like Us"
+  },
+  {
+    "item_name": "Doukakis's Apprentice"
+  },
+  {
+    "item_name": "Only Us (Fool's Gold Series)"
+  },
+  {
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "item_name": "Agents Under Fire (novella trilogy): Guardian Agent, Avenging Agent, Warrior Agent"
+  },
+  {
+    "item_name": "Once a Ferrara Wife... (Mills &amp; Boon Modern)"
+  },
+  {
+    "item_name": "How a Cowboy Stole Her Heart"
+  },
+  {
+    "item_name": "Strangers in the Desert"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Surrender My Love (Haardrad Family)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Expectant Bride (The Greek Tycoons)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Love Only Once: A Malory Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Every Waking Moment"
+  },
+  {
+    "rank": 5,
+    "item_name": "Untamed Italian, Blackmailed Innocent"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Inconvenient Duchess"
+  },
+  {
+    "rank": 7,
+    "item_name": "Scandal (Berkley Sensation)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Captive of Sin"
+  },
+  {
+    "rank": 9,
+    "item_name": "Lessons From a Scarlet Lady (Signet Eclipse)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Viking"
+  },
+  {
+    "rank": 11,
+    "item_name": "Daisy's Back in Town"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Greek Tycoon's Convenient Mistress"
+  },
+  {
+    "rank": 13,
+    "item_name": "Hot Item (Hot Zone, Book 3)"
+  },
+  {
+    "rank": 14,
+    "item_name": "What Happens in Scotland (Second Sons)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Never Seduce a Scot: The Montgomerys and Armstrongs"
+  },
+  {
+    "rank": 16,
+    "item_name": "Sizzling (The Buchanans, Book 3)"
+  },
+  {
+    "rank": 17,
+    "item_name": "In The Groove (Hqn Romance)"
+  },
+  {
+    "rank": 18,
+    "item_name": "To Love a Thief (Warner Forever)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Worth Any Price (Bow Street, Book 3)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Seduced By His Touch (Byrons of Braebourne)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Fool Me Twice (Rules for the Reckless)"
+  },
+  {
+    "rank": 22,
+    "item_name": "I'm In No Mood For Love (Writer Friends)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Return of the Moralis Wife"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Seduction of His Wife"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Devil's Web (The Web Trilogy)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Pregnancy Of Passion"
+  },
+  {
+    "rank": 27,
+    "item_name": "Standing in the Shadows (The McCloud Brothers, Book 2)"
+  },
+  {
+    "rank": 28,
+    "item_name": "His Dark Kiss"
+  },
+  {
+    "rank": 29,
+    "item_name": "First Comes Marriage"
+  },
+  {
+    "rank": 30,
+    "item_name": "Highland Warrior"
+  },
+  {
+    "rank": 31,
+    "item_name": "Maggie's Dad (Silhouette Special Edition, #991)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Seven Years To Sin"
+  },
+  {
+    "rank": 33,
+    "item_name": "How to Capture a Countess (The Duchess Diaries)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Blame It On The Blackout (Harlequin Desire)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Simply Sexy (The Simply Series, Book 5)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Cordina's Royal Family: Bennett &amp; Camilla"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Taste of Temptation (Berkley Sensation)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Fire and Ice: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Just One Kiss (Fool's Gold, Book 11)"
+  },
+  {
+    "rank": 40,
+    "item_name": "A Knight's Temptation (Knight's series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Sweet Release"
+  },
+  {
+    "rank": 42,
+    "item_name": "A Night Like This"
+  },
+  {
+    "rank": 43,
+    "item_name": "Time Out"
+  },
+  {
+    "rank": 44,
+    "item_name": "Redwood Bend (A Virgin River Novel)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Somebody Wonderful (Zebra Debut)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Tempting Juliana (Signet Eclipse)"
+  },
+  {
+    "rank": 47,
+    "item_name": "He Loves Lucy"
+  },
+  {
+    "rank": 48,
+    "item_name": "Lord of Fire: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Invasion of Falgannon Isle (The Sisters of Colford Hall, Book 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Southern Exposure"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

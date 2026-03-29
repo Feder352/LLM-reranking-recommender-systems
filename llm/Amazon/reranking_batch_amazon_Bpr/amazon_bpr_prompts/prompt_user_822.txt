@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "My Kind of Crazy"
+  },
+  {
+    "item_name": "The Inn Between"
+  },
+  {
+    "item_name": "The Lie Tree"
+  },
+  {
+    "item_name": "The Art of Not Breathing"
+  },
+  {
+    "item_name": "Wolf Hollow"
+  },
+  {
+    "item_name": "FLAWED- PB"
+  },
+  {
+    "item_name": "Save Me a Seat"
+  },
+  {
+    "item_name": "Raymie Nightingale"
+  },
+  {
+    "item_name": "The Nameless City"
+  },
+  {
+    "item_name": "Summer of Sloane"
+  },
+  {
+    "item_name": "Holding Smoke"
+  },
+  {
+    "item_name": "The Wild Robot"
+  },
+  {
+    "item_name": "We Will Not Be Silent: The White Rose Student Resistance Movement That Defied Adolf Hitler (Jane Addams Honor Book (Awards))"
+  },
+  {
+    "item_name": "What Elephants Know"
+  },
+  {
+    "item_name": "Sabotage: The Mission to Destroy Hitler's Atomic Bomb: Young Adult Edition"
+  },
+  {
+    "item_name": "The Leaving"
+  },
+  {
+    "item_name": "Nobody Likes a Goblin"
+  },
+  {
+    "item_name": "The Cresswell Plot"
+  },
+  {
+    "item_name": "When Friendship Followed Me Home"
+  },
+  {
+    "item_name": "The Loose Ends List"
+  },
+  {
+    "item_name": "Julia Vanishes (The Witch's Child)"
+  },
+  {
+    "item_name": "The Memory Book"
+  },
+  {
+    "item_name": "Lucy"
+  },
+  {
+    "item_name": "Gemini"
+  },
+  {
+    "item_name": "The Killer in Me"
+  },
+  {
+    "item_name": "This Savage Song (Monsters of Verity)"
+  },
+  {
+    "item_name": "Towers Falling"
+  },
+  {
+    "item_name": "The Storybook Knight"
+  },
+  {
+    "item_name": "Be Light Like a Bird"
+  },
+  {
+    "item_name": "Let Your Voice Be Heard: The Life and Times of Pete Seeger"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 2,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 3,
+    "item_name": "Fangirl"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Golem and the Jinni: A Novel (P.S.)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Thirteen Reasons Why"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Clockwork Three"
+  },
+  {
+    "rank": 7,
+    "item_name": "Beautiful Creatures. by Kami Garcia &amp; Margaret Stohl"
+  },
+  {
+    "rank": 8,
+    "item_name": "Ricky Ricotta's Mighty Robot (Astro-Activity Book O'Fun) by Pilkey, Dav (unknown Edition) [Paperback(2006)]"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Giver (Collins Modern Classics)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Thirteen Reasons Why"
+  },
+  {
+    "rank": 11,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Armada (Easton Press)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Fire Wish (Jinni Wars)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Tale Dark and Grimm"
+  },
+  {
+    "rank": 16,
+    "item_name": "Maze Runner. Correr o Morir / Maze Runner, Run or die (Spanish Edition)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Scarlett Epstein Hates It Here"
+  },
+  {
+    "rank": 18,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Knife of Never Letting Go: Chaos Walking: Book One"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Son of Neptune (Heroes of Olympus Book 2)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Graveyard Book"
+  },
+  {
+    "rank": 22,
+    "item_name": "This One Summer"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Death Cure (Maze Runner, Book Three) (The Maze Runner Series)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Geography of You and Me"
+  },
+  {
+    "rank": 25,
+    "item_name": "A Thousand Pieces of You (Firebird)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Here and Now"
+  },
+  {
+    "rank": 28,
+    "item_name": "Vanishing Girls"
+  },
+  {
+    "rank": 29,
+    "item_name": "Wither (Chemical Garden)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 31,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Eternity Cure (Blood of Eden)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Born of Illusion"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Iron King"
+  },
+  {
+    "rank": 36,
+    "item_name": "Wolf by Wolf"
+  },
+  {
+    "rank": 37,
+    "item_name": "And I Darken (The Conqueror's Trilogy)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Speak"
+  },
+  {
+    "rank": 39,
+    "item_name": "Wonder"
+  },
+  {
+    "rank": 40,
+    "item_name": "Saga, Vol. 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Perks Of Being A Wallflower (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 42,
+    "item_name": "We Are the Goldens"
+  },
+  {
+    "rank": 43,
+    "item_name": "Lock &amp; Mori"
+  },
+  {
+    "rank": 44,
+    "item_name": "Ricky Ricotta's Mighty Robot Book Set (7 Volumes)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Cruel Prince (The Folk of the Air)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Dorothy Must Die"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Testing"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Iron Queen (Iron Fey)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Clockwork Angel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Roomies"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

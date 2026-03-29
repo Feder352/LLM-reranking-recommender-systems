@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Menace (Scarlet Scars) (Volume 1)"
+  },
+  {
+    "item_name": "Black Hearts (Sins Duet)"
+  },
+  {
+    "item_name": "Dirty: A Dive Bar Novel"
+  },
+  {
+    "item_name": "Take Me Back"
+  },
+  {
+    "item_name": "A Gift of Time (The Nine Minutes Trilogy) (Volume 3)"
+  },
+  {
+    "item_name": "Long Way Down (Special Edition) (Calloway Sisters)"
+  },
+  {
+    "item_name": "Grip"
+  },
+  {
+    "item_name": "Shacking Up"
+  },
+  {
+    "item_name": "A Court of Wings and Ruin (A Court of Thorns and Roses)"
+  },
+  {
+    "item_name": "Flow, The Grip Prequel"
+  },
+  {
+    "item_name": "Grievous (Scarlet Scars) (Volume 2)"
+  },
+  {
+    "item_name": "The House"
+  },
+  {
+    "item_name": "How to Date a Douchebag: The Studying Hours (#HTDADB) (Volume 1)"
+  },
+  {
+    "item_name": "Talking As Fast As I Can: From Gilmore Girls to Gilmore Girls, and Everything in Between"
+  },
+  {
+    "item_name": "Landline: A Novel"
+  },
+  {
+    "item_name": "Alex, Approximately"
+  },
+  {
+    "item_name": "Dating You / Hating You"
+  },
+  {
+    "item_name": "I'll Meet You There"
+  },
+  {
+    "item_name": "Bookishly Ever After"
+  },
+  {
+    "item_name": "Trust"
+  },
+  {
+    "item_name": "Pucked Over"
+  },
+  {
+    "item_name": "Defy"
+  },
+  {
+    "item_name": "After We Fall"
+  },
+  {
+    "item_name": "The Failing Hours: How to Date a Douchebag (Volume 2)"
+  },
+  {
+    "item_name": "The Seven Husbands of Evelyn Hugo: A Novel"
+  },
+  {
+    "item_name": "Broken Prince: A Novel (The Royals)"
+  },
+  {
+    "item_name": "Vicious (Sinners of Saint) (Volume 1)"
+  },
+  {
+    "item_name": "The Wedding Date"
+  },
+  {
+    "item_name": "Sweet Revenge: Passive-Aggressive Desserts for Your Exes &amp; Enemies"
+  },
+  {
+    "item_name": "The Wild Heir: A Royal Standalone Romance"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5908,
+    "item_name": "Sweet Filthy Boy (Wild Seasons)"
+  },
+  {
+    "rank": 2,
+    "item_id": 5894,
+    "item_name": "Hopeless"
+  },
+  {
+    "rank": 3,
+    "item_id": 5906,
+    "item_name": "Tangled (The Tangled Series)"
+  },
+  {
+    "rank": 4,
+    "item_id": 5528,
+    "item_name": "Crashed (The Driven Trilogy)"
+  },
+  {
+    "rank": 5,
+    "item_id": 5885,
+    "item_name": "Beautiful Oblivion (Maddox Brothers)"
+  },
+  {
+    "rank": 6,
+    "item_id": 5519,
+    "item_name": "Fallen Too Far"
+  },
+  {
+    "rank": 7,
+    "item_id": 3517,
+    "item_name": "Breakable (Contours of the Heart)"
+  },
+  {
+    "rank": 8,
+    "item_id": 5907,
+    "item_name": "Remy (The REAL series)"
+  },
+  {
+    "rank": 9,
+    "item_id": 5881,
+    "item_name": "Slammed"
+  },
+  {
+    "rank": 10,
+    "item_id": 5920,
+    "item_name": "Rock the Heart (Black Falcon)"
+  },
+  {
+    "rank": 11,
+    "item_id": 5656,
+    "item_name": "Throne of Glass"
+  },
+  {
+    "rank": 12,
+    "item_id": 5886,
+    "item_name": "A Beautiful Wedding"
+  },
+  {
+    "rank": 13,
+    "item_id": 4098,
+    "item_name": "Torn (The Connections Series)"
+  },
+  {
+    "rank": 14,
+    "item_id": 662,
+    "item_name": "Jet: A Marked Men Novel"
+  },
+  {
+    "rank": 15,
+    "item_id": 3526,
+    "item_name": "Everything for Us (A Bad Boys Novel)"
+  },
+  {
+    "rank": 16,
+    "item_id": 5516,
+    "item_name": "Infinite Possibilities: The Secret Life of Amy Bensen Book Two (Volume 2)"
+  },
+  {
+    "rank": 17,
+    "item_id": 6198,
+    "item_name": "Alpha"
+  },
+  {
+    "rank": 18,
+    "item_id": 5884,
+    "item_name": "Point of Retreat"
+  },
+  {
+    "rank": 19,
+    "item_id": 5532,
+    "item_name": "Fixed On You (Fixed - Book 1) (Fixed Series) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_id": 5893,
+    "item_name": "This Girl: A Novel (Slammed)"
+  },
+  {
+    "rank": 21,
+    "item_id": 3531,
+    "item_name": "Reaper's Legacy (Reapers Motorcycle Club)"
+  },
+  {
+    "rank": 22,
+    "item_id": 656,
+    "item_name": "Keeping Her: A LOSING IT Novella"
+  },
+  {
+    "rank": 23,
+    "item_id": 5520,
+    "item_name": "Jane's Melody"
+  },
+  {
+    "rank": 24,
+    "item_id": 5943,
+    "item_name": "Rock My Bed (Black Falcon Series)"
+  },
+  {
+    "rank": 25,
+    "item_id": 5961,
+    "item_name": "Beyond Me: Sex on the Beach"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

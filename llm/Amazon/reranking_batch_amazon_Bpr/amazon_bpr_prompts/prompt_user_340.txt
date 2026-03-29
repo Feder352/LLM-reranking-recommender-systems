@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Crime in the Family: A World War II Secret Buried in Silence--and My Search for the Truth"
+  },
+  {
+    "item_name": "Senlin Ascends (The Books of Babel)"
+  },
+  {
+    "item_name": "The Last Girl on Earth"
+  },
+  {
+    "item_name": "An American Family: A Memoir of Hope and Sacrifice"
+  },
+  {
+    "item_name": "The Bad Food Bible: How and Why to Eat Sinfully"
+  },
+  {
+    "item_name": "Bluff"
+  },
+  {
+    "item_name": "Queens of the Conquest: England's Medieval Queens Book One"
+  },
+  {
+    "item_name": "The Coincidence Makers: A Novel"
+  },
+  {
+    "item_name": "The Black Painting: A Novel"
+  },
+  {
+    "item_name": "The Flash Vol. 4: Running Scared (Rebirth)"
+  },
+  {
+    "item_name": "Batman/The Flash: The Button Deluxe Edition"
+  },
+  {
+    "item_name": "Batman/The Shadow: The Murder Geniuses"
+  },
+  {
+    "item_name": "Batwoman Vol. 1: The Many Arms of Death (Rebirth)"
+  },
+  {
+    "item_name": "Wonder Woman Vol. 4: Godwatch (Rebirth)"
+  },
+  {
+    "item_name": "Anne of Green Gables: A Graphic Novel"
+  },
+  {
+    "item_name": "Hank and Jim: The Fifty-Year Friendship of Henry Fonda and James Stewart"
+  },
+  {
+    "item_name": "The Clarity: A Novel"
+  },
+  {
+    "item_name": "Immortal Life: A Soon To Be True Story"
+  },
+  {
+    "item_name": "James Bond: Black Box"
+  },
+  {
+    "item_name": "The King of Bones and Ashes (Witches of New Orleans)"
+  },
+  {
+    "item_name": "Here Is Real Magic: A Magician's Search for Wonder in the Modern World"
+  },
+  {
+    "item_name": "The Coen Brothers: The iconic filmmakers and their work"
+  },
+  {
+    "item_name": "Walls of Silence"
+  },
+  {
+    "item_name": "Rough Riders Volume 2: Riders on the Storm"
+  },
+  {
+    "item_name": "The Ghost of Gaudi"
+  },
+  {
+    "item_name": "Enchant (Volume 1)"
+  },
+  {
+    "item_name": "Suicide Club: A Novel About Living"
+  },
+  {
+    "item_name": "Number One Chinese Restaurant: A Novel"
+  },
+  {
+    "item_name": "Convenience Store Woman"
+  },
+  {
+    "item_name": "SOUL: A Chef's Culinary Evolution in 150 Recipes"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Etta &amp; Otto &amp; Russell &amp; James Ome"
+  },
+  {
+    "rank": 2,
+    "item_name": "Fierce Kingdom: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 3,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 4,
+    "item_name": "Hausfrau: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 6,
+    "item_name": "At the Edge of the Orchard"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Disappearance of Adle Bedeau: An Inspector Gorski Investigation"
+  },
+  {
+    "rank": 9,
+    "item_name": "Final Girls: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "All Our Wrong Todays: A BBC Radio 2 Book Club Choice 2017"
+  },
+  {
+    "rank": 11,
+    "item_name": "The couple next door."
+  },
+  {
+    "rank": 12,
+    "item_name": "Mr. Penumbra's 24-Hour Bookstore: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "HILLBILLY ELEGY- PB"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Ice Twins"
+  },
+  {
+    "rank": 15,
+    "item_name": "Girl in Snow: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Passenger"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Same Sky"
+  },
+  {
+    "rank": 18,
+    "item_name": "Jane Steele"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Last One: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Immortalists"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Invention of Wings"
+  },
+  {
+    "rank": 23,
+    "item_name": "Among the Ten Thousand Things: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Unlikely Pilgrimage of Harold Fry: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Girls: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "News of the World"
+  },
+  {
+    "rank": 28,
+    "item_name": "If I Fall, If I Die"
+  },
+  {
+    "rank": 29,
+    "item_name": "Eleanor: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Bellman &amp; Black"
+  },
+  {
+    "rank": 31,
+    "item_name": "We Are Called to Rise: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Farm"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Dark Lake (Gemma Woodstock)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Radium Girls"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Death of Bees: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "From Bruges with Love (The Pieter Van In Mysteries)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Devil's Detective: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Travelers: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Child: The must-read Richard and Judy Book Club pick 2018"
+  },
+  {
+    "rank": 40,
+    "item_name": "When Breath Becomes Air"
+  },
+  {
+    "rank": 41,
+    "item_name": "The God's Eye View"
+  },
+  {
+    "rank": 42,
+    "item_name": "A Sudden Light: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Righteous and the Wicked"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Beauty of the End"
+  },
+  {
+    "rank": 45,
+    "item_name": "Coal River"
+  },
+  {
+    "rank": 46,
+    "item_name": "14"
+  },
+  {
+    "rank": 47,
+    "item_name": "New Boy: William Shakespeare's Othello Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Flood Girls: A Book Club Recommendation!"
+  },
+  {
+    "rank": 49,
+    "item_name": "Pines (Wayward Pines)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Girl with the Lower Back Tattoo"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

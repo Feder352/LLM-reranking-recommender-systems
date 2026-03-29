@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Make Me Beg"
+  },
+  {
+    "item_name": "Falling for the Highlander: Highland Brides"
+  },
+  {
+    "item_name": "Wyoming Brave: A Contemporary Western Romance (Wyoming Men)"
+  },
+  {
+    "item_name": "Fury on Fire: A Devil's Rock Novel"
+  },
+  {
+    "item_name": "The Dastardly Miss Lizzie: An Electric Empire Novel"
+  },
+  {
+    "item_name": "Accidentally on Purpose: A Heartbreaker Bay Novel"
+  },
+  {
+    "item_name": "Academ's Fury (Codex Alera, Book 2)"
+  },
+  {
+    "item_name": "A Cold Creek Baby (Mills &amp; Boon Largeprint Special Edition)"
+  },
+  {
+    "item_name": "Under Pressure: An Anthology (Body Armor)"
+  },
+  {
+    "item_name": "10 Things I Can See From Here"
+  },
+  {
+    "item_name": "Sisi: Empress on Her Own: A Novel"
+  },
+  {
+    "item_name": "Beauty of the Beast (Fairy Tale Retellings) (Volume 1)"
+  },
+  {
+    "item_name": "Lickety Split"
+  },
+  {
+    "item_name": "The Black Lily"
+  },
+  {
+    "item_name": "The Siren's Son (The Siren Legacy) (Volume 1)"
+  },
+  {
+    "item_name": "Bedchamber Games (Rakes of Cavendish Square)"
+  },
+  {
+    "item_name": "Dating You / Hating You"
+  },
+  {
+    "item_name": "Kittens Can Kill: A Pru Marlowe Pet Noir"
+  },
+  {
+    "item_name": "Always: A Novel"
+  },
+  {
+    "item_name": "Biker B*tch (Heaven's Sinners)"
+  },
+  {
+    "item_name": "The Scandal of It All: The Rogue Files"
+  },
+  {
+    "item_name": "Ready for Wild: A Book Club Recommendation! (The Grand Valley Series)"
+  },
+  {
+    "item_name": "The Duchess Deal: Girl Meets Duke"
+  },
+  {
+    "item_name": "Wicked in a Kilt (Hot Scots)"
+  },
+  {
+    "item_name": "The Viscount and the Vixen (Hellions of Havisham)"
+  },
+  {
+    "item_name": "Beautiful Tempest: A Novel (Malory-Anderson Family)"
+  },
+  {
+    "item_name": "Cowboy, It's Cold Outside: A Twilight, Texas Novel"
+  },
+  {
+    "item_name": "The Day of the Duchess: Scandal &amp; Scoundrel, Book III"
+  },
+  {
+    "item_name": "Love with a Scottish Outlaw: Highland Weddings"
+  },
+  {
+    "item_name": "Lachlan (Immortal Highlander Book 1): A Scottish Time Travel Romance (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5123,
+    "item_name": "Can't Help Falling in Love (The Sullivans)"
+  },
+  {
+    "rank": 2,
+    "item_id": 2495,
+    "item_name": "The Best Man (The Blue Heron Series)"
+  },
+  {
+    "rank": 3,
+    "item_id": 5900,
+    "item_name": "The Marriage Merger (Marriage to a Billionaire)"
+  },
+  {
+    "rank": 4,
+    "item_id": 5651,
+    "item_name": "Hell for Leather (Black Knights Inc.)"
+  },
+  {
+    "rank": 5,
+    "item_id": 5650,
+    "item_name": "Thrill Ride (Black Knights Inc.)"
+  },
+  {
+    "rank": 6,
+    "item_id": 5515,
+    "item_name": "If I Were You: Inside Out Trilogy (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_id": 5139,
+    "item_name": "Let Me Be the One (The Sullivans)"
+  },
+  {
+    "rank": 8,
+    "item_id": 5127,
+    "item_name": "If You Were Mine (The Sullivans)"
+  },
+  {
+    "rank": 9,
+    "item_id": 5892,
+    "item_name": "Wallbanger (The Cocktail Series)"
+  },
+  {
+    "rank": 10,
+    "item_id": 3527,
+    "item_name": "Then Came You (An Animal Magnetism Novel)"
+  },
+  {
+    "rank": 11,
+    "item_id": 2497,
+    "item_name": "The Perfect Match (The Blue Heron Series)"
+  },
+  {
+    "rank": 12,
+    "item_id": 2386,
+    "item_name": "Blue Lines: The Assassins Series"
+  },
+  {
+    "rank": 13,
+    "item_id": 3518,
+    "item_name": "Straddling the Line (A Play-by-Play Novel)"
+  },
+  {
+    "rank": 14,
+    "item_id": 5649,
+    "item_name": "Born Wild (Black Knights Inc.)"
+  },
+  {
+    "rank": 15,
+    "item_id": 5124,
+    "item_name": "Always On My Mind (The Sullivans)"
+  },
+  {
+    "rank": 16,
+    "item_id": 3474,
+    "item_name": "It Happened One Wedding"
+  },
+  {
+    "rank": 17,
+    "item_id": 2499,
+    "item_name": "Until We Touch (Fool's Gold,  Book 17)"
+  },
+  {
+    "rank": 18,
+    "item_id": 5140,
+    "item_name": "The Wanderer (Thunder Point)"
+  },
+  {
+    "rank": 19,
+    "item_id": 5871,
+    "item_name": "Always on My Mind (A Lucky Harbor Novel)"
+  },
+  {
+    "rank": 20,
+    "item_id": 3447,
+    "item_name": "Taking a Shot (A Play-by-Play Novel)"
+  },
+  {
+    "rank": 21,
+    "item_id": 5516,
+    "item_name": "Infinite Possibilities: The Secret Life of Amy Bensen Book Two (Volume 2)"
+  },
+  {
+    "rank": 22,
+    "item_id": 575,
+    "item_name": "One Good Earl Deserves a Lover: The Second Rule of Scoundrels (Rules of Scoundrels)"
+  },
+  {
+    "rank": 23,
+    "item_id": 2504,
+    "item_name": "Yours to Keep (The Kowalskis)"
+  },
+  {
+    "rank": 24,
+    "item_id": 540,
+    "item_name": "The Ugly Duchess (Fairy Tales)"
+  },
+  {
+    "rank": 25,
+    "item_id": 3778,
+    "item_name": "Simply Irresistible (Lucky Harbor)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Chasing Embers (A Ben Garston Novel)"
+  },
+  {
+    "item_name": "Strange Music: A Pip &amp; Flinx Adventure (Adventures of Pip &amp; Flinx)"
+  },
+  {
+    "item_name": "Into a Dark Frontier"
+  },
+  {
+    "item_name": "Neverwhere: A Novel"
+  },
+  {
+    "item_name": "Every Dead Thing"
+  },
+  {
+    "item_name": "I Love a Book"
+  },
+  {
+    "item_name": "Firefly"
+  },
+  {
+    "item_name": "Where There's Smoke"
+  },
+  {
+    "item_name": "The Last Gargoyle"
+  },
+  {
+    "item_name": "Freeda the Cheetah"
+  },
+  {
+    "item_name": "Mink Eyes"
+  },
+  {
+    "item_name": "Zenith"
+  },
+  {
+    "item_name": "Flying: A Novel (Flying Series)"
+  },
+  {
+    "item_name": "Tess of the Road"
+  },
+  {
+    "item_name": "The Midnight Line: A Jack Reacher Novel"
+  },
+  {
+    "item_name": "Daughters of Bad Men"
+  },
+  {
+    "item_name": "A Plague of Giants: A Novel (Seven Kennings)"
+  },
+  {
+    "item_name": "The Rooster Bar"
+  },
+  {
+    "item_name": "End Game (Will Robie Series)"
+  },
+  {
+    "item_name": "DC Comics Justice League The Ultimate Guide"
+  },
+  {
+    "item_name": "Owl and the Japanese Circus (The Owl Series)"
+  },
+  {
+    "item_name": "Owl and the City of Angels (The Owl Series)"
+  },
+  {
+    "item_name": "Power Down (A Dewey Andreas Novel)"
+  },
+  {
+    "item_name": "All Around the Town"
+  },
+  {
+    "item_name": "Owl and the Electric Samurai (The Owl Series)"
+  },
+  {
+    "item_name": "I, Sniper (Bob Lee Swagger Novels)"
+  },
+  {
+    "item_name": "Eye for an Eye (A Dewey Andreas Novel)"
+  },
+  {
+    "item_name": "Daddy's Little Girl"
+  },
+  {
+    "item_name": "Alexander Outland: Space Pirate"
+  },
+  {
+    "item_name": "The Queens of Innis Lear"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 2,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 3,
+    "item_name": "Odd Hours"
+  },
+  {
+    "rank": 4,
+    "item_name": "Afraid"
+  },
+  {
+    "rank": 5,
+    "item_name": "Rewinder"
+  },
+  {
+    "rank": 6,
+    "item_name": "Patient Zero: A Joe Ledger Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "Kitty and the Midnight Hour (Kitty Norville)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Parasite"
+  },
+  {
+    "rank": 9,
+    "item_name": "Robin: Lady of Legend (The Classic Adventures of the Girl Who Became Robin Hood)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Lost Fleet: Beyond the Frontier: Leviathan"
+  },
+  {
+    "rank": 11,
+    "item_name": "Libriomancer (Magic Ex Libris)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Breach"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Bone Thief: A Body Farm Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Flesh and Bone: A Body Farm Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Great Zoo Of China"
+  },
+  {
+    "rank": 16,
+    "item_name": "Dead Lines: A Novel of Life . . . After Death"
+  },
+  {
+    "rank": 17,
+    "item_name": "No Mercy (A Jonathan Grave Thriller)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 19,
+    "item_name": "Brilliance (The Brilliance Trilogy)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Gathering Prey (A Prey Novel)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Forever Odd"
+  },
+  {
+    "rank": 22,
+    "item_name": "Livia Lone (A Livia Lone Novel)"
+  },
+  {
+    "rank": 23,
+    "item_name": "I, Sniper (Bob Lee Swagger Novels)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Unraveled (Elemental Assassin)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Dead Wrong (Joanna Brady Mysteries, Book 12)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Accident: A Thriller"
+  },
+  {
+    "rank": 28,
+    "item_name": "Treecat Wars (Star Kingdom)"
+  },
+  {
+    "rank": 29,
+    "item_name": "AFTERLIFE"
+  },
+  {
+    "rank": 30,
+    "item_name": "Wired"
+  },
+  {
+    "rank": 31,
+    "item_name": "Pines (Wayward Pines)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Glory in Death"
+  },
+  {
+    "rank": 33,
+    "item_name": "On Target (Gray Man)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Ghost Country"
+  },
+  {
+    "rank": 35,
+    "item_name": "Cop Town: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Lions of Lucerne"
+  },
+  {
+    "rank": 37,
+    "item_name": "Traitor's Blade (The Greatcoats)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Fireman: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Assassin's Apprentice"
+  },
+  {
+    "rank": 40,
+    "item_name": "Spell Bound (The Women of the Otherworld Series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Golden Gate"
+  },
+  {
+    "rank": 42,
+    "item_name": "Threat Vector (Jack Ryan, Jr.)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Keepsake: A Rizzoli &amp; Isles Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "Face Off"
+  },
+  {
+    "rank": 45,
+    "item_name": "White Witch, Black Curse"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Devil You Know"
+  },
+  {
+    "rank": 47,
+    "item_name": "Horns: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Silent in the Sanctuary: A Lady Julia Grey Mystery"
+  },
+  {
+    "rank": 49,
+    "item_name": "Fortune's Pawn (Paradox Book 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Book of Life: A Novel (All Souls Trilogy)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

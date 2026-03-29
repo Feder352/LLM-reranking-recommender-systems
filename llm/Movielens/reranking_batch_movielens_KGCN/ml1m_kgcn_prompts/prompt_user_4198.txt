@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Star Wars: Episode VI - Return of the Jedi"
+  },
+  {
+    "item_name": "Muppet Treasure Island"
+  },
+  {
+    "item_name": "Vacation"
+  },
+  {
+    "item_name": "Blade Runner"
+  },
+  {
+    "item_name": "Young Frankenstein"
+  },
+  {
+    "item_name": "Dracula"
+  },
+  {
+    "item_name": "Jaws"
+  },
+  {
+    "item_name": "Little Shop of Horrors, The"
+  },
+  {
+    "item_name": "Scary Movie"
+  },
+  {
+    "item_name": "Exorcist, The"
+  },
+  {
+    "item_name": "Alien"
+  },
+  {
+    "item_name": "Shining, The"
+  },
+  {
+    "item_name": "Ghostbusters"
+  },
+  {
+    "item_name": "Rosemary's Baby"
+  },
+  {
+    "item_name": "Carrie"
+  },
+  {
+    "item_name": "Jacob's Ladder"
+  },
+  {
+    "item_name": "Heavy Metal"
+  },
+  {
+    "item_name": "American Werewolf in London, An"
+  },
+  {
+    "item_name": "Dead Zone, The"
+  },
+  {
+    "item_name": "Halloween"
+  },
+  {
+    "item_name": "Interview with the Vampire"
+  },
+  {
+    "item_name": "Nightmare on Elm Street, A"
+  },
+  {
+    "item_name": "Little Shop of Horrors"
+  },
+  {
+    "item_name": "Rocky Horror Picture Show, The"
+  },
+  {
+    "item_name": "Creepshow"
+  },
+  {
+    "item_name": "Something Wicked This Way Comes"
+  },
+  {
+    "item_name": "Attack of the Killer Tomatoes!"
+  },
+  {
+    "item_name": "Cujo"
+  },
+  {
+    "item_name": "Pet Sematary"
+  },
+  {
+    "item_name": "In the Mouth of Madness"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1227,
+    "item_name": "Hellraiser"
+  },
+  {
+    "rank": 2,
+    "item_id": 1803,
+    "item_name": "Nightmare on Elm Street Part 2: Freddy's Revenge, A"
+  },
+  {
+    "rank": 3,
+    "item_id": 789,
+    "item_name": "Blair Witch Project, The"
+  },
+  {
+    "rank": 4,
+    "item_id": 1114,
+    "item_name": "Shining, The"
+  },
+  {
+    "rank": 5,
+    "item_id": 1806,
+    "item_name": "Nightmare on Elm Street 4: The Dream Master, A"
+  },
+  {
+    "rank": 6,
+    "item_id": 1531,
+    "item_name": "Birds, The"
+  },
+  {
+    "rank": 7,
+    "item_id": 263,
+    "item_name": "Sleepy Hollow"
+  },
+  {
+    "rank": 8,
+    "item_id": 1129,
+    "item_name": "Omen, The"
+  },
+  {
+    "rank": 9,
+    "item_id": 1731,
+    "item_name": "Halloween: The Curse of Michael Myers"
+  },
+  {
+    "rank": 10,
+    "item_id": 714,
+    "item_name": "Gremlins"
+  },
+  {
+    "rank": 11,
+    "item_id": 1113,
+    "item_name": "Amityville Horror, The"
+  },
+  {
+    "rank": 12,
+    "item_id": 779,
+    "item_name": "Abbott and Costello Meet Frankenstein"
+  },
+  {
+    "rank": 13,
+    "item_id": 1161,
+    "item_name": "Scream 3"
+  },
+  {
+    "rank": 14,
+    "item_id": 1808,
+    "item_name": "Freddy's Dead: The Final Nightmare"
+  },
+  {
+    "rank": 15,
+    "item_id": 1894,
+    "item_name": "Candyman"
+  },
+  {
+    "rank": 16,
+    "item_id": 1987,
+    "item_name": "Hellbound: Hellraiser II"
+  },
+  {
+    "rank": 17,
+    "item_id": 1125,
+    "item_name": "Frankenstein"
+  },
+  {
+    "rank": 18,
+    "item_id": 1807,
+    "item_name": "Nightmare on Elm Street 5: The Dream Child, A"
+  },
+  {
+    "rank": 19,
+    "item_id": 193,
+    "item_name": "Evil Dead II (Dead By Dawn)"
+  },
+  {
+    "rank": 20,
+    "item_id": 1805,
+    "item_name": "Nightmare on Elm Street 3: Dream Warriors, A"
+  },
+  {
+    "rank": 21,
+    "item_id": 1157,
+    "item_name": "Psycho"
+  },
+  {
+    "rank": 22,
+    "item_id": 2150,
+    "item_name": "House on Haunted Hill, The"
+  },
+  {
+    "rank": 23,
+    "item_id": 374,
+    "item_name": "Misery"
+  },
+  {
+    "rank": 24,
+    "item_id": 1117,
+    "item_name": "Scream"
+  },
+  {
+    "rank": 25,
+    "item_id": 294,
+    "item_name": "Night of the Living Dead"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

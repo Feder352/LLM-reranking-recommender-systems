@@ -1,0 +1,223 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Lethal Weapon 3"
+  },
+  {
+    "item_name": "French Kiss"
+  },
+  {
+    "item_name": "Big Daddy"
+  },
+  {
+    "item_name": "Hudsucker Proxy, The"
+  },
+  {
+    "item_name": "Full Monty, The"
+  },
+  {
+    "item_name": "Bulworth"
+  },
+  {
+    "item_name": "Four Weddings and a Funeral"
+  },
+  {
+    "item_name": "My Blue Heaven"
+  },
+  {
+    "item_name": "With Honors"
+  },
+  {
+    "item_name": "Grumpier Old Men"
+  },
+  {
+    "item_name": "Night at the Roxbury, A"
+  },
+  {
+    "item_name": "Deuce Bigalow: Male Gigolo"
+  },
+  {
+    "item_name": "Star Wars: Episode IV - A New Hope"
+  },
+  {
+    "item_name": "Butch Cassidy and the Sundance Kid"
+  },
+  {
+    "item_name": "Star Wars: Episode V - The Empire Strikes Back"
+  },
+  {
+    "item_name": "Raiders of the Lost Ark"
+  },
+  {
+    "item_name": "Godfather, The"
+  },
+  {
+    "item_name": "Alien"
+  },
+  {
+    "item_name": "Shawshank Redemption, The"
+  },
+  {
+    "item_name": "Schindler's List"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Mallrats"
+  },
+  {
+    "rank": 2,
+    "item_name": "Low Life, The"
+  },
+  {
+    "rank": 3,
+    "item_name": "Bewegte Mann, Der"
+  },
+  {
+    "rank": 4,
+    "item_name": "Six Degrees of Separation"
+  },
+  {
+    "rank": 5,
+    "item_name": "Crow, The"
+  },
+  {
+    "rank": 6,
+    "item_name": "Fear, The"
+  },
+  {
+    "rank": 7,
+    "item_name": "Poison Ivy II"
+  },
+  {
+    "rank": 8,
+    "item_name": "Angus"
+  },
+  {
+    "rank": 9,
+    "item_name": "Basic Instinct"
+  },
+  {
+    "rank": 10,
+    "item_name": "Diebinnen"
+  },
+  {
+    "rank": 11,
+    "item_name": "Real Blonde, The"
+  },
+  {
+    "rank": 12,
+    "item_name": "Amateur"
+  },
+  {
+    "rank": 13,
+    "item_name": "Metro"
+  },
+  {
+    "rank": 14,
+    "item_name": "Circle of Friends"
+  },
+  {
+    "rank": 15,
+    "item_name": "Honigmond"
+  },
+  {
+    "rank": 16,
+    "item_name": "Man of the House"
+  },
+  {
+    "rank": 17,
+    "item_name": "Mission: Impossible"
+  },
+  {
+    "rank": 18,
+    "item_name": "Bhaji on the Beach"
+  },
+  {
+    "rank": 19,
+    "item_name": "Power 98"
+  },
+  {
+    "rank": 20,
+    "item_name": "Mirage"
+  },
+  {
+    "rank": 21,
+    "item_name": "Babe"
+  },
+  {
+    "rank": 22,
+    "item_name": "Blood Beach"
+  },
+  {
+    "rank": 23,
+    "item_name": "Lord of Illusions"
+  },
+  {
+    "rank": 24,
+    "item_name": "Eat Drink Man Woman"
+  },
+  {
+    "rank": 25,
+    "item_name": "Casino"
+  }
+]
+
+#Instructions
+
+1.Assess the creativity of each item according to the provided definition.
+
+2.Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 10 items (rank 1..10).
+- Output must be ONLY the JSON list. No extra text.

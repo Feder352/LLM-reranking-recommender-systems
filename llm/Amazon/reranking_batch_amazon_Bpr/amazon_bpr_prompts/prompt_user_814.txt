@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Boston Girl: A Novel"
+  },
+  {
+    "item_name": "Margarita Wednesdays: Making a New Life by the Mexican Sea"
+  },
+  {
+    "item_name": "After the War is Over: A Novel"
+  },
+  {
+    "item_name": "An Appetite for Violets: A Novel"
+  },
+  {
+    "item_name": "Death with All the Trimmings (Key West Food Critic)"
+  },
+  {
+    "item_name": "The Kizuna Coast: A Rei Shimura Mystery"
+  },
+  {
+    "item_name": "Night Watch: An Em Ridge Mystery (Volume 1)"
+  },
+  {
+    "item_name": "The Reluctant Midwife: A Hope River Novel"
+  },
+  {
+    "item_name": "The Secrets of Midwives: A Novel"
+  },
+  {
+    "item_name": "The Same Sky"
+  },
+  {
+    "item_name": "Stella Rose: A Novel"
+  },
+  {
+    "item_name": "Running in Heels: A Memoir of Grit and Grace (Outdated Edition)"
+  },
+  {
+    "item_name": "Spinster: Making a Life of One's Own"
+  },
+  {
+    "item_name": "Uncovered: How I Left Hasidic Life and Finally Came Home"
+  },
+  {
+    "item_name": "The Race for Paris: A Novel"
+  },
+  {
+    "item_name": "Little Woman in Blue: A Novel of May Alcott"
+  },
+  {
+    "item_name": "The Art of Memoir"
+  },
+  {
+    "item_name": "His Right Hand (A Linda Wallheim Mystery)"
+  },
+  {
+    "item_name": "What We Left Behind (Harlequin Teen)"
+  },
+  {
+    "item_name": "Murder at Peacock Mansion (Blue Plate Cafe Mysteries) (Volume 3)"
+  },
+  {
+    "item_name": "A Drop in the Ocean: A Novel"
+  },
+  {
+    "item_name": "Two Dogs and a Parrot: What Our Animal Friends Can Teach Us About Life"
+  },
+  {
+    "item_name": "All Waiting Is Long"
+  },
+  {
+    "item_name": "Soldier Sister, Fly Home"
+  },
+  {
+    "item_name": "My Journey Through War and Peace: Explorations of a Young Filmmaker, Feminist and Spiritual Seeker (The Heroine's Journey Book 1)"
+  },
+  {
+    "item_name": "Be Light Like a Bird"
+  },
+  {
+    "item_name": "To The Stars Through Difficulties: A Novel"
+  },
+  {
+    "item_name": "Creative Visualization"
+  },
+  {
+    "item_name": "Anything Is Possible: A Novel"
+  },
+  {
+    "item_name": "Writing for Bliss: A Seven-Step Plan for Telling Your Story and Transforming Your Life"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Room"
+  },
+  {
+    "rank": 2,
+    "item_name": "Marley &amp; Me: Life and Love with the World's Worst Dog"
+  },
+  {
+    "rank": 3,
+    "item_name": "My Name Is Mary Sutter: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Glass Castle"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Noticer: Sometimes, all a person needs is a little perspective."
+  },
+  {
+    "rank": 7,
+    "item_name": "In Such Good Company: Eleven Years of Laughter, Mayhem, and Fun in the Sandbox"
+  },
+  {
+    "rank": 8,
+    "item_name": "Battle Hymn of the Tiger Mother"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Forgotten Garden"
+  },
+  {
+    "rank": 10,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 13,
+    "item_name": "City of Women"
+  },
+  {
+    "rank": 14,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "Cleopatra's Daughter: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 17,
+    "item_name": "Total Money Makeover"
+  },
+  {
+    "rank": 18,
+    "item_name": "Pilgrim's Wilderness: A True Story of Faith and Madness on the Alaska Frontier"
+  },
+  {
+    "rank": 19,
+    "item_name": "Alice I Have Been: A Novel (Random House Reader's Circle)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Angel Makers"
+  },
+  {
+    "rank": 21,
+    "item_name": "Evicted: Poverty and Profit in the American City"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Kingmaker's Daughter (The Plantagenet and Tudor Novels)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Light Between Oceans: The heartbreaking Richard and Judy bestseller"
+  },
+  {
+    "rank": 24,
+    "item_name": "HILLBILLY ELEGY- PB"
+  },
+  {
+    "rank": 25,
+    "item_name": "Dead Wake: The Last Crossing of the Lusitania"
+  },
+  {
+    "rank": 26,
+    "item_name": "Friendship Bread: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Immortal Life of Henrietta Lacks"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Particular Sadness of Lemon Cake: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Rosemary: The Hidden Kennedy Daughter"
+  },
+  {
+    "rank": 31,
+    "item_name": "Salt Sugar Fat: How the Food Giants Hooked Us"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Last Song"
+  },
+  {
+    "rank": 33,
+    "item_name": "Chestnut Street"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Shadow of Your Smile (Thorndike Press Large Print Basic Series)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Other Hand"
+  },
+  {
+    "rank": 36,
+    "item_name": "Three Cups of Tea"
+  },
+  {
+    "rank": 37,
+    "item_name": "When Breath Becomes Air"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Elephant to Hollywood"
+  },
+  {
+    "rank": 39,
+    "item_name": "Loving Frank: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Night"
+  },
+  {
+    "rank": 41,
+    "item_name": "Thunder Dog: The True Story of a Blind Man, His Guide Dog, and the Triumph of Trust"
+  },
+  {
+    "rank": 42,
+    "item_name": "MWF Seeking BFF: My Yearlong Search for a New Best Friend"
+  },
+  {
+    "rank": 43,
+    "item_name": "Etta &amp; Otto &amp; Russell &amp; James Ome"
+  },
+  {
+    "rank": 44,
+    "item_name": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI"
+  },
+  {
+    "rank": 45,
+    "item_name": "The First Phone Call from Heaven"
+  },
+  {
+    "rank": 46,
+    "item_name": "Red Hook Road"
+  },
+  {
+    "rank": 47,
+    "item_name": "This Is Where I Leave You: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Shanghai Girls: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Go Set a Watchman: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Olive Kitteridge"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

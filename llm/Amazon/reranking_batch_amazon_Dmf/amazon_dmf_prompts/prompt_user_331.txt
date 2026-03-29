@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Stolen Ones (A Stevens and Windermere Novel)"
+  },
+  {
+    "item_name": "A Banquet of Consequences: A Lynley Novel"
+  },
+  {
+    "item_name": "The Industries of the Future"
+  },
+  {
+    "item_name": "Bearing Witness: Stories of Martyrdom and Costly Discipleship"
+  },
+  {
+    "item_name": "No Longer a Slumdog: Bringing Hope to Children in Crisis"
+  },
+  {
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "item_name": "The Turner House"
+  },
+  {
+    "item_name": "What She Left"
+  },
+  {
+    "item_name": "All Things Cease to Appear: A novel"
+  },
+  {
+    "item_name": "Need To Find You"
+  },
+  {
+    "item_name": "Pawleys Island: A Lowcountry Tale"
+  },
+  {
+    "item_name": "Extreme Prey (A Prey Novel)"
+  },
+  {
+    "item_name": "Resthaven"
+  },
+  {
+    "item_name": "Lost King (An Omar Zagouri Thriller)"
+  },
+  {
+    "item_name": "Not Working: A Novel"
+  },
+  {
+    "item_name": "Hard Cold Winter: A Van Shaw Novel"
+  },
+  {
+    "item_name": "Deadly Stillwater"
+  },
+  {
+    "item_name": "Die of Shame"
+  },
+  {
+    "item_name": "Secretly Hers (Sterling Canyon)"
+  },
+  {
+    "item_name": "Reliquary"
+  },
+  {
+    "item_name": "Guilt: An Alex Delaware Novel"
+  },
+  {
+    "item_name": "Finn Fancy Necromancy: The Familia Arcana, Book 1"
+  },
+  {
+    "item_name": "The Gods of Guilt (A Lincoln Lawyer Novel)"
+  },
+  {
+    "item_name": "The Burden of Proof"
+  },
+  {
+    "item_name": "XO: Kathryn Dance Book 3 (Kathryn Dance thrillers)"
+  },
+  {
+    "item_name": "Undead and Uneasy (Queen Betsy, Book 6)"
+  },
+  {
+    "item_name": "Silencing Eve"
+  },
+  {
+    "item_name": "The Body in the Kelp"
+  },
+  {
+    "item_name": "The Cantaloupe Thief (A Branigan Powers Mystery)"
+  },
+  {
+    "item_name": "The Cantaloupe Thief (A Branigan Powers Mystery) - Kindle edition"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 10339,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 2,
+    "item_id": 75903,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 3,
+    "item_id": 74748,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 4,
+    "item_id": 13288,
+    "item_name": "The Last Coyote (Harry Bosch)"
+  },
+  {
+    "rank": 5,
+    "item_id": 18969,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 6,
+    "item_id": 74721,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 7,
+    "item_id": 20358,
+    "item_name": "Tripwire (Jack Reacher, No. 3)"
+  },
+  {
+    "rank": 8,
+    "item_id": 11209,
+    "item_name": "The Columbus Affair: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 9,
+    "item_id": 14595,
+    "item_name": "S is for Silence"
+  },
+  {
+    "rank": 10,
+    "item_id": 9963,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 11,
+    "item_id": 13816,
+    "item_name": "The Lincoln Lawyer (Large Print)"
+  },
+  {
+    "rank": 12,
+    "item_id": 77133,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 13,
+    "item_id": 10840,
+    "item_name": "61 Hours: A Reacher Novel"
+  },
+  {
+    "rank": 14,
+    "item_id": 7638,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 15,
+    "item_id": 31929,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 16,
+    "item_id": 77131,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 17,
+    "item_id": 10807,
+    "item_name": "A Wanted Man: A Jack Reacher Novel"
+  },
+  {
+    "rank": 18,
+    "item_id": 7307,
+    "item_name": "Maisie Dobbs (Book 1)"
+  },
+  {
+    "rank": 19,
+    "item_id": 13595,
+    "item_name": "The Reversal (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 20,
+    "item_id": 13808,
+    "item_name": "Mary, Mary"
+  },
+  {
+    "rank": 21,
+    "item_id": 37670,
+    "item_name": "Kill Shot (The Mitch Rapp Series)"
+  },
+  {
+    "rank": 22,
+    "item_id": 13797,
+    "item_name": "City of Bones"
+  },
+  {
+    "rank": 23,
+    "item_id": 20597,
+    "item_name": "The First Rule (A Joe Pike Novel)"
+  },
+  {
+    "rank": 24,
+    "item_id": 13573,
+    "item_name": "The Closers"
+  },
+  {
+    "rank": 25,
+    "item_id": 1719,
+    "item_name": "Mystic River"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

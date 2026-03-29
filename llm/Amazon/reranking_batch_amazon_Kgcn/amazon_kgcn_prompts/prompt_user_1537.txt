@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Mason James (Heartbreakers &amp; Heroes) (Volume 2)"
+  },
+  {
+    "item_name": "Jasper Jacks (Heartbreakers &amp; Heroes) (Volume 3)"
+  },
+  {
+    "item_name": "Ranger Ramon (Shifter Nation: Werebears Of Acadia) (Volume 3)"
+  },
+  {
+    "item_name": "For the Heart of an Outlaw (Outlaw Shifters) (Volume 3)"
+  },
+  {
+    "item_name": "A Slip in Time"
+  },
+  {
+    "item_name": "Gavin (Immortal Highlander Book 5): A Scottish Time Travel Romance (Volume 5)"
+  },
+  {
+    "item_name": "A Real Cowboy Never Says No (Wyoming Rebels) (Volume 1)"
+  },
+  {
+    "item_name": "A Real Cowboy Knows How to Kiss (Wyoming Rebels) (Volume 2)"
+  },
+  {
+    "item_name": "A Real Cowboy Rides a Motorcycle (Wyoming Rebels) (Volume 3)"
+  },
+  {
+    "item_name": "A Real Cowboy Loves Forever (Wyoming Rebels) (Volume 5)"
+  },
+  {
+    "item_name": "Fatal Chaos (The Fatal Series)"
+  },
+  {
+    "item_name": "Abducting Abby: Dragon Lords of Valdier Book 1"
+  },
+  {
+    "item_name": "Hot Mess (Into The Fire) (Volume 4)"
+  },
+  {
+    "item_name": "Slow Burn (Into The Fire Series) (Volume 2)"
+  },
+  {
+    "item_name": "Burn So Bad (Into The Fire) (Volume 3)"
+  },
+  {
+    "item_name": "Marking Time (The Treading Water Series) (Volume 2)"
+  },
+  {
+    "item_name": "Treading Water (The Treading Water Series) (Volume 1)"
+  },
+  {
+    "item_name": "Starting Over (The Treading Water Series) (Volume 3)"
+  },
+  {
+    "item_name": "Coming Home (The Treading Water Series) (Volume 4)"
+  },
+  {
+    "item_name": "Something About a Bounty Hunter (Wild Wild West) (Volume 3)"
+  },
+  {
+    "item_name": "Something About a Sheriff (Wild West) (Volume 2)"
+  },
+  {
+    "item_name": "Deacon Johns (Heartbreakers &amp; Heroes) (Volume 4)"
+  },
+  {
+    "item_name": "River's Run: Lords of Kassis Book 1: Lords of Kassis Book 1 (Volume 1)"
+  },
+  {
+    "item_name": "Jo's Journey: Lords of Kassis Book 3: Lords of Kassis Book 3 (Volume 3)"
+  },
+  {
+    "item_name": "Touch of Frost (Magic, New Mexico) (Volume 1)"
+  },
+  {
+    "item_name": "Renegade Ridge: A Bad Boy Action Adventure Romance (Renegade Ridge Series)"
+  },
+  {
+    "item_name": "Just Once More"
+  },
+  {
+    "item_name": "Undercover Amish (Covert Police Detectives Unit)"
+  },
+  {
+    "item_name": "Rebel Dragon (Aloha Shifters: Pearls of Desire) (Volume 1)"
+  },
+  {
+    "item_name": "Rescuing Emily: Delta Force Heroes, Book 2"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5123,
+    "item_name": "Can't Help Falling in Love (The Sullivans)"
+  },
+  {
+    "rank": 2,
+    "item_id": 5520,
+    "item_name": "Jane's Melody"
+  },
+  {
+    "rank": 3,
+    "item_id": 5885,
+    "item_name": "Beautiful Oblivion (Maddox Brothers)"
+  },
+  {
+    "rank": 4,
+    "item_id": 4696,
+    "item_name": "The Littlest Cowboy (The Texas Brand) (Silhouette Intimate Moments, No 716)"
+  },
+  {
+    "rank": 5,
+    "item_id": 4043,
+    "item_name": "On Dublin Street (On Dublin Street Series)"
+  },
+  {
+    "rank": 6,
+    "item_id": 5124,
+    "item_name": "Always On My Mind (The Sullivans)"
+  },
+  {
+    "rank": 7,
+    "item_id": 5908,
+    "item_name": "Sweet Filthy Boy (Wild Seasons)"
+  },
+  {
+    "rank": 8,
+    "item_id": 2410,
+    "item_name": "Love a Little Sideways (The Kowalskis)"
+  },
+  {
+    "rank": 9,
+    "item_id": 5906,
+    "item_name": "Tangled (The Tangled Series)"
+  },
+  {
+    "rank": 10,
+    "item_id": 5524,
+    "item_name": "Falling Into You"
+  },
+  {
+    "rank": 11,
+    "item_id": 5866,
+    "item_name": "Forever and a Day (Lucky Harbor)"
+  },
+  {
+    "rank": 12,
+    "item_id": 5897,
+    "item_name": "All In: The Blackstone Affair, Book 2"
+  },
+  {
+    "rank": 13,
+    "item_id": 3778,
+    "item_name": "Simply Irresistible (Lucky Harbor)"
+  },
+  {
+    "rank": 14,
+    "item_id": 5892,
+    "item_name": "Wallbanger (The Cocktail Series)"
+  },
+  {
+    "rank": 15,
+    "item_id": 5903,
+    "item_name": "Twisted (The Tangled Series)"
+  },
+  {
+    "rank": 16,
+    "item_id": 5127,
+    "item_name": "If You Were Mine (The Sullivans)"
+  },
+  {
+    "rank": 17,
+    "item_id": 5519,
+    "item_name": "Fallen Too Far"
+  },
+  {
+    "rank": 18,
+    "item_id": 2504,
+    "item_name": "Yours to Keep (The Kowalskis)"
+  },
+  {
+    "rank": 19,
+    "item_id": 5900,
+    "item_name": "The Marriage Merger (Marriage to a Billionaire)"
+  },
+  {
+    "rank": 20,
+    "item_id": 2386,
+    "item_name": "Blue Lines: The Assassins Series"
+  },
+  {
+    "rank": 21,
+    "item_id": 2495,
+    "item_name": "The Best Man (The Blue Heron Series)"
+  },
+  {
+    "rank": 22,
+    "item_id": 5807,
+    "item_name": "Beautiful Disaster"
+  },
+  {
+    "rank": 23,
+    "item_id": 5532,
+    "item_name": "Fixed On You (Fixed - Book 1) (Fixed Series) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_id": 5872,
+    "item_name": "Once in a Lifetime (Lucky Harbor)"
+  },
+  {
+    "rank": 25,
+    "item_id": 5924,
+    "item_name": "Hard to Love"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

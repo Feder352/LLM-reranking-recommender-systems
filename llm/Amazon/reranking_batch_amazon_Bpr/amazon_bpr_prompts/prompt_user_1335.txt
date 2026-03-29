@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Diet Dropout's Guide to Natural Weight Loss: Find Your Easiest Path to Naturally Thin"
+  },
+  {
+    "item_name": "The Skinny on Networking: Maximizing the Power of Numbers"
+  },
+  {
+    "item_name": "Fortune Zoom: Surprising Ways to Supercharge Your Career"
+  },
+  {
+    "item_name": "Uncharted: Big Data as a Lens on Human Culture"
+  },
+  {
+    "item_name": "SOS (Stop Only Sugar) Diet: You Won't Even Know You're On A Diet!"
+  },
+  {
+    "item_name": "How to Fight Presidents: Defending Yourself Against the Badasses Who Ran This Country"
+  },
+  {
+    "item_name": "Missing Microbes: How the Overuse of Antibiotics Is Fueling Our Modern Plagues"
+  },
+  {
+    "item_name": "Will There Be Donuts?. by David Pearl"
+  },
+  {
+    "item_name": "Mindhealer (The Watcher Series, Book 5)"
+  },
+  {
+    "item_name": "Dangerous Illusions"
+  },
+  {
+    "item_name": "Dead in the Water (A Cal Murphy Thriller Book 4) - Kindle edition"
+  },
+  {
+    "item_name": "Semmant"
+  },
+  {
+    "item_name": "Clockwork Heart"
+  },
+  {
+    "item_name": "Red Rising"
+  },
+  {
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "item_name": "The Secret World of Oil"
+  },
+  {
+    "item_name": "The King of Elfland's Daughter: A Novel (Del Rey Impact)"
+  },
+  {
+    "item_name": "The SHIVA Syndrome"
+  },
+  {
+    "item_name": "251 Things To Do in TOFINO: And it is not just about Surfing"
+  },
+  {
+    "item_name": "Dirty Martini (Jacqueline)"
+  },
+  {
+    "item_name": "Indecent"
+  },
+  {
+    "item_name": "Europa Journal"
+  },
+  {
+    "item_name": "Those Who Hunt The Night"
+  },
+  {
+    "item_name": "Esper Files (Volume 1)"
+  },
+  {
+    "item_name": "Forgotten Reflections"
+  },
+  {
+    "item_name": "The World in 2050: Four Forces Shaping Civilization's Northern Future"
+  },
+  {
+    "item_name": "Yesterday's Kin"
+  },
+  {
+    "item_name": "Swiped: How to Protect Yourself in a World Full of Scammers, Phishers, and Identity Thieves"
+  },
+  {
+    "item_name": "The Transference Engine"
+  },
+  {
+    "item_name": "It Happened One Doomsday (A Dru Jasper Novel)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 4,
+    "item_name": "Street Smarts: Beyond the Diploma"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Working Poor: Invisible in America"
+  },
+  {
+    "rank": 6,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 7,
+    "item_name": "Good to Great CD: Why Some Companies Make the Leap.And Others Don't"
+  },
+  {
+    "rank": 8,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 9,
+    "item_name": "If You Were Me and Lived in...India: A Child's Introduction to Cultures Around the World (Volume 7)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Christ the Lord: Out of Egypt"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Prayer of Jabez: Breaking Through To The Blessed Life"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 13,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 14,
+    "item_name": "Free Lunch: How the Wealthiest Americans Enrich Themselves at Government Expense (and StickYou with the Bill)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Welcome to Obamaland: I Have Seen Your Future and It Doesn't Work"
+  },
+  {
+    "rank": 16,
+    "item_name": "Made to Stick: Why Some Ideas Take Hold and Others Come Unstuck"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Art of War: The New Translation (Harper Perennial Modern Classics)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Fearless: Imagine Your Life Without Fear"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 21,
+    "item_name": "If You Were Me and Lived in... Turkey: A Child's Introduction to Culture Around the World (A Child's Introduction to Cultures Around the World) (Volume 6)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Authentic Happiness: Using the New Positive Psychology to Realize Your Potential for Lasting Fulfillment"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Night"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Reason for God: Belief in an Age of Skepticism"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Faith of Barack Obama"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Manchurian Candidate"
+  },
+  {
+    "rank": 28,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 29,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 30,
+    "item_name": "Betty Crocker's Picture Cook Book"
+  },
+  {
+    "rank": 31,
+    "item_name": "Strange But True, America: Weird Tales from All 50 States"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Hanging Tree: A Novella"
+  },
+  {
+    "rank": 33,
+    "item_name": "GUNS, GERMS AND STEEL - A Short History of Everybody for the Last 13,000 Years"
+  },
+  {
+    "rank": 34,
+    "item_name": "Comrades: Brothers, Fathers, Sons, Pals"
+  },
+  {
+    "rank": 35,
+    "item_name": "Steve Jobs: A Biography"
+  },
+  {
+    "rank": 36,
+    "item_name": "Boeing Versus Airbus: The Inside Story of the Greatest International Competition in Business"
+  },
+  {
+    "rank": 37,
+    "item_name": "Last Call: The Rise and Fall of Prohibition"
+  },
+  {
+    "rank": 38,
+    "item_name": "Adapt: Why Success Always Starts with Failure"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Dust Bowl: An Illustrated History"
+  },
+  {
+    "rank": 40,
+    "item_name": "Luther"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Gifted: How to Live the Life of Your Dreams"
+  },
+  {
+    "rank": 42,
+    "item_name": "No Apology: The Case for American Greatness"
+  },
+  {
+    "rank": 43,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 44,
+    "item_name": "Predictably Irrational: The Hidden Forces That Shape Our Decisions"
+  },
+  {
+    "rank": 45,
+    "item_name": "Andy Grove: The Life and Times of an American"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Million Miles in a Thousand Years: What I Learned While Editing My Life"
+  },
+  {
+    "rank": 47,
+    "item_name": "Angels &amp; Demons (Random House Large Print)"
+  },
+  {
+    "rank": 48,
+    "item_name": "March of the Penguins: Companion to the Major Motion Picture"
+  },
+  {
+    "rank": 49,
+    "item_name": "Through the Language Glass: Why the World Looks Different in Other Languages"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Imposter - How a Juvenile Criminal Succeeded in Business and Life"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

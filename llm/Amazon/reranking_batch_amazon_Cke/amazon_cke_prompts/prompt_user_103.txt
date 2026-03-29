@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Abbey. Chris Culver"
+  },
+  {
+    "item_name": "City of Beads"
+  },
+  {
+    "item_name": "Winter Wind"
+  },
+  {
+    "item_name": "Sandman"
+  },
+  {
+    "item_name": "Silent Source: A Medical Thriller"
+  },
+  {
+    "item_name": "The History of Things to Come: A Supernatural Thriller (The Dark Horizon Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "The Rock"
+  },
+  {
+    "item_name": "Sullivan's Secret (Marie Bartek and the SIPS Team)"
+  },
+  {
+    "item_name": "Haunted Hijinks (An Agnes Barton Paranormal Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Water Under The Bridge: A Novel (The Water Trilogy)"
+  },
+  {
+    "item_name": "Big Sick Heart: A Detectives Seagate and Miner Mystery"
+  },
+  {
+    "item_name": "Eleven"
+  },
+  {
+    "item_name": "Power in the Blood: A John Jordan Mystery"
+  },
+  {
+    "item_name": "The Sick House (The Ulrich Files Book 1) eBook"
+  },
+  {
+    "item_name": "The Broken Ones"
+  },
+  {
+    "item_name": "Kill Switch"
+  },
+  {
+    "item_name": "Doll House"
+  },
+  {
+    "item_name": "Blood Oath (John Jordan Mysteries)"
+  },
+  {
+    "item_name": "Shadows in the Water (Volume 1)"
+  },
+  {
+    "item_name": "Dane Curse (Black Cape Case Files) (Volume 1)"
+  },
+  {
+    "item_name": "Beach Lawyer"
+  },
+  {
+    "item_name": "Double Take: a Hank Hammond, P.I. murder mystery (Hank Hammond, P.i. Murder Mysteries)"
+  },
+  {
+    "item_name": "Darkness Haunts (Sensor)"
+  },
+  {
+    "item_name": "Save My Soul"
+  },
+  {
+    "item_name": "Cherry Bomb (Jacqueline Jack Daniels Mysteries)"
+  },
+  {
+    "item_name": "The Darkest Thread (Flint K-9 Search &amp; Rescue Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "Troubled Sea"
+  },
+  {
+    "item_name": "Blood Ties (Julie Collins Series #1)"
+  },
+  {
+    "item_name": "Witch at Heart: A Jinx Hamilton Witch Mystery Book 1 (The Jinx Hamilton Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "Hollywood Homicide"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3078,
+    "item_name": "Poor, poor, Ophelia"
+  },
+  {
+    "rank": 2,
+    "item_id": 5171,
+    "item_name": "Every Fear"
+  },
+  {
+    "rank": 3,
+    "item_id": 4986,
+    "item_name": "Louisiana Hotshot: A Talba Wallis Novel"
+  },
+  {
+    "rank": 4,
+    "item_id": 3875,
+    "item_name": "A Witness Above (Frank Palvicek Mysteries)"
+  },
+  {
+    "rank": 5,
+    "item_id": 4185,
+    "item_name": "Secrets of Midnight (The Man of My Dreams Series Book 1)"
+  },
+  {
+    "rank": 6,
+    "item_id": 4553,
+    "item_name": "Starliner"
+  },
+  {
+    "rank": 7,
+    "item_id": 5922,
+    "item_name": "Stranger in Town"
+  },
+  {
+    "rank": 8,
+    "item_id": 5200,
+    "item_name": "Whiskey Sour: A Jack Daniels Mystery (A Jacqueline Jack Daniels Mystery)"
+  },
+  {
+    "rank": 9,
+    "item_id": 5248,
+    "item_name": "Emma's Folly (Avalon Historical Romance)"
+  },
+  {
+    "rank": 10,
+    "item_id": 4696,
+    "item_name": "The Littlest Cowboy (The Texas Brand) (Silhouette Intimate Moments, No 716)"
+  },
+  {
+    "rank": 11,
+    "item_id": 5973,
+    "item_name": "Daughter of Twin Oaks (A Secret Refuge Series, No. 1)"
+  },
+  {
+    "rank": 12,
+    "item_id": 5100,
+    "item_name": "Don't Cry for Me (A Rebel Ridge Novel)"
+  },
+  {
+    "rank": 13,
+    "item_id": 5098,
+    "item_name": "Sunrise Point (Virgin River)"
+  },
+  {
+    "rank": 14,
+    "item_id": 2444,
+    "item_name": "Brands Who Came for Christmas (The Oklahoma All-Girl Brands) (Silhouette Intimate Moments, 1039)"
+  },
+  {
+    "rank": 15,
+    "item_id": 5372,
+    "item_name": "Reese (Rock Creek Six)"
+  },
+  {
+    "rank": 16,
+    "item_id": 2448,
+    "item_name": "Bayou Justice (Bayou Series, Book 1) (Steeple Hill Love Inspired Suspense #74)"
+  },
+  {
+    "rank": 17,
+    "item_id": 365,
+    "item_name": "The Bride Wore Spurs"
+  },
+  {
+    "rank": 18,
+    "item_id": 663,
+    "item_name": "Little Girl Lost: A Lucy Black Thriller (Lucy Black Thrillers)"
+  },
+  {
+    "rank": 19,
+    "item_id": 4184,
+    "item_name": "The Gingerbread Man"
+  },
+  {
+    "rank": 20,
+    "item_id": 2522,
+    "item_name": "Dying To Play (Signature Spotlight)"
+  },
+  {
+    "rank": 21,
+    "item_id": 5209,
+    "item_name": "Dying to Read: A Novel (The Cate Kinkaid Files-Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_id": 5373,
+    "item_name": "A Dangerous Dalliance (Zebra Regency Romance)"
+  },
+  {
+    "rank": 23,
+    "item_id": 4526,
+    "item_name": "Blue Hat, Green Hat (Boynton on Board)"
+  },
+  {
+    "rank": 24,
+    "item_id": 2437,
+    "item_name": "Dancing In The Moonlight (The Cowboys of Cold Creek)"
+  },
+  {
+    "rank": 25,
+    "item_id": 5167,
+    "item_name": "The Great Eight: How to Be Happy Even When You Have Every Reason to Be Miserable"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Girl Who Came Back to Life: A Fairytale"
+  },
+  {
+    "item_name": "Bloodlines"
+  },
+  {
+    "item_name": "Edge of the Enforcer"
+  },
+  {
+    "item_name": "If Only (Masters of the Shadowlands)"
+  },
+  {
+    "item_name": "Master of Freedom: A Mountain Masters Novella (1001 Dark Nights)"
+  },
+  {
+    "item_name": "The Cajun Cowboy"
+  },
+  {
+    "item_name": "Dragon Unleashed (Dragon Point)"
+  },
+  {
+    "item_name": "Wildfire: A Hidden Legacy Novel"
+  },
+  {
+    "item_name": "Master of Solitude (Mountain Masters &amp; Dark Haven) (Volume 8)"
+  },
+  {
+    "item_name": "Lowcountry Bombshell (A Liz Talbot Mystery) (Volume 2)"
+  },
+  {
+    "item_name": "A Demon and her Scot (Welcome To Hell)"
+  },
+  {
+    "item_name": "Better Off Undead (Blood and Moonlight) (Volume 2)"
+  },
+  {
+    "item_name": "Bitter Blood (Blood and Moonlight) (Volume 3)"
+  },
+  {
+    "item_name": "The Blood of an Englishman: An Agatha Raisin Mystery (Agatha Raisin Mysteries)"
+  },
+  {
+    "item_name": "The Littlest Bigfoot"
+  },
+  {
+    "item_name": "If You Dare (The MacCarrick Brothers, Book 1) (Bk. 1)"
+  },
+  {
+    "item_name": "Hell's Kitty (Welcome To Hell) (Volume 4)"
+  },
+  {
+    "item_name": "Dragon Foretold (Dragon Point)"
+  },
+  {
+    "item_name": "12 Days at Bleakly Manor: Book 1 in Once Upon a Dickens Christmas"
+  },
+  {
+    "item_name": "Beautiful Hero: How We Survived the Khmer Rouge"
+  },
+  {
+    "item_name": "The End of Advertising: Why It Had to Die, and the Creative Resurrection to Come"
+  },
+  {
+    "item_name": "Six Billion Shoppers: The Companies Winning the Global E-Commerce Boom"
+  },
+  {
+    "item_name": "The Devil of Dunakin Castle (Highland Isles) (Volume 4)"
+  },
+  {
+    "item_name": "The Fallen Star: The Nocturnals Book 3"
+  },
+  {
+    "item_name": "Blade of Darkness (Immortal Guardians) (Volume 7)"
+  },
+  {
+    "item_name": "Defy the Dawn: A Midnight Breed Novel (The Midnight Breed Series) (Volume 14)"
+  },
+  {
+    "item_name": "Midnight Untamed: A Midnight Breed Novella"
+  },
+  {
+    "item_name": "BLAZE ERUPTING: Scorpius Syndrome/A Brigade Novella"
+  },
+  {
+    "item_name": "Spellbound (Warlocks MacGregor Book 2) eBook"
+  },
+  {
+    "item_name": "Fighting For Their Mate (Interstellar Brides) (Volume 12)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 46108,
+    "item_name": "Bring the Heat (Dragon Kin)"
+  },
+  {
+    "rank": 2,
+    "item_id": 46316,
+    "item_name": "Kill Without Shame (Ares Security)"
+  },
+  {
+    "rank": 3,
+    "item_id": 54468,
+    "item_name": "Hot and Badgered (The Honey Badger Chronicles)"
+  },
+  {
+    "rank": 4,
+    "item_id": 53887,
+    "item_name": "The Unyielding (Call of Crows)"
+  },
+  {
+    "rank": 5,
+    "item_id": 32546,
+    "item_name": "Wolf with Benefits (Brava Paranormal Romance)"
+  },
+  {
+    "rank": 6,
+    "item_id": 46069,
+    "item_name": "When Darkness Ends (Guardians Of Eternity)"
+  },
+  {
+    "rank": 7,
+    "item_id": 53245,
+    "item_name": "Her True Match (X-Ops)"
+  },
+  {
+    "rank": 8,
+    "item_id": 46195,
+    "item_name": "Kill Without Mercy (Ares Security)"
+  },
+  {
+    "rank": 9,
+    "item_id": 53305,
+    "item_name": "SEAL Wolf Undercover"
+  },
+  {
+    "rank": 10,
+    "item_id": 53207,
+    "item_name": "To Love a Wolf (SWAT)"
+  },
+  {
+    "rank": 11,
+    "item_id": 25580,
+    "item_name": "Archangel's Viper (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 12,
+    "item_id": 16164,
+    "item_name": "The Trouble With Twelfth Grave (Charley Davidson)"
+  },
+  {
+    "rank": 13,
+    "item_id": 65709,
+    "item_name": "The Unleashing (Call Of Crows)"
+  },
+  {
+    "rank": 14,
+    "item_id": 43264,
+    "item_name": "Baby, I'm Howling For You (Alphaville)"
+  },
+  {
+    "rank": 15,
+    "item_id": 41459,
+    "item_name": "Spellbinder (Moonshadow) (Volume 2)"
+  },
+  {
+    "rank": 16,
+    "item_id": 41226,
+    "item_name": "Moonshadow (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_id": 53213,
+    "item_name": "Wolf Unleashed (SWAT)"
+  },
+  {
+    "rank": 18,
+    "item_id": 53314,
+    "item_name": "Her Fierce Warrior (X-Ops)"
+  },
+  {
+    "rank": 19,
+    "item_id": 55646,
+    "item_name": "Unraveled (Elemental Assassin)"
+  },
+  {
+    "rank": 20,
+    "item_id": 65792,
+    "item_name": "The Undoing (Call Of Crows)"
+  },
+  {
+    "rank": 21,
+    "item_id": 44805,
+    "item_name": "Her Wild Hero (X-Ops)"
+  },
+  {
+    "rank": 22,
+    "item_id": 16189,
+    "item_name": "Eleventh Grave in Moonlight (Charley Davidson)"
+  },
+  {
+    "rank": 23,
+    "item_id": 48718,
+    "item_name": "The Bear Who Loved Me (Grizzlies Gone Wild)"
+  },
+  {
+    "rank": 24,
+    "item_id": 53286,
+    "item_name": "Wolf Hunger (SWAT)"
+  },
+  {
+    "rank": 25,
+    "item_id": 32552,
+    "item_name": "Howl For It"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Fields Where They Lay (A Junior Bender Mystery)"
+  },
+  {
+    "item_name": "A Man Called Ove (Thorndike Press Large Print Core Series)"
+  },
+  {
+    "item_name": "Time and Time Again"
+  },
+  {
+    "item_name": "The Underground Railroad"
+  },
+  {
+    "item_name": "The Haunting of Hill House"
+  },
+  {
+    "item_name": "Imagine Me Gone"
+  },
+  {
+    "item_name": "Shylock is My Name"
+  },
+  {
+    "item_name": "Carousel Court: A Novel"
+  },
+  {
+    "item_name": "Ray &amp; Joan: The Man Who Made the McDonald's Fortune and the Woman Who Gave It All Away"
+  },
+  {
+    "item_name": "Anne Perry and the Murder of the Century"
+  },
+  {
+    "item_name": "Paradise Sky"
+  },
+  {
+    "item_name": "The Color of Lightning: A Novel"
+  },
+  {
+    "item_name": "The Wrong Side of Goodbye (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Assassins"
+  },
+  {
+    "item_name": "Our Souls at Night (Vintage Contemporaries)"
+  },
+  {
+    "item_name": "Three Nights In August: Strategy, Heartbreak, and Joy Inside the Mind of a Manager"
+  },
+  {
+    "item_name": "Brooklyn: A Novel"
+  },
+  {
+    "item_name": "The Baseball Whisperer: A Small-Town Coach Who Shaped Big League Dreams"
+  },
+  {
+    "item_name": "Lola: A Novel (The Lola Vasquez Novels)"
+  },
+  {
+    "item_name": "The Story of Arthur Truluv: A Novel"
+  },
+  {
+    "item_name": "A High Wind in Jamaica"
+  },
+  {
+    "item_name": "Garden of Lamentations: A Novel (Duncan Kincaid/Gemma James Novels)"
+  },
+  {
+    "item_name": "New Boy: William Shakespeare's Othello Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "item_name": "Exit West: SHORTLISTED for the Man Booker Prize 2017"
+  },
+  {
+    "item_name": "Bluebird, Bluebird"
+  },
+  {
+    "item_name": "Bluebird, Bluebird (Highway 59)"
+  },
+  {
+    "item_name": "Fools' River (A Poke Rafferty Novel)"
+  },
+  {
+    "item_name": "Walden on Wheels: On The Open Road from Debt to Freedom"
+  },
+  {
+    "item_name": "Alternate Side: A Novel"
+  },
+  {
+    "item_name": "Great American Outpost: Dreamers, Mavericks, and the Making of an Oil Frontier"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Sense of an Ending"
+  },
+  {
+    "rank": 2,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 3,
+    "item_name": "Olive Kitteridge"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Things They Carried (Contemporary American Fiction)"
+  },
+  {
+    "rank": 5,
+    "item_name": "On Chesil Beach"
+  },
+  {
+    "rank": 6,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "The White Tiger: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Rules of Civility: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "Then We Came to the End"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Horse Walks into a Bar: A novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Reader (Movie Tie-in Edition) (Vintage International)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Phantom (Harry Hole Series)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Await Your Reply: A Novel (Random House Reader's Circle)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 16,
+    "item_name": "Cleopatra: A Life"
+  },
+  {
+    "rank": 17,
+    "item_name": "This Is Where I Leave You: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Fifth Witness (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Azincourt"
+  },
+  {
+    "rank": 20,
+    "item_name": "Spies of the Balkans: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 22,
+    "item_name": "Live by Night: (Coughlin, Book 2) (Joe Coughlin Series)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Caribou Island: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Shadow of the Wind"
+  },
+  {
+    "rank": 25,
+    "item_name": "All the Light We Cannot See"
+  },
+  {
+    "rank": 26,
+    "item_name": "Joseph Anton"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Lake Shore Limited"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Bridge of Sighs: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Imperfectionists: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Scarecrow"
+  },
+  {
+    "rank": 33,
+    "item_name": "Battle Hymn of the Tiger Mother"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Late Show"
+  },
+  {
+    "rank": 35,
+    "item_name": "Wild Fire"
+  },
+  {
+    "rank": 36,
+    "item_name": "Canada"
+  },
+  {
+    "rank": 37,
+    "item_name": "My Name Is Lucy Barton: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 39,
+    "item_name": "Lincoln in the Bardo: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Loving Frank: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Other Hand"
+  },
+  {
+    "rank": 42,
+    "item_name": "Fall of Giants (The Century Trilogy)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 45,
+    "item_name": "OUT STEALING HORSES"
+  },
+  {
+    "rank": 46,
+    "item_name": "Life After Life: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Hypnotist"
+  },
+  {
+    "rank": 48,
+    "item_name": "HHhH: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "A Column of Fire (Kingsbridge)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Lila: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

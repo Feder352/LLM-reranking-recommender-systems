@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Between the Devil and the Deep Blue Sea"
+  },
+  {
+    "item_name": "How to Love"
+  },
+  {
+    "item_name": "The Burning Sky (Elemental Trilogy)"
+  },
+  {
+    "item_name": "Double Digit (A Girl Named Digit)"
+  },
+  {
+    "item_name": "The Brokenhearted"
+  },
+  {
+    "item_name": "Grasshopper Jungle"
+  },
+  {
+    "item_name": "Uninvited"
+  },
+  {
+    "item_name": "The Promise of Amazing"
+  },
+  {
+    "item_name": "Half Bad"
+  },
+  {
+    "item_name": "Roomies"
+  },
+  {
+    "item_name": "The Glass Casket"
+  },
+  {
+    "item_name": "The Geography of You and Me"
+  },
+  {
+    "item_name": "Proof: The Science of Booze"
+  },
+  {
+    "item_name": "Girl Defective"
+  },
+  {
+    "item_name": "Life by Committee"
+  },
+  {
+    "item_name": "The Taking"
+  },
+  {
+    "item_name": "Buzz Kill"
+  },
+  {
+    "item_name": "Never Missing, Never Found"
+  },
+  {
+    "item_name": "Everyone We've Been"
+  },
+  {
+    "item_name": "Cloudwish"
+  },
+  {
+    "item_name": "If I Fix You (Harlequin Teen)"
+  },
+  {
+    "item_name": "Something in Between: A thought-provoking coming-of-age novel"
+  },
+  {
+    "item_name": "Kids of Appetite"
+  },
+  {
+    "item_name": "Windfall"
+  },
+  {
+    "item_name": "Trusting You &amp; Other Lies"
+  },
+  {
+    "item_name": "The Go-Between"
+  },
+  {
+    "item_name": "Drag Teen"
+  },
+  {
+    "item_name": "Flying: A Novel (Flying Series)"
+  },
+  {
+    "item_name": "City of Saints &amp; Thieves"
+  },
+  {
+    "item_name": "Protest Postcards: Write, Stamp, Send, and Be Heard"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Ruby Red (The Ruby Red Trilogy)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Clockwork Angel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 4,
+    "item_name": "Don't Breathe a Word"
+  },
+  {
+    "rank": 5,
+    "item_name": "The DUFF: (Designated Ugly Fat Friend)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Choker"
+  },
+  {
+    "rank": 7,
+    "item_name": "Inside Out"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Dark Divine"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Forsaken"
+  },
+  {
+    "rank": 10,
+    "item_name": "Crewel: A Novel (Crewel World)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Once a Witch"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Iron Daughter"
+  },
+  {
+    "rank": 13,
+    "item_name": "Cryer's Cross"
+  },
+  {
+    "rank": 14,
+    "item_name": "Fathomless (Fairy Tale Retelling)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Girl Overboard"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Winner's Curse (The Winner's Trilogy)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Body Finder"
+  },
+  {
+    "rank": 18,
+    "item_name": "Hallowed: An Unearthly Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 20,
+    "item_name": "Blue Bloods (Blue Bloods, Book 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Entice"
+  },
+  {
+    "rank": 22,
+    "item_name": "Vampire Kisses"
+  },
+  {
+    "rank": 23,
+    "item_name": "Illusions of Fate"
+  },
+  {
+    "rank": 24,
+    "item_name": "Betrayed (A House of Night)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Real Real"
+  },
+  {
+    "rank": 26,
+    "item_name": "Dangerous Neighbors"
+  },
+  {
+    "rank": 27,
+    "item_name": "A Thousand Nights"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Iron King"
+  },
+  {
+    "rank": 29,
+    "item_name": "Vampire Academy: Spirit Bound (book 5)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Bras &amp; Broomsticks (Magic In Manhattan)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Black Box"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Betrayal of Maggie Blair"
+  },
+  {
+    "rank": 33,
+    "item_name": "Bad Taste in Boys (Kate Grable Series)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Jenna &amp; Jonah's Fauxmance"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Diviners"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Girl Who Was on Fire: Your Favorite Authors on Suzanne Collins Hunger Games Trilogy"
+  },
+  {
+    "rank": 37,
+    "item_name": "Girl in the Arena"
+  },
+  {
+    "rank": 38,
+    "item_name": "Prodigy"
+  },
+  {
+    "rank": 39,
+    "item_name": "Just One Day"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Hunt (The Hunt Trilogy)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Blaze (or Love in the Time of Supervillains)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Mercy (Mercy, Book 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Million Suns"
+  },
+  {
+    "rank": 44,
+    "item_name": "Firelight"
+  },
+  {
+    "rank": 45,
+    "item_name": "Claire de Lune"
+  },
+  {
+    "rank": 46,
+    "item_name": "Secrets of Truth and Beauty"
+  },
+  {
+    "rank": 47,
+    "item_name": "Crusade"
+  },
+  {
+    "rank": 48,
+    "item_name": "Entwined"
+  },
+  {
+    "rank": 49,
+    "item_name": "Meridian"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Iron Witch (The Iron Witch Series)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

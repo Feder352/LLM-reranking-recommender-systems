@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Marriage Lie: A bestselling psychological thriller"
+  },
+  {
+    "item_name": "Two Kinds of Truth (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Sycamore Row (The Jake Brigance)"
+  },
+  {
+    "item_name": "A Room Full of Bones (Ruth Galloway Mysteries)"
+  },
+  {
+    "item_name": "Moebius Library: The World of Edena"
+  },
+  {
+    "item_name": "Nemesis Games (The Expanse)"
+  },
+  {
+    "item_name": "Another One Goes Tonight (A Detective Peter Diamond Mystery)"
+  },
+  {
+    "item_name": "In Other Worlds: SF and the Human Imagination"
+  },
+  {
+    "item_name": "Manhattan Beach: A Novel"
+  },
+  {
+    "item_name": "Nimona"
+  },
+  {
+    "item_name": "Mr. Penumbra's 24-Hour Bookstore: A Novel"
+  },
+  {
+    "item_name": "Save the Cat: The Last Book on Screenwriting You'll Ever Need"
+  },
+  {
+    "item_name": "Sleeping in the Ground: An Inspector Banks Novel (Inspector Banks Novels)"
+  },
+  {
+    "item_name": "The Fifth Season (The Broken Earth)"
+  },
+  {
+    "item_name": "Honor Girl: A Graphic Memoir"
+  },
+  {
+    "item_name": "The Upside of Unrequited"
+  },
+  {
+    "item_name": "Beau Death (A Detective Peter Diamond Mystery)"
+  },
+  {
+    "item_name": "Roomies"
+  },
+  {
+    "item_name": "What to Say Next"
+  },
+  {
+    "item_name": "Hello, Goodbye, and Everything in Between"
+  },
+  {
+    "item_name": "Radio Girls"
+  },
+  {
+    "item_name": "Meet Cute"
+  },
+  {
+    "item_name": "The Best We Could Do: An Illustrated Memoir"
+  },
+  {
+    "item_name": "A Matter of Loyalty (A Very English Mystery)"
+  },
+  {
+    "item_name": "Dorsai (Childe Cycle)"
+  },
+  {
+    "item_name": "The Bomb Maker"
+  },
+  {
+    "item_name": "Waiting for You"
+  },
+  {
+    "item_name": "David Boring"
+  },
+  {
+    "item_name": "Love and Other Theories"
+  },
+  {
+    "item_name": "The Laughing Policeman: A Martin Beck Police Mystery (4) (Martin Beck Police Mystery Series)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2596,
+    "item_name": "Skinny Dip"
+  },
+  {
+    "rank": 2,
+    "item_id": 2864,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 3,
+    "item_id": 1730,
+    "item_name": "Heartsick (Archie Sheridan &amp; Gretchen Lowell)"
+  },
+  {
+    "rank": 4,
+    "item_id": 1366,
+    "item_name": "The Ruins"
+  },
+  {
+    "rank": 5,
+    "item_id": 1012,
+    "item_name": "The Cold Dish: A Longmire Mystery"
+  },
+  {
+    "rank": 6,
+    "item_id": 4304,
+    "item_name": "The Death and Life of Superman:  A Novel"
+  },
+  {
+    "rank": 7,
+    "item_id": 1512,
+    "item_name": "Gone Tomorrow: A Jack Reacher Novel"
+  },
+  {
+    "rank": 8,
+    "item_id": 1887,
+    "item_name": "I Am Legend"
+  },
+  {
+    "rank": 9,
+    "item_id": 1508,
+    "item_name": "'Salem's Lot"
+  },
+  {
+    "rank": 10,
+    "item_id": 898,
+    "item_name": "Lost in a Good Book (A Thursday Next Novel)"
+  },
+  {
+    "rank": 11,
+    "item_id": 1380,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 12,
+    "item_id": 3785,
+    "item_name": "Parable of the Sower"
+  },
+  {
+    "rank": 13,
+    "item_id": 1495,
+    "item_name": "The Shining"
+  },
+  {
+    "rank": 14,
+    "item_id": 730,
+    "item_name": "Time Traveler's Wife"
+  },
+  {
+    "rank": 15,
+    "item_id": 191,
+    "item_name": "Quicksilver (The Baroque Cycle, Vol. 1)"
+  },
+  {
+    "rank": 16,
+    "item_id": 2109,
+    "item_name": "The Collectors"
+  },
+  {
+    "rank": 17,
+    "item_id": 1944,
+    "item_name": "The Terror: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_id": 214,
+    "item_name": "The Lust Lizard of Melancholy Cove (Pine Cove Series)"
+  },
+  {
+    "rank": 19,
+    "item_id": 2283,
+    "item_name": "Earth Abides: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_id": 893,
+    "item_name": "You Only Live Twice (James Bond Novels)"
+  },
+  {
+    "rank": 21,
+    "item_id": 2796,
+    "item_name": "Ilium"
+  },
+  {
+    "rank": 22,
+    "item_id": 1658,
+    "item_name": "Paranoia"
+  },
+  {
+    "rank": 23,
+    "item_id": 3723,
+    "item_name": "Birth of an Age: Book Two of the Christ Clone Trilogy"
+  },
+  {
+    "rank": 24,
+    "item_id": 470,
+    "item_name": "The First Man in Rome (In the Masters of Rome)"
+  },
+  {
+    "rank": 25,
+    "item_id": 3035,
+    "item_name": "The Meaning of Night: A Confession"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

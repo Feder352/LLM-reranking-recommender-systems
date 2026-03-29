@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Pulse (A Dick Francis Novel)"
+  },
+  {
+    "item_name": "My Darling Detective"
+  },
+  {
+    "item_name": "Sisters"
+  },
+  {
+    "item_name": "The Perfect Nanny: A Novel"
+  },
+  {
+    "item_name": "When: The Scientific Secrets of Perfect Timing (Random House Large Print)"
+  },
+  {
+    "item_name": "The Bishop's Pawn: A Novel (Cotton Malone)"
+  },
+  {
+    "item_name": "Chicago: A Novel"
+  },
+  {
+    "item_name": "The Cloister: A Novel"
+  },
+  {
+    "item_name": "Enlightenment Now: The Case for Reason, Science, Humanism, and Progress [Paperback] [Feb 12, 2018] Steven Pinker"
+  },
+  {
+    "item_name": "The Knowledge: A Richard Jury Mystery"
+  },
+  {
+    "item_name": "Alternate Side: A Novel"
+  },
+  {
+    "item_name": "Census"
+  },
+  {
+    "item_name": "Down the River unto the Sea"
+  },
+  {
+    "item_name": "Laura &amp; Emma"
+  },
+  {
+    "item_name": "The Rising Sea (The NUMA Files)"
+  },
+  {
+    "item_name": "The Gate Keeper: An Inspector Ian Rutledge Mystery (Inspector Ian Rutledge Mysteries)"
+  },
+  {
+    "item_name": "The Balcony"
+  },
+  {
+    "item_name": "The Common Good"
+  },
+  {
+    "item_name": "Bring Out the Dog: Stories"
+  },
+  {
+    "item_name": "The Woman in the Water: A Prequel to the Charles Lenox Series (Charles Lenox Mysteries)"
+  },
+  {
+    "item_name": "The Undertaker's Daughter (The Family Secrets series)"
+  },
+  {
+    "item_name": "The Judge Hunter"
+  },
+  {
+    "item_name": "Reporter: A Memoir"
+  },
+  {
+    "item_name": "The Gray Ghost (A Sam and Remi Fargo Adventure)"
+  },
+  {
+    "item_name": "The Gray Ghost (A Sam and Remi Fargo Adventure)"
+  },
+  {
+    "item_name": "Calypso"
+  },
+  {
+    "item_name": "Florida"
+  },
+  {
+    "item_name": "Clock Dance: A novel"
+  },
+  {
+    "item_name": "Stay Hidden: A Novel (Mike Bowditch Mysteries)"
+  },
+  {
+    "item_name": "We Begin Our Ascent"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Art of Fielding: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Case Histories: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Guest Room: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Olive Kitteridge"
+  },
+  {
+    "rank": 5,
+    "item_name": "Rules of Civility: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Brooklyn: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "American Heiress: The Wild Saga of the Kidnapping, Crimes and Trial of Patty Hearst"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Ice Beneath Her: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 10,
+    "item_name": "Surrender, New York: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "Gone Girl"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Farm"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Guest Room: A Novel - Kindle edition"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Secret Chord: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Ghost Fields (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Joseph Anton"
+  },
+  {
+    "rank": 18,
+    "item_name": "I Am Pilgrim"
+  },
+  {
+    "rank": 19,
+    "item_name": "Americanah"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Rooster Bar"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Book of Unknown Americans"
+  },
+  {
+    "rank": 22,
+    "item_name": "Man's Search for Meaning: An Introduction to Logotherapy, Revised and Enlarged Edition"
+  },
+  {
+    "rank": 23,
+    "item_name": "Life After Life: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Rain Gods: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_name": "Spook Street: Jackson Lamb Thriller 4"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Orphan Master's Son: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Colorless Tsukuru Tazaki and His Years of Pilgrimage: A novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Cooked Seed"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Cuban Affair"
+  },
+  {
+    "rank": 30,
+    "item_name": "Missing You"
+  },
+  {
+    "rank": 31,
+    "item_name": "Norwegian by Night"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Lake"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Reversal (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Banquet of Consequences: A Lynley Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 37,
+    "item_name": "My Name Is Lucy Barton: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Loving Frank: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Prince Charles: The Passions and Paradoxes of an Improbable Life"
+  },
+  {
+    "rank": 40,
+    "item_name": "Heartbreak Hotel"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Steel Kiss (A Lincoln Rhyme Novel)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Born to Run (Wheeler Publishing Large Print Hardcover)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Life-Changing Magic of Tidying: A simple, effective way to banish clutter forever"
+  },
+  {
+    "rank": 45,
+    "item_name": "Freedom"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Visit from the Goon Squad"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Bone Tree (Penn Cage)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Immortalists"
+  },
+  {
+    "rank": 50,
+    "item_name": "Heartbreak Hotel: An Alex Delaware Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

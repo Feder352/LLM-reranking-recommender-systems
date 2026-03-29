@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Playing House (Sydney Smoke Rugby Series) (Volume 5)"
+  },
+  {
+    "item_name": "Man Enough: A Single Dad Romance"
+  },
+  {
+    "item_name": "Asher Black: (Book 1 of The Five Syndicates) (Volume 1)"
+  },
+  {
+    "item_name": "Playing the Pauses (Sex, Love, and Rock &amp; Roll series) (Volume 2)"
+  },
+  {
+    "item_name": "Se7en Deadly SEALs: Season 1"
+  },
+  {
+    "item_name": "The Penthouse Pact (Bachelor Pact) (Volume 1)"
+  },
+  {
+    "item_name": "Dirty Indiscretions: A Dark Mafia Romance (Omerta Series)"
+  },
+  {
+    "item_name": "Beautifully Broken: Reckless Bastards MC"
+  },
+  {
+    "item_name": "Wilde for Her (Wilde Security) (Volume 2)"
+  },
+  {
+    "item_name": "Sinfully Scarred: Reckless Bastards MC"
+  },
+  {
+    "item_name": "Army Ranger with Benefits (At-Ease Ranch) (Volume 4)"
+  },
+  {
+    "item_name": "Possessive"
+  },
+  {
+    "item_name": "Dirty Laundry"
+  },
+  {
+    "item_name": "Scoring off the Field (WAGS) (Volume 2)"
+  },
+  {
+    "item_name": "Baby for the Beast"
+  },
+  {
+    "item_name": "The Road to You"
+  },
+  {
+    "item_name": "Boyfrenemy: A Payne Brothers Romance"
+  },
+  {
+    "item_name": "Pretend You're Mine"
+  },
+  {
+    "item_name": "Hot and Badgered (The Honey Badger Chronicles)"
+  },
+  {
+    "item_name": "Born of Darkness: A Hunter Legacy Novel (Midnight Breed Hunter Legacy) (Volume 1)"
+  },
+  {
+    "item_name": "P.S. I Hate You"
+  },
+  {
+    "item_name": "The Millionaire's Gamble"
+  },
+  {
+    "item_name": "X-Ops Exposed"
+  },
+  {
+    "item_name": "Grave Secrets: A Manhunters Novel"
+  },
+  {
+    "item_name": "Merciless"
+  },
+  {
+    "item_name": "Melt for You (Slow Burn)"
+  },
+  {
+    "item_name": "King of Diamonds: A Dark Mafia Romance (Vegas Underground)"
+  },
+  {
+    "item_name": "Vampire's Faith"
+  },
+  {
+    "item_name": "No Remorse (A Manhunters Novel)"
+  },
+  {
+    "item_name": "His Banana"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "How We Fall"
+  },
+  {
+    "rank": 2,
+    "item_name": "Muffin Top"
+  },
+  {
+    "rank": 3,
+    "item_name": "Dirty Dom: A Bad Boy Mafia Romance"
+  },
+  {
+    "rank": 4,
+    "item_name": "His Alone: A Full-Length Novel (For Her)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Sinner's Steel: Sinner's Tribe Motorcycle Club (The Sinner's Tribe Motorcycle Club)"
+  },
+  {
+    "rank": 6,
+    "item_name": "After We Fall"
+  },
+  {
+    "rank": 7,
+    "item_name": "Blind Attraction (Reckless Beat) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Dirty Billionaire (The Dirty Billionaire Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Misadventures of a Backup Bride (Misadventures Book 2)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Feral Sins (The Phoenix Pack Series)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Accidental Hero: A Marriage Mistake Romance"
+  },
+  {
+    "rank": 12,
+    "item_name": "Loaded: An Enemies-to-Lovers Romance"
+  },
+  {
+    "rank": 13,
+    "item_name": "Driven ((The Driven Trilogy))"
+  },
+  {
+    "rank": 14,
+    "item_name": "Shameless (The Shameless Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Coach"
+  },
+  {
+    "rank": 16,
+    "item_name": "Mick CAOS MC"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Dangerous Billionaire: A Billionaire Navy SEAL Romance (The Tate Brothers)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Wolf's Heart: A Wolf Pack Motorcycle Club Book (Breed MC) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Cold Hearted"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Deal (Off-Campus) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Rock Solid"
+  },
+  {
+    "rank": 22,
+    "item_name": "Back-up"
+  },
+  {
+    "rank": 23,
+    "item_name": "His: MMF Bisexual Holiday Romance"
+  },
+  {
+    "rank": 24,
+    "item_name": "Shacking Up"
+  },
+  {
+    "rank": 25,
+    "item_name": "Nobody Does It Better (Masters and Mercenaries) (Volume 15)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Outlaw's Bride: Grizzlies MC Romance (Outlaw Love)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Have My Baby (Dirty DILFs) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Mechanic"
+  },
+  {
+    "rank": 29,
+    "item_name": "Claiming Alexis (Ace Security)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Rock Chick Rescue (Volume 2)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Torch CAOS MC"
+  },
+  {
+    "rank": 32,
+    "item_name": "Tru Blue"
+  },
+  {
+    "rank": 33,
+    "item_name": "Sugar Daddy: A Sugar Bowl Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Rocco: A Mafia Romance (Ruin &amp; Revenge)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Knocked Up by the Bad Boy"
+  },
+  {
+    "rank": 36,
+    "item_name": "Deep Under: A Walker Security Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Mr. Fiance"
+  },
+  {
+    "rank": 38,
+    "item_name": "Bad Boys After Dark: Mick (Bad Billionaires After Dark) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "His Banana"
+  },
+  {
+    "rank": 40,
+    "item_name": "Going Down Easy (Billionaire Bad Boys) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Bastard's Baby"
+  },
+  {
+    "rank": 42,
+    "item_name": "Released: Devil's Blaze MC Book 3 (Volume 3)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Dirty English"
+  },
+  {
+    "rank": 44,
+    "item_name": "Conceit (Se7en Deadly SEALs) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Rock Hard (Rock Kiss)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Anaconda"
+  },
+  {
+    "rank": 47,
+    "item_name": "Sugar Rush: A Sugar Bowl Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Pennies (Dollar) (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Manwhore"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Score (Off-Campus) (Volume 3)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Chasers"
+  },
+  {
+    "item_name": "Harriet the Spy"
+  },
+  {
+    "item_name": "Wrongfully Accused"
+  },
+  {
+    "item_name": "Lethal Weapon 3"
+  },
+  {
+    "item_name": "Addams Family Values"
+  },
+  {
+    "item_name": "Mouse Hunt"
+  },
+  {
+    "item_name": "Renaissance Man"
+  },
+  {
+    "item_name": "Life"
+  },
+  {
+    "item_name": "Mirror Has Two Faces, The"
+  },
+  {
+    "item_name": "Heart Condition"
+  },
+  {
+    "item_name": "Harry and the Hendersons"
+  },
+  {
+    "item_name": "Robin Hood: Men in Tights"
+  },
+  {
+    "item_name": "Man Who Knew Too Little, The"
+  },
+  {
+    "item_name": "First Wives Club, The"
+  },
+  {
+    "item_name": "Hot Shots! Part Deux"
+  },
+  {
+    "item_name": "Easy Money"
+  },
+  {
+    "item_name": "Ghostbusters II"
+  },
+  {
+    "item_name": "For Richer or Poorer"
+  },
+  {
+    "item_name": "Happy Gilmore"
+  },
+  {
+    "item_name": "Doctor Dolittle"
+  },
+  {
+    "item_name": "Crocodile Dundee II"
+  },
+  {
+    "item_name": "Down Periscope"
+  },
+  {
+    "item_name": "Encino Man"
+  },
+  {
+    "item_name": "Mighty Ducks, The"
+  },
+  {
+    "item_name": "Freaky Friday"
+  },
+  {
+    "item_name": "Space Jam"
+  },
+  {
+    "item_name": "Jumpin' Jack Flash"
+  },
+  {
+    "item_name": "House Arrest"
+  },
+  {
+    "item_name": "It Takes Two"
+  },
+  {
+    "item_name": "European Vacation"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 677,
+    "item_name": "Cocoon"
+  },
+  {
+    "rank": 2,
+    "item_id": 736,
+    "item_name": "Police Academy"
+  },
+  {
+    "rank": 3,
+    "item_id": 201,
+    "item_name": "Crocodile Dundee"
+  },
+  {
+    "rank": 4,
+    "item_id": 578,
+    "item_name": "Adventures in Babysitting"
+  },
+  {
+    "rank": 5,
+    "item_id": 274,
+    "item_name": "Ghostbusters"
+  },
+  {
+    "rank": 6,
+    "item_id": 693,
+    "item_name": "Scrooged"
+  },
+  {
+    "rank": 7,
+    "item_id": 658,
+    "item_name": "Ace Ventura: Pet Detective"
+  },
+  {
+    "rank": 8,
+    "item_id": 636,
+    "item_name": "Little Shop of Horrors"
+  },
+  {
+    "rank": 9,
+    "item_id": 773,
+    "item_name": "Weekend at Bernie's"
+  },
+  {
+    "rank": 10,
+    "item_id": 794,
+    "item_name": "Dumb & Dumber"
+  },
+  {
+    "rank": 11,
+    "item_id": 1019,
+    "item_name": "Robocop"
+  },
+  {
+    "rank": 12,
+    "item_id": 2680,
+    "item_name": "Fletch Lives"
+  },
+  {
+    "rank": 13,
+    "item_id": 734,
+    "item_name": "Galaxy Quest"
+  },
+  {
+    "rank": 14,
+    "item_id": 688,
+    "item_name": "Naked Gun 33 1/3: The Final Insult"
+  },
+  {
+    "rank": 15,
+    "item_id": 1314,
+    "item_name": "Stripes"
+  },
+  {
+    "rank": 16,
+    "item_id": 1327,
+    "item_name": "Honey, I Blew Up the Kid"
+  },
+  {
+    "rank": 17,
+    "item_id": 1231,
+    "item_name": "Three Amigos!"
+  },
+  {
+    "rank": 18,
+    "item_id": 747,
+    "item_name": "Wayne's World 2"
+  },
+  {
+    "rank": 19,
+    "item_id": 567,
+    "item_name": "Home Alone"
+  },
+  {
+    "rank": 20,
+    "item_id": 1432,
+    "item_name": "White Men Can't Jump"
+  },
+  {
+    "rank": 21,
+    "item_id": 756,
+    "item_name": "Blues Brothers, The"
+  },
+  {
+    "rank": 22,
+    "item_id": 1852,
+    "item_name": "Ace Ventura: When Nature Calls"
+  },
+  {
+    "rank": 23,
+    "item_id": 763,
+    "item_name": "Star Trek: Insurrection"
+  },
+  {
+    "rank": 24,
+    "item_id": 20,
+    "item_name": "Big"
+  },
+  {
+    "rank": 25,
+    "item_id": 1185,
+    "item_name": "Judge Dredd"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Seven Blessings: A Novel"
+  },
+  {
+    "item_name": "Abby: Mail Order Bride (Unconventional) (Volume 1)"
+  },
+  {
+    "item_name": "Margot (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "Killing Jesus (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "item_name": "Picking Lemons: A C.J. Whitmore Mystery"
+  },
+  {
+    "item_name": "Sense &amp; Sensibility"
+  },
+  {
+    "item_name": "Itsy Bitsy Spider: Emma Frost #1"
+  },
+  {
+    "item_name": "Extinct (Volume 1)"
+  },
+  {
+    "item_name": "The Shadow Queen: A Novel of Wallis Simpson, Duchess of Windsor"
+  },
+  {
+    "item_name": "The Vicar's Wife (Tales from Goswell)"
+  },
+  {
+    "item_name": "The Death of Amelia Marsh"
+  },
+  {
+    "item_name": "Playdate"
+  },
+  {
+    "item_name": "Tapestry of Fortunes: A Novel"
+  },
+  {
+    "item_name": "Murder Underground (British Library Crime Classics)"
+  },
+  {
+    "item_name": "Morning Glory: A Novel"
+  },
+  {
+    "item_name": "The Violets of March: A Novel"
+  },
+  {
+    "item_name": "The Hole"
+  },
+  {
+    "item_name": "Dark Room (Pete Montgomery)"
+  },
+  {
+    "item_name": "Hill of Secrets (Police Inspector Hadas Levinger, An Israeli Mystery Series)"
+  },
+  {
+    "item_name": "The Unknown Bridesmaid. by Margaret Forster"
+  },
+  {
+    "item_name": "The Beautiful American"
+  },
+  {
+    "item_name": "212: A Novel (Ellie Hatcher)"
+  },
+  {
+    "item_name": "When Books Went to War: The Stories That Helped Us Win World War II"
+  },
+  {
+    "item_name": "Stranger Child"
+  },
+  {
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "item_name": "The Sandcastle Girls (Vintage Contemporaries)"
+  },
+  {
+    "item_name": "A Bicycle Built For Murder"
+  },
+  {
+    "item_name": "James the Connoisseur Cat"
+  },
+  {
+    "item_name": "Mommy Dearest"
+  },
+  {
+    "item_name": "The Time Travel Trailer"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1345,
+    "item_name": "Noah's Compass"
+  },
+  {
+    "rank": 2,
+    "item_id": 4273,
+    "item_name": "The Hand That First Held Mine"
+  },
+  {
+    "rank": 3,
+    "item_id": 1466,
+    "item_name": "The Woman Upstairs"
+  },
+  {
+    "rank": 4,
+    "item_id": 1533,
+    "item_name": "The Twelve Tribes of Hattie"
+  },
+  {
+    "rank": 5,
+    "item_id": 1309,
+    "item_name": "Claire of the Sea Light"
+  },
+  {
+    "rank": 6,
+    "item_id": 1532,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 7,
+    "item_id": 5824,
+    "item_name": "Daughters-in-Law"
+  },
+  {
+    "rank": 8,
+    "item_id": 6202,
+    "item_name": "The Portable Veblen"
+  },
+  {
+    "rank": 9,
+    "item_id": 2262,
+    "item_name": "Last Night in Twisted River: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_id": 2878,
+    "item_name": "The Imperfectionists: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_id": 1057,
+    "item_name": "The Quickening Maze: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_id": 617,
+    "item_name": "A Cupboard Full of Coats: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 5349,
+    "item_name": "Let's Take the Long Way Home: A Memoir of Friendship"
+  },
+  {
+    "rank": 14,
+    "item_id": 553,
+    "item_name": "State of Wonder"
+  },
+  {
+    "rank": 15,
+    "item_id": 3076,
+    "item_name": "American Salvage"
+  },
+  {
+    "rank": 16,
+    "item_id": 1519,
+    "item_name": "TransAtlantic: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_id": 461,
+    "item_name": "My Sister, My Love: The Intimate Story of Skyler Rampike"
+  },
+  {
+    "rank": 18,
+    "item_id": 1551,
+    "item_name": "The Death of Santini: The Story of a Father and His Son"
+  },
+  {
+    "rank": 19,
+    "item_id": 1296,
+    "item_name": "Unaccustomed Earth"
+  },
+  {
+    "rank": 20,
+    "item_id": 1777,
+    "item_name": "The Spare Room: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_id": 3824,
+    "item_name": "The Unlikely Pilgrimage of Harold Fry: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_id": 3259,
+    "item_name": "City of Women"
+  },
+  {
+    "rank": 23,
+    "item_id": 1320,
+    "item_name": "Dearie: The Remarkable Life of Julia Child"
+  },
+  {
+    "rank": 24,
+    "item_id": 1542,
+    "item_name": "The Beginner's Goodbye"
+  },
+  {
+    "rank": 25,
+    "item_id": 1524,
+    "item_name": "All the Birds, Singing: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

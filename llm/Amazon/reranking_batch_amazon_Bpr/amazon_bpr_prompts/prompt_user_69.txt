@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Northern Lights: A Novel"
+  },
+  {
+    "item_name": "Alexander Hamilton"
+  },
+  {
+    "item_name": "Cannery Row"
+  },
+  {
+    "item_name": "Of Mice and Men"
+  },
+  {
+    "item_name": "The Hemingses of Monticello: An American Family"
+  },
+  {
+    "item_name": "Dancing in the Glory of Monsters: The Collapse of the Congo and the Great War of Africa"
+  },
+  {
+    "item_name": "Fiend: A Novel"
+  },
+  {
+    "item_name": "The Fall of the House of Dixie: The Civil War and the Social Revolution That Transformed the South"
+  },
+  {
+    "item_name": "Paying Guests"
+  },
+  {
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "item_name": "Zone One"
+  },
+  {
+    "item_name": "The Age of Wonder: How the Romantic Generation Discovered the Beauty and Terror of Science"
+  },
+  {
+    "item_name": "A Separation: A Novel"
+  },
+  {
+    "item_name": "A War of Frontier and Empire: The Philippine-American War, 1899-1902"
+  },
+  {
+    "item_name": "Evicted: Poverty and Profit in the American City"
+  },
+  {
+    "item_name": "The Underground Railroad"
+  },
+  {
+    "item_name": "A Cure for Suicide: A Novel"
+  },
+  {
+    "item_name": "Love Medicine (Perennial Modern Classics)"
+  },
+  {
+    "item_name": "Nudge: Improving decisions about health, wealth and happiness"
+  },
+  {
+    "item_name": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI"
+  },
+  {
+    "item_name": "Grant"
+  },
+  {
+    "item_name": "War"
+  },
+  {
+    "item_name": "The Jesus Dynasty: The Hidden History of Jesus, His Royal Family, and the Birth of Christianity"
+  },
+  {
+    "item_name": "Seven Brief Lessons on Physics"
+  },
+  {
+    "item_name": "The Michigan Murders"
+  },
+  {
+    "item_name": "The Michigan murders"
+  },
+  {
+    "item_name": "Homesick for Another World: Stories"
+  },
+  {
+    "item_name": "Things I've Been Silent About"
+  },
+  {
+    "item_name": "Rebel Yell: The Violence, Passion and Redemption of Stonewall Jackson"
+  },
+  {
+    "item_name": "Last Night in Montreal"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 4,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Bluest Eye (Vintage International)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 7,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 9,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 10,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 11,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Sense of an Ending"
+  },
+  {
+    "rank": 13,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 14,
+    "item_name": "Darkness Visible"
+  },
+  {
+    "rank": 15,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Amazing Adventures of Kavalier &amp; Clay"
+  },
+  {
+    "rank": 17,
+    "item_name": "Appointment in Samarra (Vintage Classics)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Night"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 21,
+    "item_name": "Power and the Glory"
+  },
+  {
+    "rank": 22,
+    "item_name": "Light in August (Modern Library College Editions Series)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Castle (Modern Library, 388.1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Alchemist"
+  },
+  {
+    "rank": 27,
+    "item_name": "The White Tiger: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 30,
+    "item_name": "Freedom"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Corrections"
+  },
+  {
+    "rank": 32,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Reader (Movie Tie-in Edition) (Vintage International)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Visitation (New Directions Paperbook)"
+  },
+  {
+    "rank": 36,
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "rank": 37,
+    "item_name": "Under the Banner of Heaven : A Story of Violent Faith"
+  },
+  {
+    "rank": 38,
+    "item_name": "Jazz: A History of America's Music"
+  },
+  {
+    "rank": 39,
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Narrow Road to the Deep North: A novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 42,
+    "item_name": "Madame Bovary (Penguin Classics)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Other Voices, Other Rooms (Penguin Modern Classics)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 45,
+    "item_name": "Human Stain"
+  },
+  {
+    "rank": 46,
+    "item_name": "Life of Pi"
+  },
+  {
+    "rank": 47,
+    "item_name": "A confederacy of dunces"
+  },
+  {
+    "rank": 48,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 49,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 50,
+    "item_name": "Cloud Atlas"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

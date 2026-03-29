@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Ruin Falls: A Novel"
+  },
+  {
+    "item_name": "The Perfect Stranger"
+  },
+  {
+    "item_name": "Deadly Obsession (A Brown and de Luca Novel)"
+  },
+  {
+    "item_name": "Forbidden Ground (Cold Creek)"
+  },
+  {
+    "item_name": "Broken Bonds: A thrilling romantic suspense novel (Cold Creek)"
+  },
+  {
+    "item_name": "A Swollen Red Sun"
+  },
+  {
+    "item_name": "A Cold Season"
+  },
+  {
+    "item_name": "The End of Innocence: A Novel"
+  },
+  {
+    "item_name": "Mind of Winter"
+  },
+  {
+    "item_name": "Carrot"
+  },
+  {
+    "item_name": "Deadline (A Virgil Flowers Novel)"
+  },
+  {
+    "item_name": "Gathering Prey (A Prey Novel)"
+  },
+  {
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "item_name": "A Deeper Darkness"
+  },
+  {
+    "item_name": "The Guilty One"
+  },
+  {
+    "item_name": "Midnight Crossroad (A Novel of Midnight, Texas)"
+  },
+  {
+    "item_name": "You Can't Escape (Rafferty Family)"
+  },
+  {
+    "item_name": "Snapped (Tracers)"
+  },
+  {
+    "item_name": "Scorched (Tracers)"
+  },
+  {
+    "item_name": "Exposed (Tracers)"
+  },
+  {
+    "item_name": "One Last Breath"
+  },
+  {
+    "item_name": "One Of Us (Thorndike Press Large Print Basic)"
+  },
+  {
+    "item_name": "Never Missing, Never Found"
+  },
+  {
+    "item_name": "The Foxfire Book of Simple Living: Celebrating Fifty Years of Listenin', Laughin', and Learnin' (Foxfire Series)"
+  },
+  {
+    "item_name": "Marrow: A Love Story"
+  },
+  {
+    "item_name": "Rebirth: A Fable of Love, Forgiveness, and Following Your Heart"
+  },
+  {
+    "item_name": "Besieged: Stories from the Iron Druid Chronicles"
+  },
+  {
+    "item_name": "I Know a Secret: A Rizzoli &amp; Isles Novel"
+  },
+  {
+    "item_name": "Betty Crocker's Picture Cook Book"
+  },
+  {
+    "item_name": "Resurrection Bay (Pushkin Vertigo)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 2,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 4,
+    "item_name": "Twelve Sharp (A Stephanie Plum Novel) (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Magic Study (Study Series)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Dead to the World (Southern Vampire Mysteries, Book 4)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Monkeewrench"
+  },
+  {
+    "rank": 8,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 9,
+    "item_name": "Under the Dome"
+  },
+  {
+    "rank": 10,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Dead And Gone: A Sookie Stackhouse Novel (Sookie Stackhouse/True Blood)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Passage: A Novel (Book One of The Passage Trilogy)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse/True Blood, Book 2)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Silent in the Sanctuary: A Lady Julia Grey Mystery"
+  },
+  {
+    "rank": 15,
+    "item_name": "Joyland (Turtleback School &amp; Library Binding Edition) (Hcc)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 17,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Dead as a Doornail (Southern Vampire Mysteries, Book 5)"
+  },
+  {
+    "rank": 19,
+    "item_name": "White Witch, Black Curse"
+  },
+  {
+    "rank": 20,
+    "item_name": "Ten Big Ones (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse) By Charlaine Harris"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Song of the Quarkbeast: The Chronicles of Kazam, Book 2"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Casual Vacancy 1st (first) Edition by Rowling, J.K. published by Little, Brown and Company (2012) Hardcover"
+  },
+  {
+    "rank": 24,
+    "item_name": "Club Dead (Sookie Stackhouse/True Blood, Book 3)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 26,
+    "item_name": "Eleven on Top"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Bone Thief: A Body Farm Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Etiquette &amp; Espionage: Finishing School, Book 1"
+  },
+  {
+    "rank": 29,
+    "item_name": "Clockwork Angel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 31,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 32,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Strain (The Strain Trilogy)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Every Which Way But Dead"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Devil You Know"
+  },
+  {
+    "rank": 36,
+    "item_name": "Step on a Crack"
+  },
+  {
+    "rank": 37,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Fall (The Strain Trilogy)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Heist: A Novel (Fox and O'Hare)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 42,
+    "item_name": "Undead and Unwed (Queen Betsy, Book 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Ocean at the End of the Lane CD: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "Holiday in Death[HOLIDAY IN DEATH][Prebound]"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Perfect Blood"
+  },
+  {
+    "rank": 46,
+    "item_name": "Odd Thomas: An Odd Thomas Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Working for the Devil (Dante Valentine, Book 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Her Royal Spyness"
+  },
+  {
+    "rank": 49,
+    "item_name": "Dead Witch Walking"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

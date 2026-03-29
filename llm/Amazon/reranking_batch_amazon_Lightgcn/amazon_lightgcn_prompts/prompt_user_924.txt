@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Thank You Book (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Where the Jews Aren't: The Sad and Absurd Story of Birobidzhan, Russia's Jewish Autonomous Region (Jewish Encounters Series)"
+  },
+  {
+    "item_name": "Knuffle Bunny"
+  },
+  {
+    "item_name": "Duckling Gets a Cookie!?"
+  },
+  {
+    "item_name": "Are You Ready to Play Outside? (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "We Are in a Book! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Waiting Is Not Easy! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "People I Want to Punch in the Throat: Competitive Crafters, Drop-Off Despots, and Other Suburban Scourges"
+  },
+  {
+    "item_name": "My Friend Is Sad (An Elephant &amp; Piggie Book)"
+  },
+  {
+    "item_name": "There Is a Bird on Your Head!"
+  },
+  {
+    "item_name": "Can I Play Too? (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "I Am Invited to a Party!"
+  },
+  {
+    "item_name": "I Will Surprise My Friend! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "I Love My New Toy! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Elephants Cannot Dance! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Watch Me Throw the Ball! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Pigs Make Me Sneeze! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "I Am Going! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Listen to My Trumpet! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "My New Friend Is So Fun! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "I Really Like Slop! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "The Pigeon Has Feelings, Too! by Willems, Mo (unknown Edition) [Boardbook(2005)]"
+  },
+  {
+    "item_name": "Don't Let The Pigeon Drive The Bus!"
+  },
+  {
+    "item_name": "The Pigeon Has Feelings, Too!"
+  },
+  {
+    "item_name": "Knuffle Bunny Free: An Unexpected Diversion (Knuffle Bunny Series)"
+  },
+  {
+    "item_name": "Knuffle Bunny Too"
+  },
+  {
+    "item_name": "The Groucho Letters: Letters from and to Groucho Marx"
+  },
+  {
+    "item_name": "Margot (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "What She Left Behind"
+  },
+  {
+    "item_name": "The Storybook Knight"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 22983,
+    "item_name": "Click, Clack, Moo: Cows That Type"
+  },
+  {
+    "rank": 2,
+    "item_id": 6893,
+    "item_name": "Corduroy"
+  },
+  {
+    "rank": 3,
+    "item_id": 10669,
+    "item_name": "Mr. Brown Can Moo! Can You? / Ten Apples Up On Top / Big Dog Little Dog (Bright and Early Board Book"
+  },
+  {
+    "rank": 4,
+    "item_id": 6887,
+    "item_name": "Blueberries for Sal"
+  },
+  {
+    "rank": 5,
+    "item_id": 6886,
+    "item_name": "Make Way for Ducklings (Picture Puffin)"
+  },
+  {
+    "rank": 6,
+    "item_id": 1349,
+    "item_name": "Amelia Bedelia (I Can Read Level 2)"
+  },
+  {
+    "rank": 7,
+    "item_id": 29377,
+    "item_name": "Mr. Wuffles! (Caldecott Medal - Honors Winning Title(s))"
+  },
+  {
+    "rank": 8,
+    "item_id": 27242,
+    "item_name": "Llama Llama Misses Mama"
+  },
+  {
+    "rank": 9,
+    "item_id": 30104,
+    "item_name": "Toes, Ears, &amp; Nose! A Lift-the-Flap Book"
+  },
+  {
+    "rank": 10,
+    "item_id": 51146,
+    "item_name": "Duck in the Fridge (A Duck in the Fridge Book)"
+  },
+  {
+    "rank": 11,
+    "item_id": 20200,
+    "item_name": "Miss Nelson Is Missing!"
+  },
+  {
+    "rank": 12,
+    "item_id": 1355,
+    "item_name": "Little Bear (An I Can Read Book)"
+  },
+  {
+    "rank": 13,
+    "item_id": 74500,
+    "item_name": "Frog and Toad are Friends"
+  },
+  {
+    "rank": 14,
+    "item_id": 1707,
+    "item_name": "Alexander and the Terrible, Horrible, No Good, Very Bad Day Low Price"
+  },
+  {
+    "rank": 15,
+    "item_id": 29612,
+    "item_name": "Opposites"
+  },
+  {
+    "rank": 16,
+    "item_id": 386,
+    "item_name": "And to Think That I Saw It on Mulberry Street Green Back Book"
+  },
+  {
+    "rank": 17,
+    "item_id": 28621,
+    "item_name": "Cloudy With a Chance of Meatballs"
+  },
+  {
+    "rank": 18,
+    "item_id": 6900,
+    "item_name": "The Snowy Day"
+  },
+  {
+    "rank": 19,
+    "item_id": 22972,
+    "item_name": "A Bad Case Of Stripes - Library Edition"
+  },
+  {
+    "rank": 20,
+    "item_id": 29692,
+    "item_name": "Sylvester and the Magic Pebble"
+  },
+  {
+    "rank": 21,
+    "item_id": 22991,
+    "item_name": "We're Going on a Bear Hunt"
+  },
+  {
+    "rank": 22,
+    "item_id": 7189,
+    "item_name": "The Book With No Pictures"
+  },
+  {
+    "rank": 23,
+    "item_id": 29635,
+    "item_name": "Doggies (Boynton on Board)"
+  },
+  {
+    "rank": 24,
+    "item_id": 33092,
+    "item_name": "Hoot Owl, Master of Disguise"
+  },
+  {
+    "rank": 25,
+    "item_id": 22988,
+    "item_name": "The Rainbow Fish --2000 publication."
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

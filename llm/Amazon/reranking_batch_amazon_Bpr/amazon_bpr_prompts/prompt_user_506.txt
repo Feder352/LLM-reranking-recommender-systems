@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dust: A Richard Jury Mystery"
+  },
+  {
+    "item_name": "Arms of Nemesis:   A Novel of Ancient Rome"
+  },
+  {
+    "item_name": "Withering Heights (Ellie Haskell Mysteries, No. 12)"
+  },
+  {
+    "item_name": "Murder Unleashed (Dead-End Job Mysteries, Book 5)"
+  },
+  {
+    "item_name": "Heartsick (Archie Sheridan &amp; Gretchen Lowell)"
+  },
+  {
+    "item_name": "The Alehouse Murders (Templar Knight Mysteries, No. 1)"
+  },
+  {
+    "item_name": "Confessions of a Jane Austen Addict"
+  },
+  {
+    "item_name": "If His Kiss Is Wicked"
+  },
+  {
+    "item_name": "Kissing Christmas Goodbye (Agatha Raisin Mysteries, No. 18)"
+  },
+  {
+    "item_name": "The Bloody Tower (Daisy Dalrymple Mysteries, No. 16)"
+  },
+  {
+    "item_name": "A Christmas Beginning: A Novel (The Christmas Stories)"
+  },
+  {
+    "item_name": "Lord Deverill's Secret"
+  },
+  {
+    "item_name": "The Seduction of the Crimson Rose"
+  },
+  {
+    "item_name": "Death of a Gentle Lady (Hamish Macbeth Mysteries, No. 24)"
+  },
+  {
+    "item_name": "The Bridal Quest (Harlequin Feature Author: The Matchmaker)"
+  },
+  {
+    "item_name": "A Flaw in the Blood: A Novel"
+  },
+  {
+    "item_name": "An Affair Before Christmas (Desperate Duchesses, Bk 2)"
+  },
+  {
+    "item_name": "Friend of the Devil (Inspector Banks Novels)"
+  },
+  {
+    "item_name": "Buckingham Palace Gardens"
+  },
+  {
+    "item_name": "Goodbye, Ms. Chips (Ellie Haskell Mysteries, No. 13)"
+  },
+  {
+    "item_name": "Simply Perfect"
+  },
+  {
+    "item_name": "Days of Atonement: A Mystery (Hanno Stiffeniis Mysteries)"
+  },
+  {
+    "item_name": "The Girl of His Dreams"
+  },
+  {
+    "item_name": "The Triumph of Caesar: A Novel of Ancient Rome (Novels of Ancient Rome)"
+  },
+  {
+    "item_name": "Duke Most Wanted (Heiress Brides)"
+  },
+  {
+    "item_name": "The Lost Duke of Wyndham (Two Dukes of Wyndham, Book 1)"
+  },
+  {
+    "item_name": "Murder on Bank Street (Gaslight Mystery)"
+  },
+  {
+    "item_name": "The Enchantress of Florence"
+  },
+  {
+    "item_name": "Mind's Eye: An Inspector Van Vetteren Mystery (1) (Inspector Van Veeteren Series)"
+  },
+  {
+    "item_name": "The Ideal Wife"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Some Danger Involved: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Dying to Please"
+  },
+  {
+    "rank": 3,
+    "item_name": "Saturnalia: A Marcus Didius Falco Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Love Overboard"
+  },
+  {
+    "rank": 5,
+    "item_name": "An Incomplete Revenge (Maisie Dobbs Book 5)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Silent in the Sanctuary: A Lady Julia Grey Mystery"
+  },
+  {
+    "rank": 7,
+    "item_name": "Kissing Christmas Goodbye (Agatha Raisin Mysteries, No. 18)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Messenger of Truth: A Maisie Dobbs Novel (Maisie Dobbs Novels)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Hidden Moon: An Inspector O Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Listening Eye (A Miss Silver Mystery)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Concrete Blonde (Harry Bosch)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Silent in the Grave"
+  },
+  {
+    "rank": 13,
+    "item_name": "Divine Secrets of the Ya-Ya Sisterhood: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Her Royal Spyness"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Deeper Sleep (Kate Shugak Mysteries, No. 15)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Back to the Bedroom"
+  },
+  {
+    "rank": 17,
+    "item_name": "Medicus: A Novel of the Roman Empire"
+  },
+  {
+    "rank": 18,
+    "item_name": "And Only to Deceive"
+  },
+  {
+    "rank": 19,
+    "item_name": "Knots and Crosses: An Inspector Rebus Novel (Inspector Rebus Novels)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Sure of You"
+  },
+  {
+    "rank": 21,
+    "item_name": "Tomb of the Golden Bird (Amelia Peabody Series)"
+  },
+  {
+    "rank": 22,
+    "item_name": "An Impartial Witness: A Bess Crawford Mystery (Bess Crawford Mysteries)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Cat Deck the Halls (Joe Grey Mysteries, Book 13)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Strange Affair: A Novel of Suspense (Inspector Banks Mysteries)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Bloodroot (China Bayles Mystery)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Limehouse Text: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Course of Honour"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Test of Wills (Inspector Ian Rutledge Mysteries)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Murder Runs in the Family: A Southern Sisters Mystery"
+  },
+  {
+    "rank": 30,
+    "item_name": "Code Name: Nanny (SEAL and Code Name)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Black Sheep"
+  },
+  {
+    "rank": 32,
+    "item_name": "Death at La Fenice: A Novel of Suspense"
+  },
+  {
+    "rank": 33,
+    "item_name": "A Knight in Shining Armor"
+  },
+  {
+    "rank": 34,
+    "item_name": "Where Shadows Dance: A Sebastian St. Cyr Mystery"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Surgeon (with Bonus Content): A Rizzoli &amp; Isles Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Lord John and the Brotherhood of the Blade"
+  },
+  {
+    "rank": 37,
+    "item_name": "Acid Row"
+  },
+  {
+    "rank": 38,
+    "item_name": "Infamous Army"
+  },
+  {
+    "rank": 39,
+    "item_name": "A Poisoned Season (Lady Emily Ashton) (Lady Emily Mysteries)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Revenge of the Middle-Aged Woman: A Novel (The Two Mrs. Lloyds)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Nonesuch"
+  },
+  {
+    "rank": 42,
+    "item_name": "Shadows at the Fair (Antique Print)"
+  },
+  {
+    "rank": 43,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 44,
+    "item_name": "Key of Light by Nora Roberts (Large Print Hardback)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Conqueror"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Ape Who Guards the Balance: An Amelia Peabody Novel of Suspense (Amelia Peabody Series)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Flowers from the Storm"
+  },
+  {
+    "rank": 48,
+    "item_name": "All Night Long"
+  },
+  {
+    "rank": 49,
+    "item_name": "To Kingdom Come: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Rumpole of the Bailey"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

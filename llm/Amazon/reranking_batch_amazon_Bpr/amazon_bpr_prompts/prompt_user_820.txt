@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Nonsense: The Power of Not Knowing"
+  },
+  {
+    "item_name": "Misbehaving: The Making of Behavioral Economics"
+  },
+  {
+    "item_name": "Talking to Crazy: How to Deal with the Irrational and Impossible People in Your Life"
+  },
+  {
+    "item_name": "Misbehaving"
+  },
+  {
+    "item_name": "The Case for Christ:  A Journalist's Personal Investigation of the Evidence for Jesus"
+  },
+  {
+    "item_name": "Church of Spies: The Popes Secret War Against Hitler"
+  },
+  {
+    "item_name": "How to Have a Good Day: Harness the Power of Behavioral Science to Transform Your Working Life"
+  },
+  {
+    "item_name": "1924: The Year That Made Hitler"
+  },
+  {
+    "item_name": "Amazing Truths: How Science and the Bible Agree"
+  },
+  {
+    "item_name": "The Life-Changing Magic of Tidying: A simple, effective way to banish clutter forever"
+  },
+  {
+    "item_name": "By Marie Kondo The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing (Unabridged CD) [Audio CD]"
+  },
+  {
+    "item_name": "Smarter Faster Better: The Secrets of Being Productive"
+  },
+  {
+    "item_name": "The Devils Pleasure Palace: The Cult of Critical Theory and the Subversion of the West"
+  },
+  {
+    "item_name": "Draw to Win: A Crash Course on How to Lead, Sell, and Innovate With Your Visual Mind"
+  },
+  {
+    "item_name": "Utopia"
+  },
+  {
+    "item_name": "Things That Matter: Three Decades of Passions, Pastimes and Politics [Deckled Edge]"
+  },
+  {
+    "item_name": "How to Fail at Almost Everything and Still Win Big: Kind of the Story of My Life"
+  },
+  {
+    "item_name": "HOUSE BY THE LAKE, THE"
+  },
+  {
+    "item_name": "Visual Intelligence: Sharpen Your Perception, Change Your Life"
+  },
+  {
+    "item_name": "Pre-Suasion: A Revolutionary Way to Influence and Persuade"
+  },
+  {
+    "item_name": "The Dream of Enlightenment: The Rise of Modern Philosophy"
+  },
+  {
+    "item_name": "How to Be a Stoic: Using Ancient Philosophy to Live a Modern Life"
+  },
+  {
+    "item_name": "Churchill's Ministry of Ungentlemanly Warfare: The Mavericks Who Plotted Hitler's Defeat"
+  },
+  {
+    "item_name": "The Undoing Project: A Friendship that Changed the World"
+  },
+  {
+    "item_name": "Sensemaking: The Power of the Humanities in the Age of the Algorithm"
+  },
+  {
+    "item_name": "Fools, Frauds and Firebrands: Thinkers of the New Left"
+  },
+  {
+    "item_name": "It's All Relative: Adventures Up and Down the World's Family Tree"
+  },
+  {
+    "item_name": "The American Miracle: Divine Providence in the Rise of the Republic"
+  },
+  {
+    "item_name": "The Story of Philosophy (Touchstone Books) (Touchstone Books (Paperback))"
+  },
+  {
+    "item_name": "Impossible to Ignore: Creating Memorable Content to Influence Decisions"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 2,
+    "item_name": "Made to Stick: Why Some Ideas Take Hold and Others Come Unstuck"
+  },
+  {
+    "rank": 3,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 4,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  },
+  {
+    "rank": 6,
+    "item_name": "Fooled By Randomness: The Hidden Role of Chance in Life and in the Markets"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Next 100 Years: A Forecast for the 21st Century"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 11,
+    "item_name": "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Medici Effect: What Elephants and Epidemics Can Teach Us About Innovation"
+  },
+  {
+    "rank": 13,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 14,
+    "item_name": "To Sell is Human: The Surprising Truth About Persuading, Convincing, and Influencing Others"
+  },
+  {
+    "rank": 15,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 16,
+    "item_name": "SuperFreakonomics CD: Global Cooling, Patriotic Prostitutes, and Why Suicide Bombers Should Buy Life Insurance"
+  },
+  {
+    "rank": 17,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 18,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 20,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 21,
+    "item_name": "Uncontrolled: The Surprising Payoff of Trial-and-Error for Business, Politics, and Society"
+  },
+  {
+    "rank": 22,
+    "item_name": "Aftershock: The Next Economy and America's Future"
+  },
+  {
+    "rank": 23,
+    "item_name": "Ignore Everybody: And 39 Other Keys to Creativity"
+  },
+  {
+    "rank": 24,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 25,
+    "item_name": "Trick or Treatment: The Undeniable Facts about Alternative Medicine"
+  },
+  {
+    "rank": 26,
+    "item_name": "How Full Is Your Bucket?: Positive Strategies for Work and Life"
+  },
+  {
+    "rank": 27,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 28,
+    "item_name": "Justice: What's the Right Thing to Do?"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Popes Against the Jews: The Vatican's Role in the Rise of Modern Anti-Semitism"
+  },
+  {
+    "rank": 30,
+    "item_name": "Antifragile: Things That Gain from Disorder"
+  },
+  {
+    "rank": 31,
+    "item_name": "How Full Is Your Bucket?: Positive Strategies for Work and Life"
+  },
+  {
+    "rank": 32,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 33,
+    "item_name": "Think and Grow Rich"
+  },
+  {
+    "rank": 34,
+    "item_name": "Difficult Conversations: How to Discuss What Matters Most"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 36,
+    "item_name": "The New Depression: The Breakdown of the Paper Money Economy"
+  },
+  {
+    "rank": 37,
+    "item_name": "Superforecasting: The Art and Science of Prediction"
+  },
+  {
+    "rank": 38,
+    "item_name": "Breakthrough: Elizabeth Hughes, the Discovery of Insulin, and the Making of a Medical Miracle"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Dumbest Generation: How the Digital Age Stupefies Young Americans and Jeopardizes Our Future (Or, Don't Trust Anyone Under 30)"
+  },
+  {
+    "rank": 40,
+    "item_name": "7 Deadly Scenarios: A Military Futurist Explores the Changing Face of War in the 21st Century"
+  },
+  {
+    "rank": 41,
+    "item_name": "Reality Check: The Irreverent Guide to Outsmarting, Outmanaging, and Outmarketing Your Competition"
+  },
+  {
+    "rank": 42,
+    "item_name": "Grit: The Power of Passion and Perseverance"
+  },
+  {
+    "rank": 43,
+    "item_name": "How Successful People Think: Change Your Thinking, Change Your Life"
+  },
+  {
+    "rank": 44,
+    "item_name": "Being A Dad: The Stuff No One Told Me"
+  },
+  {
+    "rank": 45,
+    "item_name": "My Grandfather's Son: A Memoir"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Snowball: Warren Buffett and the Business of Life"
+  },
+  {
+    "rank": 47,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 48,
+    "item_name": "Blink - The Power Of Thinking Without Thinking"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Opposable Mind: How Successful Leaders Win Through Integrative Thinking"
+  },
+  {
+    "rank": 50,
+    "item_name": "That Used to Be Us: How America Fell Behind in the World It Invented and How We Can Come Back"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

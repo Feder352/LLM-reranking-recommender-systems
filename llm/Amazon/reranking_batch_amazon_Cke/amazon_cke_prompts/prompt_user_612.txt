@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Legion of Super-Heroes - The Curse Deluxe Edition"
+  },
+  {
+    "item_name": "The Legion of Super-Heroes - The Curse Deluxe Edition"
+  },
+  {
+    "item_name": "The Legion of Super-Heroes - The Curse Deluxe Edition"
+  },
+  {
+    "item_name": "Dragons of Autumn Twilight (Dragonlance Chronicles, Volume I)"
+  },
+  {
+    "item_name": "Generation Zero Volume 1: We Are the Future"
+  },
+  {
+    "item_name": "Archer &amp; Armstrong Volume 1: The Michelangelo Code"
+  },
+  {
+    "item_name": "Archer &amp; Armstrong Volume 2: Wrath Of The Eternal Warrior"
+  },
+  {
+    "item_name": "The Family: A Novel"
+  },
+  {
+    "item_name": "Officers and Gentlemen (Sword of Honour)"
+  },
+  {
+    "item_name": "Men at Arms"
+  },
+  {
+    "item_name": "Master and Margarita"
+  },
+  {
+    "item_name": "X-Men, Vol. 1: Primer"
+  },
+  {
+    "item_name": "Murder in the Cathedral"
+  },
+  {
+    "item_name": "Murder in the Cathedral"
+  },
+  {
+    "item_name": "All-New X-Men Volume 1: Yesterday's X-Men (Marvel Now)"
+  },
+  {
+    "item_name": "All-New X-Men, Vol. 2: Here to Stay"
+  },
+  {
+    "item_name": "Crazy Horse and Custer: The Parallel Lives of Two American Warriors"
+  },
+  {
+    "item_name": "All-New X-Men Volume 3: Out of Their Depth (Marvel Now)"
+  },
+  {
+    "item_name": "How to Live: A Life of Montaigne in One Question and Twenty Attempts at An Answer"
+  },
+  {
+    "item_name": "A Charlie Brown Christmas: Vince Guaraldi Trio (Piano Solo/Vocal/Chords)"
+  },
+  {
+    "item_name": "Black Lamb and Grey Falcon: A Journey Through Yugoslavia (Classic, 20th-Century, Penguin)"
+  },
+  {
+    "item_name": "Black Lamb and Grey Falcon: A Journey Through Yugoslavia (Classic, 20th-Century, Penguin)"
+  },
+  {
+    "item_name": "BLACK LAMB AND GREY FALCON: A JOURNEY THROUGH YUGOSLAVIA"
+  },
+  {
+    "item_name": "BLACK LAMB AND GREY FALCON: A JOURNEY THROUGH YUGOSLAVIA"
+  },
+  {
+    "item_name": "Balkan Ghosts: A Journey Through History"
+  },
+  {
+    "item_name": "All-New X-Men Vol. 7: The Utopians (All-New X-Mmen)"
+  },
+  {
+    "item_name": "X-Men: No More Humans"
+  },
+  {
+    "item_name": "X-Men: Season One"
+  },
+  {
+    "item_name": "Beren and Luthien"
+  },
+  {
+    "item_name": "Uncanny X-Men Volume 5: The Omega Mutant"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2671,
+    "item_name": "Fire from Heaven"
+  },
+  {
+    "rank": 2,
+    "item_id": 1255,
+    "item_name": "Brideshead Revisited: The Sacred and Profane Memories of Captain Charles Ryder (Penguin Essentials)"
+  },
+  {
+    "rank": 3,
+    "item_id": 1205,
+    "item_name": "Homage to Catalonia"
+  },
+  {
+    "rank": 4,
+    "item_id": 2669,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 5,
+    "item_id": 2588,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 6,
+    "item_id": 193,
+    "item_name": "Lost Horizon"
+  },
+  {
+    "rank": 7,
+    "item_id": 103,
+    "item_name": "The Map That Changed the World: William Smith and the Birth of Modern Geology"
+  },
+  {
+    "rank": 8,
+    "item_id": 4714,
+    "item_name": "1491: New Revelations of the Americas Before Columbus"
+  },
+  {
+    "rank": 9,
+    "item_id": 996,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 10,
+    "item_id": 5178,
+    "item_name": "Ninety-Three"
+  },
+  {
+    "rank": 11,
+    "item_id": 1843,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 12,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 13,
+    "item_id": 854,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 14,
+    "item_id": 395,
+    "item_name": "Post Office: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_id": 2829,
+    "item_name": "Player Piano: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_id": 70,
+    "item_name": "Out of Sight"
+  },
+  {
+    "rank": 17,
+    "item_id": 2174,
+    "item_name": "The Demon-Haunted World: Science as a Candle in the Dark"
+  },
+  {
+    "rank": 18,
+    "item_id": 77,
+    "item_name": "The Bridge of San Luis Rey (Perennial Classics)"
+  },
+  {
+    "rank": 19,
+    "item_id": 1164,
+    "item_name": "The Name of the Rose"
+  },
+  {
+    "rank": 20,
+    "item_id": 2090,
+    "item_name": "The Caine Mutiny: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_id": 232,
+    "item_name": "By Myself and Then Some"
+  },
+  {
+    "rank": 22,
+    "item_id": 2681,
+    "item_name": "Hawaii"
+  },
+  {
+    "rank": 23,
+    "item_id": 2072,
+    "item_name": "The Magus"
+  },
+  {
+    "rank": 24,
+    "item_id": 4564,
+    "item_name": "Lincoln at Gettysburg: The Words That Re-Made America"
+  },
+  {
+    "rank": 25,
+    "item_id": 360,
+    "item_name": "Unnatural Death (Lord Peter Wimsey Mysteries)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Death in Perspective (A Cherry Tucker Mystery) (Volume 4)"
+  },
+  {
+    "item_name": "Book Clubbed (A Booktown Mystery)"
+  },
+  {
+    "item_name": "Some Enchanted clair (A Magical Bakery Mystery)"
+  },
+  {
+    "item_name": "Silence of the Lamb's Wool (A Yarn Retreat Mystery)"
+  },
+  {
+    "item_name": "Ill-Gotten Panes (A Stained-Glass Mystery)"
+  },
+  {
+    "item_name": "The Colony Cat Caper: A Klepto Cat Mystery (Volume 5)"
+  },
+  {
+    "item_name": "The Moonglow Cafe"
+  },
+  {
+    "item_name": "Sex, Lies, and Snickerdoodles (A Working Stiffs Mystery) (Volume 2)"
+  },
+  {
+    "item_name": "Murder Al Dente: A Southern Pasta Shop Mystery (Southern Pasta Shop Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "Christmas in Paradise (Tj Jensen Paradise Lake Mystery) (Volume 4)"
+  },
+  {
+    "item_name": "To Fudge or Not to Fudge (A Candy-coated Mystery)"
+  },
+  {
+    "item_name": "Marked Down for Murder (Good Buy Girls)"
+  },
+  {
+    "item_name": "A Haunting Is Brewing"
+  },
+  {
+    "item_name": "Star Wars: Scoundrels (Star Wars - Legends)"
+  },
+  {
+    "item_name": "Bless Her Dead Little Heart (A Southern Ladies Mystery)"
+  },
+  {
+    "item_name": "If the Shoe Kills"
+  },
+  {
+    "item_name": "Fortunately, the Milk"
+  },
+  {
+    "item_name": "Assault and Pepper (A Spice Shop Mystery)"
+  },
+  {
+    "item_name": "A Wee Murder in My Shop (A ScotShop Mystery)"
+  },
+  {
+    "item_name": "Suspendered Sentence (An Amish Mystery)"
+  },
+  {
+    "item_name": "Ladle to the Grave (A Soup Lover's Mystery)"
+  },
+  {
+    "item_name": "Dying for a Cupcake (Devereaux's Dime Store Mystery)"
+  },
+  {
+    "item_name": "Murder Ties the Knot (Haunted Souvenir Shop)"
+  },
+  {
+    "item_name": "The Iron Queen (Iron Fey)"
+  },
+  {
+    "item_name": "Dishing the Dirt: An Agatha Raisin Mystery (Agatha Raisin Mysteries)"
+  },
+  {
+    "item_name": "To Helvetica and Back (A Dangerous Type Mystery)"
+  },
+  {
+    "item_name": "Dark Chocolate Demise (Cupcake Bakery Mystery)"
+  },
+  {
+    "item_name": "Murder, Served Simply (Amish Quilt Shop Mystery)"
+  },
+  {
+    "item_name": "Some Like It Witchy (Wishcraft Mystery)"
+  },
+  {
+    "item_name": "Dead with the Wind (A Southern Ladies Mystery)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 22400,
+    "item_name": "Murder in the Mystery Suite (A Book Retreat Mystery)"
+  },
+  {
+    "rank": 2,
+    "item_id": 22830,
+    "item_name": "Rest Ye Murdered Gentlemen (A Year-Round Christmas Mystery)"
+  },
+  {
+    "rank": 3,
+    "item_id": 24891,
+    "item_name": "What a Ghoul Wants: A Ghost Hunter Mystery"
+  },
+  {
+    "rank": 4,
+    "item_id": 22269,
+    "item_name": "Death of a Mad Hatter (A Hat Shop Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_id": 13278,
+    "item_name": "Sinister Sprinkles: A Donut Shop Mystery (Donut Shop Mysteries)"
+  },
+  {
+    "rank": 6,
+    "item_id": 22276,
+    "item_name": "On Borrowed Time (A Library Lover's Mystery)"
+  },
+  {
+    "rank": 7,
+    "item_id": 22031,
+    "item_name": "The Azalea Assault (A Garden Society Mystery)"
+  },
+  {
+    "rank": 8,
+    "item_id": 22872,
+    "item_name": "Well Read, Then Dead (Read Em and Eat Mystery)"
+  },
+  {
+    "rank": 9,
+    "item_id": 22053,
+    "item_name": "Assaulted Pretzel (An Amish Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_id": 21959,
+    "item_name": "Murder Buys a T-Shirt (Haunted Souvenir Shop)"
+  },
+  {
+    "rank": 11,
+    "item_id": 21732,
+    "item_name": "Bookmarked for Death (A Booktown Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_id": 21624,
+    "item_name": "Murder Is Binding"
+  },
+  {
+    "rank": 13,
+    "item_id": 22557,
+    "item_name": "Dream a Little Scream (A Dream Club Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_id": 22420,
+    "item_name": "Murder in the Secret Garden (A Book Retreat Mystery)"
+  },
+  {
+    "rank": 15,
+    "item_id": 24440,
+    "item_name": "Abby Cooper, Psychic Eye (Psychic Eye Mysteries, Book 1)"
+  },
+  {
+    "rank": 16,
+    "item_id": 32370,
+    "item_name": "Lemon Meringue Pie Murder (Hannah Swensen Mysteries)"
+  },
+  {
+    "rank": 17,
+    "item_id": 21807,
+    "item_name": "Motherhood is Murder (A Maternal Instincts Mystery)"
+  },
+  {
+    "rank": 18,
+    "item_id": 22133,
+    "item_name": "Killer in Crinolines (A Consignment Shop Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_id": 21954,
+    "item_name": "File M for Murder (Cat in the Stacks Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_id": 22313,
+    "item_name": "The Ghost and Mrs. Mewer (A Paws &amp; Claws Mystery)"
+  },
+  {
+    "rank": 21,
+    "item_id": 24461,
+    "item_name": "Snipped in the Bud (Flower Shop Mysteries, No. 4)"
+  },
+  {
+    "rank": 22,
+    "item_id": 24860,
+    "item_name": "Nickeled-and-Dimed to Death: A Devereaux's Dime Store Mystery"
+  },
+  {
+    "rank": 23,
+    "item_id": 22501,
+    "item_name": "Death Under Glass (A Stained-Glass Mystery)"
+  },
+  {
+    "rank": 24,
+    "item_id": 22506,
+    "item_name": "Geared for the Grave (A Cycle Path Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_id": 22453,
+    "item_name": "Murder in the Paperback Parlor (A Book Retreat Mystery)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

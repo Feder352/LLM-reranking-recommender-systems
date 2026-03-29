@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Darkness Unbound"
+  },
+  {
+    "item_name": "Bombs Away: The Hot War"
+  },
+  {
+    "item_name": "FOOLS QUEST-FITZ &amp; THE FOOL PB"
+  },
+  {
+    "item_name": "Legion: Skin Deep"
+  },
+  {
+    "item_name": "Hunter"
+  },
+  {
+    "item_name": "A Call to Arms (Manticore Ascendant)"
+  },
+  {
+    "item_name": "An Ancient Peace (Peacekeeper)"
+  },
+  {
+    "item_name": "The Drafter (The Peri Reed Chronicles)"
+  },
+  {
+    "item_name": "Shadows of Self: A Mistborn Novel"
+  },
+  {
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  },
+  {
+    "item_name": "Working for Bigfoot"
+  },
+  {
+    "item_name": "The Cinder Spires: the Aeronaut's Windlass"
+  },
+  {
+    "item_name": "Legion"
+  },
+  {
+    "item_name": "Tales of the Hidden World: Stories"
+  },
+  {
+    "item_name": "Closer to the Heart (Valdemar: The Herald Spy)"
+  },
+  {
+    "item_name": "Unbound (Magic Ex Libris)"
+  },
+  {
+    "item_name": "Magic Burns (Kate Daniels)"
+  },
+  {
+    "item_name": "Hell's Foundations Quiver: A Novel in the Safehold Series"
+  },
+  {
+    "item_name": "Cast in Shadow (The Chronicles of Elantra, Book 1)"
+  },
+  {
+    "item_name": "Son of the Black Sword (Saga of the Forgotten Warrior)"
+  },
+  {
+    "item_name": "Magic Strikes (Kate Daniels)"
+  },
+  {
+    "item_name": "The Stainless Steel Rat (Stainless Steel Rat, No. 1)"
+  },
+  {
+    "item_name": "The Stainless Steel Rat's Revenge: Stainless Steel Rat, Book 2"
+  },
+  {
+    "item_name": "Adventures of the Stainless Steel Rat"
+  },
+  {
+    "item_name": "Mitosis"
+  },
+  {
+    "item_name": "Plague Ship (Ace SF #66834)"
+  },
+  {
+    "item_name": "Voodoo Planet / Star Hunter"
+  },
+  {
+    "item_name": "Magic Bleeds (Kate Daniels)"
+  },
+  {
+    "item_name": "A Princess of Mars (Penguin Classics)"
+  },
+  {
+    "item_name": "Arrows of the Queen ( The Heralds of Valdemar, Book 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Guards! Guards!"
+  },
+  {
+    "rank": 2,
+    "item_name": "Cryoburn (Vorkosigan Saga)"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Hat Full of Sky"
+  },
+  {
+    "rank": 4,
+    "item_name": "Every Which Way But Dead"
+  },
+  {
+    "rank": 5,
+    "item_name": "Eldest (Inheritance, Book 2)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Sourcery"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Final Empire: Mistborn Book One"
+  },
+  {
+    "rank": 8,
+    "item_name": "Ship of Magic (Liveship Traders)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Commitment Hour"
+  },
+  {
+    "rank": 10,
+    "item_name": "Daytripper"
+  },
+  {
+    "rank": 11,
+    "item_name": "Hyperion (Hyperion Cantos)"
+  },
+  {
+    "rank": 12,
+    "item_name": "20,000 Leagues Under the Sea"
+  },
+  {
+    "rank": 13,
+    "item_name": "Feet of Clay"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Android's Dream"
+  },
+  {
+    "rank": 15,
+    "item_name": "Unshapely Things (Connor Grey, Book 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Cold Days: A Dresden Files Novel (The Dresden Files)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Assassin's Quest (The Farseer Trilogy)"
+  },
+  {
+    "rank": 18,
+    "item_name": "A Clash of Kings: A Song of Ice and Fire: Book Two"
+  },
+  {
+    "rank": 19,
+    "item_name": "Abaddon's Gate (The Expanse)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Hundred Thousand Kingdoms (The Inheritance Trilogy)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Leviathan Wakes"
+  },
+  {
+    "rank": 22,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Percy Jackson and the Sea of Monsters (Book 2)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Madhouse"
+  },
+  {
+    "rank": 25,
+    "item_name": "Conquistador"
+  },
+  {
+    "rank": 26,
+    "item_name": "Thunderbird Falls (The Walker Papers, Book 2)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 28,
+    "item_name": "All Spell Breaks Loose (Raine Benares, Book 6)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Dead And Gone: A Sookie Stackhouse Novel (Sookie Stackhouse/True Blood)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Grave Peril (The Dresden Files, Book 3)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Briar King (Kingdoms of Thorn &amp; Bone)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Sandman Vol. 8: World's End"
+  },
+  {
+    "rank": 33,
+    "item_name": "Ancient Shores"
+  },
+  {
+    "rank": 34,
+    "item_name": "Prodigal Son (Dean Koontz's Frankenstein, Book 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Hero of Ages (Mistborn, Book 3)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Shadow Roads: Book Three of the Swans' War"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Curse of Chalion (Chalion series)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Reaper Man"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Sharing Knife, Volume Four: Horizon (The Sharing Knife series)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 41,
+    "item_name": "Destiny (Rogue Angel, Book 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 43,
+    "item_name": "Phule's Company"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Left Hand of Darkness (Penguin Galaxy)"
+  },
+  {
+    "rank": 45,
+    "item_name": "You Slay Me (Aisling Grey, Guardian, Book 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The New Avengers, Vol. 3: Secrets And Lies"
+  },
+  {
+    "rank": 47,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Last Unicorn"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Amazing Maurice and His Educated Rodents (Discworld)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Ready Player One"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

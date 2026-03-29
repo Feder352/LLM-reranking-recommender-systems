@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Saga Volume 6"
+  },
+  {
+    "item_name": "Fragile Things: Short Fictions and Wonders"
+  },
+  {
+    "item_name": "Dog Days (Diary of a Wimpy Kid)"
+  },
+  {
+    "item_name": "Roadside Picnic (SF Collector's Edition)"
+  },
+  {
+    "item_name": "Spider-Woman Volume 1: Spider-Verse"
+  },
+  {
+    "item_name": "Maskerade"
+  },
+  {
+    "item_name": "Imperial Earth"
+  },
+  {
+    "item_name": "Monstress Volume 1: Awakening"
+  },
+  {
+    "item_name": "The Scarlet Plague (Science Fiction)"
+  },
+  {
+    "item_name": "Two Years Eight Months and Twenty-Eight Nights: A Novel"
+  },
+  {
+    "item_name": "Black Panther: A Nation Under Our Feet Book 1"
+  },
+  {
+    "item_name": "The Dark Forest (Remembrance of Earth's Past)"
+  },
+  {
+    "item_name": "Building the Internet of Things: Implement New Business Models, Disrupt Competitors, Transform Your Industry"
+  },
+  {
+    "item_name": "The Sandman Vol. 8: World's End"
+  },
+  {
+    "item_name": "Saga, Vol. 2"
+  },
+  {
+    "item_name": "Saga, Vol. 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "The Girl With All the Gifts"
+  },
+  {
+    "item_name": "The Tropic of Serpents: A Memoir by Lady Trent (The Lady Trent Memoirs)"
+  },
+  {
+    "item_name": "Paris in the Twentieth Century: Jules Verne, The Lost Novel"
+  },
+  {
+    "item_name": "Voyage of the Basilisk: A Memoir by Lady Trent (The Lady Trent Memoirs)"
+  },
+  {
+    "item_name": "Sabre-Tooth (Modesty Blaise series)"
+  },
+  {
+    "item_name": "Sabre Tooth"
+  },
+  {
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "item_name": "The Practice Effect: A Novel (Bantam Spectra Book)"
+  },
+  {
+    "item_name": "Saga Volume 7"
+  },
+  {
+    "item_name": "Paper Girls Volume 1"
+  },
+  {
+    "item_name": "The Three Stigmata of Palmer Eldritch"
+  },
+  {
+    "item_name": "Moebius Library: The World of Edena"
+  },
+  {
+    "item_name": "On Tyranny: Twenty Lessons from the Twentieth Century"
+  },
+  {
+    "item_name": "Nightfall [Paperback]"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 3,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 4,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 6,
+    "item_name": "Dune"
+  },
+  {
+    "rank": 7,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 8,
+    "item_name": "20,000 Leagues Under the Sea"
+  },
+  {
+    "rank": 9,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 10,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 12,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Dune (Penguin Galaxy)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Daytripper"
+  },
+  {
+    "rank": 15,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 16,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 17,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Sandman Vol. 8: World's End"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Day of the Triffids (Popular Penguins)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Childhood's End"
+  },
+  {
+    "rank": 21,
+    "item_name": "To Your Scattered Bodies Go (Riverworld Saga, Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Batman: Hush - Volume One"
+  },
+  {
+    "rank": 24,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 25,
+    "item_name": "A Connecticut Yankee in King Arthur's Court (Penguin Classics)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Forever War, The"
+  },
+  {
+    "rank": 27,
+    "item_name": "Neverwhere: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Treasure Island (Penguin Classics)"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Mysterious Island (Signet Classics)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Twenty Thousand Leagues Under the Sea (Vintage Classics)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Batman : The Dark Knight Returns"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Black Cauldron (Pyrdain Chronicles)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Starship Troopers"
+  },
+  {
+    "rank": 35,
+    "item_name": "Sourcery"
+  },
+  {
+    "rank": 36,
+    "item_name": "I, Robot"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Chanur Saga"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Fight Club"
+  },
+  {
+    "rank": 40,
+    "item_name": "Flatland: A Romance of Many Dimensions (Penguin Classics)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The ADVENTURES OF PINOCCHIO (DELUXE EDITION)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Stranger in a Strange Land"
+  },
+  {
+    "rank": 43,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 44,
+    "item_name": "Batman/Superman/Wonder Woman - Trinity"
+  },
+  {
+    "rank": 45,
+    "item_name": "Time for the Stars"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Prince (Classics)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Sparrow: A Novel (The Sparrow Series)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Neuromancer (Penguin Galaxy)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Merchanter's Luck (Alliance-Union Universe)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

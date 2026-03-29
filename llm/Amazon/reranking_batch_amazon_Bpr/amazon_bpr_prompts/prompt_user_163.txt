@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Patient H.M.: A Story of Memory, Madness, and Family Secrets"
+  },
+  {
+    "item_name": "The Serial Killer Books: 15 Famous Serial Killers True Crime Stories That Shocked The World (The Serial Killer Files) (Volume 1)"
+  },
+  {
+    "item_name": "The Secrets of My Life"
+  },
+  {
+    "item_name": "The Stranger in the Woods: The Extraordinary Story of the Last True Hermit"
+  },
+  {
+    "item_name": "Girl in the Dark: A Memoir"
+  },
+  {
+    "item_name": "The Wrong Man: The Final Verdict on the Dr. Sam Sheppard Murder Case (Ohio)"
+  },
+  {
+    "item_name": "Filthy Rich: A Powerful Billionaire, the Sex Scandal that Undid Him, and All the Justice that Money Can Buy - The Shocking True Story of Jeffrey Epstein"
+  },
+  {
+    "item_name": "Heads in Beds: A Reckless Memoir of Hotels, Hustles, and So-Called Hospitality"
+  },
+  {
+    "item_name": "Sick Girl"
+  },
+  {
+    "item_name": "You Don't Have to Say You Love Me: A Memoir"
+  },
+  {
+    "item_name": "Born a Crime"
+  },
+  {
+    "item_name": "True Crime Stories Volume 7: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "item_name": "Who Killed These Girls?: Cold Case: The Yogurt Shop Murders"
+  },
+  {
+    "item_name": "Sweetness: The Enigmatic Life of Walter Payton"
+  },
+  {
+    "item_name": "This Life I Live: One Man's Extraordinary, Ordinary Life and the Woman Who Changed It Forever"
+  },
+  {
+    "item_name": "Death Sentence (Signet)"
+  },
+  {
+    "item_name": "HILLBILLY ELEGY- PB"
+  },
+  {
+    "item_name": "Serpentine"
+  },
+  {
+    "item_name": "The Magnificent Medills: America's Royal Family of Journalism During a Century of Turbulent Splendor"
+  },
+  {
+    "item_name": "The Last Girl: My Story of Captivity, and My Fight Against the Islamic State"
+  },
+  {
+    "item_name": "I Am Nujood, Age 10 and Divorced"
+  },
+  {
+    "item_name": "The Toolbox Killers: A Deadly Rape, Torture &amp; Murder Duo (The Serial Killer Books) (Volume 3)"
+  },
+  {
+    "item_name": "Into the Wild"
+  },
+  {
+    "item_name": "An American Family: A Memoir of Hope and Sacrifice"
+  },
+  {
+    "item_name": "True Crime 2017: Homicide &amp; True Crime Stories of 2017 (Annual True Crime Anthology) (Volume 2)"
+  },
+  {
+    "item_name": "True Crime Stories Volume 9: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "item_name": "Fire and Fury: Inside the Trump White House"
+  },
+  {
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "item_name": "Nomadland: Surviving America in the Twenty-First Century"
+  },
+  {
+    "item_name": "Promise Me, Dad: A Year of Hope, Hardship, and Purpose"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Salt Sugar Fat: How the Food Giants Hooked Us"
+  },
+  {
+    "rank": 2,
+    "item_name": "Everybody Lies: Big Data, New Data, and What the Internet Can Tell Us About Who We Really Are"
+  },
+  {
+    "rank": 3,
+    "item_name": "One Bullet Away: The Making of a Marine Officer"
+  },
+  {
+    "rank": 4,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 5,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 6,
+    "item_name": "Worthy Fights: A Memoir of Leadership in War and Peace"
+  },
+  {
+    "rank": 7,
+    "item_name": "One Nation: What We Can All Do to Save America's Future"
+  },
+  {
+    "rank": 8,
+    "item_name": "Canada"
+  },
+  {
+    "rank": 9,
+    "item_name": "Waiter Rant: Thanks for the Tip--Confessions of a Cynical Waiter"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Truck Full of Money"
+  },
+  {
+    "rank": 11,
+    "item_name": "With the Old Breed: The World War Two Pacific Classic"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  },
+  {
+    "rank": 13,
+    "item_name": "How I Helped O. J. Get Away With Murder: The Shocking Inside Story of Violence, Loyalty, Regret, and Remorse"
+  },
+  {
+    "rank": 14,
+    "item_name": "Whaley's Big Adventure: Presented by Carole P. Roman"
+  },
+  {
+    "rank": 15,
+    "item_name": "Made to Stick: Why Some Ideas Take Hold and Others Come Unstuck"
+  },
+  {
+    "rank": 16,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 17,
+    "item_name": "If I did it : Confessions of the Killer"
+  },
+  {
+    "rank": 18,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Elephant to Hollywood"
+  },
+  {
+    "rank": 20,
+    "item_name": "Olive Kitteridge"
+  },
+  {
+    "rank": 21,
+    "item_name": "White Trash: The 400-Year Untold History of Class in America"
+  },
+  {
+    "rank": 22,
+    "item_name": "That Used to Be Us: How America Fell Behind in the World It Invented and How We Can Come Back"
+  },
+  {
+    "rank": 23,
+    "item_name": "Let's Roll!: Ordinary People, Extraordinary Courage"
+  },
+  {
+    "rank": 24,
+    "item_name": "America the Beautiful: Rediscovering What Made This Nation Great"
+  },
+  {
+    "rank": 25,
+    "item_name": "Fantasyland: How America Went Haywire: A 500-Year History"
+  },
+  {
+    "rank": 26,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 27,
+    "item_name": "Walden and Civil Disobedience (Penguin American Library)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Clinton Cash: The Untold Story of How and Why Foreign Governments and Businesses Helped Make Bill and Hillary Rich"
+  },
+  {
+    "rank": 29,
+    "item_name": "Stamped from the Beginning: The Definitive History of Racist Ideas in America (National Book Award Winner)"
+  },
+  {
+    "rank": 30,
+    "item_name": "It's Not about the Bike: My Journey Back to Life"
+  },
+  {
+    "rank": 31,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 32,
+    "item_name": "Bellevue: Three Centuries of Medicine and Mayhem at America's Most Storied Hospital"
+  },
+  {
+    "rank": 33,
+    "item_name": "Dataclysm: Who We are (When We Think No One's Looking)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Pilgrim's Wilderness: A True Story of Faith and Madness on the Alaska Frontier"
+  },
+  {
+    "rank": 35,
+    "item_name": "Bait And Switch: The (Futile) Pursuit of the American Dream"
+  },
+  {
+    "rank": 36,
+    "item_name": "My Journey Through War and Peace: Explorations of a Young Filmmaker, Feminist and Spiritual Seeker (The Heroine's Journey Book 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Last of the President's Men"
+  },
+  {
+    "rank": 38,
+    "item_name": "If You Were Me and Lived in...India: A Child's Introduction to Cultures Around the World (Volume 7)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Wolf of Wall Street: How Money Destroyed a Wall Street Superman"
+  },
+  {
+    "rank": 40,
+    "item_name": "A Horse Walks into a Bar: A novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "A Call to Action: Women, Religion, Violence, and Power"
+  },
+  {
+    "rank": 42,
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "rank": 43,
+    "item_name": "Breakthrough: Elizabeth Hughes, the Discovery of Insulin, and the Making of a Medical Miracle"
+  },
+  {
+    "rank": 44,
+    "item_name": "American Dervish"
+  },
+  {
+    "rank": 45,
+    "item_name": "Marley &amp; Me: Life and Love with the World's Worst Dog"
+  },
+  {
+    "rank": 46,
+    "item_name": "March of the Penguins: Companion to the Major Motion Picture"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Storm of War: A New History of the Second World War"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Gifted: How to Live the Life of Your Dreams"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Billion Dollar Spy: A True Story of Cold War Espionage and Betrayal"
+  },
+  {
+    "rank": 50,
+    "item_name": "Faith of My Fathers: A Family Memoir"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

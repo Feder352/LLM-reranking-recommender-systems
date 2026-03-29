@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "How the Finch Stole Christmas!: A Meg Langslow Christmas Mystery (Meg Langslow Mysteries)"
+  },
+  {
+    "item_name": "Mistletoe Murder (Dewberry Farm Mysteries)"
+  },
+  {
+    "item_name": "Stowed Away (A Maine Clambake Mystery)"
+  },
+  {
+    "item_name": "Dial M for Mousse (An Emergency Dessert Squad Mystery)"
+  },
+  {
+    "item_name": "The Forgotten Man (Elvis Cole)"
+  },
+  {
+    "item_name": "Curses, Boiled Again!: A Lobster Shack Mystery"
+  },
+  {
+    "item_name": "Class Reunions Are Murder (A Poppy McAllister Mystery)"
+  },
+  {
+    "item_name": "The Phantom of Oz (An Ivy Meadows Mystery) (Volume 5)"
+  },
+  {
+    "item_name": "Biscuits and Slashed Browns (A Country Store Mystery)"
+  },
+  {
+    "item_name": "As You Wish: Inconceivable Tales from the Making of The Princess Bride"
+  },
+  {
+    "item_name": "The Corpse with the Silver Tongue (A Cait Morgan Mystery)"
+  },
+  {
+    "item_name": "Pressing the Issue (A Cookbook Nook Mystery) (Volume 6)"
+  },
+  {
+    "item_name": "Color Me Murder (Pen &amp; Ink)"
+  },
+  {
+    "item_name": "Hummus and Homicide (A Kebab Kitchen Mystery)"
+  },
+  {
+    "item_name": "I Know What You Bid Last Summer (A Sarah W. Garage Sale Mystery)"
+  },
+  {
+    "item_name": "Hellbent: An Orphan X Novel"
+  },
+  {
+    "item_name": "Claws for Concern (Cat in the Stacks Mystery)"
+  },
+  {
+    "item_name": "Death al Fresco: A Sally Solari Mystery"
+  },
+  {
+    "item_name": "The Grave's a Fine and Private Place: A Flavia de Luce Novel"
+  },
+  {
+    "item_name": "The Tuscan Child"
+  },
+  {
+    "item_name": "Raspberry Danish Murder (A Hannah Swensen Mystery)"
+  },
+  {
+    "item_name": "The Uninvited Corpse (A Food Blogger Mystery)"
+  },
+  {
+    "item_name": "Murder on Washington Square: A Gaslight Mystery"
+  },
+  {
+    "item_name": "Wedding Cake Crumble (Cupcake Bakery Mystery)"
+  },
+  {
+    "item_name": "Cinco de Murder (A Taste of Texas Mystery)"
+  },
+  {
+    "item_name": "It's Your Party, Die If You Want To (A Liv And Di In Dixie Mystery)"
+  },
+  {
+    "item_name": "True Fiction (Ian Ludlow Thrillers)"
+  },
+  {
+    "item_name": "J is for Judgment (Kinsey Millhone Alphabet Mysteries, No. 10)"
+  },
+  {
+    "item_name": "A Darkness More Than Night (Harry Bosch)"
+  },
+  {
+    "item_name": "Claws for Alarm (The Gray Whale Inn Mysteries) (Volume 8)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 6680,
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "rank": 2,
+    "item_id": 76371,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 3,
+    "item_id": 75993,
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "rank": 4,
+    "item_id": 74748,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 5,
+    "item_id": 7638,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 6,
+    "item_id": 74721,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 7,
+    "item_id": 19589,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 8,
+    "item_id": 9629,
+    "item_name": "Gone Girl"
+  },
+  {
+    "rank": 9,
+    "item_id": 28156,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 10,
+    "item_id": 15896,
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_id": 7184,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 12,
+    "item_id": 3671,
+    "item_name": "Before I Go to Sleep: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 57473,
+    "item_name": "Witches Protection Program"
+  },
+  {
+    "rank": 14,
+    "item_id": 6177,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 15,
+    "item_id": 20789,
+    "item_name": "Big Little Lies"
+  },
+  {
+    "rank": 16,
+    "item_id": 8451,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 17,
+    "item_id": 27345,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 18,
+    "item_id": 45135,
+    "item_name": "A Man Called Ove (Thorndike Press Large Print Core Series)"
+  },
+  {
+    "rank": 19,
+    "item_id": 13972,
+    "item_name": "The Late Show"
+  },
+  {
+    "rank": 20,
+    "item_id": 55175,
+    "item_name": "The After House (A Haunting on Long Island Series)"
+  },
+  {
+    "rank": 21,
+    "item_id": 603,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 22,
+    "item_id": 11488,
+    "item_name": "In a Time of Torment"
+  },
+  {
+    "rank": 23,
+    "item_id": 47789,
+    "item_name": "Before the Fall: The year's best suspense novel"
+  },
+  {
+    "rank": 24,
+    "item_id": 13364,
+    "item_name": "The Lovely Bones: Deluxe Edition"
+  },
+  {
+    "rank": 25,
+    "item_id": 8568,
+    "item_name": "The Widow"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

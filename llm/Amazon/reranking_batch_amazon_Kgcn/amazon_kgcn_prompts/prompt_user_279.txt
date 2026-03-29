@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Hothouse Orchid (Holly Barker)"
+  },
+  {
+    "item_name": "Midnight Mass"
+  },
+  {
+    "item_name": "Swimming to Catalina: A Novel"
+  },
+  {
+    "item_name": "No Man's Land (John Puller Series)"
+  },
+  {
+    "item_name": "Worst Fears Realized"
+  },
+  {
+    "item_name": "Cold Paradise (Stone Barrington)"
+  },
+  {
+    "item_name": "The Short Forever (Stone Barrington)"
+  },
+  {
+    "item_name": "Mortal Prey"
+  },
+  {
+    "item_name": "Naked Prey"
+  },
+  {
+    "item_name": "L.A. Dead"
+  },
+  {
+    "item_name": "Dirty Work (Stone Barrington Novels)"
+  },
+  {
+    "item_name": "Hidden Prey (Lucas Davenport Mysteries)"
+  },
+  {
+    "item_name": "Invisible Prey (Lucas Davenport Mysteries)"
+  },
+  {
+    "item_name": "The Hit (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "Wicked Prey (Lucas Davenport Mysteries)"
+  },
+  {
+    "item_name": "The Last Mile"
+  },
+  {
+    "item_name": "The Fix (Memory Man series)"
+  },
+  {
+    "item_name": "Shoot Him If He Runs (Stone Barrington)"
+  },
+  {
+    "item_name": "The Target"
+  },
+  {
+    "item_name": "The Harvest"
+  },
+  {
+    "item_name": "The Day of the Triffids (Popular Penguins)"
+  },
+  {
+    "item_name": "The Silent Corner: A Novel of Suspense (Jane Hawk)"
+  },
+  {
+    "item_name": "Monument 14: Sky on Fire (Monument 14 Series)"
+  },
+  {
+    "item_name": "The Rule of Three: Fight for Power"
+  },
+  {
+    "item_name": "Camino Island: A Novel"
+  },
+  {
+    "item_name": "The Kind Worth Killing: A Novel"
+  },
+  {
+    "item_name": "The Death and Life of Charlie St. Cloud: A Novel"
+  },
+  {
+    "item_name": "Demon Seed"
+  },
+  {
+    "item_name": "The Compound"
+  },
+  {
+    "item_name": "Son of Stone (Stone Barrington)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 898,
+    "item_name": "Lost in a Good Book (A Thursday Next Novel)"
+  },
+  {
+    "rank": 2,
+    "item_id": 1366,
+    "item_name": "The Ruins"
+  },
+  {
+    "rank": 3,
+    "item_id": 2341,
+    "item_name": "Whispers Under Ground (Rivers of London)"
+  },
+  {
+    "rank": 4,
+    "item_id": 1334,
+    "item_name": "Dexter by Design"
+  },
+  {
+    "rank": 5,
+    "item_id": 1443,
+    "item_name": "Dearly Devoted Dexter"
+  },
+  {
+    "rank": 6,
+    "item_id": 525,
+    "item_name": "The Blood Gospel: The Order of the Sanguines Series"
+  },
+  {
+    "rank": 7,
+    "item_id": 3739,
+    "item_name": "Brimstone (Pendergast, Book 5)"
+  },
+  {
+    "rank": 8,
+    "item_id": 973,
+    "item_name": "Something Rotten (Thursday Next Novels)"
+  },
+  {
+    "rank": 9,
+    "item_id": 1976,
+    "item_name": "Beat the Reaper: A Novel (Package May Vary)"
+  },
+  {
+    "rank": 10,
+    "item_id": 3968,
+    "item_name": "Freedom (TM) (Daemon Series)"
+  },
+  {
+    "rank": 11,
+    "item_id": 1820,
+    "item_name": "Dead of Night: A Zombie Novel (Dead of Night Series)"
+  },
+  {
+    "rank": 12,
+    "item_id": 3764,
+    "item_name": "The Book of the Dead"
+  },
+  {
+    "rank": 13,
+    "item_id": 19,
+    "item_name": "Bloodline"
+  },
+  {
+    "rank": 14,
+    "item_id": 2232,
+    "item_name": "Altered Carbon (Takeshi Kovacs)"
+  },
+  {
+    "rank": 15,
+    "item_id": 2337,
+    "item_name": "Moon Over Soho (Rivers of London)"
+  },
+  {
+    "rank": 16,
+    "item_id": 1325,
+    "item_name": "Dexter in the Dark"
+  },
+  {
+    "rank": 17,
+    "item_id": 2596,
+    "item_name": "Skinny Dip"
+  },
+  {
+    "rank": 18,
+    "item_id": 272,
+    "item_name": "Hurricane Punch: A Novel (Serge Storms)"
+  },
+  {
+    "rank": 19,
+    "item_id": 5977,
+    "item_name": "Monster Island: A Zombie Novel"
+  },
+  {
+    "rank": 20,
+    "item_id": 1495,
+    "item_name": "The Shining"
+  },
+  {
+    "rank": 21,
+    "item_id": 4817,
+    "item_name": "Hawke: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_id": 545,
+    "item_name": "Snuff: A Novel of Discworld"
+  },
+  {
+    "rank": 23,
+    "item_id": 1534,
+    "item_name": "Deep Storm (Jeremy Logan Series)"
+  },
+  {
+    "rank": 24,
+    "item_id": 530,
+    "item_name": "Sacred: A Novel (Patrick Kenzie and Angela Gennaro Series)"
+  },
+  {
+    "rank": 25,
+    "item_id": 3733,
+    "item_name": "The Ice Limit"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

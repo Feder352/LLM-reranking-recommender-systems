@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The House on the Cliff: A Novel"
+  },
+  {
+    "item_name": "Robert B. Parker's Cheap Shot (Spenser)"
+  },
+  {
+    "item_name": "Batman: The Return of Bruce Wayne"
+  },
+  {
+    "item_name": "Lazarus Volume 1"
+  },
+  {
+    "item_name": "Shazam! Vol. 1 (The New 52): From the Pages of Justice League"
+  },
+  {
+    "item_name": "The Skin Collector (A Lincoln Rhyme Novel)"
+  },
+  {
+    "item_name": "The Chronicles of Conan, Vol. 1: Tower of the Elephant and Other Stories"
+  },
+  {
+    "item_name": "Red Sonja Volume 1: Queen of Plagues"
+  },
+  {
+    "item_name": "Spirit of Steamboat: A Longmire Story (A Longmire Mystery)"
+  },
+  {
+    "item_name": "The Road to Reckoning"
+  },
+  {
+    "item_name": "The Boundless"
+  },
+  {
+    "item_name": "Wide Spot in the Road (The Drifter Detective) (Volume 4)"
+  },
+  {
+    "item_name": "The Skeleton Crew: How Amateur Sleuths Are Solving America's Coldest Cases"
+  },
+  {
+    "item_name": "Earth Strike: Star Carrier: Book One (Star Carrier Series)"
+  },
+  {
+    "item_name": "I Am the Weapon (Unknown Assassin series, Book 1) - (Previously Titled, Boy Nobody)(Covers may be either Title)"
+  },
+  {
+    "item_name": "The Hit (Boy Nobody)"
+  },
+  {
+    "item_name": "Quarry's Choice"
+  },
+  {
+    "item_name": "Coffin Hill Vol. 1: Forest of the Night"
+  },
+  {
+    "item_name": "The Long Way Down (Daniel Faust) (Volume 1)"
+  },
+  {
+    "item_name": "Charcoal Joe: An Easy Rawlins Mystery"
+  },
+  {
+    "item_name": "The Forsaken (A Quinn Colson Novel)"
+  },
+  {
+    "item_name": "Where It Hurts (A Gus Murphy Novel)"
+  },
+  {
+    "item_name": "The Second Life of Nick Mason (A Nick Mason Novel)"
+  },
+  {
+    "item_name": "Thor Vol. 1: The Goddess of Thunder"
+  },
+  {
+    "item_name": "Robert B. Parker's Fool Me Twice: A Jesse Stone Novel (Jesse Stone Novels)"
+  },
+  {
+    "item_name": "Sackett, The Louis L'Amour Collection"
+  },
+  {
+    "item_name": "White Trash Zombie Apocalypse"
+  },
+  {
+    "item_name": "The Wanted (An Elvis Cole and Joe Pike Novel)"
+  },
+  {
+    "item_name": "Batman: Nightwalker (DC Icons Series)"
+  },
+  {
+    "item_name": "Light of the World"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 16,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 2,
+    "item_id": 37,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 3,
+    "item_id": 100,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 4,
+    "item_id": 235,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 5,
+    "item_id": 565,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 6,
+    "item_id": 6680,
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "rank": 7,
+    "item_id": 6920,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 8,
+    "item_id": 27953,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 9,
+    "item_id": 74439,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 10,
+    "item_id": 74663,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 11,
+    "item_id": 74802,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 12,
+    "item_id": 74923,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 13,
+    "item_id": 75586,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 14,
+    "item_id": 664,
+    "item_name": "Pride &amp; Prejudice (Collins Classics)"
+  },
+  {
+    "rank": 15,
+    "item_id": 76371,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 16,
+    "item_id": 75993,
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "rank": 17,
+    "item_id": 83,
+    "item_name": "Little Women"
+  },
+  {
+    "rank": 18,
+    "item_id": 6785,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 19,
+    "item_id": 6507,
+    "item_name": "The Man Who Was Thursday: A Nightmare (Classic, 20th-Century, Penguin)"
+  },
+  {
+    "rank": 20,
+    "item_id": 44006,
+    "item_name": "Fables: Werewolves of the Heartland"
+  },
+  {
+    "rank": 21,
+    "item_id": 7638,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_id": 3746,
+    "item_name": "A Midsummer Night's Dream (Teen Classics)"
+  },
+  {
+    "rank": 23,
+    "item_id": 9641,
+    "item_name": "The Illustrated Hitch-hiker's Guide to the Galaxy"
+  },
+  {
+    "rank": 24,
+    "item_id": 14823,
+    "item_name": "John Carter of Mars (Barsoom Series, #11)"
+  },
+  {
+    "rank": 25,
+    "item_id": 7819,
+    "item_name": "A Princess of Mars (Penguin Classics)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

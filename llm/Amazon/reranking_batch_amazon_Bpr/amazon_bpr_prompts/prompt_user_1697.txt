@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Mitus Touch: Book One of The Touch Series"
+  },
+  {
+    "item_name": "One Intrepid SEAL (Mission: Six)"
+  },
+  {
+    "item_name": "The Luck of the Bride: The Cavensham Heiresses"
+  },
+  {
+    "item_name": "A Duke Like No Other (Playful Brides)"
+  },
+  {
+    "item_name": "The CEO's Redemption"
+  },
+  {
+    "item_name": "Daddy's Little Angel"
+  },
+  {
+    "item_name": "Billionaire Matchmaker"
+  },
+  {
+    "item_name": "The One Who Got Away: A Second Chance Romance"
+  },
+  {
+    "item_name": "Married by Moonlight (Distinguished Rogues) (Volume 9)"
+  },
+  {
+    "item_name": "The Human: A SciFi Alien Romance (Betania Breed) (Volume 3)"
+  },
+  {
+    "item_name": "Deliciously Damaged: Reckless Bastards MC"
+  },
+  {
+    "item_name": "Lord of Fortune (Legendary Rogues) (Volume 3)"
+  },
+  {
+    "item_name": "Redeeming Viktor"
+  },
+  {
+    "item_name": "I Hired a Hitman: A Bad Boy Mafia Romance"
+  },
+  {
+    "item_name": "Merciless"
+  },
+  {
+    "item_name": "The Big Alpha in Town"
+  },
+  {
+    "item_name": "The Savage Wild"
+  },
+  {
+    "item_name": "It's All About the Duke: The Rakes of St. James"
+  },
+  {
+    "item_name": "Protector"
+  },
+  {
+    "item_name": "Claiming Her"
+  },
+  {
+    "item_name": "Bitten Under Fire (Bravo Team WOLF) (Volume 2)"
+  },
+  {
+    "item_name": "Double Down (All In) (Volume 2)"
+  },
+  {
+    "item_name": "Black Edge"
+  },
+  {
+    "item_name": "Broken Promise: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "item_name": "Black Rules (Black Edge)"
+  },
+  {
+    "item_name": "An Affair with a Spare (The Survivors)"
+  },
+  {
+    "item_name": "His Banana"
+  },
+  {
+    "item_name": "Deep Cover: A Love Over Duty Novel"
+  },
+  {
+    "item_name": "Dagger's Edge: A Brute Force Novel"
+  },
+  {
+    "item_name": "Don't Look Back: An Unbroken Heroes Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Romancing the Rogue (Passion &amp; Promises) (Volume 3)"
+  },
+  {
+    "rank": 2,
+    "item_name": "A Cruel Kind of Beautiful (Sex, Love, and Rock and Roll series) (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Duke Like No Other (Playful Brides)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Luck of the Bride: The Cavensham Heiresses"
+  },
+  {
+    "rank": 5,
+    "item_name": "Fire Away (Somewhere, TX) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Highland Duke (Lords of the Highlands)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Rugged Texas Cowboy: Two Stories in One: Cowboy and the Captive, Cowboy and the Thief"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Duke of Ruin (The Untouchables) (Volume 8)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Right Kind of Rogue (Playful Brides)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Date The Billionaire"
+  },
+  {
+    "rank": 11,
+    "item_name": "Mr. Darcy's Kiss"
+  },
+  {
+    "rank": 12,
+    "item_name": "Licks"
+  },
+  {
+    "rank": 13,
+    "item_name": "His Muse: A Dark Alpha Bad Boy Romance"
+  },
+  {
+    "rank": 14,
+    "item_name": "The First Kiss of Spring: An Eternity Springs Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "As the Devil Dares (Capturing the Carlisles)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Have My Baby (Dirty DILFs) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Millionaire's Revenge"
+  },
+  {
+    "rank": 18,
+    "item_name": "Blue Moon"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Dance with Seduction"
+  },
+  {
+    "rank": 20,
+    "item_name": "Magnate (The Knickerbocker Club)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Dirty"
+  },
+  {
+    "rank": 22,
+    "item_name": "Crash and Burn (Love You Like A Love Song) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Surprise Daddy"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Sheikh's Fake Fiancee (Azhar Sheikhs) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Her Dragon Professor"
+  },
+  {
+    "rank": 26,
+    "item_name": "Fix Me Not (The Fix Series) (Volume 2)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Mechanical Hearts (Skeleton Key Series)"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Wedding in Somewhere (Somewhere, TX) (Volume 3)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Pretend You're Mine"
+  },
+  {
+    "rank": 30,
+    "item_name": "Kerr: Paranormal Sci-Fi Alien Romance (lien Mates)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Lord of Night (Rogues to Riches Book 3) (Volume 3)"
+  },
+  {
+    "rank": 32,
+    "item_name": "SEAL's Touch: A Dirty Bad Boy Romance (Small Town SEALs)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Bride Who Got Lucky: The Cavensham Heiresses"
+  },
+  {
+    "rank": 34,
+    "item_name": "Dirty Liar: An Irish Mafia Romance"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Millionaire's Gamble"
+  },
+  {
+    "rank": 36,
+    "item_name": "Beautifully Broken: Reckless Bastards MC"
+  },
+  {
+    "rank": 37,
+    "item_name": "Stockholm Syndromance: A Bad Boy Romance (Still a Bad Boy) (Volume 4)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Stone's Surrender: (A SEALs of Honor World Novel) (Heroes for Hire) (Volume 2)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Ivan (An Out of the Cage Novel) (Volume 2)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Beta's Second Chance (Rocky Mountain Shifters) (Volume 4)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Earl's New Bride (Daughters of Amhurst)"
+  },
+  {
+    "rank": 42,
+    "item_name": "His: MMF Bisexual Holiday Romance"
+  },
+  {
+    "rank": 43,
+    "item_name": "The CEO &amp; I"
+  },
+  {
+    "rank": 44,
+    "item_name": "Word of Honor (Knights of Valor) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "SEAL Defender (Brothers In Arms) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Without Words"
+  },
+  {
+    "rank": 47,
+    "item_name": "Damage Control: A Dirty Money Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Billionaire's Secret"
+  },
+  {
+    "rank": 49,
+    "item_name": "Dangerous Desires"
+  },
+  {
+    "rank": 50,
+    "item_name": "Now That It's You"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

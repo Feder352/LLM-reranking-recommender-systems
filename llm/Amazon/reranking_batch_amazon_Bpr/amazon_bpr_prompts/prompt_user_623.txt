@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Five Matchboxes (Linford Mystery Library)"
+  },
+  {
+    "item_name": "Borderline"
+  },
+  {
+    "item_name": "Prey of Desire: A College Campus Mystery"
+  },
+  {
+    "item_name": "Lahn's Edge"
+  },
+  {
+    "item_name": "Mistake Creek: An action-packed conspiracy thriller - Kindle edition"
+  },
+  {
+    "item_name": "The Cost of Crude"
+  },
+  {
+    "item_name": "Betrayal"
+  },
+  {
+    "item_name": "The Killing Game"
+  },
+  {
+    "item_name": "Dr. Vigilante"
+  },
+  {
+    "item_name": "The Flip (A Haunting On Long Island Series)"
+  },
+  {
+    "item_name": "Torpedo: A Surface Warfare Thriller"
+  },
+  {
+    "item_name": "Not Alone"
+  },
+  {
+    "item_name": "Rebecca Tree"
+  },
+  {
+    "item_name": "Captive-in-Chief"
+  },
+  {
+    "item_name": "Game Changer"
+  },
+  {
+    "item_name": "Hole Punched"
+  },
+  {
+    "item_name": "Flash Crash: A Jake Rivett Heist Thriller"
+  },
+  {
+    "item_name": "White Cargo"
+  },
+  {
+    "item_name": "Ghost Ahead"
+  },
+  {
+    "item_name": "Winter Wind"
+  },
+  {
+    "item_name": "The Wind Guardian"
+  },
+  {
+    "item_name": "Nightwalk"
+  },
+  {
+    "item_name": "Sailor's Warning"
+  },
+  {
+    "item_name": "Dark Money"
+  },
+  {
+    "item_name": "Invasion"
+  },
+  {
+    "item_name": "The Veritas Deception"
+  },
+  {
+    "item_name": "Silent Source: A Medical Thriller"
+  },
+  {
+    "item_name": "Apparition Lake"
+  },
+  {
+    "item_name": "The Insider"
+  },
+  {
+    "item_name": "Airliner Down"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "To Catch A Bad Guy (Book One): Janet Maple Series (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ties That Bind: A Madison Knight Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "This Doesn't Happen In The Movies (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Wanted: A Leopold Blake Thriller (Leopold Blake Series)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Jakarta Pandemic"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Grave Man - A Sam Prichard Novel (The Sam Prichard Series) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Promise Cove: A Pelican Pointe Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Noble Intentions: Season One (Jack Noble)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Blood and Justice: A Private Investigator Mystery Series (A Jake &amp; Annie Lincoln Thriller) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Deadly Stillwater"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Dead Red Alibi: #4 in the Dead Red Mystery Series (Volume 4)"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Touch of Deceit (A Nick Bracco Thriller Book 1) eBook"
+  },
+  {
+    "rank": 13,
+    "item_name": "Memory House: Memory House Collection (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "In a Small Town"
+  },
+  {
+    "rank": 15,
+    "item_name": "Crooked Man"
+  },
+  {
+    "rank": 16,
+    "item_name": "Blood Orchids"
+  },
+  {
+    "rank": 17,
+    "item_name": "A Field of Red"
+  },
+  {
+    "rank": 18,
+    "item_name": "Saving Grace (What Doesn't Kill You, #1): A Katie Romantic Mystery"
+  },
+  {
+    "rank": 19,
+    "item_name": "Loose Ends (California Corwin P.I. Mystery) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The One You Love: Emma Holden Suspense Mystery Trilogy: Book One (Emma Holden Trilogy)"
+  },
+  {
+    "rank": 21,
+    "item_name": "A View to Die For (Books To Die For) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Once Gone (a Riley Paige Mystery--Book #1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Jet"
+  },
+  {
+    "rank": 24,
+    "item_name": "Taboo: CSI Reilly Steel #1 (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "IMPOSTER: The Protectors Series -- Book One (Volume 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "STATELINE: A Dan Reno Novel (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Vengeance is Mine: A Benjamin Tucker Mystery (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Someone Else's Daughter: Book I (A Miranda's Rights Mystery) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Cruel Justice (Justice Series) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Russian Roulette"
+  },
+  {
+    "rank": 31,
+    "item_name": "A Deadly Distance (Jack Noble #2)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Gone - Kindle edition"
+  },
+  {
+    "rank": 33,
+    "item_name": "Rose Hill: Rose Hill Mystery Series"
+  },
+  {
+    "rank": 34,
+    "item_name": "Cold River Rising"
+  },
+  {
+    "rank": 35,
+    "item_name": "Under the Ice: A Gus LeGarde Mystery (LeGarde Mysteries) (Volume 9)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Sandman"
+  },
+  {
+    "rank": 37,
+    "item_name": "Dead Line (A Cal Murphy Thriller) (Volume 2)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Night of the Assassin: Assassin series prequel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Brands Who Came for Christmas (The Oklahoma All-Girl Brands) (Silhouette Intimate Moments, 1039)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Malevolent (Shaye Archer Series) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "To Kill For"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Last Survivors: A Dystopian Society in a Post Apocalyptic World (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Dangerous Passage: A Novel (Southern Crimes) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Fatal Judgment (Guardians of Justice, Book 1) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Cleaver Square"
+  },
+  {
+    "rank": 46,
+    "item_name": "Hollywood Games: A Hollywood Alphabet Series Thriller - Kindle edition"
+  },
+  {
+    "rank": 47,
+    "item_name": "Broken Ferns"
+  },
+  {
+    "rank": 48,
+    "item_name": "Hostile Witness"
+  },
+  {
+    "rank": 49,
+    "item_name": "Ashes (Ashes #1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "JET - Ops Files"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

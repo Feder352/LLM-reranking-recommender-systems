@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Al Franken, Giant of the Senate"
+  },
+  {
+    "item_name": "They All Saw a Cat"
+  },
+  {
+    "item_name": "Good And Cheap: Eat Well On $4/Day (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "Cat on the Edge: A Joe Grey Mystery (Joe Grey Mystery Series)"
+  },
+  {
+    "item_name": "Miss Seeton Quilts the Village"
+  },
+  {
+    "item_name": "Verdict of Twelve (British Library Crime Classics)"
+  },
+  {
+    "item_name": "Cold as Ice (Country Club Murders)"
+  },
+  {
+    "item_name": "A Matter of Loyalty (A Very English Mystery)"
+  },
+  {
+    "item_name": "Wonderstruck (Schneider Family Book Award - Middle School Winner)"
+  },
+  {
+    "item_name": "The Body in the Kelp"
+  },
+  {
+    "item_name": "El Deafo (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "The War That Saved My Life"
+  },
+  {
+    "item_name": "We Were Eight Years in Power: An American Tragedy"
+  },
+  {
+    "item_name": "The Marvels"
+  },
+  {
+    "item_name": "Death of a busybody"
+  },
+  {
+    "item_name": "I Could Pee on This: And Other Poems by Cats"
+  },
+  {
+    "item_name": "The Mice of Bistrot des Sept Freres (Winner ForeWord Magazine's Book of the Year Award - Bronze Medal)"
+  },
+  {
+    "item_name": "Best-Laid Plants (Potting Shed Mysteries)"
+  },
+  {
+    "item_name": "Murder and Mendelssohn (Phryne Fisher)"
+  },
+  {
+    "item_name": "Long Time No See: A Novel"
+  },
+  {
+    "item_name": "Death on the Riviera (British Library Crime Classics)"
+  },
+  {
+    "item_name": "The Phantom of the Temple: A Judge Dee Mystery (Judge Dee Mysteries)"
+  },
+  {
+    "item_name": "The Phantom of Oz (An Ivy Meadows Mystery) (Volume 5)"
+  },
+  {
+    "item_name": "The Widows of Malabar Hill (A Mystery of 1920s India)"
+  },
+  {
+    "item_name": "Summer of Love"
+  },
+  {
+    "item_name": "The Pyramid of Mud (An Inspector Montalbano Mystery)"
+  },
+  {
+    "item_name": "Where the Wild Cherries Grow: A Novel of the South of France"
+  },
+  {
+    "item_name": "SCANDALOUS SISTERHOOD OF PRICKWILLO"
+  },
+  {
+    "item_name": "Raven Black: Book One of the Shetland Island Quartet (Shetland Island Mysteries)"
+  },
+  {
+    "item_name": "Rules of Murder (A Drew Farthering Mystery)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Maisie Dobbs (Book 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Sweetness at the Bottom of the Pie: A Flavia de Luce Mystery"
+  },
+  {
+    "rank": 3,
+    "item_name": "Whose Body? (Lord Peter Wimsey Mysteries)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Death Comes to Pemberley"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Moonstone: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Dying Fall (Ruth Galloway Mystery) (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Secret Adversary"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Murder of Roger Ackroyd (Poirot)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Twelve Clues of Christmas: A Royal Spyness Mystery"
+  },
+  {
+    "rank": 11,
+    "item_name": "Thrice the Brinded Cat Hath Mew'd: A Flavia de Luce Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "American Gods"
+  },
+  {
+    "rank": 13,
+    "item_name": "Dancers in Mourning"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Test of Wills (Inspector Ian Rutledge Mysteries)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Forgotten Garden"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Casual Vacancy 1st (first) Edition by Rowling, J.K. published by Little, Brown and Company (2012) Hardcover"
+  },
+  {
+    "rank": 18,
+    "item_name": "One Good Turn"
+  },
+  {
+    "rank": 19,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Weed That Strings the Hangman's Bag: A Flavia de Luce Mystery"
+  },
+  {
+    "rank": 21,
+    "item_name": "The A. B. C. Murders: A Hercule Poirot Mystery"
+  },
+  {
+    "rank": 22,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 24,
+    "item_name": "At Bertram's Hotel (Agatha Christie Collection)"
+  },
+  {
+    "rank": 25,
+    "item_name": "X (A Kinsey Millhone Novel)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Moon Over Soho (Rivers of London)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Her Royal Spyness"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Eyre Affair: A Thursday Next Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Strong Poison"
+  },
+  {
+    "rank": 30,
+    "item_name": "Empress Dowager Cixi"
+  },
+  {
+    "rank": 31,
+    "item_name": "Crocodile on the Sandbank: The Amelia Peabody Series, Book 1"
+  },
+  {
+    "rank": 32,
+    "item_name": "Sleeping murder: Miss Marple's last case"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Saturday Big Tent Wedding Party (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "rank": 34,
+    "item_name": "A Red Herring Without Mustard (A Flavia de Luce Mystery #3)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Moving Finger: A Miss Marple Mystery (Miss Marple Mysteries)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "And Only to Deceive"
+  },
+  {
+    "rank": 39,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Murder on the Links"
+  },
+  {
+    "rank": 41,
+    "item_name": "A Share in Death (Duncan Kincaid/Gemma James Novels)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Late Scholar"
+  },
+  {
+    "rank": 43,
+    "item_name": "One Under: A British Police Procedural (A Bill Slider Mystery)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Nancy Drew 40: the Moonstone Castle Mystery"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Yard"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Turn of the Screw and Other Stories (Penguin modern classics)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Archie Meets Nero Wolfe: A Prequel to Rex Stout's Nero Wolfe Mysteries (The Nero Wolfe Mysteries)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Mystery Mile: A Campion Mystery"
+  },
+  {
+    "rank": 49,
+    "item_name": "Sweet Danger"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Uncommon Reader: A Novella"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

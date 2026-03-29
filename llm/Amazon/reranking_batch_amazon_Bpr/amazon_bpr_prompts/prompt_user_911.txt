@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Gates of Evangeline"
+  },
+  {
+    "item_name": "Hum If You Don't Know the Words"
+  },
+  {
+    "item_name": "Hardcore Twenty-Four: A Stephanie Plum Novel"
+  },
+  {
+    "item_name": "Strange Weather: Four Short Novels"
+  },
+  {
+    "item_name": "Need To Know"
+  },
+  {
+    "item_name": "White Fur: A Novel"
+  },
+  {
+    "item_name": "The Immortalists"
+  },
+  {
+    "item_name": "The Largesse of the Sea Maiden: Stories"
+  },
+  {
+    "item_name": "Into the Water: A Novel"
+  },
+  {
+    "item_name": "The Disappearance of Adle Bedeau: An Inspector Gorski Investigation"
+  },
+  {
+    "item_name": "Into the Water by Paula Hawkins"
+  },
+  {
+    "item_name": "The Luster of Lost Things"
+  },
+  {
+    "item_name": "Only Killers and Thieves: A Novel"
+  },
+  {
+    "item_name": "Goodbye, Vitamin: A Novel"
+  },
+  {
+    "item_name": "Grist Mill Road"
+  },
+  {
+    "item_name": "Unravelling Oliver"
+  },
+  {
+    "item_name": "Gun Love: A Novel"
+  },
+  {
+    "item_name": "White Chrysanthemum"
+  },
+  {
+    "item_name": "Affinity"
+  },
+  {
+    "item_name": "Little Fires Everywhere"
+  },
+  {
+    "item_name": "The Queen's Prophet"
+  },
+  {
+    "item_name": "You"
+  },
+  {
+    "item_name": "Hidden Bodies"
+  },
+  {
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "item_name": "You Think It, I'll Say It: Stories"
+  },
+  {
+    "item_name": "Our Kind of Cruelty: A Novel"
+  },
+  {
+    "item_name": "The Very Marrow of Our Bones: A Novel"
+  },
+  {
+    "item_name": "Doctor Sleep: A Novel"
+  },
+  {
+    "item_name": "Providence: A Novel"
+  },
+  {
+    "item_name": "Believe Me: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Rosie Project"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 3,
+    "item_name": "Before I Go to Sleep: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Husband's Secret"
+  },
+  {
+    "rank": 5,
+    "item_name": "Gone Girl"
+  },
+  {
+    "rank": 6,
+    "item_name": "Life After Life: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "Commonwealth CD"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 9,
+    "item_name": "A Man Called Ove (Thorndike Press Large Print Core Series)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Storyteller"
+  },
+  {
+    "rank": 11,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 12,
+    "item_name": "Maine"
+  },
+  {
+    "rank": 13,
+    "item_name": "All the Light We Cannot See"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Art of Fielding: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Forgotten Garden"
+  },
+  {
+    "rank": 17,
+    "item_name": "After You: A Novel (Me Before You Trilogy)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Norwegian by Night"
+  },
+  {
+    "rank": 19,
+    "item_name": "Big Little Lies"
+  },
+  {
+    "rank": 20,
+    "item_name": "And the Dark Sacred Night: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Light Between Oceans: The heartbreaking Richard and Judy bestseller"
+  },
+  {
+    "rank": 22,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 23,
+    "item_name": "Revival (Thorndike Press Large Pring Basic)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Orphan Train: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Language of Flowers"
+  },
+  {
+    "rank": 26,
+    "item_name": "Love Anthony"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Book of Unknown Americans"
+  },
+  {
+    "rank": 28,
+    "item_name": "One Good Turn"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Reader (Movie Tie-in Edition) (Vintage International)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Mr. Penumbra's 24-Hour Bookstore: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "Freedom"
+  },
+  {
+    "rank": 32,
+    "item_name": "Vinegar Girl: William Shakespeare's The Taming of the Shrew Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Bees"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Good Girl (English Edition)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Unlikely Pilgrimage of Harold Fry: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Elegance of the Hedgehog"
+  },
+  {
+    "rank": 38,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 39,
+    "item_name": "Still Alice"
+  },
+  {
+    "rank": 40,
+    "item_name": "Summer House with Swimming Pool: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "We Are Water: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "Six Years"
+  },
+  {
+    "rank": 43,
+    "item_name": "Rules of Magic"
+  },
+  {
+    "rank": 44,
+    "item_name": "Fragile (Jones Cooper)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Woman in Cabin 10"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Lovers: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Burgess Boys: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Shutter Island"
+  },
+  {
+    "rank": 49,
+    "item_name": "State of Wonder"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Racketeer"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

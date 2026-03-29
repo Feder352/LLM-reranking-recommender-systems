@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Bee's Kiss (Joe Sandilands)"
+  },
+  {
+    "item_name": "The Extraordinary Adventures of Alfred Kropp (Alfred Kropp Adventures)"
+  },
+  {
+    "item_name": "If Death Ever Slept"
+  },
+  {
+    "item_name": "Monk's Hood (Brother Cadfael Mysteries)"
+  },
+  {
+    "item_name": "Only Passing Through: The Story of Sojourner Truth"
+  },
+  {
+    "item_name": "And Four to Go (Nero Wolfe)"
+  },
+  {
+    "item_name": "Strange Affair: A Novel of Suspense (Inspector Banks Mysteries)"
+  },
+  {
+    "item_name": "The New Well-Tempered Sentence: A Punctuation Handbook for the Innocent, the Eager, and the Doomed"
+  },
+  {
+    "item_name": "St. Peter's Fair (Chronicles of Brother Cadfael)"
+  },
+  {
+    "item_name": "When You Reach Me (Yearling Newbery)"
+  },
+  {
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "item_name": "SWERVE, THE"
+  },
+  {
+    "item_name": "Understanding Comics: The Invisible Art"
+  },
+  {
+    "item_name": "The Other Hand"
+  },
+  {
+    "item_name": "Making Comics: Storytelling Secrets of Comics, Manga and Graphic Novels"
+  },
+  {
+    "item_name": "The Limpopo Academy of Private Detection (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "item_name": "Leper of Saint Giles (Brother Cadfael Mysteries)"
+  },
+  {
+    "item_name": "Deja Dead"
+  },
+  {
+    "item_name": "The Finer Points of Sausage Dogs"
+  },
+  {
+    "item_name": "Forty Words for Sorrow"
+  },
+  {
+    "item_name": "Bottom of the 33rd: Hope, Redemption, and Baseball's Longest Game"
+  },
+  {
+    "item_name": "The Virgin in the Ice (Brother Cadfael Mysteries)"
+  },
+  {
+    "item_name": "Sister Bernadette's Barking Dog: The Quirky History and Lost Art of Diagramming Sentences"
+  },
+  {
+    "item_name": "Eloise in Paris"
+  },
+  {
+    "item_name": "Eloise in Paris"
+  },
+  {
+    "item_name": "Nine Dragons (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Absalom, Absalom! (Modern Library College Editions)"
+  },
+  {
+    "item_name": "Summer's Child (Random House Large Print)"
+  },
+  {
+    "item_name": "The Story of Ferdinand"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 699,
+    "item_name": "Atonement"
+  },
+  {
+    "rank": 2,
+    "item_id": 221,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 3,
+    "item_id": 715,
+    "item_name": "Skipping Christmas"
+  },
+  {
+    "rank": 4,
+    "item_id": 697,
+    "item_name": "The Last Juror"
+  },
+  {
+    "rank": 5,
+    "item_id": 2864,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 6,
+    "item_id": 1137,
+    "item_name": "Snow Falling on Cedars"
+  },
+  {
+    "rank": 7,
+    "item_id": 1342,
+    "item_name": "The Miracle at Speedy Motors (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "rank": 8,
+    "item_id": 1431,
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "rank": 9,
+    "item_id": 694,
+    "item_name": "House of Sand and Fog (Oprah's Book Club)"
+  },
+  {
+    "rank": 10,
+    "item_id": 2351,
+    "item_name": "The King of Torts: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_id": 170,
+    "item_name": "Skeleton Man"
+  },
+  {
+    "rank": 12,
+    "item_id": 2650,
+    "item_name": "Straight Man: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 2116,
+    "item_name": "Camel Club"
+  },
+  {
+    "rank": 14,
+    "item_id": 1319,
+    "item_name": "Nature Girl"
+  },
+  {
+    "rank": 15,
+    "item_id": 292,
+    "item_name": "The Book of Air and Shadows"
+  },
+  {
+    "rank": 16,
+    "item_id": 2596,
+    "item_name": "Skinny Dip"
+  },
+  {
+    "rank": 17,
+    "item_id": 3113,
+    "item_name": "Interpreter of Maladies"
+  },
+  {
+    "rank": 18,
+    "item_id": 2855,
+    "item_name": "Tell No One"
+  },
+  {
+    "rank": 19,
+    "item_id": 1658,
+    "item_name": "Paranoia"
+  },
+  {
+    "rank": 20,
+    "item_id": 5980,
+    "item_name": "Barnyard Dance! (Boynton on Board)"
+  },
+  {
+    "rank": 21,
+    "item_id": 2044,
+    "item_name": "Lost Light"
+  },
+  {
+    "rank": 22,
+    "item_id": 3927,
+    "item_name": "Promise Me (Myron Bolitar, No. 8)"
+  },
+  {
+    "rank": 23,
+    "item_id": 4664,
+    "item_name": "The Wrath of Mulgarath (The Spiderwick Chronicles)"
+  },
+  {
+    "rank": 24,
+    "item_id": 15,
+    "item_name": "The Namesake"
+  },
+  {
+    "rank": 25,
+    "item_id": 4652,
+    "item_name": "Turnabout"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

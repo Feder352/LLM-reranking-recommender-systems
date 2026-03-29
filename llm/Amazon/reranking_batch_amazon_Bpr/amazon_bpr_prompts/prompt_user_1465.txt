@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Secrets in Death: An Eve Dallas Novel (In Death, Book 45)"
+  },
+  {
+    "item_name": "Once a Rebel (Rogues Redeemed)"
+  },
+  {
+    "item_name": "Cake: A Love Story"
+  },
+  {
+    "item_name": "The Theory Of Second Best: Cake Series Book Two (Volume 2)"
+  },
+  {
+    "item_name": "Inked Expressions (Montgomery Ink Book 7) (Volume 7)"
+  },
+  {
+    "item_name": "Love Restored (Gallagher Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "Hidden Ink: A Montgomery Ink Novella (1001 Dark Nights)"
+  },
+  {
+    "item_name": "Ink Exposed (Montgomery Ink) (Volume 6)"
+  },
+  {
+    "item_name": "Ink Enduring (Montgomery Ink) (Volume 5)"
+  },
+  {
+    "item_name": "Archangel's Viper (A Guild Hunter Novel)"
+  },
+  {
+    "item_name": "Preacher: Rapid City Stories (Volume 1)"
+  },
+  {
+    "item_name": "Dark in Death: An Eve Dallas Novel (In Death, Book 46)"
+  },
+  {
+    "item_name": "Indigo Lake: A Small-Town Texas Cowboy Romance (Ransom Canyon)"
+  },
+  {
+    "item_name": "The Posse"
+  },
+  {
+    "item_name": "Barbarian (Galactic Gladiators) (Volume 6)"
+  },
+  {
+    "item_name": "Adoring Ink: A Montgomery Ink Novella"
+  },
+  {
+    "item_name": "Roth (Hell Squad) (Volume 5)"
+  },
+  {
+    "item_name": "Under Her Skin (Blank Canvas)"
+  },
+  {
+    "item_name": "The Color of Love (Blessings, Georgia)"
+  },
+  {
+    "item_name": "Lake Silence (World of the Others, The)"
+  },
+  {
+    "item_name": "If We Were A Movie"
+  },
+  {
+    "item_name": "Heartsridge Shifters: Cade (South-One Bears) (Volume 2)"
+  },
+  {
+    "item_name": "Between Heaven and Earth (Power of the Matchmaker)"
+  },
+  {
+    "item_name": "HOLD (A Gentry Boys Story)"
+  },
+  {
+    "item_name": "Mornings on Main: A Small-Town Texas Novel"
+  },
+  {
+    "item_name": "The Shadows (Black Dagger Brotherhood)"
+  },
+  {
+    "item_name": "The Chosen: A Novella of the Elder Races"
+  },
+  {
+    "item_name": "The Beast (Black Dagger Brotherhood Series)"
+  },
+  {
+    "item_name": "The Chosen (Black Dagger Brotherhood Series)"
+  },
+  {
+    "item_name": "Ocean Light (Psy-Changeling Trinity)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Bear Meets Girl (The Pride Series)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Heart of the Hunter"
+  },
+  {
+    "rank": 3,
+    "item_name": "Her Heart for the Asking"
+  },
+  {
+    "rank": 4,
+    "item_name": "Enticed by His Forgotten Lover"
+  },
+  {
+    "rank": 5,
+    "item_name": "Heart of Stone: A Beauty and Beast Novel (Gargoyles Series)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Navy SEAL's E-Mail Order Bride (Heroes of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Duchess War (The Brothers Sinister) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "In Bed with a Highlander (The Highlanders)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Simply Irresistible (Lucky Harbor)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Forged in Fire (A Red-Hot SEALs Novel)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Firelight (Darkest London)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Wolf with Benefits (Brava Paranormal Romance)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Jagged (Colorado Mountain)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Slow Hand (Hot Cowboy Nights)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Where the Wind Blows (Leisure Historical Romance)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Just Good Friends: Escape to New Zealand Book Two"
+  },
+  {
+    "rank": 17,
+    "item_name": "Polar Bared (Kodiak Point) (Volume 3)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Night Reigns (Immortal Guardians, Book 2)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Dark Blood ('Dark' Carpathian)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Teacher's Billionaire: The Sherbrookes of Newport Book 1"
+  },
+  {
+    "rank": 21,
+    "item_name": "Howl For It"
+  },
+  {
+    "rank": 22,
+    "item_name": "Beware Of Me (Dark Obsession) (Volume 4)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Rake"
+  },
+  {
+    "rank": 24,
+    "item_name": "Fire and Ice: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Lady Is a Vamp: An Argeneau Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Cowboy's E-Mail Order Bride (Cowboys of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Cowboy's Christmas Baby (Cowboys &amp; Brides)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Immortal Who Loved Me: An Argeneau Novel (Argeneau Vampire)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Wyoming Tough"
+  },
+  {
+    "rank": 31,
+    "item_name": "Baby Bonanza (Billionaires and Babies)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Tiger Magic (A Shifters Unbound Novel)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Unforgivable (Tracers)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Burning Up (Smoke Jumpers)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Forever and a Day (Lucky Harbor)"
+  },
+  {
+    "rank": 36,
+    "item_name": "After Dark (Ghost Hunters, Book 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Fury: Ellora's Cave"
+  },
+  {
+    "rank": 38,
+    "item_name": "Hell on Wheels (Black Knights Inc.)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Murder of Crows (A Novel of the Others)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Drive Me Wild: A Novel of The Others"
+  },
+  {
+    "rank": 41,
+    "item_name": "Take Me Home for Christmas (Whiskey Creek)"
+  },
+  {
+    "rank": 42,
+    "item_name": "This Heart of Mine (Whiskey Creek)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Iced: Fever Series Book 6"
+  },
+  {
+    "rank": 44,
+    "item_name": "Dark Wolf (Carpathian Novel, A)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Surrender My Love (Haardrad Family)"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Sorceress of His Own (The Gifted Ones) (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Short-Straw Bride"
+  },
+  {
+    "rank": 48,
+    "item_name": "She Can Run"
+  },
+  {
+    "rank": 49,
+    "item_name": "Slave to Sensation (Psy-Changelings, Book 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Shadow's Edge (A Night Prowler Novel)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

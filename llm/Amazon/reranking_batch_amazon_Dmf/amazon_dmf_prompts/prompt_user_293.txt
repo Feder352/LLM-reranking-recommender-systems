@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Savor Me Slowly (Alien Huntress, Book 3)"
+  },
+  {
+    "item_name": "Glass"
+  },
+  {
+    "item_name": "Fallout"
+  },
+  {
+    "item_name": "Ecstasy in Darkness (Alien Huntress, Book 5)"
+  },
+  {
+    "item_name": "Lost at Sea: The Jon Ronson Mysteries"
+  },
+  {
+    "item_name": "Between Here and April"
+  },
+  {
+    "item_name": "The World's Strongest Librarian: A Book Lover's Adventures"
+  },
+  {
+    "item_name": "Forgotten Country"
+  },
+  {
+    "item_name": "Buffy the Vampire Slayer Season 8 Volume 6: Retreat"
+  },
+  {
+    "item_name": "Buffy the Vampire Slayer Season 8 3: Wolves at the Gate"
+  },
+  {
+    "item_name": "Predators and Prey (Buffy the Vampire Slayer Season Eight, Vol. 5)"
+  },
+  {
+    "item_name": "Time of Your Life (Buffy the Vampire Slayer, Season 8, Vol. 4)"
+  },
+  {
+    "item_name": "Buffy the Vampire Slayer Season 8 Volume 8: Last Gleaming"
+  },
+  {
+    "item_name": "Buffy the Vampire Slayer Season 8 Volume 7: Twilight"
+  },
+  {
+    "item_name": "Midnight in the Garden of Good and Evil"
+  },
+  {
+    "item_name": "The God Delusion"
+  },
+  {
+    "item_name": "Pandora"
+  },
+  {
+    "item_name": "Stuck in the Middle with You"
+  },
+  {
+    "item_name": "Being Lara: A Novel"
+  },
+  {
+    "item_name": "Derik's Bane (A Wyndham Werewolf Novel)"
+  },
+  {
+    "item_name": "Dakota (An Andi Oliver Novel)"
+  },
+  {
+    "item_name": "The Book of Fours (Buffy the Vampire Slayer)"
+  },
+  {
+    "item_name": "Enslave Me Sweetly (Alien Huntress, Book 2)"
+  },
+  {
+    "item_name": "Buffy and the Heroine's Journey: Vampire Slayer as Feminine Chosen One"
+  },
+  {
+    "item_name": "Strip City: A Stripper's Farewell Journey Across America"
+  },
+  {
+    "item_name": "Oh My Goth"
+  },
+  {
+    "item_name": "Buffy the Vampire Slayer Vol. 0: The Origin"
+  },
+  {
+    "item_name": "The Westing Game"
+  },
+  {
+    "item_name": "The Catalain Book of Secrets"
+  },
+  {
+    "item_name": "Forever Road (Peri Jean Mace) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 16,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 2,
+    "item_id": 37,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 3,
+    "item_id": 235,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 4,
+    "item_id": 74439,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 5,
+    "item_id": 74663,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 6,
+    "item_id": 74802,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 7,
+    "item_id": 75586,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 8,
+    "item_id": 100,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 9,
+    "item_id": 6680,
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "rank": 10,
+    "item_id": 76371,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 11,
+    "item_id": 664,
+    "item_name": "Pride &amp; Prejudice (Collins Classics)"
+  },
+  {
+    "rank": 12,
+    "item_id": 75993,
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "rank": 13,
+    "item_id": 83,
+    "item_name": "Little Women"
+  },
+  {
+    "rank": 14,
+    "item_id": 6785,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 15,
+    "item_id": 34859,
+    "item_name": "The New Avengers, Vol. 3: Secrets And Lies"
+  },
+  {
+    "rank": 16,
+    "item_id": 6507,
+    "item_name": "The Man Who Was Thursday: A Nightmare (Classic, 20th-Century, Penguin)"
+  },
+  {
+    "rank": 17,
+    "item_id": 44006,
+    "item_name": "Fables: Werewolves of the Heartland"
+  },
+  {
+    "rank": 18,
+    "item_id": 7638,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 19,
+    "item_id": 3746,
+    "item_name": "A Midsummer Night's Dream (Teen Classics)"
+  },
+  {
+    "rank": 20,
+    "item_id": 14823,
+    "item_name": "John Carter of Mars (Barsoom Series, #11)"
+  },
+  {
+    "rank": 21,
+    "item_id": 9641,
+    "item_name": "The Illustrated Hitch-hiker's Guide to the Galaxy"
+  },
+  {
+    "rank": 22,
+    "item_id": 37986,
+    "item_name": "Ranma 1/2, Vol. 1"
+  },
+  {
+    "rank": 23,
+    "item_id": 2027,
+    "item_name": "The Phantom of the Opera: The Original Novel"
+  },
+  {
+    "rank": 24,
+    "item_id": 907,
+    "item_name": "The Screwtape Letters: How a Senior Devil Instructs a Junior Devil in the Art of Temptation"
+  },
+  {
+    "rank": 25,
+    "item_id": 74840,
+    "item_name": "Books />"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

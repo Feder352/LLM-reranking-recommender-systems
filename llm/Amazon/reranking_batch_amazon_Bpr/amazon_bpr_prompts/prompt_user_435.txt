@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Cozy Classics: Emma"
+  },
+  {
+    "item_name": "The Christmas Horse and the Three Wise Men"
+  },
+  {
+    "item_name": "They All Saw a Cat"
+  },
+  {
+    "item_name": "Who What Where?"
+  },
+  {
+    "item_name": "Bunny Slopes"
+  },
+  {
+    "item_name": "Gem: The Definitive Visual Guide"
+  },
+  {
+    "item_name": "The Jungle (The Penguin American Library)"
+  },
+  {
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "item_name": "A Premonition of Murder (A Dream Club Mystery)"
+  },
+  {
+    "item_name": "The Whole Town's Talking: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "Chocolate: Indulge Your Inner Chocoholic, Become a Bean-to-Bar Expert"
+  },
+  {
+    "item_name": "Disaster Falls: A Family Story"
+  },
+  {
+    "item_name": "NKJV, Know The Word Study Bible, Paperback, Red Letter Edition: Gain a greater understanding of the Bible book by book, verse by verse, or topic by topic"
+  },
+  {
+    "item_name": "Little Lek Longtail Learns to Sleep"
+  },
+  {
+    "item_name": "A Spectacle of Glory: God's Light Shining through Me Every Day"
+  },
+  {
+    "item_name": "Apples and Robins"
+  },
+  {
+    "item_name": "Ed Sheeran A+: The Unauthorised Biography"
+  },
+  {
+    "item_name": "Sam Smith: The Biography"
+  },
+  {
+    "item_name": "Making the Elephant Man: A Producer's Memoir"
+  },
+  {
+    "item_name": "Sisters One, Two, Three"
+  },
+  {
+    "item_name": "A Life for a Life: A Mystery Novel (Appalachian Mountain Mysteries)"
+  },
+  {
+    "item_name": "The Rock Maiden: A Chinese Tale of Love and Loyalty"
+  },
+  {
+    "item_name": "Iris Grace: How Thula the Cat Saved a Little Girl and Her Family"
+  },
+  {
+    "item_name": "And Then You're Dead: What Really Happens If You Get Swallowed by a Whale, Are Shot from a Cannon, or Go Barreling over Niagara"
+  },
+  {
+    "item_name": "Princess Sophie and the Six Swans: A Tale from the Brothers Grimm"
+  },
+  {
+    "item_name": "Prince Charles: The Passions and Paradoxes of an Improbable Life"
+  },
+  {
+    "item_name": "A Generation of Sociopaths: How the Baby Boomers Betrayed America"
+  },
+  {
+    "item_name": "Love Letters from God; Bible Stories for a Girl&rsquo;s Heart"
+  },
+  {
+    "item_name": "PsychNotes: Clinical Pocket Guide"
+  },
+  {
+    "item_name": "Get Out of That Pit: Straight Talk about God's Deliverance"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Duck in the Fridge (A Duck in the Fridge Book)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Chasing Secrets"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Geography of Genius: A Search for the World's Most Creative Places from Ancient Athens to Silicon Valley"
+  },
+  {
+    "rank": 4,
+    "item_name": "You are Not Small"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Wild Ones"
+  },
+  {
+    "rank": 6,
+    "item_name": "Mister Max: The Book of Lost Things: Mister Max 1"
+  },
+  {
+    "rank": 7,
+    "item_name": "Rudy and Claude Splash Into Art"
+  },
+  {
+    "rank": 8,
+    "item_name": "Poached (FunJungle)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Bleed, Blister, Puke and Purge: The Dirty Secrets Behind Early American Medicine"
+  },
+  {
+    "rank": 10,
+    "item_name": "Oliver and the Seawigs"
+  },
+  {
+    "rank": 11,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 12,
+    "item_name": "Journey: An Illustrated History of Travel"
+  },
+  {
+    "rank": 13,
+    "item_name": "Space Case (Moon Base Alpha)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Desmond Pucket Makes Monster Magic"
+  },
+  {
+    "rank": 15,
+    "item_name": "Death in Four Courses: A Key West Food Critic Mystery"
+  },
+  {
+    "rank": 16,
+    "item_name": "Uni the Unicorn"
+  },
+  {
+    "rank": 17,
+    "item_name": "Where the Jews Aren't: The Sad and Absurd Story of Birobidzhan, Russia's Jewish Autonomous Region (Jewish Encounters Series)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 19,
+    "item_name": "I Have a Dream (Book &amp; CD)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Photographing Flowers: Exploring Macro Worlds with Harold Davis"
+  },
+  {
+    "rank": 21,
+    "item_name": "Jinx"
+  },
+  {
+    "rank": 22,
+    "item_name": "Evil Fairies Love Hair"
+  },
+  {
+    "rank": 23,
+    "item_name": "Mr. Brown Can Moo! Can You? / Ten Apples Up On Top / Big Dog Little Dog (Bright and Early Board Book"
+  },
+  {
+    "rank": 24,
+    "item_name": "Ghost Hawk"
+  },
+  {
+    "rank": 25,
+    "item_name": "Dinosaurs! (Animal Planet Chapter Books #2) (Volume 2) (Animal Planet Chapter Books (Volume 2))"
+  },
+  {
+    "rank": 26,
+    "item_name": "Christmas in the Crosshairs: Two Thousand Years of Denouncing and Defending the World's Most Celebrated Holiday"
+  },
+  {
+    "rank": 27,
+    "item_name": "Noah Webster: Man of Many Words"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Memory of Muskets (A Chloe Ellefson Mystery)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Tea Party in the Woods"
+  },
+  {
+    "rank": 31,
+    "item_name": "Goldilocks and the Three Dinosaurs: As Retold by Mo Willems"
+  },
+  {
+    "rank": 32,
+    "item_name": "Rhapsody in Schmaltz: Yiddish Food and Why We Can't Stop Eating It"
+  },
+  {
+    "rank": 33,
+    "item_name": "1946: The Making of the Modern World"
+  },
+  {
+    "rank": 34,
+    "item_name": "Pete the Cat I Love My White Shoes"
+  },
+  {
+    "rank": 35,
+    "item_name": "Writing on the Wall: Social Media: The First 2,000 Years"
+  },
+  {
+    "rank": 36,
+    "item_name": "Waiting for Augusta"
+  },
+  {
+    "rank": 37,
+    "item_name": "GOA Kids - Goats of Anarchy: The Goat with Many Coats: A true story of a little goat who found a new home"
+  },
+  {
+    "rank": 38,
+    "item_name": "Not For Parents How to be a Dinosaur Hunter: Everything You Ever Wanted to Know (Lonely Planet Kids)"
+  },
+  {
+    "rank": 39,
+    "item_name": "You Might As Well Die: An Algonquin Round Table Mystery"
+  },
+  {
+    "rank": 40,
+    "item_name": "Fire in the Ashes: Twenty-Five Years Among the Poorest Children in America"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Diva Digs Up the Dirt (A Domestic Diva Mystery)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Kiss Me at the Stroke of Midnight 1"
+  },
+  {
+    "rank": 43,
+    "item_name": "Make Ahead Bread: 100 Recipes for Melt-in-Your-Mouth Fresh Bread Every Day"
+  },
+  {
+    "rank": 44,
+    "item_name": "Guilty?: Crime, Punishment, and the Changing Face of Justice"
+  },
+  {
+    "rank": 45,
+    "item_name": "Bandit"
+  },
+  {
+    "rank": 46,
+    "item_name": "Make Your Own Living Trust (Make Your Own Living Trust, 4th ed)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Two!"
+  },
+  {
+    "rank": 48,
+    "item_name": "Death Comes to the Village (A Kurland St. Mary Mystery)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Molly Mouse and the Bear Cub: U.S. English Edition - Fun Rhyming Bedtime Story - Picture Book / Beginner Reader (for ages 3-7) (Top of the Wardrobe Gang Picture Books) (Volume 9)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Voyage of Lucy P. Simmons"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

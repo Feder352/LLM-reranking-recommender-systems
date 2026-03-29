@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Christmas Secret: Will an 1880 Christmas Eve Wedding Be Cancelled by Revelations in an Old Diary?"
+  },
+  {
+    "item_name": "What God Brings Together: A Christmas Wedding: Novella (Promises from Above)"
+  },
+  {
+    "item_name": "To the Farthest Shores"
+  },
+  {
+    "item_name": "Full Disclosure"
+  },
+  {
+    "item_name": "The Big Red Tractor and the Little Village"
+  },
+  {
+    "item_name": "Francis Chan - Forgotten God Full Set - Forgotten God: Reversing Our Tragic Neglect of the Holy Spirit (Book + Workbook + DVD)"
+  },
+  {
+    "item_name": "Picture Perfect: A Novel (Weddings by Design)"
+  },
+  {
+    "item_name": "Catch of a Lifetime"
+  },
+  {
+    "item_name": "Return to Me (The Restoration Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "Keepers of the Covenant (The Restoration Chronicles) (Volume 2)"
+  },
+  {
+    "item_name": "The Widow of Rose Hill"
+  },
+  {
+    "item_name": "Focus on Love"
+  },
+  {
+    "item_name": "Valentine Bride: A Sweet Romance Novella (Holiday Brides) (Volume 1)"
+  },
+  {
+    "item_name": "On This Foundation (The Restoration Chronicles)"
+  },
+  {
+    "item_name": "The Feisty One (Billionaire Bride Pact)"
+  },
+  {
+    "item_name": "Jesus in the Present Tense: The I AM Statements of Christ"
+  },
+  {
+    "item_name": "A Tailor-Made Bride"
+  },
+  {
+    "item_name": "Harvest of Gold: (Book 2)"
+  },
+  {
+    "item_name": "White Rose, Black Forest"
+  },
+  {
+    "item_name": "Ain't Misbehavin' (Roaring Twenties Series Book 2)"
+  },
+  {
+    "item_name": "Harvest of Rubies"
+  },
+  {
+    "item_name": "Mac (Sisters by Design) (Volume 1)"
+  },
+  {
+    "item_name": "Full Steam Ahead"
+  },
+  {
+    "item_name": "Return to Walhalla"
+  },
+  {
+    "item_name": "Bread of Angels"
+  },
+  {
+    "item_name": "Charming the Troublemaker (Mitchell's Crossroads) (Volume 2)"
+  },
+  {
+    "item_name": "Kissing Adrien"
+  },
+  {
+    "item_name": "The Innkeeper's Daughter (Bow Street Runners Trilogy)"
+  },
+  {
+    "item_name": "The Texas Brides Collection: 9 Complete Stories"
+  },
+  {
+    "item_name": "More Than Meets the Eye"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Winter in Full Bloom"
+  },
+  {
+    "rank": 2,
+    "item_name": "Deeply Devoted: A Novel (The Blue Willow Brides) (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Hearts Awakening"
+  },
+  {
+    "rank": 4,
+    "item_name": "Leaving Carolina (Southern Discomfort Series #1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Paradise Valley (The Daughters of Caleb Bender)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Dance: A Novel (The Restoration Series)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Sixty Acres and a Bride"
+  },
+  {
+    "rank": 8,
+    "item_name": "Hazardous Duty (Squeaky Clean Mysteries, No. 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Shadows of the Past: A Novel (Logan Point) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Too Close to Home (Women of Justice Series #1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Waiting for Summer's Return (Waiting for Summer's Return Series #1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Larkspur Cove (Moses Lake, Book 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Keeper: A Novel (Stoney Ridge Seasons) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Pursuit of Lucy Banning: A Novel (Avenue of Dreams) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Inescapable (Road to Kingdom) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Summer of Promise (Westward Winds, Book 1) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Thicker than Blood"
+  },
+  {
+    "rank": 18,
+    "item_name": "Blue Christmas"
+  },
+  {
+    "rank": 19,
+    "item_name": "Dawn's Prelude (Song of Alaska Series, Book 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Saving Hope: The Men of the Texas Rangers - Book 1"
+  },
+  {
+    "rank": 21,
+    "item_name": "Short-Straw Bride"
+  },
+  {
+    "rank": 22,
+    "item_name": "Women of Merryton: Jessie Bell (The Women of Merryton) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Bride Backfire (Thorndike Press Large Print Christian Historical Fiction)"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Distant Melody (Wings of Glory)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Surrender the Heart (Surrender to Destiny)"
+  },
+  {
+    "rank": 26,
+    "item_name": "It Had to Be You (Christiansen Family)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Daughters of the Heart (Texas Romance) (Volume 5)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Caught in the Middle"
+  },
+  {
+    "rank": 29,
+    "item_name": "Nellie (The Brides of San Francisco) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Ride of Her Life: A Novel (Lake Manawa Summers) (Volume 3)"
+  },
+  {
+    "rank": 31,
+    "item_name": "A Hearth in Candlewood (The Candlewood Trilogy, Book 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "A Bride for Keeps: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Red Door Inn: A Novel (Prince Edward Island Dreams)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Five Days in Skye: A Novel (The MacDonald Family Trilogy)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Prejudice Meets Pride (Meet Your Match, book 1) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Courting Cate (The Courtships of Lancaster County) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "An Unforgivable Secret (Amish Secrets #1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "In Between (A Katie Parker Production) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Song of My Heart"
+  },
+  {
+    "rank": 40,
+    "item_name": "Every Bride Needs a Groom: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Finding Her Way (Wildflowers) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Deadly Pursuit: A Novel (Guardians of Justice) (Volume 2)"
+  },
+  {
+    "rank": 43,
+    "item_name": "True to You (A Bradford Sisters Romance)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Valley of Dreams (Wild West Wind)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Raspberries and Vinegar (A Farm Fresh Romance)"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Place in His Heart: A Novel (The Southold Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "No Place for a Lady (Heart of the West Series, Book 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Isaac Project"
+  },
+  {
+    "rank": 49,
+    "item_name": "A Necessary Deception: A Novel (The Daughters of Bainbridge House) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Christmas Cat"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

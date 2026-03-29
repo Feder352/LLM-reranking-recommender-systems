@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Jane Bites Back: A Novel (Jane Fairfax)"
+  },
+  {
+    "item_name": "Blood and Chocolate"
+  },
+  {
+    "item_name": "I Am America (And So Can You!) 2009 Desk Calendar"
+  },
+  {
+    "item_name": "Just Ella (Palace Chronicles)"
+  },
+  {
+    "item_name": "Specials (Uglies Trilogy, Book 3)"
+  },
+  {
+    "item_name": "The Declaration"
+  },
+  {
+    "item_name": "Enna Burning (Books of Bayern)"
+  },
+  {
+    "item_name": "River Secrets (Books of Bayern)"
+  },
+  {
+    "item_name": "River Secrets"
+  },
+  {
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "item_name": "Fool Moon"
+  },
+  {
+    "item_name": "Grave Peril (The Dresden Files, Book 3)"
+  },
+  {
+    "item_name": "Summer Knight (Dresden Files)"
+  },
+  {
+    "item_name": "Blood Rites (The Dresden Files)"
+  },
+  {
+    "item_name": "Dead Beat (The Dresden Files)"
+  },
+  {
+    "item_name": "Death Masks (The Dresden Files)"
+  },
+  {
+    "item_name": "Small Favor (The Dresden Files, Book 10)"
+  },
+  {
+    "item_name": "Ghost Story (Dresden Files, No. 13)"
+  },
+  {
+    "item_name": "Proven Guilty (The Dresden Files)"
+  },
+  {
+    "item_name": "White Night (The Dresden Files)"
+  },
+  {
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "item_name": "Side Jobs: Stories From the Dresden Files"
+  },
+  {
+    "item_name": "Cold Days: A Dresden Files Novel (The Dresden Files)"
+  },
+  {
+    "item_name": "Skin Game (The Dresden Files)"
+  },
+  {
+    "item_name": "Burn Bright"
+  },
+  {
+    "item_name": "Love Remains (Hope Springs)"
+  },
+  {
+    "item_name": "Fairchild"
+  },
+  {
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "item_name": "Mist of Midnight: A Novel (The Daughters of Hampshire)"
+  },
+  {
+    "item_name": "Hearts Awakening"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5293,
+    "item_name": "Shadow and Bone (Grisha Trilogy)"
+  },
+  {
+    "rank": 2,
+    "item_id": 4243,
+    "item_name": "The False Prince (The Ascendance Trilogy, Book 1)"
+  },
+  {
+    "rank": 3,
+    "item_id": 958,
+    "item_name": "Across the Universe"
+  },
+  {
+    "rank": 4,
+    "item_id": 944,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 5,
+    "item_id": 952,
+    "item_name": "Fire (A Companion to Graceling)"
+  },
+  {
+    "rank": 6,
+    "item_id": 3806,
+    "item_name": "Kitty Goes to Washington (Kitty Norville)"
+  },
+  {
+    "rank": 7,
+    "item_id": 5303,
+    "item_name": "Siege and Storm (The Shadow and Bone Trilogy)"
+  },
+  {
+    "rank": 8,
+    "item_id": 2033,
+    "item_name": "The Diviners"
+  },
+  {
+    "rank": 9,
+    "item_id": 4476,
+    "item_name": "A Certain Slant of Light"
+  },
+  {
+    "rank": 10,
+    "item_id": 940,
+    "item_name": "Incarceron"
+  },
+  {
+    "rank": 11,
+    "item_id": 406,
+    "item_name": "Fragile Eternity (Wicked Lovely, Book 3)"
+  },
+  {
+    "rank": 12,
+    "item_id": 4956,
+    "item_name": "A Monster Calls: Inspired by an idea from Siobhan Dowd"
+  },
+  {
+    "rank": 13,
+    "item_id": 5656,
+    "item_name": "Throne of Glass"
+  },
+  {
+    "rank": 14,
+    "item_id": 5654,
+    "item_name": "Clockwork Angel"
+  },
+  {
+    "rank": 15,
+    "item_id": 2042,
+    "item_name": "Heartless (The Parasol Protectorate)"
+  },
+  {
+    "rank": 16,
+    "item_id": 631,
+    "item_name": "Fortunately, the Milk"
+  },
+  {
+    "rank": 17,
+    "item_id": 878,
+    "item_name": "The Moon and More"
+  },
+  {
+    "rank": 18,
+    "item_id": 4879,
+    "item_name": "Discount Armageddon (InCryptid)"
+  },
+  {
+    "rank": 19,
+    "item_id": 4262,
+    "item_name": "Boy Toy"
+  },
+  {
+    "rank": 20,
+    "item_id": 1136,
+    "item_name": "Out of the Easy"
+  },
+  {
+    "rank": 21,
+    "item_id": 2011,
+    "item_name": "Changeless (The Parasol Protectorate)"
+  },
+  {
+    "rank": 22,
+    "item_id": 484,
+    "item_name": "Delirium (Delirium Trilogy)"
+  },
+  {
+    "rank": 23,
+    "item_id": 454,
+    "item_name": "The Awakening (Darkest Powers)"
+  },
+  {
+    "rank": 24,
+    "item_id": 2330,
+    "item_name": "Mercy Thompson: Homecoming"
+  },
+  {
+    "rank": 25,
+    "item_id": 1511,
+    "item_name": "Is Everyone Hanging Out Without Me? (And Other Concerns)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

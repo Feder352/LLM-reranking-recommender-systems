@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Katniss the Cattail: An Unauthorized Guide to Names and Symbols in Suzanne Collins The Hunger Games"
+  },
+  {
+    "item_name": "Off to Be the Wizard"
+  },
+  {
+    "item_name": "The Perfect Hope (The Inn Boonsboro Trilogy)"
+  },
+  {
+    "item_name": "Band of Giants: The Amateur Soldiers Who Won America's Independence"
+  },
+  {
+    "item_name": "Girl Defective"
+  },
+  {
+    "item_name": "Book of the Dead (TombQuest, Book 1)"
+  },
+  {
+    "item_name": "Confessions of a Self-Help Writer: The Journal of Michael Enzo"
+  },
+  {
+    "item_name": "The Patriot Threat: A Novel (Cotton Malone)"
+  },
+  {
+    "item_name": "Headstrong: 52 Women Who Changed Science-and the World"
+  },
+  {
+    "item_name": "Blood Rites (The Dresden Files)"
+  },
+  {
+    "item_name": "Forbidden"
+  },
+  {
+    "item_name": "Ratio: The Simple Codes Behind the Craft of Everyday Cooking"
+  },
+  {
+    "item_name": "To Kill a Mockingbird"
+  },
+  {
+    "item_name": "Queen of the Trailer Park (Rosie Maldonne's World)"
+  },
+  {
+    "item_name": "Turn Coat Unabridged CD (The Dresden Files)"
+  },
+  {
+    "item_name": "A Stitch in Crime: Quilts of Love Series"
+  },
+  {
+    "item_name": "Savvy. Ingrid Law"
+  },
+  {
+    "item_name": "Tame the Wildest Heart (Harper Monogram)"
+  },
+  {
+    "item_name": "Isis Orb (The Xanth Novels)"
+  },
+  {
+    "item_name": "Tame the Wildest Heart - Kindle edition"
+  },
+  {
+    "item_name": "Moon Signs"
+  },
+  {
+    "item_name": "Timebound (The Chronos Files)"
+  },
+  {
+    "item_name": "The Mystery Box"
+  },
+  {
+    "item_name": "Dead Wrong: Straight Facts on the Country's Most Controversial Cover-Ups"
+  },
+  {
+    "item_name": "Do Hard Things: A Teenage Rebellion Against Low Expectations"
+  },
+  {
+    "item_name": "The Last Airship (Sam Reilly) (Volume 1)"
+  },
+  {
+    "item_name": "Dear Bob and Sue"
+  },
+  {
+    "item_name": "The Official Scrabble Players Dictionary"
+  },
+  {
+    "item_name": "The Explosive Child: A New Approach for Understanding and Parenting Easily Frustrated, Chronically Inflexible Children"
+  },
+  {
+    "item_name": "They Killed Our President: 63 Reasons to Believe There Was a Conspiracy to Assassinate JFK"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 3,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 6,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Dog Days (Diary of a Wimpy Kid)"
+  },
+  {
+    "rank": 8,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "rank": 11,
+    "item_name": "22/11/63"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Giver (Collins Modern Classics)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 15,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Cat in the Hat Comes Back: Green Back Book (Dr Seuss - Green Back Book)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 18,
+    "item_name": "Angels &amp; Demons (Random House Large Print)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Skipping Christmas"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The 5 Love Languages Military Edition: The Secret to Love That Lasts"
+  },
+  {
+    "rank": 22,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 25,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 26,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Day Of The Jackal"
+  },
+  {
+    "rank": 30,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Peter Pan: The Original Story"
+  },
+  {
+    "rank": 32,
+    "item_name": "Gone With the Wind, The Margaret Mitchell Anniversary Edition"
+  },
+  {
+    "rank": 33,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 34,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 35,
+    "item_name": "Gone with the Wind"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Lost Symbol (Dan Brown)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Mary, Mary"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 39,
+    "item_name": "Eclipse (Twilight Sagas)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 43,
+    "item_name": "Dead to the World (Southern Vampire Mysteries, Book 4)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 45,
+    "item_name": "Charlotte's Web (50th Anniversary Retrospective Edition)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 48,
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "rank": 49,
+    "item_name": "Gathering Blue"
+  },
+  {
+    "rank": 50,
+    "item_name": "Mr. Penumbra's 24-Hour Bookstore: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "By the People: Rebuilding Liberty Without Permission"
+  },
+  {
+    "item_name": "A Time for Truth: Reigniting the Promise of America"
+  },
+  {
+    "item_name": "Wealth, Poverty and Politics: An International Perspective"
+  },
+  {
+    "item_name": "Killing Reagan: The Violent Assault That Changed A Presidenc (Wheeler Publishing Large Print Hardcover)"
+  },
+  {
+    "item_name": "Yogi Berra: Eternal Yankee"
+  },
+  {
+    "item_name": "Brady vs Manning: The Untold Story of the Rivalry That Transformed the NFL"
+  },
+  {
+    "item_name": "The Age of Clinton: America in the 1990s"
+  },
+  {
+    "item_name": "The Last of the President's Men"
+  },
+  {
+    "item_name": "Andy and Don: The Making of a Friendship and a Classic American TV Show"
+  },
+  {
+    "item_name": "Prisoners of Geography: Ten Maps That Explain Everything About the World (Politics of Place)"
+  },
+  {
+    "item_name": "Winter Is Coming: Why Vladimir Putin and the Enemies of the Free World Must Be Stopped"
+  },
+  {
+    "item_name": "Merchants in the Temple: Inside Pope Francis's Secret Battle Against Corruption in the Vatican"
+  },
+  {
+    "item_name": "A Time for Truth: Reigniting the Promise of America"
+  },
+  {
+    "item_name": "The Prize: Who's in Charge of America's Schools?"
+  },
+  {
+    "item_name": "Swiped: How to Protect Yourself in a World Full of Scammers, Phishers, and Identity Thieves"
+  },
+  {
+    "item_name": "Never Enough: Donald Trump and the Pursuit of Success"
+  },
+  {
+    "item_name": "The Worst Hard Time: The Untold Story of Those Who Survived the Great American Dust Bowl"
+  },
+  {
+    "item_name": "The Worst Hard Time: The Untold Story of Those Who Survived the Great American Dust Bowl"
+  },
+  {
+    "item_name": "Stealing Lincoln's Body"
+  },
+  {
+    "item_name": "Never Enough: Donald Trump and the Pursuit of Success"
+  },
+  {
+    "item_name": "The Betrayal: The 1919 World Series and the Birth of Modern Baseball"
+  },
+  {
+    "item_name": "Lights Out: A Cyberattack, A Nation Unprepared, Surviving the Aftermath"
+  },
+  {
+    "item_name": "The Progress Principle: Using Small Wins to Ignite Joy, Engagement, and Creativity at Work"
+  },
+  {
+    "item_name": "One Child: The Story of China's Most Radical Experiment"
+  },
+  {
+    "item_name": "American Canopy: Trees, Forests, and the Making of a Nation"
+  },
+  {
+    "item_name": "End of Discussion: How the Left's Outrage Industry Shuts Down Debate, Manipulates Voters, and Makes America Less Free (and Fun)"
+  },
+  {
+    "item_name": "The Liberty Amendments: Restoring the American Republic"
+  },
+  {
+    "item_name": "A Generation of Sociopaths: How the Baby Boomers Betrayed America"
+  },
+  {
+    "item_name": "A World in Disarray: American Foreign Policy and the Crisis of the Old Order"
+  },
+  {
+    "item_name": "American Fire: Love, Arson, and Life in a Vanishing Land"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 2,
+    "item_id": 2624,
+    "item_name": "Culture Warrior (Random House Large Print)"
+  },
+  {
+    "rank": 3,
+    "item_id": 3742,
+    "item_name": "Hitch-22: A Memoir"
+  },
+  {
+    "rank": 4,
+    "item_id": 4729,
+    "item_name": "To America: Personal Reflections of an Historian"
+  },
+  {
+    "rank": 5,
+    "item_id": 2937,
+    "item_name": "Seminary Boy: A Memoir"
+  },
+  {
+    "rank": 6,
+    "item_id": 1373,
+    "item_name": "Traitor to His Class: The Privileged Life and Radical Presidency of Franklin Delano Roosevelt"
+  },
+  {
+    "rank": 7,
+    "item_id": 1043,
+    "item_name": "Tried by War: Abraham Lincoln as Commander in Chief"
+  },
+  {
+    "rank": 8,
+    "item_id": 2925,
+    "item_name": "The Wisdom of Crowds: Why the Many Are Smarter Than the Few and How Collective Wisdom Shapes Business, Economies, Societies and Nations"
+  },
+  {
+    "rank": 9,
+    "item_id": 676,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 10,
+    "item_id": 859,
+    "item_name": "The Black Swan: The Impact of the Highly Improbable"
+  },
+  {
+    "rank": 11,
+    "item_id": 5203,
+    "item_name": "Leap of Faith: Memoirs of an Unexpected Life"
+  },
+  {
+    "rank": 12,
+    "item_id": 423,
+    "item_name": "Waiter Rant: Thanks for the Tip--Confessions of a Cynical Waiter"
+  },
+  {
+    "rank": 13,
+    "item_id": 73,
+    "item_name": "Don't Know Much About History: Everything You Need to Know About American History but Never Learned (Don't Know Much About Series)"
+  },
+  {
+    "rank": 14,
+    "item_id": 4234,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 15,
+    "item_id": 835,
+    "item_name": "Daisy Miller (Penguin Classics)"
+  },
+  {
+    "rank": 16,
+    "item_id": 68,
+    "item_name": "The Paradox of Choice: Why More Is Less"
+  },
+  {
+    "rank": 17,
+    "item_id": 318,
+    "item_name": "Flow: The Psychology of Optimal Experience"
+  },
+  {
+    "rank": 18,
+    "item_id": 1007,
+    "item_name": "The Wal-Mart Effect: How the World's Most Powerful Company Really Works--and HowIt's Transforming the  American Economy"
+  },
+  {
+    "rank": 19,
+    "item_id": 1468,
+    "item_name": "Revolutionary Summer: The Birth of American Independence"
+  },
+  {
+    "rank": 20,
+    "item_id": 4522,
+    "item_name": "Truman"
+  },
+  {
+    "rank": 21,
+    "item_id": 1297,
+    "item_name": "American Creation: Triumphs and Tragedies at the Founding of the Republic"
+  },
+  {
+    "rank": 22,
+    "item_id": 6027,
+    "item_name": "The Dumbest Generation: How the Digital Age Stupefies Young Americans and Jeopardizes Our Future (Or, Don't Trust Anyone Under 30)"
+  },
+  {
+    "rank": 23,
+    "item_id": 5289,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 24,
+    "item_id": 2618,
+    "item_name": "The Age of American Unreason"
+  },
+  {
+    "rank": 25,
+    "item_id": 2932,
+    "item_name": "Radical Evolution: The Promise and Peril of Enhancing Our Minds, Our Bodies -- and What It Means to Be Human"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

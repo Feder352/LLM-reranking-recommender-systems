@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "How to Think: A Survival Guide for a World at Odds"
+  },
+  {
+    "item_name": "Unveiling Grace: The Story of How We Found Our Way out of the Mormon Church"
+  },
+  {
+    "item_name": "The Way of the Dragon or the Way of the Lamb: Searching for Jesus Path of Power in a Church that Has Abandoned It"
+  },
+  {
+    "item_name": "The Art of Work: A Proven Path to Discovering What You Were Meant to Do"
+  },
+  {
+    "item_name": "The Wisdom of God: Letting His Truth and Goodness Direct Your Steps"
+  },
+  {
+    "item_name": "The More of Less"
+  },
+  {
+    "item_name": "Diary of a Jackwagon"
+  },
+  {
+    "item_name": "Life Is Better at the Beach: Inspirational Rules for Living Each Day Like You're at the Beach"
+  },
+  {
+    "item_name": "The ReWired Brain: Free Yourself of Negative Behaviors and Release Your Best Self"
+  },
+  {
+    "item_name": "The Temple and the Tabernacle: A Study of God's Dwelling Places from Genesis to Revelation"
+  },
+  {
+    "item_name": "A Day at the Beach: Devotions to Help You Relax, Reflect, and Renew"
+  },
+  {
+    "item_name": "Honestly: Getting Real about Jesus and Our Messy Lives"
+  },
+  {
+    "item_name": "Sacred Mundane: How to Find Freedom, Purpose, and Joy"
+  },
+  {
+    "item_name": "Gospel Questions, Gospel Answers"
+  },
+  {
+    "item_name": "CSB Apologetics Study Bible, Hardcover"
+  },
+  {
+    "item_name": "Blessed Are the Misfits: Great News for Believers who are Introverts, Spiritual Strugglers, or Just Feel Like They're Missing Something"
+  },
+  {
+    "item_name": "The Memo: Five Rules for Your Economic Liberation"
+  },
+  {
+    "item_name": "Get Out of That Pit: Straight Talk about God's Deliverance"
+  },
+  {
+    "item_name": "How Not to Get Rich: The Financial Misadventures of Mark Twain"
+  },
+  {
+    "item_name": "When Did Everybody Else Get So Old?: Indignities, Compromises, and the Unexpected Grace of Midlife"
+  },
+  {
+    "item_name": "Reading People: How Seeing the World through the Lens of Personality Changes Everything"
+  },
+  {
+    "item_name": "The Remarkable Ordinary: How to Stop, Look, and Listen to Life"
+  },
+  {
+    "item_name": "A Crazy, Holy Grace: The Healing Power of Pain and Memory"
+  },
+  {
+    "item_name": "The Sacred Slow: A Holy Departure From Fast Faith"
+  },
+  {
+    "item_name": "Everywhere You Go Theres a Zacchaeus Up a Tree: Small-Town Faith and Words of Wisdom from Roger Campbells Newspaper Columns"
+  },
+  {
+    "item_name": "The Gospel according to God: Rediscovering the Most Remarkable Chapter in the Old Testament"
+  },
+  {
+    "item_name": "Sacred Rest: Recover Your Life, Renew Your Energy, Restore Your Sanity"
+  },
+  {
+    "item_name": "Nourish: Discover God's Perfectly Balanced Plan for Your Body and Soul"
+  },
+  {
+    "item_name": "Unimaginable: What Our World Would Be Like Without Christianity"
+  },
+  {
+    "item_name": "The CEO Next Door: The 4 Behaviors that Transform Ordinary People into World-Class Leaders"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 2,
+    "item_name": "One Big Thing: Discovering What You Were Born to Do"
+  },
+  {
+    "rank": 3,
+    "item_name": "Real Marriage: The Truth About Sex, Friendship, &amp; Life Together"
+  },
+  {
+    "rank": 4,
+    "item_name": "What Every Christian Needs to Know About the Qur'an"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Case for a Creator"
+  },
+  {
+    "rank": 6,
+    "item_name": "Get Out of That Pit: Straight Talk about God's Deliverance"
+  },
+  {
+    "rank": 7,
+    "item_name": "Unplanned: The Dramatic True Story of a Former Planned Parenthood Leader's Eye-Opening Journey across the Life Line"
+  },
+  {
+    "rank": 8,
+    "item_name": "Father Hunger: Why God Calls Men to Love and Lead Their Families"
+  },
+  {
+    "rank": 9,
+    "item_name": "Lit!: A Christian Guide to Reading Books"
+  },
+  {
+    "rank": 10,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 11,
+    "item_name": "Slave: The Hidden Truth About Your Identity in Christ"
+  },
+  {
+    "rank": 12,
+    "item_name": "Christianity: The First Three Thousand Years"
+  },
+  {
+    "rank": 13,
+    "item_name": "Darwin's Doubt: The Explosive Origin of Animal Life and the Case for Intelligent Design"
+  },
+  {
+    "rank": 14,
+    "item_name": "Critical Condition"
+  },
+  {
+    "rank": 15,
+    "item_name": "The More of Less"
+  },
+  {
+    "rank": 16,
+    "item_name": "Miracles Are for Real: What Happens When Heaven Touches Earth"
+  },
+  {
+    "rank": 17,
+    "item_name": "Chasing Francis: A Pilgrim&rsquo;s Tale"
+  },
+  {
+    "rank": 18,
+    "item_name": "Tea with Hezbollah: Sitting at the Enemies Table Our Journey Through the Middle East"
+  },
+  {
+    "rank": 19,
+    "item_name": "Rejection Proof: How I Beat Fear and Became Invincible Through 100 Days of Rejection"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Imitation of Christ (Penguin Classics)"
+  },
+  {
+    "rank": 21,
+    "item_name": "If I Had Lunch with C. S. Lewis: Exploring the Ideas of C. S. Lewis on the Meaning of Life"
+  },
+  {
+    "rank": 22,
+    "item_name": "Bound Together: How We Are Tied to Others in Good and Bad Choices"
+  },
+  {
+    "rank": 23,
+    "item_name": "Duty"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Million Miles in a Thousand Years: What I Learned While Editing My Life"
+  },
+  {
+    "rank": 25,
+    "item_name": "Cold-Case Christianity: A Homicide Detective Investigates the Claims of the Gospels"
+  },
+  {
+    "rank": 26,
+    "item_name": "Brick by Brick: How LEGO Rewrote the Rules of Innovation and Conquered the Global Toy Industry"
+  },
+  {
+    "rank": 27,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Atheist Who Didn't Exist: Or the Dreadful Consequences of Bad Arguments"
+  },
+  {
+    "rank": 29,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Trip around the Sun: Turning Your Everyday Life into the Adventure of a Lifetime"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Jesus Scandals: Why He Shocked His Contemporaries (and Still Shocks Today)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Skinny Bitch: A No-Nonsense, Tough-Love Guide for Savvy Girls Who Want To Stop Eating Crap and Start Looking Fabulous!"
+  },
+  {
+    "rank": 33,
+    "item_name": "NIV, Integrated Study Bible, Hardcover: A New Chronological Approach for Exploring Scripture"
+  },
+  {
+    "rank": 34,
+    "item_name": "Impossible to Ignore: Creating Memorable Content to Influence Decisions"
+  },
+  {
+    "rank": 35,
+    "item_name": "Unhinged: Exposing Liberals Gone Wild"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Beginner's Gospel Story Bible"
+  },
+  {
+    "rank": 37,
+    "item_name": "Everybody Lies: Big Data, New Data, and What the Internet Can Tell Us About Who We Really Are"
+  },
+  {
+    "rank": 38,
+    "item_name": "Neptune's Inferno: The U.S. Navy at Guadalcanal"
+  },
+  {
+    "rank": 39,
+    "item_name": "Angels: The Strange and Mysterious Truth"
+  },
+  {
+    "rank": 40,
+    "item_name": "This Is Your Captain Speaking: My Fantastic Voyage Through Hollywood, Faith and   Life"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Hole in Our Gospel: What Does God Expect of Us?"
+  },
+  {
+    "rank": 42,
+    "item_name": "I Am Second: Real Stories. Changing Lives."
+  },
+  {
+    "rank": 43,
+    "item_name": "SEAL of God"
+  },
+  {
+    "rank": 44,
+    "item_name": "If God Is Good: Faith in the Midst of Suffering and Evil"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 46,
+    "item_name": "God or Godless?: One Atheist. One Christian. Twenty Controversial Questions."
+  },
+  {
+    "rank": 47,
+    "item_name": "Twilight's Last Gleaming: How America's Last Days Can Be Your Best Days"
+  },
+  {
+    "rank": 48,
+    "item_name": "Great Again: How to Fix Our Crippled America"
+  },
+  {
+    "rank": 49,
+    "item_name": "Decisive: How to Make Better Choices in Life and Work"
+  },
+  {
+    "rank": 50,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

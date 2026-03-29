@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Science of the Magical: From the Holy Grail to Love Potions to Superpowers"
+  },
+  {
+    "item_name": "Unstoppable: Harnessing Science to Change the World"
+  },
+  {
+    "item_name": "The Witches: Salem, 1692"
+  },
+  {
+    "item_name": "Haunted Ontario 4: Encounters with Ghostly Shadows, Apparitions, and Spirits"
+  },
+  {
+    "item_name": "The Measure of All Things: The Seven-Year Odyssey and Hidden Error That Transformed the World"
+  },
+  {
+    "item_name": "The Measure of All Things: The Seven-Year Odyssey and Hidden Error that Transformed the World"
+  },
+  {
+    "item_name": "Jesus Before the Gospels: How the Earliest Christians Remembered, Changed, and Invented Their Stories of the Savior"
+  },
+  {
+    "item_name": "Strange Medicine: A Shocking History of Real Medical Practices Through the Ages"
+  },
+  {
+    "item_name": "Forensics: What Bugs, Burns, Prints, DNA and More Tell Us About Crime"
+  },
+  {
+    "item_name": "A Good Month for Murder: The Inside Story of a Homicide Squad"
+  },
+  {
+    "item_name": "The Winter Fortress: The Epic Mission to Sabotage Hitlers Atomic Bomb"
+  },
+  {
+    "item_name": "A is for Arsenic: The Poisons of Agatha Christie (Bloomsbury Sigma)"
+  },
+  {
+    "item_name": "Storm in a Teacup: The Physics of Everyday Life"
+  },
+  {
+    "item_name": "Churchill's Ministry of Ungentlemanly Warfare: The Mavericks Who Plotted Hitler's Defeat"
+  },
+  {
+    "item_name": "Get Well Soon: History's Worst Plagues and the Heroes Who Fought Them"
+  },
+  {
+    "item_name": "It Ended Badly: Thirteen of the Worst Breakups in History"
+  },
+  {
+    "item_name": "Hidden Figures: The American Dream and the Untold Story of the Black Women Mathematicians Who Helped Win the Space Race"
+  },
+  {
+    "item_name": "Mrs. Sherlock Holmes: The True Story of New York City's Greatest Female Detective and the 1917 Missing Girl Case That Captivated a Nation"
+  },
+  {
+    "item_name": "The Radium Girls"
+  },
+  {
+    "item_name": "The Physics of Everyday Things: The Extraordinary Science Behind an Ordinary Day"
+  },
+  {
+    "item_name": "Pandora's Lab: Seven Stories of Science Gone Wrong"
+  },
+  {
+    "item_name": "Caesar's Last Breath: Decoding the Secrets of the Air Around Us"
+  },
+  {
+    "item_name": "The Great Quake: How the Biggest Earthquake in North America Changed Our Understanding of the  Planet"
+  },
+  {
+    "item_name": "Silent Witnesses: The Often Gruesome but Always Fascinating History of Forensic Science"
+  },
+  {
+    "item_name": "The Butchering Art: Joseph Lister's Quest to Transform the Grisly World of Victorian Medicine"
+  },
+  {
+    "item_name": "Quackery: A Brief History of the Worst Ways to Cure Everything"
+  },
+  {
+    "item_name": "I Will Find You: Solving Killer Cases from My Life Fighting Crime (Homicide Hunter)"
+  },
+  {
+    "item_name": "Morgue: A Life in Death"
+  },
+  {
+    "item_name": "Unnatural Death : Confessions of a Medical Examiner"
+  },
+  {
+    "item_name": "The Education of a Coroner: Lessons in Investigating Death"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1108,
+    "item_name": "Doubt: A History: The Great Doubters and Their Legacy of Innovation from Socrates and Jesus to Thomas Jefferson and Emily Dickinson"
+  },
+  {
+    "rank": 2,
+    "item_id": 9351,
+    "item_name": "The Madhouse Effect: How Climate Change Denial Is Threatening Our Planet, Destroying Our Politics, and Driving Us Crazy"
+  },
+  {
+    "rank": 3,
+    "item_id": 11080,
+    "item_name": "Dark Money: The Hidden History of the Billionaires Behind the Rise of the Radical Right"
+  },
+  {
+    "rank": 4,
+    "item_id": 19966,
+    "item_name": "End This Depression Now!"
+  },
+  {
+    "rank": 5,
+    "item_id": 7747,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 6,
+    "item_id": 8348,
+    "item_name": "White Trash: The 400-Year Untold History of Class in America"
+  },
+  {
+    "rank": 7,
+    "item_id": 6163,
+    "item_name": "SWERVE, THE"
+  },
+  {
+    "rank": 8,
+    "item_id": 36614,
+    "item_name": "The Sixth Extinction: An Unnatural History"
+  },
+  {
+    "rank": 9,
+    "item_id": 31686,
+    "item_name": "Einstein: His Life and Universe"
+  },
+  {
+    "rank": 10,
+    "item_id": 41993,
+    "item_name": "The Republican Brain: The Science of Why They Deny Science- and Reality"
+  },
+  {
+    "rank": 11,
+    "item_id": 36807,
+    "item_name": "Irreligion: A Mathematician Explains Why the Arguments for God Just Don't Add Up"
+  },
+  {
+    "rank": 12,
+    "item_id": 55589,
+    "item_name": "Great Again: How to Fix Our Crippled America"
+  },
+  {
+    "rank": 13,
+    "item_id": 1680,
+    "item_name": "A Crack in the Edge of the World: America and the Great California Earthquake of 1906"
+  },
+  {
+    "rank": 14,
+    "item_id": 41753,
+    "item_name": "Black Earth: The Holocaust as History and Warning"
+  },
+  {
+    "rank": 15,
+    "item_id": 11079,
+    "item_name": "Battling the Gods: Atheism in the Ancient World"
+  },
+  {
+    "rank": 16,
+    "item_id": 34112,
+    "item_name": "Idiot America: How Stupidity Became a Virtue in the Land of the Free"
+  },
+  {
+    "rank": 17,
+    "item_id": 17788,
+    "item_name": "The Atomic Bazaar: The Rise of the Nuclear Poor"
+  },
+  {
+    "rank": 18,
+    "item_id": 36093,
+    "item_name": "The Electric Life of Michael Faraday"
+  },
+  {
+    "rank": 19,
+    "item_id": 18293,
+    "item_name": "In the Ruins of Empire: The Japanese Surrender and the Battle for Postwar Asia"
+  },
+  {
+    "rank": 20,
+    "item_id": 37026,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 21,
+    "item_id": 68562,
+    "item_name": "Sevastopol 1942: Von Mansteins triumph (Campaign)"
+  },
+  {
+    "rank": 22,
+    "item_id": 1805,
+    "item_name": "The Myth of the Rational Market: A History of Risk, Reward, and Delusion on Wall Street"
+  },
+  {
+    "rank": 23,
+    "item_id": 27606,
+    "item_name": "The Big Burn: Teddy Roosevelt and the Fire that Saved America"
+  },
+  {
+    "rank": 24,
+    "item_id": 8220,
+    "item_name": "Plutocrats: The Rise of the New Global Super-Rich and the Fall of Everyone Else"
+  },
+  {
+    "rank": 25,
+    "item_id": 49495,
+    "item_name": "World War I: The Definitive Visual History"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

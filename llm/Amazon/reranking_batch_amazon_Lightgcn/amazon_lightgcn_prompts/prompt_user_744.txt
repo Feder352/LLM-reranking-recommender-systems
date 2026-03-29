@@ -1,0 +1,275 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Complete Making of Indiana Jones"
+  },
+  {
+    "item_name": "The Hobbit"
+  },
+  {
+    "item_name": "Hobbit"
+  },
+  {
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "item_name": "The Making of Star Wars: The Definitive Story Behind the Original Film (Star Wars - Legends)"
+  },
+  {
+    "item_name": "Dragon Ball, Vol. 3 (VIZBIG Edition)"
+  },
+  {
+    "item_name": "Watchmen"
+  },
+  {
+    "item_name": "Robota"
+  },
+  {
+    "item_name": "Tales From Outer Suburbia"
+  },
+  {
+    "item_name": "Serenity Official Visual Companion"
+  },
+  {
+    "item_name": "The Push Man and Other Stories"
+  },
+  {
+    "item_name": "A Drifting Life"
+  },
+  {
+    "item_name": "The Photographer: Into War-torn Afghanistan with Doctors Without Borders"
+  },
+  {
+    "item_name": "The Arrival"
+  },
+  {
+    "item_name": "Mythology: The DC Comics Art of Alex Ross"
+  },
+  {
+    "item_name": "The Wildlife of Star Wars: A Field Guide"
+  },
+  {
+    "item_name": "The Art of Alice: Madness Returns"
+  },
+  {
+    "item_name": "Batman: Hush - Volume One"
+  },
+  {
+    "item_name": "My Monster Burrufu"
+  },
+  {
+    "item_name": "Harry Potter Page to Screen: The Complete Filmmaking Journey"
+  },
+  {
+    "item_name": "Learn, Create, and Teach: A Guide to Building a Creative Life"
+  },
+  {
+    "item_name": "Click Millionaires: Work Less, Live More with an Internet Business You Love"
+  },
+  {
+    "item_name": "Drawn To Drawing"
+  },
+  {
+    "item_name": "Daily Painting: Paint Small and Often To Become a More Creative, Productive, and Successful Artist"
+  },
+  {
+    "item_name": "Out on the Wire: The Storytelling Secrets of the New Masters of Radio"
+  },
+  {
+    "item_name": "Pop Painting: Inspiration and Techniques from the Pop Surrealism Art Phenomenon"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 28765,
+    "item_name": "V For Vendetta (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 2,
+    "item_id": 37984,
+    "item_name": "Nausicaa of the Valley of the Wind, Vol. 7"
+  },
+  {
+    "rank": 3,
+    "item_id": 34849,
+    "item_name": "Marvel 1602"
+  },
+  {
+    "rank": 4,
+    "item_id": 62484,
+    "item_name": "300"
+  },
+  {
+    "rank": 5,
+    "item_id": 63626,
+    "item_name": "Ball Peen Hammer"
+  },
+  {
+    "rank": 6,
+    "item_id": 47385,
+    "item_name": "Batman: The Dark Knight Strikes Again"
+  },
+  {
+    "rank": 7,
+    "item_id": 10125,
+    "item_name": "Asterios Polyp (Pantheon Graphic Library)"
+  },
+  {
+    "rank": 8,
+    "item_id": 62468,
+    "item_name": "A Dame to Kill for (Sin City)"
+  },
+  {
+    "rank": 9,
+    "item_id": 43920,
+    "item_name": "Y: The Last Man, Vol. 5: Ring of Truth"
+  },
+  {
+    "rank": 10,
+    "item_id": 18192,
+    "item_name": "Black Hole (Pantheon Graphic Library)"
+  },
+  {
+    "rank": 11,
+    "item_id": 29469,
+    "item_name": "Saga Of The Swamp Thing, Book 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 12,
+    "item_id": 44008,
+    "item_name": "Astro City - the Dark Age 2: Brothers in Arms"
+  },
+  {
+    "rank": 13,
+    "item_id": 74833,
+    "item_name": "The Amber Spyglass"
+  },
+  {
+    "rank": 14,
+    "item_id": 62480,
+    "item_name": "Sin City Volume 4: That Yellow Bastard"
+  },
+  {
+    "rank": 15,
+    "item_id": 43925,
+    "item_name": "Fables Vol. 2: Animal Farm"
+  },
+  {
+    "rank": 16,
+    "item_id": 1141,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 17,
+    "item_id": 74744,
+    "item_name": "Dune"
+  },
+  {
+    "rank": 18,
+    "item_id": 47387,
+    "item_name": "Serenity 2: Better Days"
+  },
+  {
+    "rank": 19,
+    "item_id": 9430,
+    "item_name": "Idoru (Bridge)"
+  },
+  {
+    "rank": 20,
+    "item_id": 44023,
+    "item_name": "Transmetropolitan, Vol. 1: Back on the Street"
+  },
+  {
+    "rank": 21,
+    "item_id": 64453,
+    "item_name": "Saga, Vol. 2"
+  },
+  {
+    "rank": 22,
+    "item_id": 23558,
+    "item_name": "Sandman Preludes &amp; Nocturnes"
+  },
+  {
+    "rank": 23,
+    "item_id": 34922,
+    "item_name": "Kick-Ass"
+  },
+  {
+    "rank": 24,
+    "item_id": 64560,
+    "item_name": "Dante's Divine Comedy: A Graphic Adaptation"
+  },
+  {
+    "rank": 25,
+    "item_id": 38184,
+    "item_name": "30 Days Of Night"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

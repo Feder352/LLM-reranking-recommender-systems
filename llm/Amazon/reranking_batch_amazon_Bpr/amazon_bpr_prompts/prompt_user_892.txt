@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Colorado Boulevard: A Crush Mystery (Crush Mysteries)"
+  },
+  {
+    "item_name": "Immortal Life: A Soon To Be True Story"
+  },
+  {
+    "item_name": "The Sky Is Yours: A Novel"
+  },
+  {
+    "item_name": "Social Media Wellness: Helping Tweens and Teens Thrive in an Unbalanced Digital World (Corwin Teaching Essentials)"
+  },
+  {
+    "item_name": "The Perpetual Summer: A Chuck Restic Mystery (Chuck Restic Mysteries)"
+  },
+  {
+    "item_name": "The Night Market"
+  },
+  {
+    "item_name": "Your One &amp; Only"
+  },
+  {
+    "item_name": "How We Work: Live Your Purpose, Reclaim Your Sanity, and Embrace the Daily Grind"
+  },
+  {
+    "item_name": "Places in the Darkness"
+  },
+  {
+    "item_name": "Sirens: A Novel (An Aidan Waits Thriller)"
+  },
+  {
+    "item_name": "My Name Is Nathan Lucius"
+  },
+  {
+    "item_name": "A False Report: A True Story of Rape in America"
+  },
+  {
+    "item_name": "Master Assassins: The Fire Sacraments, Book One"
+  },
+  {
+    "item_name": "Bring Out the Dog: Stories"
+  },
+  {
+    "item_name": "What Is Russia Up To in the Middle East?"
+  },
+  {
+    "item_name": "Work: The Last 1,000 Years"
+  },
+  {
+    "item_name": "The City Where We Once Lived: A Novel"
+  },
+  {
+    "item_name": "Stickle Island"
+  },
+  {
+    "item_name": "Great American Outpost: Dreamers, Mavericks, and the Making of an Oil Frontier"
+  },
+  {
+    "item_name": "This Is How It Ends: The most critically acclaimed crime thriller of 2018"
+  },
+  {
+    "item_name": "Tin Men: A Crime Novel"
+  },
+  {
+    "item_name": "Forsaken (A Unit 51 Novel)"
+  },
+  {
+    "item_name": "Macbeth"
+  },
+  {
+    "item_name": "The Heritage: Black Athletes, a Divided America, and the Politics of Patriotism"
+  },
+  {
+    "item_name": "Resurrection Bay (Pushkin Vertigo)"
+  },
+  {
+    "item_name": "The City of Lost Fortunes (A Crescent City Novel)"
+  },
+  {
+    "item_name": "American by Day"
+  },
+  {
+    "item_name": "Isle of Blood and Stone (Tower of Winds)"
+  },
+  {
+    "item_name": "Into the Storm: Two Ships, a Deadly Hurricane, and an Epic Battle for Survival"
+  },
+  {
+    "item_name": "The Wild Dead (The Bannerless Saga)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Boyfriend"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Color Master"
+  },
+  {
+    "rank": 4,
+    "item_name": "Plaster City (Jimmy Veeder Fiasco)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Ruins of War: A Mason Collins Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Antagonist"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Art of Fielding: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Who Watcheth (An Irene Huss Investigation)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Alive in Shape and Color: 17 Paintings by Great Artists and the Stories They Inspired"
+  },
+  {
+    "rank": 10,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Swollen Red Sun"
+  },
+  {
+    "rank": 12,
+    "item_name": "Fire Shut Up in My Bones"
+  },
+  {
+    "rank": 13,
+    "item_name": "Hour of the Wolf"
+  },
+  {
+    "rank": 14,
+    "item_name": "Shylock is My Name"
+  },
+  {
+    "rank": 15,
+    "item_name": "Bad Blood: A Crime Novel (Intercrime)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 17,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 18,
+    "item_name": "We Install: And Other Stories"
+  },
+  {
+    "rank": 19,
+    "item_name": "Essays After Eighty"
+  },
+  {
+    "rank": 20,
+    "item_name": "Daredevils: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "The New York Times Disunion: A History of the Civil War"
+  },
+  {
+    "rank": 22,
+    "item_name": "Play All: A Bingewatchers Notebook"
+  },
+  {
+    "rank": 23,
+    "item_name": "Stop the Presses! (The Nero Wolfe Mysteries)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Copper Heart (Maria Kallio)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Days of Rage: America's Radical Underground, the FBI, and the Forgotten Age of Revolutionary Violence"
+  },
+  {
+    "rank": 26,
+    "item_name": "ZeroZeroZero: Look at Cocaine and All You See Is Powder. Look Through Cocaine and You See the World. (Penguin History American Life)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Silent Oligarch"
+  },
+  {
+    "rank": 28,
+    "item_name": "West of Sunset: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Adventures of Joe Harper"
+  },
+  {
+    "rank": 30,
+    "item_name": "An American Spy (Milo Weaver)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Bitter Remains: A Custody Battle, A Gruesome Crime, and the Mother Who Paid the Ultimate Price"
+  },
+  {
+    "rank": 32,
+    "item_name": "But Enough About Me: A Memoir"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Storm King: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Ice Beneath Her: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Last Whisper in the Dark: A Novel (Terrier Rand)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Aurora"
+  },
+  {
+    "rank": 37,
+    "item_name": "Tin Men: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Billy Lynn's Long Halftime Walk"
+  },
+  {
+    "rank": 39,
+    "item_name": "A Horse Walks into a Bar: A novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "My Lost Cuba"
+  },
+  {
+    "rank": 41,
+    "item_name": "Billion-Dollar Ball: A Journey Through the Big-Money Culture of College Football"
+  },
+  {
+    "rank": 42,
+    "item_name": "Sometimes the Wolf: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "Pacific Burn: A Thriller (A Jim Brodie Thriller)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Regional Office Is Under Attack!: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Finches of Mars"
+  },
+  {
+    "rank": 47,
+    "item_name": "But Enough About Me: A Memoir"
+  },
+  {
+    "rank": 48,
+    "item_name": "Runaway Town (An Eoin Miller Mystery)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Red Bandanna: A Life. A Choice. A Legacy."
+  },
+  {
+    "rank": 50,
+    "item_name": "Stories from the Kitchen (Everyman's Library Pocket Classics Series)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

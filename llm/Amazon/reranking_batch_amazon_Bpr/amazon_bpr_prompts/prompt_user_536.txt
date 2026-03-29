@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Chasing Christmas Eve: A Heartbreaker Bay Novel"
+  },
+  {
+    "item_name": "Secret Lessons With The Rake (Hadley's Hellions)"
+  },
+  {
+    "item_name": "Local Girl Missing: A Novel"
+  },
+  {
+    "item_name": "Paperbacks from Hell: The Twisted History of '70s and '80s Horror Fiction"
+  },
+  {
+    "item_name": "Slay Bells Ring (A Caprice De Luca Mystery)"
+  },
+  {
+    "item_name": "Still Dead: A J. P. Beaumont Novella (J. P. Beaumont Series)"
+  },
+  {
+    "item_name": "Pudding Up With Murder (An Undercover Dish Mystery)"
+  },
+  {
+    "item_name": "The Last Mrs Parrish: An Addictive Psychological Thriller with a Shocking Twist!"
+  },
+  {
+    "item_name": "Beautiful Maids All in a Row"
+  },
+  {
+    "item_name": "Someone to Wed (A Westcott Novel)"
+  },
+  {
+    "item_name": "The Christmas Cowboy Hero (Heart of Texas)"
+  },
+  {
+    "item_name": "Married Till Christmas (The Bravos of Justice Creek)"
+  },
+  {
+    "item_name": "Hotel Scarface: Where Cocaine Cowboys Partied and Plotted to Control Miami"
+  },
+  {
+    "item_name": "Murder with Lemon Tea Cakes (A Daisy's Tea Garden Mystery)"
+  },
+  {
+    "item_name": "Promise Not to Tell"
+  },
+  {
+    "item_name": "About That Kiss: A Heartbreaker Bay Novel"
+  },
+  {
+    "item_name": "The Girls in the Picture: A Novel"
+  },
+  {
+    "item_name": "Her Final Breath (The Tracy Crosswhite Series)"
+  },
+  {
+    "item_name": "By the Book: A Book Club Recommendation!"
+  },
+  {
+    "item_name": "The Paris Spy: A Maggie Hope Mystery"
+  },
+  {
+    "item_name": "A Wedding At Two Love Lane"
+  },
+  {
+    "item_name": "WHEN I WAKE UP"
+  },
+  {
+    "item_name": "What the Dead Leave Behind (Gilded Age Mystery)"
+  },
+  {
+    "item_name": "A Good Day to Marry a Duke (Sin &amp; Sensibility)"
+  },
+  {
+    "item_name": "The Good Luck Sister: A Wildstone Novella"
+  },
+  {
+    "item_name": "Monster in the Closet (The Baltimore Series)"
+  },
+  {
+    "item_name": "Lies That Comfort and Betray (Gilded Age Mystery)"
+  },
+  {
+    "item_name": "After Anna"
+  },
+  {
+    "item_name": "Rainy Day Friends: A Novel"
+  },
+  {
+    "item_name": "Orphan X: A Novel - Kindle edition"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Hanover House"
+  },
+  {
+    "rank": 2,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Dangerous Waters (The Barkley Sound Series)"
+  },
+  {
+    "rank": 4,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Mother Knows Best (A Margie Peterson Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Daughters of the Bride: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "Come Sundown"
+  },
+  {
+    "rank": 8,
+    "item_name": "Until We Touch (Fool's Gold,  Book 17)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Broken Promise: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Fatal Affair: Book One of the Fatal Series: One Night with You"
+  },
+  {
+    "rank": 11,
+    "item_name": "Brotherhood in Death: 42"
+  },
+  {
+    "rank": 12,
+    "item_name": "Thrill Me (Fool's Gold, Book 20)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Bones Never Lie (Temperance Brennan)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Girl Who Knew Too Much"
+  },
+  {
+    "rank": 15,
+    "item_name": "Hunted (The Profiler)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Sting"
+  },
+  {
+    "rank": 17,
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "Tristan's Temptation"
+  },
+  {
+    "rank": 19,
+    "item_name": "Christmas on 4th Street (Fool's Gold, Book 14)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Kill the Competition"
+  },
+  {
+    "rank": 21,
+    "item_name": "A Merciful Death (Mercy Kilpatrick)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Good Liar"
+  },
+  {
+    "rank": 23,
+    "item_name": "Troublemaker"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Passenger"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Glass Kitchen: A Novel of Sisters"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Girls She Left Behind: A Novel (Lizzie Snow)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Viscount's Christmas Temptation (Dukes of War) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "X (A Kinsey Millhone Novel)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Happy Ever After in Christmas (Christmas, Colorado)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Secrets of a Scandalous Heiress (Matchmaker Trilogy)"
+  },
+  {
+    "rank": 31,
+    "item_name": "IQ (An IQ Novel)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Other Einstein: A Novel - Kindle edition"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Liar"
+  },
+  {
+    "rank": 34,
+    "item_name": "Holding"
+  },
+  {
+    "rank": 35,
+    "item_name": "Three Little Words (Fool's Gold, Book 13)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Secrets She Kept (Fairham Island)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Bring Her Home"
+  },
+  {
+    "rank": 38,
+    "item_name": "My Not So Perfect Life: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "The One You Really Want"
+  },
+  {
+    "rank": 40,
+    "item_name": "Plantation Shudders: A Cajun Country Mystery"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Line Between Here and Gone (Forensic Instincts)"
+  },
+  {
+    "rank": 42,
+    "item_name": "When Lightning Strikes (Whiskey Creek)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Opposite of Wild (Clover Park) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Nobody's Child: A Georgia Davis Novel of Suspense (Georgia Davis PI Series) (Volume 4)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Dry Bones: A Longmire Mystery"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Perfect Match (The Blue Heron Series)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Obsessed (Lizzy Gardner)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Job (Fox and O'Hare)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Deep End (The Country Club Murders) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Hangman's Replacement: Sprout of Disruption"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

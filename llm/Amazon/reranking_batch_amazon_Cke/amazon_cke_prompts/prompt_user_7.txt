@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Patient H.M.: A Story of Memory, Madness, and Family Secrets"
+  },
+  {
+    "item_name": "The Serial Killer Books: 15 Famous Serial Killers True Crime Stories That Shocked The World (The Serial Killer Files) (Volume 1)"
+  },
+  {
+    "item_name": "The Secrets of My Life"
+  },
+  {
+    "item_name": "The Stranger in the Woods: The Extraordinary Story of the Last True Hermit"
+  },
+  {
+    "item_name": "Girl in the Dark: A Memoir"
+  },
+  {
+    "item_name": "The Wrong Man: The Final Verdict on the Dr. Sam Sheppard Murder Case (Ohio)"
+  },
+  {
+    "item_name": "Filthy Rich: A Powerful Billionaire, the Sex Scandal that Undid Him, and All the Justice that Money Can Buy - The Shocking True Story of Jeffrey Epstein"
+  },
+  {
+    "item_name": "Heads in Beds: A Reckless Memoir of Hotels, Hustles, and So-Called Hospitality"
+  },
+  {
+    "item_name": "Sick Girl"
+  },
+  {
+    "item_name": "You Don't Have to Say You Love Me: A Memoir"
+  },
+  {
+    "item_name": "Born a Crime"
+  },
+  {
+    "item_name": "True Crime Stories Volume 7: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "item_name": "Who Killed These Girls?: Cold Case: The Yogurt Shop Murders"
+  },
+  {
+    "item_name": "Sweetness: The Enigmatic Life of Walter Payton"
+  },
+  {
+    "item_name": "This Life I Live: One Man's Extraordinary, Ordinary Life and the Woman Who Changed It Forever"
+  },
+  {
+    "item_name": "Death Sentence (Signet)"
+  },
+  {
+    "item_name": "HILLBILLY ELEGY- PB"
+  },
+  {
+    "item_name": "Serpentine"
+  },
+  {
+    "item_name": "The Magnificent Medills: America's Royal Family of Journalism During a Century of Turbulent Splendor"
+  },
+  {
+    "item_name": "The Last Girl: My Story of Captivity, and My Fight Against the Islamic State"
+  },
+  {
+    "item_name": "I Am Nujood, Age 10 and Divorced"
+  },
+  {
+    "item_name": "The Toolbox Killers: A Deadly Rape, Torture &amp; Murder Duo (The Serial Killer Books) (Volume 3)"
+  },
+  {
+    "item_name": "Into the Wild"
+  },
+  {
+    "item_name": "An American Family: A Memoir of Hope and Sacrifice"
+  },
+  {
+    "item_name": "True Crime 2017: Homicide &amp; True Crime Stories of 2017 (Annual True Crime Anthology) (Volume 2)"
+  },
+  {
+    "item_name": "True Crime Stories Volume 9: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "item_name": "Fire and Fury: Inside the Trump White House"
+  },
+  {
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "item_name": "Nomadland: Surviving America in the Twenty-First Century"
+  },
+  {
+    "item_name": "Promise Me, Dad: A Year of Hope, Hardship, and Purpose"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5435,
+    "item_name": "The Anti-capitalistic Mentality (Lib Works Ludwig Von Mises PB)"
+  },
+  {
+    "rank": 2,
+    "item_id": 647,
+    "item_name": "The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers"
+  },
+  {
+    "rank": 3,
+    "item_id": 478,
+    "item_name": "Womenomics: Write Your Own Rules for Success"
+  },
+  {
+    "rank": 4,
+    "item_id": 1235,
+    "item_name": "The Accidental Guerrilla: Fighting Small Wars in the Midst of a Big One"
+  },
+  {
+    "rank": 5,
+    "item_id": 4799,
+    "item_name": "The Edge of Evolution: The Search for the Limits of Darwinism"
+  },
+  {
+    "rank": 6,
+    "item_id": 4258,
+    "item_name": "The Eerie Silence: Renewing Our Search for Alien Intelligence"
+  },
+  {
+    "rank": 7,
+    "item_id": 5712,
+    "item_name": "In The Plex: How Google Thinks, Works, and Shapes Our Lives"
+  },
+  {
+    "rank": 8,
+    "item_id": 41,
+    "item_name": "Open: An Autobiography"
+  },
+  {
+    "rank": 9,
+    "item_id": 687,
+    "item_name": "Human Stain"
+  },
+  {
+    "rank": 10,
+    "item_id": 1110,
+    "item_name": "Give and Take: Why Helping Others Drives Our Success"
+  },
+  {
+    "rank": 11,
+    "item_id": 5790,
+    "item_name": "Bad Religion: How We Became a Nation of Heretics"
+  },
+  {
+    "rank": 12,
+    "item_id": 5364,
+    "item_name": "Who Stole the American Dream?"
+  },
+  {
+    "rank": 13,
+    "item_id": 3779,
+    "item_name": "Microtrends: The Small Forces Behind Tomorrow's Big Changes"
+  },
+  {
+    "rank": 14,
+    "item_id": 3065,
+    "item_name": "The Price of Inequality: How Today's Divided Society Endangers Our Future"
+  },
+  {
+    "rank": 15,
+    "item_id": 4891,
+    "item_name": "Chicken Soup for the Cat Lover's Soul: Stories of Feline Affection, Mystery and Charm (Chicken Soup for the Soul)"
+  },
+  {
+    "rank": 16,
+    "item_id": 5314,
+    "item_name": "Irreligion: A Mathematician Explains Why the Arguments for God Just Don't Add Up"
+  },
+  {
+    "rank": 17,
+    "item_id": 5976,
+    "item_name": "Atheist Manifesto: The Case Against Christianity, Judaism, and Islam"
+  },
+  {
+    "rank": 18,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 19,
+    "item_id": 3015,
+    "item_name": "Khrushchev: The Man and His Era"
+  },
+  {
+    "rank": 20,
+    "item_id": 5361,
+    "item_name": "The Revenge of Geography: What the Map Tells Us About Coming Conflicts and the Battle Against Fate"
+  },
+  {
+    "rank": 21,
+    "item_id": 6141,
+    "item_name": "Grandma Gatewood39;s Walk - The Inspiring Story of the Woman Who Saved the Appalachian Trail"
+  },
+  {
+    "rank": 22,
+    "item_id": 1211,
+    "item_name": "Gerard Manley Hopkins: The Major Works (Oxford World's Classics)"
+  },
+  {
+    "rank": 23,
+    "item_id": 988,
+    "item_name": "Finding George Orwell in Burma"
+  },
+  {
+    "rank": 24,
+    "item_id": 2893,
+    "item_name": "My Promised Land: The Triumph and Tragedy of Israel"
+  },
+  {
+    "rank": 25,
+    "item_id": 5330,
+    "item_name": "Blinded by the Right: The Conscience of an Ex-Conservative"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

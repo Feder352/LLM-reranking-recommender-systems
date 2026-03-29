@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Darker: Fifty Shades Darker as Told by Christian (Fifty Shades of Grey Series)"
+  },
+  {
+    "item_name": "Every Witch Way But Wicked: A Wicked Witches of the Midwest Mystery (Volume 2)"
+  },
+  {
+    "item_name": "Witching You Were Here: A Wicked Witches of the Midwest Mystery (Volume 3)"
+  },
+  {
+    "item_name": "Witching on a Star: A Wicked Witches of the Midwest Mystery -- Book 4 (Volume 4)"
+  },
+  {
+    "item_name": "The Bigfoot Blunder (A Charlie Rhodes Cozy Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Something to Witch About (Wicked Witches of the Midwest) (Volume 5)"
+  },
+  {
+    "item_name": "Witch Me Luck (Wicked Witches of the Midwest) (Volume 6)"
+  },
+  {
+    "item_name": "The Girl Who Dared to Think (Volume 1)"
+  },
+  {
+    "item_name": "Trapped"
+  },
+  {
+    "item_name": "Extinct (Volume 1)"
+  },
+  {
+    "item_name": "Hotbloods (Volume 1)"
+  },
+  {
+    "item_name": "The Voice Inside: A Thriller (Frost Easton)"
+  },
+  {
+    "item_name": "The Night Circus (Vintage Magic)"
+  },
+  {
+    "item_name": "Abba Gold: Greatest Hits"
+  },
+  {
+    "item_name": "Marked by Power (The Marked Series)"
+  },
+  {
+    "item_name": "Faerie Blood (The Changeling Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "Shadow Hunt (Disrupted Magic)"
+  },
+  {
+    "item_name": "The Unlikeable Demon Hunter: Crave (Nava Katz Book 4)"
+  },
+  {
+    "item_name": "If You Give a Cat a Cupcake"
+  },
+  {
+    "item_name": "Wave of Terror"
+  },
+  {
+    "item_name": "Bone Music (The Burning Girl)"
+  },
+  {
+    "item_name": "The Secret: Irin Chronicles Book Three (Volume 3)"
+  },
+  {
+    "item_name": "Recurve (The Elemental Series) (Volume 1)"
+  },
+  {
+    "item_name": "Silence Fallen (A Mercy Thompson Novel)"
+  },
+  {
+    "item_name": "What's Left of Me (Volume 1)"
+  },
+  {
+    "item_name": "Quantum Space (Quantum Series)"
+  },
+  {
+    "item_name": "The Witch's Heart (The One Part Witch Series) (Volume 1)"
+  },
+  {
+    "item_name": "Pestilence (The Four Horsemen) (Volume 1)"
+  },
+  {
+    "item_name": "Adventures of a Vegan Vamp (Volume 1)"
+  },
+  {
+    "item_name": "The Angel Trials (Dark World: The Angel Trials) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Hunger Games (Book 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Hidden Fire: Elemental Mysteries Book 1"
+  },
+  {
+    "rank": 4,
+    "item_name": "Maggie for Hire: Book One:  Maggie MacKay Magical Tracker Series"
+  },
+  {
+    "rank": 5,
+    "item_name": "Whiskey Rebellion: An Addison Holmes Mystery"
+  },
+  {
+    "rank": 6,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 7,
+    "item_name": "Boundary Crossed (Boundary Magic)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The 5th Wave (Book 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Mockingjay: The Hunger Games"
+  },
+  {
+    "rank": 10,
+    "item_name": "Gypsy Hunted"
+  },
+  {
+    "rank": 11,
+    "item_name": "Somebody Tell Aunt Tillie She's Dead (Toad Witch Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Twenty-Eight and a Half Wishes (A Rose Gardner Mystery)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Captured"
+  },
+  {
+    "rank": 14,
+    "item_name": "Southern Spirits (Southern Ghost Hunter Mysteries)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Forever Road (Peri Jean Mace) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Haunted on Bourbon Street"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Accidental Demon Slayer"
+  },
+  {
+    "rank": 18,
+    "item_name": "Dead Spots (Scarlett Bernard)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Influential Magic"
+  },
+  {
+    "rank": 21,
+    "item_name": "Cupcakes, Trinkets, and Other Deadly Magic (Dowser)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Magic of Thieves"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Jakarta Pandemic"
+  },
+  {
+    "rank": 24,
+    "item_name": "This Doesn't Happen In The Movies (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Reign of Blood"
+  },
+  {
+    "rank": 26,
+    "item_name": "Fair Game (Alpha and Omega)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Frost Burned (Mercy Thompson)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Lover Reborn (Black Dagger Brotherhood)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Trouble in Mudbug"
+  },
+  {
+    "rank": 30,
+    "item_name": "Boundary Crossed: An Old World Novel, Book 1"
+  },
+  {
+    "rank": 31,
+    "item_name": "Talented"
+  },
+  {
+    "rank": 32,
+    "item_name": "Louisiana Longshot: A Miss Fortune Mystery (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Casual Vacancy"
+  },
+  {
+    "rank": 34,
+    "item_name": "Crux: Southern Arcana, Book 1"
+  },
+  {
+    "rank": 35,
+    "item_name": "Ellie Jordan, Ghost Trapper (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Mystic Wolves: Mystic Wolves"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Handmaid's Tale (Contemporary Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Ghost and The Graveyard"
+  },
+  {
+    "rank": 39,
+    "item_name": "Carrots (Shelby Nichols Adventures)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Lover Avenged (Black Dagger Brotherhood, Book 7)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Lover Eternal (Black Dagger Brotherhood, Book 2)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Vampire Moon"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Undead Pool"
+  },
+  {
+    "rank": 44,
+    "item_name": "Justice Calling (The Twenty-Sided Sorceress) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Beautiful Creatures. by Kami Garcia &amp; Margaret Stohl"
+  },
+  {
+    "rank": 46,
+    "item_name": "This Side of the Grave"
+  },
+  {
+    "rank": 47,
+    "item_name": "Hell on Wheels (Black Knights Inc.)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Witch Hunter (The Witch Hunter Saga) (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Stained: Stained Series (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Silence Fallen (A Mercy Thompson Novel)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

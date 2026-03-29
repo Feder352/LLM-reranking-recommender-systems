@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "How We Work: Live Your Purpose, Reclaim Your Sanity, and Embrace the Daily Grind"
+  },
+  {
+    "item_name": "Victorians Undone: Tales of the Flesh in the Age of Decorum"
+  },
+  {
+    "item_name": "Little Boy Brown"
+  },
+  {
+    "item_name": "Aging Thoughtfully: Conversations about Retirement, Romance, Wrinkles, and Regret"
+  },
+  {
+    "item_name": "The Girl Who Drew Butterflies: How Maria Merian's Art Changed Science"
+  },
+  {
+    "item_name": "Daughters of the Storm"
+  },
+  {
+    "item_name": "How I Killed Pluto and Why It Had It Coming"
+  },
+  {
+    "item_name": "My Father's Wake: How the Irish Teach Us to Live, Love, and Die"
+  },
+  {
+    "item_name": "The Big Picture: The Fight for the Future of Movies"
+  },
+  {
+    "item_name": "Work: The Last 1,000 Years"
+  },
+  {
+    "item_name": "Willpower Doesn't Work: Discover the Hidden Keys to Success"
+  },
+  {
+    "item_name": "Harper and the Night Forest"
+  },
+  {
+    "item_name": "Holmes Entangled"
+  },
+  {
+    "item_name": "The Truth About Animals: Stoned Sloths, Lovelorn Hippos, and Other Tales from the Wild Side of Wildlife"
+  },
+  {
+    "item_name": "The New Policeman (New Policeman Trilogy)"
+  },
+  {
+    "item_name": "Harry: Life, Loss, and Love"
+  },
+  {
+    "item_name": "Marley Dias Gets It Done: And So Can You!"
+  },
+  {
+    "item_name": "American by Day"
+  },
+  {
+    "item_name": "Futureface: A Family Mystery, an Epic Quest, and the Secret to Belonging"
+  },
+  {
+    "item_name": "The Bengal Identity (A Cat Groomer Mystery)"
+  },
+  {
+    "item_name": "Colorama: From Fuchsia to Midnight Blue"
+  },
+  {
+    "item_name": "Nonprofit Meetings, Minutes &amp; Records: How to Run Your Nonprofit Corporation So You Don't Run Into Trouble"
+  },
+  {
+    "item_name": "The Mastery of You: A Journey Toward the Understanding of Self"
+  },
+  {
+    "item_name": "Go Ask Fannie"
+  },
+  {
+    "item_name": "Ecstasy: A Novel"
+  },
+  {
+    "item_name": "In the Enemy's House: The Secret Saga of the FBI Agent and the Code Breaker Who Caught the Russian Spies"
+  },
+  {
+    "item_name": "Into the Storm: Two Ships, a Deadly Hurricane, and an Epic Battle for Survival"
+  },
+  {
+    "item_name": "A Brotherhood of Spies: The U-2 and the CIA's Secret War"
+  },
+  {
+    "item_name": "Tango Lessons: A Memoir"
+  },
+  {
+    "item_name": "Police Exams Prep 2018-2019: 4 Practice Tests + Proven Strategies (Kaplan Test Prep)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Mad Richard"
+  },
+  {
+    "rank": 2,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 3,
+    "item_name": "Integrity at Stake: Safeguarding Your Church from Financial Fraud"
+  },
+  {
+    "rank": 4,
+    "item_name": "Most Dangerous: Daniel Ellsberg and the Secret History of the Vietnam War (Bccb Blue Ribbon Nonfiction Book Award (Awards))"
+  },
+  {
+    "rank": 5,
+    "item_name": "Victoria: A Life"
+  },
+  {
+    "rank": 6,
+    "item_name": "Bird Dream: Adventures at the Extremes of Human Flight"
+  },
+  {
+    "rank": 7,
+    "item_name": "Close Enough for the Angels"
+  },
+  {
+    "rank": 8,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 9,
+    "item_name": "Economism: Bad Economics and the Rise of Inequality"
+  },
+  {
+    "rank": 10,
+    "item_name": "Social: Why Our Brains Are Wired to Connect"
+  },
+  {
+    "rank": 11,
+    "item_name": "Christmas in the Crosshairs: Two Thousand Years of Denouncing and Defending the World's Most Celebrated Holiday"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Defender: How the Legendary Black Newspaper Changed America"
+  },
+  {
+    "rank": 13,
+    "item_name": "Poisoned: How a Crime-Busting Prosecutor Turned His Medical Mystery into a Crusade for Environmental Victims"
+  },
+  {
+    "rank": 14,
+    "item_name": "Can I Go Now?: The Life of Sue Mengers, Hollywood's First Superagent"
+  },
+  {
+    "rank": 15,
+    "item_name": "Space Race [Concertina fold-out book]: Leporello"
+  },
+  {
+    "rank": 16,
+    "item_name": "Brave Genius: A Scientist, a Philosopher, and Their Daring Adventures from the French Resistance to the Nobel Prize"
+  },
+  {
+    "rank": 17,
+    "item_name": "Alibaba's World: How a Remarkable Chinese Company is Changing the Face of Global Business"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Future of Men: Men on Trial"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Arab of the Future 2: A Childhood in the Middle East, 1984-1985: A Graphic Memoir"
+  },
+  {
+    "rank": 20,
+    "item_name": "Modern Monopolies: What It Takes to Dominate the 21st Century Economy"
+  },
+  {
+    "rank": 21,
+    "item_name": "But Enough About Me: A Memoir"
+  },
+  {
+    "rank": 22,
+    "item_name": "The XX Factor: How the Rise of Working Women Has Created a Far Less Equal World"
+  },
+  {
+    "rank": 23,
+    "item_name": "Mindwise: How We Understand What Others Think, Believe, Feel, and Want"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Invisible Front: Love and Loss in an Era of Endless War"
+  },
+  {
+    "rank": 25,
+    "item_name": "Man in Profile: Joseph Mitchell of The New Yorker"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 27,
+    "item_name": "Give a Girl a Knife: A Memoir"
+  },
+  {
+    "rank": 28,
+    "item_name": "My Lost Cuba"
+  },
+  {
+    "rank": 29,
+    "item_name": "Being Berlusconi: The Rise and Fall from Cosa Nostra to Bunga Bunga"
+  },
+  {
+    "rank": 30,
+    "item_name": "Guilty?: Crime, Punishment, and the Changing Face of Justice"
+  },
+  {
+    "rank": 31,
+    "item_name": "Main Street Entrepreneur: Build Your Dream Company Doing What You Love Where You Live"
+  },
+  {
+    "rank": 32,
+    "item_name": "Manolito Four-Eyes: The 2nd Volume of the Great Encyclopedia of My Life"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "rank": 34,
+    "item_name": "A Wretched and Precarious Situation: In Search of the Last Arctic Frontier"
+  },
+  {
+    "rank": 35,
+    "item_name": "Government against Itself: Public Union Power and Its Consequences"
+  },
+  {
+    "rank": 36,
+    "item_name": "Junior Seau: The Life and Death of a Football Icon"
+  },
+  {
+    "rank": 37,
+    "item_name": "Victory: The Triumphant Gay Revolution"
+  },
+  {
+    "rank": 38,
+    "item_name": "What Happened to Goldman Sachs: An Insider's Story of Organizational Drift and Its Unintended Consequences"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Nazis Next Door: How America Became a Safe Haven for Hitlers Men"
+  },
+  {
+    "rank": 40,
+    "item_name": "Literacy and the Common Core: Recipes for Action (Jossey-Bass Teacher)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Simply Brilliant: How Great Organizations Do Ordinary Things in Extraordinary Ways"
+  },
+  {
+    "rank": 42,
+    "item_name": "Maximize Your Potential: Grow Your Expertise, Take Bold Risks &amp; Build an Incredible Career (99U)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Burn Pits: The Poisoning of America's Soldiers"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Philadelphia Chromosome: A Mutant Gene and the Quest to Cure Cancer at the Genetic Level"
+  },
+  {
+    "rank": 45,
+    "item_name": "Under New Management: How Leading Organizations Are Upending Business as Usual"
+  },
+  {
+    "rank": 46,
+    "item_name": "Exploding the Phone: The Untold Story of the Teenagers and Outlaws who Hacked Ma Bell"
+  },
+  {
+    "rank": 47,
+    "item_name": "GRE Prep by Argo Brothers: Practice Tests + Online System + Videos, GRE Test Prep 2018 (100% FREE Access to Our Full Online GRE Course)"
+  },
+  {
+    "rank": 48,
+    "item_name": "My Lady Pocahontas"
+  },
+  {
+    "rank": 49,
+    "item_name": "In Wartime: Stories from Ukraine"
+  },
+  {
+    "rank": 50,
+    "item_name": "5 Steps to a 5 AP Physics 1: Algebra-Based, 2018 Edition"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Nuts (The Hudson Valley Series)"
+  },
+  {
+    "item_name": "The Rosie Project"
+  },
+  {
+    "item_name": "Heart Strike (Delta Force)"
+  },
+  {
+    "item_name": "Hometown Cowboy (Rocky Mountain Riders)"
+  },
+  {
+    "item_name": "Enticed by His Forgotten Lover"
+  },
+  {
+    "item_name": "The Duelist's Seduction"
+  },
+  {
+    "item_name": "Blackberry Summer (Hope's Crossing)"
+  },
+  {
+    "item_name": "How to Tame Your Duke (A Princess in Hiding Romance)"
+  },
+  {
+    "item_name": "Run to You (Risking It All)"
+  },
+  {
+    "item_name": "Unwrapping Her Perfect Match: A London Legends Christmas Romance"
+  },
+  {
+    "item_name": "Hooking Up: A Novel"
+  },
+  {
+    "item_name": "The Art of Running in Heels"
+  },
+  {
+    "item_name": "What We Find (Sullivan's Crossing)"
+  },
+  {
+    "item_name": "Luckiest Cowboy of All: Two full books for the price of one (Happy, Texas)"
+  },
+  {
+    "item_name": "Refuge Cove (The New Americana Series)"
+  },
+  {
+    "item_name": "Now That You Mention It: A Novel"
+  },
+  {
+    "item_name": "Mackenzie's Mountain (Silhouette Intimate Moments, No 281)"
+  },
+  {
+    "item_name": "Most Likely to Score"
+  },
+  {
+    "item_name": "Any Day Now (Sullivan's Crossing)"
+  },
+  {
+    "item_name": "Troublemaker"
+  },
+  {
+    "item_name": "The View from Rainshadow Bay (A Lavender Tides Novel)"
+  },
+  {
+    "item_name": "Forever and Always (Cactus Creek Cowboys)"
+  },
+  {
+    "item_name": "Rush: A MacKenzie Family Novella"
+  },
+  {
+    "item_name": "Montana Heat: True to You"
+  },
+  {
+    "item_name": "Rumour Has it (Signed by author!!!)"
+  },
+  {
+    "item_name": "Toughest Cowboy in Texas: A Western Romance (Happy, Texas)"
+  },
+  {
+    "item_name": "Just Say Yes"
+  },
+  {
+    "item_name": "Suddenly You"
+  },
+  {
+    "item_name": "Dating Mr. December"
+  },
+  {
+    "item_name": "By Linda Lael Miller Big Sky Mountain (Hqn) (Original) [Mass Market Paperback]"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 34551,
+    "item_name": "The Hero (Thunder Point)"
+  },
+  {
+    "rank": 2,
+    "item_id": 34514,
+    "item_name": "The Wanderer (Thunder Point)"
+  },
+  {
+    "rank": 3,
+    "item_id": 34391,
+    "item_name": "This Heart of Mine (Whiskey Creek)"
+  },
+  {
+    "rank": 4,
+    "item_id": 17365,
+    "item_name": "The Perfect Match (The Blue Heron Series)"
+  },
+  {
+    "rank": 5,
+    "item_id": 17268,
+    "item_name": "Lip Service (Lone Star Sisters, Book 2)"
+  },
+  {
+    "rank": 6,
+    "item_id": 17332,
+    "item_name": "All Summer Long (Fool's Gold, Book 9)"
+  },
+  {
+    "rank": 7,
+    "item_id": 17436,
+    "item_name": "Three Little Words (Fool's Gold, Book 13)"
+  },
+  {
+    "rank": 8,
+    "item_id": 17339,
+    "item_name": "Two of a Kind (Fool's Gold, Book 12)"
+  },
+  {
+    "rank": 9,
+    "item_id": 34368,
+    "item_name": "The Chance (Thunder Point)"
+  },
+  {
+    "rank": 10,
+    "item_id": 48501,
+    "item_name": "Forever and a Day (Lucky Harbor)"
+  },
+  {
+    "rank": 11,
+    "item_id": 9491,
+    "item_name": "I Only Have Eyes for You"
+  },
+  {
+    "rank": 12,
+    "item_id": 17382,
+    "item_name": "Waiting On You (The Blue Heron Series)"
+  },
+  {
+    "rank": 13,
+    "item_id": 34353,
+    "item_name": "Can't Help Falling in Love (The Sullivans)"
+  },
+  {
+    "rank": 14,
+    "item_id": 17352,
+    "item_name": "The Best Man (The Blue Heron Series)"
+  },
+  {
+    "rank": 15,
+    "item_id": 34267,
+    "item_name": "The Newcomer (Thunder Point)"
+  },
+  {
+    "rank": 16,
+    "item_id": 34385,
+    "item_name": "When Summer Comes (Whiskey Creek)"
+  },
+  {
+    "rank": 17,
+    "item_id": 23864,
+    "item_name": "Head Over Heels (A Lucky Harbor Novel)"
+  },
+  {
+    "rank": 18,
+    "item_id": 17328,
+    "item_name": "Christmas on 4th Street (Fool's Gold, Book 14)"
+  },
+  {
+    "rank": 19,
+    "item_id": 17304,
+    "item_name": "Exclusively Yours (The Kowalskis)"
+  },
+  {
+    "rank": 20,
+    "item_id": 34703,
+    "item_name": "Until You Loved Me (Silver Springs)"
+  },
+  {
+    "rank": 21,
+    "item_id": 17525,
+    "item_name": "Anything for You (The Blue Heron Series)"
+  },
+  {
+    "rank": 22,
+    "item_id": 48560,
+    "item_name": "Always on My Mind (A Lucky Harbor Novel)"
+  },
+  {
+    "rank": 23,
+    "item_id": 4218,
+    "item_name": "Love at First Sight: A Cupid, Texas Novel"
+  },
+  {
+    "rank": 24,
+    "item_id": 64817,
+    "item_name": "Not Quite Mine"
+  },
+  {
+    "rank": 25,
+    "item_id": 34667,
+    "item_name": "No One but You: A Novel (Silver Springs)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Degunking Windows: Clean up and speed up your sluggish PC"
+  },
+  {
+    "item_name": "The Fortune at the Bottom of the Pyramid: Eradicating Poverty Through Profits"
+  },
+  {
+    "item_name": "The Secrets of Economic Indicators: Hidden Clues to Future Economic Trends and Investment Opportunities"
+  },
+  {
+    "item_name": "Managing Customers as Investments: The Strategic Value of Customers in the Long Run"
+  },
+  {
+    "item_name": "Knoppix Hacks: 100 Industrial-Strength Tips and Tools"
+  },
+  {
+    "item_name": "Designing Interfaces"
+  },
+  {
+    "item_name": "The Chinese Century: The Rising Chinese Economy and Its Impact on the Global Economy, the Balance of Power, and Your Job"
+  },
+  {
+    "item_name": "Head First Html With CSS &amp; XHTML"
+  },
+  {
+    "item_name": "Powerful Times: Rising to the Challenge of Our Uncertain World"
+  },
+  {
+    "item_name": "Quantum Enigma: Physics Encounters Consciousness"
+  },
+  {
+    "item_name": "Makers: All Kinds of People Making Amazing Things In Garages, Basements, and Backyards."
+  },
+  {
+    "item_name": "Cool Creatures, Hot Planet: Exploring the Seven Continents"
+  },
+  {
+    "item_name": "Marketing in the Public Sector: A Roadmap for Improved Performance"
+  },
+  {
+    "item_name": "The Well-Fed Self-Publisher: How to Turn One Book into a Full-Time Living"
+  },
+  {
+    "item_name": "Unicorn Races"
+  },
+  {
+    "item_name": "Marketing Metrics: 50+ Metrics Every Executive Should Master"
+  },
+  {
+    "item_name": "Influencer: The Power to Change Anything"
+  },
+  {
+    "item_name": "America's Living History - The Early Years (A Traveler's Guide)"
+  },
+  {
+    "item_name": "As Luck Would Have It"
+  },
+  {
+    "item_name": "Ultimate Leadership: Winning Execution Strategies for Your Situation"
+  },
+  {
+    "item_name": "Conversational Capital: How to Create Stuff People Love to Talk About"
+  },
+  {
+    "item_name": "Nonprofit Meetings, Minutes &amp; Records: How to Run Your Nonprofit Corporation So You Don't Run Into Trouble"
+  },
+  {
+    "item_name": "The Hole in Our Gospel: What Does God Expect of Us?"
+  },
+  {
+    "item_name": "In the Footsteps of Paul: Experience the Journey that Changed the World"
+  },
+  {
+    "item_name": "I'm Fine with God...It's Christians I Can't Stand: Getting Past the Religious Garbage in the Search for Spiritual Truth (ConversantLife.com)"
+  },
+  {
+    "item_name": "Power of Communication,The: Skills to Build Trust, Inspire Loyalty, and Lead Effectively"
+  },
+  {
+    "item_name": "Positive Intelligence: Why Only 20% of Teams and Individuals Achieve Their True Potential AND HOW YOU CAN ACHIEVE YOURS"
+  },
+  {
+    "item_name": "Android Wireless Application Development Volume I: Android Essentials (3rd Edition) (Developer's Library)"
+  },
+  {
+    "item_name": "Big Data: A Revolution That Will Transform How We Live, Work, and Think"
+  },
+  {
+    "item_name": "Smarter Than You Think: How Technology Is Changing Our Minds for the Better"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 63095,
+    "item_name": "Wicked Cool Java: Code Bits, Open-Source Libraries, and Project Ideas"
+  },
+  {
+    "rank": 2,
+    "item_id": 28687,
+    "item_name": "iPod: The Missing Manual"
+  },
+  {
+    "rank": 3,
+    "item_id": 38413,
+    "item_name": "Mind Your Own Wellness: Turning Thoughts Into Reality"
+  },
+  {
+    "rank": 4,
+    "item_id": 28688,
+    "item_name": "Spam Kings: The Real Story behind the High-Rolling Hucksters Pushing Porn, Pills, and %*@)# Enlargements"
+  },
+  {
+    "rank": 5,
+    "item_id": 38014,
+    "item_name": "The Warrior Diet"
+  },
+  {
+    "rank": 6,
+    "item_id": 62556,
+    "item_name": "The Ultimate Competitive Advantage: Secrets of Continually Developing a More Profitable Business Model"
+  },
+  {
+    "rank": 7,
+    "item_id": 7248,
+    "item_name": "Getting Things Done: The Art of Stress-Free Productivity"
+  },
+  {
+    "rank": 8,
+    "item_id": 35137,
+    "item_name": "America Alone: The End of the World As We Know It"
+  },
+  {
+    "rank": 9,
+    "item_id": 44178,
+    "item_name": "The Power of Less: The Fine Art of Limiting Yourself to the Essential...in Business and in Life"
+  },
+  {
+    "rank": 10,
+    "item_id": 28686,
+    "item_name": "Perl Cookbook, Second Edition"
+  },
+  {
+    "rank": 11,
+    "item_id": 38280,
+    "item_name": "The 1% Solution for Work and Life: How to Make Your Next 30 Days the Best Ever"
+  },
+  {
+    "rank": 12,
+    "item_id": 43799,
+    "item_name": "Meltdown: A Free-Market Look at Why the Stock Market Collapsed, the Economy Tanked, and Government Bailouts Will Make Things Worse"
+  },
+  {
+    "rank": 13,
+    "item_id": 35349,
+    "item_name": "March of the Penguins: Companion to the Major Motion Picture"
+  },
+  {
+    "rank": 14,
+    "item_id": 40275,
+    "item_name": "Win Friends and Customers: Relationship and Business Success from Empathic Acknowledging"
+  },
+  {
+    "rank": 15,
+    "item_id": 28691,
+    "item_name": "Head First Design Patterns: A Brain-Friendly Guide"
+  },
+  {
+    "rank": 16,
+    "item_id": 62915,
+    "item_name": "In Search of Stupidity: Over 20 Years of High-Tech Marketing Disasters"
+  },
+  {
+    "rank": 17,
+    "item_id": 37931,
+    "item_name": "Shadow War: The Untold Story of How America is Winning the War on Terror"
+  },
+  {
+    "rank": 18,
+    "item_id": 74714,
+    "item_name": "ITEM_B000WJVLLG"
+  },
+  {
+    "rank": 19,
+    "item_id": 5613,
+    "item_name": "Think and Grow Rich"
+  },
+  {
+    "rank": 20,
+    "item_id": 28690,
+    "item_name": "Digital Photography Expert Techniques (O'Reilly Digital Studio)"
+  },
+  {
+    "rank": 21,
+    "item_id": 23658,
+    "item_name": "Jack: Straight from the Gut"
+  },
+  {
+    "rank": 22,
+    "item_id": 5599,
+    "item_name": "The 4-hour Workweek: Escape the 9-5, Live Anywhere and Join the New Rich"
+  },
+  {
+    "rank": 23,
+    "item_id": 46832,
+    "item_name": "What to Do When You Become the Boss: How New Managers Become Successful Managers"
+  },
+  {
+    "rank": 24,
+    "item_id": 41688,
+    "item_name": "Tiger Woods How I Play Golf"
+  },
+  {
+    "rank": 25,
+    "item_id": 6216,
+    "item_name": "Nightly Business Report Presents Lasting Leadership: What You Can Learn from the Top 25 Business People of our Times"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

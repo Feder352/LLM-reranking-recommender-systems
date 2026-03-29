@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Blaze of Memory (Psy-Changelings, Book 7)"
+  },
+  {
+    "item_name": "Heart Change (A Celta Novel)"
+  },
+  {
+    "item_name": "Winter Kiss: A Dragonfire Novel"
+  },
+  {
+    "item_name": "Salt and Silver"
+  },
+  {
+    "item_name": "Daughters of the Sea #1: Hannah"
+  },
+  {
+    "item_name": "The Girl Who Chased the Moon: A Novel"
+  },
+  {
+    "item_name": "Beyond the Darkness (Guardians of Eternity, Book 6)"
+  },
+  {
+    "item_name": "Lion's Heat (A Novel of the Breeds)"
+  },
+  {
+    "item_name": "Burning Lamp (An Arcane Society Novel)"
+  },
+  {
+    "item_name": "Lover Mine (Black Dagger Brotherhood, Book 8)"
+  },
+  {
+    "item_name": "Saltation (The Liaden Universe)"
+  },
+  {
+    "item_name": "Touch of Seduction (Touch Trilogy)"
+  },
+  {
+    "item_name": "Dead in the Family (Sookie Stackhouse/True Blood, Book 10)"
+  },
+  {
+    "item_name": "Victorious"
+  },
+  {
+    "item_name": "Three Days to Dead (Dreg City, Book 1)"
+  },
+  {
+    "item_name": "Proof by Seduction (HQN)"
+  },
+  {
+    "item_name": "Magic Bleeds (Kate Daniels)"
+  },
+  {
+    "item_name": "Can't Teach an Old Demon New Tricks"
+  },
+  {
+    "item_name": "Cast in Chaos (Chronicles of Elantra, Book 6)"
+  },
+  {
+    "item_name": "Blood Song (The Blood Singer Novels)"
+  },
+  {
+    "item_name": "Imager's Intrigue (The Imager Portfolio)"
+  },
+  {
+    "item_name": "Once Bitten: The Haven Series (Novel of Haven)"
+  },
+  {
+    "item_name": "The Fire Lord's Lover (The Elven Lords)"
+  },
+  {
+    "item_name": "The Fire Lord&#39;s Lover (The Elven Lords Book 1) eBook"
+  },
+  {
+    "item_name": "Blown Away (A Storm Front Novel)"
+  },
+  {
+    "item_name": "Black Dust Mambo"
+  },
+  {
+    "item_name": "After Dark"
+  },
+  {
+    "item_name": "The Sleeping Beauty (Tales of the Five Hundred Kingdoms, Book 5)"
+  },
+  {
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "item_name": "Troubled Waters"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 2,
+    "item_name": "Dream Man"
+  },
+  {
+    "rank": 3,
+    "item_name": "Awaken Me Darkly (Alien Huntress, Book 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Key of Light by Nora Roberts (Large Print Hardback)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Turning"
+  },
+  {
+    "rank": 6,
+    "item_name": "Immortals: The Crossing"
+  },
+  {
+    "rank": 7,
+    "item_name": "Tempting the Beast (Feline Breeds, Book 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Fire Me Up (Aisling Grey, Guardian, Book 2)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Surrender My Love (Haardrad Family)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Scent of Shadows (Sign of the Zodiac, Book 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Born to Darkness (with bonus short story Shane's Last Stand)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Kitty and the Midnight Hour (Kitty Norville)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Guardian of Honor (The Summoning, Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Key of Valor (Key Trilogy)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Holiday in Death[HOLIDAY IN DEATH][Prebound]"
+  },
+  {
+    "rank": 16,
+    "item_name": "Master of Wolves (Mageverse, Book 5)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Cat (The Sons of Destiny, Book 5)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Love Overboard"
+  },
+  {
+    "rank": 19,
+    "item_name": "One Foot in the Grave (Night Huntress, Book 2)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Madhouse"
+  },
+  {
+    "rank": 21,
+    "item_name": "Men of the Otherworld"
+  },
+  {
+    "rank": 22,
+    "item_name": "Hidden"
+  },
+  {
+    "rank": 23,
+    "item_name": "Storm Born (Dark Swan, Book 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Enslave Me Sweetly (Alien Huntress, Book 2)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Destiny Kills (Myth and Magic)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Out of Time"
+  },
+  {
+    "rank": 27,
+    "item_name": "Dark Magic"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Darkest Secret (Lords of the Underworld)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Blood Cross (Jane Yellowrock, Book 2)"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Summer to Remember"
+  },
+  {
+    "rank": 31,
+    "item_name": "Dark Celebration (A Carpathian Reunion)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Shadow Dance: A Novel (Buchanan-Renard)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Sword (The Sons of Destiny, Book 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Grave Dance (Alex Craft)"
+  },
+  {
+    "rank": 35,
+    "item_name": "How to Marry a Millionaire Vampire (Love at Stake, Book 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Cordina's Royal Family: Bennett &amp; Camilla"
+  },
+  {
+    "rank": 37,
+    "item_name": "Living with the Dead: Women of the Otherworld (The Women of the Otherworld Series)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Secret Diaries of Miss Miranda Cheever"
+  },
+  {
+    "rank": 39,
+    "item_name": "Gone Too Far (Troubleshooters, Book 6)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Mane Event (Pride, Book 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "No One Left to Tell (The Baltimore Series)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Summoning the Night: An Arcadia Bell Novel (The Arcadia Bell series)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Tall, Dark &amp; Hungry (Argeneau Vampire)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Spell Bound (The Women of the Otherworld Series)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Key of Light: Key Trilogy, Book 1"
+  },
+  {
+    "rank": 47,
+    "item_name": "Touch of Evil (Thrall, Book 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Dark Symphony (The Carpathians (Dark) Series, Book 9)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Claimed by Shadow (Cassandra Palmer)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Visions of Heat (Psy-Changelings, Book 2)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

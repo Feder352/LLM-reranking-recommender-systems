@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Wizard of Oz"
+  },
+  {
+    "item_name": "Journey on a Runaway Train (The Boxcar Children Great Adventure)"
+  },
+  {
+    "item_name": "National Velvet"
+  },
+  {
+    "item_name": "Tightropes and Teeter-Totters: Finding Balance in the Ups and Downs of Life"
+  },
+  {
+    "item_name": "The Innkeeper of Ivy Hill (Tales from Ivy Hill)"
+  },
+  {
+    "item_name": "Beauty and the Beast (Illustrated)"
+  },
+  {
+    "item_name": "Journey to the Centre of the Earth"
+  },
+  {
+    "item_name": "Huck: The Remarkable True Story of How One Lost Puppy Taught a Family--and a Whole Town--About Hope and Happy Endings"
+  },
+  {
+    "item_name": "My Cousin Rachel"
+  },
+  {
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "item_name": "The Magnolia Story"
+  },
+  {
+    "item_name": "Asking for Trouble (London Confidential)"
+  },
+  {
+    "item_name": "The Illusionist's Apprentice"
+  },
+  {
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "item_name": "Present Over Perfect: Leaving Behind Frantic for a Simpler, More Soulful Way of Living"
+  },
+  {
+    "item_name": "Below the Surface (A Code of Silence Novel)"
+  },
+  {
+    "item_name": "The Hunchback of Notre-Dame (Puffin Classics)"
+  },
+  {
+    "item_name": "The Christmas Bus"
+  },
+  {
+    "item_name": "The Hunchback of Notre Dame (Xist Classics) - Kindle edition"
+  },
+  {
+    "item_name": "The Return of Sherlock Holmes (The World's Classics)"
+  },
+  {
+    "item_name": "The Man Who Invented Christmas: How Charles Dickens's A Christmas Carol Rescued His Career and Revived Our Holiday Spirits"
+  },
+  {
+    "item_name": "The Man Who Invented CHRISTMAS"
+  },
+  {
+    "item_name": "12 Days at Bleakly Manor: Book 1 in Once Upon a Dickens Christmas"
+  },
+  {
+    "item_name": "Noelle: A Novel (A Dog Named Christmas)"
+  },
+  {
+    "item_name": "Mystery in White: A Christmas Crime Story (British Library Crime Classics)"
+  },
+  {
+    "item_name": "Coffin Scarcely Used"
+  },
+  {
+    "item_name": "Maud: A Novel Inspired by the Life of L.M. Montgomery"
+  },
+  {
+    "item_name": "The Word Exchange"
+  },
+  {
+    "item_name": "The Valley of Fear (The Oxford Sherlock Holmes)"
+  },
+  {
+    "item_name": "20,000 Leagues Under the Sea"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 5,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 9,
+    "item_name": "These Happy Golden Years (Little House)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Les Miserables"
+  },
+  {
+    "rank": 13,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 14,
+    "item_name": "Little House Reader, A (Little House Books)"
+  },
+  {
+    "rank": 15,
+    "item_name": "One, Two, Buckle My Shoe"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Winnie-the-Pooh"
+  },
+  {
+    "rank": 17,
+    "item_name": "A Separate Peace"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Murder of Roger Ackroyd (Poirot)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 20,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Marvelous Land of Oz (Books of Wonder)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Moonstone: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "The ADVENTURES OF PINOCCHIO (DELUXE EDITION)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Little Women"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Turn of the Screw and Other Stories (Penguin modern classics)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 27,
+    "item_name": "Dune (Penguin Galaxy)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Speak"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 30,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 31,
+    "item_name": "A Princess of Mars (Penguin Classics)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Mockingjay: The Hunger Games"
+  },
+  {
+    "rank": 33,
+    "item_name": "Where the Wild Things Are"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Phantom of the Opera: The Original Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Rilla of Ingleside (Virago Modern Classics)"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Thousand Splendid Suns: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Pope Joan: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Les Miserables (Penguin Classics)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Of Mice and Men"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 41,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Murder on the Orient Express (Hercule Poirot)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Little House Books Set (Little House in the Big Woods / Farmer Boy / By the Shores of Silver Lake / The Long Winter / Little Town on the Prairie / These Happy Golden Years)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Woman in White (Penguin Classics)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Orphan Train: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Anna Karenin"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Five People You Meet in Heaven (Random House Large Print)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Cuckoo's Calling (Cormoran Strike)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

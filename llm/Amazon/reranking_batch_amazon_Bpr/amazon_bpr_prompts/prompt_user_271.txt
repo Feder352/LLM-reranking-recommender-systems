@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "An Unquiet Mind"
+  },
+  {
+    "item_name": "Burr"
+  },
+  {
+    "item_name": "John Adams"
+  },
+  {
+    "item_name": "The Order of Things: An Archaeology of the Human Sciences"
+  },
+  {
+    "item_name": "The Metaphysical Club : A Story of Ideas in America"
+  },
+  {
+    "item_name": "The Structure of Evolutionary Theory"
+  },
+  {
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "item_name": "The Mind of the South"
+  },
+  {
+    "item_name": "Look Away!: A History of the Confederate States of America"
+  },
+  {
+    "item_name": "The Hornet's Nest: A Novel of the Revolutionary War"
+  },
+  {
+    "item_name": "Atlas Shrugged"
+  },
+  {
+    "item_name": "The Americanization of Benjamin Franklin"
+  },
+  {
+    "item_name": "Gotham: A History of New York City to 1898 (The History of NYC Series)"
+  },
+  {
+    "item_name": "Fallen Founder: The Life of Aaron Burr"
+  },
+  {
+    "item_name": "What Hath God Wrought: The Transformation of America, 1815-1848 (The Oxford History of the United States, Vol. 5)"
+  },
+  {
+    "item_name": "The Age of American Unreason"
+  },
+  {
+    "item_name": "Europe: A History"
+  },
+  {
+    "item_name": "The Conservative Intellectual Movement in America Since 1945"
+  },
+  {
+    "item_name": "Into the Wild"
+  },
+  {
+    "item_name": "The World Is Flat 3.0: A Brief History of the Twenty-first Century"
+  },
+  {
+    "item_name": "Miracle at Philadelphia: The Story of the Constitutional Convention, May to September 1787 (2010-05-03)"
+  },
+  {
+    "item_name": "California Trips (Regional Travel Guide)"
+  },
+  {
+    "item_name": "Miracle at Philadelphia. With: The Men Who Made the Constitution. Special Bicentennial Portolio Edition"
+  },
+  {
+    "item_name": "Civilization: The West and the Rest"
+  },
+  {
+    "item_name": "American Transcendentalism: A History"
+  },
+  {
+    "item_name": "Cradle of Gold: The Story of Hiram Bingham, a Real-Life Indiana Jones, and the Search for Machu Picchu"
+  },
+  {
+    "item_name": "East of Eden"
+  },
+  {
+    "item_name": "The Republic of Pirates: Being the True and Surprising Story of the Caribbean Pirates and the Man Who Brought Them Down"
+  },
+  {
+    "item_name": "Inspired by Tradition: The Architecture of Norman Davenport Askins"
+  },
+  {
+    "item_name": "Fodor's Germany (Full-color Travel Guide)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 2,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 4,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 6,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 7,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 8,
+    "item_name": "King Leopold's Ghost: A Story of Greed, Terror, and Heroism in Colonial Africa"
+  },
+  {
+    "rank": 9,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 11,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 12,
+    "item_name": "1776 : America and Britain at War"
+  },
+  {
+    "rank": 13,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 14,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 16,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 17,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 19,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 21,
+    "item_name": "A Distant Mirror: the Calamitous 14th Century"
+  },
+  {
+    "rank": 22,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 23,
+    "item_name": "Tortilla Flat"
+  },
+  {
+    "rank": 24,
+    "item_name": "March of the Penguins: Companion to the Major Motion Picture"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 26,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 27,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 28,
+    "item_name": "Power and the Glory"
+  },
+  {
+    "rank": 29,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 30,
+    "item_name": "Godless: The Church of Liberalism"
+  },
+  {
+    "rank": 31,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 32,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 34,
+    "item_name": "Gettysburg: A Novel of the Civil War (The Gettysburg Trilogy)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 36,
+    "item_name": "Siddhartha: An Indian Tale (Penguin Twentieth-Century Classics)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Einstein: His Life and Universe"
+  },
+  {
+    "rank": 38,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 39,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 40,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Killer Angels: A Novel of the Civil War"
+  },
+  {
+    "rank": 42,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Why Orwell Matters"
+  },
+  {
+    "rank": 44,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 45,
+    "item_name": "With the Old Breed: The World War Two Pacific Classic"
+  },
+  {
+    "rank": 46,
+    "item_name": "SuperFreakonomics CD: Global Cooling, Patriotic Prostitutes, and Why Suicide Bombers Should Buy Life Insurance"
+  },
+  {
+    "rank": 47,
+    "item_name": "Comrades: Brothers, Fathers, Sons, Pals"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Problem from Hell : America and the Age of Genocide"
+  },
+  {
+    "rank": 49,
+    "item_name": "Stupid White Men ...And Other Sorry Excuses for the State of the Nation!"
+  },
+  {
+    "rank": 50,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

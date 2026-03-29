@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Murder in the Pearl District"
+  },
+  {
+    "item_name": "Key Witness: A Southwest Mystery"
+  },
+  {
+    "item_name": "Death By A HoneyBee (Josiah Reynolds Mystery 1)"
+  },
+  {
+    "item_name": "Archie Meets Nero Wolfe: A Prequel to Rex Stout's Nero Wolfe Mysteries (The Nero Wolfe Mysteries)"
+  },
+  {
+    "item_name": "Dancers in Mourning"
+  },
+  {
+    "item_name": "The Lady Who Sang High (The Reed Ferguson Mystery Series Book 7) - Kindle edition"
+  },
+  {
+    "item_name": "The Family Vault (Sarah Kelling and Max Bittersohn Mysteries)"
+  },
+  {
+    "item_name": "The Withdrawing Room (Sarah Kelling and Max Bittersohn Mysteries)"
+  },
+  {
+    "item_name": "Palace Guard (Sarah Kelling and Max Bittersohn Mysteries)"
+  },
+  {
+    "item_name": "A Man of Some Repute (A Very English Mystery)"
+  },
+  {
+    "item_name": "Dead in the Water"
+  },
+  {
+    "item_name": "Hallowe'En Party (Poirot)"
+  },
+  {
+    "item_name": "A Fatal Twist of Lemon: A Wisteria Tearoom Mystery (Volume 1)"
+  },
+  {
+    "item_name": "Pops: A Life of Louis Armstrong"
+  },
+  {
+    "item_name": "Maui Widow Waltz"
+  },
+  {
+    "item_name": "Green for Danger"
+  },
+  {
+    "item_name": "A Question of Inheritance (A Very English Mystery)"
+  },
+  {
+    "item_name": "The Alington Inheritance: A Miss Silver Mystery"
+  },
+  {
+    "item_name": "Elegy for Eddie: A Maisie Dobbs Novel"
+  },
+  {
+    "item_name": "Death in the English Countryside (Murder on Location) (Volume 1)"
+  },
+  {
+    "item_name": "Ghost at Work (Bailey Ruth Mysteries, No. 1)"
+  },
+  {
+    "item_name": "Murder in Adland: Inspector Skelgill Investigates (Detective Inspector Skelgill Investigates) (Volume 1)"
+  },
+  {
+    "item_name": "Switcheroo (The Gideon Oliver Mysteries)"
+  },
+  {
+    "item_name": "Coroner's Pidgin"
+  },
+  {
+    "item_name": "The Deadly Art Affair (Daisy McDare Deadly Affair Series) (Volume 1)"
+  },
+  {
+    "item_name": "Love Medicine (Perennial Modern Classics)"
+  },
+  {
+    "item_name": "The First World War: An Illustrated History"
+  },
+  {
+    "item_name": "Murder in Whistler (A Northwest Cozy Mystery Series) (Volume 2)"
+  },
+  {
+    "item_name": "Innocent House (Pocket Penguins 70's S.)"
+  },
+  {
+    "item_name": "Roosevelt's Centurions: FDR and the Commanders He Led to Victory in World War II"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2082,
+    "item_name": "Roses Are Red (Alex Cross)"
+  },
+  {
+    "rank": 2,
+    "item_id": 1005,
+    "item_name": "Birds of a Feather (Maisie Dobbs, Book 2)"
+  },
+  {
+    "rank": 3,
+    "item_id": 2351,
+    "item_name": "The King of Torts: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_id": 3129,
+    "item_name": "The Cat Who Saw Stars"
+  },
+  {
+    "rank": 5,
+    "item_id": 1601,
+    "item_name": "Hot Six"
+  },
+  {
+    "rank": 6,
+    "item_id": 4416,
+    "item_name": "Life Support"
+  },
+  {
+    "rank": 7,
+    "item_id": 2091,
+    "item_name": "Suzanne's Diary for Nicholas"
+  },
+  {
+    "rank": 8,
+    "item_id": 4502,
+    "item_name": "Fatal Voyage (Temperance Brennan Novels)"
+  },
+  {
+    "rank": 9,
+    "item_id": 190,
+    "item_name": "Whirlwind: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_id": 2227,
+    "item_name": "The Twisted Root: A William Monk Mystery"
+  },
+  {
+    "rank": 11,
+    "item_id": 776,
+    "item_name": "Aunt Dimity and the Duke (Aunt Dimity Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_id": 1997,
+    "item_name": "Lifeguard"
+  },
+  {
+    "rank": 13,
+    "item_id": 4491,
+    "item_name": "Before I Say Good-Bye"
+  },
+  {
+    "rank": 14,
+    "item_id": 3156,
+    "item_name": "Hunting Season"
+  },
+  {
+    "rank": 15,
+    "item_id": 2948,
+    "item_name": "Dating Dead Men"
+  },
+  {
+    "rank": 16,
+    "item_id": 4727,
+    "item_name": "Nighttime Is My Time"
+  },
+  {
+    "rank": 17,
+    "item_id": 1419,
+    "item_name": "Now Face to Face: A Novel (Tamworth Saga)"
+  },
+  {
+    "rank": 18,
+    "item_id": 2050,
+    "item_name": "Blood Work"
+  },
+  {
+    "rank": 19,
+    "item_id": 1,
+    "item_name": "Hand in Glove"
+  },
+  {
+    "rank": 20,
+    "item_id": 1616,
+    "item_name": "To the Nines: Stephanie Plum Novels"
+  },
+  {
+    "rank": 21,
+    "item_id": 715,
+    "item_name": "Skipping Christmas"
+  },
+  {
+    "rank": 22,
+    "item_id": 3947,
+    "item_name": "Hold Tight: A Suspense Thriller"
+  },
+  {
+    "rank": 23,
+    "item_id": 3340,
+    "item_name": "Indigo Dying (China Bayles Mystery)"
+  },
+  {
+    "rank": 24,
+    "item_id": 1785,
+    "item_name": "Among the Mad (Maisie Dobbs)"
+  },
+  {
+    "rank": 25,
+    "item_id": 3187,
+    "item_name": "Tribute"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

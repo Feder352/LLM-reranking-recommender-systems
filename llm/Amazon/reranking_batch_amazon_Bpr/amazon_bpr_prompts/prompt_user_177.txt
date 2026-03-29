@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Cake Thief"
+  },
+  {
+    "item_name": "The Fattening of America: How The Economy Makes Us Fat, If It Matters, and What To Do About It"
+  },
+  {
+    "item_name": "The Complete Far Side: 1980-1994"
+  },
+  {
+    "item_name": "The Gatherer"
+  },
+  {
+    "item_name": "The Painter from Shanghai: A Novel"
+  },
+  {
+    "item_name": "Sweet Georgia Brown"
+  },
+  {
+    "item_name": "A Walk for Sunshine: A 2,160 Mile Expedition for Charity on the Appalachian Trail"
+  },
+  {
+    "item_name": "The Last Days of Krypton"
+  },
+  {
+    "item_name": "Fixer"
+  },
+  {
+    "item_name": "Paul of Dune"
+  },
+  {
+    "item_name": "Passover by Design: Picture-perfect Kosher by Design recipes for the holiday (Kosher by Design)"
+  },
+  {
+    "item_name": "Colonel Trash Truck"
+  },
+  {
+    "item_name": "Positively Fifth Street: Murderers, Cheetahs, and Binion's World Series of Poker"
+  },
+  {
+    "item_name": "Secrets: You Tell Me Yours and I'll Tell You Mine Maybe"
+  },
+  {
+    "item_name": "The Sun and the Moon (The Brian D. McClure Children's Book Collection)"
+  },
+  {
+    "item_name": "RANGO (RENTAL READY)"
+  },
+  {
+    "item_name": "My Best Friend Abe Lincoln: A Tale of Two Boys From Indiana"
+  },
+  {
+    "item_name": "Steve Jobs: A Biography"
+  },
+  {
+    "item_name": "Fitness for Geeks: Real Science, Great Nutrition, and Good Health"
+  },
+  {
+    "item_name": "The Last Lecture"
+  },
+  {
+    "item_name": "The Four Agreements: A Practical Guide to Personal Freedom (A Toltec Wisdom Book)"
+  },
+  {
+    "item_name": "When Things Fall Apart"
+  },
+  {
+    "item_name": "Here If You Need Me: A True Story"
+  },
+  {
+    "item_name": "Salt Sugar Fat: How the Food Giants Hooked Us"
+  },
+  {
+    "item_name": "The Secret World of Oil"
+  },
+  {
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "item_name": "Ricky Ricotta's Mighty Robot (Astro-Activity Book O'Fun) by Pilkey, Dav (unknown Edition) [Paperback(2006)]"
+  },
+  {
+    "item_name": "Ricky Ricotta's Mighty Robot Book Set (7 Volumes)"
+  },
+  {
+    "item_name": "Ready Player One"
+  },
+  {
+    "item_name": "Mr. Penumbra's 24-Hour Bookstore: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 2,
+    "item_name": "March of the Penguins: Companion to the Major Motion Picture"
+  },
+  {
+    "rank": 3,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 4,
+    "item_name": "Godless: The Church of Liberalism"
+  },
+  {
+    "rank": 5,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Five People You Meet in Heaven (Random House Large Print)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 9,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 11,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 12,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 13,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 14,
+    "item_name": "Freakonomics: A Rogue Economist Explores the Hidden Side of Everything - by Steven D. Levitt &amp; Stephen J. Dubner"
+  },
+  {
+    "rank": 15,
+    "item_name": "Hannibal"
+  },
+  {
+    "rank": 16,
+    "item_name": "Night"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 19,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 21,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 22,
+    "item_name": "TEACHER MAN"
+  },
+  {
+    "rank": 23,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 25,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Our Endangered Values: America's Moral Crisis"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Purpose Driven Life"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 29,
+    "item_name": "My Man Godfrey"
+  },
+  {
+    "rank": 30,
+    "item_name": "1776 : America and Britain at War"
+  },
+  {
+    "rank": 31,
+    "item_name": "Reading &quot;Lolita&quot; in Tehran: A Memoir in Books"
+  },
+  {
+    "rank": 32,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 33,
+    "item_name": "What to Expect When You're Expecting"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Bluest Eye (Vintage International)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Timeline"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 37,
+    "item_name": "Gangs of New York"
+  },
+  {
+    "rank": 38,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 39,
+    "item_name": "Good to Great CD: Why Some Companies Make the Leap.And Others Don't"
+  },
+  {
+    "rank": 40,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 41,
+    "item_name": "Into Thin Air: A Personal Account of the Mt. Everest Disaster"
+  },
+  {
+    "rank": 42,
+    "item_name": "Maus: My Father Bleeds History Pt. 1: A Survivor's Tale (Penguin Graphic Fiction)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Dreamcatcher"
+  },
+  {
+    "rank": 44,
+    "item_name": "John Adams"
+  },
+  {
+    "rank": 45,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 47,
+    "item_name": "No Country for Old Men"
+  },
+  {
+    "rank": 48,
+    "item_name": "Misquoting Jesus: The Story Behind Who Changed the Bible and Why"
+  },
+  {
+    "rank": 49,
+    "item_name": "Liberal Fascism: The Secret History of the Left from Mussolini to the Politics of Meaning"
+  },
+  {
+    "rank": 50,
+    "item_name": "What to Expect When You're Expecting, Third Edition"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

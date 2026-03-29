@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "My Lord Rogue (Nelson's Tea)"
+  },
+  {
+    "item_name": "Surrender: A Bitter Creek Novel"
+  },
+  {
+    "item_name": "The First Kiss of Spring: An Eternity Springs Novel"
+  },
+  {
+    "item_name": "As the Devil Dares (Capturing the Carlisles)"
+  },
+  {
+    "item_name": "Married in Montana"
+  },
+  {
+    "item_name": "Deacon Johns (Heartbreakers &amp; Heroes) (Volume 4)"
+  },
+  {
+    "item_name": "Duke of Desire (Maiden Lane)"
+  },
+  {
+    "item_name": "Knox (An Out of the Cage Novel) (Volume 3)"
+  },
+  {
+    "item_name": "Deacon Johns (Heartbreakers &amp; Heroes) (Volume 4)"
+  },
+  {
+    "item_name": "Riptide of Romance: A Fake Marriage Sports Romance (Pleasure Point Series)"
+  },
+  {
+    "item_name": "Vegas Dumb Luck: A P. J. Stone Romance"
+  },
+  {
+    "item_name": "Lord of Temptation (Rogues to Riches) (Volume 4)"
+  },
+  {
+    "item_name": "The Duke of Ruin (The Untouchables) (Volume 8)"
+  },
+  {
+    "item_name": "The Secret of Flirting (The Sinful Suitors)"
+  },
+  {
+    "item_name": "The Pirate Bride: Daughters of the Mayflower - Book 2"
+  },
+  {
+    "item_name": "The Vixen &amp; the Vet"
+  },
+  {
+    "item_name": "Gentlemen Prefer Spinsters (Spinsters Club) (Volume 1)"
+  },
+  {
+    "item_name": "The Sixth Day (A Brit in the FBI)"
+  },
+  {
+    "item_name": "Earl of St. Seville: Wicked Regency Romance (Wicked Earls' Club)"
+  },
+  {
+    "item_name": "Because of You"
+  },
+  {
+    "item_name": "Blaike: Secrets Gone Askew (Conundrums of the Misses Culpepper) (Volume 4)"
+  },
+  {
+    "item_name": "Match Me if You Can (No Match for Love)"
+  },
+  {
+    "item_name": "The Perfect Duchess (The Macalisters)"
+  },
+  {
+    "item_name": "A Devil of a Duke (Decadent Dukes Society)"
+  },
+  {
+    "item_name": "Hard Pack: A Billionaire Romance (Ridden Hard) (Volume 2)"
+  },
+  {
+    "item_name": "A Duke Like No Other (Playful Brides)"
+  },
+  {
+    "item_name": "Tempting Levi (Cade Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "The Luck of the Bride: The Cavensham Heiresses"
+  },
+  {
+    "item_name": "Lord of Secrets (Rogues to Riches) (Volume 5)"
+  },
+  {
+    "item_name": "Accidental Hero: A Marriage Mistake Romance"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Right Kind of Rogue (Playful Brides)"
+  },
+  {
+    "rank": 2,
+    "item_name": "My One True Highlander: A No Ordinary Hero Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Date The Billionaire"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Viscount's Christmas Temptation (Dukes of War) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Playing with Fire: A Single Dad and Nanny Romance (Game Time)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Millionaire's Revenge"
+  },
+  {
+    "rank": 7,
+    "item_name": "Dagger's Edge: A Brute Force Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Sheikh's Fake Fiancee (Azhar Sheikhs) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "SEAL Defender (Brothers In Arms) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Cop On Her Doorstep (True Love In Uniform) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Beta's Second Chance (Rocky Mountain Shifters) (Volume 4)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Montana SEAL Daddy (Brotherhood Protectors) (Volume 7)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Darkest Night: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Mastered: Teagan (Sanctuary, Texas) (Volume 4)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Tornado: A Paranormal Romance (Savage Brotherhood MC) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Duke Meets His Match (Infamous Somertons)"
+  },
+  {
+    "rank": 17,
+    "item_name": "To Love A Mate (VonBrandt Family) (Volume 2)"
+  },
+  {
+    "rank": 18,
+    "item_name": "No Place Like You: A Cloud Bay Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Lord of Pleasure"
+  },
+  {
+    "rank": 20,
+    "item_name": "Tempest in the Highlands (The Scottish Relic Trilogy)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Maybe This Time: A Whiskey and Weddings Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Her Highland Master (Dungeon Fantasy Club)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Wallflower's Wicked Wager (A Waltz with a Rogue Novella) (Volume 5)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Ranger Trent (Shifter Nation: Werebears Of Acadia) (Volume 2)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Kerr: Paranormal Sci-Fi Alien Romance (lien Mates)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Dirty Liar: An Irish Mafia Romance"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Nanny: A Single Dad Romance"
+  },
+  {
+    "rank": 28,
+    "item_name": "Bound for Life (Bound to the Bad Boy) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "RULED_HARD RIDERS MC1 PB"
+  },
+  {
+    "rank": 30,
+    "item_name": "Sam's Surrender (Hearts &amp; Heroes) (Volume 4)"
+  },
+  {
+    "rank": 31,
+    "item_name": "A June Wedding: A Regency Romance"
+  },
+  {
+    "rank": 32,
+    "item_name": "Montana Cherries (The Wildes of Birch Bay)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Trapped in the Cabin"
+  },
+  {
+    "rank": 34,
+    "item_name": "Duke with Benefits (Studies in Scandal)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Never Trust a Pirate (Playful Brides)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Hostage for the Sheikh: A Royal Billionaire Romance Novel (Curves for Sheikhs Series) (Volume 3)"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Cruel Kind of Beautiful (Sex, Love, and Rock and Roll series) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Steal Me"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Sheikh's Unforgettable Lover (The Sharqi Sheikhs Series) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Susana and the Scot (Untamed Highlanders)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Blood Bound"
+  },
+  {
+    "rank": 42,
+    "item_name": "When the Stars Come Out: A Cottonbloom Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Sexy Business: Vladimir Kensley"
+  },
+  {
+    "rank": 44,
+    "item_name": "Exposed: A Bad Boy Contemporary Romance"
+  },
+  {
+    "rank": 45,
+    "item_name": "Marrying the Wrong Earl"
+  },
+  {
+    "rank": 46,
+    "item_name": "Boxer Next Door"
+  },
+  {
+    "rank": 47,
+    "item_name": "Her Dragon Professor"
+  },
+  {
+    "rank": 48,
+    "item_name": "Mine: A Stepbrother Romance"
+  },
+  {
+    "rank": 49,
+    "item_name": "Cowboy Stole My Heart: A River Ranch Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "DAX Bad Boys Of Willow Valley"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

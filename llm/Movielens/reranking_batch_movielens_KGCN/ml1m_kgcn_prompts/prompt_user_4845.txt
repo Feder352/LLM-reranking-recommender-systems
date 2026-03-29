@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Splash"
+  },
+  {
+    "item_name": "Speed"
+  },
+  {
+    "item_name": "Dead Again"
+  },
+  {
+    "item_name": "Love and Other Catastrophes"
+  },
+  {
+    "item_name": "Singles"
+  },
+  {
+    "item_name": "Object of My Affection, The"
+  },
+  {
+    "item_name": "L.A. Story"
+  },
+  {
+    "item_name": "American President, The"
+  },
+  {
+    "item_name": "While You Were Sleeping"
+  },
+  {
+    "item_name": "Hudsucker Proxy, The"
+  },
+  {
+    "item_name": "Benny & Joon"
+  },
+  {
+    "item_name": "Carrington"
+  },
+  {
+    "item_name": "Trick"
+  },
+  {
+    "item_name": "Before Sunrise"
+  },
+  {
+    "item_name": "Forrest Gump"
+  },
+  {
+    "item_name": "Star Wars: Episode VI - Return of the Jedi"
+  },
+  {
+    "item_name": "She's Gotta Have It"
+  },
+  {
+    "item_name": "Dave"
+  },
+  {
+    "item_name": "Fabulous Baker Boys, The"
+  },
+  {
+    "item_name": "Notting Hill"
+  },
+  {
+    "item_name": "Shadowlands"
+  },
+  {
+    "item_name": "Circle of Friends"
+  },
+  {
+    "item_name": "Some Kind of Wonderful"
+  },
+  {
+    "item_name": "Wedding Singer, The"
+  },
+  {
+    "item_name": "Walk on the Moon, A"
+  },
+  {
+    "item_name": "Truth About Cats & Dogs, The"
+  },
+  {
+    "item_name": "Beyond Silence"
+  },
+  {
+    "item_name": "Dear Diary (Caro Diario)"
+  },
+  {
+    "item_name": "My Favorite Season"
+  },
+  {
+    "item_name": "To Kill a Mockingbird"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 303,
+    "item_name": "Mrs. Brown (Her Majesty, Mrs. Brown)"
+  },
+  {
+    "rank": 2,
+    "item_id": 412,
+    "item_name": "Emma"
+  },
+  {
+    "rank": 3,
+    "item_id": 56,
+    "item_name": "Shall We Dance? (Shall We Dansu?)"
+  },
+  {
+    "rank": 4,
+    "item_id": 345,
+    "item_name": "Little Voice"
+  },
+  {
+    "rank": 5,
+    "item_id": 247,
+    "item_name": "Cold Comfort Farm"
+  },
+  {
+    "rank": 6,
+    "item_id": 177,
+    "item_name": "Full Monty, The"
+  },
+  {
+    "rank": 7,
+    "item_id": 1750,
+    "item_name": "Smoke Signals"
+  },
+  {
+    "rank": 8,
+    "item_id": 1937,
+    "item_name": "Three Colors: Blue"
+  },
+  {
+    "rank": 9,
+    "item_id": 1908,
+    "item_name": "Women on the Verge of a Nervous Breakdown"
+  },
+  {
+    "rank": 10,
+    "item_id": 222,
+    "item_name": "Clueless"
+  },
+  {
+    "rank": 11,
+    "item_id": 229,
+    "item_name": "Wings of the Dove, The"
+  },
+  {
+    "rank": 12,
+    "item_id": 361,
+    "item_name": "Bullets Over Broadway"
+  },
+  {
+    "rank": 13,
+    "item_id": 435,
+    "item_name": "Elizabeth"
+  },
+  {
+    "rank": 14,
+    "item_id": 2145,
+    "item_name": "Ideal Husband, An"
+  },
+  {
+    "rank": 15,
+    "item_id": 392,
+    "item_name": "Moonstruck"
+  },
+  {
+    "rank": 16,
+    "item_id": 252,
+    "item_name": "Don Juan DeMarco"
+  },
+  {
+    "rank": 17,
+    "item_id": 357,
+    "item_name": "Opposite of Sex, The"
+  },
+  {
+    "rank": 18,
+    "item_id": 400,
+    "item_name": "My Best Friend's Wedding"
+  },
+  {
+    "rank": 19,
+    "item_id": 1310,
+    "item_name": "Englishman Who Went Up a Hill, But Came Down a Mountain, The"
+  },
+  {
+    "rank": 20,
+    "item_id": 2289,
+    "item_name": "Brassed Off"
+  },
+  {
+    "rank": 21,
+    "item_id": 346,
+    "item_name": "My Life in Pink (Ma vie en rose)"
+  },
+  {
+    "rank": 22,
+    "item_id": 249,
+    "item_name": "Mansfield Park"
+  },
+  {
+    "rank": 23,
+    "item_id": 337,
+    "item_name": "Howards End"
+  },
+  {
+    "rank": 24,
+    "item_id": 1480,
+    "item_name": "Double Life of Veronique, The (La Double Vie de Véronique)"
+  },
+  {
+    "rank": 25,
+    "item_id": 299,
+    "item_name": "Go Fish"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

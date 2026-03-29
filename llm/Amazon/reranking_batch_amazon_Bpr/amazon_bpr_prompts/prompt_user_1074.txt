@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Schizo: Hidden in Plain Sight (The Schizo Series)"
+  },
+  {
+    "item_name": "Bang Bang I Hurt the Moon (Somos8)"
+  },
+  {
+    "item_name": "Marcel"
+  },
+  {
+    "item_name": "Endangered: A Novel"
+  },
+  {
+    "item_name": "Smashed (Las Vegas Mystery)"
+  },
+  {
+    "item_name": "Terrible Virtue: A Novel"
+  },
+  {
+    "item_name": "Undisclosed Files of the Police: Cases from the Archives of the NYPD from 1831 to the Present"
+  },
+  {
+    "item_name": "Shaken and Stirred: Intoxicating Stories (Everyman's Library Pocket Classics Series)"
+  },
+  {
+    "item_name": "The Real Liddy James"
+  },
+  {
+    "item_name": "Idaho"
+  },
+  {
+    "item_name": "Bertrand Court"
+  },
+  {
+    "item_name": "The Next: A Novel"
+  },
+  {
+    "item_name": "Pachinko (National Book Award Finalist)"
+  },
+  {
+    "item_name": "And the Dark Sacred Night: A Novel"
+  },
+  {
+    "item_name": "Hyacinth Girls: A Novel"
+  },
+  {
+    "item_name": "The Silenced (Krewe of Hunters)"
+  },
+  {
+    "item_name": "The Forgotten (Krewe of Hunters)"
+  },
+  {
+    "item_name": "The Whole Town's Talking: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "Once Shadows Fall: A Thriller (A Jack Kale and Beth Sturgis Thriller)"
+  },
+  {
+    "item_name": "Sh*t Politicians Say: The Funniest, Dumbest, Most Outrageous Things Ever Uttered By Our Leaders"
+  },
+  {
+    "item_name": "After the Fall (The Laura Nelson Series)"
+  },
+  {
+    "item_name": "June: A Novel"
+  },
+  {
+    "item_name": "Untethered"
+  },
+  {
+    "item_name": "Claiming Noah"
+  },
+  {
+    "item_name": "Throw Away Girls (The Jaycee Wilder Series)"
+  },
+  {
+    "item_name": "The Education of Dixie Dupree"
+  },
+  {
+    "item_name": "Born a Crime"
+  },
+  {
+    "item_name": "Jesse Ventura's Marijuana Manifesto: How Lies, Corruption, and Propaganda Kept Cannabis Illegal"
+  },
+  {
+    "item_name": "Florence Nightingale: The Courageous Life of the Legendary Nurse"
+  },
+  {
+    "item_name": "What Becomes Us"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Daredevils: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Thirty Girls"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Wild Ones"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Silver Witch: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Bitter Remains: A Custody Battle, A Gruesome Crime, and the Mother Who Paid the Ultimate Price"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Star for Mrs. Blake"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Francis Miracle: Inside the Transformation of the Pope and the Church"
+  },
+  {
+    "rank": 9,
+    "item_name": "Neo Parasyte m"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Death of Bees: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "Dog Trouble!"
+  },
+  {
+    "rank": 12,
+    "item_name": "Lillian on Life"
+  },
+  {
+    "rank": 13,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 14,
+    "item_name": "Bed Hog"
+  },
+  {
+    "rank": 15,
+    "item_name": "China Rich Girlfriend: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Innocent Sleep: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Shadow Queen: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Girl With Nine Wigs: A Memoir"
+  },
+  {
+    "rank": 19,
+    "item_name": "Mad Richard"
+  },
+  {
+    "rank": 20,
+    "item_name": "In the Valley of the Sun: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "How to Write a Novel (Vintage Contemporaries)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Mrs. Sinclair's Suitcase"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Knockoff: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "I Hear Them Cry"
+  },
+  {
+    "rank": 25,
+    "item_name": "Where I Belong"
+  },
+  {
+    "rank": 26,
+    "item_name": "The End of Innocence: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Art of Not Having it All: True Stories of Men, Sex, and Other Disasters"
+  },
+  {
+    "rank": 28,
+    "item_name": "From Bruges with Love (The Pieter Van In Mysteries)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Tyrant's Daughter"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Red Bandanna: A Life. A Choice. A Legacy."
+  },
+  {
+    "rank": 31,
+    "item_name": "House of Glass"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Life of Objects"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Twin Powers (The Twinning Project)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Outsider: My Life in Intrigue"
+  },
+  {
+    "rank": 35,
+    "item_name": "What I Was Doing While You Were Breeding: A Memoir"
+  },
+  {
+    "rank": 36,
+    "item_name": "Book of Ages: The Life and Opinions of Jane Franklin"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Land of Decoration"
+  },
+  {
+    "rank": 38,
+    "item_name": "Twain's End"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Gospel of Winter"
+  },
+  {
+    "rank": 40,
+    "item_name": "Crude Carrier (The Touchstone Agency Mysteries)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Dirt"
+  },
+  {
+    "rank": 42,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Against Wind and Tide: Letters and Journals, 1947-1986"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Other Language"
+  },
+  {
+    "rank": 45,
+    "item_name": "Space Case (Moon Base Alpha)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Hidden Inheritance: Family Secrets, Memory, and Faith"
+  },
+  {
+    "rank": 47,
+    "item_name": "Vanessa and Her Sister: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Heat of the Sun: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Golden Age (The Last Hundred Years Trilogy: A Family Saga)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Sisters of Heart and Snow"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

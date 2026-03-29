@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Woman In The Dark: A Novel of Dangerous Romance"
+  },
+  {
+    "item_name": "Hooking Up"
+  },
+  {
+    "item_name": "Trotsky: Downfall of a Revolutionary"
+  },
+  {
+    "item_name": "Trotsky: A Biography"
+  },
+  {
+    "item_name": "Freedom from Fear: The American People in Depression and War, 1929-1945 (Oxford History of the United States)"
+  },
+  {
+    "item_name": "Harvard Yard"
+  },
+  {
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "item_name": "Anti-Intellectualism in American Life"
+  },
+  {
+    "item_name": "L.A. Confidential"
+  },
+  {
+    "item_name": "The Lincoln Lawyer (Large Print)"
+  },
+  {
+    "item_name": "The Postman Always Rings Twice, Double Indemnity, Mildred Pierce, and Selected Stories (Everyman's Library Classics)"
+  },
+  {
+    "item_name": "Exile and the Kingdom"
+  },
+  {
+    "item_name": "The Wretched of the Earth"
+  },
+  {
+    "item_name": "Pillar of Fire: America in the King Years 1963-65"
+  },
+  {
+    "item_name": "The Novels of Dashiell Hammett"
+  },
+  {
+    "item_name": "Franny and Zooey"
+  },
+  {
+    "item_name": "Poodle Springs"
+  },
+  {
+    "item_name": "Dark Victory (Wisconsin / Warner Bros. Screenplays Series)"
+  },
+  {
+    "item_name": "Moonlight Mile"
+  },
+  {
+    "item_name": "Given Day Unabridged CD, The"
+  },
+  {
+    "item_name": "The Hunter and Other Stories"
+  },
+  {
+    "item_name": "Sixkill (Spenser Mystery)"
+  },
+  {
+    "item_name": "High Profile (A Jesse Stone Novel)"
+  },
+  {
+    "item_name": "Back Story (Spenser Mystery)"
+  },
+  {
+    "item_name": "Stardust"
+  },
+  {
+    "item_name": "Potshot"
+  },
+  {
+    "item_name": "The Manchurian Candidate"
+  },
+  {
+    "item_name": "Casino"
+  },
+  {
+    "item_name": "Inherit the Wind: The Powerful Drama of the Greatest Courtroom Clash of the Century"
+  },
+  {
+    "item_name": "Charade (Essence Bestselling Author)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 3,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 5,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Alexandria Quartet"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 8,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 10,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Power and the Glory"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Amazing Adventures of Kavalier &amp; Clay"
+  },
+  {
+    "rank": 13,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Bluest Eye (Vintage International)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 17,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Corrections"
+  },
+  {
+    "rank": 20,
+    "item_name": "Tortilla Flat"
+  },
+  {
+    "rank": 21,
+    "item_name": "Appointment in Samarra (Vintage Classics)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 25,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 26,
+    "item_name": "King Leopold's Ghost: A Story of Greed, Terror, and Heroism in Colonial Africa"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Connecticut Yankee in King Arthur's Court (Penguin Classics)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 30,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 31,
+    "item_name": "Underworld"
+  },
+  {
+    "rank": 32,
+    "item_name": "Lord of the Flies"
+  },
+  {
+    "rank": 33,
+    "item_name": "Lord of the Flies"
+  },
+  {
+    "rank": 34,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Iliad"
+  },
+  {
+    "rank": 36,
+    "item_name": "Utopia (Penguin Classics)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Heart of Darkness (Modern Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Balthazar [Paperback] [Jan 01, 2008] Lawrence Durrell"
+  },
+  {
+    "rank": 40,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 41,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 42,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 45,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 46,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 47,
+    "item_name": "Light in August (Modern Library College Editions Series)"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The naked and the dead"
+  },
+  {
+    "rank": 50,
+    "item_name": "Embers"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

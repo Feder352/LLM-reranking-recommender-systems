@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Henry and the Hidden Treasure"
+  },
+  {
+    "item_name": "Rising Tide: Dark Innocence (The Maura DeLuca Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "item_name": "Lottery in Paradise (Paradise Series) (Volume 11)"
+  },
+  {
+    "item_name": "Alycat and the Monday Blues"
+  },
+  {
+    "item_name": "Halloween Is Murder (McKinley Mysteries)"
+  },
+  {
+    "item_name": "Gone Daddy Gone (Sloane Monroe) (Volume 7)"
+  },
+  {
+    "item_name": "Black Dawn"
+  },
+  {
+    "item_name": "The Sky Throne"
+  },
+  {
+    "item_name": "An Unexpected Afterlife (The Dry Bones Society) (Volume 1)"
+  },
+  {
+    "item_name": "The Supernatural Pet Sitter: The Curse (Volume 2)"
+  },
+  {
+    "item_name": "Rimrider (Rimrider Adventures) (Volume 1)"
+  },
+  {
+    "item_name": "Christmas Recipes From Five of Your Favorite Authors"
+  },
+  {
+    "item_name": "Her Christmas Chance: A Holiday Love Story (Christmas Creek Romance) (Volume 2)"
+  },
+  {
+    "item_name": "Gingerbread at Moonglow"
+  },
+  {
+    "item_name": "Christmas in Paradise (Paradise Series)"
+  },
+  {
+    "item_name": "Dangerous Ends: (Pete Fernandez Book 3)"
+  },
+  {
+    "item_name": "The Case of the Cursed Dodo (The Endangered Files) (Volume 1)"
+  },
+  {
+    "item_name": "Ambushed in Paradise (Paradise Series) (Volume 12)"
+  },
+  {
+    "item_name": "Kiss Carlo: A Novel"
+  },
+  {
+    "item_name": "Engaged in Danger: A Jamie Quinn Mystery (Jamie Quinn Cozy Mystery Book 4) (Jamie Quinn Cozy Mysteries) (Volume 4)"
+  },
+  {
+    "item_name": "A Witch's Path (Witch's Path Series) (Volume 2)"
+  },
+  {
+    "item_name": "Twofer Murder"
+  },
+  {
+    "item_name": "Murder on the SS Rosa (A Ginger God Mystery - a Prequel Novella)"
+  },
+  {
+    "item_name": "The Dragon Grammar Book: Grammar for Kids, Dragons, and the Whole Kingdom"
+  },
+  {
+    "item_name": "Clod Makes A Friend"
+  },
+  {
+    "item_name": "Hunters: Hunters #1 (Demons) (Volume 1)"
+  },
+  {
+    "item_name": "Will to Live: Detective Kay Hunter crime thriller series (Kay Hunter British detective crime thriller series) (Volume 2)"
+  },
+  {
+    "item_name": "Hell to Pay: A Detective Kay Hunter crime thriller (Kay Hunter British detective crime thriller series) (Volume 4)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Wind Catcher (Chosen)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Children&#39;s Books: Emma Learns to Sprout [short stories for children] - Kindle edition"
+  },
+  {
+    "rank": 3,
+    "item_name": "The History Major: A Novella"
+  },
+  {
+    "rank": 4,
+    "item_name": "Rarity From the Hollow"
+  },
+  {
+    "rank": 5,
+    "item_name": "Amanda Lester and the Pink Sugar Conspiracy (Amanda Lester, Detective)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Marry Your Billionaire"
+  },
+  {
+    "rank": 7,
+    "item_name": "Ghost Leopard: A Zoe &amp; Zak Adventure (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Grimm Chronicles, Vol. 1"
+  },
+  {
+    "rank": 9,
+    "item_name": "Monsterland (Monsterland Series) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Day with Moo: A Best Friend Book (The Adventures of Midge and Moo) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "My Grandma's a Ninja"
+  },
+  {
+    "rank": 12,
+    "item_name": "Aoleon The Martian Girl: Science Fiction Saga - Part 4 Illegal Aliens"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Rise of the Dawnstar (Avalonia Chronicles)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Reality Natalie"
+  },
+  {
+    "rank": 15,
+    "item_name": "Murder in Palm Beach: The Homicide That Never Died"
+  },
+  {
+    "rank": 16,
+    "item_name": "At the Sharp End of Lightning (Oceanlight) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Trespassers: a novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "Mama Cried eBook"
+  },
+  {
+    "rank": 19,
+    "item_name": "Cat O' Nine Tales"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Knights Before Christmas"
+  },
+  {
+    "rank": 21,
+    "item_name": "ICED: A Resort to Murder Mystery"
+  },
+  {
+    "rank": 22,
+    "item_name": "One Hundred Eggs for Henrietta"
+  },
+  {
+    "rank": 23,
+    "item_name": "Bellyache: A Delicious Tale"
+  },
+  {
+    "rank": 24,
+    "item_name": "Gingerbread Man: A Marlow and Sage Mystery (A Nursery Rhyme Mystery) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Just Juliet"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Mystic Princesses and the Whirlpool: Color Illustrations (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Fearless Joe Dearborne"
+  },
+  {
+    "rank": 28,
+    "item_name": "Big Money"
+  },
+  {
+    "rank": 29,
+    "item_name": "Murder in Cuba"
+  },
+  {
+    "rank": 30,
+    "item_name": "Caterpillar Shoes"
+  },
+  {
+    "rank": 31,
+    "item_name": "School of Deaths (The Scythe Wielder's Secret)"
+  },
+  {
+    "rank": 32,
+    "item_name": "If You Were Me and Lived on...Mars (A Child's Introduction to Cultures Around the World) (Volume 23)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Water So Deep"
+  },
+  {
+    "rank": 34,
+    "item_name": "Sing-Along Construction Song"
+  },
+  {
+    "rank": 35,
+    "item_name": "I Don't Want To Go To School"
+  },
+  {
+    "rank": 36,
+    "item_name": "Chocolate With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Kitty Hawk and the Curse of the Yukon Gold: Book One of the Kitty Hawk Flying Detective Agency Series (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Special Offers: Book 1 of the Coursodon Dimension Series (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Dead Line (A Cal Murphy Thriller) (Volume 2)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Paper Love (A Chicago Christmas)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Kevin and the Seven Lions (Kevin's Books)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Children of Darkness (The Seekers)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Captain No Beard: An Imaginary Tale of a Pirate's Life"
+  },
+  {
+    "rank": 44,
+    "item_name": "Little Bird Lost: A Rhyming Picture Story - Kindle edition"
+  },
+  {
+    "rank": 45,
+    "item_name": "Night Buddies and the Pineapple Cheesecake Scare (Adventures After Lghts Out)"
+  },
+  {
+    "rank": 46,
+    "item_name": "If You Were Me and Lived in...Israel: A Child's Introduction to Cultures Around the World (Volume 19)"
+  },
+  {
+    "rank": 47,
+    "item_name": "It's NOT Just A Dog! (Project Madison Series) (Volume 2)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Amber Project (The Variant Saga) (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Terry Treetop Finds New Friends (Bedtime Stories Children's Books for Early &amp; Beginner Readers) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The SOCKKIDS Meet Lincoln"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

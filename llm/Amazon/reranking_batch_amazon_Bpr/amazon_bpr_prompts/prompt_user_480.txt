@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "item_name": "All Quiet on the Western Front (with Related Readings)"
+  },
+  {
+    "item_name": "All Quiet on the Western Front (World War I) by Erich Maria Remarque (2014-03-15)"
+  },
+  {
+    "item_name": "The Testament"
+  },
+  {
+    "item_name": "Bobos in Paradise: The New Upper Class and How They Got There"
+  },
+  {
+    "item_name": "Things Fall Apart: With Connections (Holt McDougal Library, High School with Connections)"
+  },
+  {
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  },
+  {
+    "item_name": "The Mysteries Of Pittsburgh"
+  },
+  {
+    "item_name": "Hadrian and the Triumph of Rome"
+  },
+  {
+    "item_name": "Rebbe: The Life and Teachings of Menachem M. Schneerson, the Most Influential Rabbi in Modern History"
+  },
+  {
+    "item_name": "Barchester Towers (Penguin Classics)"
+  },
+  {
+    "item_name": "Prime of Miss Jean Brodie, The (Perennial Classics)"
+  },
+  {
+    "item_name": "Cut Me Loose: Sin and Salvation After My Ultra-Orthodox Girlhood"
+  },
+  {
+    "item_name": "This Way for the Gas, Ladies and Gentlemen"
+  },
+  {
+    "item_name": "Year of Meteors: Stephen Douglas, Abraham Lincoln, and the Election that Brought on the Civil War"
+  },
+  {
+    "item_name": "Tales of the Hasidim (The Early Masters / The Later Masters)"
+  },
+  {
+    "item_name": "Revolutionary Road"
+  },
+  {
+    "item_name": "Austerlitz"
+  },
+  {
+    "item_name": "Make It Stick: The Science of Successful Learning"
+  },
+  {
+    "item_name": "Live Right and Find Happiness (Although Beer is Much Faster): Life Lessons and Other Ravings from Dave Barry"
+  },
+  {
+    "item_name": "The Wind Done Gone: A Novel"
+  },
+  {
+    "item_name": "Economics in One Lesson: The Shortest and Surest Way to Understand Basic Economics"
+  },
+  {
+    "item_name": "The Zookeeper's Wife: A War Story"
+  },
+  {
+    "item_name": "The Road to Character"
+  },
+  {
+    "item_name": "Silas Marner: (RED edition) (Penguin Classics: Red)"
+  },
+  {
+    "item_name": "The Rooster Bar"
+  },
+  {
+    "item_name": "A Woman in Berlin: Eight Weeks in the Conquered City: A Diary"
+  },
+  {
+    "item_name": "Best. State. Ever.: A Florida Man Defends His Homeland"
+  },
+  {
+    "item_name": "Seven Blessings: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Bluest Eye (Vintage International)"
+  },
+  {
+    "rank": 5,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 6,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 7,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 8,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 9,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 10,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 11,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 13,
+    "item_name": "Night"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 15,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 17,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 19,
+    "item_name": "In Defense of Food: An Eater's Manifesto"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 21,
+    "item_name": "Darkness Visible"
+  },
+  {
+    "rank": 22,
+    "item_name": "1493: Uncovering the New World Columbus Created"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 24,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 25,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 26,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 27,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 28,
+    "item_name": "1776 : America and Britain at War"
+  },
+  {
+    "rank": 29,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 31,
+    "item_name": "Gangs of New York"
+  },
+  {
+    "rank": 32,
+    "item_name": "March of the Penguins: Companion to the Major Motion Picture"
+  },
+  {
+    "rank": 33,
+    "item_name": "Into Thin Air: A Personal Account of the Mt. Everest Disaster"
+  },
+  {
+    "rank": 34,
+    "item_name": "Comrades: Brothers, Fathers, Sons, Pals"
+  },
+  {
+    "rank": 35,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Things They Carried (Contemporary American Fiction)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Siddhartha: An Indian Tale (Penguin Twentieth-Century Classics)"
+  },
+  {
+    "rank": 40,
+    "item_name": "King Leopold's Ghost: A Story of Greed, Terror, and Heroism in Colonial Africa"
+  },
+  {
+    "rank": 41,
+    "item_name": "Appointment in Samarra (Vintage Classics)"
+  },
+  {
+    "rank": 42,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 43,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 44,
+    "item_name": "John Adams"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 46,
+    "item_name": "Predictably Irrational: The Hidden Forces That Shape Our Decisions"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 48,
+    "item_name": "Under the Banner of Heaven : A Story of Violent Faith"
+  },
+  {
+    "rank": 49,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 50,
+    "item_name": "River of Doubt"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

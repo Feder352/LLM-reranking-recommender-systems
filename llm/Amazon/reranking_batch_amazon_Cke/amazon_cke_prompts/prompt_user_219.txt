@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dark Companion"
+  },
+  {
+    "item_name": "The Wicked and the Just"
+  },
+  {
+    "item_name": "Amber House (Amber House, Book 1)"
+  },
+  {
+    "item_name": "Vessel"
+  },
+  {
+    "item_name": "Incarnation"
+  },
+  {
+    "item_name": "The Elementals"
+  },
+  {
+    "item_name": "A Night in the Lonesome October"
+  },
+  {
+    "item_name": "Ashes of Honor"
+  },
+  {
+    "item_name": "Biting Cold (Chicagoland Vampires)"
+  },
+  {
+    "item_name": "Between (A Book of the Between)"
+  },
+  {
+    "item_name": "House Rules (Chicagoland Vampires)"
+  },
+  {
+    "item_name": "The Magic Circle: A Novel"
+  },
+  {
+    "item_name": "Deep Down (Hallie Michaels)"
+  },
+  {
+    "item_name": "An Inquiry Into Love and Death"
+  },
+  {
+    "item_name": "The Suburban Strange"
+  },
+  {
+    "item_name": "The Goddess Inheritance (A Goddess Test Novel)"
+  },
+  {
+    "item_name": "Daughters of the Nile (Cleopatra's Daughter Trilogy)"
+  },
+  {
+    "item_name": "Sorrow's Knot"
+  },
+  {
+    "item_name": "Mistress of the Wind"
+  },
+  {
+    "item_name": "Beauty Awakened (Angels of the Dark)"
+  },
+  {
+    "item_name": "Sweet Water"
+  },
+  {
+    "item_name": "The Lost"
+  },
+  {
+    "item_name": "Thorn Jack: A Night and Nothing Novel (Night and Nothing Novels)"
+  },
+  {
+    "item_name": "Neverwas (Amber House Trilogy)"
+  },
+  {
+    "item_name": "The Ocean at the End of the Lane CD: A Novel"
+  },
+  {
+    "item_name": "Inamorata"
+  },
+  {
+    "item_name": "Omens (Cainsville)"
+  },
+  {
+    "item_name": "Magic Rises (Kate Daniels)"
+  },
+  {
+    "item_name": "Arrowood: A Novel"
+  },
+  {
+    "item_name": "The Twilight Wife: A Psychological Thriller by the Author of The Good Neighbor"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3493,
+    "item_name": "Deadlocked (Sookie Stackhouse/True Blood, Book 12)"
+  },
+  {
+    "rank": 2,
+    "item_id": 3651,
+    "item_name": "Bone Crossed (Mercy Thompson, Book 4)"
+  },
+  {
+    "rank": 3,
+    "item_id": 2395,
+    "item_name": "Shattered (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 4,
+    "item_id": 4089,
+    "item_name": "Black Arts (Jane Yellowrock)"
+  },
+  {
+    "rank": 5,
+    "item_id": 3491,
+    "item_name": "Gunmetal Magic"
+  },
+  {
+    "rank": 6,
+    "item_id": 928,
+    "item_name": "Sunshine"
+  },
+  {
+    "rank": 7,
+    "item_id": 2355,
+    "item_name": "Trapped (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 8,
+    "item_id": 2411,
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "rank": 9,
+    "item_id": 3806,
+    "item_name": "Kitty Goes to Washington (Kitty Norville)"
+  },
+  {
+    "rank": 10,
+    "item_id": 3804,
+    "item_name": "Kitty and the Midnight Hour (Kitty Norville)"
+  },
+  {
+    "rank": 11,
+    "item_id": 494,
+    "item_name": "Once Burned (Night Prince, Book 1)"
+  },
+  {
+    "rank": 12,
+    "item_id": 6196,
+    "item_name": "Steel's Edge (The Edge, Book 4)"
+  },
+  {
+    "rank": 13,
+    "item_id": 4830,
+    "item_name": "Awaken Me Darkly (Alien Huntress, Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_id": 4064,
+    "item_name": "Heat Stroke (Weather Warden, Book 2)"
+  },
+  {
+    "rank": 15,
+    "item_id": 4066,
+    "item_name": "Nightlife (Cal Leandros)"
+  },
+  {
+    "rank": 16,
+    "item_id": 4087,
+    "item_name": "Death's Rival (Jane Yellowrock)"
+  },
+  {
+    "rank": 17,
+    "item_id": 3800,
+    "item_name": "Kitty Takes a Holiday (Kitty Norville)"
+  },
+  {
+    "rank": 18,
+    "item_id": 3492,
+    "item_name": "Dead Reckoning (Sookie Stackhouse/True Blood, Book 11)"
+  },
+  {
+    "rank": 19,
+    "item_id": 2333,
+    "item_name": "Hammered (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 20,
+    "item_id": 4879,
+    "item_name": "Discount Armageddon (InCryptid)"
+  },
+  {
+    "rank": 21,
+    "item_id": 312,
+    "item_name": "The Scent of Shadows (Sign of the Zodiac, Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_id": 4084,
+    "item_name": "Touch the Dark (Cassandra Palmer)"
+  },
+  {
+    "rank": 23,
+    "item_id": 2011,
+    "item_name": "Changeless (The Parasol Protectorate)"
+  },
+  {
+    "rank": 24,
+    "item_id": 3442,
+    "item_name": "Warprize (Chronicles of the Warlands, Book 1)"
+  },
+  {
+    "rank": 25,
+    "item_id": 2895,
+    "item_name": "Iced: Fever Series Book 6"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

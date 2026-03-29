@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Lord of the Pies: A Kensington Palace Chef Mystery"
+  },
+  {
+    "item_name": "An Amish Heirloom: A Legacy of Love, The Cedar Chest, The Treasured Book, The Midwife's Dream"
+  },
+  {
+    "item_name": "The Broken Girls"
+  },
+  {
+    "item_name": "The Weaver's Daughter: A Regency Romance Novel"
+  },
+  {
+    "item_name": "The Uninvited Corpse (A Food Blogger Mystery)"
+  },
+  {
+    "item_name": "The Pajama Frame (A Madison Night Mystery) (Volume 5)"
+  },
+  {
+    "item_name": "Starting from Scratch (Lancaster Discoveries)"
+  },
+  {
+    "item_name": "Death by the Sea"
+  },
+  {
+    "item_name": "Alice's Notions"
+  },
+  {
+    "item_name": "A Riesling to Die"
+  },
+  {
+    "item_name": "What to Expect When Your Demon Slayer is Expecting (Biker Witches Mystery) (Volume 8)"
+  },
+  {
+    "item_name": "A Charming Corpse: :A Cozy Paranormal Mystery (A Magical Cures Mystery Series book 11)"
+  },
+  {
+    "item_name": "Plain Confession (A Stone Mill Amish Mystery)"
+  },
+  {
+    "item_name": "Dead Girl Running (Cape Charade)"
+  },
+  {
+    "item_name": "Murder in the Locked Library (A Book Retreat Mystery)"
+  },
+  {
+    "item_name": "Expiration Date (A Cook-Off Mystery)"
+  },
+  {
+    "item_name": "The Wedding Quilt Bride (Brides of Lost Creek)"
+  },
+  {
+    "item_name": "Read Herring Hunt (Mystery Bookshop Mysteries)"
+  },
+  {
+    "item_name": "Cinco de Murder (A Taste of Texas Mystery)"
+  },
+  {
+    "item_name": "Fiction Can Be Murder (A Mystery Writer's Mystery)"
+  },
+  {
+    "item_name": "The Shadow of Death: A Sister Agatha and Father Selwyn Mystery (Sister Agatha and Father Selwyn Mysteries)"
+  },
+  {
+    "item_name": "Cake and Punishment: A Southern Cake Baker Mystery"
+  },
+  {
+    "item_name": "The Amish Teacher's Gift (Love and Promises)"
+  },
+  {
+    "item_name": "Dead As A Doornail (A Kenni Lowry Mystery)"
+  },
+  {
+    "item_name": "The House on Harbor Hill"
+  },
+  {
+    "item_name": "Dying Truth: completely gripping crime thriller (Detective Kim Stone) (Volume 8)"
+  },
+  {
+    "item_name": "Best Beach Ever (Ten Beach Road Series)"
+  },
+  {
+    "item_name": "The Hawaiian Discovery"
+  },
+  {
+    "item_name": "Ruff Justice (Melanie Travis Canine Mystery)"
+  },
+  {
+    "item_name": "Buried in Books (Bibliophile Mystery)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Golden Braid"
+  },
+  {
+    "rank": 2,
+    "item_name": "When the Grits Hit the Fan (A Country Store Mystery)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Playing With Bonbon Fire: A Southern Chocolate Shop Mystery"
+  },
+  {
+    "rank": 4,
+    "item_name": "Assaulted Caramel (An Amish Candy Shop Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Silence of the Jams (A Down South Caf Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Murder at Rough Point (A Gilded Newport Mystery)"
+  },
+  {
+    "rank": 7,
+    "item_name": "If I Run (If I Run Series)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Final Vow (A Living History Museum Mystery)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Promise of Provence: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Of Murder and Men (A Cat Latimer Mystery)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Murder at the Courthouse: A Hidden Springs Mystery (The Hidden Springs Mysteries)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Death Overdue: A Haunted Library Mystery"
+  },
+  {
+    "rank": 13,
+    "item_name": "Dangerously Dark (A Chocolate Whisperer Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Cat Got Your Diamonds: A Kitty Couture Mystery"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Whole Latte Murder (Java Jive Mystery)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Clouds in My Coffee (The Country Club Murders) (Volume 3)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Fifth Petal"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Spring Cleaning Murders - An Ellie Haskell Mystery (Signed Copy)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Cold as Ice (Country Club Murders)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Southern Fried (A Kenni Lowry Mystery) (Volume 2)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Noelle: A Novel (A Dog Named Christmas)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Silver Threads: Memory House Collection (Memory House Series) (Volume 5)"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Deadly clair: A French Bistro Mystery"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Treacherous Curse (A Veronica Speedwell Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The World of Laura Ingalls Wilder: The Frontier Landscapes that Inspired the Little House Books"
+  },
+  {
+    "rank": 26,
+    "item_name": "Hummus and Homicide (A Kebab Kitchen Mystery)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Life After: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "If the Shoe Kills"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Chilbury Ladies' Choir"
+  },
+  {
+    "rank": 30,
+    "item_name": "Twisted Threads (Mainely Needlepoint Mystery)"
+  },
+  {
+    "rank": 31,
+    "item_name": "ICED: A Resort to Murder Mystery"
+  },
+  {
+    "rank": 32,
+    "item_name": "Drawing Lessons"
+  },
+  {
+    "rank": 33,
+    "item_name": "Shades of Wrath (A Caprice De Luca Mystery)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Wonderland: A Coloring Book Inspired by Alice's Adventures"
+  },
+  {
+    "rank": 35,
+    "item_name": "If I'm Found (If I Run Series)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Telling Tails (Second Chance Cat Mystery)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Final Reveille (A Living History Museum Mystery)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Too Blessed To Be Stressed. . .Inspiration for Every Day: 365 Devotions for Women"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Boyfriend Swap"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Rejected Writers Book Club (Southlea Bay Series) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Best-Laid Plants (Potting Shed Mysteries)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Ditched 4 Murder (Sophie Kimball Mystery)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Counting on a Cowboy (A Four of Hearts Ranch Romance)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Madness of Mercury (A Zodiac Mystery)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Body in the Wardrobe: A Faith Fairchild Mystery"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Last Woman Standing: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Bones of You"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Other Einstein: A Novel - Kindle edition"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Trouble with Patience: A Novel (Virtues and Vices of the Old West) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

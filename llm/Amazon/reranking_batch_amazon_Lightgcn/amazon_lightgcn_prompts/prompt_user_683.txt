@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Lost at Sea: The Jon Ronson Mysteries"
+  },
+  {
+    "item_name": "Conscious Capitalism: Liberating the Heroic Spirit of Business"
+  },
+  {
+    "item_name": "Top Dog: The Science of Winning and Losing"
+  },
+  {
+    "item_name": "Give and Take: Why Helping Others Drives Our Success"
+  },
+  {
+    "item_name": "The Master Switch: The Rise and Fall of Information Empires (Borzoi Books)"
+  },
+  {
+    "item_name": "Pieces of Light: How the New Science of Memory Illuminates the Stories We Tell About Our Pasts"
+  },
+  {
+    "item_name": "Who Owns the Future?"
+  },
+  {
+    "item_name": "Dollars and Sex: How Economics Influences Sex and Love"
+  },
+  {
+    "item_name": "The Penguin and the Leviathan: How Cooperation Triumphs over Self-Interest"
+  },
+  {
+    "item_name": "This Is How You Fall"
+  },
+  {
+    "item_name": "Floating City: A Rogue Sociologist Lost and Found in New York's Underground Economy"
+  },
+  {
+    "item_name": "Drama High: The Incredible True Story of a Brilliant Teacher, a Struggling Town, and the Mag ic of Theater"
+  },
+  {
+    "item_name": "Confessions of a Bad Teacher: The Shocking Truth from the Front Lines of American Public Education"
+  },
+  {
+    "item_name": "Brainwashed: The Seductive Appeal of Mindless Neuroscience"
+  },
+  {
+    "item_name": "Moral Tribes: Emotion, Reason, and the Gap Between Us and Them"
+  },
+  {
+    "item_name": "Social: Why Our Brains Are Wired to Connect"
+  },
+  {
+    "item_name": "The One World Schoolhouse: Education Reimagined"
+  },
+  {
+    "item_name": "The Burglary: The Discovery of J. Edgar Hoover's Secret FBI"
+  },
+  {
+    "item_name": "One Simple Idea: How Positive Thinking Reshaped Modern Life"
+  },
+  {
+    "item_name": "The Up Side of Down: Why Failing Well Is the Key to Success"
+  },
+  {
+    "item_name": "A Troublesome Inheritance: Genes, Race and Human History"
+  },
+  {
+    "item_name": "Make It Stick: The Science of Successful Learning"
+  },
+  {
+    "item_name": "Blindspot: Hidden Biases Of Good People"
+  },
+  {
+    "item_name": "Mindwise: How We Understand What Others Think, Believe, Feel, and Want"
+  },
+  {
+    "item_name": "Self-Made Man: One Woman's Year Disguised as a Man"
+  },
+  {
+    "item_name": "The Storytelling Animal: How Stories Make Us Human"
+  },
+  {
+    "item_name": "An Idea Whose Time Has Come: Two Presidents, Two Parties, and the Battle for the Civil Rights Act of 1964"
+  },
+  {
+    "item_name": "The Test: Why Our Schools are Obsessed with Standardized TestingBut You Dont Have to Be"
+  },
+  {
+    "item_name": "Sellout: The Politics of Racial Betrayal"
+  },
+  {
+    "item_name": "How Music Got Free: A Story of Obsession and Invention"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 36807,
+    "item_name": "Irreligion: A Mathematician Explains Why the Arguments for God Just Don't Add Up"
+  },
+  {
+    "rank": 2,
+    "item_id": 9792,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 3,
+    "item_id": 45159,
+    "item_name": "Steve Jobs: A Biography"
+  },
+  {
+    "rank": 4,
+    "item_id": 5531,
+    "item_name": "Greenspan's Bubbles: The Age of Ignorance at the Federal Reserve"
+  },
+  {
+    "rank": 5,
+    "item_id": 14177,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 6,
+    "item_id": 8093,
+    "item_name": "Why Evolution Is True"
+  },
+  {
+    "rank": 7,
+    "item_id": 27827,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 8,
+    "item_id": 6943,
+    "item_name": "Fabric of the Cosmos: Space, Time and the Texture of Reality (Penguin Press Science)"
+  },
+  {
+    "rank": 9,
+    "item_id": 485,
+    "item_name": "Predictably Irrational: The Hidden Forces That Shape Our Decisions"
+  },
+  {
+    "rank": 10,
+    "item_id": 23761,
+    "item_name": "End The Fed"
+  },
+  {
+    "rank": 11,
+    "item_id": 7930,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 12,
+    "item_id": 19922,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 13,
+    "item_id": 5839,
+    "item_name": "World on Fire: How Exporting Free Market Democracy Breeds Ethnic Hatred and Global Instability"
+  },
+  {
+    "rank": 14,
+    "item_id": 8969,
+    "item_name": "The Selfish Gene (New Edition)"
+  },
+  {
+    "rank": 15,
+    "item_id": 7304,
+    "item_name": "The Blank Slate: The Modern Denial of Human Nature"
+  },
+  {
+    "rank": 16,
+    "item_id": 31443,
+    "item_name": "Bait And Switch: The (Futile) Pursuit of the American Dream"
+  },
+  {
+    "rank": 17,
+    "item_id": 7647,
+    "item_name": "The Best Democracy Money Can Buy"
+  },
+  {
+    "rank": 18,
+    "item_id": 7764,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 19,
+    "item_id": 7902,
+    "item_name": "The Varieties of Scientific Experience: A Personal View of the Search for God"
+  },
+  {
+    "rank": 20,
+    "item_id": 14515,
+    "item_name": "Them : Adventures With Extremists"
+  },
+  {
+    "rank": 21,
+    "item_id": 74671,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 22,
+    "item_id": 10073,
+    "item_name": "A Tragic Legacy: How a Good vs. Evil Mentality Destroyed the Bush Presidency"
+  },
+  {
+    "rank": 23,
+    "item_id": 12153,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 24,
+    "item_id": 7789,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 25,
+    "item_id": 29342,
+    "item_name": "Big Coal: The Dirty Secret Behind America's Energy Future"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

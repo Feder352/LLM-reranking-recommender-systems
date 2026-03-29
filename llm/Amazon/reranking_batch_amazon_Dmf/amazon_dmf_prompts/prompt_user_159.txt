@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "My Holiday in North Korea: The Funniest/Worst Place on Earth"
+  },
+  {
+    "item_name": "My Holiday in North Korea"
+  },
+  {
+    "item_name": "The Man in the High Castle (Essential Penguin)"
+  },
+  {
+    "item_name": "Virtual Billions: The Genius, the Drug Lord, and the Ivy League Twins behind the Rise of Bitcoin"
+  },
+  {
+    "item_name": "Can't We Talk about Something More Pleasant?: A Memoir"
+  },
+  {
+    "item_name": "For Dog's Sake!: A Simple Guide to Protecting Your Pup from Unsafe Foods, Everyday Dangers, and Bad Situations"
+  },
+  {
+    "item_name": "The Age of Napoleon (Modern Library Chronicles)"
+  },
+  {
+    "item_name": "The Orphan Master's Son: A Novel"
+  },
+  {
+    "item_name": "Great North Road [Paperback] [Apr 11, 2013] Peter F. Hamilton"
+  },
+  {
+    "item_name": "Shore of Women"
+  },
+  {
+    "item_name": "Clinton Cash: The Untold Story of How and Why Foreign Governments and Businesses Helped Make Bill and Hillary Rich"
+  },
+  {
+    "item_name": "The Last Madam: A Life In The New Orleans Underworld"
+  },
+  {
+    "item_name": "Chancers: Addiction, Prison, Recovery, Love: One Couple's Memoir"
+  },
+  {
+    "item_name": "Tender at the Bone (Cassette)"
+  },
+  {
+    "item_name": "Freedom's Landing"
+  },
+  {
+    "item_name": "In This House of Brede"
+  },
+  {
+    "item_name": "Mr. Rochester"
+  },
+  {
+    "item_name": "Commissary Kitchen: My Infamous Prison Cookbook"
+  },
+  {
+    "item_name": "You Will Pay"
+  },
+  {
+    "item_name": "Threads: From the Refugee Crisis"
+  },
+  {
+    "item_name": "Monk's Hood (Brother Cadfael Mysteries)"
+  },
+  {
+    "item_name": "Mildred Pierce (Wisconsin / Warner Bros. Screenplays)"
+  },
+  {
+    "item_name": "The Honeymoon: A Novel of George Eliot"
+  },
+  {
+    "item_name": "Foundation's Edge"
+  },
+  {
+    "item_name": "Love Those Eyes"
+  },
+  {
+    "item_name": "Negotiate the Best Lease for Your Business"
+  },
+  {
+    "item_name": "Fairy Tail Day Planner"
+  },
+  {
+    "item_name": "On the Road and Off the Record with Leonard Bernstein: My Years with the Exasperating Genius"
+  },
+  {
+    "item_name": "How to Be a Fashion Designer"
+  },
+  {
+    "item_name": "Between Planets"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 74858,
+    "item_name": "The Old Man and the Sea"
+  },
+  {
+    "rank": 2,
+    "item_id": 37,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 3,
+    "item_id": 6680,
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "rank": 4,
+    "item_id": 74663,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 5,
+    "item_id": 74439,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 6,
+    "item_id": 76371,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 7,
+    "item_id": 74802,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 8,
+    "item_id": 75993,
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "rank": 9,
+    "item_id": 27953,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 10,
+    "item_id": 235,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 11,
+    "item_id": 565,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 12,
+    "item_id": 74923,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 13,
+    "item_id": 75586,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 14,
+    "item_id": 6920,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 15,
+    "item_id": 47924,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 16,
+    "item_id": 7105,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 17,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 18,
+    "item_id": 9641,
+    "item_name": "The Illustrated Hitch-hiker's Guide to the Galaxy"
+  },
+  {
+    "rank": 19,
+    "item_id": 584,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 20,
+    "item_id": 76019,
+    "item_name": "By Winston S. Churchill - Triumph and Tragedy: 1st (first) Edition"
+  },
+  {
+    "rank": 21,
+    "item_id": 951,
+    "item_name": "The Call of the Wild with related readings"
+  },
+  {
+    "rank": 22,
+    "item_id": 990,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 23,
+    "item_id": 989,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 24,
+    "item_id": 20211,
+    "item_name": "The Hinge of Fate (The Second World War)"
+  },
+  {
+    "rank": 25,
+    "item_id": 664,
+    "item_name": "Pride &amp; Prejudice (Collins Classics)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

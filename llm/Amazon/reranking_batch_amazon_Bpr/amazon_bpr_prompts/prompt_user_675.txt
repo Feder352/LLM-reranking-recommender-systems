@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Streams to the River, River to the Sea: A Novel of Sacagawea"
+  },
+  {
+    "item_name": "Streams to the River, River to the Sea: A Novel of Sacagawea"
+  },
+  {
+    "item_name": "Streams to the River, River to the Sea: A Novel of Sacagawea"
+  },
+  {
+    "item_name": "Streams to the River, River to the Sea: A Novel of Sacagawea"
+  },
+  {
+    "item_name": "Streams to the River, River to the Sea: A Novel of Sacagawea"
+  },
+  {
+    "item_name": "Shades of Gray: A Novel of the Civil War in Virginia"
+  },
+  {
+    "item_name": "Culture of Corruption: Obama and His Team of Tax Cheats, Crooks, and Cronies"
+  },
+  {
+    "item_name": "Culture of Corruption: Obama and His Team of Tax Cheats, Crooks, and Cronies"
+  },
+  {
+    "item_name": "Culture of Corruption: Obama and His Team of Tax Cheats, Crooks, and Cronies"
+  },
+  {
+    "item_name": "Worlds in Collision"
+  },
+  {
+    "item_name": "Worlds in Collision"
+  },
+  {
+    "item_name": "Worlds in Collision"
+  },
+  {
+    "item_name": "Never Binge Again(tm): Reprogram Yourself to Think Like a Permanently Thin Person. Stop Overeating and Binge Eating and Stick to the Food Plan of Your Choice!"
+  },
+  {
+    "item_name": "Never Binge Again(tm): Reprogram Yourself to Think Like a Permanently Thin Person. Stop Overeating and Binge Eating and Stick to the Food Plan of Your Choice!"
+  },
+  {
+    "item_name": "Never Sniff a Gift Fish"
+  },
+  {
+    "item_name": "The Smuggler's Gambit (Adam Fletcher Adventure Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Truth about Hillary (Clinton): What She Knew, When She Knew It, and How Far She'll Go to Become President"
+  },
+  {
+    "item_name": "War Brides"
+  },
+  {
+    "item_name": "Longshot in Missouri"
+  },
+  {
+    "item_name": "The Red Pony (Penguin Great Books of the 20th Century)"
+  },
+  {
+    "item_name": "With the Old Breed: The World War Two Pacific Classic"
+  },
+  {
+    "item_name": "God's Buried Children"
+  },
+  {
+    "item_name": "ST. MARY'S TODAY --- The Story of THE RAG! --- The Toons!: Newspaper"
+  },
+  {
+    "item_name": "Crisis of Character: A White House Secret Service Officer Discloses His Firsthand Experience with Hillary, Bill, and How They Operate"
+  },
+  {
+    "item_name": "Push Not the River"
+  },
+  {
+    "item_name": "Push Not the River"
+  },
+  {
+    "item_name": "Guilty as Sin: Uncovering New Evidence of Corruption and How Hillary Clinton and the Democrats Derailed the FBI Investigation"
+  },
+  {
+    "item_name": "Freedom's Sword"
+  },
+  {
+    "item_name": "Memory Cards"
+  },
+  {
+    "item_name": "Al Franken, Giant of the Senate"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Up from Slavery: An Autobiography (Penguin Classics)"
+  },
+  {
+    "rank": 2,
+    "item_name": "American Sniper: The Autobiography of the Most Lethal Sniper in U.S. Military History"
+  },
+  {
+    "rank": 3,
+    "item_name": "One Bullet Away: The Making of a Marine Officer"
+  },
+  {
+    "rank": 4,
+    "item_name": "Anthem"
+  },
+  {
+    "rank": 5,
+    "item_name": "Bury My Heart At Wounded Knee: An Indian History of the American West"
+  },
+  {
+    "rank": 6,
+    "item_name": "These High, Green Hills (The Mitford Years)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Goodbye, Columbus : And Five Short Stories (Vintage International)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Gods and Generals (Civil War)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Autobiography of Benjamin Franklin with Related Readings (Glencoe Literature Library)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Seasons: A Real Story of an Amish Girl"
+  },
+  {
+    "rank": 13,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Killer Angels: A Novel of the Civil War"
+  },
+  {
+    "rank": 15,
+    "item_name": "Crazy Horse and Custer: The Parallel Lives of Two American Warriors"
+  },
+  {
+    "rank": 16,
+    "item_name": "Postwar: A History of Europe Since 1945"
+  },
+  {
+    "rank": 17,
+    "item_name": "Lord Jim (New School Classics)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Art of War: The New Translation (Harper Perennial Modern Classics)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Sherlock Holmes and the Circus of Fear (Adventures of Sherlock Holmes)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Flowers for Algernon"
+  },
+  {
+    "rank": 21,
+    "item_name": "ITEM_B000XUBF3I"
+  },
+  {
+    "rank": 22,
+    "item_name": "Babe:  The Legend Comes to Life"
+  },
+  {
+    "rank": 23,
+    "item_name": "Walden and Civil Disobedience (Penguin American Library)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Years Of Rice And Salt"
+  },
+  {
+    "rank": 25,
+    "item_name": "War and Peace (Penguin Classics)"
+  },
+  {
+    "rank": 26,
+    "item_name": "One Summer: America, 1927 (Random House Large Print)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Conquerors: How Portugal Forged The First Global Empire"
+  },
+  {
+    "rank": 28,
+    "item_name": "Write it When I'm Gone: Remarkable Off-the-Record Conversations with Gerald R. Ford"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 31,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Book of Five Rings: The Classic Guide to Strategy"
+  },
+  {
+    "rank": 33,
+    "item_name": "Meditations (Penguin Classics)"
+  },
+  {
+    "rank": 34,
+    "item_name": "O Pioneers! (Penguin Classics)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Innocents Abroad (Penguin Classics)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Killing Jesus (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Secret Agent: A Simple Tale (Classic, 20th-Century, Penguin)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Ghost Soldiers: The Forgotten Epic Story of World War II's Most Dramatic Mission"
+  },
+  {
+    "rank": 39,
+    "item_name": "Darwin's Doubt: The Explosive Origin of Animal Life and the Case for Intelligent Design"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Case of the Long-Legged Models"
+  },
+  {
+    "rank": 41,
+    "item_name": "Talk of the Town"
+  },
+  {
+    "rank": 42,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 43,
+    "item_name": "Alexander Hamilton"
+  },
+  {
+    "rank": 44,
+    "item_name": "March of the Penguins: Companion to the Major Motion Picture"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Stranger Beside Me: The Twentieth Anniversary Edition"
+  },
+  {
+    "rank": 46,
+    "item_name": "Mark Twain (Masters Library)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Life on the Mississippi (Penguin Classics)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Shoeless Joe"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Return of the Native (Penguin Classics)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

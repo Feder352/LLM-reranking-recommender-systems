@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Magic Bleeds (Kate Daniels)"
+  },
+  {
+    "item_name": "Angel: After the Fall: First Night Volume 2"
+  },
+  {
+    "item_name": "The Awakening (Darkest Powers)"
+  },
+  {
+    "item_name": "My Soul to Keep (Soul Screamers, Book 3)"
+  },
+  {
+    "item_name": "Stolen Nights: A Vampire Queen Novel"
+  },
+  {
+    "item_name": "Sacrificial Magic (Downside Ghosts)"
+  },
+  {
+    "item_name": "Chasing Magic (Downside Ghosts)"
+  },
+  {
+    "item_name": "The Walking Dead, Book 6"
+  },
+  {
+    "item_name": "The Walking Dead: Something To Fear, Vol. 17"
+  },
+  {
+    "item_name": "Grave Witch (Alex Craft)"
+  },
+  {
+    "item_name": "The Lost Hero. Rick Riordan"
+  },
+  {
+    "item_name": "Serenity, Vol. 1: Those Left Behind"
+  },
+  {
+    "item_name": "A Fool's Gold Christmas (Fool's Gold, Book 10)"
+  },
+  {
+    "item_name": "The Good, the Bad, and the Witchy: A Wishcraft Mystery"
+  },
+  {
+    "item_name": "The Fifth Assassin (The Culper Ring Series)"
+  },
+  {
+    "item_name": "Book of Shadows (Sweep, No. 1)"
+  },
+  {
+    "item_name": "Taken at Dusk: A Shadow Falls Novel"
+  },
+  {
+    "item_name": "Artemis Awakening (Artemis Awakening Series)"
+  },
+  {
+    "item_name": "Nick and Tesla's Super-Cyborg Gadget Glove: A Mystery with a Blinking, Beeping, Voice-Recording Gadget Glove You Can Build Yourself"
+  },
+  {
+    "item_name": "Suspicion"
+  },
+  {
+    "item_name": "Mrs. Miracle (Angels)"
+  },
+  {
+    "item_name": "League of Extraordinary Gentlemencentury Vol. III"
+  },
+  {
+    "item_name": "Anansi Boys: A Novel"
+  },
+  {
+    "item_name": "Before I Fall Enhanced Edition"
+  },
+  {
+    "item_name": "Perfectly Matched: A Lucy Valentine Novel"
+  },
+  {
+    "item_name": "Fables Vol. 3: Storybook Love"
+  },
+  {
+    "item_name": "Red, White, and Blood: The President's Vampire 3"
+  },
+  {
+    "item_name": "Bridget Jones's Diary: A Novel"
+  },
+  {
+    "item_name": "Smoke and Mirrors: Short Fictions and Illusions"
+  },
+  {
+    "item_name": "The Iron Knight (Iron Fey)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 3,
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 5,
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Casual Vacancy"
+  },
+  {
+    "rank": 7,
+    "item_name": "Beautiful Creatures. by Kami Garcia &amp; Margaret Stohl"
+  },
+  {
+    "rank": 8,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse) By Charlaine Harris"
+  },
+  {
+    "rank": 9,
+    "item_name": "Magic Study (Study Series)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 11,
+    "item_name": "Inside Out"
+  },
+  {
+    "rank": 12,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Perks Of Being A Wallflower (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 14,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 15,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Sleeping Beauty Novels: The Claiming of Sleeping Beauty / Beauty's Release / Beauty's Punishment"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Hunger Games (Book 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 19,
+    "item_name": "White Witch, Black Curse"
+  },
+  {
+    "rank": 20,
+    "item_name": "Hollow City"
+  },
+  {
+    "rank": 21,
+    "item_name": "Kitty and the Midnight Hour (Kitty Norville)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Howl's Moving Castle"
+  },
+  {
+    "rank": 23,
+    "item_name": "Etiquette &amp; Espionage: Finishing School, Book 1"
+  },
+  {
+    "rank": 24,
+    "item_name": "Iron Kissed (Mercy Thompson, Book 3)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Entice"
+  },
+  {
+    "rank": 26,
+    "item_name": "Abandon"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Final Empire: Mistborn Book One"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Lovely Bones: Deluxe Edition"
+  },
+  {
+    "rank": 29,
+    "item_name": "Under the Never Sky"
+  },
+  {
+    "rank": 30,
+    "item_name": "Saga, Vol. 2"
+  },
+  {
+    "rank": 31,
+    "item_name": "Dreams of Gods &amp; Monsters (Daughter of Smoke &amp; Bone)"
+  },
+  {
+    "rank": 32,
+    "item_name": "River Marked (Mercy Thompson, Book 6)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Mockingjay: The Hunger Games"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Graveyard Book"
+  },
+  {
+    "rank": 35,
+    "item_name": "Scarlet (Lunar Chronicles, Book 2)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Austenland: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Stroke of Midnight (Meredith Gentry, Book 4)"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Feast for Crows (Song of Ice and Fire)"
+  },
+  {
+    "rank": 39,
+    "item_name": "A Hat Full of Sky"
+  },
+  {
+    "rank": 40,
+    "item_name": "Gone Girl"
+  },
+  {
+    "rank": 41,
+    "item_name": "Enslave Me Sweetly (Alien Huntress, Book 2)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Northern Lights: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Sweet Venom"
+  },
+  {
+    "rank": 44,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Matched"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Short Second Life of Bree Tanner: An Eclipse Novella (The Twilight Saga)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Etiquette &amp; Espionage (Finishing School)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 49,
+    "item_name": "Changeless (The Parasol Protectorate)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Go Set a Watchman: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

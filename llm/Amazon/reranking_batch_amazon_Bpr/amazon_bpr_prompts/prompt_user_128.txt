@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Heart Mate (Celta's HeartMates, Book 1)"
+  },
+  {
+    "item_name": "The chaperone."
+  },
+  {
+    "item_name": "Replica"
+  },
+  {
+    "item_name": "When Demons Walk (Sianim series)"
+  },
+  {
+    "item_name": "Exquisite Flowers: Color, Dream, Create"
+  },
+  {
+    "item_name": "The Calling (Darkness Rising)"
+  },
+  {
+    "item_name": "The Calling (Darkness Rising)"
+  },
+  {
+    "item_name": "The Rising"
+  },
+  {
+    "item_name": "Tinker"
+  },
+  {
+    "item_name": "Days of Blood &amp; Starlight"
+  },
+  {
+    "item_name": "Girl Waits with Gun (A Kopp Sisters Novel)"
+  },
+  {
+    "item_name": "Art Schooled"
+  },
+  {
+    "item_name": "The Twelve (Passage)"
+  },
+  {
+    "item_name": "Dreams of Gods &amp; Monsters (Daughter of Smoke &amp; Bone)"
+  },
+  {
+    "item_name": "Lazarus Volume 1"
+  },
+  {
+    "item_name": "Night of Cake &amp; Puppets (Daughter of Smoke &amp; Bone)"
+  },
+  {
+    "item_name": "Lazarus, Vol. 2: Lift"
+  },
+  {
+    "item_name": "Home Front: A Novel"
+  },
+  {
+    "item_name": "Real Food/Fake Food: Why You Dont Know What Youre Eating and What You Can Do About It"
+  },
+  {
+    "item_name": "Real Food/Fake Food: Why You Dont Know What Youre Eating and What You Can Do About It"
+  },
+  {
+    "item_name": "The Martian"
+  },
+  {
+    "item_name": "Solstice (Volume 1)"
+  },
+  {
+    "item_name": "Daughter of the Blood (Black Jewels, Book 1)"
+  },
+  {
+    "item_name": "Born Both: An Intersex Life"
+  },
+  {
+    "item_name": "Food Junkies: The Truth About Food Addiction"
+  },
+  {
+    "item_name": "White Trash Zombie Apocalypse"
+  },
+  {
+    "item_name": "In a Dark, Dark Wood"
+  },
+  {
+    "item_name": "Misery"
+  },
+  {
+    "item_name": "Weird Things Customers Say in Bookstores"
+  },
+  {
+    "item_name": "The Long Way to a Small, Angry Planet (Wayfarers)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 2,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 3,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "rank": 5,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 6,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 8,
+    "item_name": "Mockingjay: The Hunger Games"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Casual Vacancy"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 11,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 12,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Hunger Games (Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 15,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 16,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "rank": 17,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Perks Of Being A Wallflower (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 19,
+    "item_name": "ARTEMIS FOWL - The Eternity Code"
+  },
+  {
+    "rank": 20,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 22,
+    "item_name": "Grave Peril (The Dresden Files, Book 3)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Armada (Easton Press)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Gone Girl"
+  },
+  {
+    "rank": 25,
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 27,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Dead And Gone: A Sookie Stackhouse Novel (Sookie Stackhouse/True Blood)"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Clash of Kings: A Song of Ice and Fire: Book Two"
+  },
+  {
+    "rank": 30,
+    "item_name": "Lies (Gone)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 33,
+    "item_name": "Harry Potter And The Order Of The Phoenix"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Lovely Bones: Deluxe Edition"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Saga, Vol. 2"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Feast for Crows"
+  },
+  {
+    "rank": 39,
+    "item_name": "Howl's Moving Castle"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Sisterhood of the Traveling Pants"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Wizard of Oz"
+  },
+  {
+    "rank": 42,
+    "item_name": "22/11/63"
+  },
+  {
+    "rank": 43,
+    "item_name": "Charlie and the Chocolate Factory"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Knife of Never Letting Go: Chaos Walking: Book One"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Austenland: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Last Unicorn"
+  },
+  {
+    "rank": 48,
+    "item_name": "Skipping Christmas"
+  },
+  {
+    "rank": 49,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Sleeping Beauty Novels: The Claiming of Sleeping Beauty / Beauty's Release / Beauty's Punishment"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

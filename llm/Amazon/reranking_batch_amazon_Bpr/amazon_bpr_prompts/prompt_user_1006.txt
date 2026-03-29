@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Demon Magic (Dragon's Gift: The Seeker) (Volume 2)"
+  },
+  {
+    "item_name": "Bengal's Quest (A Novel of the Breeds)"
+  },
+  {
+    "item_name": "Dark, Witch &amp; Creamy (BEWITCHED BY CHOCOLATE Mysteries ~ Book 1) (Volume 1)"
+  },
+  {
+    "item_name": "The Ultimate Sacrifice: Book One of The Gifted Teens Series (Volume 1)"
+  },
+  {
+    "item_name": "Elements of Flames (The Otherworld Chronicles)"
+  },
+  {
+    "item_name": "Dawn (Hero Society) (Volume 1)"
+  },
+  {
+    "item_name": "Ghost of a Chance (Chintz 'n China, Book 1)"
+  },
+  {
+    "item_name": "Bone Music (The Burning Girl)"
+  },
+  {
+    "item_name": "Magic Revealed (Dragon's Gift: The Seeker) (Volume 3)"
+  },
+  {
+    "item_name": "Dark Promises ('Dark' Carpathian)"
+  },
+  {
+    "item_name": "Dark Crime (Dark Series Book 27) eBook"
+  },
+  {
+    "item_name": "Dark Carousel ('Dark' Carpathian)"
+  },
+  {
+    "item_name": "Kodiak's Claim (Kodiak Point)"
+  },
+  {
+    "item_name": "Soldier of Fortune: A Gideon Quinn Adventure"
+  },
+  {
+    "item_name": "The Glass Mermaid"
+  },
+  {
+    "item_name": "Dragon Trials (Return of the Darkening) (Volume 1)"
+  },
+  {
+    "item_name": "Disarming (Reign of Blood #2)"
+  },
+  {
+    "item_name": "The Cupcake Witch (The Chancellor Fairy Tales) (Volume 2)"
+  },
+  {
+    "item_name": "Her Perfect Mate (X-Ops)"
+  },
+  {
+    "item_name": "The Dragon's Dilemma (Lochguard Highland Dragons) (Volume 1)"
+  },
+  {
+    "item_name": "Magic Wild (Dragon's Gift: The Seeker) (Volume 4)"
+  },
+  {
+    "item_name": "Elizabeth and the Clan of Dragons: A Reverse Harem Paranormal Romance (RH Fated Alpha) (Volume 1)"
+  },
+  {
+    "item_name": "Charm (reverse Fairytales) (Volume 1)"
+  },
+  {
+    "item_name": "Beauty and the Beast (Timeless Fairy Tales) (Volume 1)"
+  },
+  {
+    "item_name": "Seashells, Spells &amp; Caramels: A Cozy Witch Mystery (Volume 1)"
+  },
+  {
+    "item_name": "Clean Sweep (The Innkeeper Chronicles)"
+  },
+  {
+    "item_name": "Legend of the Jade Dragon: A Chintz 'n China Mystery"
+  },
+  {
+    "item_name": "Her Lone Wolf (X-Ops)"
+  },
+  {
+    "item_name": "Ghouls Rush In (Peyton Clark)"
+  },
+  {
+    "item_name": "Must Love Ghosts"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Justice Calling (The Twenty-Sided Sorceress) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Gypsy Hunted"
+  },
+  {
+    "rank": 3,
+    "item_name": "Dead Heat: An Alpha and Omega novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Captured"
+  },
+  {
+    "rank": 5,
+    "item_name": "Haunted on Bourbon Street"
+  },
+  {
+    "rank": 6,
+    "item_name": "Burned by Magic (The Baine Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Witch Hunt: An Urban Fantasy Mystery (Preternatural Affairs) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Shifty Magic (Shifty Magic Series)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Warrior Prince: Dragon Lords Book Four"
+  },
+  {
+    "rank": 10,
+    "item_name": "Wolf with Benefits (Brava Paranormal Romance)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Crux: Southern Arcana, Book 1"
+  },
+  {
+    "rank": 12,
+    "item_name": "Maggie for Hire: Book One:  Maggie MacKay Magical Tracker Series"
+  },
+  {
+    "rank": 13,
+    "item_name": "Fashionably Dead: Book One of the Hot Damned Series (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Chasing Victory (The Winters Sisters) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Accidental Demon Slayer"
+  },
+  {
+    "rank": 16,
+    "item_name": "Hell on Wheels (Black Knights Inc.)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Soul Summoner (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Stone Guardian (Entwined Realms) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Nightwalker: Stormwalker (Volume 4)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Last Necromancer (The Ministry of Curiosities) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Whiskey Rebellion: An Addison Holmes Mystery"
+  },
+  {
+    "rank": 22,
+    "item_name": "Seventh Grave and No Body (Charley Davidson)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Influential Magic"
+  },
+  {
+    "rank": 24,
+    "item_name": "Archangel's Heart (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Tailing Her (Quick &amp; Furry) (Volume 2)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Undercover Magic (Dragon's Gift: The Valkyrie) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Witch Hunter (The Witch Hunter Saga) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Miss Frost Solves A Cold Case: A Nocturne Falls Mystery (Jayne Frost) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Gargoyle Gets His Girl (Nocturne Falls) (Volume 3)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Vampire Girl (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Bait: The Angler Series-Book One"
+  },
+  {
+    "rank": 32,
+    "item_name": "Hell on Heels: Book Three The Hot Damned Series (Volume 3)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Act of Mercy (PSI-Ops / Immortal Ops)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Demon Street Blues (Wicked Good Witches) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Ghost and The Graveyard"
+  },
+  {
+    "rank": 36,
+    "item_name": "Ellie Jordan, Ghost Trapper (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Beyond The Veil (The Veil Series)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Into the Darkness (Darkness, 1) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Descended from Dragons: an Urban Fantasy Novel (Moonlight Dragon) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Games of Fate (Fate Fire Shifter Dragon) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Cold Shadows: (Ellie Jordan, Ghost Trapper Book 2) (Volume 2)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Unlikeable Demon Hunter (Nava Katz) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Shift in the Water (Elemental Shifter) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Chase the Dark (Steel &amp; Stone) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Keepers (Alchemy Series) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Vampire Moon"
+  },
+  {
+    "rank": 47,
+    "item_name": "Nights Embrace (Others of Seattle) (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Eighth Grave After Dark"
+  },
+  {
+    "rank": 49,
+    "item_name": "Graveyard Shift: (Lana Harvey, Reapers Inc.)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Twice the Growl (BBW Paranormal Shape Shifter Romance): A BBW in need of a date + Two hot Alphas looking for a mate = The hottest triad ever. (Paranormal Dating Agency) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

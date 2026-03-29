@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Make a Break for It: Unleashing the Power of Personal and Spiritual Growth"
+  },
+  {
+    "item_name": "Some Kind of Courage"
+  },
+  {
+    "item_name": "The Chameleon: Life-Changing Wisdom for Anyone Who has a Personality or Knows Someone Who Does"
+  },
+  {
+    "item_name": "SOZO Saved Healed Delivered: A Journey into Freedom with the Father, Son, and Holy Spirit"
+  },
+  {
+    "item_name": "The Power of Right Thinking: Transform Your Thoughts, Transform Your World"
+  },
+  {
+    "item_name": "Heaven Declares: Prophetic Decrees to Start Your Day"
+  },
+  {
+    "item_name": "Silent Takeover: Overcoming Emotional, Mental &amp; Addictive Disorders"
+  },
+  {
+    "item_name": "God's Feminist Movement: Redefining a Womans Place From a Biblical Perspective"
+  },
+  {
+    "item_name": "Total Family Makeover: 8 Practical Steps to Making Disciples at Home"
+  },
+  {
+    "item_name": "Waiting for Wonder: Learning to Live on God's Timeline"
+  },
+  {
+    "item_name": "Sammy's Broken Leg (Oh, No!) and the Amazing Cast That Fixed It"
+  },
+  {
+    "item_name": "Sammy's Broken Leg (Oh, No!) and the Amazing Cast That Fixed It"
+  },
+  {
+    "item_name": "The Buffer Zone Diet: It's Not Just What You Eat, It's When You Eat. Harness Your Hidden Fuel for a Slimmer and Healthier You"
+  },
+  {
+    "item_name": "Chasing Famous: Living the Life You've Always Auditioned For"
+  },
+  {
+    "item_name": "Questioning Evangelism"
+  },
+  {
+    "item_name": "Rule of Law"
+  },
+  {
+    "item_name": "Counseling Under the Cross: How Martin Luther Applied the Gospel to Daily Life"
+  },
+  {
+    "item_name": "A Small Book about a Big Problem: Meditations on Anger, Patience, and Peace"
+  },
+  {
+    "item_name": "Finding Grace in the Face of Dementia: Experiencing Dementia--Honoring God"
+  },
+  {
+    "item_name": "Well: Healing Our Beautiful, Broken World from a Hospital in West Africa"
+  },
+  {
+    "item_name": "Leadership from the Mission Control Room to the Boardroom: A Guide to Unleashing Team Performance"
+  },
+  {
+    "item_name": "World View: Seeking Grace and Truth in Our Common Life"
+  },
+  {
+    "item_name": "Kiss the Wave: Embracing God in Your Trials"
+  },
+  {
+    "item_name": "The Impossible: The Miraculous Story of a Mother's Faith and Her Child's Resurrection"
+  },
+  {
+    "item_name": "Waco: A Survivor's Story"
+  },
+  {
+    "item_name": "The Man He Never Was"
+  },
+  {
+    "item_name": "Blood Letters: The Untold Story of Lin Zhao, a Martyr in Mao's China"
+  },
+  {
+    "item_name": "Katherine's Bike Was Wonderfully Strange"
+  },
+  {
+    "item_name": "Family Changes: Explaining Divorce to Children"
+  },
+  {
+    "item_name": "Butterfly"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Home to Paradise: The Coming Home Series  Book 3"
+  },
+  {
+    "rank": 2,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Case for a Creator"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 6,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 7,
+    "item_name": "Not by Sight: A Novel (Ozark Mountain Trilogy)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Chasing Francis: A Pilgrim&rsquo;s Tale"
+  },
+  {
+    "rank": 9,
+    "item_name": "As Waters Gone By"
+  },
+  {
+    "rank": 10,
+    "item_name": "Lit!: A Christian Guide to Reading Books"
+  },
+  {
+    "rank": 11,
+    "item_name": "Among the Fair Magnolias: Four Southern Love Stories"
+  },
+  {
+    "rank": 12,
+    "item_name": "In the Dust of the Rabbi Discovery Guide: 5 Faith Lessons"
+  },
+  {
+    "rank": 13,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 14,
+    "item_name": "Rachel: A Novel (Wives of the Patriarchs) (Volume 3)"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Promise Kept"
+  },
+  {
+    "rank": 16,
+    "item_name": "Cold-Case Christianity: A Homicide Detective Investigates the Claims of the Gospels"
+  },
+  {
+    "rank": 17,
+    "item_name": "Good Medicine: A Return to Common Sense"
+  },
+  {
+    "rank": 18,
+    "item_name": "Purpose-driven Life [Paperback]  by Warren        , Rick"
+  },
+  {
+    "rank": 19,
+    "item_name": "Decision Points"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Prayer of Jabez: Breaking Through To The Blessed Life"
+  },
+  {
+    "rank": 21,
+    "item_name": "These High, Green Hills (The Mitford Years)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Love's Sacred Song: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Good Excuse To Be Bad"
+  },
+  {
+    "rank": 24,
+    "item_name": "Sweeter Than Birdsong (Saddler's Legacy)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Slave: The Hidden Truth About Your Identity in Christ"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Purpose Driven Life"
+  },
+  {
+    "rank": 27,
+    "item_name": "Dressed for Death (A Drew Farthering Mystery)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Critical Condition"
+  },
+  {
+    "rank": 29,
+    "item_name": "True to You (A Bradford Sisters Romance)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Get Out of That Pit: Straight Talk about God's Deliverance"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Final Summit: A Quest to Find the One Principle That Will Save Humanity"
+  },
+  {
+    "rank": 32,
+    "item_name": "Friend Me: A Novel of Suspense"
+  },
+  {
+    "rank": 33,
+    "item_name": "Anchor in the Storm (Waves of Freedom)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The People Factor: How Building Great Relationships and Ending Bad Ones Unlocks Your God-Given Purpose"
+  },
+  {
+    "rank": 35,
+    "item_name": "Dwelling Places: Words to Live in Every Season"
+  },
+  {
+    "rank": 36,
+    "item_name": "Enemies of the Heart: Breaking Free from the Four Emotions That Control You"
+  },
+  {
+    "rank": 37,
+    "item_name": "Lethal Legacy: A Novel (Guardians of Justice) (Volume 3)"
+  },
+  {
+    "rank": 38,
+    "item_name": "One Big Thing: Discovering What You Were Born to Do"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Evangelism Study Bible"
+  },
+  {
+    "rank": 40,
+    "item_name": "Every Girl Gets Confused: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Love Comes Home: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "In Every Heartbeat"
+  },
+  {
+    "rank": 43,
+    "item_name": "Christmas in Apple Ridge: Three-in-One Collection: The Sound of Sleigh Bells, The Christmas Singing, NEW! The Dawn of Christmas"
+  },
+  {
+    "rank": 44,
+    "item_name": "Last Chance Hero: A Novel (A Place to Call Home)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Moms' Night Out and Other Things I Miss: Devotions To Help You Survive"
+  },
+  {
+    "rank": 46,
+    "item_name": "Unplanned: The Dramatic True Story of a Former Planned Parenthood Leader's Eye-Opening Journey across the Life Line"
+  },
+  {
+    "rank": 47,
+    "item_name": "Angels: The Strange and Mysterious Truth"
+  },
+  {
+    "rank": 48,
+    "item_name": "Perfectly Matched: A Novel (The Blue Willow Brides) (Volume 3)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Melody of the Soul (Music of Hope)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Plain Perfect (Daughters of the Promise, Book 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Conscience of a Conservative (The James Madison Library in American Politics)"
+  },
+  {
+    "item_name": "The How Can It Be Gluten Free Cookbook: Revolutionary Techniques. Groundbreaking Recipes."
+  },
+  {
+    "item_name": "The How Can It Be Gluten Free Cookbook by Editors at America's Test Kitchen (1 March, 2014) [Paperback]"
+  },
+  {
+    "item_name": "Giving: How Each of Us Can Change the World"
+  },
+  {
+    "item_name": "The Cobra Event: A Novel"
+  },
+  {
+    "item_name": "Letters from a Nut"
+  },
+  {
+    "item_name": "Harpo Speaks!"
+  },
+  {
+    "item_name": "One, Two, Buckle My Shoe"
+  },
+  {
+    "item_name": "An Hour Before Daylight: Memories of a Rural Boyhood"
+  },
+  {
+    "item_name": "ZUCKERMAN UNBOUND"
+  },
+  {
+    "item_name": "A Twisted Faith: A Minister's Obsession and the Murder That Destroyed a Church"
+  },
+  {
+    "item_name": "Beautiful You"
+  },
+  {
+    "item_name": "Tears of a Tiger (Hazelwood High Trilogy)"
+  },
+  {
+    "item_name": "Gerald R. Ford (The American Presidents: Thorndike Press Large Print Biography Series)"
+  },
+  {
+    "item_name": "Only You Can Save Mankind (Johnny Maxwell Trilogy)"
+  },
+  {
+    "item_name": "To Have and To Kill: Nurse Melanie McGuire, an Illicit Affair, and the Gruesome Murder of Her Husband"
+  },
+  {
+    "item_name": "Stupid American History: Tales of Stupidity, Strangeness, and Mythconceptions (Stupid History)"
+  },
+  {
+    "item_name": "The Groucho Letters: Letters from and to Groucho Marx"
+  },
+  {
+    "item_name": "Unwind (Unwind Dystology)"
+  },
+  {
+    "item_name": "Pygmy"
+  },
+  {
+    "item_name": "Enders"
+  },
+  {
+    "item_name": "Fatal : The Poisonous Life of a Female Serial Killer"
+  },
+  {
+    "item_name": "A Thousand Splendid Suns: A Novel"
+  },
+  {
+    "item_name": "Finding Darwin's God: A Scientist's Search for Common Ground Between God and Evolution"
+  },
+  {
+    "item_name": "Facing Your Giants: A David and Goliath Story for Everyday People"
+  },
+  {
+    "item_name": "Write it When I'm Gone: Remarkable Off-the-Record Conversations with Gerald R. Ford"
+  },
+  {
+    "item_name": "The Humbling (Vintage International)"
+  },
+  {
+    "item_name": "Peaks and Valleys: Making Good and Bad Times Work for You--at Work and in Life"
+  },
+  {
+    "item_name": "The Night in Question: Stories"
+  },
+  {
+    "item_name": "The Force Awakens (Star Wars)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 74802,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 2,
+    "item_id": 989,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 3,
+    "item_id": 74439,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 4,
+    "item_id": 597,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 5,
+    "item_id": 74663,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 6,
+    "item_id": 235,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 7,
+    "item_id": 990,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 8,
+    "item_id": 75586,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 9,
+    "item_id": 1210,
+    "item_name": "To Kill a Mockingbird"
+  },
+  {
+    "rank": 10,
+    "item_id": 9963,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 11,
+    "item_id": 74819,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 12,
+    "item_id": 47924,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 13,
+    "item_id": 1936,
+    "item_name": "On The Road CD Unabridged"
+  },
+  {
+    "rank": 14,
+    "item_id": 47389,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 15,
+    "item_id": 74721,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 16,
+    "item_id": 793,
+    "item_name": "Moby Dick (Collins Classics)"
+  },
+  {
+    "rank": 17,
+    "item_id": 23587,
+    "item_name": "God Is Not Great: How Religion Poisons Everything"
+  },
+  {
+    "rank": 18,
+    "item_id": 27827,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 19,
+    "item_id": 344,
+    "item_name": "Reading &quot;Lolita&quot; in Tehran: A Memoir in Books"
+  },
+  {
+    "rank": 20,
+    "item_id": 47,
+    "item_name": "Love's Labour's Lost: Performed by Derek Jacobi, Geraldine McEwan &amp; Cast"
+  },
+  {
+    "rank": 21,
+    "item_id": 1664,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 22,
+    "item_id": 73460,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 23,
+    "item_id": 290,
+    "item_name": "Angela's Ashes : A Memoir of a Childhood"
+  },
+  {
+    "rank": 24,
+    "item_id": 9641,
+    "item_name": "The Illustrated Hitch-hiker's Guide to the Galaxy"
+  },
+  {
+    "rank": 25,
+    "item_id": 22987,
+    "item_name": "Harry Potter (4 Volumes set)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Battle of Junk Mountain"
+  },
+  {
+    "item_name": "Waco: A Survivor's Story"
+  },
+  {
+    "item_name": "Stickle Island"
+  },
+  {
+    "item_name": "Master Assassins: The Fire Sacraments, Book One"
+  },
+  {
+    "item_name": "Cardcaptor Sakura: Clear Card 1"
+  },
+  {
+    "item_name": "Harper and the Night Forest"
+  },
+  {
+    "item_name": "Wake Up, Sleeping Beauty 1"
+  },
+  {
+    "item_name": "The Hazel Wood"
+  },
+  {
+    "item_name": "CIRCE (#1 New York Times bestseller)"
+  },
+  {
+    "item_name": "The Girl: Marilyn Monroe, The Seven Year Itch, and the Birth of an Unlikely Feminist"
+  },
+  {
+    "item_name": "The Great Race: The Story of the Chinese Zodiac"
+  },
+  {
+    "item_name": "Fairy Tail Day Planner"
+  },
+  {
+    "item_name": "Beneath the Haunting Sea"
+  },
+  {
+    "item_name": "Hot and Badgered (The Honey Badger Chronicles)"
+  },
+  {
+    "item_name": "The Stone Girl's Story"
+  },
+  {
+    "item_name": "Isle of Blood and Stone (Tower of Winds)"
+  },
+  {
+    "item_name": "The Astrology of You and Me: How to Understand and Improve Every Relationship in Your Life"
+  },
+  {
+    "item_name": "The Indian World of George Washington: The First President, the First Americans, and the Birth of the Nation"
+  },
+  {
+    "item_name": "DK Readers L1: LEGO Women of NASA: Space Heroes (DK Readers Level 1)"
+  },
+  {
+    "item_name": "Winds of Spirit: Ancient Wisdom Tools for Navigating Relationships, Health, and the Divine"
+  },
+  {
+    "item_name": "The Boy Who Went Magic"
+  },
+  {
+    "item_name": "American by Day"
+  },
+  {
+    "item_name": "Battle Angel Alita Mars Chronicle 1"
+  },
+  {
+    "item_name": "Nature Explorers Motivators Motivational Stickers"
+  },
+  {
+    "item_name": "Front Desk"
+  },
+  {
+    "item_name": "The Hawaiian Discovery"
+  },
+  {
+    "item_name": "Figures in a Landscape: People and Places"
+  },
+  {
+    "item_name": "How to Be a Fashion Designer"
+  },
+  {
+    "item_name": "Manfried the Man: A Graphic Novel"
+  },
+  {
+    "item_name": "Crochet Animal Rugs: Over 20 Crochet Patterns for Fun Floor Mats and Matching Accessories"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ricky Ricotta's Mighty Robot Book Set (7 Volumes)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "rank": 4,
+    "item_name": "We Are the Goldens"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Dark Missions of Edgar Brim"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Last Apostle: A Novel (John the Immortal Series)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Space Case (Moon Base Alpha)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Noir (The Illumination Paradox)"
+  },
+  {
+    "rank": 9,
+    "item_name": "With Love from the Inside"
+  },
+  {
+    "rank": 10,
+    "item_name": "Gated"
+  },
+  {
+    "rank": 11,
+    "item_name": "Mosquitoland"
+  },
+  {
+    "rank": 12,
+    "item_name": "Battleship: A Daring Heiress, a Teenage Jockey, and America's Horse"
+  },
+  {
+    "rank": 13,
+    "item_name": "My Lady Pocahontas"
+  },
+  {
+    "rank": 14,
+    "item_name": "Stray"
+  },
+  {
+    "rank": 15,
+    "item_name": "Vivian Apple Needs a Miracle"
+  },
+  {
+    "rank": 16,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Of Treasons Born (Treasons Cycle)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Knockoff: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Don't Touch"
+  },
+  {
+    "rank": 20,
+    "item_name": "Against the Country"
+  },
+  {
+    "rank": 21,
+    "item_name": "Denton Little's Deathdate (Denton Little Series)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Last Leaves Falling"
+  },
+  {
+    "rank": 23,
+    "item_name": "Marked"
+  },
+  {
+    "rank": 24,
+    "item_name": "Aunty Lee's Chilled Revenge: A Singaporean Mystery"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Here and Now"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Dream Keeper's Daughter: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Shadow Queen: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Moone Boy: The Blunder Years"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Tyrant's Daughter"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Eternity Cure (Blood of Eden)"
+  },
+  {
+    "rank": 31,
+    "item_name": "An Inheritance of Ashes"
+  },
+  {
+    "rank": 32,
+    "item_name": "The True Tale of the Monster Billy Dean"
+  },
+  {
+    "rank": 33,
+    "item_name": "Chasing Secrets"
+  },
+  {
+    "rank": 34,
+    "item_name": "With Schwarzkopf: Life Lessons of The Bear"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Best Worst Thing"
+  },
+  {
+    "rank": 36,
+    "item_name": "Mrs. Sinclair's Suitcase"
+  },
+  {
+    "rank": 37,
+    "item_name": "Traveling Light: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Strange and Beautiful Sorrows of Ava Lavender"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Antagonist"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Key to Extraordinary"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Perfect Place"
+  },
+  {
+    "rank": 42,
+    "item_name": "Muse: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Skateboard Party: The Carver Chronicles, Book Two"
+  },
+  {
+    "rank": 44,
+    "item_name": "Double Cup Love: On the Trail of Family, Food, and Broken Hearts in China"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Wild Ones"
+  },
+  {
+    "rank": 46,
+    "item_name": "Scarlett Epstein Hates It Here"
+  },
+  {
+    "rank": 47,
+    "item_name": "How to Write a Novel (Vintage Contemporaries)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Friend Request: The most addictive psychological thriller you'll read this year"
+  },
+  {
+    "rank": 49,
+    "item_name": "Barron's GMAT"
+  },
+  {
+    "rank": 50,
+    "item_name": "Seeker"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Last True Love Story"
+  },
+  {
+    "item_name": "Wrecked"
+  },
+  {
+    "item_name": "The Lost and the Found"
+  },
+  {
+    "item_name": "Gemina (The Illuminae Files)"
+  },
+  {
+    "item_name": "Replica"
+  },
+  {
+    "item_name": "The Twelve Days of Dash &amp; Lily (Dash &amp; Lily Series)"
+  },
+  {
+    "item_name": "The Rains: A Novel (The Rains Brothers)"
+  },
+  {
+    "item_name": "Moon Chosen: Tales of a New World"
+  },
+  {
+    "item_name": "Cloudwish"
+  },
+  {
+    "item_name": "The Flame Bearer (Saxon Tales)"
+  },
+  {
+    "item_name": "The Fate of the Tearling: A Novel (Queen of the Tearling, The)"
+  },
+  {
+    "item_name": "Prince Lestat and the Realms of Atlantis: The Vampire Chronicles 12"
+  },
+  {
+    "item_name": "The Chemist"
+  },
+  {
+    "item_name": "Absolutely on Music: Conversations"
+  },
+  {
+    "item_name": "The Princess Diarist"
+  },
+  {
+    "item_name": "The Whole Town's Talking: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "The Secret of a Heart Note"
+  },
+  {
+    "item_name": "Windwitch: A Witchlands Novel (The Witchlands)"
+  },
+  {
+    "item_name": "Timekeeper"
+  },
+  {
+    "item_name": "The Girl in the Picture"
+  },
+  {
+    "item_name": "The Silence of Six (An SOS Thriller)"
+  },
+  {
+    "item_name": "Defy the Stars"
+  },
+  {
+    "item_name": "Things I Should Have Known"
+  },
+  {
+    "item_name": "Daughter of the Pirate King"
+  },
+  {
+    "item_name": "Noteworthy"
+  },
+  {
+    "item_name": "180 Seconds"
+  },
+  {
+    "item_name": "Alive"
+  },
+  {
+    "item_name": "It Wasn't Always Like This"
+  },
+  {
+    "item_name": "The Child: The must-read Richard and Judy Book Club pick 2018"
+  },
+  {
+    "item_name": "Use of Force: A Thriller (The Scot Harvath Series)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Wither (Chemical Garden)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The DUFF: (Designated Ugly Fat Friend)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Black Box"
+  },
+  {
+    "rank": 4,
+    "item_name": "We Were Liars"
+  },
+  {
+    "rank": 5,
+    "item_name": "Inside Out"
+  },
+  {
+    "rank": 6,
+    "item_name": "Thirteen Reasons Why"
+  },
+  {
+    "rank": 7,
+    "item_name": "City of Glass (The Mortal Instruments)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Dark Divine"
+  },
+  {
+    "rank": 9,
+    "item_name": "Crewel: A Novel (Crewel World)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Hush, Hush"
+  },
+  {
+    "rank": 11,
+    "item_name": "Roomies"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Body Finder"
+  },
+  {
+    "rank": 13,
+    "item_name": "Vampire Academy: Spirit Bound (book 5)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Moon and More"
+  },
+  {
+    "rank": 15,
+    "item_name": "Breathe"
+  },
+  {
+    "rank": 16,
+    "item_name": "My Soul to Take"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Clockwork Three"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Dream Thieves (The Raven Cycle)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Selection. by Kiera Cass"
+  },
+  {
+    "rank": 20,
+    "item_name": "Vampire Academy (Vampire Academy, Book 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Girl of Fire and Thorns"
+  },
+  {
+    "rank": 22,
+    "item_name": "Fallen"
+  },
+  {
+    "rank": 23,
+    "item_name": "Boy Toy"
+  },
+  {
+    "rank": 24,
+    "item_name": "To All the Boys I've Loved Before"
+  },
+  {
+    "rank": 25,
+    "item_name": "Pivot Point"
+  },
+  {
+    "rank": 26,
+    "item_name": "Thirteen Reasons Why"
+  },
+  {
+    "rank": 27,
+    "item_name": "Beastly"
+  },
+  {
+    "rank": 28,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 29,
+    "item_name": "My Heart and Other Black Holes"
+  },
+  {
+    "rank": 30,
+    "item_name": "Girl in the Arena"
+  },
+  {
+    "rank": 31,
+    "item_name": "Fangirl"
+  },
+  {
+    "rank": 32,
+    "item_name": "Speak"
+  },
+  {
+    "rank": 33,
+    "item_name": "Hallowed: An Unearthly Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "The False Prince (The Ascendance Trilogy, Book 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Education of Bet"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Hunt (The Hunt Trilogy)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Hourglass"
+  },
+  {
+    "rank": 38,
+    "item_name": "Since You've Been Gone"
+  },
+  {
+    "rank": 39,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Struck"
+  },
+  {
+    "rank": 41,
+    "item_name": "Catching Jordan (Hundred Oaks)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Iron Daughter"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Lions of Little Rock"
+  },
+  {
+    "rank": 44,
+    "item_name": "Cross My Heart and Hope to Spy (Gallagher Girls)"
+  },
+  {
+    "rank": 45,
+    "item_name": "by Peters, Julie Ann By The Time You Read This, I'll Be Dead (2010) Hardcover"
+  },
+  {
+    "rank": 46,
+    "item_name": "Don't Breathe a Word"
+  },
+  {
+    "rank": 47,
+    "item_name": "Not a Drop to Drink"
+  },
+  {
+    "rank": 48,
+    "item_name": "Dark Triumph: His Fair Assassins, Book II"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Host"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Hazel Wood"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

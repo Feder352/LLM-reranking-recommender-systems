@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Essential Wolverine, Vol. 1 (Marvel Essentials)"
+  },
+  {
+    "item_name": "Batman: Gothic"
+  },
+  {
+    "item_name": "Planetary Vol. 2: The Fourth Man"
+  },
+  {
+    "item_name": "Strangers In Paradise Book 16: Molly And Poo (Strangers in Paradise (Graphic Novels))"
+  },
+  {
+    "item_name": "The Best of the Spirit"
+  },
+  {
+    "item_name": "Middlemarch (Penguin Classics)"
+  },
+  {
+    "item_name": "The Red and the Black (Penguin Classics)"
+  },
+  {
+    "item_name": "The red and the black,"
+  },
+  {
+    "item_name": "Middlemarch"
+  },
+  {
+    "item_name": "Sacajawea"
+  },
+  {
+    "item_name": "American Transcendentalism: A History"
+  },
+  {
+    "item_name": "The Legion of Super-Heroes - The Curse Deluxe Edition"
+  },
+  {
+    "item_name": "Dark Night: A True Batman Story"
+  },
+  {
+    "item_name": "Legion of Super-Heroes: The Great Darkness Saga"
+  },
+  {
+    "item_name": "Marvel Comics: The Untold Story"
+  },
+  {
+    "item_name": "Geek Love (Abacus Books)"
+  },
+  {
+    "item_name": "Fairest, Vol. 1 (Fables)"
+  },
+  {
+    "item_name": "Bearing an Hourglass (Incarnations of Immortality)"
+  },
+  {
+    "item_name": "1Q84: Books 1 &amp; 2"
+  },
+  {
+    "item_name": "Man from Mundania (Xanth, No. 12)"
+  },
+  {
+    "item_name": "The Color of Her Panties (Xanth #15)"
+  },
+  {
+    "item_name": "The Illuminatus! Trilogy: The Eye in the Pyramid, The Golden Apple, Leviathan"
+  },
+  {
+    "item_name": "Lolita: A Screenplay"
+  },
+  {
+    "item_name": "Magical Dawn Coloring Book: Published in Sweden as Magisk Gryning (Gsp- Trade)"
+  },
+  {
+    "item_name": "The Elements of Style, Third Edition"
+  },
+  {
+    "item_name": "The Elements of Style, Third Edition"
+  },
+  {
+    "item_name": "Underworld"
+  },
+  {
+    "item_name": "Essential Dazzler, Vol. 1 (Marvel Essentials) (v. 1)"
+  },
+  {
+    "item_name": "Castle Roogna (Xanth, No. 3)"
+  },
+  {
+    "item_name": "For Love of Evil (Book Six of Incarnations of Immortality)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Autobiography of Benjamin Franklin with Related Readings (Glencoe Literature Library)"
+  },
+  {
+    "rank": 6,
+    "item_name": "A Connecticut Yankee in King Arthur's Court (Penguin Classics)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Godless: The Church of Liberalism"
+  },
+  {
+    "rank": 8,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 9,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 10,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 11,
+    "item_name": "Confessions (Penguin Classics)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Green Mars (Voyager Classics)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 14,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 15,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 17,
+    "item_name": "Stranger in a Strange Land (Penguin Galaxy)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Stranger in a Strange Land"
+  },
+  {
+    "rank": 19,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 20,
+    "item_name": "To Your Scattered Bodies Go (Riverworld Saga, Book 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Inside the Third Reich"
+  },
+  {
+    "rank": 22,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 24,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 25,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "From Hell: Being a Melodrama in Sixteen Parts, Vol. 3"
+  },
+  {
+    "rank": 27,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 28,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 29,
+    "item_name": "Marvel 1602"
+  },
+  {
+    "rank": 30,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 31,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 32,
+    "item_name": "History of the Peloponnesian War"
+  },
+  {
+    "rank": 33,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Communist Manifesto"
+  },
+  {
+    "rank": 35,
+    "item_name": "The GUNS OF AUGUST"
+  },
+  {
+    "rank": 36,
+    "item_name": "Mr Lincoln's Army"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Prince (Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Iliad"
+  },
+  {
+    "rank": 39,
+    "item_name": "Starship Troopers"
+  },
+  {
+    "rank": 40,
+    "item_name": "Gettysburg: A Novel of the Civil War (The Gettysburg Trilogy)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 42,
+    "item_name": "Omega"
+  },
+  {
+    "rank": 43,
+    "item_name": "Spider-Man Noir"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Chanur Saga"
+  },
+  {
+    "rank": 45,
+    "item_name": "Tortilla Flat"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Alexandria Quartet"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Savage Sword of Conan, Vol. 1 (v. 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "FOUNDATION- PB"
+  },
+  {
+    "rank": 49,
+    "item_name": "Dreamcatcher"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Years Of Rice And Salt"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

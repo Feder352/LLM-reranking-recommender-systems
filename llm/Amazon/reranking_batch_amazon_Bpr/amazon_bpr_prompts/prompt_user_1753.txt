@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Coming Consumed (Welcome to Carson) (Volume 3)"
+  },
+  {
+    "item_name": "Dirty Flirting: Part One (Gently Broken)"
+  },
+  {
+    "item_name": "The Fiction of Forever (Stand By Me) (Volume 2)"
+  },
+  {
+    "item_name": "Hot Stuff"
+  },
+  {
+    "item_name": "An Arrangement"
+  },
+  {
+    "item_name": "Damned (A Magnus Blackwell Novel) (Volume 1)"
+  },
+  {
+    "item_name": "Race the Darkness (Fatal Dreams)"
+  },
+  {
+    "item_name": "Explicitly Yours: A Platonically Complicated Novella"
+  },
+  {
+    "item_name": "Nelumbo Nucifera"
+  },
+  {
+    "item_name": "Embrace the Romance: Pets in Space 2"
+  },
+  {
+    "item_name": "In The Mix (The GEG Series) (Volume 2)"
+  },
+  {
+    "item_name": "Under Contract (The GEG Series) (Volume 1)"
+  },
+  {
+    "item_name": "Hunt the Dawn (Fatal Dreams)"
+  },
+  {
+    "item_name": "Fox's Awakening (Enchanted Immortals) (Volume 2)"
+  },
+  {
+    "item_name": "Cessy: A Silent Sons MC Novel Book One (Volume 1)"
+  },
+  {
+    "item_name": "The 7: Lust (Volume 6)"
+  },
+  {
+    "item_name": "Coming Altered (Welcome to Carson) (Volume 4)"
+  },
+  {
+    "item_name": "Stone Sober: (A Hawke Family Novel) (The Hawke Family Series) (Volume 3)"
+  },
+  {
+    "item_name": "An Accident"
+  },
+  {
+    "item_name": "Why we don't die in Dreams"
+  },
+  {
+    "item_name": "Field-Tripped (Ad Agency Series)"
+  },
+  {
+    "item_name": "Havoc: A Silent Sons Novel Book Two (Volume 2)"
+  },
+  {
+    "item_name": "When Dawn Breaks"
+  },
+  {
+    "item_name": "Spirited Away"
+  },
+  {
+    "item_name": "Bulletproof Butterfly"
+  },
+  {
+    "item_name": "Bound (A Magnus Blackwell Novel) (Volume 2)"
+  },
+  {
+    "item_name": "Blood Will Tell (Blood Series) (Volume 1)"
+  },
+  {
+    "item_name": "Alice Will (Dreams of Chaos #1)"
+  },
+  {
+    "item_name": "Open Season"
+  },
+  {
+    "item_name": "Gold Digger: A Whisky's Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "SEAL's Touch: A Dirty Bad Boy Romance (Small Town SEALs)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Hostage of the Hitman: A Bad Boy Mafia Romance"
+  },
+  {
+    "rank": 3,
+    "item_name": "One More Kiss: A Second Chance Romance (One More Series)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Date The Billionaire"
+  },
+  {
+    "rank": 5,
+    "item_name": "Beta's Second Chance (Rocky Mountain Shifters) (Volume 4)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Kissing booth"
+  },
+  {
+    "rank": 7,
+    "item_name": "Keeping Her (Keep Me Series) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The CEO &amp; I"
+  },
+  {
+    "rank": 9,
+    "item_name": "Devils &amp; Rye (Top Shelf) (Volume 4)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Two Wrongs (Trouble by Numbers) (Volume 2)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Against All Odds: A Secret Baby Romance"
+  },
+  {
+    "rank": 12,
+    "item_name": "Shared: A Dark MFM Menage Romance"
+  },
+  {
+    "rank": 13,
+    "item_name": "Professor with Benefits"
+  },
+  {
+    "rank": 14,
+    "item_name": "Second Chance Draft: A Second Chance Sports Romance (Pass To Win)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Stolen from the Hitman"
+  },
+  {
+    "rank": 16,
+    "item_name": "Dirty Liar: An Irish Mafia Romance"
+  },
+  {
+    "rank": 17,
+    "item_name": "Renegade Ridge: A Bad Boy Action Adventure Romance (Renegade Ridge Series)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Impeding Justice"
+  },
+  {
+    "rank": 19,
+    "item_name": "Velocity (A Dangerous Bad Boy Romance)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Ranger Trent (Shifter Nation: Werebears Of Acadia) (Volume 2)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Outlaw Xmas: Insurgents Motorcycle Club (Insurgents MC Romance) (Volume 10)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Forbidden: A Student Teacher Romance"
+  },
+  {
+    "rank": 23,
+    "item_name": "Magic Burn (Shifting Magic) (Volume 2)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Mason James (Heartbreakers &amp; Heroes) (Volume 2)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Saved by Alpha Bear"
+  },
+  {
+    "rank": 26,
+    "item_name": "Inked: A Bad Boy Next Door Romance"
+  },
+  {
+    "rank": 27,
+    "item_name": "Kerr: Paranormal Sci-Fi Alien Romance (lien Mates)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Magic Fire (Shifting Magic) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Jasmine (A Lt. Kate Gazzara Novel) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Dirty"
+  },
+  {
+    "rank": 31,
+    "item_name": "True Crime: Homicide &amp; True Crime Stories of 2016 (Annual True Crime Anthology)) (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Caught In Flames"
+  },
+  {
+    "rank": 33,
+    "item_name": "SEAL'd Honor (Brotherhood of SEAL'd Hearts)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Bear Shifter's Baby (Fated Bears) (Volume 4)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Duke of New York: A Contemporary Bad Boy Royal Romance"
+  },
+  {
+    "rank": 36,
+    "item_name": "Loving Kalvin (The Kennedy Boys) (Volume 4)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Taming the Beast"
+  },
+  {
+    "rank": 38,
+    "item_name": "Dirty Indiscretions: A Dark Mafia Romance (Omerta Series)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Blood Shift (The Charming Shifter Mysteries) (Volume 2)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Their Virgin Brat"
+  },
+  {
+    "rank": 41,
+    "item_name": "Professor Next Door"
+  },
+  {
+    "rank": 42,
+    "item_name": "Marked By Fire (Dragons Of The Darkblood Secret Society) (Volume 2)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Alpha's Love (Rocky Mountain Shifters) (Volume 3)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Always You"
+  },
+  {
+    "rank": 45,
+    "item_name": "Anaconda"
+  },
+  {
+    "rank": 46,
+    "item_name": "Vengeful Seduction: A Submissives Secrets Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Bearly Breathing (Emerald City Shifters) (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Unexpected: A Secret Baby Romance"
+  },
+  {
+    "rank": 49,
+    "item_name": "Teach (City of Sinners) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Fix Me Not (The Fix Series) (Volume 2)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

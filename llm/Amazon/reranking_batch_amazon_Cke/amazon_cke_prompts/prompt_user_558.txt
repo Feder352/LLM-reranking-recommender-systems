@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Three Pigs"
+  },
+  {
+    "item_name": "Leonardo, the Terrible Monster"
+  },
+  {
+    "item_name": "John, Paul, George &amp; Ben"
+  },
+  {
+    "item_name": "Good Boy, Fergus!"
+  },
+  {
+    "item_name": "Peterman Rides Again: Adventures Continue with the Real J. Peterman Through Life &amp; the Catalog Business"
+  },
+  {
+    "item_name": "Dooby Dooby Moo (A Click Clack Book)"
+  },
+  {
+    "item_name": "My Big Rig"
+  },
+  {
+    "item_name": "My Friend Is Sad (An Elephant &amp; Piggie Book)"
+  },
+  {
+    "item_name": "Gossie (Reader) (Gossie &amp; Friends)"
+  },
+  {
+    "item_name": "Plum Lovin'"
+  },
+  {
+    "item_name": "The Matisse Stories"
+  },
+  {
+    "item_name": "Eric Clapton: The Autobiography. by Eric Clapton with Christopher Simon Sykes"
+  },
+  {
+    "item_name": "What's Under the Bed?"
+  },
+  {
+    "item_name": "Billy and the Birdfrogs"
+  },
+  {
+    "item_name": "I Got Two Dogs: (Book and CD)"
+  },
+  {
+    "item_name": "The Hello, Goodbye Window"
+  },
+  {
+    "item_name": "The Pigeon Wants a Puppy!"
+  },
+  {
+    "item_name": "Knuffle Bunny Too"
+  },
+  {
+    "item_name": "Flotsam"
+  },
+  {
+    "item_name": "Change Has Come: An Artist Celebrates Our American Spirit"
+  },
+  {
+    "item_name": "Vanished Smile: The Mysterious Theft of Mona Lisa"
+  },
+  {
+    "item_name": "I Love My New Toy! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Michael Jackson: Before He Was King"
+  },
+  {
+    "item_name": "Mama Miti: Wangari Maathai and the Trees of Kenya"
+  },
+  {
+    "item_name": "Scoundrels in Law: The Trials of Howe and Hummel, Lawyers to the Gangsters, Cops, Starlets, and Rakes Who Made the Gilded Age"
+  },
+  {
+    "item_name": "Toy Story 3 Best Friends Magnetic Buddy Storybook"
+  },
+  {
+    "item_name": "Boozehound: On the Trail of the Rare, the Obscure, and the Overrated in Spirits"
+  },
+  {
+    "item_name": "Pirates at the Plate"
+  },
+  {
+    "item_name": "The Great Nadar: The Man Behind the Camera"
+  },
+  {
+    "item_name": "Pongo"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 845,
+    "item_name": "The Snowy Day"
+  },
+  {
+    "rank": 2,
+    "item_id": 396,
+    "item_name": "Amazing Grace: William Wilberforce and the Heroic Campaign to End Slavery"
+  },
+  {
+    "rank": 3,
+    "item_id": 4659,
+    "item_name": "Giggle, Giggle, Quack (A Click Clack Book)"
+  },
+  {
+    "rank": 4,
+    "item_id": 3535,
+    "item_name": "Click, Clack, Moo: Cows That Type"
+  },
+  {
+    "rank": 5,
+    "item_id": 3534,
+    "item_name": "Joseph Had a Little Overcoat"
+  },
+  {
+    "rank": 6,
+    "item_id": 846,
+    "item_name": "The Stinky Cheese Man and Other Fairly Stupid Tales (Picture Puffin)"
+  },
+  {
+    "rank": 7,
+    "item_id": 3103,
+    "item_name": "The Polar Express"
+  },
+  {
+    "rank": 8,
+    "item_id": 4253,
+    "item_name": "Diary of a Wombat"
+  },
+  {
+    "rank": 9,
+    "item_id": 842,
+    "item_name": "Miss Rumphius"
+  },
+  {
+    "rank": 10,
+    "item_id": 3295,
+    "item_name": "Owl Moon"
+  },
+  {
+    "rank": 11,
+    "item_id": 590,
+    "item_name": "The Martian Chronicles"
+  },
+  {
+    "rank": 12,
+    "item_id": 4957,
+    "item_name": "I Want My Hat Back"
+  },
+  {
+    "rank": 13,
+    "item_id": 4526,
+    "item_name": "Blue Hat, Green Hat (Boynton on Board)"
+  },
+  {
+    "rank": 14,
+    "item_id": 4647,
+    "item_name": "The Girl Who Loved Wild Horses"
+  },
+  {
+    "rank": 15,
+    "item_id": 830,
+    "item_name": "King Arthur and His Knights of the Round Table (Puffin Classics)"
+  },
+  {
+    "rank": 16,
+    "item_id": 1719,
+    "item_name": "The Man Who Walked Between the Towers"
+  },
+  {
+    "rank": 17,
+    "item_id": 3109,
+    "item_name": "An American Plague: The True and Terrifying Story of the Yellow Fever Epidemic of 1793 (Newbery Honor Book)"
+  },
+  {
+    "rank": 18,
+    "item_id": 2716,
+    "item_name": "Ramona the Pest"
+  },
+  {
+    "rank": 19,
+    "item_id": 5995,
+    "item_name": "300"
+  },
+  {
+    "rank": 20,
+    "item_id": 4655,
+    "item_name": "Freedom Summer"
+  },
+  {
+    "rank": 21,
+    "item_id": 4925,
+    "item_name": "Pajama Time! (Boynton on Board)"
+  },
+  {
+    "rank": 22,
+    "item_id": 5980,
+    "item_name": "Barnyard Dance! (Boynton on Board)"
+  },
+  {
+    "rank": 23,
+    "item_id": 4478,
+    "item_name": "Mr. Wuffles! (Caldecott Medal - Honors Winning Title(s))"
+  },
+  {
+    "rank": 24,
+    "item_id": 1722,
+    "item_name": "The Gardener"
+  },
+  {
+    "rank": 25,
+    "item_id": 1958,
+    "item_name": "You Read to Me, I'll Read to You: Very Short Stories to Read Together"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

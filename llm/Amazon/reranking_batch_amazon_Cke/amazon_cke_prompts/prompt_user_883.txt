@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Midnight Line: A Jack Reacher Novel"
+  },
+  {
+    "item_name": "Never Go Back: A Jack Reacher Novel"
+  },
+  {
+    "item_name": "Monster Hunter Memoirs: Grunge"
+  },
+  {
+    "item_name": "Fields of Fire (Frontlines)"
+  },
+  {
+    "item_name": "Good Morning, Irene"
+  },
+  {
+    "item_name": "High Country Fall"
+  },
+  {
+    "item_name": "Hunting Shadows: An Inspector Ian Rutledge Mystery (Inspector Ian Rutledge Mysteries)"
+  },
+  {
+    "item_name": "The Romanov Ransom (A Sam and Remi Fargo Adventure)"
+  },
+  {
+    "item_name": "The Leper's Bell (Sister Fidelma Mysteries)"
+  },
+  {
+    "item_name": "Typhoon Fury (The Oregon Files)"
+  },
+  {
+    "item_name": "A Fine Summer's Day (Inspector Ian Rutledge)"
+  },
+  {
+    "item_name": "Back of Beyond"
+  },
+  {
+    "item_name": "Hard Row"
+  },
+  {
+    "item_name": "Mary Russell's War (Mary Russell and Sherlock Holmes)"
+  },
+  {
+    "item_name": "Y is for Yesterday (A Kinsey Millhone Novel)"
+  },
+  {
+    "item_name": "Forests of Avalon"
+  },
+  {
+    "item_name": "The Western Star: A Longmire Mystery"
+  },
+  {
+    "item_name": "Death's Half Acre"
+  },
+  {
+    "item_name": "The Rope: An Anna Pigeon Novel (Anna Pigeon Mysteries)"
+  },
+  {
+    "item_name": "The Beekeeper's Apprentice: or, On the Segregation of the Queen (A Mary Russell Mystery)"
+  },
+  {
+    "item_name": "A Deeper Sleep (Kate Shugak Mysteries, No. 15)"
+  },
+  {
+    "item_name": "The Night Searchers (A Sharon McCone Mystery)"
+  },
+  {
+    "item_name": "Echoes of Sherlock Holmes: Stories Inspired by the Holmes Canon"
+  },
+  {
+    "item_name": "The Devil's Bed"
+  },
+  {
+    "item_name": "Indestructible: One Man's Rescue Mission That Changed the Course of WWII"
+  },
+  {
+    "item_name": "Sand Sharks (Deborah Knott Mysteries)"
+  },
+  {
+    "item_name": "The Disappeared (A Joe Pickett Novel)"
+  },
+  {
+    "item_name": "From Holmes to Sherlock: The Story of the Men and Women Who Created an Icon"
+  },
+  {
+    "item_name": "Blue Murder: Lord &amp; Lady Hetheridge #2 (Volume 2)"
+  },
+  {
+    "item_name": "Divorce Horse (Walt Longmire Mysteries) - Kindle edition"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3270,
+    "item_name": "Suspect"
+  },
+  {
+    "rank": 2,
+    "item_id": 19,
+    "item_name": "Bloodline"
+  },
+  {
+    "rank": 3,
+    "item_id": 2002,
+    "item_name": "The Gods of Guilt (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 4,
+    "item_id": 3215,
+    "item_name": "The First Rule (A Joe Pike Novel)"
+  },
+  {
+    "rank": 5,
+    "item_id": 3118,
+    "item_name": "Rules of Prey"
+  },
+  {
+    "rank": 6,
+    "item_id": 2864,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 7,
+    "item_id": 2337,
+    "item_name": "Moon Over Soho (Rivers of London)"
+  },
+  {
+    "rank": 8,
+    "item_id": 3277,
+    "item_name": "Silken Prey"
+  },
+  {
+    "rank": 9,
+    "item_id": 245,
+    "item_name": "The Judas Strain: A Sigma Force Novel"
+  },
+  {
+    "rank": 10,
+    "item_id": 5200,
+    "item_name": "Whiskey Sour: A Jack Daniels Mystery (A Jacqueline Jack Daniels Mystery)"
+  },
+  {
+    "rank": 11,
+    "item_id": 2039,
+    "item_name": "11th Hour (Women's Murder Club)"
+  },
+  {
+    "rank": 12,
+    "item_id": 4786,
+    "item_name": "The Watchman"
+  },
+  {
+    "rank": 13,
+    "item_id": 3436,
+    "item_name": "Grave Secret (Harper Connelly Mysteries, Book 4)"
+  },
+  {
+    "rank": 14,
+    "item_id": 3122,
+    "item_name": "Silent Prey"
+  },
+  {
+    "rank": 15,
+    "item_id": 2367,
+    "item_name": "Odd Thomas: An Odd Thomas Novel"
+  },
+  {
+    "rank": 16,
+    "item_id": 1668,
+    "item_name": "Ten Big Ones (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 17,
+    "item_id": 2049,
+    "item_name": "The Lincoln Lawyer (Large Print)"
+  },
+  {
+    "rank": 18,
+    "item_id": 776,
+    "item_name": "Aunt Dimity and the Duke (Aunt Dimity Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_id": 3751,
+    "item_name": "Still Life with Crows (Pendergast, Book 4)"
+  },
+  {
+    "rank": 20,
+    "item_id": 1917,
+    "item_name": "Trunk Music (Harry Bosch Novels)"
+  },
+  {
+    "rank": 21,
+    "item_id": 2010,
+    "item_name": "The Black Box (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 22,
+    "item_id": 3772,
+    "item_name": "The Wheel of Darkness (Pendergast)"
+  },
+  {
+    "rank": 23,
+    "item_id": 725,
+    "item_name": "10th Anniversary"
+  },
+  {
+    "rank": 24,
+    "item_id": 3241,
+    "item_name": "High Profile (A Jesse Stone Novel)"
+  },
+  {
+    "rank": 25,
+    "item_id": 3267,
+    "item_name": "Field of Prey"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Six Feet Under (A Kenni Lowry Mystery) (Volume 4)"
+  },
+  {
+    "item_name": "Death al Fresco: A Sally Solari Mystery"
+  },
+  {
+    "item_name": "Lethal in Old Lace: A Consignment Shop Mystery"
+  },
+  {
+    "item_name": "Playing With Bonbon Fire: A Southern Chocolate Shop Mystery"
+  },
+  {
+    "item_name": "Delayed Death: Temptation in Florence #1"
+  },
+  {
+    "item_name": "Hardcore Twenty-Four: A Stephanie Plum Novel"
+  },
+  {
+    "item_name": "Death by Dumpling: A Noodle Shop Mystery"
+  },
+  {
+    "item_name": "Natural Thorn Killer (A Rose City Mystery)"
+  },
+  {
+    "item_name": "Murder with a Cherry on Top (A Lickety Splits Mystery)"
+  },
+  {
+    "item_name": "Murder, She Knit (A Knit &amp; Nibble Mystery)"
+  },
+  {
+    "item_name": "Plain Confession (A Stone Mill Amish Mystery)"
+  },
+  {
+    "item_name": "The Uninvited Corpse (A Food Blogger Mystery)"
+  },
+  {
+    "item_name": "Til Death Do Us Party (A Liv And Di In Dixie Mystery)"
+  },
+  {
+    "item_name": "A Riesling to Die"
+  },
+  {
+    "item_name": "A Manor of Murder"
+  },
+  {
+    "item_name": "Uneasy Prey (A Zoe Chambers Mystery) (Volume 6)"
+  },
+  {
+    "item_name": "Lost Books and Old Bones: A Scottish Bookshop Mystery"
+  },
+  {
+    "item_name": "Death by the Sea"
+  },
+  {
+    "item_name": "Bad Neighbors: An Agnes and Effie Mystery"
+  },
+  {
+    "item_name": "The Shadow of Death: A Sister Agatha and Father Selwyn Mystery (Sister Agatha and Father Selwyn Mysteries)"
+  },
+  {
+    "item_name": "Murder at the Mushroom Festival"
+  },
+  {
+    "item_name": "Hide and Sneak (A Savannah Reid Mystery)"
+  },
+  {
+    "item_name": "Read Herring Hunt (Mystery Bookshop Mysteries)"
+  },
+  {
+    "item_name": "Murder in the Locked Library (A Book Retreat Mystery)"
+  },
+  {
+    "item_name": "Expiration Date (A Cook-Off Mystery)"
+  },
+  {
+    "item_name": "Cake and Punishment: A Southern Cake Baker Mystery"
+  },
+  {
+    "item_name": "Flowers and Foul Play: A Magic Garden Mystery"
+  },
+  {
+    "item_name": "Dead As A Doornail (A Kenni Lowry Mystery)"
+  },
+  {
+    "item_name": "Lowcountry Bookshop (A Liz Talbot Mystery)"
+  },
+  {
+    "item_name": "Ruff Justice (Melanie Travis Canine Mystery)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Drape Expectations (A Caprice De Luca Mystery)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Bearly Departed (A Teddy Bear Mystery)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Second To Nun (A Giulia Driscoll Mystery) (Volume 2)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Death Among the Doilies (A Cora Crafts Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_name": "A Fatal Twist (A Downward Dog Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Murder on a Silver Platter (A Red Carpet Catering Mystery) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Scrapbook of the Dead (A Cumberland Creek Mystery)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Dangerously Dark (A Chocolate Whisperer Mystery)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Dream a Little Scream (A Dream Club Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Kneaded to Death (A Bread Shop Mystery)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Reining in Murder (A Carson Stables Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Muddied Murder (A Greenhouse Mystery) (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Shades of Wrath (A Caprice De Luca Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Pressing the Issue (A Cookbook Nook Mystery) (Volume 6)"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Deadly clair: A French Bistro Mystery"
+  },
+  {
+    "rank": 16,
+    "item_name": "Decanting a Murder (A Sommelier Mystery)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Double Knot (A Davis Way Crime Caper) (Volume 5)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Chocolate With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Fixin' To Die (A Kenni Lowry Mystery) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Gilt by Association (A Caprice De Luca Mystery)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Mad Catter (A Whales and Tails Cozy Mystery) (Volume 2)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 23,
+    "item_name": "Shards of Murder (A Webb's Glass Shop Mystery)"
+  },
+  {
+    "rank": 24,
+    "item_name": "If You've Got It, Haunt It (A Haunted Vintage Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Hair Brained (The Bad Hair Day Mysteries) (Volume 14)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Way of the Guilty: A Hope Street Church Mystery (Hope Street Church Mysteries)"
+  },
+  {
+    "rank": 27,
+    "item_name": "To Helvetica and Back (A Dangerous Type Mystery)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Paws and Effect (Mystic Notch Cozy Mystery Series) (Volume 4)"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Mew To A Kill (Mystic Notch Cozy Mystery Series) (Volume 3)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Fatal Fiction"
+  },
+  {
+    "rank": 31,
+    "item_name": "Dead Storage"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Book Club Murders"
+  },
+  {
+    "rank": 33,
+    "item_name": "Pouncing on Murder (A Bookmobile Cat Mystery)"
+  },
+  {
+    "rank": 34,
+    "item_name": "If the Shoe Kills"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Spring Cleaning Murders - An Ellie Haskell Mystery (Signed Copy)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Murder on the Toy Town Express: A Vintage Toy Shop Mystery (Vintage Toyshop Mysteries)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Masking for Trouble (A Costume Shop Mystery)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Clock Strikes Nun (A Giulia Driscoll Mystery) (Volume 4)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Magick &amp; Mayhem"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Final Reveille (A Living History Museum Mystery)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Madness of Mercury (A Zodiac Mystery)"
+  },
+  {
+    "rank": 42,
+    "item_name": "All Fudged Up (A Candy-coated Mystery)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Killer Jam (Dewberry Farm Mysteries)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Dressed to Confess (A Costume Shop Mystery)"
+  },
+  {
+    "rank": 45,
+    "item_name": "From Bad to Wurst (A Passport to Peril Mystery)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Organized for Murder: Organized Mysteries book #1 (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Stirring Up Strife: A Hope Street Church Mystery (Hope Street Church Mysteries)"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Killer Collection: A Collectible Mystery"
+  },
+  {
+    "rank": 49,
+    "item_name": "Playing with Fire (A Sweet Pepper Fire Brigade)"
+  },
+  {
+    "rank": 50,
+    "item_name": "A First Date with Death (A Love or Money Mystery)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

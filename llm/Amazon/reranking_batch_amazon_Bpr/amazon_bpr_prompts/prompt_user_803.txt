@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Reader (The Immortal Series) (Volume 1)"
+  },
+  {
+    "item_name": "Tattered Loyalties (Talon Pack) (Volume 1)"
+  },
+  {
+    "item_name": "99 Days"
+  },
+  {
+    "item_name": "Court of Vampires (The Shifter Prophecy) (Volume 1)"
+  },
+  {
+    "item_name": "Souljacker: A Lily Bound Novel"
+  },
+  {
+    "item_name": "Undaunted: Knights in Black Leather"
+  },
+  {
+    "item_name": "Pretty Little Werewolf"
+  },
+  {
+    "item_name": "May the Best Man Win (The Wedding Date)"
+  },
+  {
+    "item_name": "Dating the Undead (Bite Nights)"
+  },
+  {
+    "item_name": "Trying To Live With The Dead (The Veil Diaries) (Volume 1)"
+  },
+  {
+    "item_name": "Fury"
+  },
+  {
+    "item_name": "The Guardian, a Sword, &amp; Stilettos (The Enlighten Series) (Volume 1)"
+  },
+  {
+    "item_name": "My Ex From Hell (The Blooming Goddess Trilogy Book One) (Volume 1)"
+  },
+  {
+    "item_name": "Stillhouse Lake"
+  },
+  {
+    "item_name": "When To Fear The Living (The Veil Diaries) (Volume 3)"
+  },
+  {
+    "item_name": "Unblemished (The Unblemished Trilogy)"
+  },
+  {
+    "item_name": "The Devil's Daughter (Hidden Sins)"
+  },
+  {
+    "item_name": "The Vixen's Lead (Kit Davenport) (Volume 1)"
+  },
+  {
+    "item_name": "The Hunt (A Devil's Isle Novel)"
+  },
+  {
+    "item_name": "Devils &amp; Thieves"
+  },
+  {
+    "item_name": "Enchant (Volume 1)"
+  },
+  {
+    "item_name": "Rose Petal Graves (The Lost Clan) (Volume 1)"
+  },
+  {
+    "item_name": "Full Moons and Mistletoe"
+  },
+  {
+    "item_name": "Shift (Mackenzie Grey: Origins) (Volume 1)"
+  },
+  {
+    "item_name": "Marked by Power (The Marked Series)"
+  },
+  {
+    "item_name": "Insidious: The Marked Mage Chronicles (Volume 1)"
+  },
+  {
+    "item_name": "Shifter's University (Volume 1)"
+  },
+  {
+    "item_name": "The Cinderella Arrangement"
+  },
+  {
+    "item_name": "Binding Magick (The Witch Blood Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "The Big Bad Wolf"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Cursed by Fire (Blood &amp; Magic) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ever Shade: A Dark Faerie Tale"
+  },
+  {
+    "rank": 3,
+    "item_name": "Heir of Fireno. 3 (Throne of Glass)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Brightest Kind of Darkness"
+  },
+  {
+    "rank": 5,
+    "item_name": "Venom and Vanilla (The Venom Trilogy)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Making Faces"
+  },
+  {
+    "rank": 7,
+    "item_name": "Obsidian (Lux)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Under the Never Sky"
+  },
+  {
+    "rank": 9,
+    "item_name": "Finding Cinderella: A Novella"
+  },
+  {
+    "rank": 10,
+    "item_name": "Shadows (A Lux Novel)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Origin (A Lux Novel)"
+  },
+  {
+    "rank": 12,
+    "item_name": "World After: Penryn and the End of Days Book Two"
+  },
+  {
+    "rank": 13,
+    "item_name": "Painted Faces"
+  },
+  {
+    "rank": 14,
+    "item_name": "Shadow of Time"
+  },
+  {
+    "rank": 15,
+    "item_name": "Hopeless"
+  },
+  {
+    "rank": 16,
+    "item_name": "Reckless Magic: The Star-Crossed Series (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Introductions (The Academy) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Harvesting"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Court of Thorns and Roses"
+  },
+  {
+    "rank": 20,
+    "item_name": "Breathe (Sea Breeze)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Bird and the Sword"
+  },
+  {
+    "rank": 22,
+    "item_name": "Obsession"
+  },
+  {
+    "rank": 23,
+    "item_name": "A is for Abstinence"
+  },
+  {
+    "rank": 24,
+    "item_name": "Bully (Fall Away)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Into the Darkness (Darkness, 1) (Volume 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Inhale: A Just Breathe Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Fiery Heart: A Bloodlines Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Stay with Me: A Novel (Wait for You Saga)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Play With Me (Grover Beach Team)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Walking Disaster"
+  },
+  {
+    "rank": 31,
+    "item_name": "Spelled (The Storymakers)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Wings of Arian: The Solus Series"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Blemished"
+  },
+  {
+    "rank": 34,
+    "item_name": "Everblue: Mer Tales #1"
+  },
+  {
+    "rank": 35,
+    "item_name": "Masquerade"
+  },
+  {
+    "rank": 36,
+    "item_name": "Rock the Heart (Black Falcon)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 38,
+    "item_name": "You Are Mine (Mine Series) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Branded (A Sinner Series) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Wait for You (Wait for You Saga)"
+  },
+  {
+    "rank": 41,
+    "item_name": "After The Ending (The Ending Series) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Dead Embers: A Valkyrie Novel #2 (Valkyrie Novels)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Salt"
+  },
+  {
+    "rank": 44,
+    "item_name": "Gypsy Hunted"
+  },
+  {
+    "rank": 45,
+    "item_name": "White Hot Kiss (The Dark Elements)"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Different Blue"
+  },
+  {
+    "rank": 47,
+    "item_name": "On a Razor's Edge (Darkness)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Family Magic"
+  },
+  {
+    "rank": 49,
+    "item_name": "collide: A Collide Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Taste"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

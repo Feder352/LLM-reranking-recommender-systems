@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "SEAL's Promise"
+  },
+  {
+    "item_name": "Thrill of the Chase (City Shifters: the Pride) (Volume 1)"
+  },
+  {
+    "item_name": "Signed, SEALed, Delivered: Trident Brotherhood Series (Volume 1)"
+  },
+  {
+    "item_name": "Storm Chaser (City Shifters: the Pride) (Volume 3)"
+  },
+  {
+    "item_name": "Chasing Trouble (City Shifters: the Pride) (Volume 2)"
+  },
+  {
+    "item_name": "Lost in Shadows"
+  },
+  {
+    "item_name": "Sworn to Protect (Rescue Ops)"
+  },
+  {
+    "item_name": "Bearing Burdens (City Shifters: the Den) (Volume 1)"
+  },
+  {
+    "item_name": "Close to Heaven: A Colorado High Country Christmas (Volume 5)"
+  },
+  {
+    "item_name": "Silent Knight: Deep Six Security Book 7 (Deep Six Security Series) (Volume 7)"
+  },
+  {
+    "item_name": "The Bear Who Loved Me (Grizzlies Gone Wild)"
+  },
+  {
+    "item_name": "Hard Play"
+  },
+  {
+    "item_name": "Kane (Alexander Shifter Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "King of Clubs (Aces &amp; Eights)"
+  },
+  {
+    "item_name": "Resurrection (Redemption Harbor Series Book 1) (Volume 1)"
+  },
+  {
+    "item_name": "Leashed (Going to the Dogs) (Volume 1)"
+  },
+  {
+    "item_name": "Kiss Kiss Bang: An Iron Clad Security Novel"
+  },
+  {
+    "item_name": "Weather the Storm (Security Specialists International) (Volume 3)"
+  },
+  {
+    "item_name": "In Walked Trouble (Under Covers) (Volume 2)"
+  },
+  {
+    "item_name": "Bite Me (Bitten)"
+  },
+  {
+    "item_name": "Out of the Dark (Falcon) (Volume 1)"
+  },
+  {
+    "item_name": "The Sheriff's Bride: Country Brides &amp; Cowboy Boots (Cobble Creek Romance) (Volume 1)"
+  },
+  {
+    "item_name": "Rogue Alpha (Wild Lake Wolves) (Volume 1)"
+  },
+  {
+    "item_name": "Fast Burn (Body Armor)"
+  },
+  {
+    "item_name": "Deadly Testimony (A Safeguard Novel)"
+  },
+  {
+    "item_name": "Earning It: A Romantic Comedy (Stolen Moments)"
+  },
+  {
+    "item_name": "All In (Sleeper SEALs) (Volume 9)"
+  },
+  {
+    "item_name": "Montana Rescue (Sleeper SEALs) (Volume 6)"
+  },
+  {
+    "item_name": "A Rancher's Heart (Stones of Heart Falls) (Volume 1)"
+  },
+  {
+    "item_name": "The Upside to Being Single"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Deathwatch: Broslin Creek"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Navy SEAL's E-Mail Order Bride (Heroes of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Hungry Like the Wolf (SWAT)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Heart of the Hunter"
+  },
+  {
+    "rank": 5,
+    "item_name": "A Real Cowboy Never Says No (Wyoming Rebels) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Chasing Victory (The Winters Sisters) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Hell on Wheels (Black Knights Inc.)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Cruisin' For A SEAL: SEAL Brotherhood #5 (Volume 5)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Shadowed"
+  },
+  {
+    "rank": 10,
+    "item_name": "Rescuing Emily: Delta Force Heroes, Book 2"
+  },
+  {
+    "rank": 11,
+    "item_name": "Tailored for Trouble: A Romantic Comedy (Happy Pants)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Fatal Affair: Book One of the Fatal Series: One Night with You"
+  },
+  {
+    "rank": 13,
+    "item_name": "Montana Dog Soldier (Brotherhood Protectors Series) (Volume 6)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Dark Instincts (The Phoenix Pack)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Protecting Fiona (SEAL of Protection) (Volume 3)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Come Away With Me (The Andrades) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Claiming His Mate (A Werewolf Romance)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Up to the Challenge (An Anchor Island Novel)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Teased: A Dark Protectors Novella (1001 Dark Nights)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Opposite of Wild (Clover Park) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Forged in Ash (A Red-Hot SEALs Novel)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Forbidden Billionaire (The Sinclairs)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Fallen SEAL Legacy: SEAL Brotherhood Series Book 2"
+  },
+  {
+    "rank": 24,
+    "item_name": "Forced Disappearance (Civilian Personnel Recovery Unit)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Dark Waters (Barkley Sound)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Billionaire's Marriage Proposal: Billionaire Bachelors (Volume 4)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Axman Werebear (Saw Bears) (Volume 5)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Under His Protection (Red Stone Security Series) (Volume 9)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Dangerously Hot: A Hostile Operations Team Novel (Volume 4)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Lucky Like Us: Book Two: The Hunted Series"
+  },
+  {
+    "rank": 31,
+    "item_name": "Wolf with Benefits (Brava Paranormal Romance)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Cade (MacKenzie Security)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Need Me (Dark Obsession) (Volume 3)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Deathwish: Broslin Creek Book 6 (Volume 6)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Hot Ice (A Hostile Operations Team Novel - Book 7) (Volume 7)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Fire Away (Somewhere, TX) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Simon:Le Beau Brothers: Billionaire Shifter with BBW mates Series (Le Beau Series) (Volume 2)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Midnight Sun"
+  },
+  {
+    "rank": 39,
+    "item_name": "Her Loyal SEAL (Midnight Delta) (Volume 2)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Kill Without Shame (Ares Security)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Forgotten Sins (Sin Brothers)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Extreme Prey (A Prey Novel)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Hot Package: A Hostile Operations Team Christmas Novella (Volume 3)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Burning Up (Smoke Jumpers)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Father Found (The Daddy School, Book 1) (Harlequin Superromance, No 763)"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Cold Dark Place (Cold Justice) (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Twisted: LOST Series #2"
+  },
+  {
+    "rank": 48,
+    "item_name": "No Chance in Hell (Lost and Found, Inc.) (Volume 3)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Dangerous Waters (The Barkley Sound Series)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Rescuing Rayne: Delta Force Heroes Series, Book 1"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

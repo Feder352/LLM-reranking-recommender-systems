@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dog Days (Diary of a Wimpy Kid)"
+  },
+  {
+    "item_name": "Pines (Wayward Pines)"
+  },
+  {
+    "item_name": "Mr. Mercedes"
+  },
+  {
+    "item_name": "The Casual Vacancy"
+  },
+  {
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "item_name": "The Field Guide (Spiderwick Chronicles, book 1)"
+  },
+  {
+    "item_name": "The Troop"
+  },
+  {
+    "item_name": "If The South Had Won The Civil War"
+  },
+  {
+    "item_name": "Home Alone: The Classic Illustrated Storybook (Pop Classics)"
+  },
+  {
+    "item_name": "My First Toolbox (Play*Learn*Do)"
+  },
+  {
+    "item_name": "Luis de Molina: The Life and Theology of the Founder of Middle Knowledge"
+  },
+  {
+    "item_name": "NeuroLogic: The Brain's Hidden Rationale Behind Our Irrational Behavior"
+  },
+  {
+    "item_name": "Simple Steps for Fourth Grade"
+  },
+  {
+    "item_name": "Preaching the Whole Counsel of God: Design and Deliver Gospel-Centered Sermons"
+  },
+  {
+    "item_name": "Understanding Theology in 15 Minutes a Day: How can I know God?  How can Jesus be both God and man?  What will heaven be like?   And many more"
+  },
+  {
+    "item_name": "Locating Atonement: Explorations in Constructive Dogmatics (Los Angeles Theology Conference Series)"
+  },
+  {
+    "item_name": "Pirate Latitudes"
+  },
+  {
+    "item_name": "NOS4A2: A Novel"
+  },
+  {
+    "item_name": "Abandon"
+  },
+  {
+    "item_name": "People to Be Loved: Why Homosexuality Is Not Just an Issue"
+  },
+  {
+    "item_name": "The Revenant: The Bestselling Book That Inspired the Award-Winnning Movie"
+  },
+  {
+    "item_name": "Breakthrough"
+  },
+  {
+    "item_name": "Needful Things"
+  },
+  {
+    "item_name": "The Passage: A Novel (Book One of The Passage Trilogy)"
+  },
+  {
+    "item_name": "It"
+  },
+  {
+    "item_name": "Duck and Hippo in the Rainstorm"
+  },
+  {
+    "item_name": "Killing Pablo: The Hunt for the World's Greatest Outlaw"
+  },
+  {
+    "item_name": "The Stranger Beside Me: The Twentieth Anniversary Edition"
+  },
+  {
+    "item_name": "Full Dark, No Stars"
+  },
+  {
+    "item_name": "Bind, Torture, Kill: The Inside Story of the Serial Killer Next Door"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 3,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Purpose Driven Life"
+  },
+  {
+    "rank": 5,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 7,
+    "item_name": "David and Goliath: Art of Battling Giants (A)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Lost in Shangri-La: Escape from a Hidden World - A True Story"
+  },
+  {
+    "rank": 9,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 12,
+    "item_name": "Les Miserables (Penguin Classics)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 15,
+    "item_name": "[(Chicken Soup for the Cat Lover's Soul: Stories of Feline Affection, Mystery and Charm)] [Author: Jack Canfield] published on (October, 2013)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Jungle (The Penguin American Library)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 19,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 20,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 21,
+    "item_name": "The 5 Love Languages Military Edition: The Secret to Love That Lasts"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Five People You Meet in Heaven (Random House Large Print)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Dead Wake: The Last Crossing of the Lusitania"
+  },
+  {
+    "rank": 25,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 26,
+    "item_name": "Decision Points"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Tunnels: Escapes Under the Berlin Wall and the Historic Films the JFK White House Tried to Kill (Random House Large Print)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Marley &amp; Me: Life and Love with the World's Worst Dog"
+  },
+  {
+    "rank": 29,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Lost in Shangri-La: Escape from a Hidden World"
+  },
+  {
+    "rank": 31,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 32,
+    "item_name": "On Writing"
+  },
+  {
+    "rank": 33,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Million Miles in a Thousand Years: What I Learned While Editing My Life"
+  },
+  {
+    "rank": 37,
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "rank": 38,
+    "item_name": "Dad Is Fat"
+  },
+  {
+    "rank": 39,
+    "item_name": "Malcolm Gladwell: David and Goliath : Underdogs, Misfits, and the Art of Battling Giants (Large Print Hardcover); 2013 Edition"
+  },
+  {
+    "rank": 40,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Salt Sugar Fat: How the Food Giants Hooked Us"
+  },
+  {
+    "rank": 42,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Three Cups of Tea"
+  },
+  {
+    "rank": 44,
+    "item_name": "NIV Study Bible, Leathersoft, Tan/Blue, Indexed, Red Letter Edition"
+  },
+  {
+    "rank": 45,
+    "item_name": "Into Thin Air: A Personal Account of the Mt. Everest Disaster"
+  },
+  {
+    "rank": 46,
+    "item_name": "1776 : America and Britain at War"
+  },
+  {
+    "rank": 47,
+    "item_name": "Thunder Dog: The True Story of a Blind Man, His Guide Dog, and the Triumph of Trust"
+  },
+  {
+    "rank": 48,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 49,
+    "item_name": "Night"
+  },
+  {
+    "rank": 50,
+    "item_name": "Zealot: The Life and Times of Jesus of Nazareth"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

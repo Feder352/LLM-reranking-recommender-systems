@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Night Stalker (FBI: Special Crimes Unit)"
+  },
+  {
+    "item_name": "The Bengal Identity (A Cat Groomer Mystery)"
+  },
+  {
+    "item_name": "A Chance at Forever (Teaville Moral Society)"
+  },
+  {
+    "item_name": "The Innkeeper's Daughter (Bow Street Runners Trilogy)"
+  },
+  {
+    "item_name": "In Places Hidden (Golden Gate Secrets)"
+  },
+  {
+    "item_name": "A Borrowed Dream (Cimarron Creek Trilogy)"
+  },
+  {
+    "item_name": "A Brush with Shadows (A Lady Darby Mystery)"
+  },
+  {
+    "item_name": "Beneath a Prairie Moon: A Novel"
+  },
+  {
+    "item_name": "Winning Miss Winthrop (Regency Brides: A Promise of Hope)"
+  },
+  {
+    "item_name": "Healthy Air Fryer Cookbook: 100 Great Recipes with Fewer Calories and Less Fat"
+  },
+  {
+    "item_name": "Why Kill the Innocent (Sebastian St. Cyr Mystery)"
+  },
+  {
+    "item_name": "Cinco de Murder (A Taste of Texas Mystery)"
+  },
+  {
+    "item_name": "Wedding Cake Crumble (Cupcake Bakery Mystery)"
+  },
+  {
+    "item_name": "The Trauma Cleaner: One Woman's Extraordinary Life in the Business of Death, Decay, and Disaster"
+  },
+  {
+    "item_name": "In His Image: 10 Ways God Calls Us to Reflect His Character"
+  },
+  {
+    "item_name": "A Necessary Evil"
+  },
+  {
+    "item_name": "A Death of No Importance: A Novel (A Jane Prescott Novel)"
+  },
+  {
+    "item_name": "Shot in the Dark (A Coffeehouse Mystery)"
+  },
+  {
+    "item_name": "The The Parker Inheritance"
+  },
+  {
+    "item_name": "Storm Front (Montana Rescue)"
+  },
+  {
+    "item_name": "Murder on Union Square (A Gaslight Mystery)"
+  },
+  {
+    "item_name": "My Heart Belongs in Glenwood Springs, Colorado: Millie's Resolve"
+  },
+  {
+    "item_name": "The Romanov Empress: A Novel of Tsarina Maria Feodorovna"
+  },
+  {
+    "item_name": "Police Exams Prep 2018-2019: 4 Practice Tests + Proven Strategies (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "Where the Fire Falls: A Vintage National Parks Novel"
+  },
+  {
+    "item_name": "Dead Drift (Chesapeake Valor)"
+  },
+  {
+    "item_name": "The House at Saltwater Point (A Lavender Tides Novel)"
+  },
+  {
+    "item_name": "Hope of Azure Springs"
+  },
+  {
+    "item_name": "Darkwater Secrets (Darkwater Inn)"
+  },
+  {
+    "item_name": "Thief of Corinth"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Christmas Cat"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Covered Deep"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Lightkeeper's Ball (Mercy Falls)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 5,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Dancing Master"
+  },
+  {
+    "rank": 7,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 8,
+    "item_name": "Christmas at Harmony Hill: A Shaker Story"
+  },
+  {
+    "rank": 9,
+    "item_name": "Murder at the Mikado (A Drew Farthering Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_name": "5 Days to a Clutter-Free House: Quick, Easy Ways to Clear Up Your Space"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Heiress of Winterwood (Whispers On The Moors)"
+  },
+  {
+    "rank": 12,
+    "item_name": "As Waters Gone By"
+  },
+  {
+    "rank": 13,
+    "item_name": "Death Sits Down to Dinner: A Mystery (Lady Montfort Mystery Series)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Critical Condition"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Ringmaster's Wife"
+  },
+  {
+    "rank": 16,
+    "item_name": "Born of Persuasion (Price of Privilege)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Home to Paradise: The Coming Home Series  Book 3"
+  },
+  {
+    "rank": 18,
+    "item_name": "Outlive Your Life: You Were Made to Make A Difference"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Bride at Last"
+  },
+  {
+    "rank": 20,
+    "item_name": "Fannie's Last Supper: Re-creating One Amazing Meal from Fannie Farmer's 1896 Cookbook"
+  },
+  {
+    "rank": 21,
+    "item_name": "Chasing Mona Lisa: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Secret of Pembrooke Park"
+  },
+  {
+    "rank": 23,
+    "item_name": "Sea Rose Lane: A Hope Harbor Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Crazy Busy: A (Mercifully) Short Book about a (Really) Big Problem"
+  },
+  {
+    "rank": 25,
+    "item_name": "Small Town Girl: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "Fair Play: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Phoebe's Light (Nantucket Legacy)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Falling to Pieces (A Shipshewana Amish Mystery)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Beyond All Dreams"
+  },
+  {
+    "rank": 30,
+    "item_name": "His Majesty's Hope: A Maggie Hope Mystery"
+  },
+  {
+    "rank": 31,
+    "item_name": "Not by Sight: A Novel (Ozark Mountain Trilogy)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Sound of Sleigh Bells: A Romance from the Heart of Amish Country (Apple Ridge)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Miracle at the Higher Grounds Cafe"
+  },
+  {
+    "rank": 34,
+    "item_name": "Streams of Mercy (Song of Blessing)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Murder Simply Brewed (An Amish Village Mystery)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Rules of Murder (A Drew Farthering Mystery)"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Plain Disappearance: An Appleseed Creek Mystery"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Stitch in Crime: Quilts of Love Series"
+  },
+  {
+    "rank": 39,
+    "item_name": "Summer's List"
+  },
+  {
+    "rank": 40,
+    "item_name": "Newton and Polly: A Novel of Amazing Grace"
+  },
+  {
+    "rank": 41,
+    "item_name": "Rachel: A Novel (Wives of the Patriarchs) (Volume 3)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Maid of Fairbourne Hall"
+  },
+  {
+    "rank": 43,
+    "item_name": "Murder at the Courthouse: A Hidden Springs Mystery (The Hidden Springs Mysteries)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Annabel Lee (Coffey &amp; Hill)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Golden Braid"
+  },
+  {
+    "rank": 46,
+    "item_name": "Blackmoore (Proper Romances)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Tried and True (Wild at Heart) (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Save the Date"
+  },
+  {
+    "rank": 49,
+    "item_name": "Shadows of the Past: A Novel (Logan Point) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Deeply Devoted: A Novel (The Blue Willow Brides) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

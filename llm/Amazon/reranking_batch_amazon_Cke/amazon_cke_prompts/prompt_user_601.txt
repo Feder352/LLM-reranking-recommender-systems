@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "TAO TE CHING."
+  },
+  {
+    "item_name": "TAO TE CHING."
+  },
+  {
+    "item_name": "Subliminal: How Your Unconscious Mind Rules Your Behavior"
+  },
+  {
+    "item_name": "White Out: The Secret Life of Heroin"
+  },
+  {
+    "item_name": "The Cancer Chronicles: Unlocking Medicine's Deepest Mystery"
+  },
+  {
+    "item_name": "The Facebook Diet: 50 Funny Signs of Facebook Addiction and Ways to Unplug with a Digital Detox (The Unplug Series)"
+  },
+  {
+    "item_name": "Smarter Than You Think: How Technology Is Changing Our Minds for the Better"
+  },
+  {
+    "item_name": "Labor Pains"
+  },
+  {
+    "item_name": "Naked Determination: 41 Stories About Overcoming Fear"
+  },
+  {
+    "item_name": "A Counterfeit Priest"
+  },
+  {
+    "item_name": "The Fracking Truth:America&rsquo;s Energy Revolution: America&rsquo;s Energy Revolution: the Inside, Untold Story"
+  },
+  {
+    "item_name": "Stupidparty Math v. Myth: Unmasking the Destructive Forces Eroding American Democracy (Stupidpartyland)"
+  },
+  {
+    "item_name": "Paleofantasy: What Evolution Really Tells Us about Sex, Diet, and How We Live"
+  },
+  {
+    "item_name": "Humans Need Not Apply: A Guide to Wealth and Work in the Age of Artificial Intelligence"
+  },
+  {
+    "item_name": "Waking Up: A Guide to Spirituality Without Religion"
+  },
+  {
+    "item_name": "Never Binge Again(tm): Reprogram Yourself to Think Like a Permanently Thin Person. Stop Overeating and Binge Eating and Stick to the Food Plan of Your Choice!"
+  },
+  {
+    "item_name": "Love Medicine (Perennial Modern Classics)"
+  },
+  {
+    "item_name": "The Industries of the Future"
+  },
+  {
+    "item_name": "Physics of the Future: The Inventions That Will Transform Our Lives"
+  },
+  {
+    "item_name": "The Undoing Project: A Friendship that Changed the World"
+  },
+  {
+    "item_name": "Seven Brief Lessons on Physics"
+  },
+  {
+    "item_name": "The Story of the Human Body: Evolution, Health, and Disease"
+  },
+  {
+    "item_name": "The Buffer Zone Diet: It's Not Just What You Eat, It's When You Eat. Harness Your Hidden Fuel for a Slimmer and Healthier You"
+  },
+  {
+    "item_name": "Fortune's Formula: The Untold Story of the Scientific Betting System That Beat the Casinos and Wall Street"
+  },
+  {
+    "item_name": "Pandora's Lab: Seven Stories of Science Gone Wrong"
+  },
+  {
+    "item_name": "Homo Deus: A Brief History of Tomorrow"
+  },
+  {
+    "item_name": "A Man for All Markets: From Las Vegas to Wall Street, How I Beat the Dealer and the Market"
+  },
+  {
+    "item_name": "The Big Picture: On the Origins of Life, Meaning, and the Universe Itself"
+  },
+  {
+    "item_name": "The Sixth Extinction: An Unnatural History"
+  },
+  {
+    "item_name": "Who Was Joseph Pulitzer?: A novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 6104,
+    "item_name": "Merchants of Doubt: How a Handful of Scientists Obscured the Truth on Issues from Tobacco Smoke to Global Warming"
+  },
+  {
+    "rank": 2,
+    "item_id": 3779,
+    "item_name": "Microtrends: The Small Forces Behind Tomorrow's Big Changes"
+  },
+  {
+    "rank": 3,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 4,
+    "item_id": 1387,
+    "item_name": "13 Bankers: The Wall Street Takeover and the Next Financial Meltdown"
+  },
+  {
+    "rank": 5,
+    "item_id": 5272,
+    "item_name": "Freethinkers: A History of American Secularism"
+  },
+  {
+    "rank": 6,
+    "item_id": 1007,
+    "item_name": "The Wal-Mart Effect: How the World's Most Powerful Company Really Works--and HowIt's Transforming the  American Economy"
+  },
+  {
+    "rank": 7,
+    "item_id": 2618,
+    "item_name": "The Age of American Unreason"
+  },
+  {
+    "rank": 8,
+    "item_id": 996,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 9,
+    "item_id": 5592,
+    "item_name": "The Bed of Procrustes: Philosophical and Practical Aphorisms (Incerto)"
+  },
+  {
+    "rank": 10,
+    "item_id": 2115,
+    "item_name": "The Google Story"
+  },
+  {
+    "rank": 11,
+    "item_id": 2955,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 12,
+    "item_id": 451,
+    "item_name": "The Way of the World: A Story of Truth and Hope in an Age of Extremism"
+  },
+  {
+    "rank": 13,
+    "item_id": 1042,
+    "item_name": "What Paul Meant"
+  },
+  {
+    "rank": 14,
+    "item_id": 2543,
+    "item_name": "Against Happiness: In Praise of Melancholy"
+  },
+  {
+    "rank": 15,
+    "item_id": 1040,
+    "item_name": "The Assault on Reason: Our Information Ecosystem, from the Age of Print to the Age of Trump"
+  },
+  {
+    "rank": 16,
+    "item_id": 3068,
+    "item_name": "The Three Trillion Dollar War: The True Cost of the Iraq Conflict"
+  },
+  {
+    "rank": 17,
+    "item_id": 4213,
+    "item_name": "Economics in One Lesson: The Shortest and Surest Way to Understand Basic Economics"
+  },
+  {
+    "rank": 18,
+    "item_id": 812,
+    "item_name": "The 48 Laws of Power"
+  },
+  {
+    "rank": 19,
+    "item_id": 4141,
+    "item_name": "The Theoretical Minimum: What You Need to Know to Start Doing Physics"
+  },
+  {
+    "rank": 20,
+    "item_id": 3016,
+    "item_name": "The Wealth and Poverty of Nations: Why Some Are So Rich and Some So Poor"
+  },
+  {
+    "rank": 21,
+    "item_id": 743,
+    "item_name": "Success Built to Last: Creating a Life that Matters"
+  },
+  {
+    "rank": 22,
+    "item_id": 4520,
+    "item_name": "The Making of the Atomic Bomb"
+  },
+  {
+    "rank": 23,
+    "item_id": 4680,
+    "item_name": "Why People Believe Weird Things: Pseudoscience, Superstition, and Other Confusions of Our Time"
+  },
+  {
+    "rank": 24,
+    "item_id": 2601,
+    "item_name": "Status Anxiety"
+  },
+  {
+    "rank": 25,
+    "item_id": 5205,
+    "item_name": "Deep Ancestry: Inside the Genographic Project"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

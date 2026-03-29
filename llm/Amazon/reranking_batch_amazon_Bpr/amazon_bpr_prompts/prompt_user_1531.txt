@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Boarlander Boss Bear (Boarlander Bears) (Volume 1)"
+  },
+  {
+    "item_name": "Mercury Striking (The Scorpius Syndrome)"
+  },
+  {
+    "item_name": "Into the Fury (BOSS, Inc.)"
+  },
+  {
+    "item_name": "Dawson Bride (Wolf Brides) (Volume 3)"
+  },
+  {
+    "item_name": "Resisting the Moon: A Royal Shifters Novel"
+  },
+  {
+    "item_name": "Jax (The Protectors Series) Book #8 (Volume 8)"
+  },
+  {
+    "item_name": "Dawson Fur Hire (Bears Fur Hire) (Volume 5)"
+  },
+  {
+    "item_name": "Chance Fur Hire (Bears Fur Hire) (Volume 6)"
+  },
+  {
+    "item_name": "Kraven (VLG) (Volume 2)"
+  },
+  {
+    "item_name": "Pandemonium"
+  },
+  {
+    "item_name": "Bearfoot and Pregnant (Paranormal Dating Agency) (Volume 10)"
+  },
+  {
+    "item_name": "Alien General's Fated (Brion Brides) (Volume 5)"
+  },
+  {
+    "item_name": "Barbarian's Prize: A SciFi Alien Romance (Ice Planet Barbarians) (Volume 6)"
+  },
+  {
+    "item_name": "Distraction: Underground kings"
+  },
+  {
+    "item_name": "Alexei (Her Russian Protector #8) (Volume 8)"
+  },
+  {
+    "item_name": "His Light in the Dark"
+  },
+  {
+    "item_name": "One to Take (One to Hold) (Volume 8)"
+  },
+  {
+    "item_name": "Captured: Devil's Blaze MC Book 1 (Volume 1)"
+  },
+  {
+    "item_name": "A Covert Affair (Deadly Ops Series)"
+  },
+  {
+    "item_name": "Her Fierce Warrior (X-Ops)"
+  },
+  {
+    "item_name": "Her Valiant Dragon: A BBW Interracial Paranormal Romance (Her Biker Dragon) (Volume 1)"
+  },
+  {
+    "item_name": "Havoc (Storm MC) (Volume 8)"
+  },
+  {
+    "item_name": "Boarlander Bash Bear (Boarlander Bears) (Volume 2)"
+  },
+  {
+    "item_name": "Kept: A Second Chance Fairy Tale"
+  },
+  {
+    "item_name": "The Bear King's Captive (Volume 1)"
+  },
+  {
+    "item_name": "Justice (Bad Boys of X-Ops) (Volume 2)"
+  },
+  {
+    "item_name": "Boarlander Silverback (Boarlander Bears) (Volume 3)"
+  },
+  {
+    "item_name": "Loving Deviant (Cyborg Seduction) (Volume 9)"
+  },
+  {
+    "item_name": "Blackwing Defender (Kane's Mountains) (Volume 1)"
+  },
+  {
+    "item_name": "Wanderer (The Nomad Series) (Volume 2)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Feral Sins (The Phoenix Pack Series)"
+  },
+  {
+    "rank": 2,
+    "item_name": "My Protector (Bewitched and Bewildered) (Volume 2)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Axel (Corps Security) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Throttle Me (Men of Inked) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Wicked Fall (Wicked Horse) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Rock the Heart (Black Falcon)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Hell's Knights (The MC Sinners Series)"
+  },
+  {
+    "rank": 8,
+    "item_name": "After We Fall"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Devil In Disguise (Bad Things) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Resist Me (Men of Inked) (Volume 3)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Wild Man (Dream Man)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Ink Inspired (Montgomery Ink)"
+  },
+  {
+    "rank": 13,
+    "item_name": "One Night of Sin (After Hours)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Protecting Caroline (SEAL of Protection) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Outlaw's Kiss: Grizzlies MC Romance (Outlaw Love)"
+  },
+  {
+    "rank": 16,
+    "item_name": "NIKOLAI (Her Russian Protector 4): Her Russian Protector 4"
+  },
+  {
+    "rank": 17,
+    "item_name": "Reaper's Legacy (Reapers Motorcycle Club)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Curves 'em Right (BBW Paranormal Shape Shifter Romance) (Paranormal Dating Agency) (Volume 4)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Make It A Double (The Last Call Series) (Volume 2)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Billionaire Banker Series Box Set 1-3"
+  },
+  {
+    "rank": 21,
+    "item_name": "Carnal Secrets (The Phoenix Pack)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Charred Heart (Heart of Fire) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "King's: Book 1, The KING Trilogy (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Scandal Never Sleeps (The Perfect Gentlemen)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Outlaw's Bride: Grizzlies MC Romance (Outlaw Love)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Dirty Billionaire (The Dirty Billionaire Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Seeking Vengeance: Callaghan Brothers, Book 4"
+  },
+  {
+    "rank": 28,
+    "item_name": "Pulse: Book Two in the Collide Series"
+  },
+  {
+    "rank": 29,
+    "item_name": "Fueled (The Driven Trilogy)"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Million Tiny Pieces"
+  },
+  {
+    "rank": 31,
+    "item_name": "Hard As It Gets: A Hard Ink Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Driven ((The Driven Trilogy))"
+  },
+  {
+    "rank": 33,
+    "item_name": "Dark Instincts (The Phoenix Pack)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Captivated by You (Crossfire)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Rocco: A Mafia Romance (Ruin &amp; Revenge)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Hell on Wheels (Black Knights Inc.)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Raw"
+  },
+  {
+    "rank": 38,
+    "item_name": "Hart Attack (Titan Book 7)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Rocky Mountain Romance (Six Pack Ranch) (Volume 7)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Lick (A Stage Dive Novel)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Dare to Love"
+  },
+  {
+    "rank": 42,
+    "item_name": "Mechanic"
+  },
+  {
+    "rank": 43,
+    "item_name": "True (New Species) (Volume 11)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Without Me (Men of Inked) (Volume 5)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Consequence of Loving Colton"
+  },
+  {
+    "rank": 46,
+    "item_name": "Chasing Victory (The Winters Sisters) (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Night is Darkest"
+  },
+  {
+    "rank": 48,
+    "item_name": "Crashed (The Driven Trilogy)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Jobe: Allvarez Security Series (Alvarez Security Series)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Dare to Take (Dare to Love)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

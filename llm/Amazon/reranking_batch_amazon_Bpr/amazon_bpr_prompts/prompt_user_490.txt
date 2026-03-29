@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Bee's Kiss (Joe Sandilands)"
+  },
+  {
+    "item_name": "The Extraordinary Adventures of Alfred Kropp (Alfred Kropp Adventures)"
+  },
+  {
+    "item_name": "If Death Ever Slept"
+  },
+  {
+    "item_name": "Monk's Hood (Brother Cadfael Mysteries)"
+  },
+  {
+    "item_name": "Only Passing Through: The Story of Sojourner Truth"
+  },
+  {
+    "item_name": "And Four to Go (Nero Wolfe)"
+  },
+  {
+    "item_name": "Strange Affair: A Novel of Suspense (Inspector Banks Mysteries)"
+  },
+  {
+    "item_name": "The New Well-Tempered Sentence: A Punctuation Handbook for the Innocent, the Eager, and the Doomed"
+  },
+  {
+    "item_name": "St. Peter's Fair (Chronicles of Brother Cadfael)"
+  },
+  {
+    "item_name": "When You Reach Me (Yearling Newbery)"
+  },
+  {
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "item_name": "SWERVE, THE"
+  },
+  {
+    "item_name": "Understanding Comics: The Invisible Art"
+  },
+  {
+    "item_name": "The Other Hand"
+  },
+  {
+    "item_name": "Making Comics: Storytelling Secrets of Comics, Manga and Graphic Novels"
+  },
+  {
+    "item_name": "The Limpopo Academy of Private Detection (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "item_name": "Leper of Saint Giles (Brother Cadfael Mysteries)"
+  },
+  {
+    "item_name": "Deja Dead"
+  },
+  {
+    "item_name": "The Finer Points of Sausage Dogs"
+  },
+  {
+    "item_name": "Forty Words for Sorrow"
+  },
+  {
+    "item_name": "Bottom of the 33rd: Hope, Redemption, and Baseball's Longest Game"
+  },
+  {
+    "item_name": "The Virgin in the Ice (Brother Cadfael Mysteries)"
+  },
+  {
+    "item_name": "Sister Bernadette's Barking Dog: The Quirky History and Lost Art of Diagramming Sentences"
+  },
+  {
+    "item_name": "Eloise in Paris"
+  },
+  {
+    "item_name": "Eloise in Paris"
+  },
+  {
+    "item_name": "Nine Dragons (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Absalom, Absalom! (Modern Library College Editions)"
+  },
+  {
+    "item_name": "Summer's Child (Random House Large Print)"
+  },
+  {
+    "item_name": "The Story of Ferdinand"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 2,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Murder on the Links"
+  },
+  {
+    "rank": 7,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Eyre Affair: A Thursday Next Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "A Thousand Splendid Suns: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 11,
+    "item_name": "Isaac's Storm: A Man, a Time, and the Deadliest Hurricane in History"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Locked Rooms: A novel of suspense featuring Mary Russell and Sherlock Holmes"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Murder of Roger Ackroyd (Poirot)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Guards! Guards!"
+  },
+  {
+    "rank": 18,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 19,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Wee Free Men: A Story of Discworld"
+  },
+  {
+    "rank": 25,
+    "item_name": "Reading &quot;Lolita&quot; in Tehran: A Memoir in Books"
+  },
+  {
+    "rank": 26,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Invention of Hugo Cabret"
+  },
+  {
+    "rank": 28,
+    "item_name": "Crocodile on the Sandbank: The Amelia Peabody Series, Book 1"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Test of Wills (Inspector Ian Rutledge Mysteries)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Shadow of the Wind"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Moonstone: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Digital Fortress"
+  },
+  {
+    "rank": 34,
+    "item_name": "Time Traveler's Wife"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Fourth Bear: A Nursery Crime (Jack Spratt Investigates)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 37,
+    "item_name": "Small Gods: A Novel of Discworld"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Husband: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Feet of Clay"
+  },
+  {
+    "rank": 40,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 41,
+    "item_name": "American Gods"
+  },
+  {
+    "rank": 42,
+    "item_name": "On Writing"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Yiddish Policemen's Union: A Novel (P.S.)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Elements of Style, Third Edition"
+  },
+  {
+    "rank": 45,
+    "item_name": "Alexander and the Terrible, Horrible, No Good, Very Bad Day Low Price"
+  },
+  {
+    "rank": 46,
+    "item_name": "Death in Holy Orders (Adam Dalgliesh Mystery Series #11)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Weed That Strings the Hangman's Bag: A Flavia de Luce Mystery"
+  },
+  {
+    "rank": 48,
+    "item_name": "Some Danger Involved: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Memoirs of a Geisha Uk"
+  },
+  {
+    "rank": 50,
+    "item_name": "Blue Shoes and Happiness"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

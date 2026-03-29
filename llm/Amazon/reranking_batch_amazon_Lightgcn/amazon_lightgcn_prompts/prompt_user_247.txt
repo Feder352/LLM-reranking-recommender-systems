@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Manolito Four-Eyes: The 1st Volume of the Great Encyclopedia of My Life"
+  },
+  {
+    "item_name": "Alexander the Great"
+  },
+  {
+    "item_name": "Listening for Lucca"
+  },
+  {
+    "item_name": "Fossil"
+  },
+  {
+    "item_name": "Tower of the Five Orders: The Shakespeare Mysteries, Book 2"
+  },
+  {
+    "item_name": "Check It Out!: Reading, Finding, Helping"
+  },
+  {
+    "item_name": "Not For Parents How to be a Dinosaur Hunter: Everything You Ever Wanted to Know (Lonely Planet Kids)"
+  },
+  {
+    "item_name": "Pinkbeard's Revenge (The Adventures of Jo Schmo)"
+  },
+  {
+    "item_name": "The Book of Heaven: A Novel"
+  },
+  {
+    "item_name": "Whoosh Went the Wind!"
+  },
+  {
+    "item_name": "The Quirks in Circus Quirkus"
+  },
+  {
+    "item_name": "Professor Whiskerton Presents Steampunk ABC"
+  },
+  {
+    "item_name": "Garibaldi's Biscuits"
+  },
+  {
+    "item_name": "The Great Cheese Conspiracy"
+  },
+  {
+    "item_name": "Patches Lost and Found"
+  },
+  {
+    "item_name": "Once Upon a Midnight Eerie: Book #2 (The Misadventures of Edgar &amp; Allan Poe)"
+  },
+  {
+    "item_name": "Goodnight Songs: Illustrated by Twelve Award-Winning Picture Book Artists"
+  },
+  {
+    "item_name": "Fins of Fury: My Big Fat Zombie Goldfish"
+  },
+  {
+    "item_name": "The Meaning of Maggie"
+  },
+  {
+    "item_name": "Here Comes Destructosaurus!"
+  },
+  {
+    "item_name": "The Secret Language of Animals: A Guide to Remarkable Behavior"
+  },
+  {
+    "item_name": "The Vanishing Coin (Magic Shop Series)"
+  },
+  {
+    "item_name": "Manolito Four-Eyes: The 2nd Volume of the Great Encyclopedia of My Life"
+  },
+  {
+    "item_name": "Otter in Space (I Am Otter)"
+  },
+  {
+    "item_name": "Poached (FunJungle)"
+  },
+  {
+    "item_name": "Oliver and the Seawigs"
+  },
+  {
+    "item_name": "A Piece of Cake"
+  },
+  {
+    "item_name": "The Boundless"
+  },
+  {
+    "item_name": "Saving Lucas Biggs"
+  },
+  {
+    "item_name": "Dare We Hope That All Men Be Saved?: With a Short Discourse on Hell"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 36807,
+    "item_name": "Irreligion: A Mathematician Explains Why the Arguments for God Just Don't Add Up"
+  },
+  {
+    "rank": 2,
+    "item_id": 74799,
+    "item_name": "Victorian Family and Furnishings"
+  },
+  {
+    "rank": 3,
+    "item_id": 10832,
+    "item_name": "Immortality: The Quest to Live Forever and How It Drives Civilization"
+  },
+  {
+    "rank": 4,
+    "item_id": 10302,
+    "item_name": "The Devil's Delusion: Atheism and Its Scientific Pretensions"
+  },
+  {
+    "rank": 5,
+    "item_id": 63648,
+    "item_name": "Most Dangerous: Daniel Ellsberg and the Secret History of the Vietnam War (Bccb Blue Ribbon Nonfiction Book Award (Awards))"
+  },
+  {
+    "rank": 6,
+    "item_id": 8975,
+    "item_name": "Columbus"
+  },
+  {
+    "rank": 7,
+    "item_id": 66526,
+    "item_name": "The Man Who Killed Kennedy: The Case Against LBJ"
+  },
+  {
+    "rank": 8,
+    "item_id": 63153,
+    "item_name": "Embattled Rebel: Jefferson Davis as Commander in Chief"
+  },
+  {
+    "rank": 9,
+    "item_id": 15947,
+    "item_name": "Beyond Outrage: Expanded Edition: What has gone wrong with our economy and our democracy, and how to fix it"
+  },
+  {
+    "rank": 10,
+    "item_id": 885,
+    "item_name": "On Food And Cooking:  The Science and Lore of the Kitchen"
+  },
+  {
+    "rank": 11,
+    "item_id": 37026,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 12,
+    "item_id": 32803,
+    "item_name": "An Apple Pie for Dinner"
+  },
+  {
+    "rank": 13,
+    "item_id": 23761,
+    "item_name": "End The Fed"
+  },
+  {
+    "rank": 14,
+    "item_id": 9231,
+    "item_name": "The Road to Serfdom: Fiftieth Anniversary Edition"
+  },
+  {
+    "rank": 15,
+    "item_id": 19388,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 16,
+    "item_id": 26706,
+    "item_name": "One Child: The Story of China's Most Radical Experiment"
+  },
+  {
+    "rank": 17,
+    "item_id": 11237,
+    "item_name": "Boundaries: When To Say Yes, How to Say No"
+  },
+  {
+    "rank": 18,
+    "item_id": 9771,
+    "item_name": "The Man Who Ate His Boots: The Tragic History of the Search for the Northwest Passage"
+  },
+  {
+    "rank": 19,
+    "item_id": 32926,
+    "item_name": "The Hand-Me Down Doll"
+  },
+  {
+    "rank": 20,
+    "item_id": 6817,
+    "item_name": "Meditations (Penguin Classics)"
+  },
+  {
+    "rank": 21,
+    "item_id": 42063,
+    "item_name": "Devalued and Distrusted: Can the Pharmaceutical Industry Restore its Broken Image?"
+  },
+  {
+    "rank": 22,
+    "item_id": 4041,
+    "item_name": "The Honest Truth About Dishonesty: How We Lie to Everyone--Especially Ourselves"
+  },
+  {
+    "rank": 23,
+    "item_id": 19122,
+    "item_name": "My Promised Land: The Triumph and Tragedy of Israel"
+  },
+  {
+    "rank": 24,
+    "item_id": 1141,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 25,
+    "item_id": 6286,
+    "item_name": "The Power of Your Subconcious Mind"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

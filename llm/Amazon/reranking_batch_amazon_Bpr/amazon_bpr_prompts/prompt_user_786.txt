@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "My First Book of Soccer: A Rookie Book (A Sports Illustrated Kids Book) (Sports Illustrated Kids Rookie Books)"
+  },
+  {
+    "item_name": "Hello, Sunshine: A Novel"
+  },
+  {
+    "item_name": "Secrets in Summer: A Novel"
+  },
+  {
+    "item_name": "Fractured"
+  },
+  {
+    "item_name": "Emerald Coast: A Novel"
+  },
+  {
+    "item_name": "The Sunshine Sisters"
+  },
+  {
+    "item_name": "The Good Widow: A Novel"
+  },
+  {
+    "item_name": "The Fire by Night: A Novel"
+  },
+  {
+    "item_name": "The Education of Dixie Dupree"
+  },
+  {
+    "item_name": "A Wife of Noble Character: A Novel"
+  },
+  {
+    "item_name": "Any Dream Will Do: A Novel"
+  },
+  {
+    "item_name": "Close Enough to Touch: A Novel"
+  },
+  {
+    "item_name": "The Stolen Marriage: A Novel"
+  },
+  {
+    "item_name": "The Stolen Marriage"
+  },
+  {
+    "item_name": "Rules of Magic"
+  },
+  {
+    "item_name": "The Rules of Magic: A Novel (The Practical Magic Series)"
+  },
+  {
+    "item_name": "The Gatekeepers"
+  },
+  {
+    "item_name": "Merry and Bright: A Novel"
+  },
+  {
+    "item_name": "The Most Wonderful Time of the Year"
+  },
+  {
+    "item_name": "Winter Solstice (Winter Street)"
+  },
+  {
+    "item_name": "Between Me and You: A Novel"
+  },
+  {
+    "item_name": "The Light We Lost"
+  },
+  {
+    "item_name": "The Glass Forest: A Novel"
+  },
+  {
+    "item_name": "Girl in Disguise"
+  },
+  {
+    "item_name": "Woman Last Seen in Her Thirties: A Novel"
+  },
+  {
+    "item_name": "The New York Times Disunion: A History of the Civil War"
+  },
+  {
+    "item_name": "This Is What a Librarian Looks Like: A Celebration of Libraries, Communities, and Access to Information"
+  },
+  {
+    "item_name": "Make Your Own Living Trust (Make Your Own Living Trust, 4th ed)"
+  },
+  {
+    "item_name": "Novel Destinations, Second Edition: A Travel Guide to Literary Landmarks From Jane Austen's Bath to Ernest Hemingway's Key West"
+  },
+  {
+    "item_name": "Love and Ruin: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Death of Bees: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Way I Used to Be"
+  },
+  {
+    "rank": 3,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Dumplin'"
+  },
+  {
+    "rank": 5,
+    "item_name": "We Are the Goldens"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Shadow Queen: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Star for Mrs. Blake"
+  },
+  {
+    "rank": 8,
+    "item_name": "Gated"
+  },
+  {
+    "rank": 9,
+    "item_name": "Friend Request: The most addictive psychological thriller you'll read this year"
+  },
+  {
+    "rank": 10,
+    "item_name": "Girl Before a Mirror: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "June: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "If I Forget You: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Railwayman's Wife: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Earnest"
+  },
+  {
+    "rank": 15,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 16,
+    "item_name": "Reconstructing Amelia: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Shore"
+  },
+  {
+    "rank": 18,
+    "item_name": "With Love from the Inside"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Perfect Match (The Blue Heron Series)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Calling Me Home: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "The In-Between Hour"
+  },
+  {
+    "rank": 22,
+    "item_name": "Watching Edie: The Most Unsettling Psychological Thriller You'Ll Read This Year"
+  },
+  {
+    "rank": 23,
+    "item_name": "And We Stay"
+  },
+  {
+    "rank": 24,
+    "item_name": "Ruby: A Novel (Oprahs Book Club 2.0)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Baggage"
+  },
+  {
+    "rank": 26,
+    "item_name": "Vanessa and Her Sister: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Safe Keeping"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Ice Twins"
+  },
+  {
+    "rank": 29,
+    "item_name": "China Rich Girlfriend: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Nowhere but Home: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "Along the Infinite Sea: Love, Friendship and Heartbreak, the Perfect Summer Read (The Schuyler Sister Novels)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Lost Castle: A Split-Time Romance (A Lost Castle Novel)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Island Girls: A Novel (Random House Reader's Circle)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Before We Were Yours: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Vengeance Road"
+  },
+  {
+    "rank": 37,
+    "item_name": "Under the Wide and Starry Sky: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Royal We"
+  },
+  {
+    "rank": 39,
+    "item_name": "Material Girls"
+  },
+  {
+    "rank": 40,
+    "item_name": "Us: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "If You Only Knew"
+  },
+  {
+    "rank": 42,
+    "item_name": "Cambridge"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Tyrant's Daughter"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Swiss Affair"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Geography of You and Me"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Color of Light (Goddesses Anonymous)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Readers of Broken Wheel Recommend"
+  },
+  {
+    "rank": 48,
+    "item_name": "Jane Steele"
+  },
+  {
+    "rank": 49,
+    "item_name": "Call Me Zelda"
+  },
+  {
+    "rank": 50,
+    "item_name": "This Is the Story of a Happy Marriage"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

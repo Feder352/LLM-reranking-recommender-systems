@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dry Bones: A Longmire Mystery"
+  },
+  {
+    "item_name": "See Also Murder: A Marjorie Trumaine Mystery (Marjorie Trumaine Mysteries)"
+  },
+  {
+    "item_name": "Snakes! Guillotines! Electric Chairs!: My Adventures in the Alice Cooper Group"
+  },
+  {
+    "item_name": "Juliette &amp; Ryo (Juliette &amp; Ryo Storybook Series) (Volume 1)"
+  },
+  {
+    "item_name": "Tales of Tinfoil: Stories of Paranoia and Conspiracy"
+  },
+  {
+    "item_name": "Executive"
+  },
+  {
+    "item_name": "A Stitch in Crime: Quilts of Love Series"
+  },
+  {
+    "item_name": "Jack in the Green (The Hunt for Jack Reacher)"
+  },
+  {
+    "item_name": "Everville: The Fall of Brackenbone"
+  },
+  {
+    "item_name": "Fifteen Minutes To Live"
+  },
+  {
+    "item_name": "Hail Storme: A Wyatt Storme Thriller"
+  },
+  {
+    "item_name": "Susannah Screaming: A Krug and Kellog Thriller (The Krug and Kellog Thriller Series)"
+  },
+  {
+    "item_name": "Reel Estate Rip-off (Volume 2)"
+  },
+  {
+    "item_name": "Kids:Whats Book - 2: Kids book, Moral stories, Bedtime Stories, Children&#39;s Books, Early Reader - Kindle edition"
+  },
+  {
+    "item_name": "No Dogs in Philly: A Lovecraftian Cyberpunk Noir (Special Sin) (Volume 1)"
+  },
+  {
+    "item_name": "Z-Minus I (Volume 1)"
+  },
+  {
+    "item_name": "One True Path: Amish Roads Series - Book 3"
+  },
+  {
+    "item_name": "Stone Rider"
+  },
+  {
+    "item_name": "Vines of Entanglement (Aloha Rose, Quilts of Love)"
+  },
+  {
+    "item_name": "So Nude, So Dead (Hard Case Crime)"
+  },
+  {
+    "item_name": "Dinosaurs: Amazing Pictures &amp; Facts Children Book About Dinosaurs (Discover Animals Series)"
+  },
+  {
+    "item_name": "Antiques Swap (A Trash 'n' Treasures Mystery)"
+  },
+  {
+    "item_name": "Bitter Blood: A True Story of Southern Family Pride, Madness, and Multiple Murder (Onyx)"
+  },
+  {
+    "item_name": "Two Roads Home: A Chicory Inn Novel - Book 2"
+  },
+  {
+    "item_name": "The True Spirit of Christmas"
+  },
+  {
+    "item_name": "Tin Men: A Novel"
+  },
+  {
+    "item_name": "The Dark Man (The Graveyard: Classified Paranormal Series) (Volume 1)"
+  },
+  {
+    "item_name": "KILLING MAINE"
+  },
+  {
+    "item_name": "Remember Mia"
+  },
+  {
+    "item_name": "Remember Mia eBook"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Afraid"
+  },
+  {
+    "rank": 2,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 3,
+    "item_name": "Stillwell: A Haunting on Long Island (A Haunting on Long Island Series)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 5,
+    "item_name": "Odd Jobs"
+  },
+  {
+    "rank": 6,
+    "item_name": "Pines (Wayward Pines)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Livia Lone (A Livia Lone Novel)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Mystic River"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Inner Circle (Beecher White)"
+  },
+  {
+    "rank": 10,
+    "item_name": "No Man's Land (John Puller Series)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Mystery: An Alex Delaware Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Carnage Account"
+  },
+  {
+    "rank": 13,
+    "item_name": "American Sniper: The Autobiography of the Most Lethal Sniper in U.S. Military History"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Hanging Tree: A Novella"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Target"
+  },
+  {
+    "rank": 16,
+    "item_name": "King City"
+  },
+  {
+    "rank": 17,
+    "item_name": "Gunmetal Gray (Gray Man)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Brilliance (The Brilliance Trilogy)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Shovel Ready (Spademan)"
+  },
+  {
+    "rank": 20,
+    "item_name": "They Never Die Quietly"
+  },
+  {
+    "rank": 21,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Innocent (Will Robie series)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Innocent Little Crimes"
+  },
+  {
+    "rank": 24,
+    "item_name": "Zero Day (John Puller series)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Bone Tree (Penn Cage)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Midnight Line: A Jack Reacher Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Murder That Never Was: A Forensic Instincts Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Graveyard of Memories (A John Rain Novel)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Missing You"
+  },
+  {
+    "rank": 30,
+    "item_name": "The God's Eye View"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Last Coyote (Harry Bosch)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Vengeance is Mine: A Benjamin Tucker Mystery (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Written in Fire (The Brilliance Trilogy)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Before the Fall: The year's best suspense novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Blood and Bone"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Cure for Night: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Last Refuge: A Dewey Andreas Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Informationist: A Thriller"
+  },
+  {
+    "rank": 39,
+    "item_name": "Hounded: An Andy Carpenter Mystery (An Andy Carpenter Novel)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Memory Man (Amos Decker series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Boar Island: An Anna Pigeon Novel (Anna Pigeon Mysteries)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Dirty Martini (Jacqueline)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 44,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Never Go Back: A Jack Reacher Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Stranger"
+  },
+  {
+    "rank": 47,
+    "item_name": "Don't Lose Her (The Max Freeman Mysteries)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Accident: A Thriller"
+  },
+  {
+    "rank": 49,
+    "item_name": "Under the Dome"
+  },
+  {
+    "rank": 50,
+    "item_name": "STATELINE: A Dan Reno Novel (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

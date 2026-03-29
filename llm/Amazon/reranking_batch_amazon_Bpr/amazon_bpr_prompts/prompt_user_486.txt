@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Mrs. Jeffries Rights a Wrong (A Victorian Mystery)"
+  },
+  {
+    "item_name": "Death in Dark Blue (A Writer's Apprentice Mystery)"
+  },
+  {
+    "item_name": "Title Wave (A Booktown Mystery)"
+  },
+  {
+    "item_name": "And Then There Were Nuns (League of Literary Ladies)"
+  },
+  {
+    "item_name": "The Leaf Reader"
+  },
+  {
+    "item_name": "Gladden the Heart (Amish Turns of Time)"
+  },
+  {
+    "item_name": "Weddings at Promise Lodge"
+  },
+  {
+    "item_name": "The Blessing (The Amish Cooking Class)"
+  },
+  {
+    "item_name": "A Hiss Before Dying: A Mrs. Murphy Mystery"
+  },
+  {
+    "item_name": "His Guilt: The Amish of Hart County"
+  },
+  {
+    "item_name": "Yews with Caution (Flower Shop Mystery)"
+  },
+  {
+    "item_name": "A Just Clause (A Booktown Mystery)"
+  },
+  {
+    "item_name": "Any Dream Will Do: A Novel"
+  },
+  {
+    "item_name": "Holly and Ivy"
+  },
+  {
+    "item_name": "A Christmas Return: A Novel"
+  },
+  {
+    "item_name": "A Simple Wish (Simple Gifts)"
+  },
+  {
+    "item_name": "30 Second Death"
+  },
+  {
+    "item_name": "Fixing to Die (A Southern Ladies Mystery)"
+  },
+  {
+    "item_name": "Love Held Captive (A Lone Star Heros Love Story)"
+  },
+  {
+    "item_name": "Mrs. Jeffries and the Three Wise Women (A Victorian Mystery)"
+  },
+  {
+    "item_name": "The Secret, Book &amp; Scone Society"
+  },
+  {
+    "item_name": "Crazy Like a Fox: A Novel (Sister Jane)"
+  },
+  {
+    "item_name": "Death in the Stacks (A Library Lover's Mystery)"
+  },
+  {
+    "item_name": "Twelve Days of Christmas: A Christmas Novel"
+  },
+  {
+    "item_name": "Amish Cooking Class - The Celebration"
+  },
+  {
+    "item_name": "Splintered Silence (A Bone Gap Travellers Novel)"
+  },
+  {
+    "item_name": "Dial M for Mousse (An Emergency Dessert Squad Mystery)"
+  },
+  {
+    "item_name": "Can't Help Myself: Lessons &amp; Confessions from a Modern Advice Columnist"
+  },
+  {
+    "item_name": "The Hawaiian Discovery"
+  },
+  {
+    "item_name": "The Diva Cooks up a Storm (Domestic Diva)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Buffalo West Wing (A White House Chef Mystery)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Charlotte's Web (50th Anniversary Retrospective Edition)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Bet Your Bottom Dollar: A Bottom Dollar Girls Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Get Fluffy: A Pampered Pets Mystery (Volume 2)"
+  },
+  {
+    "rank": 5,
+    "item_name": "In a Witch's Wardrobe: A Witchcraft Mystery"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Diva Digs Up the Dirt (A Domestic Diva Mystery)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Little House Reader, A (Little House Books)"
+  },
+  {
+    "rank": 8,
+    "item_name": "An Appetite for Murder: A Key West Food Critic Mystery"
+  },
+  {
+    "rank": 9,
+    "item_name": "Once Upon a Grind (A Coffeehouse Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Chocolate Chip Cookie Murder (A Hannah Swensen Mystery)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Home for a Spell (A Bewitching Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 13,
+    "item_name": "A Deadly Grind (A Vintage Kitchen Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 15,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Friendship Bread: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Finger Lickin' Dead (A Memphis BBQ Mystery)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Blood Orange Brewing (A Tea Shop Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Bookplate Special (A Booktown Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Death Is Like a Box of Chocolates (A Chocolate Covered Mystery)"
+  },
+  {
+    "rank": 21,
+    "item_name": "When the Grits Hit the Fan (A Country Store Mystery)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Cat, the Wife and the Weapon: A Cats in Trouble Mystery"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Ghost and Mrs. Mewer (A Paws &amp; Claws Mystery)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Readaholics and the Gothic Gala (A Book Club Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Little House Books Set (Little House in the Big Woods / Farmer Boy / By the Shores of Silver Lake / The Long Winter / Little Town on the Prairie / These Happy Golden Years)"
+  },
+  {
+    "rank": 27,
+    "item_name": "It Takes a Witch: A Wishcraft Mystery"
+  },
+  {
+    "rank": 28,
+    "item_name": "An Unmarked Grave (Bess Crawford Mysteries)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Stirring the Plot (A Cookbook Nook Mystery)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Final Sentence (A Cookbook Nook Mystery)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Lost and Fondue (Cheese Shop Mystery)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 33,
+    "item_name": "Chapter &amp; Hearse (A Booktown Mystery)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Jungle (The Penguin American Library)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Princess Academy"
+  },
+  {
+    "rank": 37,
+    "item_name": "Minding Frankie"
+  },
+  {
+    "rank": 38,
+    "item_name": "Due or Die (A Library Lover's Mystery)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Gossamer Ghost (A Scrapbooking Mystery)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Help"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Lightning Thief (Percy Jackson and the Olympians, Book 1) 1st (first) edition"
+  },
+  {
+    "rank": 42,
+    "item_name": "Murder Past Due (Cat in the Stacks Mystery)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Body on the Bayou: A Cajun Country Mystery"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Night Before Christmas: A Bedtime Shadow Book (Activity Books) (Shadow Book Series) by Clement Clarke Moore(August 1, 2006) Spiral-bound"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Christmas Bus"
+  },
+  {
+    "rank": 46,
+    "item_name": "Breaking Silence (Kate Burkholder series)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Whole Town's Talking: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Where the Wild Things Are"
+  },
+  {
+    "rank": 49,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 50,
+    "item_name": "In Such Good Company: Eleven Years of Laughter, Mayhem, and Fun in the Sandbox"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

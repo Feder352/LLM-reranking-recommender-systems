@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Lock In: A Novel of the Near Future"
+  },
+  {
+    "item_name": "Fire &amp; Ash (Rot &amp; Ruin)"
+  },
+  {
+    "item_name": "The Dangers of Dating a Rebound Vampire (Half-Moon Hollow Series)"
+  },
+  {
+    "item_name": "Hexes and Hemlines: A Witchcraft Mystery"
+  },
+  {
+    "item_name": "Off the Edge (Undercover Associates) (Volume 2)"
+  },
+  {
+    "item_name": "Taken"
+  },
+  {
+    "item_name": "The Dead Lands: A Novel"
+  },
+  {
+    "item_name": "Fire Inside: A Chaos Novel"
+  },
+  {
+    "item_name": "Mate Bond (A Shifters Unbound Novel)"
+  },
+  {
+    "item_name": "Fat Girl Walking: Sex, Food, Love, and Being Comfortable in Your SkinEvery Inch of It"
+  },
+  {
+    "item_name": "Into the Shadows (Undercover Associates Book 3) - Kindle edition"
+  },
+  {
+    "item_name": "The Vault of Dreamers (The Vault of Dreamers Trilogy)"
+  },
+  {
+    "item_name": "Predator One: A Joe Ledger Novel"
+  },
+  {
+    "item_name": "Predator One: A Joe Ledger Novel, Book 7"
+  },
+  {
+    "item_name": "Passion Unleashed (Demonica, Book 3)"
+  },
+  {
+    "item_name": "Day Shift (Midnight, Texas)"
+  },
+  {
+    "item_name": "Polar Bared (Kodiak Point) (Volume 3)"
+  },
+  {
+    "item_name": "Ride Steady (Chaos)"
+  },
+  {
+    "item_name": "Some Like It Witchy (Wishcraft Mystery)"
+  },
+  {
+    "item_name": "The Fangirl's Guide to the Galaxy: A Handbook for Girl Geeks"
+  },
+  {
+    "item_name": "Cold Burn of Magic (Black Blade)"
+  },
+  {
+    "item_name": "The Duke and the Lady in Red"
+  },
+  {
+    "item_name": "Eighth Grave After Dark"
+  },
+  {
+    "item_name": "Heroes Are My Weakness: A Novel"
+  },
+  {
+    "item_name": "Wolf's Fall (Alpha Pack)"
+  },
+  {
+    "item_name": "Knight (Unfinished Heroes) (Volume 1)"
+  },
+  {
+    "item_name": "Blonde Hair, Blue Eyes"
+  },
+  {
+    "item_name": "From Russia With Claws"
+  },
+  {
+    "item_name": "Rock Chick Reawakening"
+  },
+  {
+    "item_name": "So I Married a Sorcerer: A Novel of the Embraced"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 2,
+    "item_name": "Lover Avenged (Black Dagger Brotherhood, Book 7)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Dead Witch Walking"
+  },
+  {
+    "rank": 4,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Moon Called"
+  },
+  {
+    "rank": 6,
+    "item_name": "Lover Eternal (Black Dagger Brotherhood, Book 2)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Firelight (Darkest London)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Kitty and the Midnight Hour (Kitty Norville)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Slave to Sensation (Psy-Changelings, Book 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Dark Lover (Black Dagger Brotherhood, Book 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 12,
+    "item_name": "First Grave on the Right (Charley Davidson Series)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Magic Burns (Kate Daniels)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Second Grave on the Left (Charley Davidson)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Holiday in Death[HOLIDAY IN DEATH][Prebound]"
+  },
+  {
+    "rank": 16,
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Delusion in Death"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Hunger Games (Book 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Etiquette &amp; Espionage (Finishing School)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Lover Revealed (Black Dagger Brotherhood, Book 4)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Fire and Ice: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Hero (Thunder Point)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Lies (Gone)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Archangel's Blade (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Wolf with Benefits (Brava Paranormal Romance)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Dark Magic"
+  },
+  {
+    "rank": 29,
+    "item_name": "Grave Peril (The Dresden Files, Book 3)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Bear Meets Girl (The Pride Series)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Changeless (The Parasol Protectorate)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Beautiful Ashes (Broken Destiny)"
+  },
+  {
+    "rank": 33,
+    "item_name": "A Perfect Blood"
+  },
+  {
+    "rank": 34,
+    "item_name": "Shadow's Claim (Immortals After Dark)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Broken"
+  },
+  {
+    "rank": 36,
+    "item_name": "Bitten (Otherworld)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Archangel's Legion (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Archangel's Kiss (Guild Hunter, Book 2)"
+  },
+  {
+    "rank": 39,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 40,
+    "item_name": "One Foot in the Grave (Night Huntress, Book 2)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Drums of Autumn"
+  },
+  {
+    "rank": 42,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse/True Blood, Book 2)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Guilty Pleasures (Anita Blake, Vampire Hunter)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Kiss of Midnight (The Midnight Breed, Book 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Silence Fallen (A Mercy Thompson Novel)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Archangel's Consort (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Spell Bound (The Women of the Otherworld Series)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Haunted (The Women of the Otherworld Series)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Third Grave Dead Ahead"
+  },
+  {
+    "rank": 50,
+    "item_name": "Marked In Flesh (A Novel of the Others)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

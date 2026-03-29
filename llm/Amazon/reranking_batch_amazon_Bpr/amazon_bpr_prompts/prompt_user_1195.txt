@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Down Among the Sticks and Bones (Wayward Children)"
+  },
+  {
+    "item_name": "The Summer of New Beginnings: A Magnolia Grove Novel"
+  },
+  {
+    "item_name": "Emergency Contact"
+  },
+  {
+    "item_name": "To Kill a Kingdom"
+  },
+  {
+    "item_name": "Alternate Side: A Novel"
+  },
+  {
+    "item_name": "Bachelor Remedy (Seasons of Alaska)"
+  },
+  {
+    "item_name": "The Forgotten Ones: A Novel"
+  },
+  {
+    "item_name": "Say You'll Remember Me"
+  },
+  {
+    "item_name": "In the Mirror"
+  },
+  {
+    "item_name": "The Devilish Duke"
+  },
+  {
+    "item_name": "Ethan's Daughter (Templeton Cove Stories)"
+  },
+  {
+    "item_name": "Winter Halo (An Outcast Novel)"
+  },
+  {
+    "item_name": "The Stone Girl's Story"
+  },
+  {
+    "item_name": "Her Cowboy's Promise (Fly Creek) (Volume 1)"
+  },
+  {
+    "item_name": "Scandal in Spades (Lords of Chance) (Volume 1)"
+  },
+  {
+    "item_name": "What a Difference a Duke Makes: School for Dukes"
+  },
+  {
+    "item_name": "A Breath After Drowning"
+  },
+  {
+    "item_name": "Somebody's Daughter"
+  },
+  {
+    "item_name": "Beneath a Prairie Moon: A Novel"
+  },
+  {
+    "item_name": "The Good Luck Sister: A Wildstone Novella"
+  },
+  {
+    "item_name": "Dreaming in Chocolate: A Novel"
+  },
+  {
+    "item_name": "Consort of Secrets: A Paranormal Reverse Harem Novel (The Witch's Consorts) (Volume 1)"
+  },
+  {
+    "item_name": "Back in the Rancher's Arms"
+  },
+  {
+    "item_name": "With Love in Sight (The Twice Shy Series)"
+  },
+  {
+    "item_name": "It's All About the Duke: The Rakes of St. James"
+  },
+  {
+    "item_name": "Cowboy Bold (Longhorn Canyon)"
+  },
+  {
+    "item_name": "The Book of Secrets (The Last Oracle) (Volume 1)"
+  },
+  {
+    "item_name": "No Cowboy Required (The Biggest Love Story) (Volume 1)"
+  },
+  {
+    "item_name": "Spies, Lies, and Allies: A Love Story"
+  },
+  {
+    "item_name": "Rainy Day Friends: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Wife Between Us: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Ones Who Got Away"
+  },
+  {
+    "rank": 3,
+    "item_name": "About That Kiss: A Heartbreaker Bay Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Girl from Summer Hill: A Summer Hill Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "FLAWED- PB"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Bookshop on the Corner: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "Seeker"
+  },
+  {
+    "rank": 8,
+    "item_name": "Forever Mine (Opposites Attract)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Run to You (Risking It All)"
+  },
+  {
+    "rank": 11,
+    "item_name": "When"
+  },
+  {
+    "rank": 12,
+    "item_name": "Haven"
+  },
+  {
+    "rank": 13,
+    "item_name": "A Wedding At Two Love Lane"
+  },
+  {
+    "rank": 14,
+    "item_name": "On the Plus Side (A Perfect Fit)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Child: The must-read Richard and Judy Book Club pick 2018"
+  },
+  {
+    "rank": 16,
+    "item_name": "Any Dream Will Do: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Christmas in Icicle Falls (Life in Icicle Falls)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The First Kiss of Spring: An Eternity Springs Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Snowflake Bay (The Brides Of Blueberry Cove)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Glittering Court"
+  },
+  {
+    "rank": 21,
+    "item_name": "Black Tie Optional: A Wild Wedding Novel (Wild Wedding Series)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Geekerella: A Fangirl Fairy Tale (Once Upon A Con)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Bargaining with the Boss (Accidentally Yours) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Christmas at Two Love Lane"
+  },
+  {
+    "rank": 25,
+    "item_name": "Grave Mercy: His Fair Assassin, Book I"
+  },
+  {
+    "rank": 26,
+    "item_name": "Rainy Day Friends: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Compromising Her Position"
+  },
+  {
+    "rank": 28,
+    "item_name": "Sea Glass Sunrise (The Brides Of Blueberry Cove)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Pretty Dead Girls"
+  },
+  {
+    "rank": 30,
+    "item_name": "Pride and Prejudice and Mistletoe"
+  },
+  {
+    "rank": 31,
+    "item_name": "She's Got a Way: An Echo Lake Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Last Seen Leaving"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Nanny Arrangement"
+  },
+  {
+    "rank": 34,
+    "item_name": "Now That It's You"
+  },
+  {
+    "rank": 35,
+    "item_name": "Did I Mention I Love You? (Did I Mention I Love You (DIMILY))"
+  },
+  {
+    "rank": 36,
+    "item_name": "Believe Me: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Accidentally on Purpose: A Heartbreaker Bay Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "One of Us Is Lying"
+  },
+  {
+    "rank": 39,
+    "item_name": "Shattered Blue (The Light Trilogy)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Black-Eyed Susans: A Novel of Suspense"
+  },
+  {
+    "rank": 41,
+    "item_name": "To Love and to Cherish (Wedding Belles)"
+  },
+  {
+    "rank": 42,
+    "item_name": "I Was Here"
+  },
+  {
+    "rank": 43,
+    "item_name": "Broken Monsters"
+  },
+  {
+    "rank": 44,
+    "item_name": "Dumplin'"
+  },
+  {
+    "rank": 45,
+    "item_name": "We Were Liars"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Real Deal: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Heart Like Mine: An Echo Lake Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "To Have and to Hold (Wedding Belles)"
+  },
+  {
+    "rank": 49,
+    "item_name": "One Snowy Night: A Heartbreaker Bay Christmas Novella"
+  },
+  {
+    "rank": 50,
+    "item_name": "Chasing Christmas Eve: A Heartbreaker Bay Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

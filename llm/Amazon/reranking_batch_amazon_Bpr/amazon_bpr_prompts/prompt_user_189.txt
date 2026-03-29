@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Odysseus: The Oath (Odysseus)"
+  },
+  {
+    "item_name": "Lamp Black, Wolf Grey: A Novel"
+  },
+  {
+    "item_name": "The Girl in the Spider's Web: A Lisbeth Salander novel, continuing Stieg Larsson's Millennium Series"
+  },
+  {
+    "item_name": "Bitter Greens"
+  },
+  {
+    "item_name": "The Gates of Evangeline"
+  },
+  {
+    "item_name": "The Wild Girl"
+  },
+  {
+    "item_name": "Brooklyn: A Novel"
+  },
+  {
+    "item_name": "The Book of Lost and Found"
+  },
+  {
+    "item_name": "After the Crash"
+  },
+  {
+    "item_name": "Trim Healthy Mama Plan: The Easy-Does-It Approach to Vibrant Health and a Slim Waistline"
+  },
+  {
+    "item_name": "The Silver Witch: A Novel"
+  },
+  {
+    "item_name": "Charleston: A Novel"
+  },
+  {
+    "item_name": "Crimson Shore (Agent Pendergast series)"
+  },
+  {
+    "item_name": "The Seven Sisters"
+  },
+  {
+    "item_name": "The Forgotten Room"
+  },
+  {
+    "item_name": "The Summer Before the War: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "A Vision of Fire (Earthend Saga)"
+  },
+  {
+    "item_name": "Georgia: A Novel of Georgia O'Keeffe"
+  },
+  {
+    "item_name": "The Shadow Land: A Novel"
+  },
+  {
+    "item_name": "Mr. Rochester"
+  },
+  {
+    "item_name": "Burntown: A Novel"
+  },
+  {
+    "item_name": "Goodnight from London: A Novel"
+  },
+  {
+    "item_name": "Bring Her Home"
+  },
+  {
+    "item_name": "The Child: The must-read Richard and Judy Book Club pick 2018"
+  },
+  {
+    "item_name": "Don't Close Your Eyes: A Novel"
+  },
+  {
+    "item_name": "The Goddesses"
+  },
+  {
+    "item_name": "The Flower Book: Let the Beauty of Each Bloom Speak for Itself"
+  },
+  {
+    "item_name": "The Last Mrs Parrish: An Addictive Psychological Thriller with a Shocking Twist!"
+  },
+  {
+    "item_name": "The Wife Between Us: A Novel"
+  },
+  {
+    "item_name": "Something in the Water: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Rosie Project"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 4,
+    "item_name": "Room"
+  },
+  {
+    "rank": 5,
+    "item_name": "Dark Places"
+  },
+  {
+    "rank": 6,
+    "item_name": "Left Neglected (Wheeler Hardcover)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Storyteller"
+  },
+  {
+    "rank": 8,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 9,
+    "item_name": "Life After Life: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Tree Grows in Brooklyn"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 14,
+    "item_name": "Luckiest Girl Alive"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Constant Princess"
+  },
+  {
+    "rank": 16,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 17,
+    "item_name": "Big Little Lies"
+  },
+  {
+    "rank": 18,
+    "item_name": "Divine Secrets of the Ya-Ya Sisterhood: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "22/11/63"
+  },
+  {
+    "rank": 20,
+    "item_name": "Go Set a Watchman: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Girls: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "She's Come Undone (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Pearl that Broke Its Shell: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 25,
+    "item_name": "Crooked Letter, Crooked Letter"
+  },
+  {
+    "rank": 26,
+    "item_name": "After You: A Novel (Me Before You Trilogy)"
+  },
+  {
+    "rank": 27,
+    "item_name": "A Man Called Ove (Thorndike Press Large Print Core Series)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Into the Water: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Other Boleyn Girl"
+  },
+  {
+    "rank": 30,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Husband: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Still Life with Bread Crumbs: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Eleven on Top"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Age of Miracles: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Orphan Train: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Husband's Secret"
+  },
+  {
+    "rank": 39,
+    "item_name": "One Good Turn"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Black Country: Scotland Yard Murder Squad Book 2"
+  },
+  {
+    "rank": 41,
+    "item_name": "Fragile (Jones Cooper)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Invention of Wings"
+  },
+  {
+    "rank": 43,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 44,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Bees"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Lace Reader: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Lovely Bones: Deluxe Edition"
+  },
+  {
+    "rank": 49,
+    "item_name": "PERFUME."
+  },
+  {
+    "rank": 50,
+    "item_name": "Emma (Bantam Classics)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

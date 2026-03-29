@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "By the People: Rebuilding Liberty Without Permission"
+  },
+  {
+    "item_name": "A Time for Truth: Reigniting the Promise of America"
+  },
+  {
+    "item_name": "Wealth, Poverty and Politics: An International Perspective"
+  },
+  {
+    "item_name": "Killing Reagan: The Violent Assault That Changed A Presidenc (Wheeler Publishing Large Print Hardcover)"
+  },
+  {
+    "item_name": "Yogi Berra: Eternal Yankee"
+  },
+  {
+    "item_name": "Brady vs Manning: The Untold Story of the Rivalry That Transformed the NFL"
+  },
+  {
+    "item_name": "The Age of Clinton: America in the 1990s"
+  },
+  {
+    "item_name": "The Last of the President's Men"
+  },
+  {
+    "item_name": "Andy and Don: The Making of a Friendship and a Classic American TV Show"
+  },
+  {
+    "item_name": "Prisoners of Geography: Ten Maps That Explain Everything About the World (Politics of Place)"
+  },
+  {
+    "item_name": "Winter Is Coming: Why Vladimir Putin and the Enemies of the Free World Must Be Stopped"
+  },
+  {
+    "item_name": "Merchants in the Temple: Inside Pope Francis's Secret Battle Against Corruption in the Vatican"
+  },
+  {
+    "item_name": "A Time for Truth: Reigniting the Promise of America"
+  },
+  {
+    "item_name": "The Prize: Who's in Charge of America's Schools?"
+  },
+  {
+    "item_name": "Swiped: How to Protect Yourself in a World Full of Scammers, Phishers, and Identity Thieves"
+  },
+  {
+    "item_name": "Never Enough: Donald Trump and the Pursuit of Success"
+  },
+  {
+    "item_name": "The Worst Hard Time: The Untold Story of Those Who Survived the Great American Dust Bowl"
+  },
+  {
+    "item_name": "The Worst Hard Time: The Untold Story of Those Who Survived the Great American Dust Bowl"
+  },
+  {
+    "item_name": "Stealing Lincoln's Body"
+  },
+  {
+    "item_name": "Never Enough: Donald Trump and the Pursuit of Success"
+  },
+  {
+    "item_name": "The Betrayal: The 1919 World Series and the Birth of Modern Baseball"
+  },
+  {
+    "item_name": "Lights Out: A Cyberattack, A Nation Unprepared, Surviving the Aftermath"
+  },
+  {
+    "item_name": "The Progress Principle: Using Small Wins to Ignite Joy, Engagement, and Creativity at Work"
+  },
+  {
+    "item_name": "One Child: The Story of China's Most Radical Experiment"
+  },
+  {
+    "item_name": "American Canopy: Trees, Forests, and the Making of a Nation"
+  },
+  {
+    "item_name": "End of Discussion: How the Left's Outrage Industry Shuts Down Debate, Manipulates Voters, and Makes America Less Free (and Fun)"
+  },
+  {
+    "item_name": "The Liberty Amendments: Restoring the American Republic"
+  },
+  {
+    "item_name": "A Generation of Sociopaths: How the Baby Boomers Betrayed America"
+  },
+  {
+    "item_name": "A World in Disarray: American Foreign Policy and the Crisis of the Old Order"
+  },
+  {
+    "item_name": "American Fire: Love, Arson, and Life in a Vanishing Land"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 3,
+    "item_name": "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time"
+  },
+  {
+    "rank": 4,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 5,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 6,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 9,
+    "item_name": "7 Deadly Scenarios: A Military Futurist Explores the Changing Face of War in the 21st Century"
+  },
+  {
+    "rank": 10,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 11,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 14,
+    "item_name": "The New Depression: The Breakdown of the Paper Money Economy"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Medici Effect: What Elephants and Epidemics Can Teach Us About Innovation"
+  },
+  {
+    "rank": 16,
+    "item_name": "Fooled By Randomness: The Hidden Role of Chance in Life and in the Markets"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Next 100 Years: A Forecast for the 21st Century"
+  },
+  {
+    "rank": 18,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 19,
+    "item_name": "7 Habits Of Highly Effective People"
+  },
+  {
+    "rank": 20,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 21,
+    "item_name": "The 48 Laws of Power"
+  },
+  {
+    "rank": 22,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 23,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Bell Curve: Intelligence and Class Structure in American Life"
+  },
+  {
+    "rank": 25,
+    "item_name": "Duty"
+  },
+  {
+    "rank": 26,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 27,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 28,
+    "item_name": "In the Line of Fire: How to Handle Tough Questions...When It Counts"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Prophet"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Prayer of Jabez: Breaking Through To The Blessed Life"
+  },
+  {
+    "rank": 31,
+    "item_name": "This Fight Is Our Fight: The Battle to Save America's Middle Class"
+  },
+  {
+    "rank": 32,
+    "item_name": "Ronald Reagan"
+  },
+  {
+    "rank": 33,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 35,
+    "item_name": "Trick or Treatment: The Undeniable Facts about Alternative Medicine"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Price of Inequality: How Today's Divided Society Endangers Our Future"
+  },
+  {
+    "rank": 37,
+    "item_name": "One Bullet Away: The Making of a Marine Officer"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Warrior Diet"
+  },
+  {
+    "rank": 39,
+    "item_name": "Aftershock: The Next Economy and America's Future"
+  },
+  {
+    "rank": 40,
+    "item_name": "Samuel Adams: Father of the American Revolution"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Atomic Bazaar: The Rise of the Nuclear Poor"
+  },
+  {
+    "rank": 42,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 43,
+    "item_name": "Money: The Unauthorized Biography"
+  },
+  {
+    "rank": 44,
+    "item_name": "Being A Dad: The Stuff No One Told Me"
+  },
+  {
+    "rank": 45,
+    "item_name": "Talent is Overrated: What Really Separates World-Class Performers from Everybody Else"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Random Walk Down Wall Street: Including a Life-Cycle Guide to Personal Investing"
+  },
+  {
+    "rank": 47,
+    "item_name": "SuperFreakonomics CD: Global Cooling, Patriotic Prostitutes, and Why Suicide Bombers Should Buy Life Insurance"
+  },
+  {
+    "rank": 48,
+    "item_name": "Liberal Fascism: The Secret History of the Left from Mussolini to the Politics of Meaning"
+  },
+  {
+    "rank": 49,
+    "item_name": "Justice: What's the Right Thing to Do?"
+  },
+  {
+    "rank": 50,
+    "item_name": "Antifragile: Things That Gain from Disorder"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

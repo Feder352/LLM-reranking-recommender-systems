@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Her Christmas Chance: A Holiday Love Story (Christmas Creek Romance) (Volume 2)"
+  },
+  {
+    "item_name": "Gingerbread at Moonglow"
+  },
+  {
+    "item_name": "IN The End (An Ivy Nash Thriller, Book 6) (Redemption Thriller Series) (Volume 12)"
+  },
+  {
+    "item_name": "Captured by a Laird (The Douglas Legacy)"
+  },
+  {
+    "item_name": "Christmas in Paradise (Paradise Series)"
+  },
+  {
+    "item_name": "Rasputin's Legacy (Cold War)"
+  },
+  {
+    "item_name": "Game ON (An Ozzie Novak Thriller, Book 2) (Redemption Thriller Series) (Volume 14)"
+  },
+  {
+    "item_name": "Familiar Trouble (Familiar Legacy) (Volume 1)"
+  },
+  {
+    "item_name": "Traces of Kara"
+  },
+  {
+    "item_name": "Just Different Devils (Hetta Coffey) (Volume 7)"
+  },
+  {
+    "item_name": "Ambushed in Paradise (Paradise Series) (Volume 12)"
+  },
+  {
+    "item_name": "Case of Need"
+  },
+  {
+    "item_name": "ON The Rocks (An Ozzie Novak Thriller, Book 3) (Redemption Thriller Series) (Volume 15)"
+  },
+  {
+    "item_name": "Bayside Passions (Bayside Summers Book 2) (Volume 2)"
+  },
+  {
+    "item_name": "Mask Of Duplicity (The Jacobite Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "Shame ON You (An Ozzie Novak Thriller, Book 4) (Redemption Thriller Series) (Volume 16)"
+  },
+  {
+    "item_name": "Murder in the Highlands: A Diane Dimbleby Cozy Mystery"
+  },
+  {
+    "item_name": "Eleven"
+  },
+  {
+    "item_name": "Love Beyond Time: A Scottish Time-Traveling Romance (Morna's Legacy Series)"
+  },
+  {
+    "item_name": "Saving the Princess"
+  },
+  {
+    "item_name": "Cat Killed A Rat (Ponderosa Pines Cozy Mystery Series) (Volume 1)"
+  },
+  {
+    "item_name": "ON Fire: (An Ozzie Novak Thriller, Book 5) (Redemption Thriller Series) (Volume 17)"
+  },
+  {
+    "item_name": "Picture Perfect Murder (A Ryli Sinclair Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Driving Whiskey Wild"
+  },
+  {
+    "item_name": "ON The Run: (An Ozzie Novak Thriller, Book 6) (Redemption Thriller Series) (Volume 18)"
+  },
+  {
+    "item_name": "Scared Witchless (Bless Your Witch) (Volume 1)"
+  },
+  {
+    "item_name": "Loving the Marquess (Landing a Lord) (Volume 2)"
+  },
+  {
+    "item_name": "Monsterland Reanimated (Monsterland Series) (Volume 2)"
+  },
+  {
+    "item_name": "Embracing Her Heart (Love in Bloom: The Bradens and Montgomerys (Pleasant Hill - Oak Falls)) (Volume 1)"
+  },
+  {
+    "item_name": "The Back Door Man"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Oh Susannah: It's in the Bag (An Oh Susannah Story)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Murder on the SS Rosa (A Ginger God Mystery - a Prequel Novella)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Skewed"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Publicist"
+  },
+  {
+    "rank": 5,
+    "item_name": "Fixin' To Die (A Kenni Lowry Mystery) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Dead Line (A Cal Murphy Thriller) (Volume 2)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Spare Change: Family Saga (A Wyattsville Novel Book 1) (Series name Family Saga)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Previously Loved Treasures: The Serendipity Series Book Two (Volume 2)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Cat of Christmas Past (Whales and Tails Cozy Mystery) (Volume 6)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Murder in Palm Beach: The Homicide That Never Died"
+  },
+  {
+    "rank": 11,
+    "item_name": "Deadly Spirits (A Mac McClellan Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Dream Doctor (The Dream Doctor Mysteries)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Seacrest"
+  },
+  {
+    "rank": 14,
+    "item_name": "Being a Captain is Hard Work: A Captain No Beard Story (Volume 10)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Dream Student (The Dream Doctor Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Fear of Things to Come: The Samantha Clark Mystery Series (Volume 2)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Dangerous Passage: A Novel (Southern Crimes) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Southern Fried (A Kenni Lowry Mystery) (Volume 2)"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Dead Husband (Jessica HuntingtonDesert Cities Mystery) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Killer Within: An Allison McNeil Thriller"
+  },
+  {
+    "rank": 21,
+    "item_name": "Ties That Bind: A Madison Knight Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Ashes (Ashes #1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Shadows: A Jake Somers Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Murder Under the Desert Moon (Lella York Mysteries) (Volume 3)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Against Her Will: A Mystery Suspense Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "Murder at the Cooking School (Cedar Bay Cozy Mysteries)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Dance with the Enemy (Enemy Series)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Talon, Come Fly with Me (Tylon)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Gone Daddy Gone (Sloane Monroe) (Volume 7)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Adventures of Froblicious the Frog (Let's Learn While Playing) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "STATELINE: A Dan Reno Novel (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Bride Wore Dead: A Josie Tucker Mystery"
+  },
+  {
+    "rank": 33,
+    "item_name": "Chocolate With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Gunfight at Grace Gulch (Dressed for Death Mystery Series #1) (Heartsong Presents Mysteries #10)"
+  },
+  {
+    "rank": 35,
+    "item_name": "About the Night eBook"
+  },
+  {
+    "rank": 36,
+    "item_name": "Serenity (The Shelby Alexander Thriller Series) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Courage Resurrected: A Ray Courage Mystery (Ray Courage Mystery Series) (Volume 2)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Paladine (Paladine Political Thriller Series) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Dead Secret"
+  },
+  {
+    "rank": 40,
+    "item_name": "FAREWELL TO DREAMS: A Novel of Fatal Insomnia"
+  },
+  {
+    "rank": 41,
+    "item_name": "Cruel Justice (Justice Series) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Deadly Lies"
+  },
+  {
+    "rank": 43,
+    "item_name": "Children&#39;s Books: Emma Learns to Sprout [short stories for children] - Kindle edition"
+  },
+  {
+    "rank": 44,
+    "item_name": "Costume Catastrophe (Zoe Donovan Mystery) (Volume 21)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Justice for Jessica (Detective Rachel Storme) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Wind Catcher (Chosen)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Lost Dog (A Gideon and Sirius Novel)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Three Days to Forever (A Mac Faraday Mystery) (Volume 9)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Dead Tide (Blackmoore Sisters Cozy Mysteries)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Competition"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

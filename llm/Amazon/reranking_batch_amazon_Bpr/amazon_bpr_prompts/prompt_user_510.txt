@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Last Night I Sang to the Monster"
+  },
+  {
+    "item_name": "How to Tell if Your Boyfriend Is the Antichrist: (and if he is, should you break up with him?)"
+  },
+  {
+    "item_name": "10 Books That Screwed Up the World: And 5 Others That Didn't Help"
+  },
+  {
+    "item_name": "The Other Boleyn Girl"
+  },
+  {
+    "item_name": "The Bad Seed"
+  },
+  {
+    "item_name": "Guilty Pleasures (Anita Blake, Vampire Hunter)"
+  },
+  {
+    "item_name": "Packing for Mars: The Curious Science of Life in the Void"
+  },
+  {
+    "item_name": "Ways To Live Forever"
+  },
+  {
+    "item_name": "Kosher Chinese: Living, Teaching, and Eating with China's Other Billion"
+  },
+  {
+    "item_name": "Does This Mean You'll See Me Naked?: Field Notes from a Funeral Director"
+  },
+  {
+    "item_name": "Guilty Pleasures by Laurell K. Hamilton Unabridged CD Audiobook (Anita Blake Vampire Hunter Novel)"
+  },
+  {
+    "item_name": "The Devil's Arithmetic (Puffin Modern Classics)"
+  },
+  {
+    "item_name": "Revolver"
+  },
+  {
+    "item_name": "The Well and the Mine"
+  },
+  {
+    "item_name": "Anything But Typical"
+  },
+  {
+    "item_name": "Little Princes: One Man's Promise to Bring Home the Lost Children of Nepal"
+  },
+  {
+    "item_name": "Thirteen Reasons Why"
+  },
+  {
+    "item_name": "Lost Paradise: From Mutiny on the Bounty to a Modern-Day Legacy of Sexual Mayhem, the Dark Secrets of Pitcairn Island Revealed"
+  },
+  {
+    "item_name": "Thirteen Reasons Why"
+  },
+  {
+    "item_name": "Looking for JJ"
+  },
+  {
+    "item_name": "The Creation of Anne Boleyn: A New Look at Englands Most Notorious Queen"
+  },
+  {
+    "item_name": "People Who Eat Darkness: The True Story of a Young Woman Who Vanished from the Streets of Tokyo--and the Evil That Swallowed Her Up"
+  },
+  {
+    "item_name": "These Things Hidden"
+  },
+  {
+    "item_name": "Jewels: A Secret History"
+  },
+  {
+    "item_name": "Shooting Kabul"
+  },
+  {
+    "item_name": "Scandalous Women: The Lives and Loves of History's Most Notorious Women"
+  },
+  {
+    "item_name": "The Righteous: The Unsung Heroes of the Holocaust"
+  },
+  {
+    "item_name": "Lost in Translation: An Illustrated Compendium of Untranslatable Words from Around the World"
+  },
+  {
+    "item_name": "The Horse in My Garage and Other Stories"
+  },
+  {
+    "item_name": "The Meaning of Maggie"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 7,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 8,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 9,
+    "item_name": "Night"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 11,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 14,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Maus: My Father Bleeds History Pt. 1: A Survivor's Tale (Penguin Graphic Fiction)"
+  },
+  {
+    "rank": 16,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Invention of Hugo Cabret"
+  },
+  {
+    "rank": 21,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 25,
+    "item_name": "A Separate Peace"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Giver (Collins Modern Classics)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 28,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Shack"
+  },
+  {
+    "rank": 30,
+    "item_name": "Into Thin Air: A Personal Account of the Mt. Everest Disaster"
+  },
+  {
+    "rank": 31,
+    "item_name": "Holes"
+  },
+  {
+    "rank": 32,
+    "item_name": "Three Cups of Tea"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Reader (Movie Tie-in Edition) (Vintage International)"
+  },
+  {
+    "rank": 34,
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Reptile Room (A Series of Unfortunate Events, Book 2)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Time Traveler's Wife"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Five People You Meet in Heaven (Random House Large Print)"
+  },
+  {
+    "rank": 39,
+    "item_name": "On Writing"
+  },
+  {
+    "rank": 40,
+    "item_name": "Treasure Island (Penguin Classics)"
+  },
+  {
+    "rank": 41,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Man Who Loved Books Too Much: The True Story of a Thief, a Detective, and a World of Literary Obsession"
+  },
+  {
+    "rank": 43,
+    "item_name": "Hyperbole and a Half: Unfortunate Situations, Flawed Coping Mechanisms, Mayhem, and Other Things That Happened"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Glass Castle"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Namesake"
+  },
+  {
+    "rank": 46,
+    "item_name": "Shadow of the Wind"
+  },
+  {
+    "rank": 47,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 48,
+    "item_name": "One Child: The Story of China's Most Radical Experiment"
+  },
+  {
+    "rank": 49,
+    "item_name": "Cannery Row"
+  },
+  {
+    "rank": 50,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Case of the Gypsy Goodbye: An Enola Holmes Mystery"
+  },
+  {
+    "item_name": "The Castle in the Attic"
+  },
+  {
+    "item_name": "The Light in the Forest"
+  },
+  {
+    "item_name": "The Pigman"
+  },
+  {
+    "item_name": "Dealing with Dragons: The Enchanted Forest Chronicles, Book One"
+  },
+  {
+    "item_name": "Shiloh"
+  },
+  {
+    "item_name": "The Lone Ranger and Tonto Fistfight in Heaven"
+  },
+  {
+    "item_name": "The London Eye Mystery"
+  },
+  {
+    "item_name": "The Wapshot Chronicle (Perennial Classics)"
+  },
+  {
+    "item_name": "The Tao of Pooh"
+  },
+  {
+    "item_name": "The Sibyl in Her Grave"
+  },
+  {
+    "item_name": "Crocodile on the Sandbank (Amelia Peabody)"
+  },
+  {
+    "item_name": "The Man with the Golden Torc (Secret Histories, Book 1)"
+  },
+  {
+    "item_name": "Crocodile on the Sandbank: The Amelia Peabody Series, Book 1"
+  },
+  {
+    "item_name": "The Golden Fool (Tawny Man)"
+  },
+  {
+    "item_name": "The Golden Fool"
+  },
+  {
+    "item_name": "The Moor"
+  },
+  {
+    "item_name": "Full Dark House: A Peculiar Crimes Unit Mystery"
+  },
+  {
+    "item_name": "The Water Room (Bryant and May, Bk 2)"
+  },
+  {
+    "item_name": "Mad Mouse: A John Ceepak Mystery"
+  },
+  {
+    "item_name": "Deepsix"
+  },
+  {
+    "item_name": "Echo (An Alex Benedict Novel)"
+  },
+  {
+    "item_name": "A Kiss Before the Apocalypse (A Remy Chandler Novel)"
+  },
+  {
+    "item_name": "Noir: A Novel"
+  },
+  {
+    "item_name": "The Fifth Season (The Broken Earth)"
+  },
+  {
+    "item_name": "Glass Houses (Chief Inspector Gamache)"
+  },
+  {
+    "item_name": "Garden of Lamentations: A Novel (Duncan Kincaid/Gemma James Novels)"
+  },
+  {
+    "item_name": "Footfall"
+  },
+  {
+    "item_name": "The Inheritance: A Charles Lenox Mystery (Charles Lenox Mysteries)"
+  },
+  {
+    "item_name": "Convenience Store Woman"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Secret Horses of Briar Hill"
+  },
+  {
+    "rank": 2,
+    "item_name": "Gregor The Overlander (Underland Chronicles)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Last Unicorn"
+  },
+  {
+    "rank": 5,
+    "item_name": "Peter Pan: The Original Story"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Day The Crayons Quit"
+  },
+  {
+    "rank": 7,
+    "item_name": "Snow White: A Graphic Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Tom Thumb: The Remarkable True Story of a Man in Miniature"
+  },
+  {
+    "rank": 9,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Clockwork Three"
+  },
+  {
+    "rank": 11,
+    "item_name": "Spirit Animals: Book 1: Wild Born"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Sixty-Eight Rooms (The Sixty-Eight Rooms Adventures)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Sweetness at the Bottom of the Pie: A Flavia de Luce Mystery"
+  },
+  {
+    "rank": 15,
+    "item_name": "Library Wars: Love &amp; War, Vol. 2"
+  },
+  {
+    "rank": 16,
+    "item_name": "What If?: Serious Scientific Answers to Absurd Hypothetical Questions"
+  },
+  {
+    "rank": 17,
+    "item_name": "Princess Academy"
+  },
+  {
+    "rank": 18,
+    "item_name": "Thirteenth Child (Frontier Magic)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Drained Brains Caper: Book 1 (Chicagoland Detective Agency)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Drama"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Hound of the Baskervilles (Puffin Classics)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Raymie Nightingale"
+  },
+  {
+    "rank": 23,
+    "item_name": "Saga, Vol. 2"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Wind in the Willows"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Dark (Bccb Blue Ribbon Picture Book Awards (Awards))"
+  },
+  {
+    "rank": 26,
+    "item_name": "Yes, Let's"
+  },
+  {
+    "rank": 27,
+    "item_name": "Escape From Lucien (Amulet #6)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Deadman Wonderland, Vol. 11"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 30,
+    "item_name": "March: Book One (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Avatar: The Last Airbender--Smoke and Shadow Library Edition"
+  },
+  {
+    "rank": 32,
+    "item_name": "Inside Out and Back Again"
+  },
+  {
+    "rank": 33,
+    "item_name": "Blood of Olympus"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Charlotte's Web (50th Anniversary Retrospective Edition)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Graveyard Book Graphic Novel: Volume 1"
+  },
+  {
+    "rank": 37,
+    "item_name": "Percy Jackson and the Titan's Curse: The Graphic Novel (Book 3) (Percy Jackson Graphic Novels)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Hyperbole and a Half: Unfortunate Situations, Flawed Coping Mechanisms, Mayhem, and Other Things That Happened"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Girl Who Circumnavigated Fairyland in a Ship of Her Own Making"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Hero's Guide to Saving Your Kingdom"
+  },
+  {
+    "rank": 41,
+    "item_name": "Carrot"
+  },
+  {
+    "rank": 42,
+    "item_name": "Mr. Tiger Goes Wild (Boston Globe-Horn Book Awards (Awards))"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Tea Party in the Woods"
+  },
+  {
+    "rank": 44,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Knees: The mixed up world of a boy with dyslexia"
+  },
+  {
+    "rank": 46,
+    "item_name": "Imagine (Pumpkinheads)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Pax"
+  },
+  {
+    "rank": 49,
+    "item_name": "The ADVENTURES OF PINOCCHIO (DELUXE EDITION)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Book of Esther: A  Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

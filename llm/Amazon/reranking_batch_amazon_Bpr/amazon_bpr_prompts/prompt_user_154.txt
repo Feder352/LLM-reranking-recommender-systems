@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Undertaker's Daughter (The Family Secrets series)"
+  },
+  {
+    "item_name": "The Innovation Code: The Creative Power of Constructive Conflict"
+  },
+  {
+    "item_name": "Gladden the Heart (Amish Turns of Time)"
+  },
+  {
+    "item_name": "Megafire: The Race to Extinguish a Deadly Epidemic of Flame"
+  },
+  {
+    "item_name": "Good Neighbors: A Novel"
+  },
+  {
+    "item_name": "The Crooked Christmas Tree: The Beautiful Meaning of Jesus' Birth"
+  },
+  {
+    "item_name": "It's Not Yet Dark: A Memoir"
+  },
+  {
+    "item_name": "Well: Healing Our Beautiful, Broken World from a Hospital in West Africa"
+  },
+  {
+    "item_name": "The Bottom Billion: Why the Poorest Countries are Failing and What Can Be Done About It"
+  },
+  {
+    "item_name": "Sensemaking: The Power of the Humanities in the Age of the Algorithm"
+  },
+  {
+    "item_name": "Unleashing the Innovators: How Mature Companies Find New Life with Startups"
+  },
+  {
+    "item_name": "Good Things Happen Slowly: A Life In and Out of Jazz"
+  },
+  {
+    "item_name": "The Sorbonne Affair: A Hugo Marston Novel"
+  },
+  {
+    "item_name": "Stories from the Dirt: Indiscretions of an Adventure Junkie"
+  },
+  {
+    "item_name": "Study Guide: What Great Teachers Do Differently: 17 Things That Matter Most"
+  },
+  {
+    "item_name": "Sparks of Light"
+  },
+  {
+    "item_name": "Dark Waters: A Raisa Jordan Thriller"
+  },
+  {
+    "item_name": "The Crooked Path"
+  },
+  {
+    "item_name": "Insignificant Events in the Life of a Cactus"
+  },
+  {
+    "item_name": "Courage Is Contagious: And Other Reasons to Be Grateful for Michelle Obama"
+  },
+  {
+    "item_name": "The Simple Faith of Franklin Delano Roosevelt: Religion's Role in the FDR Presidency"
+  },
+  {
+    "item_name": "Life Is Like a Musical: How to Live, Love, and Lead Like a Star"
+  },
+  {
+    "item_name": "Gospel Questions, Gospel Answers"
+  },
+  {
+    "item_name": "Idyll Fears: A Thomas Lynch Novel"
+  },
+  {
+    "item_name": "Too Shattered for Mending"
+  },
+  {
+    "item_name": "The Blood of Patriots: How I Took Down an Anti-Government Militia with Beer, Bounty Hunting, and Badassery"
+  },
+  {
+    "item_name": "Perennials"
+  },
+  {
+    "item_name": "Crow Mountain"
+  },
+  {
+    "item_name": "Origin: A Novel (Robert Langdon)"
+  },
+  {
+    "item_name": "LaRose: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Bird Dream: Adventures at the Extremes of Human Flight"
+  },
+  {
+    "rank": 2,
+    "item_name": "End of Discussion: How the Left's Outrage Industry Shuts Down Debate, Manipulates Voters, and Makes America Less Free (and Fun)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Embattled Rebel: Jefferson Davis as Commander in Chief"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "rank": 5,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 6,
+    "item_name": "Embattled Rebel: Jefferson Davis and the Confederate Civil War"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Wild Ones"
+  },
+  {
+    "rank": 8,
+    "item_name": "Rejection Proof: How I Beat Fear and Became Invincible Through 100 Days of Rejection"
+  },
+  {
+    "rank": 9,
+    "item_name": "Most Dangerous: Daniel Ellsberg and the Secret History of the Vietnam War (Bccb Blue Ribbon Nonfiction Book Award (Awards))"
+  },
+  {
+    "rank": 10,
+    "item_name": "At the Existentialist Caf: Freedom, Being, and Apricot Cocktails"
+  },
+  {
+    "rank": 11,
+    "item_name": "Victoria: A Life"
+  },
+  {
+    "rank": 12,
+    "item_name": "All Who Go Do Not Return: A Memoir"
+  },
+  {
+    "rank": 13,
+    "item_name": "Beautiful Souls: Saying No, Breaking Ranks, and Heeding the Voice of Conscience in Dark Times"
+  },
+  {
+    "rank": 14,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 15,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 16,
+    "item_name": "I Left It on the Mountain: A Memoir"
+  },
+  {
+    "rank": 17,
+    "item_name": "Animal Wise: How We Know Animals Think and Feel"
+  },
+  {
+    "rank": 18,
+    "item_name": "Screening Room: Family Pictures"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Making of Home: The 500-Year Story of How Our Houses Became Our Homes"
+  },
+  {
+    "rank": 20,
+    "item_name": "Against the Country"
+  },
+  {
+    "rank": 21,
+    "item_name": "Mosquitoland"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Third Plate: Field Notes on the Future of Food"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Psychopath Whisperer: The Science of Those Without Conscience"
+  },
+  {
+    "rank": 24,
+    "item_name": "Fire Shut Up in My Bones"
+  },
+  {
+    "rank": 25,
+    "item_name": "Braving It: A Father, a Daughter, and an Unforgettable Journey into the Alaskan Wild"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Predator Paradox: Ending the War with Wolves, Bears, Cougars, and Coyotes"
+  },
+  {
+    "rank": 27,
+    "item_name": "Lost Kingdom: Hawaii's Last Queen, the Sugar Kings and America's First Imperial Adventure"
+  },
+  {
+    "rank": 28,
+    "item_name": "4:09:43: Boston 2013 Through the Eyes of the Runners"
+  },
+  {
+    "rank": 29,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 30,
+    "item_name": "Manolito Four-Eyes: The 2nd Volume of the Great Encyclopedia of My Life"
+  },
+  {
+    "rank": 31,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Can I Go Now?: The Life of Sue Mengers, Hollywood's First Superagent"
+  },
+  {
+    "rank": 33,
+    "item_name": "Bitter Remains: A Custody Battle, A Gruesome Crime, and the Mother Who Paid the Ultimate Price"
+  },
+  {
+    "rank": 34,
+    "item_name": "Battleship: A Daring Heiress, a Teenage Jockey, and America's Horse"
+  },
+  {
+    "rank": 35,
+    "item_name": "Stringer: A Reporter's Journey in the Congo"
+  },
+  {
+    "rank": 36,
+    "item_name": "Social: Why Our Brains Are Wired to Connect"
+  },
+  {
+    "rank": 37,
+    "item_name": "Mindwise: How We Understand What Others Think, Believe, Feel, and Want"
+  },
+  {
+    "rank": 38,
+    "item_name": "Lusitania: Triumph, Tragedy, and the End of the Edwardian Age"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Perfect Place"
+  },
+  {
+    "rank": 40,
+    "item_name": "The End of Absence: Reclaiming What We've Lost in a World of Constant Connection"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Power of Meaning: Crafting a Life That Matters"
+  },
+  {
+    "rank": 42,
+    "item_name": "Eddie Red Undercover: Mystery in Mayan Mexico"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Reaper: Autobiography of One of the Deadliest Special Ops Snipers"
+  },
+  {
+    "rank": 44,
+    "item_name": "A Bad Character: A novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Race Underground: Boston, New York, and the Incredible Rivalry That Built Americas First Subway"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Girl With Nine Wigs: A Memoir"
+  },
+  {
+    "rank": 47,
+    "item_name": "Missing Microbes: How the Overuse of Antibiotics Is Fueling Our Modern Plagues"
+  },
+  {
+    "rank": 48,
+    "item_name": "1946: The Making of the Modern World"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Vanishing Island (Chronicles of the Black Tulip)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Dataclysm: Who We are (When We Think No One's Looking)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

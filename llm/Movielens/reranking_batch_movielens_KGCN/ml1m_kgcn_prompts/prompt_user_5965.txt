@@ -1,0 +1,236 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "One Flew Over the Cuckoo's Nest"
+  },
+  {
+    "item_name": "Akira"
+  },
+  {
+    "item_name": "Old Yeller"
+  },
+  {
+    "item_name": "American Beauty"
+  },
+  {
+    "item_name": "Austin Powers: The Spy Who Shagged Me"
+  },
+  {
+    "item_name": "American Pie"
+  },
+  {
+    "item_name": "Arlington Road"
+  },
+  {
+    "item_name": "Bone Collector, The"
+  },
+  {
+    "item_name": "Best Man, The"
+  },
+  {
+    "item_name": "Bowfinger"
+  },
+  {
+    "item_name": "Clerks"
+  },
+  {
+    "item_name": "Cat from Outer Space, The"
+  },
+  {
+    "item_name": "Double Jeopardy"
+  },
+  {
+    "item_name": "Cruel Intentions"
+  },
+  {
+    "item_name": "Deep Blue Sea"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 876,
+    "item_name": "Haunting, The"
+  },
+  {
+    "rank": 2,
+    "item_id": 1161,
+    "item_name": "Scream 3"
+  },
+  {
+    "rank": 3,
+    "item_id": 2150,
+    "item_name": "House on Haunted Hill, The"
+  },
+  {
+    "rank": 4,
+    "item_id": 2049,
+    "item_name": "Eye of the Beholder"
+  },
+  {
+    "rank": 5,
+    "item_id": 501,
+    "item_name": "General's Daughter, The"
+  },
+  {
+    "rank": 6,
+    "item_id": 327,
+    "item_name": "End of Days"
+  },
+  {
+    "rank": 7,
+    "item_id": 806,
+    "item_name": "Superstar"
+  },
+  {
+    "rank": 8,
+    "item_id": 896,
+    "item_name": "Stigmata"
+  },
+  {
+    "rank": 9,
+    "item_id": 930,
+    "item_name": "Lake Placid"
+  },
+  {
+    "rank": 10,
+    "item_id": 628,
+    "item_name": "Return to Oz"
+  },
+  {
+    "rank": 11,
+    "item_id": 2313,
+    "item_name": "Next Friday"
+  },
+  {
+    "rank": 12,
+    "item_id": 696,
+    "item_name": "Battlefield Earth"
+  },
+  {
+    "rank": 13,
+    "item_id": 2053,
+    "item_name": "Flintstones in Viva Rock Vegas, The"
+  },
+  {
+    "rank": 14,
+    "item_id": 1167,
+    "item_name": "Messenger: The Story of Joan of Arc, The"
+  },
+  {
+    "rank": 15,
+    "item_id": 935,
+    "item_name": "Deep Blue Sea"
+  },
+  {
+    "rank": 16,
+    "item_id": 911,
+    "item_name": "Jakob the Liar"
+  },
+  {
+    "rank": 17,
+    "item_id": 1841,
+    "item_name": "Dinosaur"
+  },
+  {
+    "rank": 18,
+    "item_id": 2879,
+    "item_name": "Monkey Shines"
+  },
+  {
+    "rank": 19,
+    "item_id": 2131,
+    "item_name": "Thirteenth Floor, The"
+  },
+  {
+    "rank": 20,
+    "item_id": 874,
+    "item_name": "Bachelor, The"
+  },
+  {
+    "rank": 21,
+    "item_id": 811,
+    "item_name": "Deuce Bigalow: Male Gigolo"
+  },
+  {
+    "rank": 22,
+    "item_id": 929,
+    "item_name": "Mod Squad, The"
+  },
+  {
+    "rank": 23,
+    "item_id": 942,
+    "item_name": "Jack Frost"
+  },
+  {
+    "rank": 24,
+    "item_id": 359,
+    "item_name": "Powder"
+  },
+  {
+    "rank": 25,
+    "item_id": 2229,
+    "item_name": "For Love of the Game"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Richard Brautigan's Trout Fishing in America, the Pill Versus the Springhill Mine Disaster, and in Watermelon Sugar"
+  },
+  {
+    "item_name": "Consolations of the Forest: Alone in a Cabin in the Middle Taiga"
+  },
+  {
+    "item_name": "The Great Degeneration: How Institutions Decay and Economies Die"
+  },
+  {
+    "item_name": "The War That Forged a Nation: Why the Civil War Still Matters"
+  },
+  {
+    "item_name": "Au Revoir to All That: Food, Wine, and the Decline of France"
+  },
+  {
+    "item_name": "Van Gogh: A Power Seething (Icons)"
+  },
+  {
+    "item_name": "Rogue Justice: The Making of the Security State"
+  },
+  {
+    "item_name": "War"
+  },
+  {
+    "item_name": "The Big Burn: Teddy Roosevelt and the Fire that Saved America"
+  },
+  {
+    "item_name": "The Locust and the Bird: My Mother's Story"
+  },
+  {
+    "item_name": "Twilight of the Elites: America After Meritocracy"
+  },
+  {
+    "item_name": "Why Nations Fail: The Origins of Power, Prosperity, and Poverty"
+  },
+  {
+    "item_name": "The High Mountains of Portugal: A Novel"
+  },
+  {
+    "item_name": "Lawrence in Arabia: War, Deceit, Imperial Folly and the Making of the Modern Middle East"
+  },
+  {
+    "item_name": "What It Is Like to Go to War"
+  },
+  {
+    "item_name": "The Prisoner and The Fugitive (In Search of Lost Time, Volume 5) (v. 5)"
+  },
+  {
+    "item_name": "We Were Eight Years in Power: An American Tragedy"
+  },
+  {
+    "item_name": "We Meant Well: How I Helped Lose the Battle for the Hearts and Minds of the Iraqi People (American Empire Project)"
+  },
+  {
+    "item_name": "The Largesse of the Sea Maiden: Stories"
+  },
+  {
+    "item_name": "The Wet and the Dry: A Drinker's Journey"
+  },
+  {
+    "item_name": "The Condition of the Working Class in England (Classics S)"
+  },
+  {
+    "item_name": "Man and Superman (Penguin Classics)"
+  },
+  {
+    "item_name": "On the Beach"
+  },
+  {
+    "item_name": "The Lone Ranger and Tonto Fistfight in Heaven"
+  },
+  {
+    "item_name": "Are We Smart Enough to Know How Smart Animals Are?"
+  },
+  {
+    "item_name": "The Bottom Billion: Why the Poorest Countries are Failing and What Can Be Done About It"
+  },
+  {
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "item_name": "The Art of Makeup"
+  },
+  {
+    "item_name": "The Adversary: A True Story of Monstrous Deception"
+  },
+  {
+    "item_name": "Lies Across America: What Our Historic Sites Get Wrong"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 676,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 2,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 3,
+    "item_id": 1274,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 4,
+    "item_id": 1415,
+    "item_name": "Dreams from My Father: A Story of Race and Inheritance"
+  },
+  {
+    "rank": 5,
+    "item_id": 68,
+    "item_name": "The Paradox of Choice: Why More Is Less"
+  },
+  {
+    "rank": 6,
+    "item_id": 1531,
+    "item_name": "Destiny of the Republic: A Tale of Madness, Medicine and the Murder of a President"
+  },
+  {
+    "rank": 7,
+    "item_id": 1468,
+    "item_name": "Revolutionary Summer: The Birth of American Independence"
+  },
+  {
+    "rank": 8,
+    "item_id": 3005,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 9,
+    "item_id": 1439,
+    "item_name": "In the President's Secret Service: Behind the Scenes with Agents in the Line of Fire and the Presidents They Protect"
+  },
+  {
+    "rank": 10,
+    "item_id": 1698,
+    "item_name": "The World Without Us"
+  },
+  {
+    "rank": 11,
+    "item_id": 4522,
+    "item_name": "Truman"
+  },
+  {
+    "rank": 12,
+    "item_id": 2073,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 13,
+    "item_id": 996,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 14,
+    "item_id": 4621,
+    "item_name": "Benjamin Franklin: An American Life"
+  },
+  {
+    "rank": 15,
+    "item_id": 2624,
+    "item_name": "Culture Warrior (Random House Large Print)"
+  },
+  {
+    "rank": 16,
+    "item_id": 2588,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 17,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 18,
+    "item_id": 1297,
+    "item_name": "American Creation: Triumphs and Tragedies at the Founding of the Republic"
+  },
+  {
+    "rank": 19,
+    "item_id": 2955,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 20,
+    "item_id": 1040,
+    "item_name": "The Assault on Reason: Our Information Ecosystem, from the Age of Print to the Age of Trump"
+  },
+  {
+    "rank": 21,
+    "item_id": 674,
+    "item_name": "The Plague"
+  },
+  {
+    "rank": 22,
+    "item_id": 487,
+    "item_name": "Game Change: Obama and the Clintons, McCain and Palin, and the Race of a Lifetime"
+  },
+  {
+    "rank": 23,
+    "item_id": 4250,
+    "item_name": "How Doctors Think"
+  },
+  {
+    "rank": 24,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 25,
+    "item_id": 1327,
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

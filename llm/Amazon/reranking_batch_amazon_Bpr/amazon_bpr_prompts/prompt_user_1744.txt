@@ -1,0 +1,300 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Paper Playhouse: Awesome Art Projects for Kids Using Paper, Boxes, and Books"
+  },
+  {
+    "item_name": "Color Me Calm: 100 Coloring Templates for Meditation and Relaxation (A Zen Coloring Book)"
+  },
+  {
+    "item_name": "The Shirtmaking Workbook: Pattern, Design, and Construction Resources - More than 100 Pattern Downloads for Collars, Cuffs &amp; Plackets"
+  },
+  {
+    "item_name": "Paper Jewelry: 55 Projects for Reusing Paper"
+  },
+  {
+    "item_name": "Tropical World: A Coloring Book Adventure (A Millie Marotta Adult Coloring Book)"
+  },
+  {
+    "item_name": "Color Me Stress-Free: Nearly 100 Coloring Templates to Unplug and Unwind (A Zen Coloring Book)"
+  },
+  {
+    "item_name": "Carsick"
+  },
+  {
+    "item_name": "A Field Guide to American Houses (Revised): The Definitive Guide to Identifying and Understanding America's Domestic Architecture"
+  },
+  {
+    "item_name": "Parlor Games: A Novel"
+  },
+  {
+    "item_name": "Cable Left, Cable Right: 94 Knitted Cables"
+  },
+  {
+    "item_name": "The Quilt Design Coloring Workbook: 91 Modern Art&ndash;Inspired Designs and Exercises"
+  },
+  {
+    "item_name": "The Coen Brothers: The iconic filmmakers and their work"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Duck in the Fridge (A Duck in the Fridge Book)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Knights Before Christmas"
+  },
+  {
+    "rank": 3,
+    "item_name": "Most Dangerous: Daniel Ellsberg and the Secret History of the Vietnam War (Bccb Blue Ribbon Nonfiction Book Award (Awards))"
+  },
+  {
+    "rank": 4,
+    "item_name": "Ferret Fun"
+  },
+  {
+    "rank": 5,
+    "item_name": "Chocolate With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Fearless Joe Dearborne"
+  },
+  {
+    "rank": 7,
+    "item_name": "For Dog's Sake!: A Simple Guide to Protecting Your Pup from Unsafe Foods, Everyday Dangers, and Bad Situations"
+  },
+  {
+    "rank": 8,
+    "item_name": "Walls of Silence"
+  },
+  {
+    "rank": 9,
+    "item_name": "Rudy and Claude Splash Into Art"
+  },
+  {
+    "rank": 10,
+    "item_name": "Wounded Animals (Whistleblower Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Crochet Mandalas (Dover Knitting, Crochet, Tatting, Lace)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Oliver and the Seawigs"
+  },
+  {
+    "rank": 13,
+    "item_name": "Last Shot (Dev Haskell - Private Investigator) (Volume 6)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 15,
+    "item_name": "Alice Parker's Metamorphosis"
+  },
+  {
+    "rank": 16,
+    "item_name": "Mister Max: The Book of Lost Things: Mister Max 1"
+  },
+  {
+    "rank": 17,
+    "item_name": "You are Not Small"
+  },
+  {
+    "rank": 18,
+    "item_name": "Pumpkins in Paradise: A Tj Jensen Paradise Lake Mystery (Tj Jensen Paradise Lake Mystery Book 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Sky Jumpers: Book 1"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Children of Darkness (The Seekers)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Spectrum Critical Thinking for Math, Grade 3"
+  },
+  {
+    "rank": 22,
+    "item_name": "Mad Richard"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Bitches of Everafter: A fairy tale (The Everafter Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Witchblood (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Otter in Space (I Am Otter)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Born Entrepreneurs, Born Leaders: How Your Genes Affect Your Work Life"
+  },
+  {
+    "rank": 27,
+    "item_name": "A View to Die For (Books To Die For) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Spirited Tail (Mystic Notch Cozy Mystery Series) (Volume 2)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Manage Your Day-to-Day: Build Your Routine, Find Your Focus, and Sharpen Your Creative Mind (99U)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Ever Shade: A Dark Faerie Tale"
+  },
+  {
+    "rank": 31,
+    "item_name": "Murder for Christmas (Mordecai Tremaine Mystery)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Winning in Turbulence (Memo to the CEO)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Tea with Milk and Murder (Oxford Tearoom Mysteries ~ Book 2) (Volume 2)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Birds of a Feather: A Book of Idioms and Silly Pictures"
+  },
+  {
+    "rank": 35,
+    "item_name": "Duck on a Tractor"
+  },
+  {
+    "rank": 36,
+    "item_name": "Dinosaurs! (Animal Planet Chapter Books #2) (Volume 2) (Animal Planet Chapter Books (Volume 2))"
+  },
+  {
+    "rank": 37,
+    "item_name": "Yes, Let's"
+  },
+  {
+    "rank": 38,
+    "item_name": "Big Data at Work: Dispelling the Myths, Uncovering the Opportunities"
+  },
+  {
+    "rank": 39,
+    "item_name": "It's NOT Just A Dog! (Project Madison Series) (Volume 2)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Rain Stomper"
+  },
+  {
+    "rank": 41,
+    "item_name": "Land of Gods: An Epic Fantasy Tale of Love, Lust, and Loss. (Falls of Redemption) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Zombie Chronicles (Apocalypse Infection Unleashed Series)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Polar Bear Postman"
+  },
+  {
+    "rank": 44,
+    "item_name": "Little Swan"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Sweet Dreams Bake Shop (A Sweet Cove Mystery)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Chronothon"
+  },
+  {
+    "rank": 47,
+    "item_name": "Everybody Lies: Big Data, New Data, and What the Internet Can Tell Us About Who We Really Are"
+  },
+  {
+    "rank": 48,
+    "item_name": "Journey: An Illustrated History of Travel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Home in the Cave (Arbordale Collection)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Dare to Be Kind: How Extraordinary Compassion Can Transform Our World"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

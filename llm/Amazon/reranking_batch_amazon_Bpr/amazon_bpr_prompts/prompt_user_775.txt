@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Black Bird of the Gallows"
+  },
+  {
+    "item_name": "7 Ate 9"
+  },
+  {
+    "item_name": "Dear Martin"
+  },
+  {
+    "item_name": "Warcross"
+  },
+  {
+    "item_name": "There's Someone Inside Your House"
+  },
+  {
+    "item_name": "Jane, Unlimited"
+  },
+  {
+    "item_name": "The Antlered Ship"
+  },
+  {
+    "item_name": "Forest of a Thousand Lanterns (Rise of the Empress)"
+  },
+  {
+    "item_name": "Renegades"
+  },
+  {
+    "item_name": "Retribution Rails"
+  },
+  {
+    "item_name": "Snow &amp; Rose"
+  },
+  {
+    "item_name": "Pride and Prejudice and Mistletoe"
+  },
+  {
+    "item_name": "An Enchantment of Ravens"
+  },
+  {
+    "item_name": "Haven"
+  },
+  {
+    "item_name": "Beautiful Lawman: A Devil's Rock Novel"
+  },
+  {
+    "item_name": "Reign of the Fallen"
+  },
+  {
+    "item_name": "Unearthed"
+  },
+  {
+    "item_name": "Elmore"
+  },
+  {
+    "item_name": "Reign the Earth (The Elementae)"
+  },
+  {
+    "item_name": "Say You'll Remember Me"
+  },
+  {
+    "item_name": "Flame in the Mist"
+  },
+  {
+    "item_name": "Broken Beautiful Hearts"
+  },
+  {
+    "item_name": "A Court of Wings and Ruin (A Court of Thorns and Roses)"
+  },
+  {
+    "item_name": "The Belles"
+  },
+  {
+    "item_name": "Windwitch: A Witchlands Novel (The Witchlands)"
+  },
+  {
+    "item_name": "The Cruel Prince (The Folk of the Air)"
+  },
+  {
+    "item_name": "Chasing Truth (Eleanor Ames Series)"
+  },
+  {
+    "item_name": "Sky in the Deep"
+  },
+  {
+    "item_name": "Isle of Blood and Stone (Tower of Winds)"
+  },
+  {
+    "item_name": "Spies, Lies, and Allies: A Love Story"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "City of Glass (The Mortal Instruments)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ruby Red (The Ruby Red Trilogy)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Selection. by Kiera Cass"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Winner's Curse (The Winner's Trilogy)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Struck"
+  },
+  {
+    "rank": 6,
+    "item_name": "Scarlet (Lunar Chronicles, Book 2)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Vampire Academy: Spirit Bound (book 5)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Vampire Kisses"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Raven Boys"
+  },
+  {
+    "rank": 10,
+    "item_name": "Blaze (or Love in the Time of Supervillains)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Crewel: A Novel (Crewel World)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Prodigy"
+  },
+  {
+    "rank": 13,
+    "item_name": "Hush, Hush"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Hunt (The Hunt Trilogy)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Dream Thieves (The Raven Cycle)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Dark Divine"
+  },
+  {
+    "rank": 18,
+    "item_name": "Fathomless (Fairy Tale Retelling)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Girl of Nightmares (Anna Dressed in Blood Series)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Dualed"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Young Elites"
+  },
+  {
+    "rank": 22,
+    "item_name": "Everbound (Everneath)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Pivot Point"
+  },
+  {
+    "rank": 24,
+    "item_name": "Once a Witch"
+  },
+  {
+    "rank": 25,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 26,
+    "item_name": "False Memory (False Novel)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Requiem (Delirium Trilogy)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Black Heart (The Curse Workers)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 30,
+    "item_name": "Choker"
+  },
+  {
+    "rank": 31,
+    "item_name": "Fallen"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Eternity Cure (Blood of Eden)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Darkest Minds (Bonus Content) (A Darkest Minds Novel)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Incarnate (Incarnate Trilogy)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Edge of Falling"
+  },
+  {
+    "rank": 36,
+    "item_name": "Inside Out"
+  },
+  {
+    "rank": 37,
+    "item_name": "Vampire Academy (Vampire Academy, Book 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The One (The Selection)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Vault of Dreamers (The Vault of Dreamers Trilogy)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Cursed"
+  },
+  {
+    "rank": 41,
+    "item_name": "Breathe"
+  },
+  {
+    "rank": 42,
+    "item_name": "Dreams of Gods &amp; Monsters (Daughter of Smoke &amp; Bone)"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Thousand Nights"
+  },
+  {
+    "rank": 44,
+    "item_name": "Siren"
+  },
+  {
+    "rank": 45,
+    "item_name": "Fangirl"
+  },
+  {
+    "rank": 46,
+    "item_name": "Gone (Wake)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Betrayed (A House of Night)"
+  },
+  {
+    "rank": 48,
+    "item_name": "City of Ashes: The Mortal Instruments, Book Two"
+  },
+  {
+    "rank": 49,
+    "item_name": "How My Summer Went Up in Flames"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Forest of Hands and Teeth"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

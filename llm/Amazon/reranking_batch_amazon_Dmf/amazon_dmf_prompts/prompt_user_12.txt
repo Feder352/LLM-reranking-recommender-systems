@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Jane Seymour, The Haunted Queen: A Novel (Six Tudor Queens)"
+  },
+  {
+    "item_name": "There There: A novel"
+  },
+  {
+    "item_name": "The Ever After: A Novel"
+  },
+  {
+    "item_name": "When Life Gives You Lululemons"
+  },
+  {
+    "item_name": "Florida"
+  },
+  {
+    "item_name": "The Woman in the Woods: A Thriller (Charlie Parker)"
+  },
+  {
+    "item_name": "The Pharaoh Key (Gideon Crew)"
+  },
+  {
+    "item_name": "The Anomaly"
+  },
+  {
+    "item_name": "Island of the Mad: A novel of suspense featuring Mary Russell and Sherlock Holmes"
+  },
+  {
+    "item_name": "Convenience Store Woman"
+  },
+  {
+    "item_name": "Murder on the Left Bank (An Aime Leduc Investigation)"
+  },
+  {
+    "item_name": "Number One Chinese Restaurant: A Novel"
+  },
+  {
+    "item_name": "The Bookshop of Yesterdays"
+  },
+  {
+    "item_name": "The Cabin at the End of the World: A Novel"
+  },
+  {
+    "item_name": "A Steep Price (Tracy Crosswhite)"
+  },
+  {
+    "item_name": "Suicide Club: A Novel About Living"
+  },
+  {
+    "item_name": "From the Corner of the Oval: A Memoir"
+  },
+  {
+    "item_name": "The Romanov Empress: A Novel of Tsarina Maria Feodorovna"
+  },
+  {
+    "item_name": "Spinning Silver: A Novel"
+  },
+  {
+    "item_name": "Clock Dance: A novel"
+  },
+  {
+    "item_name": "Rescued: An Andy Carpenter Mystery (An Andy Carpenter Novel)"
+  },
+  {
+    "item_name": "Believe Me: A Novel"
+  },
+  {
+    "item_name": "A Noise Downstairs: A Novel"
+  },
+  {
+    "item_name": "Bloody Sunday: A Thriller (A Dewey Andreas Novel)"
+  },
+  {
+    "item_name": "The Boy at the Door"
+  },
+  {
+    "item_name": "After Nightfall"
+  },
+  {
+    "item_name": "Tailspin"
+  },
+  {
+    "item_name": "Vox"
+  },
+  {
+    "item_name": "Ohio"
+  },
+  {
+    "item_name": "The Forbidden Door: A Jane Hawk Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 217,
+    "item_name": "Bloodline"
+  },
+  {
+    "rank": 2,
+    "item_id": 44006,
+    "item_name": "Fables: Werewolves of the Heartland"
+  },
+  {
+    "rank": 3,
+    "item_id": 6177,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 4,
+    "item_id": 37462,
+    "item_name": "Little Miss Scary (Mr. Men and Little Miss)"
+  },
+  {
+    "rank": 5,
+    "item_id": 75451,
+    "item_name": "Little Miss Naughty (Mr. Men and Little Miss)"
+  },
+  {
+    "rank": 6,
+    "item_id": 14811,
+    "item_name": "The Puppet Masters"
+  },
+  {
+    "rank": 7,
+    "item_id": 5953,
+    "item_name": "Three Men in a Boat (Vintage Classics)"
+  },
+  {
+    "rank": 8,
+    "item_id": 8393,
+    "item_name": "Scarpetta (A Scarpetta Novel)"
+  },
+  {
+    "rank": 9,
+    "item_id": 41952,
+    "item_name": "The Switch: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_id": 36188,
+    "item_name": "The Wonder (Bison Frontiers of Imagination)"
+  },
+  {
+    "rank": 11,
+    "item_id": 14824,
+    "item_name": "Lost Souls: New Orleans series, book 5 (New Orleans thrillers)"
+  },
+  {
+    "rank": 12,
+    "item_id": 6720,
+    "item_name": "The Diary of a Young Girl: Definitive Edition"
+  },
+  {
+    "rank": 13,
+    "item_id": 6628,
+    "item_name": "The Man in the High Castle (Essential Penguin)"
+  },
+  {
+    "rank": 14,
+    "item_id": 22906,
+    "item_name": "Witch World"
+  },
+  {
+    "rank": 15,
+    "item_id": 83,
+    "item_name": "Little Women"
+  },
+  {
+    "rank": 16,
+    "item_id": 1725,
+    "item_name": "A Hat Full of Sky"
+  },
+  {
+    "rank": 17,
+    "item_id": 8010,
+    "item_name": "No Survivors: An Accident Man Novel (A Samuel Carver Novel)"
+  },
+  {
+    "rank": 18,
+    "item_id": 74787,
+    "item_name": "Best Sellers from Reader's Digest Condensed Books The Source, Intern, Hotel St. Gregory, To Sir, with Love"
+  },
+  {
+    "rank": 19,
+    "item_id": 75664,
+    "item_name": "Whispers Under Ground (Rivers of London Book 3) eBook"
+  },
+  {
+    "rank": 20,
+    "item_id": 18173,
+    "item_name": "The Full Cupboard of Life (No. 1 Ladies' Detective Agency, Book 5)"
+  },
+  {
+    "rank": 21,
+    "item_id": 8451,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 22,
+    "item_id": 6491,
+    "item_name": "Aunt Dimity and the Duke (Aunt Dimity Mystery)"
+  },
+  {
+    "rank": 23,
+    "item_id": 6920,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 24,
+    "item_id": 1881,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 25,
+    "item_id": 33674,
+    "item_name": "The Android's Dream"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "My First Handy Bible"
+  },
+  {
+    "item_name": "But What If We're Wrong?: Thinking About the Present As If It Were the Past"
+  },
+  {
+    "item_name": "The Sandman Vol. 8: World's End"
+  },
+  {
+    "item_name": "The Monster at the End of This Book"
+  },
+  {
+    "item_name": "Kaptara Volume 1: Fear Not, Tiny Alien (Kaptara Tp)"
+  },
+  {
+    "item_name": "Nemo: Heart of Ice"
+  },
+  {
+    "item_name": "Briggs Land Volume 1: State of Grace"
+  },
+  {
+    "item_name": "World War Hulk - Warbound"
+  },
+  {
+    "item_name": "Imperial Life in The Emerald City: Inside Iraq's Green Zone"
+  },
+  {
+    "item_name": "Appleseed Alpha"
+  },
+  {
+    "item_name": "Cave Carson Has a Cybernetic Eye Vol. 1: Going Underground (Young Animal)"
+  },
+  {
+    "item_name": "The Last Mughal: The Fall of a Dynasty, Delhi, 1857"
+  },
+  {
+    "item_name": "Shade the Changing Girl Vol. 1: Earth Girl Made Easy (Young Animal)"
+  },
+  {
+    "item_name": "Vampirina Ballerina"
+  },
+  {
+    "item_name": "Land of the Lustrous 1"
+  },
+  {
+    "item_name": "Supreme: Blue Rose"
+  },
+  {
+    "item_name": "Punisher MAX: Born"
+  },
+  {
+    "item_name": "Ragnarok Volume 1: Last God Standing"
+  },
+  {
+    "item_name": "Avengers Disassembled: Thor"
+  },
+  {
+    "item_name": "Aesop's Fables"
+  },
+  {
+    "item_name": "Aesop's Fables"
+  },
+  {
+    "item_name": "Fire and Fury: Inside the Trump White House"
+  },
+  {
+    "item_name": "Ghosts"
+  },
+  {
+    "item_name": "Uni the Unicorn"
+  },
+  {
+    "item_name": "Phoebe And Her Unicorn (Turtleback School &amp; Library Binding Edition) (Heavenly Nostrils Chronicle)"
+  },
+  {
+    "item_name": "The Great Race: The Story of the Chinese Zodiac"
+  },
+  {
+    "item_name": "Frau Faust 1"
+  },
+  {
+    "item_name": "Battle Angel Alita Mars Chronicle 1"
+  },
+  {
+    "item_name": "The Book With No Pictures"
+  },
+  {
+    "item_name": "Noah's Ark"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 6022,
+    "item_name": "The Walking Dead, Vol. 4: The Heart's Desire"
+  },
+  {
+    "rank": 2,
+    "item_id": 5995,
+    "item_name": "300"
+  },
+  {
+    "rank": 3,
+    "item_id": 843,
+    "item_name": "Corduroy"
+  },
+  {
+    "rank": 4,
+    "item_id": 846,
+    "item_name": "The Stinky Cheese Man and Other Fairly Stupid Tales (Picture Puffin)"
+  },
+  {
+    "rank": 5,
+    "item_id": 2237,
+    "item_name": "The Coming of Conan the Cimmerian: The Original Adventures of the Greatest Sword and Sorcery Hero of All Time!"
+  },
+  {
+    "rank": 6,
+    "item_id": 3103,
+    "item_name": "The Polar Express"
+  },
+  {
+    "rank": 7,
+    "item_id": 3599,
+    "item_name": "The Castle of Llyr (Pyrdain Chronicles)"
+  },
+  {
+    "rank": 8,
+    "item_id": 6126,
+    "item_name": "The Walking Dead, Book 6"
+  },
+  {
+    "rank": 9,
+    "item_id": 2174,
+    "item_name": "The Demon-Haunted World: Science as a Candle in the Dark"
+  },
+  {
+    "rank": 10,
+    "item_id": 4659,
+    "item_name": "Giggle, Giggle, Quack (A Click Clack Book)"
+  },
+  {
+    "rank": 11,
+    "item_id": 2165,
+    "item_name": "Mostly Harmless (Hitchhiker's Guide to the Galaxy)"
+  },
+  {
+    "rank": 12,
+    "item_id": 5193,
+    "item_name": "Leonardo, the Terrible Monster"
+  },
+  {
+    "rank": 13,
+    "item_id": 590,
+    "item_name": "The Martian Chronicles"
+  },
+  {
+    "rank": 14,
+    "item_id": 830,
+    "item_name": "King Arthur and His Knights of the Round Table (Puffin Classics)"
+  },
+  {
+    "rank": 15,
+    "item_id": 845,
+    "item_name": "The Snowy Day"
+  },
+  {
+    "rank": 16,
+    "item_id": 5158,
+    "item_name": "The Road to Civil War"
+  },
+  {
+    "rank": 17,
+    "item_id": 4648,
+    "item_name": "Hippos Go Berserk!"
+  },
+  {
+    "rank": 18,
+    "item_id": 1719,
+    "item_name": "The Man Who Walked Between the Towers"
+  },
+  {
+    "rank": 19,
+    "item_id": 115,
+    "item_name": "Jamberry"
+  },
+  {
+    "rank": 20,
+    "item_id": 841,
+    "item_name": "Blueberries for Sal"
+  },
+  {
+    "rank": 21,
+    "item_id": 6023,
+    "item_name": "The Walking Dead, Vol. 7: The Calm Before"
+  },
+  {
+    "rank": 22,
+    "item_id": 1881,
+    "item_name": "Wizard's First Rule (Sword of Truth, Book 1)"
+  },
+  {
+    "rank": 23,
+    "item_id": 3551,
+    "item_name": "The Arrival"
+  },
+  {
+    "rank": 24,
+    "item_id": 6109,
+    "item_name": "Pump Six and Other Stories"
+  },
+  {
+    "rank": 25,
+    "item_id": 4253,
+    "item_name": "Diary of a Wombat"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

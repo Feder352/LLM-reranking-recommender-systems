@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Broken (Broken Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Girl Who Dared to Think (Volume 1)"
+  },
+  {
+    "item_name": "The Artisans"
+  },
+  {
+    "item_name": "Rocky Mountain Heat (Six Pack Ranch) (Volume 1)"
+  },
+  {
+    "item_name": "Birthright: The Legacy Series: Book One (Volume 1)"
+  },
+  {
+    "item_name": "Night School Genesis (Volume 1)"
+  },
+  {
+    "item_name": "Wet: A Brothers Best Friend Romance"
+  },
+  {
+    "item_name": "Prophecy of Three: Book One of the Starseed Trilogy (Volume 1)"
+  },
+  {
+    "item_name": "Cole"
+  },
+  {
+    "item_name": "Ellie Jordan, Ghost Trapper (Volume 1)"
+  },
+  {
+    "item_name": "Significance: A Significance Series Novel"
+  },
+  {
+    "item_name": "Accordance: A Significance Series Novel - Book Two"
+  },
+  {
+    "item_name": "Defiance: A Significance Novel"
+  },
+  {
+    "item_name": "Independence: A Significance Series Novel (The Significance Series) (Volume 4)"
+  },
+  {
+    "item_name": "Premonition (The Division Series)"
+  },
+  {
+    "item_name": "Rebel"
+  },
+  {
+    "item_name": "The Accidental Demon Slayer"
+  },
+  {
+    "item_name": "The Shadow Children (The Demon-Born Trilogy)"
+  },
+  {
+    "item_name": "The Concealed (Lakewood)"
+  },
+  {
+    "item_name": "Golden Blood: Time Spirit Trilogy (Volume 1)"
+  },
+  {
+    "item_name": "Brightest Kind of Darkness"
+  },
+  {
+    "item_name": "Lucid (Brightest Kind of Darkness, Book 2) (Volume 2)"
+  },
+  {
+    "item_name": "Destiny (Brightest Kind of Darkness) (Volume 3)"
+  },
+  {
+    "item_name": "Destined: Lured into the shadow (The Ambrosia Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Anonymous"
+  },
+  {
+    "item_name": "collide: A Collide Novel"
+  },
+  {
+    "item_name": "Midnight Star (Vampire Girl) (Volume 2)"
+  },
+  {
+    "item_name": "Vampire Girl (Volume 1)"
+  },
+  {
+    "item_name": "Silver Flame (Vampire Girl) (Volume 3)"
+  },
+  {
+    "item_name": "Moonlight Prince (Vampire Girl) (Volume 4)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "A Different Blue"
+  },
+  {
+    "rank": 2,
+    "item_name": "Rock the Heart (Black Falcon)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Pennies (Dollar) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Deviant (Blood &amp; Roses) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Making Faces"
+  },
+  {
+    "rank": 6,
+    "item_name": "A Beautiful Mess (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Dirty Blood"
+  },
+  {
+    "rank": 8,
+    "item_name": "After We Fall"
+  },
+  {
+    "rank": 9,
+    "item_name": "Finding Cinderella: A Novella"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Pact"
+  },
+  {
+    "rank": 11,
+    "item_name": "Where the Road Takes Me"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Dark Ones (The Dark Ones Saga) (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Reasonable Doubt"
+  },
+  {
+    "rank": 14,
+    "item_name": "Walking Disaster"
+  },
+  {
+    "rank": 15,
+    "item_name": "Pucked"
+  },
+  {
+    "rank": 16,
+    "item_name": "Dirty English"
+  },
+  {
+    "rank": 17,
+    "item_name": "Scarred Love (Sulfur Heights Series) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Fallen Star: Fallen Star Series"
+  },
+  {
+    "rank": 19,
+    "item_name": "Trying To Live With The Dead (The Veil Diaries) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Capture (Seaside Pictures) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Painted Faces"
+  },
+  {
+    "rank": 22,
+    "item_name": "Hopeless"
+  },
+  {
+    "rank": 23,
+    "item_name": "Forever My Girl (The Beaumont Series) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "With a Twist (Bad Habits) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Undeniable"
+  },
+  {
+    "rank": 26,
+    "item_name": "Fallen Crest High"
+  },
+  {
+    "rank": 27,
+    "item_name": "Read My Lips (A College Obsession Romance) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Captive in the Dark: The Dark Duet"
+  },
+  {
+    "rank": 29,
+    "item_name": "Worth the Fight"
+  },
+  {
+    "rank": 30,
+    "item_name": "Stepbrother Dearest"
+  },
+  {
+    "rank": 31,
+    "item_name": "Life Blood (Cora's Choice) (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Bully (Fall Away)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Nocte"
+  },
+  {
+    "rank": 34,
+    "item_name": "Revved"
+  },
+  {
+    "rank": 35,
+    "item_name": "Bossman"
+  },
+  {
+    "rank": 36,
+    "item_name": "At Any Price (Gaming the System) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Six of Hearts"
+  },
+  {
+    "rank": 38,
+    "item_name": "Metamorphosis (Book Boyfriend Series) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Random Acts of Crazy"
+  },
+  {
+    "rank": 40,
+    "item_name": "Captive: Beautiful Monsters Vol. 1"
+  },
+  {
+    "rank": 41,
+    "item_name": "Pulse: Book Two in the Collide Series"
+  },
+  {
+    "rank": 42,
+    "item_name": "Into the Darkness (Darkness, 1) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Law of Moses"
+  },
+  {
+    "rank": 44,
+    "item_name": "Vegas Love"
+  },
+  {
+    "rank": 45,
+    "item_name": "Fallen Fourth Down (Fallen Crest Series) (Volume 4)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Air He Breathes (Elements)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Raze"
+  },
+  {
+    "rank": 48,
+    "item_name": "Archer's Voice"
+  },
+  {
+    "rank": 49,
+    "item_name": "From Gods"
+  },
+  {
+    "rank": 50,
+    "item_name": "Waiting on the Sidelines (Waiting Series) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

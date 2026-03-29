@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Abandon: Laying Aside Your Plan for God's Purpose"
+  },
+  {
+    "item_name": "Democracy in Black: How Race Still Enslaves the American Soul"
+  },
+  {
+    "item_name": "From the Pen of Pastor Paul"
+  },
+  {
+    "item_name": "Cure: A Journey into the Science of Mind Over Body"
+  },
+  {
+    "item_name": "The Surprising Imagination of C. S. Lewis: An Introduction"
+  },
+  {
+    "item_name": "How to Have a Good Day: Harness the Power of Behavioral Science to Transform Your Working Life"
+  },
+  {
+    "item_name": "Finding God in the Ruins: How God Redeems Pain"
+  },
+  {
+    "item_name": "The Seed: A True Myth"
+  },
+  {
+    "item_name": "The 9 Arts of Spiritual Conversations: Walking alongside People Who Believe Differently"
+  },
+  {
+    "item_name": "A Commentary on the Psalms: 90-150 (Kregel Exegetical Library)"
+  },
+  {
+    "item_name": "Vegangelical: How Caring for Animals Can Shape Your Faith"
+  },
+  {
+    "item_name": "Rescuing the Gospel: The Story and Significance of the Reformation"
+  },
+  {
+    "item_name": "Hearing God in Conversation: How to Recognize His Voice Everywhere"
+  },
+  {
+    "item_name": "The Temple and the Tabernacle: A Study of God's Dwelling Places from Genesis to Revelation"
+  },
+  {
+    "item_name": "Evicted: Poverty and Profit in the American City"
+  },
+  {
+    "item_name": "A Spectacle of Glory: God's Light Shining through Me Every Day"
+  },
+  {
+    "item_name": "The Entitlement Cure: Finding Success in Doing Hard Things the Right Way"
+  },
+  {
+    "item_name": "The Remnant"
+  },
+  {
+    "item_name": "Punching Holes in the Dark: Living in the Light of the World"
+  },
+  {
+    "item_name": "Preaching Old Testament Narratives (Preaching with Excellence)"
+  },
+  {
+    "item_name": "Thus Spoke Zarathustra: A Book for None and All"
+  },
+  {
+    "item_name": "Interpreting Apocalyptic Literature: An Exegetical Handbook (Handbooks for Old Testament Exegesis)"
+  },
+  {
+    "item_name": "The Way of the Dragon or the Way of the Lamb: Searching for Jesus Path of Power in a Church that Has Abandoned It"
+  },
+  {
+    "item_name": "Praying with Eyes Wide Open: A Life-Changing Way to Talk with God"
+  },
+  {
+    "item_name": "Kierkegaard: A Single Life"
+  },
+  {
+    "item_name": "A Crazy, Holy Grace: The Healing Power of Pain and Memory"
+  },
+  {
+    "item_name": "The Remarkable Ordinary: How to Stop, Look, and Listen to Life"
+  },
+  {
+    "item_name": "Nimona"
+  },
+  {
+    "item_name": "When Did Everybody Else Get So Old?: Indignities, Compromises, and the Unexpected Grace of Midlife"
+  },
+  {
+    "item_name": "Millard Salter's Last Day"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Critical Condition"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Crucifying Morality: The Gospel of the Beatitudes"
+  },
+  {
+    "rank": 4,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 5,
+    "item_name": "Cold-Case Christianity: A Homicide Detective Investigates the Claims of the Gospels"
+  },
+  {
+    "rank": 6,
+    "item_name": "Angels: The Strange and Mysterious Truth"
+  },
+  {
+    "rank": 7,
+    "item_name": "Citizen: Your role in the alternative kingdom"
+  },
+  {
+    "rank": 8,
+    "item_name": "The People Factor: How Building Great Relationships and Ending Bad Ones Unlocks Your God-Given Purpose"
+  },
+  {
+    "rank": 9,
+    "item_name": "Among the Fair Magnolias: Four Southern Love Stories"
+  },
+  {
+    "rank": 10,
+    "item_name": "Dressed for Death (A Drew Farthering Mystery)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Get Out of That Pit: Straight Talk about God's Deliverance"
+  },
+  {
+    "rank": 12,
+    "item_name": "An Insider's Guide to Praying for the World:  country-by-country prayer guide   inspiring faith stories   on-the-ground insights   up-to-date-maps"
+  },
+  {
+    "rank": 13,
+    "item_name": "Afloat"
+  },
+  {
+    "rank": 14,
+    "item_name": "The 5 Money Personalities: Speaking the Same Love and Money Language"
+  },
+  {
+    "rank": 15,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 16,
+    "item_name": "Chasing Francis: A Pilgrim&rsquo;s Tale"
+  },
+  {
+    "rank": 17,
+    "item_name": "Outlive Your Life: You Were Made to Make A Difference"
+  },
+  {
+    "rank": 18,
+    "item_name": "Christmas in Apple Ridge: Three-in-One Collection: The Sound of Sleigh Bells, The Christmas Singing, NEW! The Dawn of Christmas"
+  },
+  {
+    "rank": 19,
+    "item_name": "Preaching Old Testament Narratives (Preaching with Excellence)"
+  },
+  {
+    "rank": 20,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Advocate"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Innocent: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "Not by Sight: A Novel (Ozark Mountain Trilogy)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Humility: An Unlikely Biography of America's Greatest Virtue"
+  },
+  {
+    "rank": 25,
+    "item_name": "Annabel Lee (Coffey &amp; Hill)"
+  },
+  {
+    "rank": 26,
+    "item_name": "This Is Your Captain Speaking: My Fantastic Voyage Through Hollywood, Faith and   Life"
+  },
+  {
+    "rank": 27,
+    "item_name": "Lit!: A Christian Guide to Reading Books"
+  },
+  {
+    "rank": 28,
+    "item_name": "Getaway with God: The Everywoman's Guide to Personal Retreat"
+  },
+  {
+    "rank": 29,
+    "item_name": "What Every Christian Needs to Know About the Qur'an"
+  },
+  {
+    "rank": 30,
+    "item_name": "Critical Reaction: a novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Domino Effect"
+  },
+  {
+    "rank": 32,
+    "item_name": "As Waters Gone By"
+  },
+  {
+    "rank": 33,
+    "item_name": "Friend Me: A Novel of Suspense"
+  },
+  {
+    "rank": 34,
+    "item_name": "Rachel: A Novel (Wives of the Patriarchs) (Volume 3)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Coming Revolution: Signs from America's Past That Signal Our Nation's Future"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Peaceful Wife: Living in Submission to Christ as Lord"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Stone of Destiny: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Anchor in the Storm (Waves of Freedom)"
+  },
+  {
+    "rank": 39,
+    "item_name": "A Name Unknown (Shadows Over England)"
+  },
+  {
+    "rank": 40,
+    "item_name": "One Month to Live: Thirty Days to a No-Regrets Life"
+  },
+  {
+    "rank": 41,
+    "item_name": "In Every Heartbeat"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Beginner's Gospel Story Bible"
+  },
+  {
+    "rank": 43,
+    "item_name": "Tea with Hezbollah: Sitting at the Enemies Table Our Journey Through the Middle East"
+  },
+  {
+    "rank": 44,
+    "item_name": "Dwelling Places: Words to Live in Every Season"
+  },
+  {
+    "rank": 45,
+    "item_name": "Deeply Devoted: A Novel (The Blue Willow Brides) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Home to Paradise: The Coming Home Series  Book 3"
+  },
+  {
+    "rank": 47,
+    "item_name": "Seven Men: And the Secret of Their Greatness"
+  },
+  {
+    "rank": 48,
+    "item_name": "Slave: The Hidden Truth About Your Identity in Christ"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Dance: A Novel (The Restoration Series)"
+  },
+  {
+    "rank": 50,
+    "item_name": "A Sparrow in Terezin (A Hidden Masterpiece Novel)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

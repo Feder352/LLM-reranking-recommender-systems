@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Conard County Marine (Conard County: The Next Generation)"
+  },
+  {
+    "item_name": "Blame It on the Cowboy: An Anthology (The McCord Brothers)"
+  },
+  {
+    "item_name": "Snowfall on Haven Point"
+  },
+  {
+    "item_name": "The Life She Wants: A Novel"
+  },
+  {
+    "item_name": "Wilde One"
+  },
+  {
+    "item_name": "Christmas in Eternity Springs: An Eternity Springs Novel"
+  },
+  {
+    "item_name": "Teetotaled: A Mystery (Discreet Retrieval Agency Mysteries)"
+  },
+  {
+    "item_name": "Corporate Citizen"
+  },
+  {
+    "item_name": "Cured by the Dragon (Stonefire British Dragons) (Volume 8)"
+  },
+  {
+    "item_name": "The Black Sheep's Secret Child (Billionaires and Babies)"
+  },
+  {
+    "item_name": "Scandalous Intentions (Ladies &amp; Scoundrels) (Volume 2)"
+  },
+  {
+    "item_name": "A Very Jaguar Christmas (Heart of the Jaguar)"
+  },
+  {
+    "item_name": "Her Halloween Treat (Men at Work)"
+  },
+  {
+    "item_name": "Honor Bound (The Montana Hamiltons)"
+  },
+  {
+    "item_name": "Landon: A thrilling romantic suspense (The Lawmen of Silver Creek Ranch)"
+  },
+  {
+    "item_name": "Legacy (The Biodome Chronicles series Book 1)"
+  },
+  {
+    "item_name": "A Child Under His Tree (Return to the Double C)"
+  },
+  {
+    "item_name": "Amish Christmas Blessings: An Anthology (Love Inspired)"
+  },
+  {
+    "item_name": "Wind River Wrangler"
+  },
+  {
+    "item_name": "Hold Me, Cowboy (Copper Ridge)"
+  },
+  {
+    "item_name": "Legacy of Lies (Hell's Valley)"
+  },
+  {
+    "item_name": "Mystery on the Bayou (Amelia Moore Detective Series) (Volume 6)"
+  },
+  {
+    "item_name": "The Dragon Warrior (Lochguard Highland Dragons) (Volume 4)"
+  },
+  {
+    "item_name": "Deadly Spirits (A Mac McClellan Mystery)"
+  },
+  {
+    "item_name": "Coilhunter (A Coilhunter Chronicles Novel) (The Coilhunter Chronicles)"
+  },
+  {
+    "item_name": "Aiding the Dragon (Stonefire Dragons) (Volume 9)"
+  },
+  {
+    "item_name": "The Wallflower's Wicked Wager (A Waltz with a Rogue Novella) (Volume 5)"
+  },
+  {
+    "item_name": "A Diamond for a Duke (Seductive Scoundrels) (Volume 1)"
+  },
+  {
+    "item_name": "Finding the Dragon (Stonefire Dragons) (Volume 10)"
+  },
+  {
+    "item_name": "Rustkiller (The Coilhunter Chronicles)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5123,
+    "item_name": "Can't Help Falling in Love (The Sullivans)"
+  },
+  {
+    "rank": 2,
+    "item_id": 2495,
+    "item_name": "The Best Man (The Blue Heron Series)"
+  },
+  {
+    "rank": 3,
+    "item_id": 2501,
+    "item_name": "Somebody To Love (Hqn)"
+  },
+  {
+    "rank": 4,
+    "item_id": 2493,
+    "item_name": "A Perfect Storm (Edge of Honor)"
+  },
+  {
+    "rank": 5,
+    "item_id": 5098,
+    "item_name": "Sunrise Point (Virgin River)"
+  },
+  {
+    "rank": 6,
+    "item_id": 176,
+    "item_name": "The Devil in Winter (The Wallflowers, Book 3)"
+  },
+  {
+    "rank": 7,
+    "item_id": 2500,
+    "item_name": "Waiting On You (The Blue Heron Series)"
+  },
+  {
+    "rank": 8,
+    "item_id": 5136,
+    "item_name": "Four Friends"
+  },
+  {
+    "rank": 9,
+    "item_id": 2497,
+    "item_name": "The Perfect Match (The Blue Heron Series)"
+  },
+  {
+    "rank": 10,
+    "item_id": 4696,
+    "item_name": "The Littlest Cowboy (The Texas Brand) (Silhouette Intimate Moments, No 716)"
+  },
+  {
+    "rank": 11,
+    "item_id": 5099,
+    "item_name": "Redwood Bend (A Virgin River Novel)"
+  },
+  {
+    "rank": 12,
+    "item_id": 3778,
+    "item_name": "Simply Irresistible (Lucky Harbor)"
+  },
+  {
+    "rank": 13,
+    "item_id": 575,
+    "item_name": "One Good Earl Deserves a Lover: The Second Rule of Scoundrels (Rules of Scoundrels)"
+  },
+  {
+    "rank": 14,
+    "item_id": 5676,
+    "item_name": "A Hunger Like No Other (Immortals After Dark, Book 1)"
+  },
+  {
+    "rank": 15,
+    "item_id": 5880,
+    "item_name": "Wife by Wednesday (Weekday Brides)"
+  },
+  {
+    "rank": 16,
+    "item_id": 3253,
+    "item_name": "Whiskey Beach"
+  },
+  {
+    "rank": 17,
+    "item_id": 2444,
+    "item_name": "Brands Who Came for Christmas (The Oklahoma All-Girl Brands) (Silhouette Intimate Moments, 1039)"
+  },
+  {
+    "rank": 18,
+    "item_id": 2492,
+    "item_name": "Two of a Kind (Fool's Gold, Book 12)"
+  },
+  {
+    "rank": 19,
+    "item_id": 5139,
+    "item_name": "Let Me Be the One (The Sullivans)"
+  },
+  {
+    "rank": 20,
+    "item_id": 5925,
+    "item_name": "Dirty Little Secrets: A J.J. Graves Mystery"
+  },
+  {
+    "rank": 21,
+    "item_id": 5127,
+    "item_name": "If You Were Mine (The Sullivans)"
+  },
+  {
+    "rank": 22,
+    "item_id": 2486,
+    "item_name": "Just One Kiss (Fool's Gold, Book 11)"
+  },
+  {
+    "rank": 23,
+    "item_id": 5106,
+    "item_name": "My Kind of Christmas (A Virgin River Novel)"
+  },
+  {
+    "rank": 24,
+    "item_id": 2483,
+    "item_name": "Summer Days (Fool's Gold, Book 7)"
+  },
+  {
+    "rank": 25,
+    "item_id": 578,
+    "item_name": "Run To You (Military Men)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

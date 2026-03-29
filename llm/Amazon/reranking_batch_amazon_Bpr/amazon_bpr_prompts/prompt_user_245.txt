@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Romantic Takeover: Seduced"
+  },
+  {
+    "item_name": "The Heart of a Texas Cowboy (Men of Legend)"
+  },
+  {
+    "item_name": "Bundle of Trouble (A Maternal Instincts Mystery)"
+  },
+  {
+    "item_name": "The Dragons of Alsace Farm"
+  },
+  {
+    "item_name": "A Christmas to Purr About: A Klepto Cat Mystery (Klepto Cat Mysteries) (Volume 22)"
+  },
+  {
+    "item_name": "On A Night Like This (The Callaways) (Volume 1)"
+  },
+  {
+    "item_name": "Beyond the Cliffs of Kerry (Bold Women of the 18th Century Series, Book 1)"
+  },
+  {
+    "item_name": "Winter Kisses (3:AM Kisses #2)"
+  },
+  {
+    "item_name": "Justice for Corrie (Badge of Honor: Texas Heroes) (Volume 3)"
+  },
+  {
+    "item_name": "The Farmer's Wife (Harlequin Superromance No. 1099)"
+  },
+  {
+    "item_name": "The Cost of Crude"
+  },
+  {
+    "item_name": "The Rose and The Thorn (MacPherson Brides) (Volume 1)"
+  },
+  {
+    "item_name": "Unexpected Hero (Skyline Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Pilfered Promises: A Victorian San Francisco Mystery (Victorian San Francisco Mysteries) (Volume 5)"
+  },
+  {
+    "item_name": "Mail Order Bride: Susannah&#39;s Story (Book 1) (Sweeping Montana Romances) - Kindle edition"
+  },
+  {
+    "item_name": "The Hunter Bride (Hope's Crossing) (Volume 1)"
+  },
+  {
+    "item_name": "Mail Order Outlaw (Brides of Tombstone) (Volume 1)"
+  },
+  {
+    "item_name": "Mail Order Mystery: Chance City Series Book One (Volume 1)"
+  },
+  {
+    "item_name": "Capital Bride (Matchmaker &amp; Co) (Volume 1)"
+  },
+  {
+    "item_name": "Nellie (The Brides of San Francisco) (Volume 1)"
+  },
+  {
+    "item_name": "Finding Her Way (Wildflowers) (Volume 1)"
+  },
+  {
+    "item_name": "The Color of Heaven"
+  },
+  {
+    "item_name": "Mountain Angel (Northstar Romances) (Volume 1)"
+  },
+  {
+    "item_name": "Love's Unfading Light: Historical Christian Romance (Eagle Harbor) (Volume 1)"
+  },
+  {
+    "item_name": "From This Moment On (Windswept Bay) (Volume 1)"
+  },
+  {
+    "item_name": "Flowers in the Snow (Betty's Book) (The Edenville Series) (Volume 1)"
+  },
+  {
+    "item_name": "A Hero to Keep (Hawkins Family) (Volume 1)"
+  },
+  {
+    "item_name": "Out of a Dream (Sandy Cove Series Book 1)"
+  },
+  {
+    "item_name": "Juliette and the Monday Mandates: The Gustafson Girls Series (Volume 1)"
+  },
+  {
+    "item_name": "The Mailbox"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Christmas Bargain (A Victorian Holiday Romance)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Lady of Bolton Hill"
+  },
+  {
+    "rank": 3,
+    "item_name": "Fools Rush In (Weddings by Bella, Book 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Ties That Bind: A Madison Knight Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "If The Shoe Fits: Once Upon A Romance, Book 1 (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Lady Danger"
+  },
+  {
+    "rank": 7,
+    "item_name": "Blue Christmas"
+  },
+  {
+    "rank": 8,
+    "item_name": "She Belongs to Me"
+  },
+  {
+    "rank": 9,
+    "item_name": "Dangerous Passage: A Novel (Southern Crimes) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Accidentally Married"
+  },
+  {
+    "rank": 11,
+    "item_name": "Forever Christmas (Heartsong Novella Collection)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Third Time's the Charm: An Inspirational Western Romance (Three Rivers Ranch Romance) (Volume 2)"
+  },
+  {
+    "rank": 13,
+    "item_name": "A Cheyenne Christmas"
+  },
+  {
+    "rank": 14,
+    "item_name": "Rescue Team (Grace Medical)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Chosen for Power (Women of Power Series) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Almost A Bride (Wyoming Wildflowers)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Inescapable (Road to Kingdom) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Mason (Remington Ranch) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Prejudice Meets Pride (Meet Your Match, book 1) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Lady Fiasco (Zebra Regency Romance)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Dearly Loved"
+  },
+  {
+    "rank": 22,
+    "item_name": "To Tame A Dragon (The Reluctant Bride Collection) (Volume 2)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Santa Society"
+  },
+  {
+    "rank": 24,
+    "item_name": "Be My Love: A Walker Island Romance, Book 1 (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Sourdough Creek (Home Fires of the West)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Obituary Society"
+  },
+  {
+    "rank": 27,
+    "item_name": "Maggie's Mistake (Avalon Historical Romance)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Women of Merryton: Jessie Bell (The Women of Merryton) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Fatal Judgment (Guardians of Justice, Book 1) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Six Months in Montana"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Lawman Claims His Bride (Charity House)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Kidnapped: A Romantic Suspense Novel (Edgars Family)"
+  },
+  {
+    "rank": 33,
+    "item_name": "It Had to Be You (Christiansen Family)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Second Chance Ranch: An Inspirational Western Romance (Three Rivers Ranch Romance) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Chief Cook and Bottle Washer: Book One of the Travers Brothers Series"
+  },
+  {
+    "rank": 36,
+    "item_name": "Cassie's Cowboy Crave (Sweet Montana Brides)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Nellie (The Brides of San Francisco) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "To Catch A Bad Guy (Book One): Janet Maple Series (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Daddy Pact: From The Coach' Boys Series"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Cowboy's Christmas Plan: Grass Valley Cowboys"
+  },
+  {
+    "rank": 41,
+    "item_name": "Someone Else's Daughter: Book I (A Miranda's Rights Mystery) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Fourth and Long: An Inspirational Western Romance (Three Rivers Ranch Romance) (Volume 3)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Highlander's Bride: Historical Time Travel Romance (Moment in Time) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Unexpected Gifts: Castle Mountain Lodge Series"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Chance In Time: The Romance of Penelope and Cole From Meant To Be"
+  },
+  {
+    "rank": 46,
+    "item_name": "Winter in Sweetwater County (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Ridiculous (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Married By Mistake"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Wren (Wings of the West) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Write Me Home"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

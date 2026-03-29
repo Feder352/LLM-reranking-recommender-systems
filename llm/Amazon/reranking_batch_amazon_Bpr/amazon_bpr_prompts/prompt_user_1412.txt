@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Desert Gold"
+  },
+  {
+    "item_name": "SHADOW ON TRAIL"
+  },
+  {
+    "item_name": "The Desert of Wheat: A Classic Portrait of America at the Time of World War I"
+  },
+  {
+    "item_name": "The Vanishing American"
+  },
+  {
+    "item_name": "Fighting Caravans"
+  },
+  {
+    "item_name": "The Shortstop"
+  },
+  {
+    "item_name": "Betty Zane (Ohio River Trilogy)"
+  },
+  {
+    "item_name": "The Desert of Wheat: A Classic Portrait of America at the Time of World War I"
+  },
+  {
+    "item_name": "The Cherokee Trail"
+  },
+  {
+    "item_name": "Light of Western Stars"
+  },
+  {
+    "item_name": "The Vanishing American"
+  },
+  {
+    "item_name": "Stairs of Sand"
+  },
+  {
+    "item_name": "Light of Western Stars"
+  },
+  {
+    "item_name": "SHADOW ON TRAIL"
+  },
+  {
+    "item_name": "The Heritage of the Desert"
+  },
+  {
+    "item_name": "Stairs of Sand"
+  },
+  {
+    "item_name": "Wanderer of the Wasteland"
+  },
+  {
+    "item_name": "The Desert of Wheat: A Classic Portrait of America at the Time of World War I"
+  },
+  {
+    "item_name": "Captives of the Desert"
+  },
+  {
+    "item_name": "robbers' Roost"
+  },
+  {
+    "item_name": "SHADOW ON TRAIL"
+  },
+  {
+    "item_name": "Under the Tonto Rim"
+  },
+  {
+    "item_name": "The Vanishing American"
+  },
+  {
+    "item_name": "The Lost Wagon Train (Zane Grey Western Series)"
+  },
+  {
+    "item_name": "Betty Zane (Ohio River Trilogy)"
+  },
+  {
+    "item_name": "Raiders of Spanish Peaks"
+  },
+  {
+    "item_name": "Captives of the Desert"
+  },
+  {
+    "item_name": "The Lost Wagon Train (Zane Grey Western Series)"
+  },
+  {
+    "item_name": "The Heritage of the Desert"
+  },
+  {
+    "item_name": "The Last Man (World's Classics)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Castaway Odyssey (Boundary)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ash"
+  },
+  {
+    "rank": 3,
+    "item_name": "Oath of Office (a Luke Stone Thriller-Book #2)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Blood Gold (The Wanderer) (Volume 2)"
+  },
+  {
+    "rank": 5,
+    "item_name": "To Honor You Call Us (Man of War)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Ring of Fire (Assiti Shards)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Ark Royal (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Rain Fall"
+  },
+  {
+    "rank": 9,
+    "item_name": "Omega"
+  },
+  {
+    "rank": 10,
+    "item_name": "Captain Vorpatril's Alliance Limited Signed Edition (Vorkosigan Saga)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Turning Point: A Post Apocalyptic EMP Survival Fiction Series (The Blackout Series) (Volume 3)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Perseid Collapse (The Perseid Collapse Series) (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Coercion"
+  },
+  {
+    "rank": 14,
+    "item_name": "Deadly Coast"
+  },
+  {
+    "rank": 15,
+    "item_name": "Long Road To Abilene: The Western Adventures of Cade McCall"
+  },
+  {
+    "rank": 16,
+    "item_name": "God Touched"
+  },
+  {
+    "rank": 17,
+    "item_name": "In Her Name: Empire"
+  },
+  {
+    "rank": 18,
+    "item_name": "A Reason to Live: Marty Singer Mystery #1"
+  },
+  {
+    "rank": 19,
+    "item_name": "Dead Wrong (The Rho Agenda Inception)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Infection: Sympatico Syndrome (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Caliphate"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Hot Gate: Troy Rising III"
+  },
+  {
+    "rank": 23,
+    "item_name": "Traffick Stop: An American Assassin's Story (Paladine Political Thriller Series) (Volume 3)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Fields of Fire (Frontlines)"
+  },
+  {
+    "rank": 25,
+    "item_name": "JET - Ops Files"
+  },
+  {
+    "rank": 26,
+    "item_name": "Isolated: A Jason King Thriller (Jason King Series)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Event Horizon (The Perseid Collapse Series) (Volume 2)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Some Golden Harbor (RCN - Lt. Leay's)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Space Carrier Avalon"
+  },
+  {
+    "rank": 30,
+    "item_name": "Injustice For All (Joe Dillard)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Desperate Times (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Like a Mighty Army: A Novel in the Safehold Series"
+  },
+  {
+    "rank": 33,
+    "item_name": "Advanced Structural Ceramics"
+  },
+  {
+    "rank": 34,
+    "item_name": "Scion"
+  },
+  {
+    "rank": 35,
+    "item_name": "Betrayal"
+  },
+  {
+    "rank": 36,
+    "item_name": "Quantum Space (Quantum Series)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Angles of Attack (Frontlines)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Paris Protection"
+  },
+  {
+    "rank": 39,
+    "item_name": "Luthecker"
+  },
+  {
+    "rank": 40,
+    "item_name": "You Only Die Twice"
+  },
+  {
+    "rank": 41,
+    "item_name": "Public Enemy Zero"
+  },
+  {
+    "rank": 42,
+    "item_name": "Brothers in Valor (Man of War)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Social Media Monsters: Internet Killers"
+  },
+  {
+    "rank": 44,
+    "item_name": "Into the Dark: Alexis Carew #1 (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Through the Language Glass: Why the World Looks Different in Other Languages"
+  },
+  {
+    "rank": 46,
+    "item_name": "Acacia: The Acacia Trilogy, Book One"
+  },
+  {
+    "rank": 47,
+    "item_name": "Cryoburn (Vorkosigan Saga)"
+  },
+  {
+    "rank": 48,
+    "item_name": "For Honor We Stand (Man of War)"
+  },
+  {
+    "rank": 49,
+    "item_name": "CASINO ROYALE (The Ultimate James Bond Classic)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Blueblood: Marty Singer Mystery #2"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

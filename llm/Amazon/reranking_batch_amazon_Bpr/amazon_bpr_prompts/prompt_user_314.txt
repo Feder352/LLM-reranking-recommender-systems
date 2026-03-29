@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Unraveled (Elemental Assassin)"
+  },
+  {
+    "item_name": "Once Broken Faith (October Daye)"
+  },
+  {
+    "item_name": "Magic Binds (Kate Daniels)"
+  },
+  {
+    "item_name": "The Perks of Loving a Scoundrel: The Seduction Diaries"
+  },
+  {
+    "item_name": "Do You Want to Start a Scandal (Castles Ever After)"
+  },
+  {
+    "item_name": "The Sinner (The Graveyard Queen)"
+  },
+  {
+    "item_name": "The Viscount and the Vixen (Hellions of Havisham)"
+  },
+  {
+    "item_name": "Duke of Pleasure (Maiden Lane)"
+  },
+  {
+    "item_name": "Moonshadow (Volume 1)"
+  },
+  {
+    "item_name": "One Fell Sweep (Innkeeper Chronicles)"
+  },
+  {
+    "item_name": "Dragon Spawn (A Novel of the Lupi)"
+  },
+  {
+    "item_name": "My Highland Rebel (Highland Trouble)"
+  },
+  {
+    "item_name": "Breath of Fire (The Kingmaker Trilogy)"
+  },
+  {
+    "item_name": "Releasing the Demons"
+  },
+  {
+    "item_name": "Eleventh Grave in Moonlight (Charley Davidson)"
+  },
+  {
+    "item_name": "Fury on Fire: A Devil's Rock Novel"
+  },
+  {
+    "item_name": "Between the Devil and the Duke (A Season for Scandal)"
+  },
+  {
+    "item_name": "Someone to Hold (A Westcott Novel)"
+  },
+  {
+    "item_name": "The Duke (Victorian Rebels)"
+  },
+  {
+    "item_name": "The Turn: The Hollows Begins with Death"
+  },
+  {
+    "item_name": "Silence Fallen (A Mercy Thompson Novel)"
+  },
+  {
+    "item_name": "Etched in Bone (A Novel of the Others)"
+  },
+  {
+    "item_name": "How to Tame a Beast in Seven Days: A Novel of the Embraced"
+  },
+  {
+    "item_name": "The Chosen (Black Dagger Brotherhood Series)"
+  },
+  {
+    "item_name": "Ashwin (Gideon's Riders) (Volume 1)"
+  },
+  {
+    "item_name": "Borrowed Souls: A Soul Charmer Novel"
+  },
+  {
+    "item_name": "Planet Dragos: A Novella of the Elder Races"
+  },
+  {
+    "item_name": "Bone Driven (The Foundling Series)"
+  },
+  {
+    "item_name": "Vampire's Faith"
+  },
+  {
+    "item_name": "Shadow's Bane (Dorina Basarab)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Archangel's Blade (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Caressed By Ice (Psy-Changelings, Book 3)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Archangel's Consort (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Night Broken: A Mercy Thompson Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Archangel's Heart (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Shield of Winter (Psy-Changeling Novel, A)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Wanted: Undead or Alive (Love at Stake)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Iced: Fever Series Book 6"
+  },
+  {
+    "rank": 9,
+    "item_name": "Slave to Sensation (Psy-Changelings, Book 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "How to Run with a Naked Werewolf (Naked Werewolf Series)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Mercury&#39;s War: A Novel of the Breeds - Kindle edition"
+  },
+  {
+    "rank": 12,
+    "item_name": "Nine Rules to Break When Romancing a Rake (Love By Numbers)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Visions of Heat (Psy-Changelings, Book 2)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Nine Rules to Break When Romancing a Rake: Number 1 in series (Love by Numbers)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Shadow's Claim (Immortals After Dark)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Romancing Mister Bridgerton (Bridgertons)"
+  },
+  {
+    "rank": 17,
+    "item_name": "White Witch, Black Curse"
+  },
+  {
+    "rank": 18,
+    "item_name": "Bear Meets Girl (The Pride Series)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Enslave Me Sweetly (Alien Huntress, Book 2)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Lady Most Likely...: A Novel in Three Parts"
+  },
+  {
+    "rank": 21,
+    "item_name": "On the Edge"
+  },
+  {
+    "rank": 22,
+    "item_name": "Play of Passion (Psy/Changelings)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Third Grave Dead Ahead"
+  },
+  {
+    "rank": 24,
+    "item_name": "Ghost Seer (The Ghost Seer Novel)"
+  },
+  {
+    "rank": 25,
+    "item_name": "A Perfect Blood"
+  },
+  {
+    "rank": 26,
+    "item_name": "Vision in Silver (A Novel of the Others)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Wild Invitation: A Psy-Changeling Collection (Psy/Changelings)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Darling Beast (Maiden Lane)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Boyfriend from Hell (The Saturns Daughters)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Dragon Actually (Dragon Kin)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Poison Promise (Elemental Assassin)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Lord of Scoundrels"
+  },
+  {
+    "rank": 33,
+    "item_name": "Tangle of Need (Psy/Changeling)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Magic Breaks (Kate Daniels)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Sins of the Night (Dark-Hunter, Book 8), Cover may vary"
+  },
+  {
+    "rank": 36,
+    "item_name": "Wolf with Benefits (Brava Paranormal Romance)"
+  },
+  {
+    "rank": 37,
+    "item_name": "When Darkness Comes (Guardians of Eternity, Book 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Kept: A Coveted Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Hot and Badgered (The Honey Badger Chronicles)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Howl For It"
+  },
+  {
+    "rank": 41,
+    "item_name": "Blaze of Memory (Psy-Changelings, Book 7)"
+  },
+  {
+    "rank": 42,
+    "item_name": "A Hunger Like No Other (Immortals After Dark, Book 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Cry Wolf (Alpha and Omega)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Branded by Fire (Psy-Changelings, Book 6)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Night Shift"
+  },
+  {
+    "rank": 46,
+    "item_name": "Unleash the Night (Dark-Hunter, Book 9)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Otherwise Engaged"
+  },
+  {
+    "rank": 48,
+    "item_name": "How to Flirt with a Naked Werewolf (Naked Werewolf Series)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Nightshade"
+  },
+  {
+    "rank": 50,
+    "item_name": "Born to Darkness (with bonus short story Shane's Last Stand)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

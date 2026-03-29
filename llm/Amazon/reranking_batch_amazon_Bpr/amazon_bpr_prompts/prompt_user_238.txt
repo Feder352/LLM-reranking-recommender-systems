@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Idyll Fears: A Thomas Lynch Novel"
+  },
+  {
+    "item_name": "Signal Loss (A Hal Challis Investigation)"
+  },
+  {
+    "item_name": "Crazy Like a Fox: A Novel (Sister Jane)"
+  },
+  {
+    "item_name": "Come, Let Us Adore Him: A Daily Advent Devotional"
+  },
+  {
+    "item_name": "Tru &amp; Nelle: A Christmas Tale"
+  },
+  {
+    "item_name": "Until Tomorrow, Mr. Marsworth"
+  },
+  {
+    "item_name": "Higher Is Waiting"
+  },
+  {
+    "item_name": "Ever the Brave (A Clash of Kingdoms Novel)"
+  },
+  {
+    "item_name": "Jefferson's Daughters: Three Sisters, White and Black, in a Young America (Random House Large Print)"
+  },
+  {
+    "item_name": "Little Leaders: Bold Women in Black History (Vashti Harrison)"
+  },
+  {
+    "item_name": "Fairy Mom and Me #1"
+  },
+  {
+    "item_name": "The Largesse of the Sea Maiden: Stories"
+  },
+  {
+    "item_name": "Sunset Bay Sanctuary (A Sunset Bay Novel)"
+  },
+  {
+    "item_name": "The Sweet Spot (A Willamette Valley Romance)"
+  },
+  {
+    "item_name": "The Bad Decisions Playlist"
+  },
+  {
+    "item_name": "The Tragic Age: A Novel"
+  },
+  {
+    "item_name": "The Fourth Figure (The Pieter Van In Mysteries)"
+  },
+  {
+    "item_name": "Sucktown, Alaska"
+  },
+  {
+    "item_name": "Ragged Lake: A Frank Yakabuski Mystery"
+  },
+  {
+    "item_name": "Best Beers: the indispensable guide to the world's beers"
+  },
+  {
+    "item_name": "Buried Truth (A Siren Cove Novel)"
+  },
+  {
+    "item_name": "The Escape Artist"
+  },
+  {
+    "item_name": "All We Can Do Is Wait"
+  },
+  {
+    "item_name": "The Heat Is On (Next Best Junior Chef)"
+  },
+  {
+    "item_name": "Winter Kept Us Warm: A Novel"
+  },
+  {
+    "item_name": "Exhibit Alexandra [Paperback] [Mar 08, 2018] Natasha Bell"
+  },
+  {
+    "item_name": "The Very Marrow of Our Bones: A Novel"
+  },
+  {
+    "item_name": "To Die but Once: A Maisie Dobbs Novel"
+  },
+  {
+    "item_name": "The Sparsholt Affair"
+  },
+  {
+    "item_name": "From the Corner of the Oval: A Memoir"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Perfect Place"
+  },
+  {
+    "rank": 3,
+    "item_name": "Gated"
+  },
+  {
+    "rank": 4,
+    "item_name": "Another Kind of Hurricane"
+  },
+  {
+    "rank": 5,
+    "item_name": "Neo Parasyte m"
+  },
+  {
+    "rank": 6,
+    "item_name": "Against the Country"
+  },
+  {
+    "rank": 7,
+    "item_name": "We Are the Goldens"
+  },
+  {
+    "rank": 8,
+    "item_name": "Vivian Apple Needs a Miracle"
+  },
+  {
+    "rank": 9,
+    "item_name": "China Rich Girlfriend: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Section 60: Arlington National Cemetery: Where War Comes Home"
+  },
+  {
+    "rank": 11,
+    "item_name": "With Love from the Inside"
+  },
+  {
+    "rank": 12,
+    "item_name": "Man V. Nature: Stories"
+  },
+  {
+    "rank": 13,
+    "item_name": "Ripper: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Dancer, Daughter, Traitor, Spy"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Way I Used to Be"
+  },
+  {
+    "rank": 16,
+    "item_name": "Sometimes the Wolf: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Raven (A Jane Harper Horror Novel)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Harriet Beamer Takes the Bus (Harriet Beamer Series)"
+  },
+  {
+    "rank": 19,
+    "item_name": "I Hear Them Cry"
+  },
+  {
+    "rank": 20,
+    "item_name": "New York Nocturne: The Return of Miss Lizzie"
+  },
+  {
+    "rank": 21,
+    "item_name": "Stray"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Apprentice Witch"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Shadow Queen: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Space Case (Moon Base Alpha)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Francis Miracle: Inside the Transformation of the Pope and the Church"
+  },
+  {
+    "rank": 26,
+    "item_name": "Christian Stories of Wisdom"
+  },
+  {
+    "rank": 27,
+    "item_name": "Bed Hog"
+  },
+  {
+    "rank": 28,
+    "item_name": "Visible Learning for Literacy, Grades K-12: Implementing the Practices That Work Best to Accelerate Student Learning (Corwin Literacy)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Scarlett Epstein Hates It Here"
+  },
+  {
+    "rank": 30,
+    "item_name": "Blood and Roses (Holly Jennings Thriller)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 32,
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Friend Request: The most addictive psychological thriller you'll read this year"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Wrong Girl (Jane Ryland)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Changing Lanes: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Beach House No. 9"
+  },
+  {
+    "rank": 37,
+    "item_name": "Daredevils: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Life List: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Ghost Fields (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Dog Trouble!"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Wowzer"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Boy Who Glowed in the Dark (Nadia Tesla)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Don't Touch"
+  },
+  {
+    "rank": 44,
+    "item_name": "The True Source of Healing: How the Ancient Tibetan Practice of Soul Retrieval Can Transform and Enrich Your Life"
+  },
+  {
+    "rank": 45,
+    "item_name": "Against Wind and Tide: Letters and Journals, 1947-1986"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Smoke Hunter"
+  },
+  {
+    "rank": 47,
+    "item_name": "Barron's GMAT"
+  },
+  {
+    "rank": 48,
+    "item_name": "Design for Dying: A Lillian Frost &amp; Edith Head Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Moone Boy: The Blunder Years"
+  },
+  {
+    "rank": 50,
+    "item_name": "Traveling Light: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

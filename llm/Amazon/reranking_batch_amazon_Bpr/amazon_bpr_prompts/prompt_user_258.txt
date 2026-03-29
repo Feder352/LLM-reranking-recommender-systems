@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Graveyard Book Graphic Novel: Volume 2"
+  },
+  {
+    "item_name": "Candlenight"
+  },
+  {
+    "item_name": "On the Edge of Darkness"
+  },
+  {
+    "item_name": "The Joy Luck Club: A Novel"
+  },
+  {
+    "item_name": "Mind of Winter"
+  },
+  {
+    "item_name": "Adeline: A Novel of Virginia Woolf"
+  },
+  {
+    "item_name": "Where They Found Her: A Novel"
+  },
+  {
+    "item_name": "The Phantom of the Opera: The Original Novel"
+  },
+  {
+    "item_name": "Thirteen Chairs"
+  },
+  {
+    "item_name": "Moby Dick (Collins Classics)"
+  },
+  {
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "item_name": "Boo (Vintage Contemporaries)"
+  },
+  {
+    "item_name": "Ferals"
+  },
+  {
+    "item_name": "The Whisper: The Riverman Trilogy, Book II"
+  },
+  {
+    "item_name": "Little Black Lies: A Novel"
+  },
+  {
+    "item_name": "Chasing Secrets"
+  },
+  {
+    "item_name": "Le Morte D'Arthur: Complete Unabridged, New Illustrated Edition"
+  },
+  {
+    "item_name": "Magonia"
+  },
+  {
+    "item_name": "Dust and Shadow: An Account of the Ripper Killings by Dr. John H. Watson"
+  },
+  {
+    "item_name": "Circus Mirandus"
+  },
+  {
+    "item_name": "Book Scavenger (The Book Scavenger series)"
+  },
+  {
+    "item_name": "A Night Divided (Scholastic Gold)"
+  },
+  {
+    "item_name": "The Marvels"
+  },
+  {
+    "item_name": "False Mermaid (Wheeler Large Print Book Series)"
+  },
+  {
+    "item_name": "The Casual Vacancy"
+  },
+  {
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "item_name": "A Christmas Memory"
+  },
+  {
+    "item_name": "Rena's Promise:  A Story of Sisters in Auschwitz"
+  },
+  {
+    "item_name": "A Few of the Girls: Stories"
+  },
+  {
+    "item_name": "Footnotes from the World's Greatest Bookstores: True Tales and Lost Moments from Book Buyers, Booksellers, and Book Lovers"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 3,
+    "item_name": "Harry Potter and the Cursed Child, parts one and two. [Based on the original new story by J.J. Rowling, John Tiffany &amp; Jack Thorne]. First produced by ... End production, special rehearsal edition."
+  },
+  {
+    "rank": 4,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Devil's Arithmetic (Puffin Modern Classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Dune"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Dark Is Rising Sequence: Silver on the Tree; The Grey King; Greenwitch; The Dark Is Rising; and Over Sea, Under Stone"
+  },
+  {
+    "rank": 9,
+    "item_name": "Where the Wild Things Are"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Hound of the Baskervilles (Puffin Classics)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Amber Spyglass"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Rebellion of Jane Clarke: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "One, Two, Buckle My Shoe"
+  },
+  {
+    "rank": 15,
+    "item_name": "Ella Enchanted"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Blue Fairy Book (Dover Children's Classics)"
+  },
+  {
+    "rank": 17,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 18,
+    "item_name": "Little House On The Prairie"
+  },
+  {
+    "rank": 19,
+    "item_name": "Dune (Penguin Galaxy)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 21,
+    "item_name": "Maltese Falcon (Picador Books)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Wolf Hollow"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Golem and the Jinni: A Novel (P.S.)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Middlesex: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Indian in the Cupboar(lib)(CD) (Indian in the Cupboard)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Farthest Shore (The Earthsea Cycle, Book 3)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 31,
+    "item_name": "Wonder"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Moonstone: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Moon Over Manifest"
+  },
+  {
+    "rank": 34,
+    "item_name": "Mockingjay: The Hunger Games"
+  },
+  {
+    "rank": 35,
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "rank": 36,
+    "item_name": "Click, Clack, Moo: Cows That Type"
+  },
+  {
+    "rank": 37,
+    "item_name": "Boy, Snow, Bird"
+  },
+  {
+    "rank": 38,
+    "item_name": "Nancy Drew 40: the Moonstone Castle Mystery"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Spiderwick Chronicles: The Seeing Stone, Book 2"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Song of the Quarkbeast: The Chronicles of Kazam, Book 2"
+  },
+  {
+    "rank": 41,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 42,
+    "item_name": "I Am Half-Sick of Shadows: A Flavia de Luce Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Austenland: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "Time Traveler's Wife"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Subtle Knife (His Dark Materials, Book 2)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Where the Wild Things Are (Caldecott Collection)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 49,
+    "item_name": "Ricky Ricotta's Mighty Robot (Astro-Activity Book O'Fun) by Pilkey, Dav (unknown Edition) [Paperback(2006)]"
+  },
+  {
+    "rank": 50,
+    "item_name": "Corduroy"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

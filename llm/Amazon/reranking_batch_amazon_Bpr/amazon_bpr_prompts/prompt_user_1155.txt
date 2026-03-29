@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dragonwatch: A Fablehaven Adventure"
+  },
+  {
+    "item_name": "Unexpected Love: A Marriage of Convenience Anthology"
+  },
+  {
+    "item_name": "A Case in Any Case (Detective Gordon)"
+  },
+  {
+    "item_name": "Bruno: Some of the More Interesting Days in My Life So Far"
+  },
+  {
+    "item_name": "Deadly Inheritance"
+  },
+  {
+    "item_name": "The Vicar's Daughter (Proper Romance)"
+  },
+  {
+    "item_name": "Defiance"
+  },
+  {
+    "item_name": "Brightwood"
+  },
+  {
+    "item_name": "Wrong for You"
+  },
+  {
+    "item_name": "Belly Up (FunJungle)"
+  },
+  {
+    "item_name": "Poached (FunJungle)"
+  },
+  {
+    "item_name": "Thick as Thieves (Queen's Thief)"
+  },
+  {
+    "item_name": "The Song of Copper Creek"
+  },
+  {
+    "item_name": "Searching for Irene"
+  },
+  {
+    "item_name": "The Secret of the India Orchid (Proper Romance)"
+  },
+  {
+    "item_name": "Duck, Duck, Porcupine! (A Duck, Duck, Porcupine Book)"
+  },
+  {
+    "item_name": "Real Friends"
+  },
+  {
+    "item_name": "Miss Leslie's Secret"
+  },
+  {
+    "item_name": "The Nameless City: The Stone Heart"
+  },
+  {
+    "item_name": "The Border"
+  },
+  {
+    "item_name": "Creepy Pair of Underwear!"
+  },
+  {
+    "item_name": "The Gentleman's Deception"
+  },
+  {
+    "item_name": "Santa Calls"
+  },
+  {
+    "item_name": "The Wolf, the Duck, and the Mouse"
+  },
+  {
+    "item_name": "We're Going on a Bear Hunt"
+  },
+  {
+    "item_name": "Don't Forget Dexter! (Dexter T. Rexter)"
+  },
+  {
+    "item_name": "Rapunzel"
+  },
+  {
+    "item_name": "Baby Monkey, Private Eye"
+  },
+  {
+    "item_name": "The Traitor's Game (The Traitor's Game, Book One)"
+  },
+  {
+    "item_name": "A Night Divided (Scholastic Gold)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Princess Academy"
+  },
+  {
+    "rank": 2,
+    "item_name": "On the Blue Comet"
+  },
+  {
+    "rank": 3,
+    "item_name": "Swept Up By the Sea: A Romantic Fairy Tale"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Secret Horses of Briar Hill"
+  },
+  {
+    "rank": 5,
+    "item_name": "Playing for Keeps"
+  },
+  {
+    "rank": 6,
+    "item_name": "The School Is Alive! (Eerie Elementary #1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Porcelain Keys"
+  },
+  {
+    "rank": 8,
+    "item_name": "An Unlikely Match"
+  },
+  {
+    "rank": 9,
+    "item_name": "Drops of Gold"
+  },
+  {
+    "rank": 10,
+    "item_name": "Pillage"
+  },
+  {
+    "rank": 11,
+    "item_name": "Persuaded"
+  },
+  {
+    "rank": 12,
+    "item_name": "Fetch"
+  },
+  {
+    "rank": 13,
+    "item_name": "Infinity Ring Book 1: A Mutiny in Time"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Sheik's Ruby"
+  },
+  {
+    "rank": 15,
+    "item_name": "Princess Academy: The Forgotten Sisters"
+  },
+  {
+    "rank": 16,
+    "item_name": "Sleeping Beauty and the Beast"
+  },
+  {
+    "rank": 17,
+    "item_name": "Destiny (The Destiny Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "River Secrets"
+  },
+  {
+    "rank": 19,
+    "item_name": "Mormon Origami"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Emerald Ring (Cleopatra's Legacy)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Rose"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Snatchabook"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Nobleman's Governess Bride (The Glass Slipper Chronicles)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Maisy and the Missing Mice (The Maisy Files) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Ricky Ricotta's Mighty Robot (Astro-Activity Book O'Fun) by Pilkey, Dav (unknown Edition) [Paperback(2006)]"
+  },
+  {
+    "rank": 26,
+    "item_name": "Fortune Cookie (Culinary Mystery)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Lester's Dreadful Sweaters"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Day The Crayons Quit"
+  },
+  {
+    "rank": 29,
+    "item_name": "Magic Tree House Collection Volume 1: Books 1-4: #1 Dinosaurs Before Dark; #2 The Knight at Dawn; #3 Mummies in the Morning; #4 Pirates Past Noon (Magic Tree House (R))"
+  },
+  {
+    "rank": 30,
+    "item_name": "River Secrets (Books of Bayern)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The 13th Sign"
+  },
+  {
+    "rank": 32,
+    "item_name": "Loving Helen (A Hearthfire Romance) (Volume 2)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Shadow Throne (The Ascendance Trilogy, Book 3): Book 3 of The Ascendance Trilogy"
+  },
+  {
+    "rank": 34,
+    "item_name": "Sign of the Green Dragon"
+  },
+  {
+    "rank": 35,
+    "item_name": "Happily Ever After Collection (A Timeless Romance Anthology) (Volume 20)"
+  },
+  {
+    "rank": 36,
+    "item_name": "50 Below Zero"
+  },
+  {
+    "rank": 37,
+    "item_name": "As You Are"
+  },
+  {
+    "rank": 38,
+    "item_name": "Everneath"
+  },
+  {
+    "rank": 39,
+    "item_name": "Not Always Happenstance (Power of the Matchmaker)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Motherhood Matters: Joyful Reminders of the Divinity, Reality, and Rewards of Motherhood"
+  },
+  {
+    "rank": 41,
+    "item_name": "Drama"
+  },
+  {
+    "rank": 42,
+    "item_name": "Lightning Struck (Brothers Maledetti)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Avatar: The Last Airbender--Smoke and Shadow Library Edition"
+  },
+  {
+    "rank": 44,
+    "item_name": "Fairest"
+  },
+  {
+    "rank": 45,
+    "item_name": "Ashes on the Moor (Proper Romance Victorian)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Witness in the Dark"
+  },
+  {
+    "rank": 47,
+    "item_name": "Monster on the Hill"
+  },
+  {
+    "rank": 48,
+    "item_name": "These Is My Words: The Diary of Sarah Agnes Prine, 1881-1901"
+  },
+  {
+    "rank": 49,
+    "item_name": "Snow White: A Graphic Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Torrent: A Novel (River of Time Series)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

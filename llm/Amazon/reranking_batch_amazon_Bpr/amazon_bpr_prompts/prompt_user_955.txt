@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Way to London: A Novel of World War II"
+  },
+  {
+    "item_name": "A Strange Scottish Shore"
+  },
+  {
+    "item_name": "The Trust: A Novel (Liam Taggart and Catherine Lockhart)"
+  },
+  {
+    "item_name": "The Sky Throne"
+  },
+  {
+    "item_name": "Second Chance Girl: A Modern Fairy Tale Romance (Happily Inc)"
+  },
+  {
+    "item_name": "Maybe This Christmas (Colorado Ice)"
+  },
+  {
+    "item_name": "Too Beautiful to Break (Romancing the Clarksons)"
+  },
+  {
+    "item_name": "The Last Move"
+  },
+  {
+    "item_name": "Alycat and the Monday Blues"
+  },
+  {
+    "item_name": "Snow"
+  },
+  {
+    "item_name": "Christmas at Two Love Lane"
+  },
+  {
+    "item_name": "A Season of You: A Cloud Bay Christmas Novel"
+  },
+  {
+    "item_name": "A Line in the Dark"
+  },
+  {
+    "item_name": "Sons and Soldiers: The Untold Story of the Jews Who Escaped the Nazis and Returned with the U.S. Army to Fight Hitler"
+  },
+  {
+    "item_name": "Pupcakes: A Christmas Novel"
+  },
+  {
+    "item_name": "Picnic at Hanging Rock"
+  },
+  {
+    "item_name": "Monsterland (Monsterland Series) (Volume 1)"
+  },
+  {
+    "item_name": "What the Hell Did I Just Read: A Novel of Cosmic Horror (John Dies at the End)"
+  },
+  {
+    "item_name": "Looking Good Dead"
+  },
+  {
+    "item_name": "King of Hearts: British Historical League of Rogues Romance Book 1 (Volume 1)"
+  },
+  {
+    "item_name": "The Nine (Thieves of Fate)"
+  },
+  {
+    "item_name": "Wives of War"
+  },
+  {
+    "item_name": "The Separatists (A Newsmakers Novel)"
+  },
+  {
+    "item_name": "The Chalk Man"
+  },
+  {
+    "item_name": "Everless"
+  },
+  {
+    "item_name": "False Friend: A Novel (Detective Cooper Devereaux)"
+  },
+  {
+    "item_name": "Sisters Like Us (Mischief Bay)"
+  },
+  {
+    "item_name": "Turquoise Mountain (Iron Feather Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "Exhibit Alexandra [Paperback] [Mar 08, 2018] Natasha Bell"
+  },
+  {
+    "item_name": "When We Found Home"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Bring Her Home"
+  },
+  {
+    "rank": 2,
+    "item_name": "Here and Gone: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Fear Nothing: A Detective D.D. Warren Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "New Year Island"
+  },
+  {
+    "rank": 5,
+    "item_name": "Targets of Opportunity (Jordan Sanders)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Uninvited: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Winter People: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Dress Shop of Dreams: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Tudor Secret: A Novel (The Elizabeth I Spymaster Chronicles)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Mother, Mother: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Death of Bees: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Witch of Painted Sorrows"
+  },
+  {
+    "rank": 13,
+    "item_name": "Drift: A Thriller (Doyle Carrick)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Always Watching"
+  },
+  {
+    "rank": 15,
+    "item_name": "Becoming Marie Antoinette: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Crown (Joanna Stafford series)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Devil Crept In: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Wolf"
+  },
+  {
+    "rank": 20,
+    "item_name": "What Happened to Hannah: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Returned"
+  },
+  {
+    "rank": 22,
+    "item_name": "Catch Me (Detective D. D. Warren)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Secrets of a Christmas Box"
+  },
+  {
+    "rank": 24,
+    "item_name": "Tout Sweet: Hanging Up My High Heels for a New Life in France"
+  },
+  {
+    "rank": 25,
+    "item_name": "Compulsion: A Novel (Max Revere Novels)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Black Ice"
+  },
+  {
+    "rank": 27,
+    "item_name": "Perfect"
+  },
+  {
+    "rank": 28,
+    "item_name": "Sidney Sheldon's After the Darkness"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Innocence Game"
+  },
+  {
+    "rank": 30,
+    "item_name": "Still Missing: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Haunting of Sunshine Girl: Book One (The Haunting of Sunshine Girl Series)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Lantern: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Pandora's Temple (The Blaine McCracken Novels)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Mourning Hours"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Deeper Darkness"
+  },
+  {
+    "rank": 36,
+    "item_name": "Gated"
+  },
+  {
+    "rank": 37,
+    "item_name": "Burning Midnight"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Midwife of Hope River: A Novel of an American Midwife"
+  },
+  {
+    "rank": 39,
+    "item_name": "Jane Steele"
+  },
+  {
+    "rank": 40,
+    "item_name": "Crash &amp; Burn (A Tessa Leoni Novel)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Secret Wisdom of the Earth"
+  },
+  {
+    "rank": 42,
+    "item_name": "I'll See You Again"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Forgotten Room (Jeremy Logan Series)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Widows of Braxton County: A Novel (P.S.)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Louder Than Words"
+  },
+  {
+    "rank": 46,
+    "item_name": "Reign of Madness"
+  },
+  {
+    "rank": 47,
+    "item_name": "Saving CeeCee Honeycutt"
+  },
+  {
+    "rank": 48,
+    "item_name": "Save Me: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Tell the Wind and Fire"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Perfect Match (The Blue Heron Series)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

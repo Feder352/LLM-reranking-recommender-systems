@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Flesh House"
+  },
+  {
+    "item_name": "The Gravedigger's Daughter: A Novel (P.S.)"
+  },
+  {
+    "item_name": "The Shadow District: A Thriller (The Flovent and Thorson Thrillers)"
+  },
+  {
+    "item_name": "The Falls: An Inspector Rebus Novel (Inspector Rebus Novels)"
+  },
+  {
+    "item_name": "A Question of Blood: An Inspector Rebus Novel"
+  },
+  {
+    "item_name": "Robicheaux: You Know My Name (Dave Robicheaux)"
+  },
+  {
+    "item_name": "Hidden Depths"
+  },
+  {
+    "item_name": "The Late Show"
+  },
+  {
+    "item_name": "The Leopard"
+  },
+  {
+    "item_name": "The Black Book: An Inspector Rebus Novel (Inspector Rebus Novels)"
+  },
+  {
+    "item_name": "Robert B. Parker's The Hangman's Sonnet (A Jesse Stone Novel)"
+  },
+  {
+    "item_name": "Tooth and Nail: An Inspector Rebus Novel (Inspector Rebus Novels)"
+  },
+  {
+    "item_name": "Three Stations"
+  },
+  {
+    "item_name": "Sixkill (Spenser Mystery)"
+  },
+  {
+    "item_name": "Set in Darkness: An Inspector Rebus Novel (Inspector Rebus Mysteries)"
+  },
+  {
+    "item_name": "Plum Tea Crazy (A Tea Shop Mystery)"
+  },
+  {
+    "item_name": "Exit Music (Detective John Rebus Novels)"
+  },
+  {
+    "item_name": "Two Kinds of Truth (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Hundred-Dollar Baby (Spenser Mystery)"
+  },
+  {
+    "item_name": "High Profile (A Jesse Stone Novel)"
+  },
+  {
+    "item_name": "The Midnight Line: A Jack Reacher Novel"
+  },
+  {
+    "item_name": "Haunted (A Hannah Smith Novel)"
+  },
+  {
+    "item_name": "Death of a Liar (A Hamish Macbeth Mystery)"
+  },
+  {
+    "item_name": "Death of a Ghost (A Hamish Macbeth Mystery)"
+  },
+  {
+    "item_name": "Dark Blood"
+  },
+  {
+    "item_name": "Deep Blue (A Doc Ford Novel)"
+  },
+  {
+    "item_name": "The Lewis Man"
+  },
+  {
+    "item_name": "Phantom (Harry Hole Series)"
+  },
+  {
+    "item_name": "The Chessmen"
+  },
+  {
+    "item_name": "Police"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Maisie Dobbs (Book 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Garden of Lamentations: A Novel (Duncan Kincaid/Gemma James Novels)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The 6th Target"
+  },
+  {
+    "rank": 4,
+    "item_name": "Tilt-a-Whirl"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Surgeon (with Bonus Content): A Rizzoli &amp; Isles Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Saints of the Shadow Bible (A Rebus Novel)"
+  },
+  {
+    "rank": 7,
+    "item_name": "An Impartial Witness: A Bess Crawford Mystery (Bess Crawford Mysteries)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Twelve Clues of Christmas: A Royal Spyness Mystery"
+  },
+  {
+    "rank": 9,
+    "item_name": "A Test of Wills (Inspector Ian Rutledge Mysteries)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Burning Room (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Death Without Company: A Longmire Mystery"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Lesson in Secrets: A Maisie Dobbs Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "61 Hours: A Reacher Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Bad Boy (Inspector Banks Novels)"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Dying Fall (Ruth Galloway Mystery) (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Yard"
+  },
+  {
+    "rank": 17,
+    "item_name": "Royal Blood (A Royal Spyness Mystery)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Cruelest Month (Three Pines Mysteries, No. 3)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Highwayman: A Longmire Story (A Longmire Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Dead Wrong (Joanna Brady Mysteries, Book 12)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Fool Me Once"
+  },
+  {
+    "rank": 22,
+    "item_name": "Dry Bones: A Longmire Mystery"
+  },
+  {
+    "rank": 23,
+    "item_name": "Kneading to Die (A Pawsitively Organic Mystery)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Wailing Wind"
+  },
+  {
+    "rank": 25,
+    "item_name": "Mystery: An Alex Delaware Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "How the Light Gets In: A Chief Inspector Gamache Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "11th Hour (Women's Murder Club)"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Long Shadow: An Inspector Ian Rutledge Mystery (Inspector Ian Rutledge Mysteries)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Murder, With Peacocks (Meg Langslow Mysteries)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Homicide in Hardcover: A Bibliophile Mystery"
+  },
+  {
+    "rank": 31,
+    "item_name": "Among the Mad (Maisie Dobbs)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Widow's Tears (China Bayles Mystery)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Green Mill Murder (Phryne Fisher Mystery)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Case Histories: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Dead by Midnight (Death on Demand)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Casual Vacancy 1st (first) Edition by Rowling, J.K. published by Little, Brown and Company (2012) Hardcover"
+  },
+  {
+    "rank": 39,
+    "item_name": "Mystic River"
+  },
+  {
+    "rank": 40,
+    "item_name": "Dilly of a Death (China Bayles Mystery)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Heist: A Novel (Fox and O'Hare)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Spirit of Steamboat: A Longmire Story (A Longmire Mystery)"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Share in Death (Duncan Kincaid/Gemma James Novels)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Billy Boyle: A World War II Mystery"
+  },
+  {
+    "rank": 45,
+    "item_name": "Mew is for Murder (Theda Krakow Series)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Dead Man's Chest (Miss Fisher's Murder Mysteries)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Fourth Bear: A Nursery Crime (Jack Spratt Investigates)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Whispers Under Ground (Rivers of London Book 3) eBook"
+  },
+  {
+    "rank": 49,
+    "item_name": "Ten Second Staircase: A Peculiar Crimes Unit Mystery"
+  },
+  {
+    "rank": 50,
+    "item_name": "Endangered (A Joe Pickett Novel)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "City of Light, City of Poison: Murder, Magic, and the First Police Chief of Paris"
+  },
+  {
+    "item_name": "Pulse (A Dick Francis Novel)"
+  },
+  {
+    "item_name": "The House of Unexpected Sisters: No. 1 Ladies' Detective Agency (18) (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "item_name": "Hardcore Twenty-Four: A Stephanie Plum Novel"
+  },
+  {
+    "item_name": "The Midnight Line: A Jack Reacher Novel"
+  },
+  {
+    "item_name": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI"
+  },
+  {
+    "item_name": "The Radium Girls"
+  },
+  {
+    "item_name": "The Road to Jonestown: Jim Jones and Peoples Temple"
+  },
+  {
+    "item_name": "Change of Heart: A Novel (Wsp Readers Club)"
+  },
+  {
+    "item_name": "Coffin Scarcely Used"
+  },
+  {
+    "item_name": "Bump in the Night (Flaxborough Chronicles)"
+  },
+  {
+    "item_name": "Midnight at the Bright Ideas Bookstore: A Novel"
+  },
+  {
+    "item_name": "The Wife: A Novel of Psychological Suspense"
+  },
+  {
+    "item_name": "The Grave's a Fine and Private Place: A Flavia de Luce Novel"
+  },
+  {
+    "item_name": "Look for Me (A D.D. Warren and Flora Dane Novel)"
+  },
+  {
+    "item_name": "Beau Death (A Detective Peter Diamond Mystery)"
+  },
+  {
+    "item_name": "Death of an Honest Man (A Hamish Macbeth Mystery)"
+  },
+  {
+    "item_name": "The Perfect Horse: The Daring U.S. Mission to Rescue the Priceless Stallions Kidnapped by the Nazis"
+  },
+  {
+    "item_name": "Heartbroken: A Novel"
+  },
+  {
+    "item_name": "Down the River unto the Sea"
+  },
+  {
+    "item_name": "The Dry: A Novel"
+  },
+  {
+    "item_name": "Murder at the 42nd Street Library: A Mystery (The 42nd Street Library Mysteries)"
+  },
+  {
+    "item_name": "Murder in the Manuscript Room: A 42nd Street Library Mystery (The 42nd Street Library Mysteries)"
+  },
+  {
+    "item_name": "The Rising Sea (The NUMA Files)"
+  },
+  {
+    "item_name": "The Temptation of Forgiveness: A Commissario Guido Brunetti Mystery (Commissario Guido Brunetti Mysteries (Hardcover))"
+  },
+  {
+    "item_name": "The Cutting Edge (A Lincoln Rhyme Novel)"
+  },
+  {
+    "item_name": "Master and Commander"
+  },
+  {
+    "item_name": "Mystery: An Alex Delaware Novel"
+  },
+  {
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "item_name": "The Murderer's Daughter: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1125,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 2,
+    "item_id": 19,
+    "item_name": "Bloodline"
+  },
+  {
+    "rank": 3,
+    "item_id": 2864,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 4,
+    "item_id": 1956,
+    "item_name": "One Good Turn"
+  },
+  {
+    "rank": 5,
+    "item_id": 730,
+    "item_name": "Time Traveler's Wife"
+  },
+  {
+    "rank": 6,
+    "item_id": 1927,
+    "item_name": "The Last Coyote (Harry Bosch)"
+  },
+  {
+    "rank": 7,
+    "item_id": 2002,
+    "item_name": "The Gods of Guilt (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 8,
+    "item_id": 505,
+    "item_name": "Moonlight Mile"
+  },
+  {
+    "rank": 9,
+    "item_id": 1034,
+    "item_name": "The Likeness"
+  },
+  {
+    "rank": 10,
+    "item_id": 2669,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 11,
+    "item_id": 2014,
+    "item_name": "The Drop (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 12,
+    "item_id": 1821,
+    "item_name": "Knots and Crosses: An Inspector Rebus Novel (Inspector Rebus Novels)"
+  },
+  {
+    "rank": 13,
+    "item_id": 221,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 14,
+    "item_id": 1975,
+    "item_name": "Exit Music (Detective John Rebus Novels)"
+  },
+  {
+    "rank": 15,
+    "item_id": 4801,
+    "item_name": "The Bookwoman's Last Fling: A Cliff Janeway Novel"
+  },
+  {
+    "rank": 16,
+    "item_id": 699,
+    "item_name": "Atonement"
+  },
+  {
+    "rank": 17,
+    "item_id": 2305,
+    "item_name": "The Dante Club: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_id": 1433,
+    "item_name": "The Year of the Flood (MaddAddam Trilogy)"
+  },
+  {
+    "rank": 19,
+    "item_id": 3215,
+    "item_name": "The First Rule (A Joe Pike Novel)"
+  },
+  {
+    "rank": 20,
+    "item_id": 38,
+    "item_name": "Breathless"
+  },
+  {
+    "rank": 21,
+    "item_id": 4296,
+    "item_name": "To Say Nothing of the Dog"
+  },
+  {
+    "rank": 22,
+    "item_id": 2049,
+    "item_name": "The Lincoln Lawyer (Large Print)"
+  },
+  {
+    "rank": 23,
+    "item_id": 1730,
+    "item_name": "Heartsick (Archie Sheridan &amp; Gretchen Lowell)"
+  },
+  {
+    "rank": 24,
+    "item_id": 1928,
+    "item_name": "The Black Ice (Harry Bosch)"
+  },
+  {
+    "rank": 25,
+    "item_id": 416,
+    "item_name": "The Black Tower"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

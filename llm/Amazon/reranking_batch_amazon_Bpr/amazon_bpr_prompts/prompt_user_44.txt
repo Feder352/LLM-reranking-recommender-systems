@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "My Snowman, Paul (Volume 1)"
+  },
+  {
+    "item_name": "The Largesse of the Sea Maiden: Stories"
+  },
+  {
+    "item_name": "The Night Diary"
+  },
+  {
+    "item_name": "Love for Freedom (A Short Story)"
+  },
+  {
+    "item_name": "Elmet: LONGLISTED FOR THE MAN BOOKER PRIZE 2017 [Paperback] [Aug 10, 2017] Mozley, Fiona"
+  },
+  {
+    "item_name": "Montpelier Parade"
+  },
+  {
+    "item_name": "The Bad Daughter: A Novel"
+  },
+  {
+    "item_name": "Beeronomics: How Beer Explains the World"
+  },
+  {
+    "item_name": "Tess of the Road"
+  },
+  {
+    "item_name": "Two Kinds of Truth (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "The Little Book of Feminist Saints"
+  },
+  {
+    "item_name": "Mississippi Sissy"
+  },
+  {
+    "item_name": "Grist Mill Road"
+  },
+  {
+    "item_name": "Down the River unto the Sea"
+  },
+  {
+    "item_name": "The Unforgotten: A Novel"
+  },
+  {
+    "item_name": "The Reading Group"
+  },
+  {
+    "item_name": "Women in Sunlight: A Novel"
+  },
+  {
+    "item_name": "White Houses: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "Red Sparrow: A Novel"
+  },
+  {
+    "item_name": "Resurrection Bay (Pushkin Vertigo)"
+  },
+  {
+    "item_name": "Heal the Earth (A Julian Lennon White Feather Flier Adventure)"
+  },
+  {
+    "item_name": "Sweet Little Lies: The Number One Bestseller [Jun 29, 2017] Frear, Caz"
+  },
+  {
+    "item_name": "Alternate Side: A Novel"
+  },
+  {
+    "item_name": "The Punishment She Deserves: A Lynley Novel"
+  },
+  {
+    "item_name": "Figures in a Landscape: People and Places"
+  },
+  {
+    "item_name": "A Higher Loyalty: Truth, Lies, and Leadership"
+  },
+  {
+    "item_name": "London Rules: Jackson Lamb Thriller 5"
+  },
+  {
+    "item_name": "SOUL: A Chef's Culinary Evolution in 150 Recipes"
+  },
+  {
+    "item_name": "Two Dogs in a Trench Coat Go to School: Book 1"
+  },
+  {
+    "item_name": "Fear: Trump in the White House"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Shylock is My Name"
+  },
+  {
+    "rank": 2,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Jungle Book (Collins Classics)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 5,
+    "item_name": "Blood Safari"
+  },
+  {
+    "rank": 6,
+    "item_name": "Still Alice"
+  },
+  {
+    "rank": 7,
+    "item_name": "Civilianized: A Young Veteran's Memoir"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Preservationist: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "Norwegian by Night"
+  },
+  {
+    "rank": 10,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 11,
+    "item_name": "I Am No One: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Ice Beneath Her: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 14,
+    "item_name": "Chestnut Street"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Horse Walks into a Bar: A novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "Ripper: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Threshing Circle"
+  },
+  {
+    "rank": 18,
+    "item_name": "Olive Kitteridge"
+  },
+  {
+    "rank": 19,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "If You Were Me and Lived on...Mars (A Child's Introduction to Cultures Around the World) (Volume 23)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Mycroft Holmes"
+  },
+  {
+    "rank": 22,
+    "item_name": "Terry Treetop and the lost egg: the lost egg (Bedtime story)"
+  },
+  {
+    "rank": 23,
+    "item_name": "City of Secrets: A Novel - Kindle edition"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Art of Fielding: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_name": "These Heroic, Happy Dead: Stories"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Tulip Eaters"
+  },
+  {
+    "rank": 27,
+    "item_name": "Lila: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Hidden Inheritance: Family Secrets, Memory, and Faith"
+  },
+  {
+    "rank": 29,
+    "item_name": "Flora: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Saturday Big Tent Wedding Party (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Pacific Burn: A Thriller (A Jim Brodie Thriller)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Infatuations"
+  },
+  {
+    "rank": 33,
+    "item_name": "Mennonite in a Little Black Dress: A Memoir of Going Home"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Buried Giant: A novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 36,
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "rank": 37,
+    "item_name": "Three Cups of Tea"
+  },
+  {
+    "rank": 38,
+    "item_name": "Woman of God"
+  },
+  {
+    "rank": 39,
+    "item_name": "I Want a Dog: My Opinion Essay (Read and Write)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Fire in the Ashes: Twenty-Five Years Among the Poorest Children in America"
+  },
+  {
+    "rank": 41,
+    "item_name": "Too Bad to Die: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "City of Secrets: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "American Blood: A Novel (Marshall Grade)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Two!"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Ghost Fields (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Summer Before the War: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Crossing Places (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The End of Men: And the Rise of Women"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Snowman's Revenge"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Janus Stone (Ruth Galloway Mysteries)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

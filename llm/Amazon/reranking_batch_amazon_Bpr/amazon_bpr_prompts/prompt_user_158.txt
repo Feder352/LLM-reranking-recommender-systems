@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Boyfriend Bylaws"
+  },
+  {
+    "item_name": "Ramblefoot"
+  },
+  {
+    "item_name": "Code Blood"
+  },
+  {
+    "item_name": "Resuscitation"
+  },
+  {
+    "item_name": "The Basement"
+  },
+  {
+    "item_name": "The Magicians: A Novel (Magicians Trilogy)"
+  },
+  {
+    "item_name": "Inspector Zhang Gets His Wish eBook"
+  },
+  {
+    "item_name": "Midnight"
+  },
+  {
+    "item_name": "The Meerkat Wars"
+  },
+  {
+    "item_name": "Once Bitten"
+  },
+  {
+    "item_name": "Four D"
+  },
+  {
+    "item_name": "The Limpopo Academy of Private Detection (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "item_name": "The Saturday Big Tent Wedding Party (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "item_name": "Bitten"
+  },
+  {
+    "item_name": "Robin: Lady of Legend (The Classic Adventures of the Girl Who Became Robin Hood)"
+  },
+  {
+    "item_name": "Shaken (Mind Reader)"
+  },
+  {
+    "item_name": "The Haunted"
+  },
+  {
+    "item_name": "No Remorse"
+  },
+  {
+    "item_name": "The House of Six Doors"
+  },
+  {
+    "item_name": "Bared to You"
+  },
+  {
+    "item_name": "On Dublin Street (On Dublin Street Series)"
+  },
+  {
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "item_name": "Naked: The Blackstone Affair, Book 1"
+  },
+  {
+    "item_name": "The Casual Vacancy 1st (first) Edition by Rowling, J.K. published by Little, Brown and Company (2012) Hardcover"
+  },
+  {
+    "item_name": "Bared to You / Reflected in You / Entwined with You"
+  },
+  {
+    "item_name": "In the Tall Grass"
+  },
+  {
+    "item_name": "The Racketeer"
+  },
+  {
+    "item_name": "Doubling Up"
+  },
+  {
+    "item_name": "Billy The Goat Helps His Father eBook"
+  },
+  {
+    "item_name": "Billy The Goat Meets A Hero eBook"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 5,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 7,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Lovely Bones: Deluxe Edition"
+  },
+  {
+    "rank": 9,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 11,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Twelve Sharp (A Stephanie Plum Novel) (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Eclipse (Twilight Sagas)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Giver (Collins Modern Classics)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 16,
+    "item_name": "A Hat Full of Sky"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Five People You Meet in Heaven (Random House Large Print)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Pride &amp; Prejudice (Collins Classics)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Club Dead (Sookie Stackhouse/True Blood, Book 3)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Perks Of Being A Wallflower (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 23,
+    "item_name": "B is for Burglar (Kinsey Millhone Alphabet Mysteries, No. 2)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Midnight in the Garden of Good and Evil (AUDIO CD)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Smoke and Mirrors: Short Fictions and Illusions"
+  },
+  {
+    "rank": 27,
+    "item_name": "Aunt Dimity and the Duke (Aunt Dimity Mystery)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Penultimate Peril: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Sleeping Beauty Novels: The Claiming of Sleeping Beauty / Beauty's Release / Beauty's Punishment"
+  },
+  {
+    "rank": 31,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Oh, the Thinks You Can Think! Green Back Book"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 36,
+    "item_name": "Percy Jackson and the Sea of Monsters (Book 2)"
+  },
+  {
+    "rank": 37,
+    "item_name": "22/11/63"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Old Man and the Sea"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Mr. Penumbra's 24-Hour Bookstore: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "Eleanor &amp; Park"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 45,
+    "item_name": "Reading &quot;Lolita&quot; in Tehran: A Memoir in Books"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 47,
+    "item_name": "Stormbreaker (Alex Rider)"
+  },
+  {
+    "rank": 48,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Notebook"
+  },
+  {
+    "rank": 50,
+    "item_name": "Books />"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

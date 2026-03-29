@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "New York in the Snow"
+  },
+  {
+    "item_name": "Code Girls: The Untold Story of the American Women Code Breakers of World War II"
+  },
+  {
+    "item_name": "Logical Family: A Memoir"
+  },
+  {
+    "item_name": "Collared: An Andy Carpenter Mystery (An Andy Carpenter Novel)"
+  },
+  {
+    "item_name": "The Great Quake: How the Biggest Earthquake in North America Changed Our Understanding of the  Planet"
+  },
+  {
+    "item_name": "Howling at the Moon (Tales of an Urban Werewolf, Book 1)"
+  },
+  {
+    "item_name": "The Real Liddy James"
+  },
+  {
+    "item_name": "Why Dogs Have Wet Noses"
+  },
+  {
+    "item_name": "If Apples Had Teeth"
+  },
+  {
+    "item_name": "Urban Shaman"
+  },
+  {
+    "item_name": "DC Comics Justice League The Ultimate Guide"
+  },
+  {
+    "item_name": "Wake Up, Sleeping Beauty 1"
+  },
+  {
+    "item_name": "The Stranger In My Home: I thought she was my daughter. I was wrong."
+  },
+  {
+    "item_name": "Wicked Deeds (Krewe of Hunters)"
+  },
+  {
+    "item_name": "Sparks!"
+  },
+  {
+    "item_name": "Heartborn"
+  },
+  {
+    "item_name": "Back to the Future: The Classic Illustrated Storybook (Pop Classics)"
+  },
+  {
+    "item_name": "White Houses: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "The Illinois Chronicles: The Story of the State of Illinois -- From its Birth to the Present Day"
+  },
+  {
+    "item_name": "The Boy Who Went Magic"
+  },
+  {
+    "item_name": "Battle Angel Alita Mars Chronicle 1"
+  },
+  {
+    "item_name": "Odd Girl Out (Signature)"
+  },
+  {
+    "item_name": "See Also Proof: A Marjorie Trumaine Mystery (Marjorie Trumaine Mysteries)"
+  },
+  {
+    "item_name": "The Golden Hour"
+  },
+  {
+    "item_name": "Strange the Dreamer"
+  },
+  {
+    "item_name": "The Gingerbread Man (Brighter Child Keepsake Stories)"
+  },
+  {
+    "item_name": "The Inventors at No. 8"
+  },
+  {
+    "item_name": "Claws for Alarm (The Gray Whale Inn Mysteries) (Volume 8)"
+  },
+  {
+    "item_name": "Junior Ninja Champion: The Competition Begins"
+  },
+  {
+    "item_name": "Cook's Illustrated Baking Book"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Norwegian by Night"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Unlikely Pilgrimage of Harold Fry: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 4,
+    "item_name": "Flora: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Where Monsters Dwell (Odd Singsaker)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Golem and the Jinni: A Novel (P.S.)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Tomorrow and Tomorrow"
+  },
+  {
+    "rank": 9,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 10,
+    "item_name": "Pilgrim's Wilderness: A True Story of Faith and Madness on the Alaska Frontier"
+  },
+  {
+    "rank": 11,
+    "item_name": "With Love from the Inside"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Nightingale: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "Fourth of July Creek: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Die Again: A Rizzoli &amp; Isles Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "Under the Dome"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Library at Mount Char"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Quick"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Antagonist"
+  },
+  {
+    "rank": 19,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 20,
+    "item_name": "Wolf Winter"
+  },
+  {
+    "rank": 21,
+    "item_name": "The End of Innocence: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Behind the Beautiful Forevers: Life, death, and hope in a Mumbai undercity"
+  },
+  {
+    "rank": 23,
+    "item_name": "Stop the Presses! (The Nero Wolfe Mysteries)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Paying Guests"
+  },
+  {
+    "rank": 25,
+    "item_name": "MaddAddam (MaddAddam Trilogy)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Saint Closes the Case"
+  },
+  {
+    "rank": 27,
+    "item_name": "Thirty Girls"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Forgotten Garden"
+  },
+  {
+    "rank": 29,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Good Lord Bird: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Oregon Trail: A New American Journey"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Ice Twins"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Final Girls: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Rosie Project"
+  },
+  {
+    "rank": 37,
+    "item_name": "Smoke Gets in Your Eyes: And Other Lessons from the Crematory"
+  },
+  {
+    "rank": 38,
+    "item_name": "Dark Matter"
+  },
+  {
+    "rank": 39,
+    "item_name": "Us: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Night Film [Paperback] [Jan 01, 2013] Pessl, Marisha"
+  },
+  {
+    "rank": 41,
+    "item_name": "Reconstructing Amelia: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Invention of Wings"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Death of Bees: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Fangirl's Guide to the Galaxy: A Handbook for Girl Geeks"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Devil's Detective: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Etta &amp; Otto &amp; Russell &amp; James Ome"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Art Forger"
+  },
+  {
+    "rank": 48,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 49,
+    "item_name": "NOS4A2: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Vegetarian: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

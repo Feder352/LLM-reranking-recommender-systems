@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Colony in a Nation"
+  },
+  {
+    "item_name": "The Greatest Story Ever Told--So Far: Why Are We Here?"
+  },
+  {
+    "item_name": "13 Things that Don't Make Sense: The Most Baffling Scientific Mysteries of Our Time"
+  },
+  {
+    "item_name": "Understanding World Religions in 15 Minutes a Day"
+  },
+  {
+    "item_name": "Homo Deus: A Brief History of Tomorrow"
+  },
+  {
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "item_name": "Who Thought This Was a Good Idea?: And Other Questions You Should Have Answers to When You Work in the White House"
+  },
+  {
+    "item_name": "This Fight Is Our Fight: The Battle to Save America's Middle Class"
+  },
+  {
+    "item_name": "An American Sickness: How Healthcare Became Big Business and How You Can Take It Back (Random House Large Print)"
+  },
+  {
+    "item_name": "No Is Not Enough: Defeating the New Shock Politics"
+  },
+  {
+    "item_name": "Born a Crime"
+  },
+  {
+    "item_name": "America's Bitter Pill: Money, Politics, Backroom Deals, and the Fight to Fix Our Broken Healthcare System"
+  },
+  {
+    "item_name": "Al Franken, Giant of the Senate"
+  },
+  {
+    "item_name": "The Death of Expertise: The Campaign against Established Knowledge and Why it Matters"
+  },
+  {
+    "item_name": "Lies, Incorporated: The World of Post-Truth Politics"
+  },
+  {
+    "item_name": "Everybody Lies: Big Data, New Data, and What the Internet Can Tell Us About Who We Really Are"
+  },
+  {
+    "item_name": "Fantasyland: How America Went Haywire: A 500-Year History"
+  },
+  {
+    "item_name": "Astrophysics for People in a Hurry"
+  },
+  {
+    "item_name": "Fractured Lands: How the Arab World Came Apart"
+  },
+  {
+    "item_name": "Untitled Personal Essays (Thorndike Press Large Print Popular and Narrative Nonfiction)"
+  },
+  {
+    "item_name": "Why the Right Went Wrong: Conservatism--From Goldwater to Trump and Beyond"
+  },
+  {
+    "item_name": "Nomadland: Surviving America in the Twenty-First Century"
+  },
+  {
+    "item_name": "Brilliant Blunders: From Darwin to Einstein - Colossal Mistakes by Great Scientists That Changed Our Understanding of Life and the Universe"
+  },
+  {
+    "item_name": "Strangers in Their Own Land: Anger and Mourning on the American Right"
+  },
+  {
+    "item_name": "Unbelievable: My Front-Row Seat to the Craziest Campaign in American History"
+  },
+  {
+    "item_name": "The Common Good"
+  },
+  {
+    "item_name": "Packing for Mars: The Curious Science of Life in the Void"
+  },
+  {
+    "item_name": "How Democracies Die"
+  },
+  {
+    "item_name": "A Higher Loyalty: Truth, Lies, and Leadership"
+  },
+  {
+    "item_name": "Fear: Trump in the White House"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 2,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 3,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 4,
+    "item_name": "7 Habits Of Highly Effective People"
+  },
+  {
+    "rank": 5,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 6,
+    "item_name": "Fooled By Randomness: The Hidden Role of Chance in Life and in the Markets"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 10,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Future of Freedom: Illiberal Democracy at Home and Abroad"
+  },
+  {
+    "rank": 12,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 14,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 15,
+    "item_name": "7 Deadly Scenarios: A Military Futurist Explores the Changing Face of War in the 21st Century"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 17,
+    "item_name": "Salt Sugar Fat: How the Food Giants Hooked Us"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Talent Code: Greatness Isn't Born. It's Grown."
+  },
+  {
+    "rank": 19,
+    "item_name": "What's the Matter with Kansas? How Conservatives Won the Heart of America"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 21,
+    "item_name": "Being Wrong: Adventures in the Margin of Error"
+  },
+  {
+    "rank": 22,
+    "item_name": "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time"
+  },
+  {
+    "rank": 23,
+    "item_name": "Antifragile: Things That Gain from Disorder"
+  },
+  {
+    "rank": 24,
+    "item_name": "Bad Science"
+  },
+  {
+    "rank": 25,
+    "item_name": "Naked Statistics: Stripping the Dread from the Data"
+  },
+  {
+    "rank": 26,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Dumbest Generation: How the Digital Age Stupefies Young Americans and Jeopardizes Our Future (Or, Don't Trust Anyone Under 30)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The New Depression: The Breakdown of the Paper Money Economy"
+  },
+  {
+    "rank": 29,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 30,
+    "item_name": "Breakthrough: Elizabeth Hughes, the Discovery of Insulin, and the Making of a Medical Miracle"
+  },
+  {
+    "rank": 31,
+    "item_name": "Welcome to Obamaland: I Have Seen Your Future and It Doesn't Work"
+  },
+  {
+    "rank": 32,
+    "item_name": "This Time Is Different: Eight Centuries of Financial Folly"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Bell Curve: Intelligence and Class Structure in American Life"
+  },
+  {
+    "rank": 34,
+    "item_name": "SuperFreakonomics CD: Global Cooling, Patriotic Prostitutes, and Why Suicide Bombers Should Buy Life Insurance"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Happiness Advantage: The Seven Principles of Positive Psychology That Fuel Success and Performance at Work"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Four: The Hidden DNA of Amazon, Apple, Facebook, and Google"
+  },
+  {
+    "rank": 37,
+    "item_name": "Mindset: The New Psychology of Success"
+  },
+  {
+    "rank": 38,
+    "item_name": "Fields of Blood: Religion and the History of Violence"
+  },
+  {
+    "rank": 39,
+    "item_name": "Free Lunch: How the Wealthiest Americans Enrich Themselves at Government Expense (and StickYou with the Bill)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Medici Effect: What Elephants and Epidemics Can Teach Us About Innovation"
+  },
+  {
+    "rank": 41,
+    "item_name": "Just How Stupid Are We?: Facing the Truth About the American Voter"
+  },
+  {
+    "rank": 42,
+    "item_name": "Justice: What's the Right Thing to Do?"
+  },
+  {
+    "rank": 43,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Price of Inequality: How Today's Divided Society Endangers Our Future"
+  },
+  {
+    "rank": 45,
+    "item_name": "Talent is Overrated: What Really Separates World-Class Performers from Everybody Else"
+  },
+  {
+    "rank": 46,
+    "item_name": "That Used to Be Us: How America Fell Behind in the World It Invented and How We Can Come Back"
+  },
+  {
+    "rank": 47,
+    "item_name": "Rework: Change The Way You Work Forever"
+  },
+  {
+    "rank": 48,
+    "item_name": "Boeing Versus Airbus: The Inside Story of the Greatest International Competition in Business"
+  },
+  {
+    "rank": 49,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

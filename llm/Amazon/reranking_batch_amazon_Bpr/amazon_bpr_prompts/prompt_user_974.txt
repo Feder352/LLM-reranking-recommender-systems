@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Warden's Daughter"
+  },
+  {
+    "item_name": "Ed Sheeran A+: The Unauthorised Biography"
+  },
+  {
+    "item_name": "Sam Smith: The Biography"
+  },
+  {
+    "item_name": "When You're Feeling Sick"
+  },
+  {
+    "item_name": "Quodlibet"
+  },
+  {
+    "item_name": "See You in the Cosmos"
+  },
+  {
+    "item_name": "Secret Lives of the U.S. Presidents: What Your Teachers Never Told You About the Men of the White House"
+  },
+  {
+    "item_name": "Frogkisser!"
+  },
+  {
+    "item_name": "Temporama (Nobrow 17x23)"
+  },
+  {
+    "item_name": "A Crown of Wishes (Star-Touched)"
+  },
+  {
+    "item_name": "Defy the Stars"
+  },
+  {
+    "item_name": "Gizelle's Bucket List: My Life With A Very Large Dog"
+  },
+  {
+    "item_name": "Megaskull (Nobrow Serial Box)"
+  },
+  {
+    "item_name": "Waste of Space"
+  },
+  {
+    "item_name": "Strangers Tend to Tell Me Things: A Memoir of Love, Loss, and Coming Home"
+  },
+  {
+    "item_name": "The Rules Do Not Apply: A Memoir"
+  },
+  {
+    "item_name": "Strange the Dreamer"
+  },
+  {
+    "item_name": "Words on Bathroom Walls"
+  },
+  {
+    "item_name": "The Sunshine Sisters"
+  },
+  {
+    "item_name": "Venturess"
+  },
+  {
+    "item_name": "Goodbye Days"
+  },
+  {
+    "item_name": "The Adventures of John Blake: Mystery of the Ghost Ship"
+  },
+  {
+    "item_name": "Smoke Snort Swallow Shoot: Legendary Binges, Lost Weekends, and Other Feats of Rock 'n' Roll Incoherence"
+  },
+  {
+    "item_name": "The Heartbreak Cure"
+  },
+  {
+    "item_name": "Batman: Nightwalker (DC Icons Series)"
+  },
+  {
+    "item_name": "The Ambrose Deception"
+  },
+  {
+    "item_name": "Zombie Abbey"
+  },
+  {
+    "item_name": "Baby Monkey, Private Eye"
+  },
+  {
+    "item_name": "Meet Cute"
+  },
+  {
+    "item_name": "Bollywood: The Films! The Songs! The Stars!"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Nocturne"
+  },
+  {
+    "rank": 2,
+    "item_name": "Arson: Book One in The Arson Trilogy"
+  },
+  {
+    "rank": 3,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 4,
+    "item_name": "Cruel Beauty"
+  },
+  {
+    "rank": 5,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Immortal Rules (Blood of Eden)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Geography of You and Me"
+  },
+  {
+    "rank": 8,
+    "item_name": "Personal Demons (Personal Demons, Book 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Torn"
+  },
+  {
+    "rank": 10,
+    "item_name": "Halo (Halo Trilogy)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Every Day"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Program"
+  },
+  {
+    "rank": 13,
+    "item_name": "Cleopatra's Daughter: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Not a Drop to Drink"
+  },
+  {
+    "rank": 15,
+    "item_name": "Incarnate (Incarnate Trilogy)"
+  },
+  {
+    "rank": 16,
+    "item_name": "In the After"
+  },
+  {
+    "rank": 17,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Diviners"
+  },
+  {
+    "rank": 19,
+    "item_name": "Without Tess"
+  },
+  {
+    "rank": 20,
+    "item_name": "Night Road"
+  },
+  {
+    "rank": 21,
+    "item_name": "My Soul to Take"
+  },
+  {
+    "rank": 22,
+    "item_name": "Nine Rules to Break When Romancing a Rake (Love By Numbers)"
+  },
+  {
+    "rank": 23,
+    "item_name": "When You Were Mine"
+  },
+  {
+    "rank": 24,
+    "item_name": "Life Is But a Dream"
+  },
+  {
+    "rank": 25,
+    "item_name": "Defy (Defy, Book 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "We Were Liars"
+  },
+  {
+    "rank": 27,
+    "item_name": "Ruby Red (The Ruby Red Trilogy)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Blaze (or Love in the Time of Supervillains)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Before I Fall Enhanced Edition"
+  },
+  {
+    "rank": 30,
+    "item_name": "To the Moon and Back"
+  },
+  {
+    "rank": 31,
+    "item_name": "Seraphina"
+  },
+  {
+    "rank": 32,
+    "item_name": "Code Name Verity"
+  },
+  {
+    "rank": 33,
+    "item_name": "Landline: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "The One &amp; Only: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Low Red Moon"
+  },
+  {
+    "rank": 36,
+    "item_name": "Chain Reaction (A Perfect Chemistry Novel)"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Night Like This"
+  },
+  {
+    "rank": 38,
+    "item_name": "Middle Ground"
+  },
+  {
+    "rank": 39,
+    "item_name": "Touch of Frost (The Mythos Academy)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Kiss Crush Collide"
+  },
+  {
+    "rank": 41,
+    "item_name": "Down the Rabbit Hole: Curious Adventures and Cautionary Tales of a Former Playboy Bunny"
+  },
+  {
+    "rank": 42,
+    "item_name": "Dreamfever"
+  },
+  {
+    "rank": 43,
+    "item_name": "Little Mercies (English Edition)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Killer Instinct"
+  },
+  {
+    "rank": 45,
+    "item_name": "To Desire a Devil (The Legend of the Four Soldiers)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Hush, Hush"
+  },
+  {
+    "rank": 47,
+    "item_name": "Crank"
+  },
+  {
+    "rank": 48,
+    "item_name": "Why We Broke Up"
+  },
+  {
+    "rank": 49,
+    "item_name": "Faefever (Fever, Book 3)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Velveteen"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

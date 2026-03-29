@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Hard to Hold: (Hard to Hold Trilogy Book 1)"
+  },
+  {
+    "item_name": "Merciless (Thorndike Press Large Print Core Series)"
+  },
+  {
+    "item_name": "Face Time"
+  },
+  {
+    "item_name": "Run to Me: A Novel (Last Chance Rescue)"
+  },
+  {
+    "item_name": "Return to Me: A Novel (Last Chance Rescue)"
+  },
+  {
+    "item_name": "Air Time: A Charlotte McNally Novel"
+  },
+  {
+    "item_name": "Falling to Pieces (A Shipshewana Amish Mystery)"
+  },
+  {
+    "item_name": "Love Me to Death: A Novel of Suspense (Lucy Kincaid)"
+  },
+  {
+    "item_name": "The Ideal Man"
+  },
+  {
+    "item_name": "Breaking the Rules (Troubleshooters)"
+  },
+  {
+    "item_name": "Eat Prey Love (Love at Stake)"
+  },
+  {
+    "item_name": "Born to Darkness (with bonus short story Shane's Last Stand)"
+  },
+  {
+    "item_name": "Sweet Reward: A Last Chance Rescue Novel"
+  },
+  {
+    "item_name": "The Proposal (Survivor's Club)"
+  },
+  {
+    "item_name": "Tsunami Blue"
+  },
+  {
+    "item_name": "Sweet Talk (Buchanan-Renard, Book 10)"
+  },
+  {
+    "item_name": "The Rake"
+  },
+  {
+    "item_name": "Beautiful Sacrifice"
+  },
+  {
+    "item_name": "Warcry (Chronicles of the Warlands)"
+  },
+  {
+    "item_name": "If You Know Her (Ash Trilogy, Book 3)"
+  },
+  {
+    "item_name": "Hunted"
+  },
+  {
+    "item_name": "His Mistletoe Bride"
+  },
+  {
+    "item_name": "Season for Surrender"
+  },
+  {
+    "item_name": "Afraid To Die (Selena Alvarez / Regan Pescoli)"
+  },
+  {
+    "item_name": "A Conflict of Interest"
+  },
+  {
+    "item_name": "Adrift on St. John (Mystery in the Islands)"
+  },
+  {
+    "item_name": "The Thirteenth Sacrifice: A Witch Hunt Novel"
+  },
+  {
+    "item_name": "The Long Way Home: The Chesapeake Diaries"
+  },
+  {
+    "item_name": "Nightingale Way: An Eternity Springs Novel"
+  },
+  {
+    "item_name": "Predatory"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Surrender My Love (Haardrad Family)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Out of Time"
+  },
+  {
+    "rank": 3,
+    "item_name": "Notorious Pleasures (Maiden Lane)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Dream Man"
+  },
+  {
+    "rank": 5,
+    "item_name": "And Then He Kissed Her"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Secret Diaries of Miss Miranda Cheever"
+  },
+  {
+    "rank": 7,
+    "item_name": "Sweet Release"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Kill: A Novel (Predator Trilogy)"
+  },
+  {
+    "rank": 9,
+    "item_name": "All Night Long"
+  },
+  {
+    "rank": 10,
+    "item_name": "Blood Cross (Jane Yellowrock, Book 2)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Love Is Blind (Leisure Historical Romance)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Love Overboard"
+  },
+  {
+    "rank": 13,
+    "item_name": "How to Flirt with a Naked Werewolf (Naked Werewolf Series)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Dark Celebration (A Carpathian Reunion)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Wedding Journey (Signet Regency Romance)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Spell Bound (The Women of the Otherworld Series)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Undead and Unappreciated"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Scent of Shadows (Sign of the Zodiac, Book 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Caressed By Ice (Psy-Changelings, Book 3)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Immortals: The Crossing"
+  },
+  {
+    "rank": 21,
+    "item_name": "Summoning the Night: An Arcadia Bell Novel (The Arcadia Bell series)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Snowy Night with a Stranger (The School for Heiresses)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Devil in Winter (The Wallflowers, Book 3)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Guardian of Honor (The Summoning, Book 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "In the Prince's Bed (The Royal Brotherhood)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Bound to Shadows"
+  },
+  {
+    "rank": 27,
+    "item_name": "Iron Kissed (Mercy Thompson, Book 3)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Finders Keepers: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Nine Rules to Break When Romancing a Rake: Number 1 in series (Love by Numbers)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Enslave Me Sweetly (Alien Huntress, Book 2)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Desired"
+  },
+  {
+    "rank": 32,
+    "item_name": "Dark Magic"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Immortal Highlander"
+  },
+  {
+    "rank": 34,
+    "item_name": "No Man's Mistress"
+  },
+  {
+    "rank": 35,
+    "item_name": "Forbidden (Medieval Series)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Only Enchanting (Survivors' Club)"
+  },
+  {
+    "rank": 37,
+    "item_name": "She's No Faerie Princess (The Others, Book 10)"
+  },
+  {
+    "rank": 38,
+    "item_name": "How to Woo a Reluctant Lady (The Hellions of Halstead Hall)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Perfect Lover (Cynster series)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Dead and Loving It (Undead)"
+  },
+  {
+    "rank": 41,
+    "item_name": "To Taste Temptation (The Legend of the Four Soldiers)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Lady Of The Knight (Zebra Debut)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Dragon Actually (Dragon Kin)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Scandalous Miranda"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Viscount Who Loved Me (Bridgertons)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Suddenly You"
+  },
+  {
+    "rank": 47,
+    "item_name": "Unleashed (Futuristic Romance)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Cover of Night: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Lady Chosen (Bastion Club)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Touched by an Alien (Alien Novels)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

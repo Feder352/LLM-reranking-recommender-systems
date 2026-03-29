@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Mary Poppins (Essential Modern Classics)"
+  },
+  {
+    "item_name": "Redwall"
+  },
+  {
+    "item_name": "Martin the Warrior (Redwall, Book 6)"
+  },
+  {
+    "item_name": "Ghost Writer in the Sky (The Xanth Novels)"
+  },
+  {
+    "item_name": "Gingerbread Cookie Murder"
+  },
+  {
+    "item_name": "Beautiful Hero: How We Survived the Khmer Rouge"
+  },
+  {
+    "item_name": "We Now Know: Rethinking Cold War History (Council on Foreign Relations Book)"
+  },
+  {
+    "item_name": "Banana Cream Pie Murder (A Hannah Swensen Mystery)"
+  },
+  {
+    "item_name": "Poseidon's Arrow (Dirk Pitt Adventure)"
+  },
+  {
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "item_name": "1777: Tipping Point at Saratoga"
+  },
+  {
+    "item_name": "The Black Elfstone: Book One of the Fall of Shannara"
+  },
+  {
+    "item_name": "Take a Thief (Valdemar)"
+  },
+  {
+    "item_name": "The Mayan Secrets (A Sam and Remi Fargo Adventure)"
+  },
+  {
+    "item_name": "Exile's Honor (Valdemar)"
+  },
+  {
+    "item_name": "Stars and Stripes Forever (Stars &amp; Stripes)"
+  },
+  {
+    "item_name": "Stars &amp; Stripes Triumphant (Stars and Stripes, No. 3)"
+  },
+  {
+    "item_name": "The Three Lives of James Madison: Genius, Partisan, President"
+  },
+  {
+    "item_name": "Through Wolf's Eyes"
+  },
+  {
+    "item_name": "On Basilisk Station (Honor Harrington)"
+  },
+  {
+    "item_name": "The Red Pyramid (Kane Chronicles Series #1)"
+  },
+  {
+    "item_name": "Off Armageddon Reef (Safehold 1)"
+  },
+  {
+    "item_name": "March Upcountry (March Upcountry (Hardcover))"
+  },
+  {
+    "item_name": "March to the Sea"
+  },
+  {
+    "item_name": "Old Man's War"
+  },
+  {
+    "item_name": "The Apocalypse Troll"
+  },
+  {
+    "item_name": "The Bishop's Wife (A Linda Wallheim Mystery)"
+  },
+  {
+    "item_name": "The Excalibur Alternative"
+  },
+  {
+    "item_name": "Cheddar: A Journey to the Heart of Americas Most Iconic Cheese"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "rank": 2,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Alchemist"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 7,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 9,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Imperium: A Novel of Ancient Rome"
+  },
+  {
+    "rank": 12,
+    "item_name": "Treasure Island (Penguin Classics)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 16,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 17,
+    "item_name": "State of Fear"
+  },
+  {
+    "rank": 18,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 19,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Jonathan Strange and Mr. Norrell"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 22,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 24,
+    "item_name": "State of Fear"
+  },
+  {
+    "rank": 25,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "rank": 27,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 28,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 30,
+    "item_name": "Longitude  The True Story of a Lone Genius Who Solved the Greatest Scientific Problem of His Time"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Burning Room (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The A. B. C. Murders: A Hercule Poirot Mystery"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 35,
+    "item_name": "To Kill a Mockingbird"
+  },
+  {
+    "rank": 36,
+    "item_name": "PREY."
+  },
+  {
+    "rank": 37,
+    "item_name": "Kill Shot (The Mitch Rapp Series)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 39,
+    "item_name": "22/11/63"
+  },
+  {
+    "rank": 40,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Harry Potter And The Order Of The Phoenix"
+  },
+  {
+    "rank": 42,
+    "item_name": "Enter the Saint"
+  },
+  {
+    "rank": 43,
+    "item_name": "Hannibal"
+  },
+  {
+    "rank": 44,
+    "item_name": "S is for Silence"
+  },
+  {
+    "rank": 45,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Meeting at Corvallis (Dies the Fire, Book 3)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Old Man's War"
+  },
+  {
+    "rank": 48,
+    "item_name": "At Home: A Short History of Private Life (Random House Large Print)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 50,
+    "item_name": "Harry Potter (4 Volumes set)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

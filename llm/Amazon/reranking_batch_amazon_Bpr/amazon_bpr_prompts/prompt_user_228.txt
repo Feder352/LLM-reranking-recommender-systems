@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Booked (The Crossover Series)"
+  },
+  {
+    "item_name": "Maestra"
+  },
+  {
+    "item_name": "Street Magicks"
+  },
+  {
+    "item_name": "Maestra [Paperback] L S Hilton"
+  },
+  {
+    "item_name": "I Hate Fairyland Volume 1: Madly Ever After"
+  },
+  {
+    "item_name": "Paper Girls Volume 1"
+  },
+  {
+    "item_name": "The Sunlight Pilgrims"
+  },
+  {
+    "item_name": "Never Missing, Never Found"
+  },
+  {
+    "item_name": "Pierced by the Sun"
+  },
+  {
+    "item_name": "Those Across the River"
+  },
+  {
+    "item_name": "Labyrinth Lost (Brooklyn Brujas)"
+  },
+  {
+    "item_name": "Monstress Volume 1: Awakening"
+  },
+  {
+    "item_name": "Disappearance at Devil's Rock: A Novel"
+  },
+  {
+    "item_name": "The Cyber Effect: A Pioneering Cyberpsychologist Explains How Human Behavior Changes Online"
+  },
+  {
+    "item_name": "Sweetness and Lightning 1"
+  },
+  {
+    "item_name": "Little Heaven: A Novel"
+  },
+  {
+    "item_name": "Truth or Beard (Winston Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "HEX"
+  },
+  {
+    "item_name": "Who You Think I Am"
+  },
+  {
+    "item_name": "Positively Pippa (The Ghost Falls Series)"
+  },
+  {
+    "item_name": "Paperbacks from Hell: The Twisted History of '70s and '80s Horror Fiction"
+  },
+  {
+    "item_name": "Shade the Changing Girl Vol. 1: Earth Girl Made Easy (Young Animal)"
+  },
+  {
+    "item_name": "Furiously Happy: A Funny Book About Horrible Things"
+  },
+  {
+    "item_name": "The Black Painting: A Novel"
+  },
+  {
+    "item_name": "The Ghost of Gaudi"
+  },
+  {
+    "item_name": "Gnomon: A novel"
+  },
+  {
+    "item_name": "Dragon Age: Knight Errant"
+  },
+  {
+    "item_name": "Places in the Darkness"
+  },
+  {
+    "item_name": "Manfried the Man: A Graphic Novel"
+  },
+  {
+    "item_name": "Do This for Me: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 2,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 3,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 5,
+    "item_name": "Rot &amp; Ruin (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse/True Blood, Book 2)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Saga, Vol. 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Dead in the Family (Sookie Stackhouse/True Blood, Book 10)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Dead And Gone: A Sookie Stackhouse Novel (Sookie Stackhouse/True Blood)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "rank": 11,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 13,
+    "item_name": "Steelheart (The Reckoners)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Club Dead (Sookie Stackhouse/True Blood, Book 3)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 16,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 17,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 18,
+    "item_name": "Dark Time: Mortal Path Book One (Mortal Path Series)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Inside Out"
+  },
+  {
+    "rank": 21,
+    "item_name": "Kitty and the Midnight Hour (Kitty Norville)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Lies (Gone)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Haunted (The Women of the Otherworld Series)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 25,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse) By Charlaine Harris"
+  },
+  {
+    "rank": 26,
+    "item_name": "Moon Called"
+  },
+  {
+    "rank": 27,
+    "item_name": "Clockwork Angel"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Warded Man: Book One of The Demon Cycle"
+  },
+  {
+    "rank": 29,
+    "item_name": "Dead to the World (Southern Vampire Mysteries, Book 4)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Ruby Red (The Ruby Red Trilogy)"
+  },
+  {
+    "rank": 31,
+    "item_name": "My Soul to Take"
+  },
+  {
+    "rank": 32,
+    "item_name": "My Soul to Save (Soul Screamers Book 2)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Nightshade"
+  },
+  {
+    "rank": 34,
+    "item_name": "Daughter of Smoke &amp; Bone"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Summoning"
+  },
+  {
+    "rank": 37,
+    "item_name": "Saga, Vol. 2"
+  },
+  {
+    "rank": 38,
+    "item_name": "Personal Demon"
+  },
+  {
+    "rank": 39,
+    "item_name": "White Trash Zombie Apocalypse"
+  },
+  {
+    "rank": 40,
+    "item_name": "Blood Bound (Mercy Thompson, Book 2)"
+  },
+  {
+    "rank": 41,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 43,
+    "item_name": "All Together Dead (Sookie Stackhouse/True Blood)"
+  },
+  {
+    "rank": 44,
+    "item_name": "City of Bones (The Mortal Instruments)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Awakening (Darkest Powers)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Golem and the Jinni: A Novel (P.S.)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Heir to the Shadows (Black Jewels, Book 2)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Wings"
+  },
+  {
+    "rank": 50,
+    "item_name": "Blackout (Newsflesh)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Girl in the Red Coat"
+  },
+  {
+    "item_name": "Otherworld (Last Reality)"
+  },
+  {
+    "item_name": "The Pillow Parade: Children's Bedtime Book"
+  },
+  {
+    "item_name": "The Land of Stories: The Wishing Spell"
+  },
+  {
+    "item_name": "Extremely Loud &amp; Incredibly Close"
+  },
+  {
+    "item_name": "To Be Where You Are (A Mitford Novel)"
+  },
+  {
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "item_name": "Brooklyn: A Novel"
+  },
+  {
+    "item_name": "The Gene: An Intimate History"
+  },
+  {
+    "item_name": "See Me [Paperback] [Jan 01, 2015] SPARKS NICHOLAS"
+  },
+  {
+    "item_name": "Breaking Cat News: Cats Reporting on the News that Matters to Cats"
+  },
+  {
+    "item_name": "Family Changes: Explaining Divorce to Children"
+  },
+  {
+    "item_name": "A Heretical Divide (Of Hate And Laughter Book 2) eBook"
+  },
+  {
+    "item_name": "Subliminal: How Your Unconscious Mind Rules Your Behavior"
+  },
+  {
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "item_name": "Killer Twist: A Ghostwriter Mystery (Volume 1)"
+  },
+  {
+    "item_name": "Murder in the Pearl District"
+  },
+  {
+    "item_name": "Mindwise: How We Understand What Others Think, Believe, Feel, and Want"
+  },
+  {
+    "item_name": "99 Creative WOWs Words of Wisdom for Business - Motivational Gift Idea for Entrepreneurs, Business Owners, and Creative Thinkers"
+  },
+  {
+    "item_name": "The Alice Network: A Novel"
+  },
+  {
+    "item_name": "About the Night eBook"
+  },
+  {
+    "item_name": "Room"
+  },
+  {
+    "item_name": "Everyone Brave is Forgiven"
+  },
+  {
+    "item_name": "About the Night"
+  },
+  {
+    "item_name": "A Scanner Darkly"
+  },
+  {
+    "item_name": "Jack in the Green (The Hunt for Jack Reacher)"
+  },
+  {
+    "item_name": "FATAL GREED (Greed Series #1) eBook"
+  },
+  {
+    "item_name": "Peaceful Night Poetry: Sleep-inducing Picture Poetry Book for Children Aged 3-103"
+  },
+  {
+    "item_name": "Cedric The Shark Gets Toothache!"
+  },
+  {
+    "item_name": "Magical Bedtime Stories: A Collection of Short Stories &amp; Poems for Children"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 53089,
+    "item_name": "The Hanging Tree: A Novella"
+  },
+  {
+    "rank": 2,
+    "item_id": 7105,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 3,
+    "item_id": 584,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 4,
+    "item_id": 52420,
+    "item_name": "Stillwell: A Haunting on Long Island (A Haunting on Long Island Series)"
+  },
+  {
+    "rank": 5,
+    "item_id": 16239,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 6,
+    "item_id": 725,
+    "item_name": "All the Light We Cannot See"
+  },
+  {
+    "rank": 7,
+    "item_id": 59153,
+    "item_name": "If You Were Me and Lived in...Colonial America: An Introduction to Civilizations Throughout Time (Volume 9)"
+  },
+  {
+    "rank": 8,
+    "item_id": 28921,
+    "item_name": "Captain No Beard: An Imaginary Tale of a Pirate's Life"
+  },
+  {
+    "rank": 9,
+    "item_id": 60536,
+    "item_name": "If You Were Me and Lived in...Israel: A Child's Introduction to Cultures Around the World (Volume 19)"
+  },
+  {
+    "rank": 10,
+    "item_id": 57104,
+    "item_name": "A Flag for the Flying Dragon: A Captain No Beard Story (Volume 9)"
+  },
+  {
+    "rank": 11,
+    "item_id": 61439,
+    "item_name": "Oh Susannah: It's in the Bag (An Oh Susannah Story)"
+  },
+  {
+    "rank": 12,
+    "item_id": 59877,
+    "item_name": "If You Were Me and Lived in...Viking Europe: An Introduction to Civilizations Throughout Time (Volume 3)"
+  },
+  {
+    "rank": 13,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 14,
+    "item_id": 65282,
+    "item_name": "Monsterland (Monsterland Series) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_id": 54904,
+    "item_name": "If You Were Me and Lived in...Peru: A Child's Introduction to Cultures Around the World (Volume 12)"
+  },
+  {
+    "rank": 16,
+    "item_id": 27953,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 17,
+    "item_id": 76543,
+    "item_name": "10 Busy Brownies eBook"
+  },
+  {
+    "rank": 18,
+    "item_id": 49155,
+    "item_name": "The Gordonston Ladies Dog Walking Club"
+  },
+  {
+    "rank": 19,
+    "item_id": 59091,
+    "item_name": "Being a Captain is Hard Work: A Captain No Beard Story (Volume 10)"
+  },
+  {
+    "rank": 20,
+    "item_id": 60744,
+    "item_name": "If You Were Me and Lived in...Germany: A Child's Introduction to Cultures Around the World (Volume 20)"
+  },
+  {
+    "rank": 21,
+    "item_id": 60216,
+    "item_name": "If You Were Me and Lived in....the Mayan Empire: An Introduction to Civilizations Throughout Time (Volume 4)"
+  },
+  {
+    "rank": 22,
+    "item_id": 66247,
+    "item_name": "Wind Catcher (Chosen)"
+  },
+  {
+    "rank": 23,
+    "item_id": 61057,
+    "item_name": "If You Were Me and Lived on...Mars (A Child's Introduction to Cultures Around the World) (Volume 23)"
+  },
+  {
+    "rank": 24,
+    "item_id": 38509,
+    "item_name": "The Snowman's Revenge"
+  },
+  {
+    "rank": 25,
+    "item_id": 6680,
+    "item_name": "Anne of Green Gables"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

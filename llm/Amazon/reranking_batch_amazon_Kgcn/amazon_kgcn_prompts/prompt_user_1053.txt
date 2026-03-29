@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Eighth Grave After Dark"
+  },
+  {
+    "item_name": "Murder for Christmas (Mordecai Tremaine Mystery)"
+  },
+  {
+    "item_name": "The Dirt on Ninth Grave (Charley Davidson)"
+  },
+  {
+    "item_name": "The Curse of Tenth Grave (Charley Davidson)"
+  },
+  {
+    "item_name": "Rugged Texas Cowboy: Two Stories in One: Cowboy and the Captive, Cowboy and the Thief"
+  },
+  {
+    "item_name": "Operation Hail Storm"
+  },
+  {
+    "item_name": "Eleventh Grave in Moonlight (Charley Davidson)"
+  },
+  {
+    "item_name": "Murder on the Sugarland Express (Southern Ghost Hunter)"
+  },
+  {
+    "item_name": "The Trouble With Twelfth Grave (Charley Davidson)"
+  },
+  {
+    "item_name": "Mooseletoe"
+  },
+  {
+    "item_name": "Dead as a Doornail (Southern Vampire Mysteries, Book 5)"
+  },
+  {
+    "item_name": "When the Stars Come Out: A Cottonbloom Novel"
+  },
+  {
+    "item_name": "Mephisto Waltz: A Max Liebermann Mystery (Max Lieberman Mysteries)"
+  },
+  {
+    "item_name": "Collision Point: A Brute Force Novel"
+  },
+  {
+    "item_name": "Close to the Edge: An Unbroken Heroes Novel"
+  },
+  {
+    "item_name": "Hot Blooded: A Dragon Romance (Dark Kings)"
+  },
+  {
+    "item_name": "Pure Healing (Pure/ Dark Ones)"
+  },
+  {
+    "item_name": "Darkest Flame: A Dragon Romance (Dark Kings)"
+  },
+  {
+    "item_name": "With One Shot: Family Murder and a Search for Justice"
+  },
+  {
+    "item_name": "Eight Simple Rules for Dating a Dragon: A Novel of the Embraced"
+  },
+  {
+    "item_name": "Murder with a Cherry on Top (A Lickety Splits Mystery)"
+  },
+  {
+    "item_name": "Fire Rising: A Dragon Romance (Dark Kings)"
+  },
+  {
+    "item_name": "Green Kills (The Technothriller &amp; Crime series)"
+  },
+  {
+    "item_name": "Burning Desire: A Dragon Romance (Dark Kings)"
+  },
+  {
+    "item_name": "The Sixth Day (A Brit in the FBI)"
+  },
+  {
+    "item_name": "Deadly Secrets: An absolutely gripping crime thriller (Detective Erika Foster) (Volume 6)"
+  },
+  {
+    "item_name": "What to Expect When Your Demon Slayer is Expecting (Biker Witches Mystery) (Volume 8)"
+  },
+  {
+    "item_name": "The High Tide Club: A Novel"
+  },
+  {
+    "item_name": "The Real Deal: A Novel"
+  },
+  {
+    "item_name": "International Guy: Paris, New York, Copenhagen (International Guy Volumes)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5656,
+    "item_name": "Throne of Glass"
+  },
+  {
+    "rank": 2,
+    "item_id": 1849,
+    "item_name": "Cinder"
+  },
+  {
+    "rank": 3,
+    "item_id": 4846,
+    "item_name": "City of Bones (The Mortal Instruments)"
+  },
+  {
+    "rank": 4,
+    "item_id": 4240,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 5,
+    "item_id": 2395,
+    "item_name": "Shattered (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 6,
+    "item_id": 3488,
+    "item_name": "Fair Game (Alpha and Omega)"
+  },
+  {
+    "rank": 7,
+    "item_id": 5758,
+    "item_name": "Hex Hall (A Hex Hall Novel)"
+  },
+  {
+    "rank": 8,
+    "item_id": 944,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 9,
+    "item_id": 5548,
+    "item_name": "Switched (A Trylle Novel)"
+  },
+  {
+    "rank": 10,
+    "item_id": 3952,
+    "item_name": "Some Girls Bite (Chicagoland Vampires)"
+  },
+  {
+    "rank": 11,
+    "item_id": 651,
+    "item_name": "Dorothy Must Die"
+  },
+  {
+    "rank": 12,
+    "item_id": 3651,
+    "item_name": "Bone Crossed (Mercy Thompson, Book 4)"
+  },
+  {
+    "rank": 13,
+    "item_id": 3493,
+    "item_name": "Deadlocked (Sookie Stackhouse/True Blood, Book 12)"
+  },
+  {
+    "rank": 14,
+    "item_id": 2429,
+    "item_name": "White Hot Kiss (The Dark Elements)"
+  },
+  {
+    "rank": 15,
+    "item_id": 1187,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 16,
+    "item_id": 3657,
+    "item_name": "Magic Bleeds (Kate Daniels)"
+  },
+  {
+    "rank": 17,
+    "item_id": 2011,
+    "item_name": "Changeless (The Parasol Protectorate)"
+  },
+  {
+    "rank": 18,
+    "item_id": 2865,
+    "item_name": "Faefever (Fever, Book 3)"
+  },
+  {
+    "rank": 19,
+    "item_id": 5556,
+    "item_name": "Horde (The Razorland Trilogy)"
+  },
+  {
+    "rank": 20,
+    "item_id": 6077,
+    "item_name": "Bloodlines"
+  },
+  {
+    "rank": 21,
+    "item_id": 4853,
+    "item_name": "City of Ashes (The Mortal Instruments)"
+  },
+  {
+    "rank": 22,
+    "item_id": 2371,
+    "item_name": "Red Rising"
+  },
+  {
+    "rank": 23,
+    "item_id": 877,
+    "item_name": "Shadow Kiss"
+  },
+  {
+    "rank": 24,
+    "item_id": 4854,
+    "item_name": "City of Glass (The Mortal Instruments)"
+  },
+  {
+    "rank": 25,
+    "item_id": 3641,
+    "item_name": "Magic Burns (Kate Daniels)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

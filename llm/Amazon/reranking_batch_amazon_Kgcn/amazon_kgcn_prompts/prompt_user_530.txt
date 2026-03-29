@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The 5 Love Languages Military Edition: The Secret to Love That Lasts"
+  },
+  {
+    "item_name": "A Fine Romance"
+  },
+  {
+    "item_name": "Naked"
+  },
+  {
+    "item_name": "In Such Good Company: Eleven Years of Laughter, Mayhem, and Fun in the Sandbox"
+  },
+  {
+    "item_name": "The Girl with the Lower Back Tattoo"
+  },
+  {
+    "item_name": "They're Playing Our Song: A Memoir"
+  },
+  {
+    "item_name": "Talking As Fast As I Can: From Gilmore Girls to Gilmore Girls, and Everything in Between"
+  },
+  {
+    "item_name": "Not Dead Yet: The Memoir"
+  },
+  {
+    "item_name": "Masters of Sex: The Life and Times of William Masters and Virginia Johnson, the Couple Who Taught America How to Lov"
+  },
+  {
+    "item_name": "Scrappy Little Nobody"
+  },
+  {
+    "item_name": "Nevertheless: A Memoir"
+  },
+  {
+    "item_name": "There I Go Again: How I Came to Be Mr. Feeny, John Adams, Dr. Craig, KITT, and Many Others"
+  },
+  {
+    "item_name": "Eyes Wide Open: Overcoming Obstacles and Recognizing Opportunities in a World That Can't See Clearly"
+  },
+  {
+    "item_name": "I'm Just Sayin'!: Three Deaths, Seven Husbands, and a Clone! My Life as a Daytime Diva"
+  },
+  {
+    "item_name": "I Am Spock"
+  },
+  {
+    "item_name": "The Secrets of My Life"
+  },
+  {
+    "item_name": "The Princess Diarist"
+  },
+  {
+    "item_name": "I Can't Make This Up: Life Lessons"
+  },
+  {
+    "item_name": "Lessons from the Prairie: The Surprising Secrets to Happiness, Success, and (Sometimes Just) Survival I Learned on Little House"
+  },
+  {
+    "item_name": "Troublemaker: Surviving Hollywood and Scientology"
+  },
+  {
+    "item_name": "The Vanishing American Adult: Our Coming-of-Age Crisis--and How to Rebuild a Culture of Self-Reliance"
+  },
+  {
+    "item_name": "I Loved Her in the Movies: Memories of Hollywood's Legendary Actresses"
+  },
+  {
+    "item_name": "My Life to Live: How I Became the Queen of Soaps When Men Ruled the Airwaves"
+  },
+  {
+    "item_name": "Blessed Life: My Surprising Journey of Joy, Tears, and Tales from Harlem to Hollywood"
+  },
+  {
+    "item_name": "One Life to Lose (Queers of La Vista) (Volume 4)"
+  },
+  {
+    "item_name": "I Don't Know What You Know Me From: My Life as a Co-Star"
+  },
+  {
+    "item_name": "Prairie Fires: The American Dreams of Laura Ingalls Wilder"
+  },
+  {
+    "item_name": "It's All Relative: Adventures Up and Down the World's Family Tree"
+  },
+  {
+    "item_name": "Party of One: A Memoir in 21 Songs"
+  },
+  {
+    "item_name": "66 Love Letters: A Conversation with God that Invites You into His Story"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1125,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 2,
+    "item_id": 2129,
+    "item_name": "The Shack"
+  },
+  {
+    "rank": 3,
+    "item_id": 1994,
+    "item_name": "The Goldfinch: A Novel (Pulitzer Prize for Fiction)"
+  },
+  {
+    "rank": 4,
+    "item_id": 4437,
+    "item_name": "Still Alice"
+  },
+  {
+    "rank": 5,
+    "item_id": 1531,
+    "item_name": "Destiny of the Republic: A Tale of Madness, Medicine and the Murder of a President"
+  },
+  {
+    "rank": 6,
+    "item_id": 46,
+    "item_name": "Lost in Shangri-La: Escape from a Hidden World"
+  },
+  {
+    "rank": 7,
+    "item_id": 1526,
+    "item_name": "The Orphan Master's Son: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_id": 2937,
+    "item_name": "Seminary Boy: A Memoir"
+  },
+  {
+    "rank": 9,
+    "item_id": 1439,
+    "item_name": "In the President's Secret Service: Behind the Scenes with Agents in the Line of Fire and the Presidents They Protect"
+  },
+  {
+    "rank": 10,
+    "item_id": 2065,
+    "item_name": "Grain Brain: The Surprising Truth about Wheat, Carbs,  and Sugar--Your Brain's Silent Killers"
+  },
+  {
+    "rank": 11,
+    "item_id": 2955,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 12,
+    "item_id": 2624,
+    "item_name": "Culture Warrior (Random House Large Print)"
+  },
+  {
+    "rank": 13,
+    "item_id": 4715,
+    "item_name": "Born Standing Up: A Comic's Life"
+  },
+  {
+    "rank": 14,
+    "item_id": 41,
+    "item_name": "Open: An Autobiography"
+  },
+  {
+    "rank": 15,
+    "item_id": 1431,
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "rank": 16,
+    "item_id": 5605,
+    "item_name": "The White Tiger: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_id": 5230,
+    "item_name": "Over Time: My Life as a Sportswriter"
+  },
+  {
+    "rank": 18,
+    "item_id": 2890,
+    "item_name": "Lean In: Women, Work, and the Will to Lead"
+  },
+  {
+    "rank": 19,
+    "item_id": 5288,
+    "item_name": "This Land Is Their Land: Reports from a Divided Nation"
+  },
+  {
+    "rank": 20,
+    "item_id": 2073,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 21,
+    "item_id": 3742,
+    "item_name": "Hitch-22: A Memoir"
+  },
+  {
+    "rank": 22,
+    "item_id": 1299,
+    "item_name": "Born to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never Seen"
+  },
+  {
+    "rank": 23,
+    "item_id": 487,
+    "item_name": "Game Change: Obama and the Clintons, McCain and Palin, and the Race of a Lifetime"
+  },
+  {
+    "rank": 24,
+    "item_id": 1536,
+    "item_name": "Hallucinations"
+  },
+  {
+    "rank": 25,
+    "item_id": 5289,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

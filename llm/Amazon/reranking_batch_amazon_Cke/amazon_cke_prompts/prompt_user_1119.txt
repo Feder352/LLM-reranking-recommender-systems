@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Not That I Could Tell: A Novel"
+  },
+  {
+    "item_name": "Sometimes I Lie: A psychological thriller with a killer twist you'll never forget"
+  },
+  {
+    "item_name": "School for Psychics: Book One"
+  },
+  {
+    "item_name": "After Anna"
+  },
+  {
+    "item_name": "The Sixth Day (A Brit in the FBI)"
+  },
+  {
+    "item_name": "Then She Was Gone: A Novel"
+  },
+  {
+    "item_name": "The Girl With No Name: Absolutely gripping mystery and suspense (Detective Josie Quinn) (Volume 2)"
+  },
+  {
+    "item_name": "Our Little Secret: A Novel"
+  },
+  {
+    "item_name": "Wicked River: A Novel"
+  },
+  {
+    "item_name": "The High Tide Club: A Novel"
+  },
+  {
+    "item_name": "The Crooked Staircase: A Jane Hawk Novel"
+  },
+  {
+    "item_name": "Do This for Me: A Novel"
+  },
+  {
+    "item_name": "Dying Truth: completely gripping crime thriller (Detective Kim Stone) (Volume 8)"
+  },
+  {
+    "item_name": "The Summer I Met Jack: A Novel"
+  },
+  {
+    "item_name": "Something in the Water: A Novel"
+  },
+  {
+    "item_name": "A Steep Price (Tracy Crosswhite)"
+  },
+  {
+    "item_name": "The Banker's Wife"
+  },
+  {
+    "item_name": "Somebody's Daughter"
+  },
+  {
+    "item_name": "Baby Teeth: A Novel"
+  },
+  {
+    "item_name": "Believe Me: A Novel"
+  },
+  {
+    "item_name": "Girls' Night Out: A Novel"
+  },
+  {
+    "item_name": "Our House"
+  },
+  {
+    "item_name": "After Nightfall"
+  },
+  {
+    "item_name": "Abandoned: A Novel (Max Revere Novels)"
+  },
+  {
+    "item_name": "The Other Woman: A Novel"
+  },
+  {
+    "item_name": "Dead Man Running (An Alex McKnight Thriller)"
+  },
+  {
+    "item_name": "Not Her Daughter"
+  },
+  {
+    "item_name": "Leave No Trace: A Novel"
+  },
+  {
+    "item_name": "When the Lights Go Out"
+  },
+  {
+    "item_name": "The Forbidden Door: A Jane Hawk Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2973,
+    "item_name": "The Winter People: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_id": 1994,
+    "item_name": "The Goldfinch: A Novel (Pulitzer Prize for Fiction)"
+  },
+  {
+    "rank": 3,
+    "item_id": 5256,
+    "item_name": "Summer House with Swimming Pool: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_id": 3824,
+    "item_name": "The Unlikely Pilgrimage of Harold Fry: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_id": 1854,
+    "item_name": "A Trick of the Light: A Chief Inspector Gamache Novel"
+  },
+  {
+    "rank": 6,
+    "item_id": 1440,
+    "item_name": "Darkness, My Old Friend (Jones Cooper)"
+  },
+  {
+    "rank": 7,
+    "item_id": 2358,
+    "item_name": "Cover of Snow: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_id": 542,
+    "item_name": "Proof of Guilt: An Inspector Ian Rutledge Mystery (Inspector Ian Rutledge Mysteries)"
+  },
+  {
+    "rank": 9,
+    "item_id": 3308,
+    "item_name": "A Cold Day for Murder (Kate Shugak Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_id": 1832,
+    "item_name": "Home Front: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_id": 19,
+    "item_name": "Bloodline"
+  },
+  {
+    "rank": 12,
+    "item_id": 2002,
+    "item_name": "The Gods of Guilt (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 13,
+    "item_id": 5114,
+    "item_name": "The Returned"
+  },
+  {
+    "rank": 14,
+    "item_id": 2346,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_id": 5800,
+    "item_name": "The Silver Star: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_id": 1490,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_id": 3267,
+    "item_name": "Field of Prey"
+  },
+  {
+    "rank": 18,
+    "item_id": 430,
+    "item_name": "The Shoemaker's Wife: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_id": 2014,
+    "item_name": "The Drop (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 20,
+    "item_id": 621,
+    "item_name": "Into The Darkest Corner"
+  },
+  {
+    "rank": 21,
+    "item_id": 5554,
+    "item_name": "Accused: A Rosato &amp; DiNunzio Novel: A Rosato &amp; Associates Novel"
+  },
+  {
+    "rank": 22,
+    "item_id": 3215,
+    "item_name": "The First Rule (A Joe Pike Novel)"
+  },
+  {
+    "rank": 23,
+    "item_id": 1498,
+    "item_name": "Never Go Back: A Jack Reacher Novel"
+  },
+  {
+    "rank": 24,
+    "item_id": 1546,
+    "item_name": "Mystery: An Alex Delaware Novel"
+  },
+  {
+    "rank": 25,
+    "item_id": 965,
+    "item_name": "The Weird Sisters"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

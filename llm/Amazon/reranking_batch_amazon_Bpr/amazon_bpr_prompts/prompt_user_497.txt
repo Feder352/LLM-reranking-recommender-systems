@@ -1,0 +1,327 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Taste of Home Recipes Across America: 735 of the Best Recipes from Across the Nation"
+  },
+  {
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "item_name": "The Holy Bible from the ancient Eastern text : George M. Lamsa's translations from the Aramaic of the Peshitta"
+  },
+  {
+    "item_name": "The Sonnets and A Lover's Complaint (Penguin Classics)"
+  },
+  {
+    "item_name": "100 Easy Camping Recipes"
+  },
+  {
+    "item_name": "Simple Sourdough: How to Bake the Best Bread in the World"
+  },
+  {
+    "item_name": "Kindle Buffet: Find and download the best free books, magazines and newspapers for your Kindle, iPhone, iPad or Android"
+  },
+  {
+    "item_name": "Edgar Allan Poe Complete Stories and Poems"
+  },
+  {
+    "item_name": "Seasonings - The Ultimate  Guide"
+  },
+  {
+    "item_name": "The Lodge Cast Iron Cookbook: A Treasury of Timeless, Delicious Recipes"
+  },
+  {
+    "item_name": "365 Slow Cooker Suppers"
+  },
+  {
+    "item_name": "The Bread Lover's Bread Machine Cookbook: A Master Baker's 300 Favorite Recipes for Perfect-Every-Time Bread-From Every Kind of Machine"
+  },
+  {
+    "item_name": "Top Secret Recipes Unlocked: All New Home Clones of America's Favorite Brand-Name Foods"
+  },
+  {
+    "item_name": "1,001 Best Slow-Cooker Recipes: The Only Slow-Cooker Cookbook You'll Ever Need"
+  },
+  {
+    "item_name": "Camping Recipes: Foil Packet Cooking"
+  },
+  {
+    "item_name": "How to Draw Cool Stuff: A Drawing Guide for Teachers and Students"
+  },
+  {
+    "item_name": "Slow Cooker: Slow Cookers Recipes Ultimate Guide. Enjoy The Top Rated, Tasty &amp; Mouthwatering Recipes. ( Slow Cooker Recipes, Crock-pot Recipes, Slow Cooker Cookbook, Slow Cooker Food ) - Kindle edition"
+  },
+  {
+    "item_name": "5 Ingredient Cookbook: Easy Recipes in 5 or Less Ingredients (Quick and Easy Cooking Series)"
+  },
+  {
+    "item_name": "The Tater Tot Casserole Cookbook: Over 45 Yummy Recipes!"
+  },
+  {
+    "item_name": "How to Draw Cool Stuff: Shading, Textures and Optical Illusions"
+  },
+  {
+    "item_name": "The Cornbread Bible: A Recipe Storybook"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Walden and Civil Disobedience (Penguin American Library)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Jungle Book (Collins Classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Charlotte's Web (50th Anniversary Retrospective Edition)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Alexander and the Terrible, Horrible, No Good, Very Bad Day Low Price"
+  },
+  {
+    "rank": 9,
+    "item_name": "Whose Body? (Lord Peter Wimsey Mysteries)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Salt Sugar Fat: How the Food Giants Hooked Us"
+  },
+  {
+    "rank": 14,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 15,
+    "item_name": "John Bunyan's The Pilgrim's Progress: A Classic Story Wonderfully Told (Listeners Collection of Classic Christian Literature)"
+  },
+  {
+    "rank": 16,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The ADVENTURES OF PINOCCHIO (DELUXE EDITION)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Night of the Magical Flight: U.S.English Edition - Exciting Rhyming Bedtime Story - Picture Book / Beginner Reader (Ages 3-7) (Top of the Wardrobe Gang Picture Books) (Volume 2)"
+  },
+  {
+    "rank": 20,
+    "item_name": "ITEM_B000XUBF3I"
+  },
+  {
+    "rank": 21,
+    "item_name": "Pollyanna"
+  },
+  {
+    "rank": 22,
+    "item_name": "Foreclosed: A Mitzy Neuhaus Mystery"
+  },
+  {
+    "rank": 23,
+    "item_name": "Better Homes and Gardens New Cook Book"
+  },
+  {
+    "rank": 24,
+    "item_name": "If You Have a Hat"
+  },
+  {
+    "rank": 25,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Autobiography of Benjamin Franklin with Related Readings (Glencoe Literature Library)"
+  },
+  {
+    "rank": 27,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Don't Juggle Bees! And Other Useless Advice For Silly Children"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Elephant to Hollywood"
+  },
+  {
+    "rank": 30,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Don't Let The Pigeon Drive The Bus!"
+  },
+  {
+    "rank": 32,
+    "item_name": "Things I've Had to Learn Over and Over and Over (Plus a Few Minor Discoveries)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Call of the Wild with related readings"
+  },
+  {
+    "rank": 34,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 35,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Jungle (The Penguin American Library)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Book With No Pictures"
+  },
+  {
+    "rank": 38,
+    "item_name": "Cape Cod (Penguin Nature Library)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Around the World in Eighty Days"
+  },
+  {
+    "rank": 40,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 41,
+    "item_name": "The True Spirit of Christmas"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Scarlet Pimpernel (Xist Classics) - Kindle edition"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 44,
+    "item_name": "Peter Pan: The Original Story"
+  },
+  {
+    "rank": 45,
+    "item_name": "Seasons: A Real Story of an Amish Girl"
+  },
+  {
+    "rank": 46,
+    "item_name": "Empire of the Summer Moon: Quanah Parker and the Rise and Fall of the Comanches, the Most Powerful Indian Tribe in American History"
+  },
+  {
+    "rank": 47,
+    "item_name": "On Writing"
+  },
+  {
+    "rank": 48,
+    "item_name": "By Marie Kondo The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing (Unabridged CD) [Audio CD]"
+  },
+  {
+    "rank": 49,
+    "item_name": "American Gospel: God, the Founding Fathers, and the Making of a Nation"
+  },
+  {
+    "rank": 50,
+    "item_name": "C.S. Lewis: A Life Inspired"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

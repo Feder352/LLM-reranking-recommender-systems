@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Fourth Fisherman: How Three Mexican Fishermen Who Came Back from the Dead Changed My Life and Saved My Marriage"
+  },
+  {
+    "item_name": "Tangled Ashes"
+  },
+  {
+    "item_name": "Accidentally Amish (Valley of Choice)"
+  },
+  {
+    "item_name": "Twice a Bride: A Novel (The Sinclair Sisters of Cripple Creek)"
+  },
+  {
+    "item_name": "The Amish Family Cookbook"
+  },
+  {
+    "item_name": "Christmas at Holly Hill (Winds Across the Prairie)"
+  },
+  {
+    "item_name": "Threads of Faith (Fabric of Time)"
+  },
+  {
+    "item_name": "A Wreath of Snow: A Victorian Christmas Novella"
+  },
+  {
+    "item_name": "A Promise for Miriam (The Pebble Creek Amish Series)"
+  },
+  {
+    "item_name": "Bridesmaid, The (Home to Hickory Hollow)"
+  },
+  {
+    "item_name": "A Home in Drayton Valley"
+  },
+  {
+    "item_name": "A Kingsbury Collection"
+  },
+  {
+    "item_name": "Every Perfect Gift (Hickory Ridge Romance)"
+  },
+  {
+    "item_name": "The Memory Jar (Seven Brides for Seven Bachelors)"
+  },
+  {
+    "item_name": "Betrayal: A Novel (Where The Heart Lives)"
+  },
+  {
+    "item_name": "An Angel by Her Side (A Heaven On Earth Novel)"
+  },
+  {
+    "item_name": "Sisterchicks in Gondolas (Sisterchicks Series #6)"
+  },
+  {
+    "item_name": "Creative Haven Creative Cats Coloring Book (Adult Coloring)"
+  },
+  {
+    "item_name": "Creative Haven Creative Cats Coloring Book (Creative Haven Coloring Books) by Sarnat, Marjorie (2015) Paperback"
+  },
+  {
+    "item_name": "Restore My Soul: A Coloring Book Devotional Journey"
+  },
+  {
+    "item_name": "Creative Haven African Designs Coloring Book (Adult Coloring)"
+  },
+  {
+    "item_name": "Creative Haven African Designs Coloring Book (Adult Coloring)"
+  },
+  {
+    "item_name": "Gratitude: A Prayer and Praise Coloring Journal"
+  },
+  {
+    "item_name": "Wanda E. Brunstetter's Amish Friends Harvest Cookbook: Over 240 Recipes for Using and Preserving the Bounty of the Land"
+  },
+  {
+    "item_name": "All Is Bright: A Devotional Journey to Color Your Way to Christmas"
+  },
+  {
+    "item_name": "Tranquility: A Prayer and Reflection Coloring Journal"
+  },
+  {
+    "item_name": "How to Color Like an Artist: Colored Pencil Techniques Including Blending &amp; Shading"
+  },
+  {
+    "item_name": "The Essential Amish Cookbook: Everyday Recipes from Farm &amp; Pantry (Lovina Eicher's Amish Kitchen)"
+  },
+  {
+    "item_name": "Picturing Heaven: 40 Hope-Filled Devotions with Coloring Pages"
+  },
+  {
+    "item_name": "24-Hour Crochet Projects"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 6145,
+    "item_name": "Goodbye to Yesterday: Part 1 (The Discovery - A Lancaster County Saga)"
+  },
+  {
+    "rank": 2,
+    "item_id": 1485,
+    "item_name": "The Winnowing Season: Book Two in the Amish Vines and Orchards Series"
+  },
+  {
+    "rank": 3,
+    "item_id": 5209,
+    "item_name": "Dying to Read: A Novel (The Cate Kinkaid Files-Book 1)"
+  },
+  {
+    "rank": 4,
+    "item_id": 5212,
+    "item_name": "The Potluck Club (The Potluck Club, Book 1)"
+  },
+  {
+    "rank": 5,
+    "item_id": 6135,
+    "item_name": "Love Finds You in Sugarcreek, Ohio"
+  },
+  {
+    "rank": 6,
+    "item_id": 4711,
+    "item_name": "When the Heart Cries (Sisters of the Quilt, Book One)"
+  },
+  {
+    "rank": 7,
+    "item_id": 2036,
+    "item_name": "The Blood Sugar Solution: The UltraHealthy Program for Losing Weight, Preventing Disease, and Feeling Great Now!"
+  },
+  {
+    "rank": 8,
+    "item_id": 5925,
+    "item_name": "Dirty Little Secrets: A J.J. Graves Mystery"
+  },
+  {
+    "rank": 9,
+    "item_id": 6011,
+    "item_name": "Becoming Me (Diary of a Teenage Girl: Caitlin, Book 1)"
+  },
+  {
+    "rank": 10,
+    "item_id": 1569,
+    "item_name": "The Prodigal: A Ragamuffin Story"
+  },
+  {
+    "rank": 11,
+    "item_id": 5804,
+    "item_name": "Fifteen Minutes: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_id": 6015,
+    "item_name": "A Clearing in the Wild (Change and Cherish Historical Series #1)"
+  },
+  {
+    "rank": 13,
+    "item_id": 4972,
+    "item_name": "Full Disclosure"
+  },
+  {
+    "rank": 14,
+    "item_id": 1570,
+    "item_name": "The Jesus Storybook Bible: Every Story Whispers His Name"
+  },
+  {
+    "rank": 15,
+    "item_id": 5207,
+    "item_name": "The Christmas Bus"
+  },
+  {
+    "rank": 16,
+    "item_id": 3778,
+    "item_name": "Simply Irresistible (Lucky Harbor)"
+  },
+  {
+    "rank": 17,
+    "item_id": 5384,
+    "item_name": "A Sweethaven Summer"
+  },
+  {
+    "rank": 18,
+    "item_id": 6042,
+    "item_name": "Faking Grace"
+  },
+  {
+    "rank": 19,
+    "item_id": 5260,
+    "item_name": "I Quit Sugar: Your Complete 8-Week Detox Program and Cookbook"
+  },
+  {
+    "rank": 20,
+    "item_id": 4047,
+    "item_name": "Sweet Talk (Buchanan-Renard, Book 10)"
+  },
+  {
+    "rank": 21,
+    "item_id": 4970,
+    "item_name": "A Promise to Believe In"
+  },
+  {
+    "rank": 22,
+    "item_id": 4868,
+    "item_name": "Don't Want To Miss A Thing: A warm and witty romance with many twists along the way"
+  },
+  {
+    "rank": 23,
+    "item_id": 5098,
+    "item_name": "Sunrise Point (Virgin River)"
+  },
+  {
+    "rank": 24,
+    "item_id": 5123,
+    "item_name": "Can't Help Falling in Love (The Sullivans)"
+  },
+  {
+    "rank": 25,
+    "item_id": 5665,
+    "item_name": "Finding Stefanie (Noble Legacy Series #3)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

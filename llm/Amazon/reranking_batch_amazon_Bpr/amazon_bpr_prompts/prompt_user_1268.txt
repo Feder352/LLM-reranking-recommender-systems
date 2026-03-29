@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Schwarzschild Radius"
+  },
+  {
+    "item_name": "Circled"
+  },
+  {
+    "item_name": "Henchgirl (Dakota Kekoa)"
+  },
+  {
+    "item_name": "Frost Burn (The Fire &amp; Ice Series) (Volume 1)"
+  },
+  {
+    "item_name": "Low Tide (The Forgotten Coast Florida Suspense Series) (Volume 1)"
+  },
+  {
+    "item_name": "Once Gone (a Riley Paige Mystery--Book #1)"
+  },
+  {
+    "item_name": "Runes"
+  },
+  {
+    "item_name": "Reckless (Shattered Sisters) (Volume 1)"
+  },
+  {
+    "item_name": "Dreamthief: Olive Kennedy, Fairy World M.D., Book One"
+  },
+  {
+    "item_name": "Whiskey Rebellion: An Addison Holmes Mystery"
+  },
+  {
+    "item_name": "Rusty Nail (A Jacqueline Jack Daniels mystery)"
+  },
+  {
+    "item_name": "Disappearing in Plain Sight"
+  },
+  {
+    "item_name": "Hell on Wheels (Black Knights Inc.)"
+  },
+  {
+    "item_name": "Invasion (Alien Invasion) (Volume 1)"
+  },
+  {
+    "item_name": "Shattered (Broken Trilogy) (Volume 2)"
+  },
+  {
+    "item_name": "Fear Dreams"
+  },
+  {
+    "item_name": "Forever Road (Peri Jean Mace) (Volume 1)"
+  },
+  {
+    "item_name": "Feral Darkness"
+  },
+  {
+    "item_name": "Destiny Blues (Hand of Fate) (Volume 1)"
+  },
+  {
+    "item_name": "Lost and Found"
+  },
+  {
+    "item_name": "Quick (A Hunter Kincaid Novel)"
+  },
+  {
+    "item_name": "The Star King (Star Series, Book 1)"
+  },
+  {
+    "item_name": "Ghostly Interests (A Harper Harlow Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Moon Dance (Vampire for Hire, Book 1)"
+  },
+  {
+    "item_name": "Burned by Magic (The Baine Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "Beyond"
+  },
+  {
+    "item_name": "Mind If I Come In (A Kat Parker Novel Book 1) - Kindle edition"
+  },
+  {
+    "item_name": "Getting a Head (A Kat Parker Novel Book 3) eBook"
+  },
+  {
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "item_name": "The Witch, The Wolf and The Vampire (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "To Catch A Bad Guy (Book One): Janet Maple Series (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "This Doesn't Happen In The Movies (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Blood Orchids"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Accidental Demon Slayer"
+  },
+  {
+    "rank": 5,
+    "item_name": "Fashionably Dead: Book One of the Hot Damned Series (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Relentless"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Jakarta Pandemic"
+  },
+  {
+    "rank": 8,
+    "item_name": "Bubba and the 12 Deadly Days of Christmas: A Bubba Mystery"
+  },
+  {
+    "rank": 9,
+    "item_name": "A View to Die For (Books To Die For) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "No Such Thing As Werewolves"
+  },
+  {
+    "rank": 11,
+    "item_name": "Pam of Babylon"
+  },
+  {
+    "rank": 12,
+    "item_name": "Bite Me"
+  },
+  {
+    "rank": 13,
+    "item_name": "Into the Darkness (Darkness, 1) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Hidden Fire: Elemental Mysteries Book 1"
+  },
+  {
+    "rank": 15,
+    "item_name": "Innocent in Las Vegas: A Humorous Tiffany Black Mystery (Tiffany Black Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Ellie Jordan, Ghost Trapper (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Yeager's Law (An Abel Yeager Novel) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Grave Man - A Sam Prichard Novel (The Sam Prichard Series) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Vampire Girl (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Itsy Bitsy Spider: Emma Frost #1"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Vampire's Mail Order Bride (Nocturne Falls) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Marking Time: The Immortal Descendants: Book 1"
+  },
+  {
+    "rank": 23,
+    "item_name": "Neanderthal Seeks Human: A Smart Romance (Knitting in the City) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Irreparable Harm (Sasha McCandless Legal Thriller) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Harvesting"
+  },
+  {
+    "rank": 26,
+    "item_name": "Forever Road (Peri Jean Mace) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Hidden (A Bone Secrets Novel)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Butterfly Garden (The Collector)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Essential Beginnings: Surviving Ashes, Book One"
+  },
+  {
+    "rank": 30,
+    "item_name": "Dead on Demand"
+  },
+  {
+    "rank": 31,
+    "item_name": "Dark Visions (Sarah Roberts Thriller)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Saving Grace (What Doesn't Kill You, #1): A Katie Romantic Mystery"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Witch Hunter (The Witch Hunter Saga) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Burned by Magic (The Baine Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Hope(less) (Judgement of the Six) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Trick Question (Tubby Dubonnet Mysteries)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Zombie Chronicles (Apocalypse Infection Unleashed Series)"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Dead Red Alibi: #4 in the Dead Red Mystery Series (Volume 4)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Reign of Blood"
+  },
+  {
+    "rank": 40,
+    "item_name": "Long Time Coming"
+  },
+  {
+    "rank": 41,
+    "item_name": "Stained: Stained Series (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "I Bring the Fire: Part I : Wolves (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "In a Small Town"
+  },
+  {
+    "rank": 44,
+    "item_name": "Mister Black: A Billionaire SEAL Story, Part 1 (In the Shadows)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Ridiculous (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Taboo: CSI Reilly Steel #1 (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Nefertiti's Heart (The Artifact Hunters) (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Broken Ferns"
+  },
+  {
+    "rank": 49,
+    "item_name": "Shadow of Time"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Ghost and The Graveyard"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

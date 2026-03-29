@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "In Bed with a Rogue (Rival Rogues)"
+  },
+  {
+    "item_name": "A Winter Wedding (Marriage Mart)"
+  },
+  {
+    "item_name": "It's in His Kiss (Lucky Harbor)"
+  },
+  {
+    "item_name": "West Winds of Wyoming (A Prairie Hearts Novel)"
+  },
+  {
+    "item_name": "Mail-Order Brides of the West: Trudy"
+  },
+  {
+    "item_name": "The Maverick of Copper Creek (Copper Creek Cowboys)"
+  },
+  {
+    "item_name": "He's No Prince Charming (Ever After)"
+  },
+  {
+    "item_name": "Slow Hand (Hot Cowboy Nights)"
+  },
+  {
+    "item_name": "What the Lady Wants: A Novel of Marshall Field and the Gilded Age"
+  },
+  {
+    "item_name": "Love Me to Death (Underveil)"
+  },
+  {
+    "item_name": "The Marshal (Harlequin Intrigue)"
+  },
+  {
+    "item_name": "Seaside Sunsets (Love in Bloom: Seaside Summers) (Volume 21)"
+  },
+  {
+    "item_name": "Knight in Highland Armor (Highland Dynasty) (Volume 1)"
+  },
+  {
+    "item_name": "Caelen's Wife (The Clan McDunnah Series)"
+  },
+  {
+    "item_name": "Kissing the Highlander"
+  },
+  {
+    "item_name": "More Than a Duke (Heart of a Duke) (Volume 2)"
+  },
+  {
+    "item_name": "Seaside Secrets (Love in Bloom: Seaside Summers) (Volume 23)"
+  },
+  {
+    "item_name": "Lady of the Flames (A Most Peculiar Season)"
+  },
+  {
+    "item_name": "Lady of the Eternal City (Empress of Rome)"
+  },
+  {
+    "item_name": "Rising Fire (A Novel of the Stone Circles)"
+  },
+  {
+    "item_name": "Buried Secrets: A Novel (Men of Valor)"
+  },
+  {
+    "item_name": "Untrue Colors"
+  },
+  {
+    "item_name": "All of Me: A Love Between the Bases Novel"
+  },
+  {
+    "item_name": "Three Silver Doves"
+  },
+  {
+    "item_name": "Opening Up (Ink &amp; Chrome)"
+  },
+  {
+    "item_name": "Mask Of Duplicity (The Jacobite Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "The Virgin and the Viscount: The Bachelor Lords of London"
+  },
+  {
+    "item_name": "Kickin' Up Dust"
+  },
+  {
+    "item_name": "Wicked Rivals (The League of Rogues)"
+  },
+  {
+    "item_name": "How to Impress a Marquess (Wicked Little Secrets)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Season for Surrender"
+  },
+  {
+    "rank": 2,
+    "item_name": "Take Me Tonight (The Bullet Catchers, Book 3)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Firelight (Darkest London)"
+  },
+  {
+    "rank": 4,
+    "item_name": "How to Marry a Cowboy (Cowboys &amp; Brides)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Trouble with Cowboys (A Big Sky Romance)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Winter Bride (Chance Sisters)"
+  },
+  {
+    "rank": 7,
+    "item_name": "What a Duke Dares (Sons of Sin)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Moonstruck Madness"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Struggle (Kentucky Brothers, Book 3)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Daniel's True Desire (True Gentlemen)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Not This Time: A Novel (Crossroads Crisis Center)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Wanted: Undead or Alive (Love at Stake)"
+  },
+  {
+    "rank": 13,
+    "item_name": "How to Lose a Lord in 10 Days or Less (Tricks of the Ton)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Importance of Being Wicked (Millworth Manor)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Slow Hand (Hot Cowboy Nights)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Romancing Olive"
+  },
+  {
+    "rank": 17,
+    "item_name": "Duke of Midnight"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Inconvenient Duchess"
+  },
+  {
+    "rank": 19,
+    "item_name": "Haven Creek (A Cavanaugh Island Novel)"
+  },
+  {
+    "rank": 20,
+    "item_name": "To Wed a Wild Lord (The Hellions of Halstead Hall)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Anonymous Bride (Texas Boardinghouse Brides, Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Secretly Smitten"
+  },
+  {
+    "rank": 23,
+    "item_name": "Caroline's Secret (A Wells Landing Romance)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Rliksen"
+  },
+  {
+    "rank": 25,
+    "item_name": "True Grime"
+  },
+  {
+    "rank": 26,
+    "item_name": "Marrying Winterborne"
+  },
+  {
+    "rank": 27,
+    "item_name": "If the Viscount Falls (The Duke's Men)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Christmas Eve at Friday Harbor: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Sweet Enemy: A Veiled Seduction Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Christmas at Harmony Hill: A Shaker Story"
+  },
+  {
+    "rank": 31,
+    "item_name": "Forever and a Day (Lucky Harbor)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Darius: Lord of Pleasures"
+  },
+  {
+    "rank": 33,
+    "item_name": "Someone to Hold (A Westcott Novel)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Claiming the Courtesan (Avon Romantic Treasures)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Lone Defender (Heroes for Hire)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Forever a Lord (The Rumor Series)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Miss Hillary Schools a Scoundrel (Beau Monde)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Accidental Duchess (Fairbourne Quartet)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Big Sky Country (The Parable Series)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Jaguar Fever (Heart of the Jaguar)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Wild Man Creek (A Virgin River Novel)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Wolfishly Yours"
+  },
+  {
+    "rank": 43,
+    "item_name": "Lucky"
+  },
+  {
+    "rank": 44,
+    "item_name": "Free Fall (Elite Force: That Others May Live)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Billion Dollar Cowboy (Cowboys &amp; Brides)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Declan's Cross (Sharpe &amp; Donovan)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Highland Fling"
+  },
+  {
+    "rank": 48,
+    "item_name": "Hunk for the Holidays"
+  },
+  {
+    "rank": 49,
+    "item_name": "Hearth Song (Home In The Hills)"
+  },
+  {
+    "rank": 50,
+    "item_name": "By the Light of the Silvery Moon"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

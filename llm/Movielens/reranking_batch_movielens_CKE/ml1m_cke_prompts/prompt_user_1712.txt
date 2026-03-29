@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Field of Dreams"
+  },
+  {
+    "item_name": "Shining, The"
+  },
+  {
+    "item_name": "Jerry Maguire"
+  },
+  {
+    "item_name": "Twelve Monkeys"
+  },
+  {
+    "item_name": "American Pimp"
+  },
+  {
+    "item_name": "Dirty Dozen, The"
+  },
+  {
+    "item_name": "Aladdin"
+  },
+  {
+    "item_name": "Swimming with Sharks"
+  },
+  {
+    "item_name": "Muppet Movie, The"
+  },
+  {
+    "item_name": "Mister Roberts"
+  },
+  {
+    "item_name": "Indiana Jones and the Last Crusade"
+  },
+  {
+    "item_name": "Untouchables, The"
+  },
+  {
+    "item_name": "Glengarry Glen Ross"
+  },
+  {
+    "item_name": "Casino"
+  },
+  {
+    "item_name": "Poltergeist"
+  },
+  {
+    "item_name": "Fast Times at Ridgemont High"
+  },
+  {
+    "item_name": "Lock, Stock & Two Smoking Barrels"
+  },
+  {
+    "item_name": "Big"
+  },
+  {
+    "item_name": "Scream"
+  },
+  {
+    "item_name": "Goldfinger"
+  },
+  {
+    "item_name": "Much Ado About Nothing"
+  },
+  {
+    "item_name": "X-Files: Fight the Future, The"
+  },
+  {
+    "item_name": "In the Line of Fire"
+  },
+  {
+    "item_name": "Vacation"
+  },
+  {
+    "item_name": "True Romance"
+  },
+  {
+    "item_name": "Places in the Heart"
+  },
+  {
+    "item_name": "Rounders"
+  },
+  {
+    "item_name": "Crimson Tide"
+  },
+  {
+    "item_name": "Stand and Deliver"
+  },
+  {
+    "item_name": "Caddyshack"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 830,
+    "item_name": "Almost Famous"
+  },
+  {
+    "rank": 2,
+    "item_id": 135,
+    "item_name": "Shakespeare in Love"
+  },
+  {
+    "rank": 3,
+    "item_id": 796,
+    "item_name": "This Is Spinal Tap"
+  },
+  {
+    "rank": 4,
+    "item_id": 907,
+    "item_name": "Civil Action, A"
+  },
+  {
+    "rank": 5,
+    "item_id": 275,
+    "item_name": "Player, The"
+  },
+  {
+    "rank": 6,
+    "item_id": 713,
+    "item_name": "Aliens"
+  },
+  {
+    "rank": 7,
+    "item_id": 326,
+    "item_name": "Three Kings"
+  },
+  {
+    "rank": 8,
+    "item_id": 338,
+    "item_name": "Maltese Falcon, The"
+  },
+  {
+    "rank": 9,
+    "item_id": 1403,
+    "item_name": "Natural, The"
+  },
+  {
+    "rank": 10,
+    "item_id": 8,
+    "item_name": "Christmas Story, A"
+  },
+  {
+    "rank": 11,
+    "item_id": 1226,
+    "item_name": "Full Metal Jacket"
+  },
+  {
+    "rank": 12,
+    "item_id": 352,
+    "item_name": "Austin Powers: The Spy Who Shagged Me"
+  },
+  {
+    "rank": 13,
+    "item_id": 1149,
+    "item_name": "Office Space"
+  },
+  {
+    "rank": 14,
+    "item_id": 214,
+    "item_name": "Jaws"
+  },
+  {
+    "rank": 15,
+    "item_id": 559,
+    "item_name": "Chinatown"
+  },
+  {
+    "rank": 16,
+    "item_id": 504,
+    "item_name": "Leaving Las Vegas"
+  },
+  {
+    "rank": 17,
+    "item_id": 63,
+    "item_name": "Total Recall"
+  },
+  {
+    "rank": 18,
+    "item_id": 137,
+    "item_name": "French Connection, The"
+  },
+  {
+    "rank": 19,
+    "item_id": 1105,
+    "item_name": "Crying Game, The"
+  },
+  {
+    "rank": 20,
+    "item_id": 372,
+    "item_name": "Boys Don't Cry"
+  },
+  {
+    "rank": 21,
+    "item_id": 798,
+    "item_name": "Fatal Attraction"
+  },
+  {
+    "rank": 22,
+    "item_id": 828,
+    "item_name": "Dog Day Afternoon"
+  },
+  {
+    "rank": 23,
+    "item_id": 177,
+    "item_name": "Full Monty, The"
+  },
+  {
+    "rank": 24,
+    "item_id": 895,
+    "item_name": "Sneakers"
+  },
+  {
+    "rank": 25,
+    "item_id": 371,
+    "item_name": "Wag the Dog"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

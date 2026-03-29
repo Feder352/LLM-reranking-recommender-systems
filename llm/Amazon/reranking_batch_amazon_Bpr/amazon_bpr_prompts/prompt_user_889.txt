@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Season of the Witch"
+  },
+  {
+    "item_name": "Midnight Crossroad (A Novel of Midnight, Texas)"
+  },
+  {
+    "item_name": "NIV, Integrated Study Bible, Hardcover: A New Chronological Approach for Exploring Scripture"
+  },
+  {
+    "item_name": "The Bone Clocks Limited Edition"
+  },
+  {
+    "item_name": "Bathing the Lion: A Novel"
+  },
+  {
+    "item_name": "The Sasquatch Hunter's Almanac: A Novel"
+  },
+  {
+    "item_name": "The Spiral Notebook: The Aurora Theater Shooter and the Epidemic of Mass Violence Committed by American Youth"
+  },
+  {
+    "item_name": "Death of an English Muffin (A Merry Muffin Mystery)"
+  },
+  {
+    "item_name": "NEED"
+  },
+  {
+    "item_name": "Rest Ye Murdered Gentlemen (A Year-Round Christmas Mystery)"
+  },
+  {
+    "item_name": "NIV, Bible for Women, Leathersoft, Brown/Pink: Fresh Insights for Thriving in Today's World"
+  },
+  {
+    "item_name": "The Readaholics and the Poirot Puzzle (A Book Club Mystery)"
+  },
+  {
+    "item_name": "Queen (The Blackcoat Rebellion)"
+  },
+  {
+    "item_name": "Days of Wine and Roquefort (Cheese Shop Mystery)"
+  },
+  {
+    "item_name": "Shards of Murder (A Webb's Glass Shop Mystery)"
+  },
+  {
+    "item_name": "Crime and Poetry (A Magical Bookshop Mystery)"
+  },
+  {
+    "item_name": "Sara Moulton's Home Cooking 101: How to Make Everything Taste Better"
+  },
+  {
+    "item_name": "A Theology of Biblical Counseling: The Doctrinal Foundations of Counseling Ministry"
+  },
+  {
+    "item_name": "Best. State. Ever.: A Florida Man Defends His Homeland"
+  },
+  {
+    "item_name": "The Readaholics and the Gothic Gala (A Book Club Mystery)"
+  },
+  {
+    "item_name": "Incubation (The Incubation Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Gemina (The Illuminae Files)"
+  },
+  {
+    "item_name": "Killing Thyme (A Spice Shop Mystery)"
+  },
+  {
+    "item_name": "Scheduled to Death"
+  },
+  {
+    "item_name": "Mother's Day, Muffins, and Murder (An Ellie Avery Mystery)"
+  },
+  {
+    "item_name": "Mulch Ado about Murder (Local Foods Mystery)"
+  },
+  {
+    "item_name": "All Signs Point to Murder (A Zodiac Mystery)"
+  },
+  {
+    "item_name": "Pre-Meditated Murder (A Downward Dog Mystery)"
+  },
+  {
+    "item_name": "Death al Fresco: A Sally Solari Mystery"
+  },
+  {
+    "item_name": "Flowers and Foul Play: A Magic Garden Mystery"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 2,
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 3,
+    "item_name": "White Witch, Black Curse"
+  },
+  {
+    "rank": 4,
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "rank": 5,
+    "item_name": "Dark Time: Mortal Path Book One (Mortal Path Series)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Undead and Unwed (Queen Betsy, Book 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Twelve Sharp (A Stephanie Plum Novel) (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Spell Bound (The Women of the Otherworld Series)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Living with the Dead: Women of the Otherworld (The Women of the Otherworld Series)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Dead Witch Walking"
+  },
+  {
+    "rank": 12,
+    "item_name": "Finders Keepers: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "Dead in the Family (Sookie Stackhouse/True Blood, Book 10)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Haunted (The Women of the Otherworld Series)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse) By Charlaine Harris"
+  },
+  {
+    "rank": 16,
+    "item_name": "Kitty Goes to Washington (Kitty Norville)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Dead And Gone: A Sookie Stackhouse Novel (Sookie Stackhouse/True Blood)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Cry Wolf (Alpha and Omega)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Iron Kissed (Mercy Thompson, Book 3)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Trouble With Magic (Bewitching Mysteries, No. 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Iron Crowned"
+  },
+  {
+    "rank": 22,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse/True Blood, Book 2)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Grave Dance (Alex Craft)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Holiday in Death[HOLIDAY IN DEATH][Prebound]"
+  },
+  {
+    "rank": 25,
+    "item_name": "Ghouls Just Haunt to Have Fun (Ghost Hunter Mysteries, No. 3)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Every Which Way But Dead"
+  },
+  {
+    "rank": 27,
+    "item_name": "Dragon Wytch"
+  },
+  {
+    "rank": 28,
+    "item_name": "Thin Air (Weather Warden, Book 6)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Dead to the World (Southern Vampire Mysteries, Book 4)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Madhouse"
+  },
+  {
+    "rank": 31,
+    "item_name": "Kitty and the Dead Man's Hand (Kitty Norville)"
+  },
+  {
+    "rank": 32,
+    "item_name": "For a Few Demons More (The Hollows, Book 5)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Iron Kissed (Mercy Thompson, Book 3)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Undead Pool"
+  },
+  {
+    "rank": 35,
+    "item_name": "Can't Teach an Old Demon New Tricks"
+  },
+  {
+    "rank": 36,
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Red-Headed Stepchild (Sabina Kane, Book 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Men of the Otherworld"
+  },
+  {
+    "rank": 39,
+    "item_name": "Enslave Me Sweetly (Alien Huntress, Book 2)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Summoning the Night: An Arcadia Bell Novel (The Arcadia Bell series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Moon's Fury (Tales of the Sazi, Book 5)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Storm Born (Dark Swan, Book 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Ghost Walk"
+  },
+  {
+    "rank": 44,
+    "item_name": "Magic Burns (Kate Daniels)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Fire Me Up (Aisling Grey, Guardian, Book 2)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Captain's Fury (Codex Alera, Book 4)"
+  },
+  {
+    "rank": 47,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Monkeewrench"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Mist-Torn Witches (Novel of the Mist-Torn Witches)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Intertwined (An Intertwined Novel)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Your Personal Paleo Code: The 3-Step Plan to Lose Weight, Reverse Disease, and Stay Fit and Healthy for Life"
+  },
+  {
+    "item_name": "Word Biblical Commentary: Psalms 1-50"
+  },
+  {
+    "item_name": "Incision Decisions: A Guide to Getting Through Surgery, Recovery, and Your Hospital Stay"
+  },
+  {
+    "item_name": "Reason and Responsibility: Readings in Some Basic Problems of Philosophy, 13th Edition"
+  },
+  {
+    "item_name": "Surgeon's Story: If You Can't Operate in Heels, You Can't Operate!"
+  },
+  {
+    "item_name": "The Smartest Guys in the Room: The Amazing Rise and Scandalous Fall of Enron"
+  },
+  {
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "item_name": "Philosophy of Religion"
+  },
+  {
+    "item_name": "Running the Books: The Adventures of an Accidental Prison Librarian"
+  },
+  {
+    "item_name": "What's Wrong?: Applied Ethicists and Their Critics"
+  },
+  {
+    "item_name": "The Laws of Simplicity (Simplicity: Design, Technology, Business, Life)"
+  },
+  {
+    "item_name": "The New World: A History of the English Speaking Peoples, Volume II (The Classic Collection)"
+  },
+  {
+    "item_name": "The Magic of Thinking Big"
+  },
+  {
+    "item_name": "The Roaring 2000s:  Building the Wealth and Life Style You Desire"
+  },
+  {
+    "item_name": "Commentary on the Gospel of Luke: The English Text"
+  },
+  {
+    "item_name": "First Epistle to the Corinthians (New International Commentary on the New Testament)"
+  },
+  {
+    "item_name": "Epistles of Paul to the Philippians and to Philemon (New International Commentary on the New Testament)"
+  },
+  {
+    "item_name": "The Book of Revelation (The New International Commentary on the New Testament)"
+  },
+  {
+    "item_name": "Reason and Responsibility: Readings in Some Basic Problems of Philosophy, 13th Edition"
+  },
+  {
+    "item_name": "Abortion: A Rational Look at An Emotional Issue"
+  },
+  {
+    "item_name": "The Age of Louis XIV (The Story of Civilization VIII)"
+  },
+  {
+    "item_name": "Falling Into Place: A Memoir of Overcoming"
+  },
+  {
+    "item_name": "There's a Hair in My Dirt!: A Worm's Story"
+  },
+  {
+    "item_name": "Charismatic Chaos"
+  },
+  {
+    "item_name": "Fundamentals of Business Law: Summarized Cases (Cengage Advantage Books)"
+  },
+  {
+    "item_name": "Listening Is an Act of Love: A Celebration of American Life from the StoryCorps Project (Penguin Books for English: Developmental)"
+  },
+  {
+    "item_name": "The Conservative Intellectual Movement in America Since 1945"
+  },
+  {
+    "item_name": "Finnegans Wake: Centennial Edition"
+  },
+  {
+    "item_name": "Consider Ethics: Theory, Readings, and Contemporary Issues (3rd Edition)"
+  },
+  {
+    "item_name": "Philosophy of Religion"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1259,
+    "item_name": "The Laws of Simplicity (Simplicity: Design, Technology, Business, Life)"
+  },
+  {
+    "rank": 2,
+    "item_id": 812,
+    "item_name": "The 48 Laws of Power"
+  },
+  {
+    "rank": 3,
+    "item_id": 396,
+    "item_name": "Amazing Grace: William Wilberforce and the Heroic Campaign to End Slavery"
+  },
+  {
+    "rank": 4,
+    "item_id": 2174,
+    "item_name": "The Demon-Haunted World: Science as a Candle in the Dark"
+  },
+  {
+    "rank": 5,
+    "item_id": 1238,
+    "item_name": "The Overflowing Brain: Information Overload and the Limits of Working Memory"
+  },
+  {
+    "rank": 6,
+    "item_id": 4294,
+    "item_name": "Emotional Intelligence: Why It Can Matter More than IQ"
+  },
+  {
+    "rank": 7,
+    "item_id": 3753,
+    "item_name": "Start-up Nation: The Story of Israel's Economic Miracle"
+  },
+  {
+    "rank": 8,
+    "item_id": 1110,
+    "item_name": "Give and Take: Why Helping Others Drives Our Success"
+  },
+  {
+    "rank": 9,
+    "item_id": 4780,
+    "item_name": "State of Denial: Bush at War, Part III"
+  },
+  {
+    "rank": 10,
+    "item_id": 4784,
+    "item_name": "The J Curve: A New Way to Understand Why Nations Rise and Fall"
+  },
+  {
+    "rank": 11,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 12,
+    "item_id": 1372,
+    "item_name": "Imperial Life in The Emerald City: Inside Iraq's Green Zone"
+  },
+  {
+    "rank": 13,
+    "item_id": 1204,
+    "item_name": "When God Was a Woman"
+  },
+  {
+    "rank": 14,
+    "item_id": 2550,
+    "item_name": "That Used to Be Us: How America Fell Behind in the World It Invented and How We Can Come Back"
+  },
+  {
+    "rank": 15,
+    "item_id": 1454,
+    "item_name": "The Next Decade: Empire and Republic in a Changing World"
+  },
+  {
+    "rank": 16,
+    "item_id": 68,
+    "item_name": "The Paradox of Choice: Why More Is Less"
+  },
+  {
+    "rank": 17,
+    "item_id": 3065,
+    "item_name": "The Price of Inequality: How Today's Divided Society Endangers Our Future"
+  },
+  {
+    "rank": 18,
+    "item_id": 2362,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 19,
+    "item_id": 4673,
+    "item_name": "The Myth of the Rational Voter: Why Democracies Choose Bad Policies"
+  },
+  {
+    "rank": 20,
+    "item_id": 3027,
+    "item_name": "The Shia Revival: How Conflicts within Islam Will Shape the Future"
+  },
+  {
+    "rank": 21,
+    "item_id": 2528,
+    "item_name": "Churchill: A Biography"
+  },
+  {
+    "rank": 22,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 23,
+    "item_id": 4161,
+    "item_name": "Against the Gods: The Remarkable Story of Risk"
+  },
+  {
+    "rank": 24,
+    "item_id": 4234,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 25,
+    "item_id": 859,
+    "item_name": "The Black Swan: The Impact of the Highly Improbable"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "How Jesus Saves the World from Us: 12 Antidotes to Toxic Christianity"
+  },
+  {
+    "item_name": "The 9 Arts of Spiritual Conversations: Walking alongside People Who Believe Differently"
+  },
+  {
+    "item_name": "A Theology of Biblical Counseling: The Doctrinal Foundations of Counseling Ministry"
+  },
+  {
+    "item_name": "Paradox Lost: Rediscovering the Mystery of God"
+  },
+  {
+    "item_name": "Conversion and   Discipleship: You Can't Have One without the Other"
+  },
+  {
+    "item_name": "A Commentary on the Psalms: 90-150 (Kregel Exegetical Library)"
+  },
+  {
+    "item_name": "Finding God in the Ruins: How God Redeems Pain"
+  },
+  {
+    "item_name": "The Inevitable: Understanding the 12 Technological Forces That Will Shape Our Future"
+  },
+  {
+    "item_name": "What Christians Ought to Believe: An Introduction to Christian Doctrine Through the Apostles Creed"
+  },
+  {
+    "item_name": "A Doubter's Guide to the Ten Commandments: How, for Better or Worse, Our Ideas about the Good Life Come from Moses and Jesus"
+  },
+  {
+    "item_name": "Small Matters: How Churches and Parents Can Raise Up World-Changing Children (Exponential Series)"
+  },
+  {
+    "item_name": "Hearing God in Conversation: How to Recognize His Voice Everywhere"
+  },
+  {
+    "item_name": "Sticky Faith Service Guide: Moving Students from Mission Trips to Missional Living"
+  },
+  {
+    "item_name": "Sticky Faith Service Guide, Student Journal: How Serving Others Changes You"
+  },
+  {
+    "item_name": "Five Views on the Church and Politics (Counterpoints: Bible and Theology)"
+  },
+  {
+    "item_name": "Heart Made Whole: Turning Your Unhealed Pain into Your Greatest Strength"
+  },
+  {
+    "item_name": "The ReWired Brain: Free Yourself of Negative Behaviors and Release Your Best Self"
+  },
+  {
+    "item_name": "Humble Roots: How Humility Grounds and Nourishes Your Soul"
+  },
+  {
+    "item_name": "Rhythms of Rest: Finding the Spirit of Sabbath in a Busy World"
+  },
+  {
+    "item_name": "Preaching Old Testament Narratives (Preaching with Excellence)"
+  },
+  {
+    "item_name": "Bible Studies on Mark"
+  },
+  {
+    "item_name": "Interpreting Apocalyptic Literature: An Exegetical Handbook (Handbooks for Old Testament Exegesis)"
+  },
+  {
+    "item_name": "Your Next 24 Hours: One Day of Kindness Can Change Everything"
+  },
+  {
+    "item_name": "Meet Generation Z: Understanding and Reaching the New Post-Christian World"
+  },
+  {
+    "item_name": "Welcome to College: A Christ-Follower's Guide for the Journey"
+  },
+  {
+    "item_name": "The Way of the Dragon or the Way of the Lamb: Searching for Jesus Path of Power in a Church that Has Abandoned It"
+  },
+  {
+    "item_name": "Questioning Evangelism"
+  },
+  {
+    "item_name": "12 Ways Your Phone Is Changing You"
+  },
+  {
+    "item_name": "Sacred Mundane: How to Find Freedom, Purpose, and Joy"
+  },
+  {
+    "item_name": "Reading People: How Seeing the World through the Lens of Personality Changes Everything"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 35471,
+    "item_name": "Anna's Crossing (Amish Beginnings)"
+  },
+  {
+    "rank": 2,
+    "item_id": 35535,
+    "item_name": "Nowhere to Turn (Hidden Identity)"
+  },
+  {
+    "rank": 3,
+    "item_id": 44327,
+    "item_name": "Kissed by a Cowboy (A Four of Hearts Ranch Romance)"
+  },
+  {
+    "rank": 4,
+    "item_id": 33436,
+    "item_name": "Shattered (Alaskan Courage) (Volume 2)"
+  },
+  {
+    "rank": 5,
+    "item_id": 35490,
+    "item_name": "Anchor in the Storm (Waves of Freedom)"
+  },
+  {
+    "rank": 6,
+    "item_id": 33596,
+    "item_name": "Deadly Proof (Atlanta Justice)"
+  },
+  {
+    "rank": 7,
+    "item_id": 35541,
+    "item_name": "The Quieting: A Novel (The Bishop's Family)"
+  },
+  {
+    "rank": 8,
+    "item_id": 37381,
+    "item_name": "The Elusive Miss Ellison (Regency Brides: A Legacy of Grace)"
+  },
+  {
+    "rank": 9,
+    "item_id": 35563,
+    "item_name": "Deceived: A Novel (Private Justice) (Volume 3)"
+  },
+  {
+    "rank": 10,
+    "item_id": 33359,
+    "item_name": "Tried and True (Wild at Heart) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_id": 33392,
+    "item_name": "Hearts Made Whole (Beacons of Hope)"
+  },
+  {
+    "rank": 12,
+    "item_id": 45340,
+    "item_name": "When I Fall in Love (Christiansen Family)"
+  },
+  {
+    "rank": 13,
+    "item_id": 35450,
+    "item_name": "Hidden Agenda: A Novel (Southern Crimes) (Volume 3)"
+  },
+  {
+    "rank": 14,
+    "item_id": 33389,
+    "item_name": "Beyond All Dreams"
+  },
+  {
+    "rank": 15,
+    "item_id": 44265,
+    "item_name": "Mermaid Moon (A Sunset Cove Novel)"
+  },
+  {
+    "rank": 16,
+    "item_id": 35723,
+    "item_name": "Hope Harbor: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_id": 35536,
+    "item_name": "Every Bride Needs a Groom: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 18,
+    "item_id": 33417,
+    "item_name": "Miracle in a Dry Season"
+  },
+  {
+    "rank": 19,
+    "item_id": 33501,
+    "item_name": "A Name Unknown (Shadows Over England)"
+  },
+  {
+    "rank": 20,
+    "item_id": 63966,
+    "item_name": "Many Sparrows: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_id": 33379,
+    "item_name": "Playing the Part"
+  },
+  {
+    "rank": 22,
+    "item_id": 30827,
+    "item_name": "A Dream of Miracles (The Amish Wonders Series)"
+  },
+  {
+    "rank": 23,
+    "item_id": 35552,
+    "item_name": "Through Waters Deep (Waves of Freedom)"
+  },
+  {
+    "rank": 24,
+    "item_id": 33355,
+    "item_name": "A Bride at Last"
+  },
+  {
+    "rank": 25,
+    "item_id": 33446,
+    "item_name": "A Noble Groom"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

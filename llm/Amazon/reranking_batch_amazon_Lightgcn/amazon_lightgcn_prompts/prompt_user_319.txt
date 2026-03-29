@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Duke of Ice (The Untouchables) (Volume 7)"
+  },
+  {
+    "item_name": "A Bachelor Establishment"
+  },
+  {
+    "item_name": "The Grave's a Fine and Private Place: A Flavia de Luce Novel"
+  },
+  {
+    "item_name": "Still Me: A Novel (Me Before You Trilogy)"
+  },
+  {
+    "item_name": "Wallflower Most Wanted: A Studies in Scandal Novel"
+  },
+  {
+    "item_name": "A Scandal By Any Other Name (Tale of Two Sisters)"
+  },
+  {
+    "item_name": "I Wrote This Book Because I Love You: Essays"
+  },
+  {
+    "item_name": "More or Less a Marchioness"
+  },
+  {
+    "item_name": "A Duke in the Night (The Devils of Dover)"
+  },
+  {
+    "item_name": "The Sins of Lord Lockwood (Rules for the Reckless)"
+  },
+  {
+    "item_name": "As the Devil Dares (Capturing the Carlisles)"
+  },
+  {
+    "item_name": "No Earls Allowed (The Survivors)"
+  },
+  {
+    "item_name": "A Rogue of Her Own (Windham Brides)"
+  },
+  {
+    "item_name": "Eight Simple Rules for Dating a Dragon: A Novel of the Embraced"
+  },
+  {
+    "item_name": "To Woo a Wicked Widow (The Widow's Club)"
+  },
+  {
+    "item_name": "The Duke of Ruin (The Untouchables) (Volume 8)"
+  },
+  {
+    "item_name": "Marry in Scandal (Marriage of Convenience)"
+  },
+  {
+    "item_name": "The Hellion (Wicked Wallflowers)"
+  },
+  {
+    "item_name": "Hot in Hellcat Canyon"
+  },
+  {
+    "item_name": "Love and Other Words"
+  },
+  {
+    "item_name": "A Devil of a Duke (Decadent Dukes Society)"
+  },
+  {
+    "item_name": "Lady Rogue (Royal Rewards)"
+  },
+  {
+    "item_name": "You Think It, I'll Say It: Stories"
+  },
+  {
+    "item_name": "A Duke Like No Other (Playful Brides)"
+  },
+  {
+    "item_name": "The Pisces: A Novel"
+  },
+  {
+    "item_name": "The Luck of the Bride: The Cavensham Heiresses"
+  },
+  {
+    "item_name": "It's All About the Duke: The Rakes of St. James"
+  },
+  {
+    "item_name": "I Flipping Love You"
+  },
+  {
+    "item_name": "Vampire's Faith"
+  },
+  {
+    "item_name": "An Affair with a Spare (The Survivors)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 6177,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 2,
+    "item_id": 4987,
+    "item_name": "Marrying Winterborne"
+  },
+  {
+    "rank": 3,
+    "item_id": 3346,
+    "item_name": "An English Bride in Scotland: Highland Brides (The Highland Brides)"
+  },
+  {
+    "rank": 4,
+    "item_id": 5051,
+    "item_name": "Wilde in Love: The Wildes of Lindow Castle"
+  },
+  {
+    "rank": 5,
+    "item_id": 4940,
+    "item_name": "Do You Want to Start a Scandal (Castles Ever After)"
+  },
+  {
+    "rank": 6,
+    "item_id": 4285,
+    "item_name": "Love and Other Scandals"
+  },
+  {
+    "rank": 7,
+    "item_id": 6139,
+    "item_name": "Drums of Autumn"
+  },
+  {
+    "rank": 8,
+    "item_id": 15933,
+    "item_name": "The Arrangement"
+  },
+  {
+    "rank": 9,
+    "item_id": 3856,
+    "item_name": "Dukes Prefer Blondes (The Dressmakers Series)"
+  },
+  {
+    "rank": 10,
+    "item_id": 13277,
+    "item_name": "Tempt Me at Twilight (Hathaways, Book 3)"
+  },
+  {
+    "rank": 11,
+    "item_id": 25529,
+    "item_name": "Someone to Hold (A Westcott Novel)"
+  },
+  {
+    "rank": 12,
+    "item_id": 4988,
+    "item_name": "The Day of the Duchess: Scandal &amp; Scoundrel, Book III"
+  },
+  {
+    "rank": 13,
+    "item_id": 48264,
+    "item_name": "What the Duke Desires (The Duke's Men)"
+  },
+  {
+    "rank": 14,
+    "item_id": 5213,
+    "item_name": "The Fairest of Them All: Marrying the Duke"
+  },
+  {
+    "rank": 15,
+    "item_id": 5068,
+    "item_name": "The Girl With The Make-Believe Husband: A Bridgertons Prequel"
+  },
+  {
+    "rank": 16,
+    "item_id": 44609,
+    "item_name": "The Bridegroom Wore Plaid (MacGregor Series)"
+  },
+  {
+    "rank": 17,
+    "item_id": 46309,
+    "item_name": "Once a Soldier (Rogues Redeemed)"
+  },
+  {
+    "rank": 18,
+    "item_id": 48369,
+    "item_name": "The Arrow: A Highland Guard Novel"
+  },
+  {
+    "rank": 19,
+    "item_id": 15464,
+    "item_name": "Fire and Ice: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_id": 20792,
+    "item_name": "The Collector"
+  },
+  {
+    "rank": 21,
+    "item_id": 6112,
+    "item_name": "STARRY NIGHT"
+  },
+  {
+    "rank": 22,
+    "item_id": 4972,
+    "item_name": "Devil in Spring: The Ravenels, Book 3"
+  },
+  {
+    "rank": 23,
+    "item_id": 15858,
+    "item_name": "The Escape (A Survivors' Club Novel)"
+  },
+  {
+    "rank": 24,
+    "item_id": 5432,
+    "item_name": "The Duchess Deal: Girl Meets Duke"
+  },
+  {
+    "rank": 25,
+    "item_id": 16137,
+    "item_name": "Only a Kiss (Survivors' Club)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

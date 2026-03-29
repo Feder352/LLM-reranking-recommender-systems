@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Once Upon a Dream: A Twisted Tale"
+  },
+  {
+    "item_name": "The World From Up Here"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...the American West: An Introduction to Civilizations Throughout Time (Volume 10)"
+  },
+  {
+    "item_name": "Breaking Cat News: Cats Reporting on the News that Matters to Cats"
+  },
+  {
+    "item_name": "Atlas of Animal Adventures: A collection of nature's most unmissable events, epic migrations and extraordinary behaviours"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Viking Europe: An Introduction to Civilizations Throughout Time (Volume 3)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Poland: A  Child's Introduction to Cultures Around the World (Volume 18)"
+  },
+  {
+    "item_name": "Razzle Dazzle Unicorn (Phoebe and Her Unicorn)"
+  },
+  {
+    "item_name": "Navigating Indieworld: A Beginner's Guide to Self-Publishing and Marketing Your"
+  },
+  {
+    "item_name": "The Berenstain Bears Christmas Fun Sticker and Activity Book (Berenstain Bears/Living Lights)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Israel: A Child's Introduction to Cultures Around the World (Volume 19)"
+  },
+  {
+    "item_name": "A Whole New World: A Twisted Tale"
+  },
+  {
+    "item_name": "I'm Going to Give You a Bear Hug!"
+  },
+  {
+    "item_name": "If You Were Me and Lived on...Mars (A Child's Introduction to Cultures Around the World) (Volume 23)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...the Ancient Mali Empire: An Introduction to Civilizations Throughout Time (Volume 5)"
+  },
+  {
+    "item_name": "Big Nate 2013 Calendar"
+  },
+  {
+    "item_name": "See You At The Top: 25th Anniversary Edition"
+  },
+  {
+    "item_name": "War and Peace (Penguin Classics)"
+  },
+  {
+    "item_name": "A Handful of Stars"
+  },
+  {
+    "item_name": "If You Were Me and Lived in....the Mayan Empire: An Introduction to Civilizations Throughout Time (Volume 4)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Germany: A Child's Introduction to Cultures Around the World (Volume 20)"
+  },
+  {
+    "item_name": "Vampirina Ballerina"
+  },
+  {
+    "item_name": "Oh Susannah: It's in the Bag (An Oh Susannah Story)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Cuba: If You Were Me and Lived in... (A Child's Introduction to Cultures Around the World) (Volume 22)"
+  },
+  {
+    "item_name": "Hello, Sunshine"
+  },
+  {
+    "item_name": "Kawaii Doodle Class: Sketching Super-Cute Tacos, Sushi, Clouds, Flowers, Monsters, Cosmetics, and More"
+  },
+  {
+    "item_name": "If You Give a Man a Cookie: A Parody"
+  },
+  {
+    "item_name": "The Ambrose Deception"
+  },
+  {
+    "item_name": "Bulwark"
+  },
+  {
+    "item_name": "The Traitor's Game (The Traitor's Game, Book One)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2036,
+    "item_name": "The Blood Sugar Solution: The UltraHealthy Program for Losing Weight, Preventing Disease, and Feeling Great Now!"
+  },
+  {
+    "rank": 2,
+    "item_id": 5349,
+    "item_name": "Let's Take the Long Way Home: A Memoir of Friendship"
+  },
+  {
+    "rank": 3,
+    "item_id": 5804,
+    "item_name": "Fifteen Minutes: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_id": 4804,
+    "item_name": "The Hidden Messages in Water"
+  },
+  {
+    "rank": 5,
+    "item_id": 2276,
+    "item_name": "Mindset: The New Psychology of Success"
+  },
+  {
+    "rank": 6,
+    "item_id": 3993,
+    "item_name": "A Long Time Gone (New American Library)"
+  },
+  {
+    "rank": 7,
+    "item_id": 122,
+    "item_name": "If You Give a Pig a Party"
+  },
+  {
+    "rank": 8,
+    "item_id": 1464,
+    "item_name": "Maine"
+  },
+  {
+    "rank": 9,
+    "item_id": 6055,
+    "item_name": "The Unofficial LEGO Builder's Guide"
+  },
+  {
+    "rank": 10,
+    "item_id": 4709,
+    "item_name": "Cure for the Common Life: Living in Your Sweet Spot"
+  },
+  {
+    "rank": 11,
+    "item_id": 5710,
+    "item_name": "The Great Depression Ahead: How to Prosper in the Crash Following the Greatest Boom in History"
+  },
+  {
+    "rank": 12,
+    "item_id": 1485,
+    "item_name": "The Winnowing Season: Book Two in the Amish Vines and Orchards Series"
+  },
+  {
+    "rank": 13,
+    "item_id": 5874,
+    "item_name": "The Witness Wore Red: The 19th Wife Who Brought Polygamous Cult Leaders to Justice"
+  },
+  {
+    "rank": 14,
+    "item_id": 2563,
+    "item_name": "Dead End in Norvelt (Norvelt Series)"
+  },
+  {
+    "rank": 15,
+    "item_id": 2043,
+    "item_name": "Dave the Potter: Artist, Poet, Slave"
+  },
+  {
+    "rank": 16,
+    "item_id": 2632,
+    "item_name": "A Short Guide to a Happy Life"
+  },
+  {
+    "rank": 17,
+    "item_id": 1339,
+    "item_name": "Half the Sky: Turning Oppression into Opportunity for Women Worldwide"
+  },
+  {
+    "rank": 18,
+    "item_id": 1096,
+    "item_name": "Detroit: An American Autopsy"
+  },
+  {
+    "rank": 19,
+    "item_id": 472,
+    "item_name": "The Happiness Project: Or, Why I Spent a Year Trying to Sing in the Morning, Clean My Closets, Fight Right, Read Aristotle, and Generally Have More Fun"
+  },
+  {
+    "rank": 20,
+    "item_id": 5083,
+    "item_name": "Whispers of Hope"
+  },
+  {
+    "rank": 21,
+    "item_id": 1475,
+    "item_name": "Provence, 1970: M.F.K. Fisher, Julia Child, James Beard, and the Reinvention of American Taste"
+  },
+  {
+    "rank": 22,
+    "item_id": 3544,
+    "item_name": "I Spy: A Book Of Picture Riddles"
+  },
+  {
+    "rank": 23,
+    "item_id": 4478,
+    "item_name": "Mr. Wuffles! (Caldecott Medal - Honors Winning Title(s))"
+  },
+  {
+    "rank": 24,
+    "item_id": 4842,
+    "item_name": "Happy for No Reason: 7 Steps to Being Happy from the Inside Out"
+  },
+  {
+    "rank": 25,
+    "item_id": 929,
+    "item_name": "Mrs. Lincoln's Dressmaker: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

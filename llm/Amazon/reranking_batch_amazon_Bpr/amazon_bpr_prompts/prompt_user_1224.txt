@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Megan's Munchkins (Megan's World) (Volume 1)"
+  },
+  {
+    "item_name": "The Antlered Ship"
+  },
+  {
+    "item_name": "Talon, Come Fly with Me (Tylon)"
+  },
+  {
+    "item_name": "The Lauras: A Novel"
+  },
+  {
+    "item_name": "The Sky Throne"
+  },
+  {
+    "item_name": "Alycat and the Monday Blues"
+  },
+  {
+    "item_name": "The Keeper of Dragons: The Prince Returns"
+  },
+  {
+    "item_name": "Sorcery for Beginners: A Simple Help Guide to a Challenging &amp; Arcane Art (Codex Arcanum)"
+  },
+  {
+    "item_name": "Colt Harper: Esteemed Vampire Cat"
+  },
+  {
+    "item_name": "Santa Calls"
+  },
+  {
+    "item_name": "The Book of Esther: A  Novel"
+  },
+  {
+    "item_name": "The Chosen Knights (Secret Knights Book 1)"
+  },
+  {
+    "item_name": "Sunset Rising"
+  },
+  {
+    "item_name": "Sweet Tea Tuesdays"
+  },
+  {
+    "item_name": "Flunked (Fairy Tale Reform School)"
+  },
+  {
+    "item_name": "Back to Christmas"
+  },
+  {
+    "item_name": "Nyxia (The Nyxia Triad)"
+  },
+  {
+    "item_name": "This Crumbling Pageant (The Fury Triad) (Volume 1)"
+  },
+  {
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "item_name": "Deadly Sweet (Spellwork Syndicate) (Volume 1)"
+  },
+  {
+    "item_name": "Slumber (Beauty Never Dies) (Volume 1)"
+  },
+  {
+    "item_name": "The Dragon Grammar Book: Grammar for Kids, Dragons, and the Whole Kingdom"
+  },
+  {
+    "item_name": "Last Stop in Brooklyn: A Mary Handley Mystery"
+  },
+  {
+    "item_name": "The Book of Secrets (The Last Oracle) (Volume 1)"
+  },
+  {
+    "item_name": "The Boy Who Swallows Flies"
+  },
+  {
+    "item_name": "Don't Ever Look Behind Door 32"
+  },
+  {
+    "item_name": "Fire and Bone"
+  },
+  {
+    "item_name": "Clod Makes A Friend"
+  },
+  {
+    "item_name": "The Wind in the Willows"
+  },
+  {
+    "item_name": "The Haunted Serpent"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Sanctuary"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ever Shade: A Dark Faerie Tale"
+  },
+  {
+    "rank": 3,
+    "item_name": "Kitty Hawk and the Curse of the Yukon Gold: Book One of the Kitty Hawk Flying Detective Agency Series (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Rarity From the Hollow"
+  },
+  {
+    "rank": 5,
+    "item_name": "The History Major: A Novella"
+  },
+  {
+    "rank": 6,
+    "item_name": "Pieces Like Pottery"
+  },
+  {
+    "rank": 7,
+    "item_name": "Madison's Song"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Publicist"
+  },
+  {
+    "rank": 9,
+    "item_name": "If: A Mind-Bending New Way of Looking at Big Ideas and Numbers"
+  },
+  {
+    "rank": 10,
+    "item_name": "Devil's Daughter: Lucinda's Pawnshop, Book One"
+  },
+  {
+    "rank": 11,
+    "item_name": "Family Magic"
+  },
+  {
+    "rank": 12,
+    "item_name": "Survival, Book 1 of The Guardians of Vesturon: The Guardians of Vesturon (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Kaitlin's Tale"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Knights Before Christmas"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Guardian, a Sword, &amp; Stilettos (The Enlighten Series) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Illusions of Fate"
+  },
+  {
+    "rank": 17,
+    "item_name": "Rae of Hope"
+  },
+  {
+    "rank": 18,
+    "item_name": "Insanity"
+  },
+  {
+    "rank": 19,
+    "item_name": "Don't Dangle Your Participle"
+  },
+  {
+    "rank": 20,
+    "item_name": "It's NOT Just A Dog! (Project Madison Series) (Volume 2)"
+  },
+  {
+    "rank": 21,
+    "item_name": "A Different Kind of Safari"
+  },
+  {
+    "rank": 22,
+    "item_name": "My Soul Immortal (Fated Eternals) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Children of Darkness (The Seekers)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Dream Doctor (The Dream Doctor Mysteries)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Bird &amp; Squirrel On Ice (Bird &amp; Squirrel #2)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Over Easy (The Continental Breakfast Club) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Carrot"
+  },
+  {
+    "rank": 28,
+    "item_name": "Spelled (The Storymakers)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Immurement: A Young Adult Science Fiction Dystopian Novel (The Undergrounders Series Book One)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Chocolate With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Bala-Gala the Brave and Dangerous: (Story Book for Kids)(Picture Book for Kids)(Beginner Book for Children)(Story Book for Children)(Bedtime Stories)(Children&#39;s Picture Book) - Kindle edition"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Grimm Chronicles, Vol. 1"
+  },
+  {
+    "rank": 33,
+    "item_name": "Legacy"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Vampire Hunter's Daughter Complete Collection: Parts 1-6"
+  },
+  {
+    "rank": 35,
+    "item_name": "Red Dot"
+  },
+  {
+    "rank": 36,
+    "item_name": "Beyond The Milky Way (The Galaxy Series) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Bridge of the Golden Wood: A Parable on How to Earn a Living (Careers for Kids)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Shadow of Time"
+  },
+  {
+    "rank": 39,
+    "item_name": "Marry Your Billionaire"
+  },
+  {
+    "rank": 40,
+    "item_name": "Elementals 2: The Blood of the Hydra (Volume 2)"
+  },
+  {
+    "rank": 41,
+    "item_name": "School of Deaths (The Scythe Wielder's Secret)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Bulletproof (Clay and Tanner Thomas series) (Volume 3)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Hunters: Hunters #1 (Demons) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Mortom"
+  },
+  {
+    "rank": 45,
+    "item_name": "An Empire Of Traitors (Of Hate And Laughter Book 1) eBook"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Commons: Book 1: The Journeyman (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Onyx Webb: Book Four: Episodes: 10, 11, &amp; 12"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Hazel Wood"
+  },
+  {
+    "rank": 49,
+    "item_name": "Love Spell"
+  },
+  {
+    "rank": 50,
+    "item_name": "It's Not My Favorite (The Lake Effect Series) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

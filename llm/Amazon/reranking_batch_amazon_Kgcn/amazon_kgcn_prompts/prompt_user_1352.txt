@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Wolves (A John Wells Novel)"
+  },
+  {
+    "item_name": "When Friendship Followed Me Home"
+  },
+  {
+    "item_name": "Vinegar Girl: William Shakespeare's The Taming of the Shrew Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "item_name": "A Hero of France: A Novel"
+  },
+  {
+    "item_name": "Sara Moulton's Home Cooking 101: How to Make Everything Taste Better"
+  },
+  {
+    "item_name": "Lucy &amp; Andy Neanderthal (Lucy and Andy Neanderthal)"
+  },
+  {
+    "item_name": "The Newsmakers (A Newsmakers Novel)"
+  },
+  {
+    "item_name": "Cecil's Pride"
+  },
+  {
+    "item_name": "Shrill"
+  },
+  {
+    "item_name": "Eaternity: More than 150 Deliciously Easy Vegan Recipes for a Long, Healthy, Satisfied, Joyful Life"
+  },
+  {
+    "item_name": "Spear of Light (The Glittering Edge)"
+  },
+  {
+    "item_name": "The Ninja's Daughter: A Hiro Hattori Novel (A Shinobi Mystery)"
+  },
+  {
+    "item_name": "These Honored Dead: A Lincoln and Speed Mystery"
+  },
+  {
+    "item_name": "More Than Magic"
+  },
+  {
+    "item_name": "Never Look an American in the Eye: A Memoir of Flying Turtles, Colonial Ghosts, and the Making of a Nigerian Amiercan"
+  },
+  {
+    "item_name": "The Heavens May Fall"
+  },
+  {
+    "item_name": "Some Writer!: The Story of E. B. White (Ala Notable Children's Books. All Ages)"
+  },
+  {
+    "item_name": "Fresh Italian Cooking for the New Generation: 100 Full-Flavored Vegetarian Dishes That Prove You Can Stay Slim While Eating Pasta and Bread"
+  },
+  {
+    "item_name": "Violent Borders: Refugees and the Right to Move"
+  },
+  {
+    "item_name": "Duck on a Tractor"
+  },
+  {
+    "item_name": "Be Light Like a Bird"
+  },
+  {
+    "item_name": "Dark Waters: A Raisa Jordan Thriller"
+  },
+  {
+    "item_name": "Me and Marvin Gardens"
+  },
+  {
+    "item_name": "How to Be a Supervillain"
+  },
+  {
+    "item_name": "Brave (Berrybrook Middle School)"
+  },
+  {
+    "item_name": "Lights, Camera, Middle School! (Babymouse Tales from the Locker)"
+  },
+  {
+    "item_name": "Saving Marty"
+  },
+  {
+    "item_name": "Ghost Boys"
+  },
+  {
+    "item_name": "Garden of the Lost and Abandoned: The Extraordinary Story of One Ordinary Woman and the Children She Saves"
+  },
+  {
+    "item_name": "Two Dogs in a Trench Coat Go to School: Book 1"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5769,
+    "item_name": "Austenland: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_id": 878,
+    "item_name": "The Moon and More"
+  },
+  {
+    "rank": 3,
+    "item_id": 4271,
+    "item_name": "Populazzi"
+  },
+  {
+    "rank": 4,
+    "item_id": 4669,
+    "item_name": "Crank"
+  },
+  {
+    "rank": 5,
+    "item_id": 3480,
+    "item_name": "Every Trick in the Book (A Novel Idea Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_id": 2892,
+    "item_name": "Wedding Night: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_id": 3985,
+    "item_name": "In a Witch's Wardrobe: A Witchcraft Mystery"
+  },
+  {
+    "rank": 8,
+    "item_id": 5095,
+    "item_name": "Where All the Dead Lie (A Taylor Jackson Novel)"
+  },
+  {
+    "rank": 9,
+    "item_id": 150,
+    "item_name": "13 Little Blue Envelopes"
+  },
+  {
+    "rank": 10,
+    "item_id": 5760,
+    "item_name": "Peter and the Sword of Mercy (Peter and the Starcatchers)"
+  },
+  {
+    "rank": 11,
+    "item_id": 309,
+    "item_name": "Perfect (Pretty Little Liars, Book 3)"
+  },
+  {
+    "rank": 12,
+    "item_id": 5271,
+    "item_name": "The Hollow Kingdom: Book I -- The Hollow Kingdom Trilogy"
+  },
+  {
+    "rank": 13,
+    "item_id": 4446,
+    "item_name": "The Lost Boy: A Foster Child's Search For The Love Of A Family (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 14,
+    "item_id": 14,
+    "item_name": "Dust"
+  },
+  {
+    "rank": 15,
+    "item_id": 669,
+    "item_name": "The Hounds of the Morrigan"
+  },
+  {
+    "rank": 16,
+    "item_id": 936,
+    "item_name": "Along for the Ride"
+  },
+  {
+    "rank": 17,
+    "item_id": 4246,
+    "item_name": "The Medusa Plot (The 39 Clues: Cahills vs. Vespers, Book 1)"
+  },
+  {
+    "rank": 18,
+    "item_id": 468,
+    "item_name": "Wicked (Pretty Little Liars, Book 5)"
+  },
+  {
+    "rank": 19,
+    "item_id": 1442,
+    "item_name": "Not My Daughter"
+  },
+  {
+    "rank": 20,
+    "item_id": 3459,
+    "item_name": "Affairs of Steak (A White House Chef Mystery)"
+  },
+  {
+    "rank": 21,
+    "item_id": 947,
+    "item_name": "Wintergirls"
+  },
+  {
+    "rank": 22,
+    "item_id": 4269,
+    "item_name": "All the Lovely Bad Ones"
+  },
+  {
+    "rank": 23,
+    "item_id": 2384,
+    "item_name": "The Prime Minister's Secret Agent (Maggie Hope)"
+  },
+  {
+    "rank": 24,
+    "item_id": 2995,
+    "item_name": "A Brief Chapter in My Impossible Life"
+  },
+  {
+    "rank": 25,
+    "item_id": 484,
+    "item_name": "Delirium (Delirium Trilogy)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "By the People: Rebuilding Liberty Without Permission"
+  },
+  {
+    "item_name": "A Time for Truth: Reigniting the Promise of America"
+  },
+  {
+    "item_name": "Wealth, Poverty and Politics: An International Perspective"
+  },
+  {
+    "item_name": "Killing Reagan: The Violent Assault That Changed A Presidenc (Wheeler Publishing Large Print Hardcover)"
+  },
+  {
+    "item_name": "Yogi Berra: Eternal Yankee"
+  },
+  {
+    "item_name": "Brady vs Manning: The Untold Story of the Rivalry That Transformed the NFL"
+  },
+  {
+    "item_name": "The Age of Clinton: America in the 1990s"
+  },
+  {
+    "item_name": "The Last of the President's Men"
+  },
+  {
+    "item_name": "Andy and Don: The Making of a Friendship and a Classic American TV Show"
+  },
+  {
+    "item_name": "Prisoners of Geography: Ten Maps That Explain Everything About the World (Politics of Place)"
+  },
+  {
+    "item_name": "Winter Is Coming: Why Vladimir Putin and the Enemies of the Free World Must Be Stopped"
+  },
+  {
+    "item_name": "Merchants in the Temple: Inside Pope Francis's Secret Battle Against Corruption in the Vatican"
+  },
+  {
+    "item_name": "A Time for Truth: Reigniting the Promise of America"
+  },
+  {
+    "item_name": "The Prize: Who's in Charge of America's Schools?"
+  },
+  {
+    "item_name": "Swiped: How to Protect Yourself in a World Full of Scammers, Phishers, and Identity Thieves"
+  },
+  {
+    "item_name": "Never Enough: Donald Trump and the Pursuit of Success"
+  },
+  {
+    "item_name": "The Worst Hard Time: The Untold Story of Those Who Survived the Great American Dust Bowl"
+  },
+  {
+    "item_name": "The Worst Hard Time: The Untold Story of Those Who Survived the Great American Dust Bowl"
+  },
+  {
+    "item_name": "Stealing Lincoln's Body"
+  },
+  {
+    "item_name": "Never Enough: Donald Trump and the Pursuit of Success"
+  },
+  {
+    "item_name": "The Betrayal: The 1919 World Series and the Birth of Modern Baseball"
+  },
+  {
+    "item_name": "Lights Out: A Cyberattack, A Nation Unprepared, Surviving the Aftermath"
+  },
+  {
+    "item_name": "The Progress Principle: Using Small Wins to Ignite Joy, Engagement, and Creativity at Work"
+  },
+  {
+    "item_name": "One Child: The Story of China's Most Radical Experiment"
+  },
+  {
+    "item_name": "American Canopy: Trees, Forests, and the Making of a Nation"
+  },
+  {
+    "item_name": "End of Discussion: How the Left's Outrage Industry Shuts Down Debate, Manipulates Voters, and Makes America Less Free (and Fun)"
+  },
+  {
+    "item_name": "The Liberty Amendments: Restoring the American Republic"
+  },
+  {
+    "item_name": "A Generation of Sociopaths: How the Baby Boomers Betrayed America"
+  },
+  {
+    "item_name": "A World in Disarray: American Foreign Policy and the Crisis of the Old Order"
+  },
+  {
+    "item_name": "American Fire: Love, Arson, and Life in a Vanishing Land"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 2,
+    "item_id": 451,
+    "item_name": "The Way of the World: A Story of Truth and Hope in an Age of Extremism"
+  },
+  {
+    "rank": 3,
+    "item_id": 4213,
+    "item_name": "Economics in One Lesson: The Shortest and Surest Way to Understand Basic Economics"
+  },
+  {
+    "rank": 4,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 5,
+    "item_id": 1028,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 6,
+    "item_id": 3005,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 7,
+    "item_id": 5606,
+    "item_name": "Culture of Corruption: Obama and His Team of Tax Cheats, Crooks, and Cronies"
+  },
+  {
+    "rank": 8,
+    "item_id": 3779,
+    "item_name": "Microtrends: The Small Forces Behind Tomorrow's Big Changes"
+  },
+  {
+    "rank": 9,
+    "item_id": 4522,
+    "item_name": "Truman"
+  },
+  {
+    "rank": 10,
+    "item_id": 4136,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 11,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 12,
+    "item_id": 5174,
+    "item_name": "America Alone: The End of the World As We Know It"
+  },
+  {
+    "rank": 13,
+    "item_id": 2618,
+    "item_name": "The Age of American Unreason"
+  },
+  {
+    "rank": 14,
+    "item_id": 2550,
+    "item_name": "That Used to Be Us: How America Fell Behind in the World It Invented and How We Can Come Back"
+  },
+  {
+    "rank": 15,
+    "item_id": 5462,
+    "item_name": "The Professors:  The 101 Most Dangerous Academics in America"
+  },
+  {
+    "rank": 16,
+    "item_id": 1387,
+    "item_name": "13 Bankers: The Wall Street Takeover and the Next Financial Meltdown"
+  },
+  {
+    "rank": 17,
+    "item_id": 4520,
+    "item_name": "The Making of the Atomic Bomb"
+  },
+  {
+    "rank": 18,
+    "item_id": 2664,
+    "item_name": "The Passage of Power: The Years of Lyndon Johnson, Vol. IV"
+  },
+  {
+    "rank": 19,
+    "item_id": 4780,
+    "item_name": "State of Denial: Bush at War, Part III"
+  },
+  {
+    "rank": 20,
+    "item_id": 812,
+    "item_name": "The 48 Laws of Power"
+  },
+  {
+    "rank": 21,
+    "item_id": 5312,
+    "item_name": "Fortune's Formula: The Untold Story of the Scientific Betting System That Beat the Casinos and Wall Street"
+  },
+  {
+    "rank": 22,
+    "item_id": 5289,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 23,
+    "item_id": 4564,
+    "item_name": "Lincoln at Gettysburg: The Words That Re-Made America"
+  },
+  {
+    "rank": 24,
+    "item_id": 996,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 25,
+    "item_id": 6108,
+    "item_name": "The Case Against Barack Obama: The Unlikely Rise and Unexamined Agenda of the Media's Favorite Candidate"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

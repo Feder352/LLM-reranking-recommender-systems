@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Road Less Travelled: A New Psychology of Love, Traditional Values and Spiritual Growth"
+  },
+  {
+    "item_name": "The Happiness Advantage: The Seven Principles of Positive Psychology That Fuel Success and Performance at Work"
+  },
+  {
+    "item_name": "Conversations With God : An Uncommon Dialogue (Bk. 1)"
+  },
+  {
+    "item_name": "As a Man Thinketh (Family Inspirational Library)"
+  },
+  {
+    "item_name": "The Celestine Prophecy: An Adventure"
+  },
+  {
+    "item_name": "Sacred Contracts: Awakening Your Divine Potential"
+  },
+  {
+    "item_name": "The Heart of the Soul: Emotional Awareness"
+  },
+  {
+    "item_name": "Wherever You Go, There You Are: Mindfulness Meditation in Everyday Life"
+  },
+  {
+    "item_name": "Born to Win Find Your Success Code"
+  },
+  {
+    "item_name": "What I Know For Sure"
+  },
+  {
+    "item_name": "The Power of Intention"
+  },
+  {
+    "item_name": "The Road Less Traveled, 25th Anniversary Edition : A New Psychology of Love, Traditional Values, and Spiritual Growth"
+  },
+  {
+    "item_name": "The Four Agreements: A Practical Guide to Personal Freedom (A Toltec Wisdom Book)"
+  },
+  {
+    "item_name": "Daring Greatly: How the Courage to Be Vulnerable Transforms the Way We Live, Love, Parent, and Lead"
+  },
+  {
+    "item_name": "All Is Well: Heal Your Body with Medicine, Affirmations, and Intuition"
+  },
+  {
+    "item_name": "Eleven Minutes"
+  },
+  {
+    "item_name": "Illusions : The Adventures of a Reluctant Messiah"
+  },
+  {
+    "item_name": "A New Earth"
+  },
+  {
+    "item_name": "You Can  Heal Your Life (Unabridged)"
+  },
+  {
+    "item_name": "The Sermon on the Mount: The Key to Success in Life"
+  },
+  {
+    "item_name": "Lessons in Truth"
+  },
+  {
+    "item_name": "Lessons in Truth (Unity Classic Library) eBook"
+  },
+  {
+    "item_name": "How to Use the Science of Mind"
+  },
+  {
+    "item_name": "The Sermon on the Mount: The Key to Success in Life"
+  },
+  {
+    "item_name": "The Power of Your Subconcious Mind"
+  },
+  {
+    "item_name": "The Power of Your Subconcious Mind"
+  },
+  {
+    "item_name": "The Game of Life and How to Play It (Dover Empower Your Life)"
+  },
+  {
+    "item_name": "Inspiration: Your Ultimate Calling"
+  },
+  {
+    "item_name": "Law of Attraction: The Science of Attracting More of What You Want and Less of What You Don't"
+  },
+  {
+    "item_name": "How The Secret Changed My Life: Real People. Real Stories"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 2,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 3,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 4,
+    "item_name": "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Warrior Diet"
+  },
+  {
+    "rank": 6,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 7,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  },
+  {
+    "rank": 9,
+    "item_name": "Liberal Fascism: The Secret History of the Left from Mussolini to the Politics of Meaning"
+  },
+  {
+    "rank": 10,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 11,
+    "item_name": "Rework: Change The Way You Work Forever"
+  },
+  {
+    "rank": 12,
+    "item_name": "In the Line of Fire: How to Handle Tough Questions...When It Counts"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 14,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 15,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 16,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 17,
+    "item_name": "Trump - The Art Of The Deal"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Popes Against the Jews: The Vatican's Role in the Rise of Modern Anti-Semitism"
+  },
+  {
+    "rank": 19,
+    "item_name": "The 48 Laws of Power"
+  },
+  {
+    "rank": 20,
+    "item_name": "Being A Dad: The Stuff No One Told Me"
+  },
+  {
+    "rank": 21,
+    "item_name": "Do As I Say (Not As I Do): Profiles in Liberal Hypocrisy"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Next 100 Years: A Forecast for the 21st Century"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 24,
+    "item_name": "Ultimate Leadership: Winning Execution Strategies for Your Situation"
+  },
+  {
+    "rank": 25,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 26,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 28,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Bell Curve: Intelligence and Class Structure in American Life"
+  },
+  {
+    "rank": 30,
+    "item_name": "Empires of the Word: A Language History of the World"
+  },
+  {
+    "rank": 31,
+    "item_name": "Misquoting Jesus: The Story Behind Who Changed the Bible and Why"
+  },
+  {
+    "rank": 32,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 33,
+    "item_name": "7 Deadly Scenarios: A Military Futurist Explores the Changing Face of War in the 21st Century"
+  },
+  {
+    "rank": 34,
+    "item_name": "Reality Check: The Irreverent Guide to Outsmarting, Outmanaging, and Outmarketing Your Competition"
+  },
+  {
+    "rank": 35,
+    "item_name": "Duty"
+  },
+  {
+    "rank": 36,
+    "item_name": "Victory of Reason"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Medici Effect: What Elephants and Epidemics Can Teach Us About Innovation"
+  },
+  {
+    "rank": 38,
+    "item_name": "Bobos in Paradise: The New Upper Class and How They Got There"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Cosmic Landscape: String Theory and the Illusion of Intelligent Design"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Snowball: Warren Buffett and the Business of Life"
+  },
+  {
+    "rank": 41,
+    "item_name": "Big Coal: The Dirty Secret Behind America's Energy Future"
+  },
+  {
+    "rank": 42,
+    "item_name": "Devil Take the Hindmost: A History of Financial Speculation"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Universe from Nothing: Why There Is Something Rather than Nothing"
+  },
+  {
+    "rank": 44,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 45,
+    "item_name": "Strange Victory: Hitler's Conquest of France"
+  },
+  {
+    "rank": 46,
+    "item_name": "Islam : A Short History (Universal History)"
+  },
+  {
+    "rank": 47,
+    "item_name": "You Are Not a Gadget: A Manifesto"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 49,
+    "item_name": "Fordlandia: The Rise and Fall of Henry Ford's Forgotten Jungle City"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Talent Code: Greatness Isn't Born. It's Grown."
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

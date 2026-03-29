@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Last Illusion: A Novel"
+  },
+  {
+    "item_name": "Process: The Writing Lives of Great Authors"
+  },
+  {
+    "item_name": "Aurora"
+  },
+  {
+    "item_name": "The Home Place: A Novel"
+  },
+  {
+    "item_name": "The Poser: A Novel"
+  },
+  {
+    "item_name": "If the Oceans Were Ink: An Unlikely Friendship and a Journey to the Heart of the Quran"
+  },
+  {
+    "item_name": "Seveneves"
+  },
+  {
+    "item_name": "The Seven Good Years: A Memoir"
+  },
+  {
+    "item_name": "Flings: Stories"
+  },
+  {
+    "item_name": "The Book of Aron: A novel"
+  },
+  {
+    "item_name": "Three Moments of an Explosion: Stories"
+  },
+  {
+    "item_name": "Prayers for the Living: A Novel"
+  },
+  {
+    "item_name": "The Pawnbroker"
+  },
+  {
+    "item_name": "Shylock is My Name"
+  },
+  {
+    "item_name": "In Europe's Shadow: Two Cold Wars and a Thirty-Year Journey Through Romania and Beyond"
+  },
+  {
+    "item_name": "In Europe&#39;s Shadow"
+  },
+  {
+    "item_name": "Ocean Animals (Animal Planet Animal Bites)"
+  },
+  {
+    "item_name": "Eagle Of The Ninth (Puffin Books)"
+  },
+  {
+    "item_name": "Monster Verse: Poems Human and Inhuman (Everyman's Library Pocket Poets Series)"
+  },
+  {
+    "item_name": "Lovecraft Country: A Novel"
+  },
+  {
+    "item_name": "The Book of Esther: A  Novel"
+  },
+  {
+    "item_name": "Black Science Premiere Hardcover Volume 1: The Beginner's Guide to Entropy"
+  },
+  {
+    "item_name": "Hag-Seed (Hogarth Shakespeare)"
+  },
+  {
+    "item_name": "No God but One: Allah or Jesus?: A Former Muslim Investigates the Evidence for Islam and Christianity"
+  },
+  {
+    "item_name": "365 Things to Do with LEGO Bricks: Lego Fun Every Day of the Year"
+  },
+  {
+    "item_name": "Everything Belongs to Us: A Novel"
+  },
+  {
+    "item_name": "Marlena: A Novel"
+  },
+  {
+    "item_name": "A Horse Walks into a Bar: A novel"
+  },
+  {
+    "item_name": "The Storm Before the Storm: The Beginning of the End of the Roman Republic"
+  },
+  {
+    "item_name": "The Astonishing Color of After"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Alchemist"
+  },
+  {
+    "rank": 2,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 3,
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  },
+  {
+    "rank": 4,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 5,
+    "item_name": "Darkness Visible"
+  },
+  {
+    "rank": 6,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 8,
+    "item_name": "Fields of Blood: Religion and the History of Violence"
+  },
+  {
+    "rank": 9,
+    "item_name": "1493: Uncovering the New World Columbus Created"
+  },
+  {
+    "rank": 10,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 13,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 14,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Things They Carried (Contemporary American Fiction)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Sixth Extinction: An Unnatural History"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Amazing Adventures of Kavalier &amp; Clay"
+  },
+  {
+    "rank": 18,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 19,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 20,
+    "item_name": "Siddhartha: An Indian Tale (Penguin Twentieth-Century Classics)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 22,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Book of Genesis Illustrated by R. Crumb"
+  },
+  {
+    "rank": 25,
+    "item_name": "In Defense of Food: An Eater's Manifesto"
+  },
+  {
+    "rank": 26,
+    "item_name": "War"
+  },
+  {
+    "rank": 27,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 29,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "rank": 30,
+    "item_name": "At the Existentialist Caf: Freedom, Being, and Apricot Cocktails"
+  },
+  {
+    "rank": 31,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 32,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 34,
+    "item_name": "Things Fall Apart: With Connections (Holt McDougal Library, High School with Connections)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 37,
+    "item_name": "Hannibal"
+  },
+  {
+    "rank": 38,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 39,
+    "item_name": "Predictably Irrational: The Hidden Forces That Shape Our Decisions"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 41,
+    "item_name": "1776 : America and Britain at War"
+  },
+  {
+    "rank": 42,
+    "item_name": "Godless: The Church of Liberalism"
+  },
+  {
+    "rank": 43,
+    "item_name": "Beautiful Souls: Saying No, Breaking Ranks, and Heeding the Voice of Conscience in Dark Times"
+  },
+  {
+    "rank": 44,
+    "item_name": "A confederacy of dunces"
+  },
+  {
+    "rank": 45,
+    "item_name": "Cloud Atlas"
+  },
+  {
+    "rank": 46,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Road"
+  },
+  {
+    "rank": 50,
+    "item_name": "No Country for Old Men"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

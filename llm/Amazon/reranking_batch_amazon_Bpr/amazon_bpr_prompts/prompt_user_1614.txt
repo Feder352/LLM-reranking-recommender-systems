@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Kiss Cam"
+  },
+  {
+    "item_name": "Text 2 Lovers"
+  },
+  {
+    "item_name": "Plus One (Pig &amp; Barley) (Volume 3)"
+  },
+  {
+    "item_name": "Ruthless"
+  },
+  {
+    "item_name": "Fake Fiancee"
+  },
+  {
+    "item_name": "Singe (Guardian Protection) (Volume 1)"
+  },
+  {
+    "item_name": "Plus One"
+  },
+  {
+    "item_name": "Come Closer"
+  },
+  {
+    "item_name": "#1 Crush"
+  },
+  {
+    "item_name": "Lost In Between (Finding Me) (Volume 1)"
+  },
+  {
+    "item_name": "Knockout (Wayward Fighters) (Volume 1)"
+  },
+  {
+    "item_name": "Tapout (Wayward Fighters) (Volume 2)"
+  },
+  {
+    "item_name": "Jude (The Saints) (Volume 2)"
+  },
+  {
+    "item_name": "Dirty Wife Games (Indecent Games) (Volume 2)"
+  },
+  {
+    "item_name": "Going Down Hard (Billionaire Bad Boys) (Volume 3)"
+  },
+  {
+    "item_name": "The Boxer (Modern Love) (Volume 2)"
+  },
+  {
+    "item_name": "Cheater (Curious Liaisons)"
+  },
+  {
+    "item_name": "The Silver Swan (The Elite Kings Club)"
+  },
+  {
+    "item_name": "Catching Carly"
+  },
+  {
+    "item_name": "Big: Satan's Fury MC"
+  },
+  {
+    "item_name": "Changing Lanes (Highway 17)"
+  },
+  {
+    "item_name": "Save My Heart (Sticks &amp; Hearts) (Volume 3)"
+  },
+  {
+    "item_name": "Fallen Crest Family (Fallen Crest Series) (Volume 2)"
+  },
+  {
+    "item_name": "Truly, Madly, Whiskey"
+  },
+  {
+    "item_name": "Playoff Beard (Shots on Goal) (Volume 5)"
+  },
+  {
+    "item_name": "DIABLO: Night Rebels Motorcycle Club (Night Rebels MC Romance) (Volume 3)"
+  },
+  {
+    "item_name": "Train Wreck (Collision)"
+  },
+  {
+    "item_name": "Bad Boss (Unprofessional Bad Boys) (Volume 2)"
+  },
+  {
+    "item_name": "Lotus"
+  },
+  {
+    "item_name": "Drumline"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Dirty (Raw Family) (Volume 2)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Cole"
+  },
+  {
+    "rank": 3,
+    "item_name": "Until Sage (Until Him) (Volume 2)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Hetch (Men Of S.W.A.T.) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Possession (Steel Brothers Saga Book 3)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Dirty Headlines"
+  },
+  {
+    "rank": 7,
+    "item_name": "Lovestruck: A Romantic Comedy Standalone"
+  },
+  {
+    "rank": 8,
+    "item_name": "Egomaniac (Tight Spaces)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Hook Me (Men of Inked) (Volume 2)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Resist Me (Men of Inked) (Volume 3)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Without Me (Men of Inked) (Volume 5)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Retrieval (The Retrieval Duet) (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Unexpected Reality"
+  },
+  {
+    "rank": 14,
+    "item_name": "Without Me: Men of Inked, Book 5 by Chelle Bliss (2015-04-07)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Never Too Late (Willow Creek) (Volume 2)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Released: Devil's Blaze MC Book 3 (Volume 3)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Deviant (Blood &amp; Roses) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Jaded Hearts"
+  },
+  {
+    "rank": 19,
+    "item_name": "Combust (The Everyday Heroes) (Volume 2)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Drunk on You (Hope Town) (Volume 4)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Reign (Sin City Outlaws) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Nitro's Torment: Sydney Storm MC (Volume 2)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Her Dom's Lesson (Dominic Powers) (Volume 2)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Cold Hearted"
+  },
+  {
+    "rank": 25,
+    "item_name": "Fervent"
+  },
+  {
+    "rank": 26,
+    "item_name": "Stay: A Bleeding Stars Stand-Alone Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Boy and His Ribbon (Ribbon Duet) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Until July (Until Her)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Playboy Pilot"
+  },
+  {
+    "rank": 30,
+    "item_name": "Slaying The Dragon (Deception Duet) (Volume 2)"
+  },
+  {
+    "rank": 31,
+    "item_name": "King of Code"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Outliers: The Outskirts Duet, Book 2"
+  },
+  {
+    "rank": 33,
+    "item_name": "Filthy Foreign Exchange"
+  },
+  {
+    "rank": 34,
+    "item_name": "Bris"
+  },
+  {
+    "rank": 35,
+    "item_name": "Two is a Lie (Tangled Lies) (Volume 2)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Silent Waters (The Element)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Anti-Stepbrother"
+  },
+  {
+    "rank": 38,
+    "item_name": "Long Shot (Hoops)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Turning Back (The Turning Series) (Volume 2)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Brightest Sunset (The Darkest Sunrise Duet) (Volume 2)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Crown of Lies (Truth and Lies Duet)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Forbid Me: The Good Ol' Boys: The Good Ol' Boys Series Book Two (Volume 2)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Revive (Storm MC #3) (Volume 3)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Big Shot: A Second Chance Standalone Romance"
+  },
+  {
+    "rank": 45,
+    "item_name": "Deliver"
+  },
+  {
+    "rank": 46,
+    "item_name": "27 Lies: Luke's story (The Truth About Love) (Volume 2)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Wide Open Spaces"
+  },
+  {
+    "rank": 48,
+    "item_name": "Pucked"
+  },
+  {
+    "rank": 49,
+    "item_name": "Infatuation: Knights Rebels MC (Volume 4)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Debt Inheritance (Indebted) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

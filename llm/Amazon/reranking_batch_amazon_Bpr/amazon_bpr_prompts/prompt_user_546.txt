@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Just What I Needed (The Need You Series)"
+  },
+  {
+    "item_name": "Stitch: Satan's Fury MC (Volume 2)"
+  },
+  {
+    "item_name": "Beautiful (The Beautiful Series)"
+  },
+  {
+    "item_name": "American Bad Boy: A Military Romance"
+  },
+  {
+    "item_name": "Grid Iron Bad Boy"
+  },
+  {
+    "item_name": "Maybe Not: A Novella"
+  },
+  {
+    "item_name": "Falling for Colton (The Falling Series) (Volume 5)"
+  },
+  {
+    "item_name": "Honor: The Breaking Point"
+  },
+  {
+    "item_name": "Before We Were Strangers: A Love Story"
+  },
+  {
+    "item_name": "I See You: A Novel"
+  },
+  {
+    "item_name": "One Ride (The Hellions Ride) (Volume 1)"
+  },
+  {
+    "item_name": "A Gift of Time (The Nine Minutes Trilogy) (Volume 3)"
+  },
+  {
+    "item_name": "Forever Ride: Hellions MC (The Hellions Ride) (Volume 2)"
+  },
+  {
+    "item_name": "THE DEEP END (The Honey Series)"
+  },
+  {
+    "item_name": "Coming Home (Copper Creek)"
+  },
+  {
+    "item_name": "Hellraiser (The Devil's Own #2)"
+  },
+  {
+    "item_name": "Max: A Cold Fury Hockey Novel (Carolina Cold Fury Hockey)"
+  },
+  {
+    "item_name": "Riveted: A Saints of Denver Novel"
+  },
+  {
+    "item_name": "Midnight Lily"
+  },
+  {
+    "item_name": "A Beautiful Funeral: A Novel (Maddox Brothers) (Volume 5)"
+  },
+  {
+    "item_name": "Where Sea Meets Sky: A Novel"
+  },
+  {
+    "item_name": "My Peace (The Beautifully Broken) (Volume 5)"
+  },
+  {
+    "item_name": "Dark Sexy Knight (a modern fairytale)"
+  },
+  {
+    "item_name": "Beautiful Sacrifice: A Novel (Maddox Brothers) (Volume 3)"
+  },
+  {
+    "item_name": "Thirty Days: Part One (Volume 1)"
+  },
+  {
+    "item_name": "Man Candy"
+  },
+  {
+    "item_name": "All Chained Up: A Devil's Rock Novel"
+  },
+  {
+    "item_name": "Till Death"
+  },
+  {
+    "item_name": "180 Seconds"
+  },
+  {
+    "item_name": "Twist: A Dive Bar Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Ugly Love: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Sea of Tranquility: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 4,
+    "item_name": "Making Faces"
+  },
+  {
+    "rank": 5,
+    "item_name": "Neanderthal Seeks Human: A Smart Romance (Knitting in the City) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 7,
+    "item_name": "Bared to You"
+  },
+  {
+    "rank": 8,
+    "item_name": "Jagged (Colorado Mountain)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Deal (Off-Campus) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Me Before You: A Novel (Movie Tie-In) (Me Before You Trilogy)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Law of Moses"
+  },
+  {
+    "rank": 12,
+    "item_name": "Wallbanger (The Cocktail Series)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Bet"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Pact"
+  },
+  {
+    "rank": 15,
+    "item_name": "Manwhore"
+  },
+  {
+    "rank": 16,
+    "item_name": "From This Moment On (Sullivans)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Redemption of Callie and Kayden"
+  },
+  {
+    "rank": 18,
+    "item_name": "Perfection: A Neighbor From Hell Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Breathe (Sea Breeze)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Ten Tiny Breaths"
+  },
+  {
+    "rank": 21,
+    "item_name": "Raw"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Trouble With Goodbye (A Fairhope New Adult Romance) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Maybe Someday"
+  },
+  {
+    "rank": 24,
+    "item_name": "Sebring (Unfinished Heroes) (Volume 5)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Walking Disaster"
+  },
+  {
+    "rank": 26,
+    "item_name": "Bared to You / Reflected in You / Entwined with You"
+  },
+  {
+    "rank": 27,
+    "item_name": "Confess: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Broken Juliet (The Starcrossed Series)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Lady Luck (Colorado Mountain)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Six of Hearts"
+  },
+  {
+    "rank": 31,
+    "item_name": "All Lined Up: A Rusk University Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Tangled (The Tangled Series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "This Girl: A Novel (Slammed)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Make It A Double (The Last Call Series) (Volume 2)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Knight (Unfinished Heroes) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Until November (Until Series) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Edge of Never"
+  },
+  {
+    "rank": 38,
+    "item_name": "Wait for You (Wait for You Saga)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Loving Mr. Daniels"
+  },
+  {
+    "rank": 40,
+    "item_name": "Beauty from Surrender (Beauty Series #2) (Volume 2)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Rock Chick Rescue (Volume 2)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Score (Off-Campus) (Volume 3)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Silver Bastard (Silver Valley)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Pucked"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Bird and the Sword"
+  },
+  {
+    "rank": 46,
+    "item_name": "Naked: The Blackstone Affair, Book 1"
+  },
+  {
+    "rank": 47,
+    "item_name": "Undeclared (The Woodlands)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 49,
+    "item_name": "Be with Me: A Novel (Wait for You Saga)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Archer's Voice"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

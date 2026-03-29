@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The First Family: A Novel"
+  },
+  {
+    "item_name": "Save Me (Corrupted Hearts)"
+  },
+  {
+    "item_name": "The Family Gathering (Sullivan's Crossing)"
+  },
+  {
+    "item_name": "Spring Forward (Mystic Creek)"
+  },
+  {
+    "item_name": "Hot Response (Boston Fire)"
+  },
+  {
+    "item_name": "Dead Girl Running (Cape Charade)"
+  },
+  {
+    "item_name": "One Last Breath"
+  },
+  {
+    "item_name": "Then She Was Gone: A Novel"
+  },
+  {
+    "item_name": "Until There Was Us (Montgomery Brothers)"
+  },
+  {
+    "item_name": "Alter Ego (A Jonathan Stride Novel)"
+  },
+  {
+    "item_name": "The High Tide Club: A Novel"
+  },
+  {
+    "item_name": "Her Last Word"
+  },
+  {
+    "item_name": "The Sugarhouse Blues (The Hudson Sisters Series)"
+  },
+  {
+    "item_name": "Beach House Reunion (The Beach House)"
+  },
+  {
+    "item_name": "I Flipping Love You"
+  },
+  {
+    "item_name": "Threat of Danger (Mission Recovery)"
+  },
+  {
+    "item_name": "The Woman in the Woods: A Thriller (Charlie Parker)"
+  },
+  {
+    "item_name": "A Merciful Silence (Mercy Kilpatrick)"
+  },
+  {
+    "item_name": "The Cottages on Silver Beach (Haven Point)"
+  },
+  {
+    "item_name": "When We Found Home"
+  },
+  {
+    "item_name": "Double Blind: A Novel (Kendra Michaels)"
+  },
+  {
+    "item_name": "Every Time You Go Away: A Novel"
+  },
+  {
+    "item_name": "Good Luck with That"
+  },
+  {
+    "item_name": "Double Dog Dare (The Dogfather) (Volume 7)"
+  },
+  {
+    "item_name": "Tailspin"
+  },
+  {
+    "item_name": "Abandoned: A Novel (Max Revere Novels)"
+  },
+  {
+    "item_name": "The Other Woman: A Novel"
+  },
+  {
+    "item_name": "Vox"
+  },
+  {
+    "item_name": "Tear Me Apart"
+  },
+  {
+    "item_name": "Why Not Tonight (Happily Inc)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Gathering Prey (A Prey Novel)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ashley Bell"
+  },
+  {
+    "rank": 3,
+    "item_name": "Hanover House"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Chase (An Isaac Bell Adventure)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Hunted (The Profiler)"
+  },
+  {
+    "rank": 6,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Job (Fox and O'Hare)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Bring Her Home"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Breakdown: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "IQ (An IQ Novel)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Secret Sister (Fairham Island)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Obsession in Death"
+  },
+  {
+    "rank": 13,
+    "item_name": "Broken Promise: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Comfort of Black"
+  },
+  {
+    "rank": 15,
+    "item_name": "Fool Me Once"
+  },
+  {
+    "rank": 16,
+    "item_name": "I'll Never Let You Go (Morgans of Nashville)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Her Last Goodbye (Morgan Dane)"
+  },
+  {
+    "rank": 18,
+    "item_name": "No One Knows: A Book Club Recommendation!"
+  },
+  {
+    "rank": 19,
+    "item_name": "One Perfect Lie"
+  },
+  {
+    "rank": 20,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 21,
+    "item_name": "As Night Falls: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Night Bird (Frost Easton)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Vanishing Season: A Mystery (Ellery Hathaway)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Lone Wolf (An F.B.I. K-9 Novel)"
+  },
+  {
+    "rank": 25,
+    "item_name": "A Steep Price (Tracy Crosswhite)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Cutaway: A Thriller"
+  },
+  {
+    "rank": 27,
+    "item_name": "Watch Me Disappear: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Perfect Stranger: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Bone Tree (Penn Cage)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Passenger"
+  },
+  {
+    "rank": 32,
+    "item_name": "Sting"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Other Einstein: A Novel - Kindle edition"
+  },
+  {
+    "rank": 34,
+    "item_name": "Huntress Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Mean Streak"
+  },
+  {
+    "rank": 36,
+    "item_name": "You Will Pay"
+  },
+  {
+    "rank": 37,
+    "item_name": "Snowfall on Haven Point"
+  },
+  {
+    "rank": 38,
+    "item_name": "Bitter Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Stranger Inside"
+  },
+  {
+    "rank": 40,
+    "item_name": "Never Let You Go: A heart-stopping psychological thriller you won't be able to put down"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Liar"
+  },
+  {
+    "rank": 42,
+    "item_name": "Home (Myron Bolitar, No. 11)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Missing You"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Beauty of the End"
+  },
+  {
+    "rank": 45,
+    "item_name": "Beautiful Maids All in a Row"
+  },
+  {
+    "rank": 46,
+    "item_name": "Hope at Christmas: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Wife Between Us: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Midnight Line: A Jack Reacher Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Scam: A Fox and O'Hare Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Guilt by Association (A Rachel Knight Novel)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

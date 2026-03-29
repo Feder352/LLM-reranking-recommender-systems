@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Cheeky King (Royals Undercover) (Volume 2)"
+  },
+  {
+    "item_name": "An American Cinderella"
+  },
+  {
+    "item_name": "Misadventures of a Virgin (Misadventures Book 4)"
+  },
+  {
+    "item_name": "So Over You (The Chicago Rebels Series)"
+  },
+  {
+    "item_name": "Tempting Levi (Cade Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "Quick &amp; Easy (Quick Billionaires) (Volume 2)"
+  },
+  {
+    "item_name": "Tulsa"
+  },
+  {
+    "item_name": "Tie Me Down: Sex, Love, and Rock &amp; Roll Book 2.5"
+  },
+  {
+    "item_name": "Fall for Him (Forbidden Trilogy) (Volume 3)"
+  },
+  {
+    "item_name": "Hooked On You (The Chicago Rebels Series)"
+  },
+  {
+    "item_name": "Kiss Kiss Bang: An Iron Clad Security Novel"
+  },
+  {
+    "item_name": "The Power of a SEAL (West Coast Navy SEALs)"
+  },
+  {
+    "item_name": "Tempting Danger"
+  },
+  {
+    "item_name": "Anything For You (The Connor Family)"
+  },
+  {
+    "item_name": "Deliciously Damaged: Reckless Bastards MC"
+  },
+  {
+    "item_name": "Arrogant Devil"
+  },
+  {
+    "item_name": "A Sheikh for Christmas (All I Want for Christmas is...) (Volume 1)"
+  },
+  {
+    "item_name": "Risky Love (The Risky Series)"
+  },
+  {
+    "item_name": "Positively Pricked"
+  },
+  {
+    "item_name": "The Secret Arrangement"
+  },
+  {
+    "item_name": "Compromising the Billionaire (Scandals of the Bad Boy Billionaires) (Volume 9)"
+  },
+  {
+    "item_name": "Compromising the Billionaire (Scandals of the Bad Boy Billionaires) (Volume 9)"
+  },
+  {
+    "item_name": "Chaos and Control"
+  },
+  {
+    "item_name": "Sin (Sin Duet)"
+  },
+  {
+    "item_name": "Afternoon Delight (Charity Case) (Volume 2)"
+  },
+  {
+    "item_name": "Heartbreak at Roosevelt Ranch"
+  },
+  {
+    "item_name": "Wanting Mr. Cane (Volume 1)"
+  },
+  {
+    "item_name": "The Space Between Us: A Boxer Romance (The Men of Evansdale County)"
+  },
+  {
+    "item_name": "His Banana"
+  },
+  {
+    "item_name": "Ranieri Andretti: A Second-Chance Mafia Romance Novella (The Five Syndicates)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Bound for Life (Bound to the Bad Boy) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "How We Fall"
+  },
+  {
+    "rank": 3,
+    "item_name": "SEAL's Touch: A Dirty Bad Boy Romance (Small Town SEALs)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Fix Me Not (The Fix Series) (Volume 2)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Hostage of the Hitman: A Bad Boy Mafia Romance"
+  },
+  {
+    "rank": 6,
+    "item_name": "Mr. Fiance"
+  },
+  {
+    "rank": 7,
+    "item_name": "Boxer Next Door"
+  },
+  {
+    "rank": 8,
+    "item_name": "Shared: A Dark MFM Menage Romance"
+  },
+  {
+    "rank": 9,
+    "item_name": "Pretend You're Mine"
+  },
+  {
+    "rank": 10,
+    "item_name": "Torch CAOS MC"
+  },
+  {
+    "rank": 11,
+    "item_name": "His Muse: A Dark Alpha Bad Boy Romance"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Baby Mission"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Boy Friend"
+  },
+  {
+    "rank": 14,
+    "item_name": "His Alone: A Full-Length Novel (For Her)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Licks"
+  },
+  {
+    "rank": 16,
+    "item_name": "Date The Billionaire"
+  },
+  {
+    "rank": 17,
+    "item_name": "His: MMF Bisexual Holiday Romance"
+  },
+  {
+    "rank": 18,
+    "item_name": "Trigger: A Circle of Justice Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Surprise Daddy"
+  },
+  {
+    "rank": 20,
+    "item_name": "Crossing Promises (Cross Creek)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Italian Billionaire's Stubborn Lover (The Romano Brothers Series) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Queen of My Heart (Life Won't Wait) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Mr. Darcy's Kiss"
+  },
+  {
+    "rank": 24,
+    "item_name": "Forbidden Valentine (Forbidden Trilogy) (Volume 4)"
+  },
+  {
+    "rank": 25,
+    "item_name": "RULED_HARD RIDERS MC1 PB"
+  },
+  {
+    "rank": 26,
+    "item_name": "Playing with Seduction (The Players Club) (Volume 3)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Dirty Debt"
+  },
+  {
+    "rank": 28,
+    "item_name": "Billionaire Daddy's Virgin"
+  },
+  {
+    "rank": 29,
+    "item_name": "Coach"
+  },
+  {
+    "rank": 30,
+    "item_name": "His Possession: A Bad Boy Mafia Romance"
+  },
+  {
+    "rank": 31,
+    "item_name": "Inarticulate"
+  },
+  {
+    "rank": 32,
+    "item_name": "Two Wrongs (Trouble by Numbers) (Volume 2)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Misadventures of a Good Wife (Misadventures Book 6)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Accidental Hero: A Marriage Mistake Romance"
+  },
+  {
+    "rank": 35,
+    "item_name": "Their Virgin Brat"
+  },
+  {
+    "rank": 36,
+    "item_name": "Damage Control: A Dirty Money Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Emergency Attraction (Love Emergency)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Rescue Me: A Bad Boy Romance"
+  },
+  {
+    "rank": 39,
+    "item_name": "Playing Dirty: A Bad Boy Sports Romance"
+  },
+  {
+    "rank": 40,
+    "item_name": "Playing the Pauses (Sex, Love, and Rock &amp; Roll series) (Volume 2)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Forsaken"
+  },
+  {
+    "rank": 42,
+    "item_name": "Misadventures of a Backup Bride (Misadventures Book 2)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Royally Ruined (Bad Boy Royals)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Stud Muffin (Irresistible Bachelors) (Volume 4)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Swerve: Boosted Hearts (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Threat: A Blood Riders MC Novel (Book 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Conceit (Se7en Deadly SEALs) (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Ruthless"
+  },
+  {
+    "rank": 49,
+    "item_name": "Inked: A Bad Boy Next Door Romance"
+  },
+  {
+    "rank": 50,
+    "item_name": "The CEO &amp; I"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

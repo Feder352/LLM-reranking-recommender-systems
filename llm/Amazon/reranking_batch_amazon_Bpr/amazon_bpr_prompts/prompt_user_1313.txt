@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Aran (Love Me Harder Book 1) - Kindle edition"
+  },
+  {
+    "item_name": "Secrets to Reveal (Highland Wolves) (Volume 1)"
+  },
+  {
+    "item_name": "Incumbent: A Prescott Novel (The Prescott Series)"
+  },
+  {
+    "item_name": "SEAL's Promise"
+  },
+  {
+    "item_name": "Before Midnight (The Blood Prince series) (Volume 1)"
+  },
+  {
+    "item_name": "Loving the Hawke (The Seven Curses of London) (Volume 1)"
+  },
+  {
+    "item_name": "Night is Darkest"
+  },
+  {
+    "item_name": "Alex; In the Company of Snipers 1"
+  },
+  {
+    "item_name": "Wild Game (Wilding Pack Wolves 1) (Volume 1)"
+  },
+  {
+    "item_name": "AN Undeniable Rogue: The Rogue's Club (Zebra Ballad Romance)"
+  },
+  {
+    "item_name": "Destined: Lured into the shadow (The Ambrosia Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Her Perfect Mate (X-Ops)"
+  },
+  {
+    "item_name": "Off Limits"
+  },
+  {
+    "item_name": "Bargaining with a Rake (A Whisper of Scandal Novel)"
+  },
+  {
+    "item_name": "Wolf Signs (Granite Lake Wolves) (Volume 1)"
+  },
+  {
+    "item_name": "The Gamble (Colorado Mountain)"
+  },
+  {
+    "item_name": "Liam (Mammoth Forest Wolves) (Volume 1)"
+  },
+  {
+    "item_name": "Love Restored (Gallagher Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "Vow: A Lords of Action Novel (Volume 1)"
+  },
+  {
+    "item_name": "Your Irresistible Love (Bennett Family)"
+  },
+  {
+    "item_name": "Making You Mine: The Moreno Brothers"
+  },
+  {
+    "item_name": "Teach Me (Southern Nights Series Book 1) (Volume 1)"
+  },
+  {
+    "item_name": "Badd Motherf*cker (Badd Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "Her Devoted Hero (Black Dawn) (Volume 2)"
+  },
+  {
+    "item_name": "My Fair Lily (The Farthingale Series) (Volume 1)"
+  },
+  {
+    "item_name": "Coven (Soulmark Series Book 1): Lycan &amp; Vampire Soulmark Series"
+  },
+  {
+    "item_name": "Sinful (Undone) (Volume 1)"
+  },
+  {
+    "item_name": "Forgotten &amp; Remembered: The Duke's Late Wife (Love's Second Chance Series) (Volume 1)"
+  },
+  {
+    "item_name": "Strong Silent Type (Rough Riders)"
+  },
+  {
+    "item_name": "King of Prey: A Bird Shifter Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "rank": 2,
+    "item_name": "Maid for the Billionaire: Ruth Cardello (Legacy Collection)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Romancing Rosalie - A Cascade Creek Christmas: A Ladies of Cascade Creek Novella (The Ladies of Cascade Creek) (Volume 5)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Game of Love (Love in Bloom: The Remingtons, Book 1) (Volume 10)"
+  },
+  {
+    "rank": 5,
+    "item_name": "SEALs of Honor: Mason (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Brands Who Came for Christmas (The Oklahoma All-Girl Brands) (Silhouette Intimate Moments, 1039)"
+  },
+  {
+    "rank": 7,
+    "item_name": "All I Want for Christmas is You"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Cowgirl Ropes a Billionaire (Cowboys of Chance Creek) (Volume 4)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Righteous Lies: Book 1: Dancing Moon Ranch Series"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Vampire's Mail Order Bride (Nocturne Falls) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Mail Order Bride: Westward winds: A Clean Historical Mail Order Bride Romance (Montana Mail Order Brides) (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Maid for Love (Gansett Island)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Her Heart for the Asking"
+  },
+  {
+    "rank": 15,
+    "item_name": "Into the Darkness (Darkness, 1) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Baby Stetson (Love and Music in Texas)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Lost-and-Found Groom (Place Called Home)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Second Chance Ranch: An Inspirational Western Romance (Three Rivers Ranch Romance) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Billionaire Wins the Game: Billionaire Bachelors"
+  },
+  {
+    "rank": 20,
+    "item_name": "Kidnapped Cowboy"
+  },
+  {
+    "rank": 21,
+    "item_name": "Holding Out (Hawks Motorcycle Club Series) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Ink Inspired (Montgomery Ink)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Almost A Bride (Wyoming Wildflowers)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Betrayed: Days of the Rogue (Law of the Lycans)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Kidnapped: A Romantic Suspense Novel (Edgars Family)"
+  },
+  {
+    "rank": 26,
+    "item_name": "When You're Ready (Ready Series) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Navy SEAL's E-Mail Order Bride (Heroes of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Saved by the Dragon (Loved by the Dragon) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Rock the Heart (Black Falcon)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Unexpected Gifts: Castle Mountain Lodge Series"
+  },
+  {
+    "rank": 31,
+    "item_name": "Neanderthal Seeks Human: A Smart Romance (Knitting in the City) (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Violet"
+  },
+  {
+    "rank": 33,
+    "item_name": "A Hero to Keep (Hawkins Family) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Embattled Hearts (Lost And Found Series)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Player (Wedding Pact)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Fashionably Dead: Book One of the Hot Damned Series (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Mister Black: A Billionaire SEAL Story, Part 1 (In the Shadows)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Big Bad Bear"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Earl's Inconvenient Wife (Marriage by Scandal)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Destined for Love (Love in Bloom: The Bradens): Rex Braden (Volume 5)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Protecting Fiona (SEAL of Protection) (Volume 3)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Christmas at Copper Mountain (Taming of the Sheenans) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Forbidden Disclosure (A Billionaire in Disguise)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Reaper's Property (Ellora's Cave Moderne)"
+  },
+  {
+    "rank": 45,
+    "item_name": "I Married a Billionaire (Contemporary Romance)"
+  },
+  {
+    "rank": 46,
+    "item_name": "When Lightning Strikes (Whiskey Creek)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Wild Man (Dream Man)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Simon:Le Beau Brothers: Billionaire Shifter with BBW mates Series (Le Beau Series) (Volume 2)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Hell on Wheels (Black Knights Inc.)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Cassie's Cowboy Crave (Sweet Montana Brides)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

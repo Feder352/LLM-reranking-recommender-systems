@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Lafayette in the Somewhat United States"
+  },
+  {
+    "item_name": "Grockit 1600+ Practice Questions for the ACT: Book + Online (Grockit Test Prep)"
+  },
+  {
+    "item_name": "Kaplan TEAS V Prep: Strategies, Practice &amp; Review"
+  },
+  {
+    "item_name": "NIV, Understand the Faith Study Bible, Hardcover: Grounding Your Beliefs in the Truth of Scripture"
+  },
+  {
+    "item_name": "Biblical Counseling and the Church: God's Care Through God's People (Biblical Counseling Coalition)"
+  },
+  {
+    "item_name": "Kaplan GED Test Premier 2016 with 2 Practice Tests (Online, Book, Videos &amp; Mobile) (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "Kaplan LSAT Premier 2016-2017 with Real Practice Questions: Book + Online (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "The Farm on the Roof: What Brooklyn Grange Taught Us About Entrepreneurship, Community, and Growing a Sustainable Business"
+  },
+  {
+    "item_name": "Under New Management: How Leading Organizations Are Upending Business as Usual"
+  },
+  {
+    "item_name": "The Naturalist: Theodore Roosevelt, A Lifetime of Exploration, and the Triumph of American Natural History"
+  },
+  {
+    "item_name": "NAPLEX 2016 Strategies, Practice, and Review with 2 Practice Tests: Online + Book"
+  },
+  {
+    "item_name": "My Holiday in North Korea: The Funniest/Worst Place on Earth"
+  },
+  {
+    "item_name": "My Holiday in North Korea"
+  },
+  {
+    "item_name": "Douglas MacArthur: American Warrior"
+  },
+  {
+    "item_name": "Past Present: Living with Heirlooms and Antiques"
+  },
+  {
+    "item_name": "Bright, Precious Days: A novel"
+  },
+  {
+    "item_name": "ASVAB Premier 2017-2018 with 6 Practice Tests: Online + Book + Videos (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "GMAT Premier 2017 with 6 Practice Tests: Online + Book + Videos + Mobile (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "GRE Premier 2017 with 6 Practice Tests: Online + Book + Videos + Mobile (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "GRE Subject Test: Psychology (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "Dream Decor: Styling a Cool, Creative and Comfortable Home, Wherever You Live"
+  },
+  {
+    "item_name": "The Tunnels: Escapes Under the Berlin Wall and the Historic Films the JFK White House Tried to Kill (Random House Large Print)"
+  },
+  {
+    "item_name": "The Arab of the Future 2: A Childhood in the Middle East, 1984-1985: A Graphic Memoir"
+  },
+  {
+    "item_name": "Dracula vs. Hitler"
+  },
+  {
+    "item_name": "Classic Koffmann"
+  },
+  {
+    "item_name": "When Broadway Went to Hollywood"
+  },
+  {
+    "item_name": "The Extended Selfish Gene"
+  },
+  {
+    "item_name": "SHSAT Prep: 158 Revising/Editing Practice Questions | Specialized High School Admissions Test by ArgoPrep"
+  },
+  {
+    "item_name": "SHSAT Specialized High Schools Admissions Test: SHSAT Test Prep - Revising/Editing Practice Questions"
+  },
+  {
+    "item_name": "The Great Nadar: The Man Behind the Camera"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Cubed: A Secret History of the Workplace"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Screwtape Letters: How a Senior Devil Instructs a Junior Devil in the Art of Temptation"
+  },
+  {
+    "rank": 4,
+    "item_name": "Where the Wild Things Are"
+  },
+  {
+    "rank": 5,
+    "item_name": "In Defense of Food: An Eater's Manifesto"
+  },
+  {
+    "rank": 6,
+    "item_name": "All Who Go Do Not Return: A Memoir"
+  },
+  {
+    "rank": 7,
+    "item_name": "My Big Rig"
+  },
+  {
+    "rank": 8,
+    "item_name": "Where the Wild Things Are (Caldecott Collection)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Nausicaa of the Valley of the Wind, Vol. 7"
+  },
+  {
+    "rank": 10,
+    "item_name": "Battleship: A Daring Heiress, a Teenage Jockey, and America's Horse"
+  },
+  {
+    "rank": 11,
+    "item_name": "Empire Falls"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Prophet"
+  },
+  {
+    "rank": 13,
+    "item_name": "Better Homes and Gardens New Cook Book"
+  },
+  {
+    "rank": 14,
+    "item_name": "Rich Dad Poor Dad (What the Rich Teach Their Kids About Money - That the Poor and Middle Class Do Not!)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Arab of the Future 2: A Childhood in the Middle East, 1984-1985: A Graphic Memoir"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Call of the Wild with related readings"
+  },
+  {
+    "rank": 17,
+    "item_name": "Miss Anne in Harlem: The White Women of the Black Renaissance"
+  },
+  {
+    "rank": 18,
+    "item_name": "Far from the Madding Crowd (Vintage Classics)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Enter the Saint"
+  },
+  {
+    "rank": 20,
+    "item_name": "Catechism Of The Catholic Church, Second Edition"
+  },
+  {
+    "rank": 21,
+    "item_name": "The 5 Love Languages Military Edition: The Secret to Love That Lasts"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Wild Ones"
+  },
+  {
+    "rank": 23,
+    "item_name": "Beautiful Souls: Saying No, Breaking Ranks, and Heeding the Voice of Conscience in Dark Times"
+  },
+  {
+    "rank": 24,
+    "item_name": "Gangs of New York"
+  },
+  {
+    "rank": 25,
+    "item_name": "Featuring the Saint"
+  },
+  {
+    "rank": 26,
+    "item_name": "Kitchen"
+  },
+  {
+    "rank": 27,
+    "item_name": "I Love You! - A Gift of Love and Poetry For Children by Donald Verger (2015) Hardcover"
+  },
+  {
+    "rank": 28,
+    "item_name": "Odessa Again"
+  },
+  {
+    "rank": 29,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 30,
+    "item_name": "Manolito Four-Eyes: The 2nd Volume of the Great Encyclopedia of My Life"
+  },
+  {
+    "rank": 31,
+    "item_name": "Peter Pan: The Original Story"
+  },
+  {
+    "rank": 32,
+    "item_name": "Cape Cod (National Geographic Trails Illustrated Map)"
+  },
+  {
+    "rank": 33,
+    "item_name": "To the Lighthouse (Penguin Popular Classics)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Fierce Patriot: The Tangled Lives of William Tecumseh Sherman"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Purpose Driven Life"
+  },
+  {
+    "rank": 36,
+    "item_name": "Total Law of Attraction: Unleash Your Secret Creative Power To Get What You Want!"
+  },
+  {
+    "rank": 37,
+    "item_name": "Between Friends"
+  },
+  {
+    "rank": 38,
+    "item_name": "Travels with Charley in Search of America"
+  },
+  {
+    "rank": 39,
+    "item_name": "Rejection Proof: How I Beat Fear and Became Invincible Through 100 Days of Rejection"
+  },
+  {
+    "rank": 40,
+    "item_name": "East of Eden"
+  },
+  {
+    "rank": 41,
+    "item_name": "Dark Invasion: 1915: Germany's Secret War and the Hunt for the First Terrorist Cell in America"
+  },
+  {
+    "rank": 42,
+    "item_name": "Last Call: The Rise and Fall of Prohibition"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Long Way Home: An American Journey from Ellis Island to the Great War"
+  },
+  {
+    "rank": 44,
+    "item_name": "How to Live: A Life of Montaigne in One Question and Twenty Attempts at An Answer"
+  },
+  {
+    "rank": 45,
+    "item_name": "Defiant Joy: The Remarkable Life and   Impact of G.K. Chesterton"
+  },
+  {
+    "rank": 46,
+    "item_name": "Poached (FunJungle)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Syria Burning: A Short History of a Catastrophe"
+  },
+  {
+    "rank": 49,
+    "item_name": "Ricky Ricotta's Mighty Robot Book Set (7 Volumes)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Complete Sherlock Holmes (Volume One)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

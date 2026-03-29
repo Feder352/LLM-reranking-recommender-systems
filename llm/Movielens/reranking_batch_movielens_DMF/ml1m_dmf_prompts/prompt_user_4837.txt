@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Christmas Vacation"
+  },
+  {
+    "item_name": "Wayne's World"
+  },
+  {
+    "item_name": "Romancing the Stone"
+  },
+  {
+    "item_name": "Beetlejuice"
+  },
+  {
+    "item_name": "Caddyshack"
+  },
+  {
+    "item_name": "Friday"
+  },
+  {
+    "item_name": "Willy Wonka and the Chocolate Factory"
+  },
+  {
+    "item_name": "Jungle Book, The"
+  },
+  {
+    "item_name": "Back to the Future Part II"
+  },
+  {
+    "item_name": "Men in Black"
+  },
+  {
+    "item_name": "Lethal Weapon 2"
+  },
+  {
+    "item_name": "Crocodile Dundee"
+  },
+  {
+    "item_name": "Pretty Woman"
+  },
+  {
+    "item_name": "Austin Powers: International Man of Mystery"
+  },
+  {
+    "item_name": "Half Baked"
+  },
+  {
+    "item_name": "Tommy Boy"
+  },
+  {
+    "item_name": "Grease"
+  },
+  {
+    "item_name": "Happy Gilmore"
+  },
+  {
+    "item_name": "Jerk, The"
+  },
+  {
+    "item_name": "Weird Science"
+  },
+  {
+    "item_name": "Kingpin"
+  },
+  {
+    "item_name": "White Men Can't Jump"
+  },
+  {
+    "item_name": "Police Academy"
+  },
+  {
+    "item_name": "Lethal Weapon 3"
+  },
+  {
+    "item_name": "Back to the Future Part III"
+  },
+  {
+    "item_name": "Spaceballs"
+  },
+  {
+    "item_name": "With Honors"
+  },
+  {
+    "item_name": "Ace Ventura: Pet Detective"
+  },
+  {
+    "item_name": "Nutty Professor, The"
+  },
+  {
+    "item_name": "Austin Powers: The Spy Who Shagged Me"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1116,
+    "item_name": "Shining, The"
+  },
+  {
+    "rank": 2,
+    "item_id": 1159,
+    "item_name": "Psycho"
+  },
+  {
+    "rank": 3,
+    "item_id": 1536,
+    "item_name": "Birds, The"
+  },
+  {
+    "rank": 4,
+    "item_id": 1329,
+    "item_name": "Craft, The"
+  },
+  {
+    "rank": 5,
+    "item_id": 1088,
+    "item_name": "Serial Mom"
+  },
+  {
+    "rank": 6,
+    "item_id": 1156,
+    "item_name": "Scream 2"
+  },
+  {
+    "rank": 7,
+    "item_id": 761,
+    "item_name": "Buffy the Vampire Slayer"
+  },
+  {
+    "rank": 8,
+    "item_id": 1140,
+    "item_name": "I Still Know What You Did Last Summer"
+  },
+  {
+    "rank": 9,
+    "item_id": 295,
+    "item_name": "Night of the Living Dead"
+  },
+  {
+    "rank": 10,
+    "item_id": 1142,
+    "item_name": "Friday the 13th"
+  },
+  {
+    "rank": 11,
+    "item_id": 1112,
+    "item_name": "American Werewolf in London, An"
+  },
+  {
+    "rank": 12,
+    "item_id": 604,
+    "item_name": "Rocky Horror Picture Show, The"
+  },
+  {
+    "rank": 13,
+    "item_id": 1115,
+    "item_name": "Amityville Horror, The"
+  },
+  {
+    "rank": 14,
+    "item_id": 636,
+    "item_name": "Little Shop of Horrors"
+  },
+  {
+    "rank": 15,
+    "item_id": 213,
+    "item_name": "King Kong"
+  },
+  {
+    "rank": 16,
+    "item_id": 1426,
+    "item_name": "Texas Chainsaw Massacre, The"
+  },
+  {
+    "rank": 17,
+    "item_id": 975,
+    "item_name": "Phantasm"
+  },
+  {
+    "rank": 18,
+    "item_id": 1122,
+    "item_name": "Dracula"
+  },
+  {
+    "rank": 19,
+    "item_id": 105,
+    "item_name": "American Beauty"
+  },
+  {
+    "rank": 20,
+    "item_id": 1955,
+    "item_name": "Prophecy, The"
+  },
+  {
+    "rank": 21,
+    "item_id": 878,
+    "item_name": "Haunting, The"
+  },
+  {
+    "rank": 22,
+    "item_id": 1163,
+    "item_name": "Scream 3"
+  },
+  {
+    "rank": 23,
+    "item_id": 1001,
+    "item_name": "Heavy Metal"
+  },
+  {
+    "rank": 24,
+    "item_id": 1506,
+    "item_name": "Friday the 13th Part 3: 3D"
+  },
+  {
+    "rank": 25,
+    "item_id": 1230,
+    "item_name": "Hellraiser"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

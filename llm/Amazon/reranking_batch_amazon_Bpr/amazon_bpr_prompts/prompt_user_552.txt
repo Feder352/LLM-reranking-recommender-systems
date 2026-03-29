@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Massacre of Mankind: Authorised Sequel to The War of the Worlds"
+  },
+  {
+    "item_name": "Batman/The Flash: The Button Deluxe Edition"
+  },
+  {
+    "item_name": "Immortal Writers"
+  },
+  {
+    "item_name": "How to Think: A Survival Guide for a World at Odds"
+  },
+  {
+    "item_name": "Logicomix"
+  },
+  {
+    "item_name": "Otherworld (Last Reality)"
+  },
+  {
+    "item_name": "Artemis"
+  },
+  {
+    "item_name": "Subhuman (A Unit 51 Novel)"
+  },
+  {
+    "item_name": "Waking Gods: Themis Files Book 2"
+  },
+  {
+    "item_name": "The Whispering Room: A Jane Hawk Novel"
+  },
+  {
+    "item_name": "Ramses the Damned: The Passion of Cleopatra"
+  },
+  {
+    "item_name": "The Flash Vol. 4: Running Scared (Rebirth)"
+  },
+  {
+    "item_name": "Batwoman Vol. 1: The Many Arms of Death (Rebirth)"
+  },
+  {
+    "item_name": "Wonder Woman Vol. 4: Godwatch (Rebirth)"
+  },
+  {
+    "item_name": "Haunting the Deep"
+  },
+  {
+    "item_name": "Batman/The Shadow: The Murder Geniuses"
+  },
+  {
+    "item_name": "Peter and Lisa: A Mental Illness Children's Story"
+  },
+  {
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "item_name": "Tarnished City (Dark Gifts)"
+  },
+  {
+    "item_name": "Nightlights"
+  },
+  {
+    "item_name": "The Flight Attendant: A Novel"
+  },
+  {
+    "item_name": "Green Lantern: Earth One Vol. 1"
+  },
+  {
+    "item_name": "Witches Gone Wicked: A Cozy Witch Mystery (Womby's School for Wayward Witches) (Volume 3)"
+  },
+  {
+    "item_name": "Patriot Number One: American Dreams in Chinatown"
+  },
+  {
+    "item_name": "Spider-Man: Kraven's Last Hunt (Marvel Premiere Classic)"
+  },
+  {
+    "item_name": "Macbeth"
+  },
+  {
+    "item_name": "Lady Mechanika Volume 2: Tablet of Destinies"
+  },
+  {
+    "item_name": "The Crooked Staircase: A Jane Hawk Novel"
+  },
+  {
+    "item_name": "Florida"
+  },
+  {
+    "item_name": "Dark Nights: Metal: Deluxe Edition"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "American Gods"
+  },
+  {
+    "rank": 2,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 4,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Maus: My Father Bleeds History Pt. 1: A Survivor's Tale (Penguin Graphic Fiction)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 9,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Fight Club"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 13,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 14,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 15,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 16,
+    "item_name": "Sandman Preludes &amp; Nocturnes"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Man in the High Castle (Essential Penguin)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Dr. Jekyll and Mr. Hyde and Other Stories"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Call of the Wild eBook"
+  },
+  {
+    "rank": 20,
+    "item_name": "Life After Life: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Graveyard Book"
+  },
+  {
+    "rank": 22,
+    "item_name": "Neverwhere: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "Forever War, The"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Separate Peace"
+  },
+  {
+    "rank": 25,
+    "item_name": "Disgrace: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Eyre Affair: A Thursday Next Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Zealot: The Life and Times of Jesus of Nazareth"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Between the World and Me"
+  },
+  {
+    "rank": 31,
+    "item_name": "Mr. Penumbra's 24-Hour Bookstore: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Call of the Wild with related readings"
+  },
+  {
+    "rank": 34,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Road"
+  },
+  {
+    "rank": 37,
+    "item_name": "Salt Sugar Fat: How the Food Giants Hooked Us"
+  },
+  {
+    "rank": 38,
+    "item_name": "Smoke and Mirrors: Short Fictions and Illusions"
+  },
+  {
+    "rank": 39,
+    "item_name": "Manifest Destiny Volume 1: Flora &amp; Fauna"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Sparrow: A Novel (The Sparrow Series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Ocean at the End of the Lane CD: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Tales of Beedle the Bard, Standard Edition (Harry Potter)"
+  },
+  {
+    "rank": 44,
+    "item_name": "A Visit from the Goon Squad"
+  },
+  {
+    "rank": 45,
+    "item_name": "Black Earth: The Holocaust as History and Warning"
+  },
+  {
+    "rank": 46,
+    "item_name": "Wonder Woman Vol. 2: Year One (Rebirth) (Wonder Woman: DC Universe Rebirth)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Lord of the Flies"
+  },
+  {
+    "rank": 48,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 49,
+    "item_name": "I Am Legend"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Alchemist"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

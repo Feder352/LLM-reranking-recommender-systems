@@ -1,0 +1,221 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Shawshank Redemption, The"
+  },
+  {
+    "item_name": "E.T. the Extra-Terrestrial"
+  },
+  {
+    "item_name": "Peter Pan"
+  },
+  {
+    "item_name": "Gigi"
+  },
+  {
+    "item_name": "King and I, The"
+  },
+  {
+    "item_name": "Guys and Dolls"
+  },
+  {
+    "item_name": "Singin' in the Rain"
+  },
+  {
+    "item_name": "Lady and the Tramp"
+  },
+  {
+    "item_name": "South Pacific"
+  },
+  {
+    "item_name": "White Christmas"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 632,
+    "item_name": "Sleeping Beauty"
+  },
+  {
+    "rank": 2,
+    "item_id": 3,
+    "item_name": "My Fair Lady"
+  },
+  {
+    "rank": 3,
+    "item_id": 426,
+    "item_name": "Grease"
+  },
+  {
+    "rank": 4,
+    "item_id": 9,
+    "item_name": "Snow White and the Seven Dwarfs"
+  },
+  {
+    "rank": 5,
+    "item_id": 46,
+    "item_name": "Mary Poppins"
+  },
+  {
+    "rank": 6,
+    "item_id": 208,
+    "item_name": "Little Mermaid, The"
+  },
+  {
+    "rank": 7,
+    "item_id": 419,
+    "item_name": "Dirty Dancing"
+  },
+  {
+    "rank": 8,
+    "item_id": 15,
+    "item_name": "Sound of Music, The"
+  },
+  {
+    "rank": 9,
+    "item_id": 47,
+    "item_name": "Dumbo"
+  },
+  {
+    "rank": 10,
+    "item_id": 414,
+    "item_name": "West Side Story"
+  },
+  {
+    "rank": 11,
+    "item_id": 681,
+    "item_name": "Alice in Wonderland"
+  },
+  {
+    "rank": 12,
+    "item_id": 38,
+    "item_name": "Cinderella"
+  },
+  {
+    "rank": 13,
+    "item_id": 390,
+    "item_name": "Lion King, The"
+  },
+  {
+    "rank": 14,
+    "item_id": 420,
+    "item_name": "Casablanca"
+  },
+  {
+    "rank": 15,
+    "item_id": 648,
+    "item_name": "Meet Me in St. Louis"
+  },
+  {
+    "rank": 16,
+    "item_id": 11,
+    "item_name": "Beauty and the Beast"
+  },
+  {
+    "rank": 17,
+    "item_id": 689,
+    "item_name": "You've Got Mail"
+  },
+  {
+    "rank": 18,
+    "item_id": 10,
+    "item_name": "Wizard of Oz, The"
+  },
+  {
+    "rank": 19,
+    "item_id": 596,
+    "item_name": "Jungle Book, The"
+  },
+  {
+    "rank": 20,
+    "item_id": 1460,
+    "item_name": "Auntie Mame"
+  },
+  {
+    "rank": 21,
+    "item_id": 382,
+    "item_name": "Four Weddings and a Funeral"
+  },
+  {
+    "rank": 22,
+    "item_id": 117,
+    "item_name": "Groundhog Day"
+  },
+  {
+    "rank": 23,
+    "item_id": 1061,
+    "item_name": "Parent Trap, The"
+  },
+  {
+    "rank": 24,
+    "item_id": 728,
+    "item_name": "Sleepless in Seattle"
+  },
+  {
+    "rank": 25,
+    "item_id": 644,
+    "item_name": "Sabrina"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

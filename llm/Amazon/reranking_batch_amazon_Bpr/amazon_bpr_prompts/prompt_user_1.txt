@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Neil Patrick Harris: Choose Your Own Autobiography"
+  },
+  {
+    "item_name": "The Brightest Fell (October Daye)"
+  },
+  {
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "item_name": "Down Among the Sticks and Bones (Wayward Children)"
+  },
+  {
+    "item_name": "The True Meaning of Smekday"
+  },
+  {
+    "item_name": "A Fistful of Charms (The Hollows, Book 4)"
+  },
+  {
+    "item_name": "Freeks: A Novel"
+  },
+  {
+    "item_name": "Scandal (English and Japanese Edition)"
+  },
+  {
+    "item_name": "The Ripper's Shadow: A Victorian Mystery"
+  },
+  {
+    "item_name": "A Bat in the Belfry: A Home Repair Is Homicide Mystery"
+  },
+  {
+    "item_name": "Fields Where They Lay (A Junior Bender Mystery)"
+  },
+  {
+    "item_name": "Alice and the Assassin: An Alice Roosevelt Mystery"
+  },
+  {
+    "item_name": "The Chilbury Ladies' Choir"
+  },
+  {
+    "item_name": "Noble Vol. 1: God Shots"
+  },
+  {
+    "item_name": "I Have No Mouth &amp; I Must Scream"
+  },
+  {
+    "item_name": "Into the Drowning Deep"
+  },
+  {
+    "item_name": "Dead Cold Brew (A Coffeehouse Mystery)"
+  },
+  {
+    "item_name": "A Perfect Manhattan Murder (A Nic &amp; Nigel Mystery)"
+  },
+  {
+    "item_name": "Endurance: A Year in Space, A Lifetime of Discovery (Random House Large Print)"
+  },
+  {
+    "item_name": "Still Here: A Novel"
+  },
+  {
+    "item_name": "The Cave and the Light: Plato Versus Aristotle, and the Struggle for the Soul of Western Civilization"
+  },
+  {
+    "item_name": "Uncommon Type: Some Stories"
+  },
+  {
+    "item_name": "The List"
+  },
+  {
+    "item_name": "Jim Butchers The Dresden Files: Dog Men"
+  },
+  {
+    "item_name": "South Pole Station: A Novel"
+  },
+  {
+    "item_name": "Children of Fire (The Chaos Born)"
+  },
+  {
+    "item_name": "The Child: The must-read Richard and Judy Book Club pick 2018"
+  },
+  {
+    "item_name": "The Sex Tourist"
+  },
+  {
+    "item_name": "The Leavers (National Book Award Finalist): A Novel"
+  },
+  {
+    "item_name": "Clock Dance: A novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The City"
+  },
+  {
+    "rank": 2,
+    "item_name": "Dark Side of the Road, The: A country house murder mystery with a supernatural twist (An Ishmael Jones Mystery)"
+  },
+  {
+    "rank": 3,
+    "item_name": "All Our Wrong Todays: A BBC Radio 2 Book Club Choice 2017"
+  },
+  {
+    "rank": 4,
+    "item_name": "Artemis"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Wolf Road"
+  },
+  {
+    "rank": 6,
+    "item_name": "Ink and Bone"
+  },
+  {
+    "rank": 7,
+    "item_name": "Bird &amp; Squirrel On Ice (Bird &amp; Squirrel #2)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Season of the Witch"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Water's Edge"
+  },
+  {
+    "rank": 10,
+    "item_name": "That Darkness (A Gardiner and Renner Novel)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Girl in the Tower: A Novel (Winternight Trilogy)"
+  },
+  {
+    "rank": 12,
+    "item_name": "This Is Where It Ends"
+  },
+  {
+    "rank": 13,
+    "item_name": "Oliver and the Seawigs"
+  },
+  {
+    "rank": 14,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Library at Mount Char"
+  },
+  {
+    "rank": 16,
+    "item_name": "Dark Matter"
+  },
+  {
+    "rank": 17,
+    "item_name": "Harley Quinn Vol. 3: Red Meat (Rebirth) (Harley Quinn: Rebirth)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Manifest Destiny Volume 1: Flora &amp; Fauna"
+  },
+  {
+    "rank": 20,
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Undertow (The Undertow Trilogy)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Yesterday's Kin"
+  },
+  {
+    "rank": 23,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Saturn Run"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Vines"
+  },
+  {
+    "rank": 26,
+    "item_name": "A Monster Calls: Inspired by an idea from Siobhan Dowd"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Chalk Man"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Ricky Ricotta's Mighty Robot (Astro-Activity Book O'Fun) by Pilkey, Dav (unknown Edition) [Paperback(2006)]"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "Kittens Can Kill: A Pru Marlowe Pet Noir"
+  },
+  {
+    "rank": 32,
+    "item_name": "Northwoods (The Fatal Folklore Trilogy Book 2) eBook"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Bone Witch"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Long Way to a Small, Angry Planet (Wayfarers)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Night Circus (Vintage Magic)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Before the Fall: The year's best suspense novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "The 7th Woman (Paris Homicide)"
+  },
+  {
+    "rank": 38,
+    "item_name": "In Such Good Company: Eleven Years of Laughter, Mayhem, and Fun in the Sandbox"
+  },
+  {
+    "rank": 39,
+    "item_name": "Bellman &amp; Black"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 41,
+    "item_name": "Final Girls: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "Cherringham - Murder on Thames"
+  },
+  {
+    "rank": 43,
+    "item_name": "Immortal Writers"
+  },
+  {
+    "rank": 44,
+    "item_name": "Day Shift (Midnight, Texas)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Readers of Broken Wheel Recommend"
+  },
+  {
+    "rank": 46,
+    "item_name": "Sunborn Rising: Beneath the Fall"
+  },
+  {
+    "rank": 47,
+    "item_name": "Pop Goes the Weasel (A Helen Grace Thriller)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Curious Minds: A Knight and Moon Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Wraithborn (Benitez Edition)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Tropic of Serpents: A Memoir by Lady Trent (The Lady Trent Memoirs)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

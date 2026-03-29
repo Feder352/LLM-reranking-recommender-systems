@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Left Hand of Darkness (Penguin Galaxy)"
+  },
+  {
+    "item_name": "On Stranger Tides"
+  },
+  {
+    "item_name": "Unusual Chickens for the Exceptional Poultry Farmer"
+  },
+  {
+    "item_name": "Palimpsest: A Novel"
+  },
+  {
+    "item_name": "Snow &amp; Rose"
+  },
+  {
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "item_name": "Time Traveler's Wife"
+  },
+  {
+    "item_name": "LIRAEL: Daughter of the Clayr (Old Kingdom)"
+  },
+  {
+    "item_name": "The Poisonwood Bible"
+  },
+  {
+    "item_name": "Annihilation (The Southern Reach Trilogy)"
+  },
+  {
+    "item_name": "Food: A Love Story"
+  },
+  {
+    "item_name": "Dad Is Fat"
+  },
+  {
+    "item_name": "Dad Is Fat"
+  },
+  {
+    "item_name": "The Bookshop on the Corner: A Novel"
+  },
+  {
+    "item_name": "Altered Carbon (Takeshi Kovacs)"
+  },
+  {
+    "item_name": "War Horse (Collins Readers)"
+  },
+  {
+    "item_name": "The Circus Fire: A True Story of an American Tragedy"
+  },
+  {
+    "item_name": "Heartless (The Parasol Protectorate)"
+  },
+  {
+    "item_name": "Napalm &amp; Silly Putty"
+  },
+  {
+    "item_name": "We All Looked Up"
+  },
+  {
+    "item_name": "Timeless (The Parasol Protectorate, No. 5)"
+  },
+  {
+    "item_name": "Ray Bradbury's Fahrenheit 451: The Authorized Adaptation"
+  },
+  {
+    "item_name": "Flatland: A Romance of Many Dimensions (Penguin Classics)"
+  },
+  {
+    "item_name": "Argo: How the CIA and Hollywood Pulled Off the Most Audacious Rescue in History"
+  },
+  {
+    "item_name": "The Refrigerator Monologues"
+  },
+  {
+    "item_name": "THE DAY THE WORLD CAME TO TOWN:   9/11 in Gander, Newfoundland"
+  },
+  {
+    "item_name": "The Absolutely True Diary of a Part-Time Indian"
+  },
+  {
+    "item_name": "The Castle of Llyr (Pyrdain Chronicles)"
+  },
+  {
+    "item_name": "Poison or Protect: A Delightfully Deadly Novella"
+  },
+  {
+    "item_name": "Stranger in a Strange Land"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 3,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 5,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 7,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Casual Vacancy"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Giver (Collins Modern Classics)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 12,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 13,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 16,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Graveyard Book"
+  },
+  {
+    "rank": 19,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Thirteen Reasons Why"
+  },
+  {
+    "rank": 21,
+    "item_name": "Saga, Vol. 2"
+  },
+  {
+    "rank": 22,
+    "item_name": "Saga, Vol. 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Wonder"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 27,
+    "item_name": "Allegiant"
+  },
+  {
+    "rank": 28,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 29,
+    "item_name": "Thirteen Reasons Why"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Perks Of Being A Wallflower (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Club Dead (Sookie Stackhouse/True Blood, Book 3)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 34,
+    "item_name": "ARTEMIS FOWL - The Eternity Code"
+  },
+  {
+    "rank": 35,
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "rank": 36,
+    "item_name": "American Gods"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 38,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Neverwhere: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Charlie and the Chocolate Factory"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Dune (Penguin Galaxy)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Northern Lights: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "Beautiful Creatures. by Kami Garcia &amp; Margaret Stohl"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Princess of Mars (Penguin Classics)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Storm of Swords (HBO Tie-in Edition): A Song of Ice and Fire: Book Three"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Clash of Kings: A Song of Ice and Fire: Book Two"
+  },
+  {
+    "rank": 49,
+    "item_name": "Joyland (Turtleback School &amp; Library Binding Edition) (Hcc)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Smoke and Mirrors: Short Fictions and Illusions"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

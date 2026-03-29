@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Fer-de-Lance (Nero Wolfe)"
+  },
+  {
+    "item_name": "Fer-de-Lance/The League of Frightened Men (Nero Wolfe)"
+  },
+  {
+    "item_name": "The Ninth Daughter (An Abigail Adams Mystery)"
+  },
+  {
+    "item_name": "The Nursing Home Murder (Roderick Alleyn)"
+  },
+  {
+    "item_name": "Partners in Crime (Tommy &amp; Tuppence Chronology)"
+  },
+  {
+    "item_name": "Outrage"
+  },
+  {
+    "item_name": "These High, Green Hills (The Mitford Years)"
+  },
+  {
+    "item_name": "A Place of Peace (Kauffman Amish Bakery)"
+  },
+  {
+    "item_name": "The Thinking Woman's Guide to Real Magic: A Novel"
+  },
+  {
+    "item_name": "Always the Baker, Never the Bride: Another Emma Rae Creation - Book 1"
+  },
+  {
+    "item_name": "Rally 'Round Green (Gone to Green Series)"
+  },
+  {
+    "item_name": "Pumpkins in Paradise: A Tj Jensen Paradise Lake Mystery (Tj Jensen Paradise Lake Mystery Book 1)"
+  },
+  {
+    "item_name": "A Play of Knaves (A Joliffe Mystery)"
+  },
+  {
+    "item_name": "The Reunion"
+  },
+  {
+    "item_name": "Roadside Assistance"
+  },
+  {
+    "item_name": "The Surgeon's Mate"
+  },
+  {
+    "item_name": "They Came to Baghdad Complete &amp; Unabridged"
+  },
+  {
+    "item_name": "An Unmarked Grave (Bess Crawford Mysteries)"
+  },
+  {
+    "item_name": "There Goes the Bride: An Agatha Raisin Mystery (Agatha Raisin Mysteries)"
+  },
+  {
+    "item_name": "Uncommon Grounds"
+  },
+  {
+    "item_name": "Those Who Dare (Raiding Forces) (Volume 1)"
+  },
+  {
+    "item_name": "A Time to Heal (Quilts of Lancaster County, Book 2)"
+  },
+  {
+    "item_name": "Tug of War: A Joe Sandilands Mystery"
+  },
+  {
+    "item_name": "Wives of War"
+  },
+  {
+    "item_name": "Hidden Figures: The American Dream and the Untold Story of the Black Women Mathematicians Who Helped Win the Space Race"
+  },
+  {
+    "item_name": "The Yuletide Angel"
+  },
+  {
+    "item_name": "Morrigan"
+  },
+  {
+    "item_name": "Claiming Victory: A Romantic Comedy (The Dartmouth Diaries) (Volume 1)"
+  },
+  {
+    "item_name": "Progressive Dinner Deadly: A Myrtle Clover Mystery (Myrtle Clover Mysteries) (Volume 2)"
+  },
+  {
+    "item_name": "An American Princess: The Many Lives of Allene Tew"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3413,
+    "item_name": "Espresso Shot"
+  },
+  {
+    "rank": 2,
+    "item_id": 3408,
+    "item_name": "Decaffeinated Corpse (Coffeehouse Mysteries, No. 5)"
+  },
+  {
+    "rank": 3,
+    "item_id": 3489,
+    "item_name": "The Diva Digs Up the Dirt (A Domestic Diva Mystery)"
+  },
+  {
+    "rank": 4,
+    "item_id": 5685,
+    "item_name": "The Lost Quilter: An Elm Creek Quilts Novel (Elm Creek Quilts Novels)"
+  },
+  {
+    "rank": 5,
+    "item_id": 3500,
+    "item_name": "Holiday Buzz (A Coffeehouse Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_id": 3309,
+    "item_name": "Picture Miss Seeton"
+  },
+  {
+    "rank": 7,
+    "item_id": 3389,
+    "item_name": "Murder Most Frothy (Coffeehouse Mysteries, No. 4)"
+  },
+  {
+    "rank": 8,
+    "item_id": 2802,
+    "item_name": "Mrs. Pollifax on the China Station"
+  },
+  {
+    "rank": 9,
+    "item_id": 245,
+    "item_name": "The Judas Strain: A Sigma Force Novel"
+  },
+  {
+    "rank": 10,
+    "item_id": 3478,
+    "item_name": "Red Velvet Revenge (Cupcake Bakery Mystery)"
+  },
+  {
+    "rank": 11,
+    "item_id": 3472,
+    "item_name": "Sweet Tea Revenge (A Tea Shop Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_id": 1854,
+    "item_name": "A Trick of the Light: A Chief Inspector Gamache Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 3393,
+    "item_name": "Spanish Dagger (China Bayles Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_id": 3479,
+    "item_name": "Steeped in Evil (A Tea Shop Mystery)"
+  },
+  {
+    "rank": 15,
+    "item_id": 5110,
+    "item_name": "The Book Club"
+  },
+  {
+    "rank": 16,
+    "item_id": 5037,
+    "item_name": "North By Northanger, or The Shades of Pemberley: A Mr. &amp; Mrs. Darcy Mystery (Mr. and Mrs. Darcy Mysteries)"
+  },
+  {
+    "rank": 17,
+    "item_id": 3886,
+    "item_name": "The Serpents Trail (Maxie and Stretch Mystery)"
+  },
+  {
+    "rank": 18,
+    "item_id": 3466,
+    "item_name": "Going, Going, Ganache (Cupcake Bakery Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_id": 2286,
+    "item_name": "Up Close and Dangerous: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_id": 3499,
+    "item_name": "Read It and Weep (A Library Lover's Mystery)"
+  },
+  {
+    "rank": 21,
+    "item_id": 6122,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 22,
+    "item_id": 915,
+    "item_name": "The Giving Quilt: An Elm Creek Quilts Novel"
+  },
+  {
+    "rank": 23,
+    "item_id": 3388,
+    "item_name": "Let There Be Suspects (Ministry Is Murder Mystery)"
+  },
+  {
+    "rank": 24,
+    "item_id": 3913,
+    "item_name": "Better Read Than Dead (Psychic Eye Mysteries, Book 2)"
+  },
+  {
+    "rank": 25,
+    "item_id": 3357,
+    "item_name": "Dead Man's Bones (China Bayles Mysteries #13)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

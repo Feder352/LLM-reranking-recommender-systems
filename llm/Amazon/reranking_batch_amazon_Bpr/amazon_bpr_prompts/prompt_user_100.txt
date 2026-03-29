@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Cobra"
+  },
+  {
+    "item_name": "Arctic Summer"
+  },
+  {
+    "item_name": "The Dog: A Novel"
+  },
+  {
+    "item_name": "Strange Loyalties"
+  },
+  {
+    "item_name": "The End of Days"
+  },
+  {
+    "item_name": "Those Who Leave And Those Who Stay (The Neapolitan Novels: Thorndike Press Large Print Basic: Middle Time)"
+  },
+  {
+    "item_name": "[Nora Webster] (By: Colm Toibin) [published: October, 2014] [Paperback] [Oct 02, 2014] Colm Toibin"
+  },
+  {
+    "item_name": "Shadows in the Vineyard: The True Story of the Plot to Poison the World's Greatest Wine"
+  },
+  {
+    "item_name": "His Own Man"
+  },
+  {
+    "item_name": "Happy are the Happy"
+  },
+  {
+    "item_name": "Frog: A Novel"
+  },
+  {
+    "item_name": "Dorothy Parker Drank Here"
+  },
+  {
+    "item_name": "Viper: No Resurrection for Commissario Ricciardi"
+  },
+  {
+    "item_name": "H Is For Hawk (Vintage Books)"
+  },
+  {
+    "item_name": "The Discreet Hero: A Novel"
+  },
+  {
+    "item_name": "The Black-Eyed Blonde: A Philip Marlowe Novel (Philip Marlowe Series)"
+  },
+  {
+    "item_name": "Blood on Snow: A Novel"
+  },
+  {
+    "item_name": "The Tusk That Did the Damage: A novel"
+  },
+  {
+    "item_name": "I Refuse: A Novel"
+  },
+  {
+    "item_name": "Lost for Words: A Novel"
+  },
+  {
+    "item_name": "Innocence; or, Murder on Steep Street"
+  },
+  {
+    "item_name": "Suspended Sentences: Three Novellas (The Margellos World Republic of Letters)"
+  },
+  {
+    "item_name": "So You Don't Get Lost in the Neighborhood"
+  },
+  {
+    "item_name": "The Tsar of Love and Techno: Stories"
+  },
+  {
+    "item_name": "The Bottom of Your Heart: Inferno for Commissario Ricciardi"
+  },
+  {
+    "item_name": "Tightrope"
+  },
+  {
+    "item_name": "The Assassination of Margaret Thatcher: Stories"
+  },
+  {
+    "item_name": "Beatlebone"
+  },
+  {
+    "item_name": "The Door"
+  },
+  {
+    "item_name": "Sailor and Fiddler: Reflections of a 100-Year-Old Author"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 2,
+    "item_name": "Brighton Rock"
+  },
+  {
+    "rank": 3,
+    "item_name": "HHhH: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Balthazar [Paperback] [Jan 01, 2008] Lawrence Durrell"
+  },
+  {
+    "rank": 5,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Golden Mean"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Alexandria Quartet"
+  },
+  {
+    "rank": 8,
+    "item_name": "Travels with My Aunt"
+  },
+  {
+    "rank": 9,
+    "item_name": "March: a Love Story in a Time of War"
+  },
+  {
+    "rank": 10,
+    "item_name": "Reading &quot;Lolita&quot; in Tehran: A Memoir in Books"
+  },
+  {
+    "rank": 11,
+    "item_name": "Freedom"
+  },
+  {
+    "rank": 12,
+    "item_name": "Back When We Were Grownups"
+  },
+  {
+    "rank": 13,
+    "item_name": "Specimen Days"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Thousand Splendid Suns: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Whereabouts of Eneas McNulty"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Bluest Eye (Vintage International)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Appointment in Samarra (Vintage Classics)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Jar City: An Inspector Erlendur Novel (An Inspector Erlendur Series)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Commonwealth CD"
+  },
+  {
+    "rank": 20,
+    "item_name": "Don't Look Now (Pocket Penguins)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Sportswriter"
+  },
+  {
+    "rank": 22,
+    "item_name": "Alias Grace"
+  },
+  {
+    "rank": 23,
+    "item_name": "Lord Jim (New School Classics)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Distant Star"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Dogs of Riga"
+  },
+  {
+    "rank": 26,
+    "item_name": "Tomb for Boris Davidovich (Eastern European Studies (Paperback))"
+  },
+  {
+    "rank": 27,
+    "item_name": "Zero K: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Dance to the Music of Time: Second Movement"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Post-Office Girl (New York Review Books Classics)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Goodbye, Columbus : And Five Short Stories (Vintage International)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Norwegian Wood"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Final Solution CD: A Story of Detection"
+  },
+  {
+    "rank": 33,
+    "item_name": "Talented MR Ripley"
+  },
+  {
+    "rank": 34,
+    "item_name": "Azincourt"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Fine Balance"
+  },
+  {
+    "rank": 36,
+    "item_name": "Detective Inspector Huss"
+  },
+  {
+    "rank": 37,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Magpie Murders: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Plainsong"
+  },
+  {
+    "rank": 40,
+    "item_name": "Tree of Smoke"
+  },
+  {
+    "rank": 41,
+    "item_name": "Revolutionary Road"
+  },
+  {
+    "rank": 42,
+    "item_name": "Home: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Reluctant Fundamentalist"
+  },
+  {
+    "rank": 44,
+    "item_name": "For Whom the Bell Tolls"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Kiss Before Dying"
+  },
+  {
+    "rank": 46,
+    "item_name": "Memoirs of a Geisha Uk"
+  },
+  {
+    "rank": 47,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 48,
+    "item_name": "In the Country of Men: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Deaf Sentence: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Testament of Mary"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

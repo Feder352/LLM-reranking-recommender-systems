@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Death from the Skies!: The Science Behind the End of the World"
+  },
+  {
+    "item_name": "The Kane Chronicles Paperback Box Set : Includes The Red Pyramid, The Throne of Fire, and The Serpent's Shadow in a sturdy slipcase, plus an amulet necklace. (The Kane Chronicles)"
+  },
+  {
+    "item_name": "The Sword Thief (The 39 Clues, Book 3)"
+  },
+  {
+    "item_name": "Beyond the Grave (The 39 Clues , Book 4)"
+  },
+  {
+    "item_name": "Prince Valiant, Vol. 5: The Sea King"
+  },
+  {
+    "item_name": "The Disappearing Spoon: And Other True Tales of Madness, Love, and the History of the World from the Periodic Table of the Elements"
+  },
+  {
+    "item_name": "The Black Circle (The 39 Clues , Book 5)"
+  },
+  {
+    "item_name": "In Too Deep (The 39 Clues, Book 6)"
+  },
+  {
+    "item_name": "The Viper's Nest (The 39 Clues, Book 7)"
+  },
+  {
+    "item_name": "The Emperor's Code (The 39 Clues, Book 8)"
+  },
+  {
+    "item_name": "Storm Warning (The 39 Clues, Book 9)"
+  },
+  {
+    "item_name": "Into the Gauntlet (The 39 Clues, Book 10)"
+  },
+  {
+    "item_name": "Prince Valiant, Vol. 5: The Sea King"
+  },
+  {
+    "item_name": "The Lost Hero. Rick Riordan"
+  },
+  {
+    "item_name": "Archie Meets Nero Wolfe: A Prequel to Rex Stout's Nero Wolfe Mysteries (The Nero Wolfe Mysteries)"
+  },
+  {
+    "item_name": "The Devil to Pay"
+  },
+  {
+    "item_name": "Devil to Pay (The Richard Delancey Novels Book 2) eBook"
+  },
+  {
+    "item_name": "The Missing Chapter"
+  },
+  {
+    "item_name": "The Son of Neptune (Heroes of Olympus Book 2)"
+  },
+  {
+    "item_name": "The Violinist's Thumb: And Other Lost Tales of Love, War, and Genius, as Written by Our Genetic Code"
+  },
+  {
+    "item_name": "Prince Valiant, Vol. 5: The Sea King"
+  },
+  {
+    "item_name": "Naked Once More"
+  },
+  {
+    "item_name": "Doubting Jesus' Resurrection: What Happened in the Black Box?"
+  },
+  {
+    "item_name": "The Hunt for Vulcan: . . . And How Albert Einstein Destroyed a Planet, Discovered Relativity, and Deciphered the Universe"
+  },
+  {
+    "item_name": "Prince Valiant, Vol. 5: The Sea King"
+  },
+  {
+    "item_name": "Serenity: Leaves on the Wind"
+  },
+  {
+    "item_name": "Prince Valiant, Vol. 5: The Sea King"
+  },
+  {
+    "item_name": "Stop the Presses! (The Nero Wolfe Mysteries)"
+  },
+  {
+    "item_name": "Murder, Stage Left (The Nero Wolfe Mysteries)"
+  },
+  {
+    "item_name": "Secret Wars (Marvel Super Heroes)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 4235,
+    "item_name": "Wonderstruck (Schneider Family Book Award - Middle School Winner)"
+  },
+  {
+    "rank": 2,
+    "item_id": 5715,
+    "item_name": "Lost and Found"
+  },
+  {
+    "rank": 3,
+    "item_id": 322,
+    "item_name": "Smoke and Mirrors: Short Fictions and Illusions"
+  },
+  {
+    "rank": 4,
+    "item_id": 1367,
+    "item_name": "Inkspell (Inkheart)"
+  },
+  {
+    "rank": 5,
+    "item_id": 59,
+    "item_name": "The Amazing Maurice and His Educated Rodents (Discworld)"
+  },
+  {
+    "rank": 6,
+    "item_id": 44,
+    "item_name": "A Feast for Crows"
+  },
+  {
+    "rank": 7,
+    "item_id": 1552,
+    "item_name": "A Clash of Kings: A Song of Ice and Fire: Book Two"
+  },
+  {
+    "rank": 8,
+    "item_id": 4240,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 9,
+    "item_id": 3615,
+    "item_name": "Club Dead (Sookie Stackhouse/True Blood, Book 3)"
+  },
+  {
+    "rank": 10,
+    "item_id": 2698,
+    "item_name": "Ring of Fire (Century Quartet, Book 1)"
+  },
+  {
+    "rank": 11,
+    "item_id": 4243,
+    "item_name": "The False Prince (The Ascendance Trilogy, Book 1)"
+  },
+  {
+    "rank": 12,
+    "item_id": 958,
+    "item_name": "Across the Universe"
+  },
+  {
+    "rank": 13,
+    "item_id": 2695,
+    "item_name": "When You Reach Me (Yearling Newbery)"
+  },
+  {
+    "rank": 14,
+    "item_id": 14,
+    "item_name": "Dust"
+  },
+  {
+    "rank": 15,
+    "item_id": 5654,
+    "item_name": "Clockwork Angel"
+  },
+  {
+    "rank": 16,
+    "item_id": 5653,
+    "item_name": "Code Name Verity"
+  },
+  {
+    "rank": 17,
+    "item_id": 959,
+    "item_name": "The Burning Bridge (The Ranger's Apprentice, Book 2)"
+  },
+  {
+    "rank": 18,
+    "item_id": 948,
+    "item_name": "A Tale Dark and Grimm"
+  },
+  {
+    "rank": 19,
+    "item_id": 6073,
+    "item_name": "William Shakespeare's Star Wars"
+  },
+  {
+    "rank": 20,
+    "item_id": 83,
+    "item_name": "Flat Stanley: His Original Adventure!"
+  },
+  {
+    "rank": 21,
+    "item_id": 4284,
+    "item_name": "The Amulet of Samarkand (The Bartimaeus Trilogy, Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_id": 970,
+    "item_name": "Three Times Lucky (Mo &amp; Dale Mysteries)"
+  },
+  {
+    "rank": 23,
+    "item_id": 1177,
+    "item_name": "Dealing with Dragons: The Enchanted Forest Chronicles, Book One"
+  },
+  {
+    "rank": 24,
+    "item_id": 4664,
+    "item_name": "The Wrath of Mulgarath (The Spiderwick Chronicles)"
+  },
+  {
+    "rank": 25,
+    "item_id": 1174,
+    "item_name": "How I Became a Pirate"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

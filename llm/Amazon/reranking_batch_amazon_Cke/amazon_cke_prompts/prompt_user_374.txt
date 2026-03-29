@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Cat Among the Pumpkins (No. 2 Feline Detective)"
+  },
+  {
+    "item_name": "Creatures of Will and Temper"
+  },
+  {
+    "item_name": "The Trouble With Twelfth Grave (Charley Davidson)"
+  },
+  {
+    "item_name": "The Secret, Book &amp; Scone Society"
+  },
+  {
+    "item_name": "Stay Calm and Collie On"
+  },
+  {
+    "item_name": "Lament for a Maker: A Sir John Appleby Mystery"
+  },
+  {
+    "item_name": "The Ghost of Christmas Past: A Molly Murphy Mystery (Molly Murphy Mysteries)"
+  },
+  {
+    "item_name": "Wagging through the Snow (A Melanie Travis Mystery)"
+  },
+  {
+    "item_name": "The Girl in the Tower: A Novel (Winternight Trilogy)"
+  },
+  {
+    "item_name": "Strange Music: A Pip &amp; Flinx Adventure (Adventures of Pip &amp; Flinx)"
+  },
+  {
+    "item_name": "Crazy Like a Fox: A Novel (Sister Jane)"
+  },
+  {
+    "item_name": "Not a Creature Was Purring (A Paws &amp; Claws Mystery)"
+  },
+  {
+    "item_name": "Murder in the Manuscript Room: A 42nd Street Library Mystery (The 42nd Street Library Mysteries)"
+  },
+  {
+    "item_name": "BEWARE THE PAST a gripping crime thriller with a huge twist"
+  },
+  {
+    "item_name": "The Ninja's Illusion (A Jaya Jones Treasure Hunt Mystery) (Volume 5)"
+  },
+  {
+    "item_name": "Pre-Meditated Murder (A Downward Dog Mystery)"
+  },
+  {
+    "item_name": "Lie With Me: the gripping Richard &amp; Judy bestseller - a perfect summer read [Paperback] [Dec 28, 2016] Sabine Durrant"
+  },
+  {
+    "item_name": "Dead Eye (A Tiger's Eye Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "The Magician's Lie: A Novel"
+  },
+  {
+    "item_name": "The Cat of the Baskervilles: A Sherlock Holmes Bookshop Mystery"
+  },
+  {
+    "item_name": "Coffin Scarcely Used"
+  },
+  {
+    "item_name": "The Weight Of The Evidence (Inspector Appleby)"
+  },
+  {
+    "item_name": "Pawprints &amp; Predicaments (Lucky Paws Petsitting Mystery)"
+  },
+  {
+    "item_name": "Dead Lions: Jackson Lamb Thriller 2"
+  },
+  {
+    "item_name": "It Takes a Coven (A Witch City Mystery)"
+  },
+  {
+    "item_name": "Real Tigers (Slough House)"
+  },
+  {
+    "item_name": "The Pajama Frame (A Madison Night Mystery) (Volume 5)"
+  },
+  {
+    "item_name": "The Bengal Identity (A Cat Groomer Mystery)"
+  },
+  {
+    "item_name": "Murder at Half Moon Gate (A Wrexford &amp; Sloane Mystery)"
+  },
+  {
+    "item_name": "Murder on the SS Rosa: A Ginger Gold Mystery (Ginger Gold Mysteries)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5209,
+    "item_name": "Dying to Read: A Novel (The Cate Kinkaid Files-Book 1)"
+  },
+  {
+    "rank": 2,
+    "item_id": 3499,
+    "item_name": "Read It and Weep (A Library Lover's Mystery)"
+  },
+  {
+    "rank": 3,
+    "item_id": 3309,
+    "item_name": "Picture Miss Seeton"
+  },
+  {
+    "rank": 4,
+    "item_id": 5097,
+    "item_name": "1225 Christmas Tree Lane (Cedar Cove)"
+  },
+  {
+    "rank": 5,
+    "item_id": 4050,
+    "item_name": "The Whole Cat and Caboodle (Second Chance Cat Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_id": 4009,
+    "item_name": "The Cat, the Wife and the Weapon: A Cats in Trouble Mystery"
+  },
+  {
+    "rank": 7,
+    "item_id": 3510,
+    "item_name": "Poisoned Prose (A Books by the Bay Mystery)"
+  },
+  {
+    "rank": 8,
+    "item_id": 2495,
+    "item_name": "The Best Man (The Blue Heron Series)"
+  },
+  {
+    "rank": 9,
+    "item_id": 3489,
+    "item_name": "The Diva Digs Up the Dirt (A Domestic Diva Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_id": 4035,
+    "item_name": "Throw in the Trowel (Flower Shop Mystery)"
+  },
+  {
+    "rank": 11,
+    "item_id": 3467,
+    "item_name": "One Hot Murder (Victoria Square Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_id": 3472,
+    "item_name": "Sweet Tea Revenge (A Tea Shop Mystery)"
+  },
+  {
+    "rank": 13,
+    "item_id": 4049,
+    "item_name": "The Cat, the Mill and the Murder: A Cats in Trouble Mystery"
+  },
+  {
+    "rank": 14,
+    "item_id": 2489,
+    "item_name": "Christmas on 4th Street (Fool's Gold, Book 14)"
+  },
+  {
+    "rank": 15,
+    "item_id": 5140,
+    "item_name": "The Wanderer (Thunder Point)"
+  },
+  {
+    "rank": 16,
+    "item_id": 5098,
+    "item_name": "Sunrise Point (Virgin River)"
+  },
+  {
+    "rank": 17,
+    "item_id": 2501,
+    "item_name": "Somebody To Love (Hqn)"
+  },
+  {
+    "rank": 18,
+    "item_id": 3445,
+    "item_name": "Grace Under Pressure (Manor House Mysteries, No. 1)"
+  },
+  {
+    "rank": 19,
+    "item_id": 5123,
+    "item_name": "Can't Help Falling in Love (The Sullivans)"
+  },
+  {
+    "rank": 20,
+    "item_id": 3477,
+    "item_name": "Scandal in Skibbereen (A County Cork Mystery)"
+  },
+  {
+    "rank": 21,
+    "item_id": 627,
+    "item_name": "Big Girl Panties: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_id": 3497,
+    "item_name": "Last Licks (Sunny &amp; Shadow Mystery)"
+  },
+  {
+    "rank": 23,
+    "item_id": 2380,
+    "item_name": "The Escape (A Survivors' Club Novel)"
+  },
+  {
+    "rank": 24,
+    "item_id": 2374,
+    "item_name": "True Love (Nantucket Brides Trilogy)"
+  },
+  {
+    "rank": 25,
+    "item_id": 3479,
+    "item_name": "Steeped in Evil (A Tea Shop Mystery)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dirty Deeds"
+  },
+  {
+    "item_name": "Alpha's Second Chance (Werebears Of The Everglades)"
+  },
+  {
+    "item_name": "The Milkman"
+  },
+  {
+    "item_name": "Stolen Son: A gripping psychological thriller that will have you hooked"
+  },
+  {
+    "item_name": "The Baby Mission"
+  },
+  {
+    "item_name": "King Size"
+  },
+  {
+    "item_name": "In The Darkness: A Project Artemis Novel (Volume 1)"
+  },
+  {
+    "item_name": "First Touch: First Touch: My Best Friend's Little Sister"
+  },
+  {
+    "item_name": "King of Wall Street"
+  },
+  {
+    "item_name": "We Own Tonight"
+  },
+  {
+    "item_name": "Holden's Mate (Daddy Dragon Guardians)"
+  },
+  {
+    "item_name": "The Dragon King's Prisoner: A Paranormal Romance (Separated by Time) (Volume 1)"
+  },
+  {
+    "item_name": "The CEO's Redemption"
+  },
+  {
+    "item_name": "Accidental Hero: A Marriage Mistake Romance"
+  },
+  {
+    "item_name": "The Forever Girl: Forever Girl Series, Volume One: Sophia's Journey (Volume 1)"
+  },
+  {
+    "item_name": "Billionaire Matchmaker"
+  },
+  {
+    "item_name": "Runaway Mate (Shifters of Bear's Den) (Volume 4)"
+  },
+  {
+    "item_name": "Dragon Shifter Romance: Playing With Fire: Dragons Of The Darkblood Secret Society (Paranormal Shapeshifter Romance)"
+  },
+  {
+    "item_name": "I Hired a Hitman: A Bad Boy Mafia Romance"
+  },
+  {
+    "item_name": "Deliciously Damaged: Reckless Bastards MC"
+  },
+  {
+    "item_name": "Merciless"
+  },
+  {
+    "item_name": "Scorpio"
+  },
+  {
+    "item_name": "Compromising the Billionaire (Scandals of the Bad Boy Billionaires) (Volume 9)"
+  },
+  {
+    "item_name": "Fated Attraction (Werebears Of The Everglades)"
+  },
+  {
+    "item_name": "Montana SEAL Undercover Daddy (Brotherhood Protectors) (Volume 9)"
+  },
+  {
+    "item_name": "The Dragon Warrior's Baby: A Paranormal Romance (Separated by Time) (Volume 2)"
+  },
+  {
+    "item_name": "Protector"
+  },
+  {
+    "item_name": "Beau's Mate (Daddy Dragon Guardians)"
+  },
+  {
+    "item_name": "His Banana"
+  },
+  {
+    "item_name": "Damien's Nanny (Beverly Hills Dragons)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 58732,
+    "item_name": "Broken: A Dark Romance"
+  },
+  {
+    "rank": 2,
+    "item_id": 72117,
+    "item_name": "Mr. Fixit"
+  },
+  {
+    "rank": 3,
+    "item_id": 75390,
+    "item_name": "Damaged"
+  },
+  {
+    "rank": 4,
+    "item_id": 72378,
+    "item_name": "Accidental Daddy: A Billionaire's Baby Romance"
+  },
+  {
+    "rank": 5,
+    "item_id": 60788,
+    "item_name": "Stockholm Syndromance: A Bad Boy Romance (Still a Bad Boy) (Volume 4)"
+  },
+  {
+    "rank": 6,
+    "item_id": 61968,
+    "item_name": "Billionaire in Vegas"
+  },
+  {
+    "rank": 7,
+    "item_id": 61654,
+    "item_name": "Anaconda"
+  },
+  {
+    "rank": 8,
+    "item_id": 74637,
+    "item_name": "The Christmas Surprise: A Billionaire Single Daddy Romance"
+  },
+  {
+    "rank": 9,
+    "item_id": 73565,
+    "item_name": "Rockstar Untamed: A Single Dad Virgin Romance"
+  },
+  {
+    "rank": 10,
+    "item_id": 75194,
+    "item_name": "Absinthe"
+  },
+  {
+    "rank": 11,
+    "item_id": 70751,
+    "item_name": "Anchor"
+  },
+  {
+    "rank": 12,
+    "item_id": 60930,
+    "item_name": "The Mechanic"
+  },
+  {
+    "rank": 13,
+    "item_id": 74626,
+    "item_name": "Rescue Me: A Bad Boy Romance"
+  },
+  {
+    "rank": 14,
+    "item_id": 61593,
+    "item_name": "Dream Daddy: a Daddy's Best Friend Romance"
+  },
+  {
+    "rank": 15,
+    "item_id": 58955,
+    "item_name": "Lumberjacked"
+  },
+  {
+    "rank": 16,
+    "item_id": 71955,
+    "item_name": "Huck: The Montana Brothers (Mountain Men of Montana) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_id": 60297,
+    "item_name": "Prince With Benefits: A Billionaire Royal Romance"
+  },
+  {
+    "rank": 18,
+    "item_id": 73704,
+    "item_name": "The Rebound"
+  },
+  {
+    "rank": 19,
+    "item_id": 72851,
+    "item_name": "Destiny Of The Dragon Prince"
+  },
+  {
+    "rank": 20,
+    "item_id": 59077,
+    "item_name": "Steal Me"
+  },
+  {
+    "rank": 21,
+    "item_id": 60355,
+    "item_name": "The Cinderella Arrangement"
+  },
+  {
+    "rank": 22,
+    "item_id": 72091,
+    "item_name": "Hot Daddy: A Single Dad Billionaire Romance"
+  },
+  {
+    "rank": 23,
+    "item_id": 61085,
+    "item_name": "Billionaire's Bombshell"
+  },
+  {
+    "rank": 24,
+    "item_id": 72381,
+    "item_name": "Cain (An Out of the Cage Novel) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_id": 59056,
+    "item_name": "Dirty Promotion"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

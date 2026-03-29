@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Spectrum Critical Thinking for Math, Grade 6"
+  },
+  {
+    "item_name": "Spectrum Critical Thinking for Math, Grade 2"
+  },
+  {
+    "item_name": "Spectrum Critical Thinking for Math, Grade 7"
+  },
+  {
+    "item_name": "Stories from the Dirt: Indiscretions of an Adventure Junkie"
+  },
+  {
+    "item_name": "The Innovation Code: The Creative Power of Constructive Conflict"
+  },
+  {
+    "item_name": "Electric October: Seven World Series Games, Six Lives, Five Minutes of Fame That Lasted Forever"
+  },
+  {
+    "item_name": "Supernormal: The Untold Story of Adversity and Resilience"
+  },
+  {
+    "item_name": "Good Things Happen Slowly: A Life In and Out of Jazz"
+  },
+  {
+    "item_name": "Unleashing the Innovators: How Mature Companies Find New Life with Startups"
+  },
+  {
+    "item_name": "Professor Astro Cat's Frontiers of Space"
+  },
+  {
+    "item_name": "SHSAT Specialized High Schools Admissions Test: SHSAT Test Prep - Revising/Editing Practice Questions"
+  },
+  {
+    "item_name": "SHSAT Prep: 158 Revising/Editing Practice Questions | Specialized High School Admissions Test by ArgoPrep"
+  },
+  {
+    "item_name": "Common Core Math Workbook, Grade 4: Multiple Choice, Daily Math Practice Grade 4"
+  },
+  {
+    "item_name": "GRE Prep by Argo Brothers: Practice Tests + Online System + Videos, GRE Test Prep 2018 (100% FREE Access to Our Full Online GRE Course)"
+  },
+  {
+    "item_name": "Spectrum Critical Thinking for Math, Grade 3"
+  },
+  {
+    "item_name": "Tell Me More: Stories About the 12 Hardest Things I'm Learning to Say"
+  },
+  {
+    "item_name": "Kiss Me at the Stroke of Midnight 1"
+  },
+  {
+    "item_name": "Healthy Air Fryer Cookbook: 100 Great Recipes with Fewer Calories and Less Fat"
+  },
+  {
+    "item_name": "Avalanche! (Survivor Diaries)"
+  },
+  {
+    "item_name": "The Menagerie: Animal Portraits to Color"
+  },
+  {
+    "item_name": "Fantastic Cities: A Coloring Book of Amazing Places Real and Imagined"
+  },
+  {
+    "item_name": "What Is Russia Up To in the Middle East?"
+  },
+  {
+    "item_name": "Great American Outpost: Dreamers, Mavericks, and the Making of an Oil Frontier"
+  },
+  {
+    "item_name": "The Mastery of You: A Journey Toward the Understanding of Self"
+  },
+  {
+    "item_name": "Celebrate Learning Motivators Motivational Stickers"
+  },
+  {
+    "item_name": "Celebrate Learning Chart Seals"
+  },
+  {
+    "item_name": "Singapore Math Practice, Level 5A, Grade 6"
+  },
+  {
+    "item_name": "Step-by-Step Problem Solving, Grade 5 (Singapore Math)"
+  },
+  {
+    "item_name": "70 Must-Know Word Problems, Grade 7 (Singapore Math)"
+  },
+  {
+    "item_name": "Police Exams Prep 2018-2019: 4 Practice Tests + Proven Strategies (Kaplan Test Prep)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2893,
+    "item_name": "My Promised Land: The Triumph and Tragedy of Israel"
+  },
+  {
+    "rank": 2,
+    "item_id": 5287,
+    "item_name": "The Outsourced Self: Intimate Life in Market Times"
+  },
+  {
+    "rank": 3,
+    "item_id": 2955,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 4,
+    "item_id": 6104,
+    "item_name": "Merchants of Doubt: How a Handful of Scientists Obscured the Truth on Issues from Tobacco Smoke to Global Warming"
+  },
+  {
+    "rank": 5,
+    "item_id": 2276,
+    "item_name": "Mindset: The New Psychology of Success"
+  },
+  {
+    "rank": 6,
+    "item_id": 1110,
+    "item_name": "Give and Take: Why Helping Others Drives Our Success"
+  },
+  {
+    "rank": 7,
+    "item_id": 3742,
+    "item_name": "Hitch-22: A Memoir"
+  },
+  {
+    "rank": 8,
+    "item_id": 1104,
+    "item_name": "Escape from Camp 14: One Man's Remarkable Odyssey from North Korea to Freedom in the West"
+  },
+  {
+    "rank": 9,
+    "item_id": 1393,
+    "item_name": "The Universe Within: Discovering the Common History of Rocks, Planets, and People"
+  },
+  {
+    "rank": 10,
+    "item_id": 4946,
+    "item_name": "The Great Cheese Conspiracy"
+  },
+  {
+    "rank": 11,
+    "item_id": 2065,
+    "item_name": "Grain Brain: The Surprising Truth about Wheat, Carbs,  and Sugar--Your Brain's Silent Killers"
+  },
+  {
+    "rank": 12,
+    "item_id": 5912,
+    "item_name": "The Rise of Superman: Decoding the Science of Ultimate Human Performance"
+  },
+  {
+    "rank": 13,
+    "item_id": 643,
+    "item_name": "The Calorie Myth: How to Eat More, Exercise Less, Lose Weight, and Live Better"
+  },
+  {
+    "rank": 14,
+    "item_id": 1479,
+    "item_name": "Twilight of the Elites: America After Meritocracy"
+  },
+  {
+    "rank": 15,
+    "item_id": 768,
+    "item_name": "The Spectator Bird (Contemporary American Fiction)"
+  },
+  {
+    "rank": 16,
+    "item_id": 5639,
+    "item_name": "Take 2: Your Guide to Creating Happy Endings and New Beginnings"
+  },
+  {
+    "rank": 17,
+    "item_id": 1503,
+    "item_name": "War of the Worldviews: Science Vs. Spirituality"
+  },
+  {
+    "rank": 18,
+    "item_id": 2073,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 19,
+    "item_id": 4234,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 20,
+    "item_id": 1235,
+    "item_name": "The Accidental Guerrilla: Fighting Small Wars in the Midst of a Big One"
+  },
+  {
+    "rank": 21,
+    "item_id": 2043,
+    "item_name": "Dave the Potter: Artist, Poet, Slave"
+  },
+  {
+    "rank": 22,
+    "item_id": 4926,
+    "item_name": "Steal Like an Artist: 10 Things Nobody Told You About Being Creative"
+  },
+  {
+    "rank": 23,
+    "item_id": 4943,
+    "item_name": "In Control, Ms. Wiz?"
+  },
+  {
+    "rank": 24,
+    "item_id": 5230,
+    "item_name": "Over Time: My Life as a Sportswriter"
+  },
+  {
+    "rank": 25,
+    "item_id": 1387,
+    "item_name": "13 Bankers: The Wall Street Takeover and the Next Financial Meltdown"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

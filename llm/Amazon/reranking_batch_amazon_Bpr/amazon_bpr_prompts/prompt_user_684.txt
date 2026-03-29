@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Invictus"
+  },
+  {
+    "item_name": "Adventures of a Japanese Businessman [Graphic Novel]"
+  },
+  {
+    "item_name": "The Pinks: The First Women Detectives, Operatives, and Spies with the Pinkerton National Detective Agency"
+  },
+  {
+    "item_name": "The Visionary Mayan Queen: Yohl Ik'nal of Palenque (The Mists of Palenque)"
+  },
+  {
+    "item_name": "Garbage Night"
+  },
+  {
+    "item_name": "The Tethered Mage (Swords and Fire)"
+  },
+  {
+    "item_name": "Courage Is Contagious: And Other Reasons to Be Grateful for Michelle Obama"
+  },
+  {
+    "item_name": "Death on Delos (An Athenian Mystery)"
+  },
+  {
+    "item_name": "A Lot Like Christmas: Stories"
+  },
+  {
+    "item_name": "Idyll Fears: A Thomas Lynch Novel"
+  },
+  {
+    "item_name": "Ask Baba Yaga: Otherworldly Advice for Everyday Troubles"
+  },
+  {
+    "item_name": "Adventures With Andy &amp; Susie"
+  },
+  {
+    "item_name": "The Drowning King (A Fall of Egypt Novel)"
+  },
+  {
+    "item_name": "Jefferson's Daughters: Three Sisters, White and Black, in a Young America (Random House Large Print)"
+  },
+  {
+    "item_name": "Kiss Me at the Stroke of Midnight 1"
+  },
+  {
+    "item_name": "I Love a Book"
+  },
+  {
+    "item_name": "Queens of the Conquest: England's Medieval Queens Book One"
+  },
+  {
+    "item_name": "Mother of the Unseen World: The Mystery of Mother Meera"
+  },
+  {
+    "item_name": "Last Stop in Brooklyn: A Mary Handley Mystery"
+  },
+  {
+    "item_name": "How to Draw Cool Stuff: Shading, Textures and Optical Illusions"
+  },
+  {
+    "item_name": "Creative Haven Christmas Trees Coloring Book (Adult Coloring)"
+  },
+  {
+    "item_name": "Little Leaders: Bold Women in Black History (Vashti Harrison)"
+  },
+  {
+    "item_name": "Why Dogs Have Wet Noses"
+  },
+  {
+    "item_name": "Ghosts"
+  },
+  {
+    "item_name": "Cardcaptor Sakura: Clear Card 1"
+  },
+  {
+    "item_name": "Taproot"
+  },
+  {
+    "item_name": "The Widows of Malabar Hill (A Mystery of 1920s India)"
+  },
+  {
+    "item_name": "Creative Haven Ugly Holiday Sweaters Coloring Book (Adult Coloring)"
+  },
+  {
+    "item_name": "March Forward, Girl: From Young Warrior to Little Rock Nine"
+  },
+  {
+    "item_name": "Winter Tide (The Innsmouth Legacy)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Scarecrow Princess"
+  },
+  {
+    "rank": 2,
+    "item_name": "Happy Cafe, Vol. 1"
+  },
+  {
+    "rank": 3,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Golem and the Jinni: A Novel (P.S.)"
+  },
+  {
+    "rank": 5,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 6,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "My Big Fat Supernatural Honeymoon"
+  },
+  {
+    "rank": 8,
+    "item_name": "Technomancer (Unspeakable Things)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Ricky Ricotta's Mighty Robot Book Set (7 Volumes)"
+  },
+  {
+    "rank": 10,
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "rank": 11,
+    "item_name": "Star Wars: Empire and Rebellion: Honor Among Thieves"
+  },
+  {
+    "rank": 12,
+    "item_name": "Warbreaker"
+  },
+  {
+    "rank": 13,
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Moonhead and the Music Machine"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 16,
+    "item_name": "Dark Disciple: Star Wars"
+  },
+  {
+    "rank": 17,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Last Days of Jack Sparks"
+  },
+  {
+    "rank": 19,
+    "item_name": "Ricky Ricotta's Mighty Robot (Astro-Activity Book O'Fun) by Pilkey, Dav (unknown Edition) [Paperback(2006)]"
+  },
+  {
+    "rank": 20,
+    "item_name": "The True Tale of the Monster Billy Dean"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Hero's Guide to Saving Your Kingdom"
+  },
+  {
+    "rank": 22,
+    "item_name": "An Inheritance of Ashes"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Voyage of Lucy P. Simmons"
+  },
+  {
+    "rank": 24,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 25,
+    "item_name": "Fevre Dream: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Amber Spyglass"
+  },
+  {
+    "rank": 28,
+    "item_name": "Stop the Presses! (The Nero Wolfe Mysteries)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Planet Tad"
+  },
+  {
+    "rank": 30,
+    "item_name": "American Craftsmen: A Novel (American Craft Series)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Railhead"
+  },
+  {
+    "rank": 32,
+    "item_name": "Heirloom Cooking With the Brass Sisters: Recipes You Remember and Love"
+  },
+  {
+    "rank": 33,
+    "item_name": "Blackout (Oxford Time Travel)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Scarlett Epstein Hates It Here"
+  },
+  {
+    "rank": 35,
+    "item_name": "Rocks Fall Everyone Dies"
+  },
+  {
+    "rank": 36,
+    "item_name": "Futuristic Violence and Fancy Suits: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Graveyard Book"
+  },
+  {
+    "rank": 38,
+    "item_name": "Shrill"
+  },
+  {
+    "rank": 39,
+    "item_name": "FOOLS QUEST-FITZ &amp; THE FOOL PB"
+  },
+  {
+    "rank": 40,
+    "item_name": "Hero (The Woodcutter Sisters)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Battleship: A Daring Heiress, a Teenage Jockey, and America's Horse"
+  },
+  {
+    "rank": 42,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 43,
+    "item_name": "I Did It His Way: A Collection of B.C. Religious Comic Strips"
+  },
+  {
+    "rank": 44,
+    "item_name": "Cast in Flame (Chronicles of Elantra)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Dinosaurs! (Animal Planet Chapter Books #2) (Volume 2) (Animal Planet Chapter Books (Volume 2))"
+  },
+  {
+    "rank": 46,
+    "item_name": "Empress Game: The Empress Game Trilogy Book 1"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 48,
+    "item_name": "In the Land of Believers: An Outsider's Extraordinary Journey into the Heart of the Evangelical Church"
+  },
+  {
+    "rank": 49,
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Ill Wind"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

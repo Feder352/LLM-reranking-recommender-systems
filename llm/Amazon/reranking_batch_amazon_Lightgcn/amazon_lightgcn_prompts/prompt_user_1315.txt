@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Rickey &amp; Robinson: The True, Untold Story of the Integration of Baseball"
+  },
+  {
+    "item_name": "Killing Patton: The Strange Death of World War II's Most Audacious General (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "item_name": "Billy Joel"
+  },
+  {
+    "item_name": "Gotti's Rules: The Story of John Alite, Junior Gotti, and the Demise of the American Mafia"
+  },
+  {
+    "item_name": "The Harder They Come: A Novel"
+  },
+  {
+    "item_name": "Robert B. Parker's Kickback (Spenser)"
+  },
+  {
+    "item_name": "The Best Team Money Can Buy: The Los Angeles Dodgers' Wild Struggle to Build a Baseball Powerhouse"
+  },
+  {
+    "item_name": "The Girl With the Deep Blue Eyes"
+  },
+  {
+    "item_name": "The Promise (An Elvis Cole Novel)"
+  },
+  {
+    "item_name": "You Never Heard of Sandy Koufax?!"
+  },
+  {
+    "item_name": "Shoe Dog: A Memoir by the Creator of NIKE"
+  },
+  {
+    "item_name": "Robert B. Parker's Slow Burn (Spenser)"
+  },
+  {
+    "item_name": "Crisis of Character: A White House Secret Service Officer Discloses His Firsthand Experience with Hillary, Bill, and How They Operate"
+  },
+  {
+    "item_name": "Seinfeldia: How a Show About Nothing Changed Everything"
+  },
+  {
+    "item_name": "Eat My Schwartz: Our Story of NFL Football, Food, Family, and Faith"
+  },
+  {
+    "item_name": "Killing The Rising Sun: How America Vanquished World War II Japan (Wheeler Publishing Large Print Book Series)"
+  },
+  {
+    "item_name": "Born to Run (Wheeler Publishing Large Print Hardcover)"
+  },
+  {
+    "item_name": "A Life in Parts"
+  },
+  {
+    "item_name": "Gunslinger: The Remarkable, Improbable, Iconic Life of Brett Favre"
+  },
+  {
+    "item_name": "The Wrong Side of Goodbye (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "All the Gallant Men: An American Sailor's Firsthand Account of Pearl Harbor"
+  },
+  {
+    "item_name": "The Undoing Project: A Friendship that Changed the World"
+  },
+  {
+    "item_name": "Leo Durocher: Baseball's Prodigal Son"
+  },
+  {
+    "item_name": "Sons and Soldiers: The Untold Story of the Jews Who Escaped the Nazis and Returned with the U.S. Army to Fight Hitler"
+  },
+  {
+    "item_name": "Electric October: Seven World Series Games, Six Lives, Five Minutes of Fame That Lasted Forever"
+  },
+  {
+    "item_name": "I Will Find You: Solving Killer Cases from My Life Fighting Crime (Homicide Hunter)"
+  },
+  {
+    "item_name": "Uncommon Type: Some Stories"
+  },
+  {
+    "item_name": "Two Kinds of Truth (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Let Trump Be Trump: The Inside Story of His Rise to the Presidency"
+  },
+  {
+    "item_name": "The Wanted (An Elvis Cole and Joe Pike Novel)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 6059,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 2,
+    "item_id": 20358,
+    "item_name": "Tripwire (Jack Reacher, No. 3)"
+  },
+  {
+    "rank": 3,
+    "item_id": 18969,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 4,
+    "item_id": 23939,
+    "item_name": "Wild Fire"
+  },
+  {
+    "rank": 5,
+    "item_id": 3228,
+    "item_name": "Moonlight Mile"
+  },
+  {
+    "rank": 6,
+    "item_id": 5792,
+    "item_name": "The Last Juror"
+  },
+  {
+    "rank": 7,
+    "item_id": 18927,
+    "item_name": "The Enemy (Jack Reacher, No. 8)"
+  },
+  {
+    "rank": 8,
+    "item_id": 20536,
+    "item_name": "The Defector (Gabriel Allon Novels)"
+  },
+  {
+    "rank": 9,
+    "item_id": 13644,
+    "item_name": "Nine Dragons (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 10,
+    "item_id": 13288,
+    "item_name": "The Last Coyote (Harry Bosch)"
+  },
+  {
+    "rank": 11,
+    "item_id": 10852,
+    "item_name": "Worth Dying For: A Reacher Novel (Jack Reacher)"
+  },
+  {
+    "rank": 12,
+    "item_id": 9334,
+    "item_name": "Innocent (Will Robie series)"
+  },
+  {
+    "rank": 13,
+    "item_id": 48469,
+    "item_name": "The Amateur: Barack Obama in the White House"
+  },
+  {
+    "rank": 14,
+    "item_id": 15700,
+    "item_name": "The Innocent Man: Murder and Injustice in a Small Town"
+  },
+  {
+    "rank": 15,
+    "item_id": 14595,
+    "item_name": "S is for Silence"
+  },
+  {
+    "rank": 16,
+    "item_id": 7284,
+    "item_name": "David and Goliath: Art of Battling Giants (A)"
+  },
+  {
+    "rank": 17,
+    "item_id": 13588,
+    "item_name": "The Fifth Witness (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 18,
+    "item_id": 13816,
+    "item_name": "The Lincoln Lawyer (Large Print)"
+  },
+  {
+    "rank": 19,
+    "item_id": 10791,
+    "item_name": "Never Go Back: A Jack Reacher Novel"
+  },
+  {
+    "rank": 20,
+    "item_id": 339,
+    "item_name": "Mayflower. A story of Community, Courage and War"
+  },
+  {
+    "rank": 21,
+    "item_id": 10840,
+    "item_name": "61 Hours: A Reacher Novel"
+  },
+  {
+    "rank": 22,
+    "item_id": 13479,
+    "item_name": "Echo Park (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 23,
+    "item_id": 9872,
+    "item_name": "Nature Girl"
+  },
+  {
+    "rank": 24,
+    "item_id": 31788,
+    "item_name": "The Two Minute Rule"
+  },
+  {
+    "rank": 25,
+    "item_id": 7579,
+    "item_name": "Storm Prey"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

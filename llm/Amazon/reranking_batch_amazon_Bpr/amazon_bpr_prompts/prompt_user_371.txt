@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Rough Riders: Theodore Roosevelt, His Cowboy Regiment, and the Immortal Charge Up San Juan Hill"
+  },
+  {
+    "item_name": "The Betrayal: The 1919 World Series and the Birth of Modern Baseball"
+  },
+  {
+    "item_name": "The Immortal Irishman: The Irish Revolutionary Who Became an American Hero"
+  },
+  {
+    "item_name": "Valiant Ambition: George Washington, Benedict Arnold, and the Fate of the American Revolution"
+  },
+  {
+    "item_name": "Pizza, A Slice of American History"
+  },
+  {
+    "item_name": "The Sun &amp; The Moon &amp; The Rolling Stones"
+  },
+  {
+    "item_name": "Frederick the Great: King of Prussia"
+  },
+  {
+    "item_name": "Washington's Circle: The Creation of the President"
+  },
+  {
+    "item_name": "Phishing for Phools: The Economics of Manipulation and Deception"
+  },
+  {
+    "item_name": "Why Save the Bankers?: And Other Essays on Our Economic and Political Crisis"
+  },
+  {
+    "item_name": "The General vs. the President: MacArthur and Truman at the Brink of Nuclear War"
+  },
+  {
+    "item_name": "Trafalgar: Countdown to Battle, 1803-1805"
+  },
+  {
+    "item_name": "Consumer Reports Used Car Buying Guide 2002"
+  },
+  {
+    "item_name": "1777: Tipping Point at Saratoga"
+  },
+  {
+    "item_name": "Lincolns Greatest Journey: Sixteen Days that Changed a Presidency, March 24  April 8, 1865"
+  },
+  {
+    "item_name": "Pax Romana: War, Peace and Conquest in the Roman World"
+  },
+  {
+    "item_name": "American Ulysses: A Life of Ulysses S. Grant"
+  },
+  {
+    "item_name": "Hero of the Empire: The Making of Winston Churchill"
+  },
+  {
+    "item_name": "Water to the Angels: William Mulholland, His Monumental Aqueduct, and the Rise of Los Angeles"
+  },
+  {
+    "item_name": "The Vanquished: Why the First World War Failed to End"
+  },
+  {
+    "item_name": "The Glory of Their Times: The Story of the Early Days of Baseball Told by the Men Who Played It (Harper Perennial Modern Classics)"
+  },
+  {
+    "item_name": "A Great Place to Have a War: America in Laos and the Birth of a Military CIA"
+  },
+  {
+    "item_name": "High Noon: The Hollywood Blacklist and the Making of an American Classic"
+  },
+  {
+    "item_name": "Leo Durocher: Baseball's Prodigal Son"
+  },
+  {
+    "item_name": "Dereliction of Duty : Johnson, McNamara, the Joint Chiefs of Staff, and the Lies That Led to Vietnam"
+  },
+  {
+    "item_name": "The Framers' Coup: The Making of the United States Constitution"
+  },
+  {
+    "item_name": "Ripper: The Secret Life of Walter Sickert"
+  },
+  {
+    "item_name": "A Country of Vast Designs: James K. Polk, The Mexican War, and the Conquest of the American Continent"
+  },
+  {
+    "item_name": "The Habsburg Empire: A New History"
+  },
+  {
+    "item_name": "Hue 1968: A Turning Point of the American War in Vietnam"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 2,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 3,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 4,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 5,
+    "item_name": "Crime and Punishment (Classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Alchemist"
+  },
+  {
+    "rank": 7,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 8,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 9,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 11,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 12,
+    "item_name": "Flags of Our Fathers: Heroes of Iwo Jima"
+  },
+  {
+    "rank": 13,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 14,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Politician: An Insider's Account of John Edwards's Pursuit of the Presidency and the Scandal That Brought Him Down"
+  },
+  {
+    "rank": 16,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Tortilla Flat"
+  },
+  {
+    "rank": 19,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 21,
+    "item_name": "7 Habits of Highly Effective People"
+  },
+  {
+    "rank": 22,
+    "item_name": "GUNS, GERMS AND STEEL - A Short History of Everybody for the Last 13,000 Years"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 25,
+    "item_name": "Michelangelo and the Pope's Ceiling"
+  },
+  {
+    "rank": 26,
+    "item_name": "Light in August (Modern Library College Editions Series)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Gettysburg Gospel: The Lincoln Speech That Nobody Knows (Simon &amp; Schuster Lincoln Library)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Fabric Of Reality (Penguin Science)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 30,
+    "item_name": "Night"
+  },
+  {
+    "rank": 31,
+    "item_name": "1493: Uncovering the New World Columbus Created"
+  },
+  {
+    "rank": 32,
+    "item_name": "God Is Not Great: How Religion Poisons Everything"
+  },
+  {
+    "rank": 33,
+    "item_name": "Under the Banner of Heaven : A Story of Violent Faith"
+  },
+  {
+    "rank": 34,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 35,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 36,
+    "item_name": "Harry Potter And The Order Of The Phoenix"
+  },
+  {
+    "rank": 37,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Fields of Blood: Religion and the History of Violence"
+  },
+  {
+    "rank": 39,
+    "item_name": "1776 : America and Britain at War"
+  },
+  {
+    "rank": 40,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "John F. Kennedy"
+  },
+  {
+    "rank": 44,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 45,
+    "item_name": "Free Lunch: How the Wealthiest Americans Enrich Themselves at Government Expense (and StickYou with the Bill)"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 47,
+    "item_name": "All the Shah's Men: An American Coup and the Roots of Middle East Terror"
+  },
+  {
+    "rank": 48,
+    "item_name": "Siddhartha: An Indian Tale (Penguin Twentieth-Century Classics)"
+  },
+  {
+    "rank": 49,
+    "item_name": "What Jesus Meant"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Great Game: On Secret Service in High Asia"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

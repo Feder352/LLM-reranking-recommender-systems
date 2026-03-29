@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Destination Casablanca: Exile, Espionage, and the Battle for North Africa in World War II"
+  },
+  {
+    "item_name": "The Flight 981 Disaster: Tragedy, Treachery, and the Pursuit of Truth (Air Disasters)"
+  },
+  {
+    "item_name": "Will Robots Take Your Job?: A Plea for Consensus (New Human Frontiers)"
+  },
+  {
+    "item_name": "Chasing Phil: The Adventures of Two Undercover Agents with the World's Most Charming Con Man"
+  },
+  {
+    "item_name": "Best American Sports Writing 2017 (The Best American Series )"
+  },
+  {
+    "item_name": "The Year of the Pitcher: Bob Gibson, Denny McLain, and the End of Baseballs Golden Age"
+  },
+  {
+    "item_name": "The Storm Before the Storm: The Beginning of the End of the Roman Republic"
+  },
+  {
+    "item_name": "Teacher Inspiration Planner"
+  },
+  {
+    "item_name": "A Secret Sisterhood: The Literary Friendships of Jane Austen, Charlotte Bront&euml;, George Eliot, and Virginia Woolf"
+  },
+  {
+    "item_name": "Beau Death (A Detective Peter Diamond Mystery)"
+  },
+  {
+    "item_name": "Gold!: Madness, Murder, and Mayhem in the Colorado Rockies"
+  },
+  {
+    "item_name": "Alive in Shape and Color: 17 Paintings by Great Artists and the Stories They Inspired"
+  },
+  {
+    "item_name": "Improv Nation: How We Made a Great American Art"
+  },
+  {
+    "item_name": "The New Negro: The Life of Alain Locke"
+  },
+  {
+    "item_name": "Auntie Poldi and the Sicilian Lions (An Auntie Poldi Adventure)"
+  },
+  {
+    "item_name": "Elastic: Flexible Thinking in a Time of Change"
+  },
+  {
+    "item_name": "A Season in the Sun: The Rise of Mickey Mantle"
+  },
+  {
+    "item_name": "Can't Help Myself: Lessons &amp; Confessions from a Modern Advice Columnist"
+  },
+  {
+    "item_name": "Futureface: A Family Mystery, an Epic Quest, and the Secret to Belonging"
+  },
+  {
+    "item_name": "Absolute Power: How the Pope Became the Most Influential Man in the World"
+  },
+  {
+    "item_name": "Great American Outpost: Dreamers, Mavericks, and the Making of an Oil Frontier"
+  },
+  {
+    "item_name": "My Father's Wake: How the Irish Teach Us to Live, Love, and Die"
+  },
+  {
+    "item_name": "The Girl: Marilyn Monroe, The Seven Year Itch, and the Birth of an Unlikely Feminist"
+  },
+  {
+    "item_name": "Atticus Finch: The Biography"
+  },
+  {
+    "item_name": "The Heritage: Black Athletes, a Divided America, and the Politics of Patriotism"
+  },
+  {
+    "item_name": "Fight Like a Girl: The Truth Behind How Female Marines Are Trained"
+  },
+  {
+    "item_name": "Figures in a Landscape: People and Places"
+  },
+  {
+    "item_name": "The Dark Angel: The Sunday Times Bestseller (The Dr Ruth Galloway Mysteries)"
+  },
+  {
+    "item_name": "Manfried the Man: A Graphic Novel"
+  },
+  {
+    "item_name": "McMafia: A Journey Through the Global Criminal Underworld"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 758,
+    "item_name": "To Lose a Battle: France 1940"
+  },
+  {
+    "rank": 2,
+    "item_id": 1947,
+    "item_name": "The Imperial Cruise: A Secret History of Empire and War"
+  },
+  {
+    "rank": 3,
+    "item_id": 821,
+    "item_name": "The New New Thing: A Silicon Valley Story"
+  },
+  {
+    "rank": 4,
+    "item_id": 5304,
+    "item_name": "My Lunches with Orson: Conversations between Henry Jaglom and Orson Welles"
+  },
+  {
+    "rank": 5,
+    "item_id": 997,
+    "item_name": "Ghost Hunters: William James and the Search for Scientific Proof of Life After Death"
+  },
+  {
+    "rank": 6,
+    "item_id": 3038,
+    "item_name": "Yogi Berra: Eternal Yankee"
+  },
+  {
+    "rank": 7,
+    "item_id": 5441,
+    "item_name": "Job: The Story of a Simple Man"
+  },
+  {
+    "rank": 8,
+    "item_id": 769,
+    "item_name": "The Price of Glory: Verdun 1916"
+  },
+  {
+    "rank": 9,
+    "item_id": 2079,
+    "item_name": "A World Lit Only by Fire: The Medieval Mind and the Renaissance - Portrait of an Age"
+  },
+  {
+    "rank": 10,
+    "item_id": 1275,
+    "item_name": "Strong Men Armed: The United States Marines Against Japan"
+  },
+  {
+    "rank": 11,
+    "item_id": 2972,
+    "item_name": "Every Man in This Village is a Liar: An Education in War"
+  },
+  {
+    "rank": 12,
+    "item_id": 835,
+    "item_name": "Daisy Miller (Penguin Classics)"
+  },
+  {
+    "rank": 13,
+    "item_id": 1239,
+    "item_name": "Bismarck: A Life"
+  },
+  {
+    "rank": 14,
+    "item_id": 125,
+    "item_name": "Terror in the Name of God: Why Religious Militants Kill"
+  },
+  {
+    "rank": 15,
+    "item_id": 285,
+    "item_name": "The Book of Vice: Very Naughty Things (and How to Do Them)"
+  },
+  {
+    "rank": 16,
+    "item_id": 1213,
+    "item_name": "Freedom from Fear: The American People in Depression and War, 1929-1945 (Oxford History of the United States)"
+  },
+  {
+    "rank": 17,
+    "item_id": 68,
+    "item_name": "The Paradox of Choice: Why More Is Less"
+  },
+  {
+    "rank": 18,
+    "item_id": 5599,
+    "item_name": "Blacklisted by History: The Untold Story of Senator Joe McCarthy and His Fight Against America's Enemies"
+  },
+  {
+    "rank": 19,
+    "item_id": 3083,
+    "item_name": "The Years of Lyndon Johnson: The Path to Power"
+  },
+  {
+    "rank": 20,
+    "item_id": 5246,
+    "item_name": "The World of Yesterday"
+  },
+  {
+    "rank": 21,
+    "item_id": 3084,
+    "item_name": "Master of the Senate: The Years of Lyndon Johnson III"
+  },
+  {
+    "rank": 22,
+    "item_id": 3045,
+    "item_name": "The Fiery Trial: Abraham Lincoln and American Slavery"
+  },
+  {
+    "rank": 23,
+    "item_id": 2181,
+    "item_name": "A Reporter's Life"
+  },
+  {
+    "rank": 24,
+    "item_id": 1591,
+    "item_name": "Elegy For Iris"
+  },
+  {
+    "rank": 25,
+    "item_id": 3057,
+    "item_name": "The Golden Spruce: A True Story of Myth, Madness, and Greed"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

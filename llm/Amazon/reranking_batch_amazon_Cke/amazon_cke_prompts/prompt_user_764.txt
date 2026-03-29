@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "I Contain Multitudes: The Microbes Within Us and a Grander View of Life"
+  },
+  {
+    "item_name": "American Heiress: The Wild Saga of the Kidnapping, Crimes and Trial of Patty Hearst"
+  },
+  {
+    "item_name": "Chickenizing Farms and Food: How Industrial Meat Production Endangers Workers, Animals, and Consumers"
+  },
+  {
+    "item_name": "Promised Land, Crusader State: The American Encounter With the World Since 1776"
+  },
+  {
+    "item_name": "Democracy Incorporated: Managed Democracy and the Specter of Inverted Totalitarianism"
+  },
+  {
+    "item_name": "Modified: GMOs and the Threat to Our Food, Our Land, Our Future"
+  },
+  {
+    "item_name": "The General vs. the President: MacArthur and Truman at the Brink of Nuclear War"
+  },
+  {
+    "item_name": "Strangers in Their Own Land: Anger and Mourning on the American Right"
+  },
+  {
+    "item_name": "Our Revolution: A Future to Believe In"
+  },
+  {
+    "item_name": "The Undoing Project: A Friendship that Changed the World"
+  },
+  {
+    "item_name": "The Vanquished: Why the First World War Failed to End"
+  },
+  {
+    "item_name": "American Ulysses: A Life of Ulysses S. Grant"
+  },
+  {
+    "item_name": "Evicted: Poverty and Profit in the American City"
+  },
+  {
+    "item_name": "The Stranger in the Woods: The Extraordinary Story of the Last True Hermit"
+  },
+  {
+    "item_name": "The Assassination of the Archduke: Sarajevo 1914 and the Romance That Changed the World"
+  },
+  {
+    "item_name": "Power Hungry: The Myths of Green Energy and the Real Fuels of the Future"
+  },
+  {
+    "item_name": "Irresistible: The Rise of Addictive Technology and the Business of Keeping Us Hooked"
+  },
+  {
+    "item_name": "Deer Hunting with Jesus: Dispatches from America's Class War"
+  },
+  {
+    "item_name": "The Popes Against the Jews: The Vatican's Role in the Rise of Modern Anti-Semitism"
+  },
+  {
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "item_name": "Fraud of the Century: Rutherford B. Hayes, Samuel Tilden, and the Stolen Election of 1876"
+  },
+  {
+    "item_name": "The Inkblots: Hermann Rorschach, His Iconic Test, and the Power of Seeing"
+  },
+  {
+    "item_name": "Why Buddhism is True: The Science and Philosophy of Meditation and Enlightenment"
+  },
+  {
+    "item_name": "Grant"
+  },
+  {
+    "item_name": "Martin Luther: The Man Who Rediscovered God and Changed the World"
+  },
+  {
+    "item_name": "We Were Eight Years in Power: An American Tragedy"
+  },
+  {
+    "item_name": "Leonardo da Vinci"
+  },
+  {
+    "item_name": "The Wolf: A True Story of Survival and Obsession in the West"
+  },
+  {
+    "item_name": "Untitled Personal Essays (Thorndike Press Large Print Popular and Narrative Nonfiction)"
+  },
+  {
+    "item_name": "God: A Human History"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 2,
+    "item_id": 1028,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 3,
+    "item_id": 4136,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 4,
+    "item_id": 3779,
+    "item_name": "Microtrends: The Small Forces Behind Tomorrow's Big Changes"
+  },
+  {
+    "rank": 5,
+    "item_id": 859,
+    "item_name": "The Black Swan: The Impact of the Highly Improbable"
+  },
+  {
+    "rank": 6,
+    "item_id": 451,
+    "item_name": "The Way of the World: A Story of Truth and Hope in an Age of Extremism"
+  },
+  {
+    "rank": 7,
+    "item_id": 2620,
+    "item_name": "Cobra II: The Inside Story of the Invasion and Occupation of Iraq"
+  },
+  {
+    "rank": 8,
+    "item_id": 3016,
+    "item_name": "The Wealth and Poverty of Nations: Why Some Are So Rich and Some So Poor"
+  },
+  {
+    "rank": 9,
+    "item_id": 3068,
+    "item_name": "The Three Trillion Dollar War: The True Cost of the Iraq Conflict"
+  },
+  {
+    "rank": 10,
+    "item_id": 4294,
+    "item_name": "Emotional Intelligence: Why It Can Matter More than IQ"
+  },
+  {
+    "rank": 11,
+    "item_id": 2550,
+    "item_name": "That Used to Be Us: How America Fell Behind in the World It Invented and How We Can Come Back"
+  },
+  {
+    "rank": 12,
+    "item_id": 6108,
+    "item_name": "The Case Against Barack Obama: The Unlikely Rise and Unexamined Agenda of the Media's Favorite Candidate"
+  },
+  {
+    "rank": 13,
+    "item_id": 6036,
+    "item_name": "When Money Dies: The Nightmare of Deficit Spending, Devaluation, and Hyperinflation in Weimar Germany"
+  },
+  {
+    "rank": 14,
+    "item_id": 3753,
+    "item_name": "Start-up Nation: The Story of Israel's Economic Miracle"
+  },
+  {
+    "rank": 15,
+    "item_id": 3023,
+    "item_name": "The Making of the Fittest: DNA and the Ultimate Forensic Record of Evolution"
+  },
+  {
+    "rank": 16,
+    "item_id": 1042,
+    "item_name": "What Paul Meant"
+  },
+  {
+    "rank": 17,
+    "item_id": 812,
+    "item_name": "The 48 Laws of Power"
+  },
+  {
+    "rank": 18,
+    "item_id": 4670,
+    "item_name": "Irrational Exuberance"
+  },
+  {
+    "rank": 19,
+    "item_id": 4472,
+    "item_name": "The Trouble With Physics: The Rise of String Theory, the Fall of a Science, And What Comes Next"
+  },
+  {
+    "rank": 20,
+    "item_id": 2528,
+    "item_name": "Churchill: A Biography"
+  },
+  {
+    "rank": 21,
+    "item_id": 1417,
+    "item_name": "Legacy of Ashes: The History of the CIA"
+  },
+  {
+    "rank": 22,
+    "item_id": 5312,
+    "item_name": "Fortune's Formula: The Untold Story of the Scientific Betting System That Beat the Casinos and Wall Street"
+  },
+  {
+    "rank": 23,
+    "item_id": 5462,
+    "item_name": "The Professors:  The 101 Most Dangerous Academics in America"
+  },
+  {
+    "rank": 24,
+    "item_id": 4143,
+    "item_name": "The Little Ice Age: How Climate Made History 1300-1850"
+  },
+  {
+    "rank": 25,
+    "item_id": 2174,
+    "item_name": "The Demon-Haunted World: Science as a Candle in the Dark"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

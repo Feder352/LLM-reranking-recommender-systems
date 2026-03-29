@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Secret Seven"
+  },
+  {
+    "item_name": "The Secret Seven"
+  },
+  {
+    "item_name": "The Secret Seven"
+  },
+  {
+    "item_name": "The Secret Seven"
+  },
+  {
+    "item_name": "Five Go Off to Camp (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "item_name": "Five Have Plenty of Fun (Famous Five)"
+  },
+  {
+    "item_name": "Five Have Plenty of Fun (Famous Five)"
+  },
+  {
+    "item_name": "Five Have Plenty of Fun (Famous Five)"
+  },
+  {
+    "item_name": "Five Have Plenty of Fun (Famous Five)"
+  },
+  {
+    "item_name": "Five Go Off to Camp (Famous Five)"
+  },
+  {
+    "item_name": "Five Go to Smuggler's Top (Famous Five)"
+  },
+  {
+    "item_name": "Five Go to Smuggler's Top (Famous Five)"
+  },
+  {
+    "item_name": "Five Go Off to Camp (Famous Five)"
+  },
+  {
+    "item_name": "Five Go Off to Camp (Famous Five)"
+  },
+  {
+    "item_name": "Five Go Off to Camp (Famous Five)"
+  },
+  {
+    "item_name": "Five Go Off to Camp (Famous Five)"
+  },
+  {
+    "item_name": "The Paradise Beach Mysteries: Whitehaven Beach (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 14678,
+    "item_name": "Five on a Secret Trail (Famous Five)"
+  },
+  {
+    "rank": 2,
+    "item_id": 14718,
+    "item_name": "Five Go Off to Camp (Famous Five)"
+  },
+  {
+    "rank": 3,
+    "item_id": 14576,
+    "item_name": "The Island of Adventure (Adventure Series)"
+  },
+  {
+    "rank": 4,
+    "item_id": 64606,
+    "item_name": "Travels with Gannon and Wyatt: Egypt (Travels With Gannon &amp; Wyatt)"
+  },
+  {
+    "rank": 5,
+    "item_id": 77393,
+    "item_name": "A Cure for Love (Mills &amp; Boon Largeprint Penny Jordan)"
+  },
+  {
+    "rank": 6,
+    "item_id": 16590,
+    "item_name": "Cavanaugh Strong (Cavanaugh Justice)"
+  },
+  {
+    "rank": 7,
+    "item_id": 16632,
+    "item_name": "Pony Express Hero (Saddles and Spurs)"
+  },
+  {
+    "rank": 8,
+    "item_id": 17093,
+    "item_name": "Her Rancher Bodyguard (Martin's Crossing)"
+  },
+  {
+    "rank": 9,
+    "item_id": 16624,
+    "item_name": "Second Chance Colton (The Coltons of Oklahoma)"
+  },
+  {
+    "rank": 10,
+    "item_id": 947,
+    "item_name": "Misty of Chincoteague"
+  },
+  {
+    "rank": 11,
+    "item_id": 16982,
+    "item_name": "A Lawman's Justice (Sweetwater Ranch)"
+  },
+  {
+    "rank": 12,
+    "item_id": 16305,
+    "item_name": "Sold for the Greek's Heir: A sensual story of passion and romance (Brides for the Taking)"
+  },
+  {
+    "rank": 13,
+    "item_id": 64598,
+    "item_name": "Travels with Gannon and Wyatt: Great Bear Rainforest (Travels With Gannon &amp; Wyatt)"
+  },
+  {
+    "rank": 14,
+    "item_id": 46151,
+    "item_name": "Christmas in Cowboy Country (The Bennetts)"
+  },
+  {
+    "rank": 15,
+    "item_id": 65184,
+    "item_name": "A Whole New You: Six Steps to Ignite Change for Your Best Life"
+  },
+  {
+    "rank": 16,
+    "item_id": 9575,
+    "item_name": "Carrying the King's Pride (Mills &amp; Boon Modern)"
+  },
+  {
+    "rank": 17,
+    "item_id": 16986,
+    "item_name": "The Cradle Conspiracy (Harlequin Intrigue)"
+  },
+  {
+    "rank": 18,
+    "item_id": 16779,
+    "item_name": "In a Killer's Sights (Smoky Mountain Secrets)"
+  },
+  {
+    "rank": 19,
+    "item_id": 75727,
+    "item_name": "The Royal Sheikh eBook"
+  },
+  {
+    "rank": 20,
+    "item_id": 17687,
+    "item_name": "Coast Guard Courtship (Love Inspired)"
+  },
+  {
+    "rank": 21,
+    "item_id": 16805,
+    "item_name": "Protect and Serve (Rookie K-9 Unit)"
+  },
+  {
+    "rank": 22,
+    "item_id": 17748,
+    "item_name": "The Cowboy's Homecoming (Refuge Ranch)"
+  },
+  {
+    "rank": 23,
+    "item_id": 74362,
+    "item_name": "Maltipoos are Murder (Doggie Day Spa Mystery)"
+  },
+  {
+    "rank": 24,
+    "item_id": 16949,
+    "item_name": "Ms. Bravo and the Boss (The Bravos of Justice Creek)"
+  },
+  {
+    "rank": 25,
+    "item_id": 16828,
+    "item_name": "Shielding His Christmas Witness (Callahan Confidential)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

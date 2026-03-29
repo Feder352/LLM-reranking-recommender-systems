@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Wrong Side of Goodbye (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Dead Wake: The Last Crossing of the Lusitania"
+  },
+  {
+    "item_name": "No Man's Land (John Puller Series)"
+  },
+  {
+    "item_name": "The Whistler"
+  },
+  {
+    "item_name": "The Island at the Centre of the World: The Epic Story of Dutch Manhattan and the Forgotten Colony That Shaped America"
+  },
+  {
+    "item_name": "The Amazing Adventures of Kavalier &amp; Clay"
+  },
+  {
+    "item_name": "Killing The Rising Sun: How America Vanquished World War II Japan (Wheeler Publishing Large Print Book Series)"
+  },
+  {
+    "item_name": "Karolina's Twins: A Novel (Liam Taggart and Catherine Lockhart)"
+  },
+  {
+    "item_name": "The Man Who Saved the Union: Ulysses Grant in War and Peace"
+  },
+  {
+    "item_name": "The Autobiography of Malcolm X"
+  },
+  {
+    "item_name": "The Zookeeper's Wife: A War Story"
+  },
+  {
+    "item_name": "Destiny of the Republic: A Tale of Madness, Medicine and the Murder of a President"
+  },
+  {
+    "item_name": "It"
+  },
+  {
+    "item_name": "Einstein: His Life and Universe"
+  },
+  {
+    "item_name": "All Who Go Do Not Return: A Memoir"
+  },
+  {
+    "item_name": "Finding Florida: The True History of the Sunshine State"
+  },
+  {
+    "item_name": "Beneath a Scarlet Sky: A Novel"
+  },
+  {
+    "item_name": "Beneath a Scarlet Sky (Center Point Large Print)"
+  },
+  {
+    "item_name": "Angela's Ashes : A Memoir of a Childhood"
+  },
+  {
+    "item_name": "House of Spies"
+  },
+  {
+    "item_name": "Brave Companions: Portraits in History"
+  },
+  {
+    "item_name": "The Underground Railroad"
+  },
+  {
+    "item_name": "Thomas Jefferson and the Tripoli Pirates: The Forgotten War That Changed American History"
+  },
+  {
+    "item_name": "The Late Show"
+  },
+  {
+    "item_name": "Final Target (A Jonathan Grave Thriller)"
+  },
+  {
+    "item_name": "Order to Kill"
+  },
+  {
+    "item_name": "Use of Force: A Thriller (The Scot Harvath Series)"
+  },
+  {
+    "item_name": "Beyond the Hundredth Meridian: John Wesley Powell and the Second Opening of the West"
+  },
+  {
+    "item_name": "Don't Let Go"
+  },
+  {
+    "item_name": "A Little Life: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Enemy (Jack Reacher, No. 8)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Columbus Affair: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Scarecrow"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Day Of The Jackal"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 7,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Black Echo (Harry Bosch)"
+  },
+  {
+    "rank": 9,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 11,
+    "item_name": "22/11/63"
+  },
+  {
+    "rank": 12,
+    "item_name": "Persuader (Jack Reacher, No. 7)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Cuckoo's Calling (Cormoran Strike)"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Death In Vienna (Silva, Daniel)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 17,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Under the Dome"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Brethren"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Drop (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 22,
+    "item_name": "No Second Chance"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Innocent"
+  },
+  {
+    "rank": 24,
+    "item_name": "Revival (Thorndike Press Large Pring Basic)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Broker"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Five People You Meet in Heaven (Random House Large Print)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Taken (Joe Pike)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Road"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 32,
+    "item_name": "Echo Park (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 33,
+    "item_name": "State of Fear"
+  },
+  {
+    "rank": 34,
+    "item_name": "Sam's Letters To Jennifer"
+  },
+  {
+    "rank": 35,
+    "item_name": "At Home: A Short History of Private Life (Random House Large Print)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Promise Me (Myron Bolitar, No. 8)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Shack"
+  },
+  {
+    "rank": 38,
+    "item_name": "Fool Me Once"
+  },
+  {
+    "rank": 39,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Faithful Spy: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "The White Tiger: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Dark Matter"
+  },
+  {
+    "rank": 44,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Husband: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Secret Servant"
+  },
+  {
+    "rank": 47,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "SuperFreakonomics CD: Global Cooling, Patriotic Prostitutes, and Why Suicide Bombers Should Buy Life Insurance"
+  },
+  {
+    "rank": 49,
+    "item_name": "Mayflower. A story of Community, Courage and War"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Measure of a Man: A Spiritual Autobiography (Oprah's Book Club)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

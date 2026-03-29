@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Star Wars: Journey to Star Wars: The Force Awakens: Shattered Empire (Star Wars (Marvel))"
+  },
+  {
+    "item_name": "X-Men: Years of Future Past"
+  },
+  {
+    "item_name": "The Summer I Became a Nerd"
+  },
+  {
+    "item_name": "Wolverine: Old Man Logan Vol. 0: Warzones"
+  },
+  {
+    "item_name": "Library Wars: Love &amp; War, Vol. 2"
+  },
+  {
+    "item_name": "Batman: The Long Halloween (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "Wolverine: Old Man Logan"
+  },
+  {
+    "item_name": "Library Wars: Love &amp; War, Vol. 2"
+  },
+  {
+    "item_name": "Vader's Little Princess"
+  },
+  {
+    "item_name": "The Greatest Zombie Movie Ever"
+  },
+  {
+    "item_name": "The Winter People: A Novel"
+  },
+  {
+    "item_name": "X-Men: Marvels"
+  },
+  {
+    "item_name": "Darth Vader and Son"
+  },
+  {
+    "item_name": "Sailor Moon 12"
+  },
+  {
+    "item_name": "Spider-Verse"
+  },
+  {
+    "item_name": "Life After the Undead (Volume 1)"
+  },
+  {
+    "item_name": "Fahrenheit 451"
+  },
+  {
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "item_name": "Welcome to Night Vale: A Novel"
+  },
+  {
+    "item_name": "Spider-Island: Warzones!"
+  },
+  {
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "item_name": "Silk Vol. 0: The Life and Times of Cindy Moon"
+  },
+  {
+    "item_name": "Spider-Gwen Vol. 1: Greater Power"
+  },
+  {
+    "item_name": "Spider-Gwen Vol. 0: Most Wanted?"
+  },
+  {
+    "item_name": "Spider-Man: Kraven's Last Hunt (Marvel Premiere Classic)"
+  },
+  {
+    "item_name": "Surviving The Evacuation Book 1: London (Volume 1)"
+  },
+  {
+    "item_name": "Deadpool Kills the Marvel Universe"
+  },
+  {
+    "item_name": "Spider-Man: The Darkest Hours"
+  },
+  {
+    "item_name": "Star Wars: X-Wing: Mercy Kill"
+  },
+  {
+    "item_name": "Kenobi: Star Wars Legends"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Saga, Vol. 2"
+  },
+  {
+    "rank": 2,
+    "item_name": "Saga, Vol. 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 3,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 4,
+    "item_name": "A Dame to Kill for (Sin City)"
+  },
+  {
+    "rank": 5,
+    "item_name": "All Star Superman (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Marvel Zombies"
+  },
+  {
+    "rank": 7,
+    "item_name": "Thor: God of Thunder Volume 1: The God Butcher (Marvel Now)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Daytripper"
+  },
+  {
+    "rank": 9,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 10,
+    "item_name": "Batman: The Killing Joke"
+  },
+  {
+    "rank": 11,
+    "item_name": "Sin City Volume 4: That Yellow Bastard"
+  },
+  {
+    "rank": 12,
+    "item_name": "Watchmen"
+  },
+  {
+    "rank": 13,
+    "item_name": "Transmetropolitan, Vol. 1: Back on the Street"
+  },
+  {
+    "rank": 14,
+    "item_name": "Treasure Island (Penguin Classics)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Baltimore, Volume 1: The Plague Ships"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Sandman Vol. 8: World's End"
+  },
+  {
+    "rank": 18,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 19,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "World War Hulk - Warbound"
+  },
+  {
+    "rank": 21,
+    "item_name": "Sandman Preludes &amp; Nocturnes"
+  },
+  {
+    "rank": 22,
+    "item_name": "Batman: Arkham Asylum"
+  },
+  {
+    "rank": 23,
+    "item_name": "Fables, Vol. 11: War and Pieces"
+  },
+  {
+    "rank": 24,
+    "item_name": "Legion of Super-Heroes: The Great Darkness Saga"
+  },
+  {
+    "rank": 25,
+    "item_name": "Batman: Hush - Volume One"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Fables: Werewolves of the Heartland"
+  },
+  {
+    "rank": 28,
+    "item_name": "Rot &amp; Ruin (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Kick-Ass"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Golden Fool"
+  },
+  {
+    "rank": 31,
+    "item_name": "Eldest (Inheritance, Book 2)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Last Unicorn"
+  },
+  {
+    "rank": 33,
+    "item_name": "Confessor: Chainfire Trilogy, Part 3 (Sword Of Truth, Book 11)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 35,
+    "item_name": "American Gods"
+  },
+  {
+    "rank": 36,
+    "item_name": "Sin City: Hell and Back (Book 7)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Injustice: Gods Among Us Vol. 2"
+  },
+  {
+    "rank": 38,
+    "item_name": "Fevre Dream: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Long Way Home (Buffy the Vampire Slayer, Season 8, Vol. 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Secret Invasion: The Infiltration"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Justice, Vol. 1"
+  },
+  {
+    "rank": 43,
+    "item_name": "Fables Vol. 10: The Good Prince"
+  },
+  {
+    "rank": 44,
+    "item_name": "Fight Club"
+  },
+  {
+    "rank": 45,
+    "item_name": "Batman: No Man's Land"
+  },
+  {
+    "rank": 46,
+    "item_name": "Superman &amp; Batman: Generations, An Imaginary Tale (Elseworlds)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Ultimate Comics Spider-Man Vol. 1: The World According to Peter Parker"
+  },
+  {
+    "rank": 48,
+    "item_name": "Batman/Superman/Wonder Woman - Trinity"
+  },
+  {
+    "rank": 49,
+    "item_name": "20,000 Leagues Under the Sea"
+  },
+  {
+    "rank": 50,
+    "item_name": "5 Very Good Reasons to Punch a Dolphin in the Mouth (And Other Useful Guides) (The Oatmeal)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

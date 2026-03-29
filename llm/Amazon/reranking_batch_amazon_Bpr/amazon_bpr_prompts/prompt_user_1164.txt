@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Karma (Karma Series) (Volume 1)"
+  },
+  {
+    "item_name": "A Perfect Obsession"
+  },
+  {
+    "item_name": "With Love at Christmas an Anthology"
+  },
+  {
+    "item_name": "My Big Fat Demon Slayer Wedding (A Biker Witches Novel) (Volume 5)"
+  },
+  {
+    "item_name": "Big Little Lies"
+  },
+  {
+    "item_name": "Twofer Murder"
+  },
+  {
+    "item_name": "Saving Grace (What Doesn't Kill You, #1): A Katie Romantic Mystery"
+  },
+  {
+    "item_name": "Bitter Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "item_name": "Strange the Dreamer"
+  },
+  {
+    "item_name": "Daughters of the Bride: A Novel"
+  },
+  {
+    "item_name": "I Will Find You: Solving Killer Cases from My Life Fighting Crime (Homicide Hunter)"
+  },
+  {
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "item_name": "Kitty Hawk and the Curse of the Yukon Gold: Book One of the Kitty Hawk Flying Detective Agency Series (Volume 1)"
+  },
+  {
+    "item_name": "Untamed (Splintered Series Companion): A Splintered Companion"
+  },
+  {
+    "item_name": "City of Gold (Matthew Connor Adventure Series)"
+  },
+  {
+    "item_name": "Vow of Silence (The Jill Shannon Murder Series)"
+  },
+  {
+    "item_name": "Egyptian Heart"
+  },
+  {
+    "item_name": "Reagan's Redemption: Book Eight In The Bodyguards Of L.A. County Series"
+  },
+  {
+    "item_name": "The Boy Who Swallows Flies"
+  },
+  {
+    "item_name": "In The Dark"
+  },
+  {
+    "item_name": "Jinxed (Karma) (Volume 2)"
+  },
+  {
+    "item_name": "Answers For Julie: Book Nine In The Bodyguards Of L.A. County Series (Volume 9)"
+  },
+  {
+    "item_name": "The Girl Who Ignored Ghosts (The Unbelievables Book 1)"
+  },
+  {
+    "item_name": "The Job (Fox and O'Hare)"
+  },
+  {
+    "item_name": "The Killing Game"
+  },
+  {
+    "item_name": "White Witch"
+  },
+  {
+    "item_name": "A Wolf in the Woods: An Ozarks Mystery (Ozarks Mysteries)"
+  },
+  {
+    "item_name": "Ice (A Chris Matheson Cold Case Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "The Girl Who Saved Ghosts (The Unbelievables) (Volume 2)"
+  },
+  {
+    "item_name": "The Replacement Wife"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Girl in the Ice: A gripping serial killer thriller (Detective Erika Foster crime thriller novel) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Aoleon The Martian Girl: Science Fiction Saga - Part 5 The Great Pyramid of Cydonia"
+  },
+  {
+    "rank": 3,
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "rank": 4,
+    "item_name": "Chocolate With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Southern Spirits (Southern Ghost Hunter Mysteries)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Mortom"
+  },
+  {
+    "rank": 8,
+    "item_name": "Aoleon The Martian Girl: Science Fiction Saga - Part 4 Illegal Aliens"
+  },
+  {
+    "rank": 9,
+    "item_name": "Skeletal (A Christchurch Crime Thriller)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Three Days to Forever (A Mac Faraday Mystery) (Volume 9)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Schwarzschild Radius"
+  },
+  {
+    "rank": 12,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Merciful Death (Mercy Kilpatrick)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Yeager's Law (An Abel Yeager Novel) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Rarity From the Hollow"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Children of Darkness (The Seekers)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Devil's Necktie (The Jack Bertolino Series)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Loft: The Memory House Collection (The Memory Houuse Series) (Volume 2)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Warrior (Warriors series) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Halfway Dead (Halfway Witchy) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Bully Boy Blue: A dark psychological suspense novella"
+  },
+  {
+    "rank": 23,
+    "item_name": "Blood Orchids"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Bones Will Tell (Skye Cree, Book 2) eBook"
+  },
+  {
+    "rank": 25,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Victim"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Never Hero (Chronicles of Jonathan Tibbs) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Huntress Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Dangerous Edge of Things (A Tai Randolph Mystery)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Wind Catcher (Chosen)"
+  },
+  {
+    "rank": 31,
+    "item_name": "No Such Thing As Werewolves"
+  },
+  {
+    "rank": 32,
+    "item_name": "Fixin' To Die (A Kenni Lowry Mystery) (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Publicist"
+  },
+  {
+    "rank": 34,
+    "item_name": "Game: The Sequel to I Hunt Killers"
+  },
+  {
+    "rank": 35,
+    "item_name": "Murder Takes Time (Friendship and Honor)"
+  },
+  {
+    "rank": 36,
+    "item_name": "MURDER, MADNESS &amp; LOVE: a mystery"
+  },
+  {
+    "rank": 37,
+    "item_name": "A View to Die For (Books To Die For) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Color of Greed: Raja Williams Series (Raja Williams Mystery Thriller Series)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Jamie Quinn Mystery Collection: Box Set Books 1-3 (Jamie Quinn Mysteries)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Remnants (Brandon Fisher FBI Series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Chef Maurice and a Spot of Truffle (Chef Maurice Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Special Offers: Book 1 of the Coursodon Dimension Series (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Resthaven"
+  },
+  {
+    "rank": 44,
+    "item_name": "Cancelled Vows (A Mac Faraday Mystery) (Volume 11)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Conspiracy of Silence"
+  },
+  {
+    "rank": 46,
+    "item_name": "King Arthur's Sister in Washington's Court"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Paper Magician"
+  },
+  {
+    "rank": 48,
+    "item_name": "Pane and Suffering (A Webb's Glass Shop Mystery)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Rise of the Iron Eagle"
+  },
+  {
+    "rank": 50,
+    "item_name": "Red Dot"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Here Comes the Sun (Butler, Vermont Series)"
+  },
+  {
+    "item_name": "Don't Let Go (A Hope Novel)"
+  },
+  {
+    "item_name": "Love Me Again (A Hope Novel)"
+  },
+  {
+    "item_name": "Just To Be With You: The Sullivans"
+  },
+  {
+    "item_name": "All I Ever Need Is You (The Sullivans) (Volume 14)"
+  },
+  {
+    "item_name": "I Love How You Love Me: The Sullivans"
+  },
+  {
+    "item_name": "Every Beat Of My Heart: The Sullivans (Wedding Novella)"
+  },
+  {
+    "item_name": "Every Beat of My Heart: The Sullivans (Wedding Novella)"
+  },
+  {
+    "item_name": "Since I Fell For You (New York Sullivans #2) (The Sullivans) (Volume 16)"
+  },
+  {
+    "item_name": "Now That I've Found You (New York Sullivans #1) (The Sullivans) (Volume 15)"
+  },
+  {
+    "item_name": "The Best Is Yet To Come: New York Sullivans Spinoff (Summer Lake, Book 1) (Volume 1)"
+  },
+  {
+    "item_name": "Sweeter Than Ever: The Sullivans (Honeymoon Novella)"
+  },
+  {
+    "item_name": "You Do Something To Me (The Sullivans)"
+  },
+  {
+    "item_name": "Can't Take My Eyes Off Of You: New York Sullivans Spinoff (Summer Lake, Book 2) (Volume 2)"
+  },
+  {
+    "item_name": "Breathless In Love (The Maverick Billionaires, Book 1) (Volume 1)"
+  },
+  {
+    "item_name": "Reckless In Love (The Maverick Billionaires, Book 2) (Volume 2)"
+  },
+  {
+    "item_name": "Fearless In Love (The Maverick Billionaires, Book 3) (Volume 3)"
+  },
+  {
+    "item_name": "Irresistible In Love (The Maverick Billionaires, Book 4) (Volume 4)"
+  },
+  {
+    "item_name": "Rock Courtship: A Rock Kiss Novella"
+  },
+  {
+    "item_name": "Rock Addiction (Rock Kiss) (Volume 1)"
+  },
+  {
+    "item_name": "Rock Hard (Rock Kiss)"
+  },
+  {
+    "item_name": "Rock Redemption (Rock Kiss)"
+  },
+  {
+    "item_name": "Rock Wedding (Rock Kiss) (Volume 4)"
+  },
+  {
+    "item_name": "Wild In Love (The Maverick Billionaires, Book 5) (Volume 5)"
+  },
+  {
+    "item_name": "Free Agent (Portland Storm) (Volume 18)"
+  },
+  {
+    "item_name": "Noah (Knight's Edge Series)"
+  },
+  {
+    "item_name": "Tristan: Knight's Edge Series (Volume 1)"
+  },
+  {
+    "item_name": "Duke (Knight's Edge) (Volume 4)"
+  },
+  {
+    "item_name": "Accidental Hero: A Marriage Mistake Romance"
+  },
+  {
+    "item_name": "Fatal Destiny: A Fatal Series Novella (The Fatal Series) - Kindle edition"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "After We Fall"
+  },
+  {
+    "rank": 2,
+    "item_name": "Reaper's Property (Ellora's Cave Moderne)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Dare to Love"
+  },
+  {
+    "rank": 4,
+    "item_name": "Fire Inside: A Chaos Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Until November (Until Series) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Dare to Surrender (NY Dares) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Reaper's Legacy (Reapers Motorcycle Club)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Undeniable"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Deal (Off-Campus) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Wild Man (Dream Man)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Beloved (The Belonging Series) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Devil's Game (Reapers Motorcycle Club)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Fueled (The Driven Trilogy)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Make It A Double (The Last Call Series) (Volume 2)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Ride Steady (Chaos)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Dare to Take (Dare to Love)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Raw"
+  },
+  {
+    "rank": 18,
+    "item_name": "Pulse: Book Two in the Collide Series"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "rank": 20,
+    "item_name": "Dare to Desire (Dare to Love) (Volume 2)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Hell's Knights (The MC Sinners Series)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Perfection: A Neighbor From Hell Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "Manwhore"
+  },
+  {
+    "rank": 24,
+    "item_name": "Axel (Corps Security) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Geoducks Are for Lovers"
+  },
+  {
+    "rank": 26,
+    "item_name": "Against The Wall"
+  },
+  {
+    "rank": 27,
+    "item_name": "Ricochet (Renegades) (Volume 3)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Debt Inheritance (Indebted) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Million Tiny Pieces"
+  },
+  {
+    "rank": 30,
+    "item_name": "Protecting Caroline (SEAL of Protection) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Driven ((The Driven Trilogy))"
+  },
+  {
+    "rank": 32,
+    "item_name": "Sustained (The Legal Briefs Series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Stepbrother Dearest"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Vixen &amp; the Vet"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Friend Zone (Game On) (Volume 2)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Captivated by You (Crossfire)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Collide: Book One in the Collide Series"
+  },
+  {
+    "rank": 38,
+    "item_name": "Kaleb: An Alluring Indulgence Novel (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Pact"
+  },
+  {
+    "rank": 40,
+    "item_name": "Until Nico (Until Series) (Volume 4)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Burn for Me"
+  },
+  {
+    "rank": 42,
+    "item_name": "One to Hold"
+  },
+  {
+    "rank": 43,
+    "item_name": "Heart Of The Billionaire: : (The Billionaire's Obsession ~ Sam)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Maid for Love (Gansett Island)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Cowgirl Ropes a Billionaire (Cowboys of Chance Creek) (Volume 4)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Arouse: A Spiral of Bliss Novel (Book One) (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Doctor's Secret Bride (Billionaire Brides of Granite Falls) (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Crashed (The Driven Trilogy)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Lick (A Stage Dive Novel)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Cooper (Corps Security)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

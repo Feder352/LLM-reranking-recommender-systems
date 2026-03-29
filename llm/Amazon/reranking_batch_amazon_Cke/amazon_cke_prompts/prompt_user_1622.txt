@@ -1,0 +1,212 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Against the Gods: The Remarkable Story of Risk"
+  },
+  {
+    "item_name": "Turning Numbers into Knowledge: Mastering the Art of Problem Solving"
+  },
+  {
+    "item_name": "The Ultimate Competitive Advantage: Secrets of Continually Developing a More Profitable Business Model"
+  },
+  {
+    "item_name": "The Balanced Scorecard: Translating Strategy into Action"
+  },
+  {
+    "item_name": "Lean Six Sigma for Service : How to Use Lean Speed and Six Sigma Quality to Improve Services and Transactions"
+  },
+  {
+    "item_name": "The Facebook Diet: 50 Funny Signs of Facebook Addiction and Ways to Unplug with a Digital Detox (The Unplug Series)"
+  },
+  {
+    "item_name": "Mostly Martha"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 812,
+    "item_name": "The 48 Laws of Power"
+  },
+  {
+    "rank": 2,
+    "item_id": 2063,
+    "item_name": "The Everything Store: Jeff Bezos and the Age of Amazon"
+  },
+  {
+    "rank": 3,
+    "item_id": 4136,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 4,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 5,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 6,
+    "item_id": 3779,
+    "item_name": "Microtrends: The Small Forces Behind Tomorrow's Big Changes"
+  },
+  {
+    "rank": 7,
+    "item_id": 4294,
+    "item_name": "Emotional Intelligence: Why It Can Matter More than IQ"
+  },
+  {
+    "rank": 8,
+    "item_id": 4141,
+    "item_name": "The Theoretical Minimum: What You Need to Know to Start Doing Physics"
+  },
+  {
+    "rank": 9,
+    "item_id": 4636,
+    "item_name": "The 8th Habit: From Effectiveness to Greatness"
+  },
+  {
+    "rank": 10,
+    "item_id": 4213,
+    "item_name": "Economics in One Lesson: The Shortest and Surest Way to Understand Basic Economics"
+  },
+  {
+    "rank": 11,
+    "item_id": 743,
+    "item_name": "Success Built to Last: Creating a Life that Matters"
+  },
+  {
+    "rank": 12,
+    "item_id": 1387,
+    "item_name": "13 Bankers: The Wall Street Takeover and the Next Financial Meltdown"
+  },
+  {
+    "rank": 13,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 14,
+    "item_id": 5710,
+    "item_name": "The Great Depression Ahead: How to Prosper in the Crash Following the Greatest Boom in History"
+  },
+  {
+    "rank": 15,
+    "item_id": 789,
+    "item_name": "The Portable Nietzsche (Portable Library)"
+  },
+  {
+    "rank": 16,
+    "item_id": 859,
+    "item_name": "The Black Swan: The Impact of the Highly Improbable"
+  },
+  {
+    "rank": 17,
+    "item_id": 996,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 18,
+    "item_id": 2550,
+    "item_name": "That Used to Be Us: How America Fell Behind in the World It Invented and How We Can Come Back"
+  },
+  {
+    "rank": 19,
+    "item_id": 4151,
+    "item_name": "The Science of Success: How Market-Based Management Built the World's Largest Private Company"
+  },
+  {
+    "rank": 20,
+    "item_id": 5174,
+    "item_name": "America Alone: The End of the World As We Know It"
+  },
+  {
+    "rank": 21,
+    "item_id": 6108,
+    "item_name": "The Case Against Barack Obama: The Unlikely Rise and Unexamined Agenda of the Media's Favorite Candidate"
+  },
+  {
+    "rank": 22,
+    "item_id": 1417,
+    "item_name": "Legacy of Ashes: The History of the CIA"
+  },
+  {
+    "rank": 23,
+    "item_id": 1379,
+    "item_name": "Deer Hunting with Jesus: Dispatches from America's Class War"
+  },
+  {
+    "rank": 24,
+    "item_id": 4670,
+    "item_name": "Irrational Exuberance"
+  },
+  {
+    "rank": 25,
+    "item_id": 5462,
+    "item_name": "The Professors:  The 101 Most Dangerous Academics in America"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

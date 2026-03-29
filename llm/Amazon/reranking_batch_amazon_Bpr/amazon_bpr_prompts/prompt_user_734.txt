@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Wilde in Love: The Wildes of Lindow Castle"
+  },
+  {
+    "item_name": "The Wild Woman's Guide to Traveling the World: A Novel"
+  },
+  {
+    "item_name": "The Illustrated Mahabharata: The Definitive Guide to India s Greatest Epic"
+  },
+  {
+    "item_name": "The Widows of Malabar Hill (A Mystery of 1920s India)"
+  },
+  {
+    "item_name": "A Duke in Shining Armor: Difficult Dukes"
+  },
+  {
+    "item_name": "Dreaming of Manderley (A Riches to Romance Tale)"
+  },
+  {
+    "item_name": "The Darkling Bride: A Novel"
+  },
+  {
+    "item_name": "Never Dare a Wicked Earl (The Infamous Lords)"
+  },
+  {
+    "item_name": "Now That You Mention It: A Novel"
+  },
+  {
+    "item_name": "Taste for Trouble (Blake Brothers Trilogy)"
+  },
+  {
+    "item_name": "The Viscount and the Vicar's Daughter: A Victorian Romance"
+  },
+  {
+    "item_name": "Twenty-one Days: A Daniel Pitt Novel"
+  },
+  {
+    "item_name": "Look the Part"
+  },
+  {
+    "item_name": "The Upside to Being Single"
+  },
+  {
+    "item_name": "Happiness for Humans"
+  },
+  {
+    "item_name": "CIRCE (#1 New York Times bestseller)"
+  },
+  {
+    "item_name": "A Duke in the Night (The Devils of Dover)"
+  },
+  {
+    "item_name": "Hello Stranger: The Ravenels, Book 4"
+  },
+  {
+    "item_name": "The Sins of Lord Lockwood (Rules for the Reckless)"
+  },
+  {
+    "item_name": "Lost Among the Living"
+  },
+  {
+    "item_name": "My Once and Future Duke: The Wagers of Sin"
+  },
+  {
+    "item_name": "Dear Dwayne, With Love"
+  },
+  {
+    "item_name": "Queens of the Conquest: England's Medieval Queens Book One"
+  },
+  {
+    "item_name": "A Devil of a Duke (Decadent Dukes Society)"
+  },
+  {
+    "item_name": "A Necessary Evil"
+  },
+  {
+    "item_name": "Someone to Care (A Westcott Novel)"
+  },
+  {
+    "item_name": "Between Earth and Sky"
+  },
+  {
+    "item_name": "Melt for You (Slow Burn)"
+  },
+  {
+    "item_name": "The Sapphire Widow: A Novel"
+  },
+  {
+    "item_name": "Jane Doe: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 2,
+    "item_name": "Love and Other Scandals"
+  },
+  {
+    "rank": 3,
+    "item_name": "Flowers from the Storm"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Arrangement"
+  },
+  {
+    "rank": 5,
+    "item_name": "What Happens in Scotland (Second Sons)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Firelight (Darkest London)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Groom Says Yes (Brides of Wishmore)"
+  },
+  {
+    "rank": 8,
+    "item_name": "When Beauty Tamed the Beast (Fairy Tales)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Only Enchanting (Survivors' Club)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Best Man (The Blue Heron Series)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Great Escape: A Novel (Wynette, Texas)"
+  },
+  {
+    "rank": 12,
+    "item_name": "An English Bride in Scotland: Highland Brides (The Highland Brides)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Darling Beast (Maiden Lane)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Only a Promise (Survivors' Club)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Escape (A Survivors' Club Novel)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Secrets of a Scandalous Heiress (Matchmaker Trilogy)"
+  },
+  {
+    "rank": 17,
+    "item_name": "I Adored a Lord: The Prince Catchers"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Glass Kitchen: A Novel of Sisters"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Sum of All Kisses (Smythe-Smith)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Three Weeks With Lady X (Desperate Duchesses)"
+  },
+  {
+    "rank": 21,
+    "item_name": "A Night Like This"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Outlaw Knight"
+  },
+  {
+    "rank": 23,
+    "item_name": "Surrender My Love (Haardrad Family)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Blooding of Jack Absolute"
+  },
+  {
+    "rank": 25,
+    "item_name": "Moonstruck Madness"
+  },
+  {
+    "rank": 26,
+    "item_name": "Someone to Hold (A Westcott Novel)"
+  },
+  {
+    "rank": 27,
+    "item_name": "A Wallflower Christmas (Wallflowers, Book 5)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Indiscreet (The Horsemen Trilogy)"
+  },
+  {
+    "rank": 29,
+    "item_name": "An Affair Before Christmas (Desperate Duchesses, Bk 2)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Heiress Effect (The Brothers Sinister) (Volume 2)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Highland Hellcat (Hot Highlanders)"
+  },
+  {
+    "rank": 32,
+    "item_name": "A Courtesan's Scandal (Scandalous)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Sapphires Are an Earl's Best Friend (Jewels of the Ton)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Autumn Bride (A Chance Sisters Romance)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Just Like Heaven"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Lady by Midnight (Spindle Cove)"
+  },
+  {
+    "rank": 37,
+    "item_name": "More than a Mistress"
+  },
+  {
+    "rank": 38,
+    "item_name": "Otherwise Engaged"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Rake"
+  },
+  {
+    "rank": 40,
+    "item_name": "It Happened One Season"
+  },
+  {
+    "rank": 41,
+    "item_name": "Undone by the Duke (Secrets in Silk)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Children of Liberty: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "I Married the Duke: The Prince Catchers"
+  },
+  {
+    "rank": 44,
+    "item_name": "Then Came You (Avon Historical Romance)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Secrets of an Accidental Duchess (A Donovan Novel)"
+  },
+  {
+    "rank": 46,
+    "item_name": "My American Duchess"
+  },
+  {
+    "rank": 47,
+    "item_name": "Fast Track"
+  },
+  {
+    "rank": 48,
+    "item_name": "If the Viscount Falls (The Duke's Men)"
+  },
+  {
+    "rank": 49,
+    "item_name": "How to Lose a Duke in Ten Days: An American Heiress in London"
+  },
+  {
+    "rank": 50,
+    "item_name": "Boots Under Her Bed"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

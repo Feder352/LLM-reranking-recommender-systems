@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Make Me Beg"
+  },
+  {
+    "item_name": "Falling for the Highlander: Highland Brides"
+  },
+  {
+    "item_name": "Wyoming Brave: A Contemporary Western Romance (Wyoming Men)"
+  },
+  {
+    "item_name": "Fury on Fire: A Devil's Rock Novel"
+  },
+  {
+    "item_name": "The Dastardly Miss Lizzie: An Electric Empire Novel"
+  },
+  {
+    "item_name": "Accidentally on Purpose: A Heartbreaker Bay Novel"
+  },
+  {
+    "item_name": "Academ's Fury (Codex Alera, Book 2)"
+  },
+  {
+    "item_name": "A Cold Creek Baby (Mills &amp; Boon Largeprint Special Edition)"
+  },
+  {
+    "item_name": "Under Pressure: An Anthology (Body Armor)"
+  },
+  {
+    "item_name": "10 Things I Can See From Here"
+  },
+  {
+    "item_name": "Sisi: Empress on Her Own: A Novel"
+  },
+  {
+    "item_name": "Beauty of the Beast (Fairy Tale Retellings) (Volume 1)"
+  },
+  {
+    "item_name": "Lickety Split"
+  },
+  {
+    "item_name": "The Black Lily"
+  },
+  {
+    "item_name": "The Siren's Son (The Siren Legacy) (Volume 1)"
+  },
+  {
+    "item_name": "Bedchamber Games (Rakes of Cavendish Square)"
+  },
+  {
+    "item_name": "Dating You / Hating You"
+  },
+  {
+    "item_name": "Kittens Can Kill: A Pru Marlowe Pet Noir"
+  },
+  {
+    "item_name": "Always: A Novel"
+  },
+  {
+    "item_name": "Biker B*tch (Heaven's Sinners)"
+  },
+  {
+    "item_name": "The Scandal of It All: The Rogue Files"
+  },
+  {
+    "item_name": "Ready for Wild: A Book Club Recommendation! (The Grand Valley Series)"
+  },
+  {
+    "item_name": "The Duchess Deal: Girl Meets Duke"
+  },
+  {
+    "item_name": "Wicked in a Kilt (Hot Scots)"
+  },
+  {
+    "item_name": "The Viscount and the Vixen (Hellions of Havisham)"
+  },
+  {
+    "item_name": "Beautiful Tempest: A Novel (Malory-Anderson Family)"
+  },
+  {
+    "item_name": "Cowboy, It's Cold Outside: A Twilight, Texas Novel"
+  },
+  {
+    "item_name": "The Day of the Duchess: Scandal &amp; Scoundrel, Book III"
+  },
+  {
+    "item_name": "Love with a Scottish Outlaw: Highland Weddings"
+  },
+  {
+    "item_name": "Lachlan (Immortal Highlander Book 1): A Scottish Time Travel Romance (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Waiting On You (The Blue Heron Series)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Three Little Words (Fool's Gold, Book 13)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Wanderer (Thunder Point)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Best Man (The Blue Heron Series)"
+  },
+  {
+    "rank": 5,
+    "item_name": "In Your Dreams (The Blue Heron Series)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Perfect Match (The Blue Heron Series)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Love and Other Scandals"
+  },
+  {
+    "rank": 8,
+    "item_name": "STARRY NIGHT"
+  },
+  {
+    "rank": 9,
+    "item_name": "An English Bride in Scotland: Highland Brides (The Highland Brides)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Someone to Hold (A Westcott Novel)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Atonement (Beartooth, Montana)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Christmas on 4th Street (Fool's Gold, Book 14)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Once in a Lifetime (Lucky Harbor)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Homecoming (Thunder Point)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Three Sisters"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Look of Love (The Sullivans)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Love a Little Sideways (The Kowalskis)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Scoundrel and the Debutante: A Regency Romance (The Cabot Sisters)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Troublemaker Next Door (The McCauley Brothers)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Two of a Kind (Fool's Gold, Book 12)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Big Sky Secrets (The Parable Series)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Winter Bride (Chance Sisters)"
+  },
+  {
+    "rank": 23,
+    "item_name": "What We Find (Sullivan's Crossing)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Must Love Dukes (Tricks of the Ton)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Somebody To Love (Hqn)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Forever and a Day (Lucky Harbor)"
+  },
+  {
+    "rank": 27,
+    "item_name": "On the Island"
+  },
+  {
+    "rank": 28,
+    "item_name": "If the Viscount Falls (The Duke's Men)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Until We Touch (Fool's Gold,  Book 17)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Just One Kiss (Fool's Gold, Book 11)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Simply Irresistible (Lucky Harbor)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Girls of Mischief Bay"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Duke's Disaster"
+  },
+  {
+    "rank": 34,
+    "item_name": "Secrets of a Scandalous Heiress (Matchmaker Trilogy)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Only Enchanting (Survivors' Club)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Half Moon Hill: A Destiny Novel (Destiny series)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Hunk for the Holidays"
+  },
+  {
+    "rank": 38,
+    "item_name": "A New Hope (Thunder Point)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Marrying Winterborne"
+  },
+  {
+    "rank": 40,
+    "item_name": "Free Fall (Elite Force: That Others May Live)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Die For Me: A Novel of the Valentine Killer"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Arrangement"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Newcomer (Thunder Point)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Cowboy's Christmas Baby (Cowboys &amp; Brides)"
+  },
+  {
+    "rank": 45,
+    "item_name": "By Linda Lael Miller Big Sky Mountain (Hqn) (Original) [Mass Market Paperback]"
+  },
+  {
+    "rank": 46,
+    "item_name": "Come a Little Bit Closer (The Sullivans)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Taken with You (The Kowalskis)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Can't Help Falling in Love (The Sullivans)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Firelight (Darkest London)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Glass Kitchen: A Novel of Sisters"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

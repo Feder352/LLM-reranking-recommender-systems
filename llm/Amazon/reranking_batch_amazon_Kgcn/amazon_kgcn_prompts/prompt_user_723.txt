@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Lost Horizon"
+  },
+  {
+    "item_name": "Shatner Rules: Your Guide to Understanding the Shatnerverse and the World at Large"
+  },
+  {
+    "item_name": "Shatner Rules: Your Guide to Understanding the Shatnerverse and the World at Large"
+  },
+  {
+    "item_name": "Don't Know Much About the Civil War: Everything You Need to Know About America's Greatest Conflict but Never Learned"
+  },
+  {
+    "item_name": "American Brutus: John Wilkes Booth and the Lincoln Conspiracies"
+  },
+  {
+    "item_name": "Dreams from My Father: A Story of Race and Inheritance"
+  },
+  {
+    "item_name": "Russian Roulette: A Deadly Game: How British Spies Thwarted Lenin's Global Plot"
+  },
+  {
+    "item_name": "The Strange Library"
+  },
+  {
+    "item_name": "Hand Drawn Jokes for Smart Attractive People"
+  },
+  {
+    "item_name": "Bombs Away: The Hot War"
+  },
+  {
+    "item_name": "Swastika Nation: Fritz Kuhn and the Rise and Fall of the German-American Bund"
+  },
+  {
+    "item_name": "The Great Starvation Experiment: The Heroic Men Who Starved so That Millions Could Live"
+  },
+  {
+    "item_name": "The Flashman (The Flashman Papers)"
+  },
+  {
+    "item_name": "Embracing Defeat: Japan in the Wake of World War II"
+  },
+  {
+    "item_name": "In Wartime: Stories from Ukraine"
+  },
+  {
+    "item_name": "Inch'on 1950: The last great amphibious assault (Campaign)"
+  },
+  {
+    "item_name": "In Wartime: Stories from Ukraine"
+  },
+  {
+    "item_name": "Rogue Heroes: The History of the SAS, Britain's Secret Special Forces Unit That Sabotaged the Nazis and Changed the Nature of War"
+  },
+  {
+    "item_name": "The Witches: Salem, 1692"
+  },
+  {
+    "item_name": "ART OF ATARI Limited Deluxe Edition"
+  },
+  {
+    "item_name": "Poe: A Life Cut Short (Ackroyd's Brief Lives)"
+  },
+  {
+    "item_name": "Operation Chowhound: The Most Risky, Most Glorious US Bomber Mission of WWII"
+  },
+  {
+    "item_name": "Scars of Independence: America's Violent Birth"
+  },
+  {
+    "item_name": "Red Star Rogue: The Untold Story of a Soviet Submarine's Nuclear Strike Attempt on the U.S."
+  },
+  {
+    "item_name": "My Holiday in North Korea: The Funniest/Worst Place on Earth"
+  },
+  {
+    "item_name": "My Holiday in North Korea"
+  },
+  {
+    "item_name": "Not Cool: The Hipster Elite and Their War on You"
+  },
+  {
+    "item_name": "Not Cool: The Hipster Elite and Their War on You - Kindle edition"
+  },
+  {
+    "item_name": "The True Flag: Theodore Roosevelt, Mark Twain, and the Birth of American Empire"
+  },
+  {
+    "item_name": "No Cats Allowed (Cat in the Stacks Mystery)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2914,
+    "item_name": "Papal Sin: Structures of Deceit"
+  },
+  {
+    "rank": 2,
+    "item_id": 5330,
+    "item_name": "Blinded by the Right: The Conscience of an Ex-Conservative"
+  },
+  {
+    "rank": 3,
+    "item_id": 3005,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 4,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 5,
+    "item_id": 168,
+    "item_name": "God's Politics: Why the Right Gets It Wrong and the Left Doesn't Get It"
+  },
+  {
+    "rank": 6,
+    "item_id": 888,
+    "item_name": "Word Freak: Heartbreak, Triumph, Genius, and Obsession in the World of Competitive Scrabble Players"
+  },
+  {
+    "rank": 7,
+    "item_id": 2067,
+    "item_name": "The Gift of Fear : Survival Signals That Protect Us from Violence"
+  },
+  {
+    "rank": 8,
+    "item_id": 811,
+    "item_name": "Black Hawk Down: A Story of Modern War"
+  },
+  {
+    "rank": 9,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 10,
+    "item_id": 4672,
+    "item_name": "On Bullshit"
+  },
+  {
+    "rank": 11,
+    "item_id": 5272,
+    "item_name": "Freethinkers: A History of American Secularism"
+  },
+  {
+    "rank": 12,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 13,
+    "item_id": 1999,
+    "item_name": "Infinite Jest"
+  },
+  {
+    "rank": 14,
+    "item_id": 136,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 15,
+    "item_id": 757,
+    "item_name": "Amusing Ourselves to Death: Public Discourse in the Age of Show Business"
+  },
+  {
+    "rank": 16,
+    "item_id": 2174,
+    "item_name": "The Demon-Haunted World: Science as a Candle in the Dark"
+  },
+  {
+    "rank": 17,
+    "item_id": 685,
+    "item_name": "Salt: A World History"
+  },
+  {
+    "rank": 18,
+    "item_id": 4564,
+    "item_name": "Lincoln at Gettysburg: The Words That Re-Made America"
+  },
+  {
+    "rank": 19,
+    "item_id": 1205,
+    "item_name": "Homage to Catalonia"
+  },
+  {
+    "rank": 20,
+    "item_id": 1476,
+    "item_name": "Going Clear: Scientology, Hollywood, and the Prison of Belief"
+  },
+  {
+    "rank": 21,
+    "item_id": 64,
+    "item_name": "In the Wake of the Plague: The Black Death and the World It Made"
+  },
+  {
+    "rank": 22,
+    "item_id": 3079,
+    "item_name": "Waiting for Godot: A Tragicomedy in Two Acts"
+  },
+  {
+    "rank": 23,
+    "item_id": 5265,
+    "item_name": "James Madison (The American Presidents Series)"
+  },
+  {
+    "rank": 24,
+    "item_id": 674,
+    "item_name": "The Plague"
+  },
+  {
+    "rank": 25,
+    "item_id": 1097,
+    "item_name": "The World Until Yesterday: What Can We Learn from Traditional Societies?"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

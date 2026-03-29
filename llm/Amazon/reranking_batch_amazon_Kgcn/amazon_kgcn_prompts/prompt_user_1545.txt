@@ -1,0 +1,227 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Iron Cowboy (Long, Tall Texans)"
+  },
+  {
+    "item_name": "Daddy-Long-Legs (Puffin Classics)"
+  },
+  {
+    "item_name": "Circle Of Gold"
+  },
+  {
+    "item_name": "A Long Fatal Love Chase"
+  },
+  {
+    "item_name": "The Pilgrim's Progress from This World, To That Which Is toCome (Penguin Classics)"
+  },
+  {
+    "item_name": "John Bunyan's The Pilgrim's Progress: A Classic Story Wonderfully Told (Listeners Collection of Classic Christian Literature)"
+  },
+  {
+    "item_name": "Once A Cowboy (Harlequin American Romance Series)"
+  },
+  {
+    "item_name": "The Baby Secret"
+  },
+  {
+    "item_name": "A WHIRLWIND MARRIAGE"
+  },
+  {
+    "item_name": "Tough to Tame"
+  },
+  {
+    "item_name": "Untamed"
+  },
+  {
+    "item_name": "Wyoming Rugged: A Western Romance (Wyoming Men)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5113,
+    "item_name": "A Virgin River Christmas (A Virgin River Novel)"
+  },
+  {
+    "rank": 2,
+    "item_id": 5125,
+    "item_name": "Temptation Ridge (A Virgin River Novel)"
+  },
+  {
+    "rank": 3,
+    "item_id": 5131,
+    "item_name": "Second Chance Pass (Virgin River)"
+  },
+  {
+    "rank": 4,
+    "item_id": 2525,
+    "item_name": "A Very Special Delivery (Love Inspired #349)"
+  },
+  {
+    "rank": 5,
+    "item_id": 4093,
+    "item_name": "Silent Run"
+  },
+  {
+    "rank": 6,
+    "item_id": 2447,
+    "item_name": "Hide in Plain Sight (Three Sisters Inn, Book 1)"
+  },
+  {
+    "rank": 7,
+    "item_id": 2503,
+    "item_name": "Big Sky Mountain (Parable, Montana)"
+  },
+  {
+    "rank": 8,
+    "item_id": 3897,
+    "item_name": "All She Ever Wanted"
+  },
+  {
+    "rank": 9,
+    "item_id": 4893,
+    "item_name": "Reinventing Mona"
+  },
+  {
+    "rank": 10,
+    "item_id": 6145,
+    "item_name": "Goodbye to Yesterday: Part 1 (The Discovery - A Lancaster County Saga)"
+  },
+  {
+    "rank": 11,
+    "item_id": 4921,
+    "item_name": "Forget Me Not"
+  },
+  {
+    "rank": 12,
+    "item_id": 2344,
+    "item_name": "Montana Bride (Bitter Creek)"
+  },
+  {
+    "rank": 13,
+    "item_id": 4028,
+    "item_name": "Silent Fall"
+  },
+  {
+    "rank": 14,
+    "item_id": 1262,
+    "item_name": "Married By Mistake"
+  },
+  {
+    "rank": 15,
+    "item_id": 573,
+    "item_name": "The Cowboy and the Princess (Jubilee, Texas)"
+  },
+  {
+    "rank": 16,
+    "item_id": 5140,
+    "item_name": "The Wanderer (Thunder Point)"
+  },
+  {
+    "rank": 17,
+    "item_id": 2491,
+    "item_name": "An Outlaw's Christmas (The McKettricks)"
+  },
+  {
+    "rank": 18,
+    "item_id": 2437,
+    "item_name": "Dancing In The Moonlight (The Cowboys of Cold Creek)"
+  },
+  {
+    "rank": 19,
+    "item_id": 2433,
+    "item_name": "The Sheik and the Christmas Bride"
+  },
+  {
+    "rank": 20,
+    "item_id": 3522,
+    "item_name": "Betting the Rainbow (Harmony)"
+  },
+  {
+    "rank": 21,
+    "item_id": 3850,
+    "item_name": "Marian's Christmas Wish (Signet Regency Romance)"
+  },
+  {
+    "rank": 22,
+    "item_id": 2473,
+    "item_name": "The McCaffertys: Thorne"
+  },
+  {
+    "rank": 23,
+    "item_id": 2520,
+    "item_name": "Whispered Promises (Madaris Family Saga)"
+  },
+  {
+    "rank": 24,
+    "item_id": 4046,
+    "item_name": "Did You Miss Me? (The Baltimore Series)"
+  },
+  {
+    "rank": 25,
+    "item_id": 5133,
+    "item_name": "Against the Sun (The Raines of Wind Canyon)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

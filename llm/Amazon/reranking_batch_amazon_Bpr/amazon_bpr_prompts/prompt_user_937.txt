@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Visual Guide to Grammar and Punctuation"
+  },
+  {
+    "item_name": "Warcross"
+  },
+  {
+    "item_name": "The Special Ones"
+  },
+  {
+    "item_name": "Little Monsters"
+  },
+  {
+    "item_name": "Brave (Berrybrook Middle School)"
+  },
+  {
+    "item_name": "This Is What a Librarian Looks Like: A Celebration of Libraries, Communities, and Access to Information"
+  },
+  {
+    "item_name": "Confessions from the Principal's Kid"
+  },
+  {
+    "item_name": "In the Valley of the Sun: A Novel"
+  },
+  {
+    "item_name": "A Map for Wrecked Girls"
+  },
+  {
+    "item_name": "Lights, Camera, Middle School! (Babymouse Tales from the Locker)"
+  },
+  {
+    "item_name": "Lights, Camera, Cook! (Next Best Junior Chef)"
+  },
+  {
+    "item_name": "Restart"
+  },
+  {
+    "item_name": "Insignificant Events in the Life of a Cactus"
+  },
+  {
+    "item_name": "The Secret of Nightingale Wood"
+  },
+  {
+    "item_name": "Nevermoor: The Trials of Morrigan Crow"
+  },
+  {
+    "item_name": "Little Soldiers: An American Boy, a Chinese School, and the Global Race to Achieve"
+  },
+  {
+    "item_name": "Reincarnation Blues: A Novel"
+  },
+  {
+    "item_name": "One Mixed-Up Night"
+  },
+  {
+    "item_name": "If the Creek Don't Rise: A Novel (Turtleback School &amp; Library Binding)"
+  },
+  {
+    "item_name": "Once You Know This"
+  },
+  {
+    "item_name": "The Child Finder: A Novel"
+  },
+  {
+    "item_name": "The Cruel Prince (The Folk of the Air)"
+  },
+  {
+    "item_name": "The Hearts We Sold"
+  },
+  {
+    "item_name": "Genuine Fraud"
+  },
+  {
+    "item_name": "Good Neighbors: A Novel"
+  },
+  {
+    "item_name": "Friend Request: The most addictive psychological thriller you'll read this year"
+  },
+  {
+    "item_name": "Nyxia (The Nyxia Triad)"
+  },
+  {
+    "item_name": "The Vanderbeekers of 141st Street"
+  },
+  {
+    "item_name": "Mask of Shadows"
+  },
+  {
+    "item_name": "Game Change"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Gated"
+  },
+  {
+    "rank": 2,
+    "item_name": "We Are the Goldens"
+  },
+  {
+    "rank": 3,
+    "item_name": "Sway: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Geography of You and Me"
+  },
+  {
+    "rank": 5,
+    "item_name": "A Thousand Pieces of You (Firebird)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Way I Used to Be"
+  },
+  {
+    "rank": 7,
+    "item_name": "Born of Illusion"
+  },
+  {
+    "rank": 8,
+    "item_name": "Railhead"
+  },
+  {
+    "rank": 9,
+    "item_name": "Don't Touch"
+  },
+  {
+    "rank": 10,
+    "item_name": "Mechanica"
+  },
+  {
+    "rank": 11,
+    "item_name": "Vengeance Road"
+  },
+  {
+    "rank": 12,
+    "item_name": "Denton Little's Deathdate (Denton Little Series)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Here and Now"
+  },
+  {
+    "rank": 14,
+    "item_name": "No One Else Can Have You (Kippy Bushman)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Testing"
+  },
+  {
+    "rank": 16,
+    "item_name": "Feral"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Witch Hunter"
+  },
+  {
+    "rank": 19,
+    "item_name": "Magonia"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Strange and Beautiful Sorrows of Ava Lavender"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Darkest Hour"
+  },
+  {
+    "rank": 22,
+    "item_name": "Ghost Time"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Bone Season"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Eternity Cure (Blood of Eden)"
+  },
+  {
+    "rank": 25,
+    "item_name": "And I Darken (The Conqueror's Trilogy)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Lost"
+  },
+  {
+    "rank": 27,
+    "item_name": "Scarlett Epstein Hates It Here"
+  },
+  {
+    "rank": 28,
+    "item_name": "Vanishing Girls"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Voyage of Lucy P. Simmons"
+  },
+  {
+    "rank": 30,
+    "item_name": "Wolf by Wolf"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Call"
+  },
+  {
+    "rank": 32,
+    "item_name": "Crash and Burn"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Tyrant's Daughter"
+  },
+  {
+    "rank": 34,
+    "item_name": "Space Case (Moon Base Alpha)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Dark Missions of Edgar Brim"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Crossover (The Crossover Series)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Neo Parasyte m"
+  },
+  {
+    "rank": 38,
+    "item_name": "Graduation Day (The Testing)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Strange the Dreamer"
+  },
+  {
+    "rank": 40,
+    "item_name": "Crewel: A Novel (Crewel World)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Mosquitoland"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Scourge"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Wicked Thing"
+  },
+  {
+    "rank": 44,
+    "item_name": "Places No One Knows"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Mark of the Dragonfly (World of Solace Series)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Nick and Tesla's High-Voltage Danger Lab: A Mystery with Electromagnets, Burglar Alarms, and Other Gadgets You Can Build Yourself"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 48,
+    "item_name": "Blackbird"
+  },
+  {
+    "rank": 49,
+    "item_name": "Ferals"
+  },
+  {
+    "rank": 50,
+    "item_name": "An Ember in the Ashes"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

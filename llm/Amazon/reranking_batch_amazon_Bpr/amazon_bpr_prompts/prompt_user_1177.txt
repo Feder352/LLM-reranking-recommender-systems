@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Anywhere But Here: The Starborn Ascension: Book One"
+  },
+  {
+    "item_name": "Dark Fissures (The Rick Cahill Series)"
+  },
+  {
+    "item_name": "Permed to Death (Bad Hair Day Mystery 1)"
+  },
+  {
+    "item_name": "Hound's Bite (Ivy Granger, Psychic Detective) (Volume 5)"
+  },
+  {
+    "item_name": "The Devil's Fool (The Devil Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Handmaid's Tale (Contemporary Classics)"
+  },
+  {
+    "item_name": "The Society (The Society Series, Book 1)"
+  },
+  {
+    "item_name": "Trackers 2: The Hunted (Volume 2)"
+  },
+  {
+    "item_name": "Murder by Manicure (Bad Hair Day Mystery 3)"
+  },
+  {
+    "item_name": "Circled"
+  },
+  {
+    "item_name": "Web of Deceit: An Agents Under Fire Novel"
+  },
+  {
+    "item_name": "The Feedback Loop: (Book One) (Sci-Fi Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Miser's Dream (An Eli Marks Mystery) (Volume 3)"
+  },
+  {
+    "item_name": "First Strike"
+  },
+  {
+    "item_name": "The Rising"
+  },
+  {
+    "item_name": "Justice is Calling: A Kurtherian Gambit Series (Reclaiming Honor) (Volume 1)"
+  },
+  {
+    "item_name": "Tarzan of the Apes (Oxford World's Classics)"
+  },
+  {
+    "item_name": "Birthright (Ivy Granger, Psychic Detective) (Volume 4)"
+  },
+  {
+    "item_name": "Picture Miss Seeton"
+  },
+  {
+    "item_name": "The Curse Merchant (The Dark Choir)"
+  },
+  {
+    "item_name": "When evil calls your name"
+  },
+  {
+    "item_name": "Trackers 3: The Storm (Volume 3)"
+  },
+  {
+    "item_name": "Paradox Bound: A Novel"
+  },
+  {
+    "item_name": "Inspector Hobbes and the Blood: unhuman I - A fast paced comedy crime fantasy (Volume 1)"
+  },
+  {
+    "item_name": "A Mind To Kill: A dark psychological thriller packed with suspense"
+  },
+  {
+    "item_name": "Alpha Wolf (Olento Research) (Volume 1)"
+  },
+  {
+    "item_name": "White Trash Zombie Unchained"
+  },
+  {
+    "item_name": "Inspector Hobbes and the Bones: Cozy Mystery Comedy Crime Fantasy (unhuman) (Volume 4)"
+  },
+  {
+    "item_name": "Mass Hysteria"
+  },
+  {
+    "item_name": "Shutter"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "No Such Thing As Werewolves"
+  },
+  {
+    "rank": 2,
+    "item_name": "This Doesn't Happen In The Movies (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Turning Point: A Post Apocalyptic EMP Survival Fiction Series (The Blackout Series) (Volume 3)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Zombie Chronicles (Apocalypse Infection Unleashed Series)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Jakarta Pandemic"
+  },
+  {
+    "rank": 6,
+    "item_name": "Gypsy Hunted"
+  },
+  {
+    "rank": 7,
+    "item_name": "Wired"
+  },
+  {
+    "rank": 8,
+    "item_name": "Burned by Magic (The Baine Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Purge of Babylon: A Novel of Survival (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Fat Vampire (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Magic of Thieves"
+  },
+  {
+    "rank": 12,
+    "item_name": "Itsy Bitsy Spider: Emma Frost #1"
+  },
+  {
+    "rank": 13,
+    "item_name": "Project ELE (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Burning Man (A Gideon and Sirius Novel)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Witchblood (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Silver Ships: The Silver Ships, Book 1"
+  },
+  {
+    "rank": 17,
+    "item_name": "Z Plan: Blood on the Sand"
+  },
+  {
+    "rank": 18,
+    "item_name": "Baby, Species Intervention #6609"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Naturalist"
+  },
+  {
+    "rank": 20,
+    "item_name": "Yesterday's Gone: Episode 1"
+  },
+  {
+    "rank": 21,
+    "item_name": "Brilliance (The Brilliance Trilogy)"
+  },
+  {
+    "rank": 22,
+    "item_name": "White Jade: The Project: Book One"
+  },
+  {
+    "rank": 23,
+    "item_name": "Outage (Werewolf Suspense Series) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Forest of Forever (The Soren Chase series) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Final Winter"
+  },
+  {
+    "rank": 28,
+    "item_name": "Look and Find book for kids: Find the Cutes Playtime"
+  },
+  {
+    "rank": 29,
+    "item_name": "Awaken His Eyes: The Awakened Book One"
+  },
+  {
+    "rank": 30,
+    "item_name": "Visions: The Mystical Encounter Series (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Blood Orchids"
+  },
+  {
+    "rank": 32,
+    "item_name": "Until the End of the World"
+  },
+  {
+    "rank": 33,
+    "item_name": "Dinosaur Lake"
+  },
+  {
+    "rank": 34,
+    "item_name": "Braineater Jones"
+  },
+  {
+    "rank": 35,
+    "item_name": "After Impact"
+  },
+  {
+    "rank": 36,
+    "item_name": "Contact Us: A Jake Corby Sci-Fi Thriller"
+  },
+  {
+    "rank": 37,
+    "item_name": "Clovenhoof (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Grounded (The Grounded Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Chocolate With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Talented"
+  },
+  {
+    "rank": 41,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 42,
+    "item_name": "Vampire Girl (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Sailor Ray and the Darkest Night: A Supernatural Urban Fantasy Thriller (The Pact Book 1) - Kindle edition"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Devil's Grin - A Crime Novel featuring Anna Kronberg and Sherlock Holmes"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Haunted Halls"
+  },
+  {
+    "rank": 46,
+    "item_name": "First to Find: Book One in the Caching Out Series (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Extinction Horizon(The Extinction Cycle Book 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Trespassers: a novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "After The Ending (The Ending Series) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Last Necromancer (The Ministry of Curiosities) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

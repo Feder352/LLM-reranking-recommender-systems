@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Lucas - A Preston Brothers Novel: A More Than Series Spin Off (Volume 1)"
+  },
+  {
+    "item_name": "Hired Bride (Beaufort Brides) (Volume 1)"
+  },
+  {
+    "item_name": "Stay With Me (Last Frontier Lodge Novels) (Volume 5)"
+  },
+  {
+    "item_name": "Mister Black: A Billionaire SEAL Story, Part 1 (In the Shadows)"
+  },
+  {
+    "item_name": "An Act of Redemption (Acts of Honor) (Volume 1)"
+  },
+  {
+    "item_name": "Words from the Heart (An Amish Letters Novel)"
+  },
+  {
+    "item_name": "A Chance at Forever (Teaville Moral Society)"
+  },
+  {
+    "item_name": "Focus on Love"
+  },
+  {
+    "item_name": "His Risk: The Amish of Hart County"
+  },
+  {
+    "item_name": "Dangled Carat"
+  },
+  {
+    "item_name": "Until the Stars Fall From The Sky (A Hidden Beauty Novel) (Volume 1)"
+  },
+  {
+    "item_name": "The Secret to Southern Charm (The Peachtree Bluff Series)"
+  },
+  {
+    "item_name": "Kiss A Cowboy (Kiss A Cowboy Series Book One) (Volume 1)"
+  },
+  {
+    "item_name": "Claim Me, Cowboy (Copper Ridge)"
+  },
+  {
+    "item_name": "Changing the Rules (Champion Valley)"
+  },
+  {
+    "item_name": "Giving It Up (The Lost Girls)"
+  },
+  {
+    "item_name": "Return to Walhalla"
+  },
+  {
+    "item_name": "Shadows in the Curtain"
+  },
+  {
+    "item_name": "Homecoming (Sweet Hearts of Sweet Creek)"
+  },
+  {
+    "item_name": "Strong Silent Type (Rough Riders)"
+  },
+  {
+    "item_name": "One &amp; Only (Canton) (Volume 1)"
+  },
+  {
+    "item_name": "Giving In To You (The Giving Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "A Teaspoon of Trouble"
+  },
+  {
+    "item_name": "Diamonds and Dirt Roads (Billionaires in Blue Jeans) (Volume 1)"
+  },
+  {
+    "item_name": "Rescuing Emily: Delta Force Heroes, Book 2"
+  },
+  {
+    "item_name": "Falling Under (Walker Security Series)"
+  },
+  {
+    "item_name": "Cowboy's Redemption (The Montana Cahills)"
+  },
+  {
+    "item_name": "The Hawaiian Discovery"
+  },
+  {
+    "item_name": "Every Time You Go Away: A Novel"
+  },
+  {
+    "item_name": "The Sapphire Widow: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Cowgirl Ropes a Billionaire (Cowboys of Chance Creek) (Volume 4)"
+  },
+  {
+    "rank": 2,
+    "item_name": "It Had to Be You (Christiansen Family)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Christmas at Copper Mountain (Taming of the Sheenans) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "If I Run (If I Run Series)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Irish Meadows (Courage to Dream)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Hunter Bride (Hope's Crossing) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Shunned No More: A Lady Forsaken, Book One (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Everything We Keep: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "Almost A Bride (Wyoming Wildflowers)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Daughters of the Heart (Texas Romance) (Volume 5)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Red Door Inn: A Novel (Prince Edward Island Dreams)"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Bride for Keeps: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Lady and the Mountain Man (Mountain Dreams Series) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Nora Roberts Land (Dare Valley)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Shadows of the Past: A Novel (Logan Point) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Game of Love (Love in Bloom: The Remingtons, Book 1) (Volume 10)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Unexpected Gifts: Castle Mountain Lodge Series"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Look of Love (The Sullivans)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Welcome to Last Chance: A Novel (A Place to Call Home) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Captain's Bluestocking Mistress (Dukes of War) (Volume 3)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Cop On Her Doorstep (True Love In Uniform) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Earls Just Want to Have Fun (Covent Garden Cubs)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Mistress of Tall Acre: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Sister's Wish: The Charmed Amish Life, Book Three"
+  },
+  {
+    "rank": 25,
+    "item_name": "His Christmas Miracle"
+  },
+  {
+    "rank": 26,
+    "item_name": "A Most Inconvenient Marriage"
+  },
+  {
+    "rank": 27,
+    "item_name": "Her Heart for the Asking"
+  },
+  {
+    "rank": 28,
+    "item_name": "Wishing on Buttercups: A Novel (Love Blossoms in Oregon Series)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Opposite of Wild (Clover Park) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Viscount's Christmas Temptation (Dukes of War) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Cowboy Wins a Bride (The Cowboys of Chance Creek)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Unexpected Treasure - The Lost Andersons - Billionaire Bachelors Continued (Volume 10)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Unwrapping Her Perfect Match: A London Legends Christmas Romance"
+  },
+  {
+    "rank": 34,
+    "item_name": "Only You at Christmas (Christmas Town) (Volume 3)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Dangerous Passage: A Novel (Southern Crimes) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Maid for Love (Gansett Island)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Every Bride Needs a Groom: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Counting on a Cowboy (A Four of Hearts Ranch Romance)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Mountain Angel (Northstar Romances) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Fire Away (Somewhere, TX) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Taken by Tuesday (Weekday Brides)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Dante's Gift (A Chicago Christmas) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Strawberry Hearts Diner"
+  },
+  {
+    "rank": 44,
+    "item_name": "Pink Slips and Glass Slippers"
+  },
+  {
+    "rank": 45,
+    "item_name": "Maid for Love (The McCarthys of Gansett Island Series) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Sweet Girl (Titan)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Between Now And Forever (Callaways #4)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 49,
+    "item_name": "Chasing I Do: The Eastons (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Once Upon a Cowboy (Cowboy Fairytales) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "More than a Convenient Marriage? (Harlequin Presents)"
+  },
+  {
+    "item_name": "The Affair: One Night...Nine-Month Scandal (Harlequin Bestselling Author Collection)"
+  },
+  {
+    "item_name": "The Prince She Never Forgot (Harlequin Romance)"
+  },
+  {
+    "item_name": "Given to Fly"
+  },
+  {
+    "item_name": "Sweet Solace (Seattle Sound Series) (Volume 1)"
+  },
+  {
+    "item_name": "Carrying the King's Pride (Mills &amp; Boon Modern)"
+  },
+  {
+    "item_name": "One Night Heir"
+  },
+  {
+    "item_name": "His Beautiful Revenge: A Billionaire Romance"
+  },
+  {
+    "item_name": "Illegal Procedure (Fair Catch Series, Book One)"
+  },
+  {
+    "item_name": "Stealing Home (The Sweet Magnolias)"
+  },
+  {
+    "item_name": "Their Confession (The Black Door Trilogy) (Volume 3)"
+  },
+  {
+    "item_name": "His Confession (The Black Door Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Her Confession (The Black Door Trilogy) (Volume 2)"
+  },
+  {
+    "item_name": "He's Back: A Second Chance Romance"
+  },
+  {
+    "item_name": "The Wedding Party"
+  },
+  {
+    "item_name": "A Cure for Love (Mills &amp; Boon Largeprint Penny Jordan)"
+  },
+  {
+    "item_name": "Room Service"
+  },
+  {
+    "item_name": "Nora Roberts Land (Dare Valley)"
+  },
+  {
+    "item_name": "Sweet Regrets (Indigo Bay Sweet Romance Series) (Volume 5)"
+  },
+  {
+    "item_name": "Someone Like You"
+  },
+  {
+    "item_name": "Brazen: B-Squad Book One (Volume 1)"
+  },
+  {
+    "item_name": "Forever Our Boys (Beaumont)"
+  },
+  {
+    "item_name": "Fantasy Lover"
+  },
+  {
+    "item_name": "Giving In To You (The Giving Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Giving All to You (The Giving Trilogy) (Volume 3)"
+  },
+  {
+    "item_name": "Giving Up for You (The Giving Trilogy) (Volume 2)"
+  },
+  {
+    "item_name": "The Temptress"
+  },
+  {
+    "item_name": "My One Regret"
+  },
+  {
+    "item_name": "Holding Onto Forever (The Beaumont Series - Next Generation) (Volume 1)"
+  },
+  {
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Cowgirl Ropes a Billionaire (Cowboys of Chance Creek) (Volume 4)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Maid for the Billionaire: Ruth Cardello (Legacy Collection)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Doctor's Secret Bride (Billionaire Brides of Granite Falls) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Adam (Farraday Country) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Brands Who Came for Christmas (The Oklahoma All-Girl Brands) (Silhouette Intimate Moments, 1039)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Game of Love (Love in Bloom: The Remingtons, Book 1) (Volume 10)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Come Away With Me (The Andrades) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Branded for You: Riding Tall"
+  },
+  {
+    "rank": 9,
+    "item_name": "Four Weeks Till Forever (The Pryce Family) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Heart Of The Billionaire: : (The Billionaire's Obsession ~ Sam)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Romancing Rosalie - A Cascade Creek Christmas: A Ladies of Cascade Creek Novella (The Ladies of Cascade Creek) (Volume 5)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Unexpected Treasure - The Lost Andersons - Billionaire Bachelors Continued (Volume 10)"
+  },
+  {
+    "rank": 13,
+    "item_name": "All I Want for Christmas is You"
+  },
+  {
+    "rank": 14,
+    "item_name": "Broken Justice (The Justice Brothers) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Cheyenne Christmas"
+  },
+  {
+    "rank": 16,
+    "item_name": "Release!: A Walker Brothers Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Her Dakota Man (Dakota Hearts)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Love in a Snow Storm (Pine Harbour) (Volume 2)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Dare to Love"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Souvenir"
+  },
+  {
+    "rank": 21,
+    "item_name": "Wild Boys After Dark: Logan (Wild Billionaires After Dark) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "No Exchanges, No Returns: Book Four of The Return To Redemption Series (Volume 4)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Winters Heat (Titan)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Mason (Remington Ranch) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Embattled Hearts (Lost And Found Series)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "rank": 27,
+    "item_name": "Breakaway (Portland Storm) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "On the Fly (Portland Storm) (Volume 2)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Maid for Love (Gansett Island)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Love in a Small Town (Pine Harbour) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Alex; In the Company of Snipers 1"
+  },
+  {
+    "rank": 32,
+    "item_name": "Maid for Love (The McCarthys of Gansett Island Series) (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Billionaire Wins the Game: Billionaire Bachelors"
+  },
+  {
+    "rank": 34,
+    "item_name": "Tru Blue"
+  },
+  {
+    "rank": 35,
+    "item_name": "Destined for Love (Love in Bloom: The Bradens): Rex Braden (Volume 5)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Taken by Love (The Bradens at Trusty, Book 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "A SEAL's Surrender"
+  },
+  {
+    "rank": 38,
+    "item_name": "No Ordinary Billionaire (The Sinclairs)"
+  },
+  {
+    "rank": 39,
+    "item_name": "A SEAL's Oath (SEALs of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Choosing the Right Man (Nice Girl to Love, Book Three) (Volume 3)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Violet"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Cowboy Wins a Bride (The Cowboys of Chance Creek)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Forbidden Disclosure (A Billionaire in Disguise)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Wedding Wager"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Family for Christmas (Willow Park) (Volume 3)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Baby Stetson (Love and Music in Texas)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Hot On Her Trail (Hell Yeah! Book 2)"
+  },
+  {
+    "rank": 49,
+    "item_name": "A Ruthless Proposition"
+  },
+  {
+    "rank": 50,
+    "item_name": "Make It A Double (The Last Call Series) (Volume 2)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Bryant &amp; May: Wild Chamber: A Peculiar Crimes Unit Mystery"
+  },
+  {
+    "item_name": "Wallis in Love: The Untold Life of the Duchess of Windsor, the Woman Who Changed the Monarchy"
+  },
+  {
+    "item_name": "Protected by the Shadows (An Irene Huss Investigation)"
+  },
+  {
+    "item_name": "Two Kinds of Truth (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "This Is What Happened"
+  },
+  {
+    "item_name": "A Reckoning in the Back Country: A Samuel Craddock Mystery"
+  },
+  {
+    "item_name": "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life"
+  },
+  {
+    "item_name": "Educated: A Memoir"
+  },
+  {
+    "item_name": "Something Like Happy: A Novel"
+  },
+  {
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "item_name": "The Wolf, the Duck, and the Mouse"
+  },
+  {
+    "item_name": "Surprise Me: A Novel"
+  },
+  {
+    "item_name": "Surprise Me"
+  },
+  {
+    "item_name": "Creepy Pair of Underwear!"
+  },
+  {
+    "item_name": "The Story of Snowflake and Inkdrop"
+  },
+  {
+    "item_name": "Vegangelical: How Caring for Animals Can Shape Your Faith"
+  },
+  {
+    "item_name": "Hit Makers: The Science of Popularity in an Age of Distraction"
+  },
+  {
+    "item_name": "If Apples Had Teeth"
+  },
+  {
+    "item_name": "The Reading Group"
+  },
+  {
+    "item_name": "The Wife Between Us: A Novel"
+  },
+  {
+    "item_name": "Need To Know"
+  },
+  {
+    "item_name": "The Girls in the Picture: A Novel"
+  },
+  {
+    "item_name": "Coffin Scarcely Used"
+  },
+  {
+    "item_name": "Coffin Scarcely Used"
+  },
+  {
+    "item_name": "Carnegie's Maid: A Novel"
+  },
+  {
+    "item_name": "Compelling Evidence"
+  },
+  {
+    "item_name": "The Arraignment (Paul Madriani Novels)"
+  },
+  {
+    "item_name": "The Jury"
+  },
+  {
+    "item_name": "Putting It Together Again When It's All Fallen Apart: 7 Principles for Rebuilding Your Life"
+  },
+  {
+    "item_name": "Noah's Ark"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Still Alice"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Care and Management of Lies: A Novel of the Great War (P.S. (Paperback))"
+  },
+  {
+    "rank": 6,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 9,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Dead Wake: The Last Crossing of the Lusitania"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Beach Street Knitting Society and Yarn Club"
+  },
+  {
+    "rank": 12,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 13,
+    "item_name": "A Week in Winter"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 15,
+    "item_name": "OUT STEALING HORSES"
+  },
+  {
+    "rank": 16,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Where the Wild Things Are"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Jungle (The Penguin American Library)"
+  },
+  {
+    "rank": 20,
+    "item_name": "A Thousand Splendid Suns: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Novel Habits of Happiness (Isabel Dalhousie Series)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Night Before Christmas: A Bedtime Shadow Book (Activity Books) (Shadow Book Series) by Clement Clarke Moore(August 1, 2006) Spiral-bound"
+  },
+  {
+    "rank": 24,
+    "item_name": "Little House On The Prairie"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 26,
+    "item_name": "Mastering the Art of Soviet Cooking: A Memoir of Food and Longing"
+  },
+  {
+    "rank": 27,
+    "item_name": "Empress Dowager Cixi"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Buried Giant: A novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Alexander and the Terrible, Horrible, No Good, Very Bad Day Low Price"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Cuckoo's Calling (Cormoran Strike)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Life-Changing Magic of Tidying: A simple, effective way to banish clutter forever"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Widower's Tale: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "A Banquet of Consequences: A Lynley Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "On Paper: The Everything of Its Two-Thousand-Year History (ALA Notable Books for Adults)"
+  },
+  {
+    "rank": 35,
+    "item_name": "City of Women"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 37,
+    "item_name": "We Are All Completely Beside Ourselves: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Three Cups of Tea"
+  },
+  {
+    "rank": 40,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 41,
+    "item_name": "Harry Potter and the Cursed Child, parts one and two. [Based on the original new story by J.J. Rowling, John Tiffany &amp; Jack Thorne]. First produced by ... End production, special rehearsal edition."
+  },
+  {
+    "rank": 42,
+    "item_name": "Blink - The Power Of Thinking Without Thinking"
+  },
+  {
+    "rank": 43,
+    "item_name": "Charlotte's Web (50th Anniversary Retrospective Edition)"
+  },
+  {
+    "rank": 44,
+    "item_name": "On Writing"
+  },
+  {
+    "rank": 45,
+    "item_name": "Where the Wild Things Are (Caldecott Collection)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Under Magnolia: A Southern Memoir"
+  },
+  {
+    "rank": 47,
+    "item_name": "Click, Clack, Moo: Cows That Type"
+  },
+  {
+    "rank": 48,
+    "item_name": "Crocodile on the Sandbank: The Amelia Peabody Series, Book 1"
+  },
+  {
+    "rank": 49,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Murder on the Links"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

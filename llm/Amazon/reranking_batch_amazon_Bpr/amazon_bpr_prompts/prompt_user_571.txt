@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Seize the Day (Penguin Great Books of the 20th Century)"
+  },
+  {
+    "item_name": "Rinkitink in Oz"
+  },
+  {
+    "item_name": "The Dumas Club"
+  },
+  {
+    "item_name": "Club Dumas, Spanish Edition"
+  },
+  {
+    "item_name": "El Club Dumas (Punto de Lectura) (Spanish Edition)"
+  },
+  {
+    "item_name": "Cheaper by the Dozen (Perennial Classics)"
+  },
+  {
+    "item_name": "Fathers and Sons"
+  },
+  {
+    "item_name": "The Bastard of Istanbul"
+  },
+  {
+    "item_name": "Flight: A Novel"
+  },
+  {
+    "item_name": "Glinda of Oz (Dover Children's Classics)"
+  },
+  {
+    "item_name": "Travels with Charley in Search of America"
+  },
+  {
+    "item_name": "Light in August (Modern Library College Editions Series)"
+  },
+  {
+    "item_name": "Hard Times"
+  },
+  {
+    "item_name": "The Victim (Classic, 20th-Century, Penguin)"
+  },
+  {
+    "item_name": "Tik-Tok of Oz"
+  },
+  {
+    "item_name": "The Ministry of Special Cases"
+  },
+  {
+    "item_name": "Song of Solomon"
+  },
+  {
+    "item_name": "This Boy's Life: A Memoir"
+  },
+  {
+    "item_name": "Madame Bovary (Penguin Classics)"
+  },
+  {
+    "item_name": "Babel: Collected Stories (Penguin Classics)"
+  },
+  {
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "item_name": "This Earth of Mankind (Buru Quartet)"
+  },
+  {
+    "item_name": "Zeno's Conscience (Everyman's Library Contemporary Classics Series)"
+  },
+  {
+    "item_name": "A Nervous Splendor: Vienna 1888-1889"
+  },
+  {
+    "item_name": "The House of the Seven Gables (The Penguin American Library)"
+  },
+  {
+    "item_name": "The Red and the Black (Penguin Classics)"
+  },
+  {
+    "item_name": "The red and the black,"
+  },
+  {
+    "item_name": "The American (Penguin Classics)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 2,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 6,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 8,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 9,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Glass Menagerie (Modern Classics (Penguin))"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Dharma Bums"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Quiet American"
+  },
+  {
+    "rank": 14,
+    "item_name": "Burr"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Bluest Eye (Vintage International)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Autobiography of Benjamin Franklin with Related Readings (Glencoe Literature Library)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Emerson's Essays"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Turn of the Screw and Other Stories (Penguin modern classics)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 20,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Iliad"
+  },
+  {
+    "rank": 22,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Connecticut Yankee in King Arthur's Court (Penguin Classics)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Lord of the Flies"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Amazing Adventures of Kavalier &amp; Clay"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 31,
+    "item_name": "Goodbye, Columbus : And Five Short Stories (Vintage International)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Confessions (Penguin Classics)"
+  },
+  {
+    "rank": 33,
+    "item_name": "For Whom the Bell Tolls"
+  },
+  {
+    "rank": 34,
+    "item_name": "Doctor Zhivago"
+  },
+  {
+    "rank": 35,
+    "item_name": "Ulysses"
+  },
+  {
+    "rank": 36,
+    "item_name": "King Leopold's Ghost: A Story of Greed, Terror, and Heroism in Colonial Africa"
+  },
+  {
+    "rank": 37,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 39,
+    "item_name": "Don Quixote"
+  },
+  {
+    "rank": 40,
+    "item_name": "A confederacy of dunces"
+  },
+  {
+    "rank": 41,
+    "item_name": "Other Voices, Other Rooms (Penguin Modern Classics)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Death of Ivan Ilych and Other Stories (Penguin Classics)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 46,
+    "item_name": "Of Human Bondage (Bantam Classics)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Son of the Morning Star"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Moonstone: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Sea-Wolf eBook"
+  },
+  {
+    "rank": 50,
+    "item_name": "Underworld"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Complicit: A Novel"
+  },
+  {
+    "item_name": "The String Diaries"
+  },
+  {
+    "item_name": "The String Diaries"
+  },
+  {
+    "item_name": "Thirty Sunsets"
+  },
+  {
+    "item_name": "Close Your Eyes, Hold Hands (Vintage Contemporaries)"
+  },
+  {
+    "item_name": "Going Down in Flames (A Going Down in Flames Novel)"
+  },
+  {
+    "item_name": "Where Silence Gathers"
+  },
+  {
+    "item_name": "The Kiss of Deception: The Remnant Chronicles, Book One"
+  },
+  {
+    "item_name": "The Burnouts (Quarantine)"
+  },
+  {
+    "item_name": "Under Different Stars (Kricket)"
+  },
+  {
+    "item_name": "Sycamore Row (The Jake Brigance)"
+  },
+  {
+    "item_name": "The Things You Kiss Goodbye"
+  },
+  {
+    "item_name": "Dead Beautiful (A Dead Beautiful Novel)"
+  },
+  {
+    "item_name": "The Statistical Probability of Love at First Sight"
+  },
+  {
+    "item_name": "The Body in the Woods: A Point Last Seen Mystery"
+  },
+  {
+    "item_name": "Dark Metropolis"
+  },
+  {
+    "item_name": "One Kick: A Novel (Kick Lannigan)"
+  },
+  {
+    "item_name": "One Kick: A Novel (Kick Lannigan)"
+  },
+  {
+    "item_name": "Ghosting"
+  },
+  {
+    "item_name": "The Write Stuff (A Write Stuff Novel) (Volume 1)"
+  },
+  {
+    "item_name": "Illusions of Fate"
+  },
+  {
+    "item_name": "Branded (A Sinner Series) (Volume 1)"
+  },
+  {
+    "item_name": "Sinner (Shiver)"
+  },
+  {
+    "item_name": "The 100"
+  },
+  {
+    "item_name": "Stone of Destiny (The Danaan Trilogy) (Volume 2)"
+  },
+  {
+    "item_name": "Grimnirs (Runes) (Volume 3)"
+  },
+  {
+    "item_name": "Hale Maree"
+  },
+  {
+    "item_name": "Afterworlds"
+  },
+  {
+    "item_name": "Neurotica"
+  },
+  {
+    "item_name": "Sacrifice (Elemental)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2371,
+    "item_name": "Red Rising"
+  },
+  {
+    "rank": 2,
+    "item_id": 4846,
+    "item_name": "City of Bones (The Mortal Instruments)"
+  },
+  {
+    "rank": 3,
+    "item_id": 1849,
+    "item_name": "Cinder"
+  },
+  {
+    "rank": 4,
+    "item_id": 651,
+    "item_name": "Dorothy Must Die"
+  },
+  {
+    "rank": 5,
+    "item_id": 2032,
+    "item_name": "I Hunt Killers"
+  },
+  {
+    "rank": 6,
+    "item_id": 1517,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 7,
+    "item_id": 4450,
+    "item_name": "Reason to Breathe: The Breathing Series (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_id": 5653,
+    "item_name": "Code Name Verity"
+  },
+  {
+    "rank": 9,
+    "item_id": 4240,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 10,
+    "item_id": 1187,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 11,
+    "item_id": 4854,
+    "item_name": "City of Glass (The Mortal Instruments)"
+  },
+  {
+    "rank": 12,
+    "item_id": 5933,
+    "item_name": "A Different Blue"
+  },
+  {
+    "rank": 13,
+    "item_id": 3978,
+    "item_name": "House Rules (Chicagoland Vampires)"
+  },
+  {
+    "rank": 14,
+    "item_id": 1459,
+    "item_name": "The Wolf Gift (The Wolf Gift Chronicles)"
+  },
+  {
+    "rank": 15,
+    "item_id": 5894,
+    "item_name": "Hopeless"
+  },
+  {
+    "rank": 16,
+    "item_id": 944,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 17,
+    "item_id": 648,
+    "item_name": "Sweet Reckoning (Sweet Evil)"
+  },
+  {
+    "rank": 18,
+    "item_id": 1511,
+    "item_name": "Is Everyone Hanging Out Without Me? (And Other Concerns)"
+  },
+  {
+    "rank": 19,
+    "item_id": 5290,
+    "item_name": "Emerald Green (The Ruby Red Trilogy)"
+  },
+  {
+    "rank": 20,
+    "item_id": 3952,
+    "item_name": "Some Girls Bite (Chicagoland Vampires)"
+  },
+  {
+    "rank": 21,
+    "item_id": 1851,
+    "item_name": "This Is Not a Test: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_id": 2129,
+    "item_name": "The Shack"
+  },
+  {
+    "rank": 23,
+    "item_id": 5556,
+    "item_name": "Horde (The Razorland Trilogy)"
+  },
+  {
+    "rank": 24,
+    "item_id": 5884,
+    "item_name": "Point of Retreat"
+  },
+  {
+    "rank": 25,
+    "item_id": 5915,
+    "item_name": "The Last Town (Wayward Pines)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

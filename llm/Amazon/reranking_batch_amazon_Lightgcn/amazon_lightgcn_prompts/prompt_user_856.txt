@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Understanding Trump"
+  },
+  {
+    "item_name": "The American Spirit: Who We Are and What We Stand For"
+  },
+  {
+    "item_name": "Crucial Conversations: Tools for Talking When Stakes Are High"
+  },
+  {
+    "item_name": "Blink - The Power Of Thinking Without Thinking"
+  },
+  {
+    "item_name": "Madam President: The Secret Presidency of Edith Wilson"
+  },
+  {
+    "item_name": "Get Out of That Pit: Straight Talk about God's Deliverance"
+  },
+  {
+    "item_name": "Perennial Seller: The Art of Making and Marketing Work that Lasts"
+  },
+  {
+    "item_name": "The Biggest Story ABC"
+  },
+  {
+    "item_name": "Boss Bitch: A Simple 12-Step Plan to Take Charge of Your Career"
+  },
+  {
+    "item_name": "Mastery"
+  },
+  {
+    "item_name": "Make Your Bed: Little Things That Can Change Your Life...And Maybe the World"
+  },
+  {
+    "item_name": "Truman"
+  },
+  {
+    "item_name": "The Master's Mind: The Art of Reshaping Your Thoughts"
+  },
+  {
+    "item_name": "Coming Back STRONGER: Unleashing the Hidden Power of Adversity"
+  },
+  {
+    "item_name": "House of Spies"
+  },
+  {
+    "item_name": "Resilience: Hard-Won Wisdom for Living a Better Life"
+  },
+  {
+    "item_name": "Otherworld (Last Reality)"
+  },
+  {
+    "item_name": "The Smear: How Shady Political Operatives and Fake News Control What You See, What You Think, and How You Vote"
+  },
+  {
+    "item_name": "Present Over Perfect: Leaving Behind Frantic for a Simpler, More Soulful Way of Living"
+  },
+  {
+    "item_name": "Praying the Scriptures for Your Adult Children: Trusting God with the Ones You Love"
+  },
+  {
+    "item_name": "NIrV, May the Faith Be with You Holy Bible, Hardcover"
+  },
+  {
+    "item_name": "Crisis of Character: A White House Secret Service Officer Discloses His Firsthand Experience with Hillary, Bill, and How They Operate"
+  },
+  {
+    "item_name": "Unbelievable: My Front-Row Seat to the Craziest Campaign in American History"
+  },
+  {
+    "item_name": "The Happiness Advantage: The Seven Principles of Positive Psychology That Fuel Success and Performance at Work"
+  },
+  {
+    "item_name": "Mindset: The New Psychology of Success"
+  },
+  {
+    "item_name": "The Snowball: Warren Buffett and the Business of Life"
+  },
+  {
+    "item_name": "Gratitude in Motion: A True Story of Hope, Determination, and the Everyday Heroes Around Us"
+  },
+  {
+    "item_name": "The Death of Expertise: The Campaign against Established Knowledge and Why it Matters"
+  },
+  {
+    "item_name": "Invisible Influence"
+  },
+  {
+    "item_name": "My Father's Business: The Small-Town Values That Built Dollar General into a Billion-Dollar Company"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 10527,
+    "item_name": "Decision Points"
+  },
+  {
+    "rank": 2,
+    "item_id": 7284,
+    "item_name": "David and Goliath: Art of Battling Giants (A)"
+  },
+  {
+    "rank": 3,
+    "item_id": 74748,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 4,
+    "item_id": 75897,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 5,
+    "item_id": 10130,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 6,
+    "item_id": 3823,
+    "item_name": "American Sniper: The Autobiography of the Most Lethal Sniper in U.S. Military History"
+  },
+  {
+    "rank": 7,
+    "item_id": 32137,
+    "item_name": "Proof of Heaven: A Neurosurgeon's Journey into the Afterlife"
+  },
+  {
+    "rank": 8,
+    "item_id": 47475,
+    "item_name": "Bonhoeffer: Pastor, Martyr, Prophet, Spy: A Righteous Gentile vs. the Third Reich"
+  },
+  {
+    "rank": 9,
+    "item_id": 28173,
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "rank": 10,
+    "item_id": 45159,
+    "item_name": "Steve Jobs: A Biography"
+  },
+  {
+    "rank": 11,
+    "item_id": 37066,
+    "item_name": "When Breath Becomes Air"
+  },
+  {
+    "rank": 12,
+    "item_id": 11222,
+    "item_name": "The Purpose Driven Life"
+  },
+  {
+    "rank": 13,
+    "item_id": 48469,
+    "item_name": "The Amateur: Barack Obama in the White House"
+  },
+  {
+    "rank": 14,
+    "item_id": 6059,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 15,
+    "item_id": 590,
+    "item_name": "Lost in Shangri-La: Escape from a Hidden World - A True Story"
+  },
+  {
+    "rank": 16,
+    "item_id": 50208,
+    "item_name": "What's So Funny?: My Hilarious Life"
+  },
+  {
+    "rank": 17,
+    "item_id": 32031,
+    "item_name": "Glenn Beck's Common Sense: The Case Against an Out-of-Control Government, Inspired by Thomas Paine"
+  },
+  {
+    "rank": 18,
+    "item_id": 36532,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 19,
+    "item_id": 63014,
+    "item_name": "How Starbucks Saved My Life: A Son of Privilege Learns to Live Like Everyone Else"
+  },
+  {
+    "rank": 20,
+    "item_id": 37599,
+    "item_name": "The Principle of the Path: How to Get from Where You Are to Where You Want to Be"
+  },
+  {
+    "rank": 21,
+    "item_id": 30721,
+    "item_name": "This Is Your Captain Speaking: My Fantastic Voyage Through Hollywood, Faith and   Life"
+  },
+  {
+    "rank": 22,
+    "item_id": 77314,
+    "item_name": "Malcolm Gladwell: David and Goliath : Underdogs, Misfits, and the Art of Battling Giants (Large Print Hardcover); 2013 Edition"
+  },
+  {
+    "rank": 23,
+    "item_id": 45235,
+    "item_name": "Quiet Strength: The Principles, Practices, and Priorities of a Winning Life"
+  },
+  {
+    "rank": 24,
+    "item_id": 43824,
+    "item_name": "A Million Miles in a Thousand Years (International Edition): What I Learned While Editing My Life"
+  },
+  {
+    "rank": 25,
+    "item_id": 25330,
+    "item_name": "No Easy Day: The Firsthand Account of the Mission that Killed Osama Bin Laden"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

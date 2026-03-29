@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Oh Susannah: Things That Go Bump: An Oh Susannah Story (Volume 2)"
+  },
+  {
+    "item_name": "Guardian of Secrets (Library Jumpers)"
+  },
+  {
+    "item_name": "Big Girl Panties: A Novel"
+  },
+  {
+    "item_name": "The Soul Mate (Roommates) (Volume 4)"
+  },
+  {
+    "item_name": "The Big Bad Office Wolf (Kings of the Tower) (Volume 1)"
+  },
+  {
+    "item_name": "Tangled Up in Tinsel: A Sunshine Creek Vineyard Novel (Sunshine Creek Vinyard)"
+  },
+  {
+    "item_name": "The Vatican Children (World of Shadows)"
+  },
+  {
+    "item_name": "The Apple Orchard (The Bella Vista Chronicles)"
+  },
+  {
+    "item_name": "Sugar Pine Trail: A Small-Town Christmas Romance (Haven Point)"
+  },
+  {
+    "item_name": "The Kiss of Deception: The Remnant Chronicles, Book One"
+  },
+  {
+    "item_name": "Tangled in Time (The MacCarthy Sisters)"
+  },
+  {
+    "item_name": "A Highland Moon Enchantment"
+  },
+  {
+    "item_name": "Monsterland (Monsterland Series) (Volume 1)"
+  },
+  {
+    "item_name": "Murder on the Hill: Womens Sleuth Murder Mystery (Harley Hill Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "King of Hearts: British Historical League of Rogues Romance Book 1 (Volume 1)"
+  },
+  {
+    "item_name": "Ella, the Slayer (Serenity House) (Volume 1)"
+  },
+  {
+    "item_name": "The Spinster and the Earl"
+  },
+  {
+    "item_name": "Whiskey Prince"
+  },
+  {
+    "item_name": "I Don't Want to Eat Bugs"
+  },
+  {
+    "item_name": "The Bishop's Legacy (World of Shadows)"
+  },
+  {
+    "item_name": "Haunted Souls"
+  },
+  {
+    "item_name": "Tarkin: Star Wars"
+  },
+  {
+    "item_name": "Most Likely to Score"
+  },
+  {
+    "item_name": "The Ghost and The Graveyard"
+  },
+  {
+    "item_name": "Wanderlust"
+  },
+  {
+    "item_name": "Filthy English: (Stand-alone British Romance) (British Bad Boys)"
+  },
+  {
+    "item_name": "Of Cinder and Bone (Volume 1)"
+  },
+  {
+    "item_name": "The Burning Room (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "The Loneliest Alpha (The MacKellen Alphas)"
+  },
+  {
+    "item_name": "Hyde, an Urban Fantasy"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Captain No Beard: An Imaginary Tale of a Pirate's Life"
+  },
+  {
+    "rank": 2,
+    "item_name": "A Flag for the Flying Dragon: A Captain No Beard Story (Volume 9)"
+  },
+  {
+    "rank": 3,
+    "item_name": "If You Were Me and Lived in...the American West: An Introduction to Civilizations Throughout Time (Volume 10)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Crew Goes Coconuts!: A Captain No Beard Story (Volume 6)"
+  },
+  {
+    "rank": 5,
+    "item_name": "If You Were Me and Lived in...the Middle Ages: An Introduction to Civilizations Throughout Time (Volume 6)"
+  },
+  {
+    "rank": 6,
+    "item_name": "One to Ten: Squirrel's Bad Day (Bedtime Dream Collection)"
+  },
+  {
+    "rank": 7,
+    "item_name": "If You Were Me and Lived in ...Kenya: A Child's Introduction to Cultures around the World (Volume 5)"
+  },
+  {
+    "rank": 8,
+    "item_name": "If You Were Me and Lived in... Elizabethan England: An Introduction to Civilizations Throughout Time (Volume 8)"
+  },
+  {
+    "rank": 9,
+    "item_name": "If You Were Me and Lived in... Hungary: A Child's Introduction to Cultures Around the World (Volume 13)"
+  },
+  {
+    "rank": 10,
+    "item_name": "If You Were Me and Lived on...Mars (A Child's Introduction to Cultures Around the World) (Volume 23)"
+  },
+  {
+    "rank": 11,
+    "item_name": "If You Were Me and Lived in...Brazil: A Child's Introduction to Cultures Around the World (Volume 17)"
+  },
+  {
+    "rank": 12,
+    "item_name": "LOVE SAYINGS: wit &amp; wisdom of romance, courtship and marriage."
+  },
+  {
+    "rank": 13,
+    "item_name": "If you were me and lived in... France: A Child's Introduction to Cultures Around the World (Volume 2)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Captain No Beard and the Aurora Borealis: A Captain No Beard Story (Volume 7)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Twist of Faith (Ava Saunders)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Mama Cried eBook"
+  },
+  {
+    "rank": 17,
+    "item_name": "NYPD Red"
+  },
+  {
+    "rank": 18,
+    "item_name": "If You Were Me and Lived in...India: A Child's Introduction to Cultures Around the World (Volume 7)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Captain No Beard: Strangers on the High Seas, Book 4 of the Captain No Beard Series (A Captain No Beard Story)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Threshing Circle"
+  },
+  {
+    "rank": 21,
+    "item_name": "If You Were Me and Lived in... Turkey: A Child's Introduction to Culture Around the World (A Child's Introduction to Cultures Around the World) (Volume 6)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Turbo Twenty-Three: A Stephanie Plum Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "Meeting of the Mustangs"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Gnomes Of The Night"
+  },
+  {
+    "rank": 25,
+    "item_name": "Pepper Parrot's Problem with Patience: A Captain No Beard Story (Volume 2)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Children&#39;s Books: Emma Learns to Sprout [short stories for children] - Kindle edition"
+  },
+  {
+    "rank": 27,
+    "item_name": "If You Were Me and Lived in...Ancient China: The Han Dynasty - An Introduction to Civilizations Throughout Time (Volume 2)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Cinderella's Secret Slipper (Classic Fairy Tales with a Modern Twist)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Just Evil: The Evil Trilogy Book One (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "If You Were Me and Lived in...Scotland: A Child's Introduction to Cultures Around the World (Volume 14)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Sing-Along Construction Song"
+  },
+  {
+    "rank": 32,
+    "item_name": "Huntress Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 33,
+    "item_name": "A Passing Curse - Kindle edition"
+  },
+  {
+    "rank": 34,
+    "item_name": "If you were me and lived in... Russia: A Child's Introduction to Cultures Around the World (Volume 9)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Terry Treetop and the lost egg: the lost egg (Bedtime story)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Memory Man (Amos Decker series)"
+  },
+  {
+    "rank": 37,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Rover and the Dog Hotel: Bedtime Stories Book For Children's Age 3-10. (Ebook About a dog) (Good night &amp; Bedtime Children's Story Ebook Collection)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 40,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 41,
+    "item_name": "Children&#39;S Books:When Monsters Come Out to Play. Bedtime stories, Rhyming Books for Children. (Monster Books For Kids Book 1) - Kindle edition"
+  },
+  {
+    "rank": 42,
+    "item_name": "NYPD Red 2"
+  },
+  {
+    "rank": 43,
+    "item_name": "Pride &amp; Prejudice (Collins Classics)"
+  },
+  {
+    "rank": 44,
+    "item_name": "If You Were Me and Lived in...Portugal: A Child's Introduction to Cultures Around the World (Volume 10)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Dovekeepers: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Whaley's Big Adventure: Presented by Carole P. Roman"
+  },
+  {
+    "rank": 47,
+    "item_name": "Rarity From the Hollow"
+  },
+  {
+    "rank": 48,
+    "item_name": "Echoes of Family"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Wild Soccer Bunch, Book 1, Kevin the Star Striker"
+  },
+  {
+    "rank": 50,
+    "item_name": "When I Grow Up I Want To Be...a Good Person!"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

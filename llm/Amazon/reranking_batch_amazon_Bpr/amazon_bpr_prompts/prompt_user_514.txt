@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Our Chemical Hearts"
+  },
+  {
+    "item_name": "A Certain Age: A Novel"
+  },
+  {
+    "item_name": "After You: A Novel (Me Before You Trilogy)"
+  },
+  {
+    "item_name": "The Raphael Affair"
+  },
+  {
+    "item_name": "Monticello: A Daughter and Her Father; A Novel"
+  },
+  {
+    "item_name": "Holding Up the Universe"
+  },
+  {
+    "item_name": "The Last Time We Say Goodbye"
+  },
+  {
+    "item_name": "The Book of Unknown Americans"
+  },
+  {
+    "item_name": "I Take You: A Novel"
+  },
+  {
+    "item_name": "The Loose Ends List"
+  },
+  {
+    "item_name": "Something in Between: A thought-provoking coming-of-age novel"
+  },
+  {
+    "item_name": "Born a Crime"
+  },
+  {
+    "item_name": "The Best Man"
+  },
+  {
+    "item_name": "Bellweather Rhapsody"
+  },
+  {
+    "item_name": "Words on Bathroom Walls"
+  },
+  {
+    "item_name": "The Inexplicable Logic of My Life"
+  },
+  {
+    "item_name": "Long Black Veil: A Novel"
+  },
+  {
+    "item_name": "The Widow's House: A Novel"
+  },
+  {
+    "item_name": "The Arrangement: A Novel"
+  },
+  {
+    "item_name": "Born Both: An Intersex Life"
+  },
+  {
+    "item_name": "What the F: What Swearing Reveals About Our Language, Our Brains, and Ourselves"
+  },
+  {
+    "item_name": "The Alice Network: A Novel"
+  },
+  {
+    "item_name": "Cocoa Beach: A Novel"
+  },
+  {
+    "item_name": "Strangers Tend to Tell Me Things: A Memoir of Love, Loss, and Coming Home"
+  },
+  {
+    "item_name": "Bluebird, Bluebird"
+  },
+  {
+    "item_name": "Miss Kopp's Midnight Confessions (A Kopp Sisters Novel)"
+  },
+  {
+    "item_name": "Lift Off: From the Classroom to the Stars"
+  },
+  {
+    "item_name": "The Wedding Date"
+  },
+  {
+    "item_name": "All the Beautiful Girls: An Uplifting Story of Freedom, Love and Identity"
+  },
+  {
+    "item_name": "What You Don't Know About Charlie Outlaw"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Room"
+  },
+  {
+    "rank": 2,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Life After Life: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 7,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Painted Girls: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "Silent in the Grave"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Weed That Strings the Hangman's Bag: A Flavia de Luce Mystery"
+  },
+  {
+    "rank": 11,
+    "item_name": "One Thousand White Women by Fergus, Jim 1 edition (2007)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Elegance of the Hedgehog"
+  },
+  {
+    "rank": 14,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Sweetness at the Bottom of the Pie: A Flavia de Luce Mystery"
+  },
+  {
+    "rank": 16,
+    "item_name": "Paying Guests"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Virgin Blue: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Looking for Salvation at the Dairy Queen: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "Sarah's Key"
+  },
+  {
+    "rank": 21,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Rosie Project"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Bees"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Age of Miracles: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_name": "Pope Joan: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Boleyn Inheritance (The Plantagenet and Tudor Novels)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Secret Life of Bees"
+  },
+  {
+    "rank": 28,
+    "item_name": "Orphan Train: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Cuckoo's Calling (Cormoran Strike)"
+  },
+  {
+    "rank": 30,
+    "item_name": "As You Wish: Inconceivable Tales from the Making of The Princess Bride"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Constant Princess"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Snow Child: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Collected Works of A. J. Fikry"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Book of Unknown Americans"
+  },
+  {
+    "rank": 35,
+    "item_name": "I Am Half-Sick of Shadows: A Flavia de Luce Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Secret Daughter: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Tree Grows in Brooklyn"
+  },
+  {
+    "rank": 38,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 39,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Shadow of the Wind"
+  },
+  {
+    "rank": 41,
+    "item_name": "Silent in the Sanctuary: A Lady Julia Grey Mystery"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Crimson Petal and the White"
+  },
+  {
+    "rank": 43,
+    "item_name": "Austenland: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 45,
+    "item_name": "22/11/63"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Kitchen House: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 48,
+    "item_name": "Hotel on the Corner of Bitter and Sweet: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Russian Winter: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Fault in Our Stars"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

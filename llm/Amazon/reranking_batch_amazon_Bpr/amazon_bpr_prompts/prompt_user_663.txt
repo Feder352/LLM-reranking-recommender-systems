@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Ultimate X-Men Vol. 8: New Mutants"
+  },
+  {
+    "item_name": "The New Avengers, Vol. 3: Secrets And Lies"
+  },
+  {
+    "item_name": "New X-Men Vol. 2: Imperial"
+  },
+  {
+    "item_name": "Astro City - the Dark Age 2: Brothers in Arms"
+  },
+  {
+    "item_name": "Kurt Busiek's Astro City: The Tarnished Angel"
+  },
+  {
+    "item_name": "Ultimate Comics Thor"
+  },
+  {
+    "item_name": "Gotham Central 1: In the Line of Fire"
+  },
+  {
+    "item_name": "Gotham Central, Vol. 2: Jokers and Madmen"
+  },
+  {
+    "item_name": "X-Men: Season One"
+  },
+  {
+    "item_name": "Iron Man: Extremis With Motion Comic Dvd"
+  },
+  {
+    "item_name": "Batman Vol. 1: The Court of Owls (The New 52) (Batman (DC Comics Paperback))"
+  },
+  {
+    "item_name": "Batman: Noel"
+  },
+  {
+    "item_name": "Daredevil, Vol. 1"
+  },
+  {
+    "item_name": "Captain America, Vol. 1: Winter Soldier Ultimate Collection"
+  },
+  {
+    "item_name": "Marvel Universe Vs. the Punisher"
+  },
+  {
+    "item_name": "A Thousand Ships : Age of Bronze, Volume One"
+  },
+  {
+    "item_name": "Punisher MAX: Born"
+  },
+  {
+    "item_name": "Jonah Hex: No Way Back"
+  },
+  {
+    "item_name": "Lone Wolf and Cub 6: Lanterns for the Dead"
+  },
+  {
+    "item_name": "The Savage Sword of Conan, Vol. 1 (v. 1)"
+  },
+  {
+    "item_name": "The Savage Sword of Conan 2 (v. 2)"
+  },
+  {
+    "item_name": "Ultimate Comics Hawkeye"
+  },
+  {
+    "item_name": "Hawkeye Volume 2"
+  },
+  {
+    "item_name": "Thor: God of Thunder Volume 1: The God Butcher (Marvel Now)"
+  },
+  {
+    "item_name": "Hawkeye, Vol. 1: My Life as a Weapon (Marvel NOW!)"
+  },
+  {
+    "item_name": "Thor: God of Thunder Volume 3: The Accursed (Marvel Now)"
+  },
+  {
+    "item_name": "Batman: R.I.P."
+  },
+  {
+    "item_name": "Sharpe's Waterloo (Richard Sharpe's Adventure Series #20)"
+  },
+  {
+    "item_name": "The Sixth Gun Vol. 1: Cold Dead Fingers, Square One Edition"
+  },
+  {
+    "item_name": "OISHINBO: JAPANESE CUISINE: A la Carte"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Batman: Hush - Volume One"
+  },
+  {
+    "rank": 2,
+    "item_name": "Legion of Super-Heroes: The Great Darkness Saga"
+  },
+  {
+    "rank": 3,
+    "item_name": "Daytripper"
+  },
+  {
+    "rank": 4,
+    "item_name": "Superman &amp; Batman: Generations, An Imaginary Tale (Elseworlds)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Secret Invasion: The Infiltration"
+  },
+  {
+    "rank": 6,
+    "item_name": "Transmetropolitan, Vol. 1: Back on the Street"
+  },
+  {
+    "rank": 7,
+    "item_name": "Black Panther: A Nation Under Our Feet Book 1"
+  },
+  {
+    "rank": 8,
+    "item_name": "Marvel 1602"
+  },
+  {
+    "rank": 9,
+    "item_name": "Ultimate Spider-Man Vol. 1: Power and Responsibility"
+  },
+  {
+    "rank": 10,
+    "item_name": "Marvel Zombies"
+  },
+  {
+    "rank": 11,
+    "item_name": "Batman: No Man's Land"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Dame to Kill for (Sin City)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Batman/Superman/Wonder Woman - Trinity"
+  },
+  {
+    "rank": 14,
+    "item_name": "Green Lantern: Blackest Night"
+  },
+  {
+    "rank": 15,
+    "item_name": "Batman: The Killing Joke"
+  },
+  {
+    "rank": 16,
+    "item_name": "Sin City: Hell and Back (Book 7)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Ultimate Comics Spider-Man Vol. 1: The World According to Peter Parker"
+  },
+  {
+    "rank": 18,
+    "item_name": "Archer &amp; Armstrong Volume 1: The Michelangelo Code"
+  },
+  {
+    "rank": 19,
+    "item_name": "Green Lantern: In Brightest Day"
+  },
+  {
+    "rank": 20,
+    "item_name": "Fables, Vol. 11: War and Pieces"
+  },
+  {
+    "rank": 21,
+    "item_name": "Villains United (Countdown to Infinite Crisis)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Injustice: Gods Among Us: Year Two Vol. 1"
+  },
+  {
+    "rank": 23,
+    "item_name": "Ultimate Comics Spider-Man by Brian Michael Bendis - Volume 3"
+  },
+  {
+    "rank": 24,
+    "item_name": "Justice League of America Vol. 1: The Tornado's Path"
+  },
+  {
+    "rank": 25,
+    "item_name": "Baltimore, Volume 1: The Plague Ships"
+  },
+  {
+    "rank": 26,
+    "item_name": "Legion of Three Worlds"
+  },
+  {
+    "rank": 27,
+    "item_name": "All Star Superman (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Sin City Volume 4: That Yellow Bastard"
+  },
+  {
+    "rank": 29,
+    "item_name": "Batman: The Dark Knight Strikes Again"
+  },
+  {
+    "rank": 30,
+    "item_name": "X-Men: Marvels"
+  },
+  {
+    "rank": 31,
+    "item_name": "Civil War: Young Avengers &amp; Runaways"
+  },
+  {
+    "rank": 32,
+    "item_name": "Batwoman: Elegy"
+  },
+  {
+    "rank": 33,
+    "item_name": "Uncanny X-Men - The New Age Vol. 1: The End of History"
+  },
+  {
+    "rank": 34,
+    "item_name": "Spider-Men"
+  },
+  {
+    "rank": 35,
+    "item_name": "Original Sin"
+  },
+  {
+    "rank": 36,
+    "item_name": "Ultimate Spider-Man Vol. 7: Irresponsible"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Road to Civil War"
+  },
+  {
+    "rank": 38,
+    "item_name": "Sandman Preludes &amp; Nocturnes"
+  },
+  {
+    "rank": 39,
+    "item_name": "New Avengers, Vol. 4: The Collective (v. 4)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Crisis on Infinite Earths"
+  },
+  {
+    "rank": 41,
+    "item_name": "Uncanny X-Men, Vol. 1: Revolution"
+  },
+  {
+    "rank": 42,
+    "item_name": "All-New X-Men, Vol. 2: Here to Stay"
+  },
+  {
+    "rank": 43,
+    "item_name": "Batman: Year One Hundred"
+  },
+  {
+    "rank": 44,
+    "item_name": "Top Ten: The Forty-Niners (Top 10)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Earth X (Earth X 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Seaguy (DC Comics Vertigo)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Superman: Earth One"
+  },
+  {
+    "rank": 48,
+    "item_name": "Infinity"
+  },
+  {
+    "rank": 49,
+    "item_name": "Transmetropolitan VOL 02: Lust for Life (Transmetropolitan (Graphic Novels))"
+  },
+  {
+    "rank": 50,
+    "item_name": "Judge Dredd: v. 20: The Complete Case Files"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

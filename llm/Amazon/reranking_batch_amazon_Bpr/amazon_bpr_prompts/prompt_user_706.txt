@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Black Kiss: A dark romantic thriller (Obsession Inc.) (Volume 1)"
+  },
+  {
+    "item_name": "Pretend You're Mine"
+  },
+  {
+    "item_name": "Accidentally Married"
+  },
+  {
+    "item_name": "Beast: Lords of Carnage MC"
+  },
+  {
+    "item_name": "Mine to Protect"
+  },
+  {
+    "item_name": "Love Notes"
+  },
+  {
+    "item_name": "Torrid: A Stone Billionaire Series Novel (The Stone Billionaire Series)"
+  },
+  {
+    "item_name": "Daddy's Little Angel"
+  },
+  {
+    "item_name": "Dragon Unbroken: A Reverse Harem Dragon Fantasy Romance (Spellbound Souls) (Volume 2)"
+  },
+  {
+    "item_name": "The Mitus Touch: Book One of The Touch Series"
+  },
+  {
+    "item_name": "All He Wants this Christmas"
+  },
+  {
+    "item_name": "Duke (Knight's Edge) (Volume 4)"
+  },
+  {
+    "item_name": "A Baby for the Viking Wolf: Howls Romance (A Howls Viking Romance)"
+  },
+  {
+    "item_name": "Kiss of the Dragon"
+  },
+  {
+    "item_name": "An American Cinderella"
+  },
+  {
+    "item_name": "Of Beasts and Beauties: Five Full-Length Novels Retelling Beauty &amp; the Beast (Enclave Boxed Set) (Volume 1)"
+  },
+  {
+    "item_name": "Reunited with the Sheriff (The Delaneys of Sandpiper Beach)"
+  },
+  {
+    "item_name": "Mortal Musings"
+  },
+  {
+    "item_name": "Tempting Levi (Cade Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "Dominick's Secret Baby (The Promise They Made) (Volume 1)"
+  },
+  {
+    "item_name": "Hot Men: A Contemporary Romance Box Set"
+  },
+  {
+    "item_name": "Accidental Fiance"
+  },
+  {
+    "item_name": "Deliciously Damaged: Reckless Bastards MC"
+  },
+  {
+    "item_name": "Positively Pricked"
+  },
+  {
+    "item_name": "Lie to Me: A Bad Boy's Accidental Marriage Romance"
+  },
+  {
+    "item_name": "Alton's Secret Baby (The Promise They Made) (Volume 2)"
+  },
+  {
+    "item_name": "Protector"
+  },
+  {
+    "item_name": "Heartbreak at Roosevelt Ranch"
+  },
+  {
+    "item_name": "Claiming Her"
+  },
+  {
+    "item_name": "Three: MMF Bisexual Menage Romance"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Rescue Me: A Bad Boy Romance"
+  },
+  {
+    "rank": 2,
+    "item_name": "Trapped in the Cabin"
+  },
+  {
+    "rank": 3,
+    "item_name": "Steal Me"
+  },
+  {
+    "rank": 4,
+    "item_name": "Come Undone - A Bad Boy Romance"
+  },
+  {
+    "rank": 5,
+    "item_name": "Surprise Daddy"
+  },
+  {
+    "rank": 6,
+    "item_name": "Fire Away (Somewhere, TX) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Torment (Savages and Saints) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Chosen: The Complete Edition"
+  },
+  {
+    "rank": 9,
+    "item_name": "DAX Bad Boys Of Willow Valley"
+  },
+  {
+    "rank": 10,
+    "item_name": "The First Kiss of Spring: An Eternity Springs Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "Mastered: Teagan (Sanctuary, Texas) (Volume 4)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Her Billionaire Bosses: A Menage Romance"
+  },
+  {
+    "rank": 13,
+    "item_name": "Tornado: A Paranormal Romance (Savage Brotherhood MC) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Beautifully Broken: Reckless Bastards MC"
+  },
+  {
+    "rank": 15,
+    "item_name": "Fix Me Not (The Fix Series) (Volume 2)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Baby Mission"
+  },
+  {
+    "rank": 17,
+    "item_name": "Darkest Night: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Nanny: A Single Dad Romance"
+  },
+  {
+    "rank": 19,
+    "item_name": "Love &amp; War (Texas Billionaires Club) (Volume 4)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Hostage of the Hitman: A Bad Boy Mafia Romance"
+  },
+  {
+    "rank": 21,
+    "item_name": "To Win A Mate"
+  },
+  {
+    "rank": 22,
+    "item_name": "Mine: A Stepbrother Romance"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Bear Shifter's Baby (Fated Bears) (Volume 4)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Her Dragon Professor"
+  },
+  {
+    "rank": 25,
+    "item_name": "Conceit (Se7en Deadly SEALs) (Volume 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Shameless (The Shameless Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Playing with Fire: A Single Dad and Nanny Romance (Game Time)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Blizzard of Love: A Western Romance Novella (Long Valley) (Volume 2)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Dagger's Edge: A Brute Force Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "No Place Like You: A Cloud Bay Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "Two Wrongs (Trouble by Numbers) (Volume 2)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Renegade Ridge: A Bad Boy Action Adventure Romance (Renegade Ridge Series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "When the Stars Come Out: A Cottonbloom Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Rugged Texas Cowboy: Two Stories in One: Cowboy and the Captive, Cowboy and the Thief"
+  },
+  {
+    "rank": 35,
+    "item_name": "Bound to the Mafia (Bound to the Bad Boy) (Volume 2)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Collision Point: A Brute Force Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "To Love A Mate (VonBrandt Family) (Volume 2)"
+  },
+  {
+    "rank": 38,
+    "item_name": "How We Fall"
+  },
+  {
+    "rank": 39,
+    "item_name": "Ranger Trent (Shifter Nation: Werebears Of Acadia) (Volume 2)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Lost on the Road to Love"
+  },
+  {
+    "rank": 41,
+    "item_name": "Christmas at Two Love Lane"
+  },
+  {
+    "rank": 42,
+    "item_name": "Big: A Bad Boy Stepbrother Romance"
+  },
+  {
+    "rank": 43,
+    "item_name": "Torn: A Dark Bad Boy Romance"
+  },
+  {
+    "rank": 44,
+    "item_name": "Billionaire Matchmaker"
+  },
+  {
+    "rank": 45,
+    "item_name": "Marked By Fire (Dragons Of The Darkblood Secret Society) (Volume 2)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Merciless"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Dangerous Billionaire: A Billionaire Navy SEAL Romance (The Tate Brothers)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Billionaire Daddy &amp; Nanny"
+  },
+  {
+    "rank": 49,
+    "item_name": "An Endless Kind of Love"
+  },
+  {
+    "rank": 50,
+    "item_name": "Once Should Be Enough"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

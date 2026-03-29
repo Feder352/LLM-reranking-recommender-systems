@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Nothing Can Possibly Go Wrong"
+  },
+  {
+    "item_name": "Kiss Me at the Stroke of Midnight 1"
+  },
+  {
+    "item_name": "Retribution Rails"
+  },
+  {
+    "item_name": "The Warrior Heir"
+  },
+  {
+    "item_name": "The Demon King (The Seven Realms Series)"
+  },
+  {
+    "item_name": "The Empress (The Diabolic)"
+  },
+  {
+    "item_name": "Fragments of the Lost"
+  },
+  {
+    "item_name": "Random Illustrated Facts: A Collection of Curious, Weird, and Totally Not Boring Things to Know"
+  },
+  {
+    "item_name": "The Mirror King (Orphan Queen)"
+  },
+  {
+    "item_name": "Say You'll Remember Me"
+  },
+  {
+    "item_name": "The Cruel Prince (The Folk of the Air)"
+  },
+  {
+    "item_name": "An Enchantment of Ravens"
+  },
+  {
+    "item_name": "The Hazel Wood"
+  },
+  {
+    "item_name": "Reign the Earth (The Elementae)"
+  },
+  {
+    "item_name": "Nice Try, Jane Sinner"
+  },
+  {
+    "item_name": "Defy the Stars"
+  },
+  {
+    "item_name": "Foolish Hearts"
+  },
+  {
+    "item_name": "Warcross"
+  },
+  {
+    "item_name": "The Stone Girl's Story"
+  },
+  {
+    "item_name": "Heart of Iron"
+  },
+  {
+    "item_name": "The Bone Witch"
+  },
+  {
+    "item_name": "The Bone Witch"
+  },
+  {
+    "item_name": "Hit Makers: The Science of Popularity in an Age of Distraction"
+  },
+  {
+    "item_name": "Noteworthy"
+  },
+  {
+    "item_name": "Everless"
+  },
+  {
+    "item_name": "Long Way Down"
+  },
+  {
+    "item_name": "Eleanor Oliphant is Completely Fine: Debut Sunday Times Bestseller and Costa First Novel Book Award Winner 2017"
+  },
+  {
+    "item_name": "Every Heart a Doorway (Wayward Children)"
+  },
+  {
+    "item_name": "Not If I Save You First"
+  },
+  {
+    "item_name": "Legendary: A Caraval Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Ruby Red (The Ruby Red Trilogy)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 3,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 4,
+    "item_name": "The DUFF: (Designated Ugly Fat Friend)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 6,
+    "item_name": "The False Prince (The Ascendance Trilogy, Book 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Iron King"
+  },
+  {
+    "rank": 8,
+    "item_name": "Vampire Kisses"
+  },
+  {
+    "rank": 9,
+    "item_name": "Vanishing Girls"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Fire Wish (Jinni Wars)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Girl of Fire and Thorns"
+  },
+  {
+    "rank": 12,
+    "item_name": "Beastly"
+  },
+  {
+    "rank": 13,
+    "item_name": "Inside Out"
+  },
+  {
+    "rank": 14,
+    "item_name": "Abandon"
+  },
+  {
+    "rank": 15,
+    "item_name": "Entice"
+  },
+  {
+    "rank": 16,
+    "item_name": "A Thousand Nights"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Death Cure (Maze Runner, Book Three) (The Maze Runner Series)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Iron Daughter"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 20,
+    "item_name": "A Thousand Pieces of You (Firebird)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Maze Runner. Correr o Morir / Maze Runner, Run or die (Spanish Edition)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Life as We Knew It"
+  },
+  {
+    "rank": 23,
+    "item_name": "Pivot Point"
+  },
+  {
+    "rank": 24,
+    "item_name": "Ruin and Rising (The Shadow and Bone Trilogy)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Shadow and Bone (Grisha Trilogy)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Valiant"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Memory Book"
+  },
+  {
+    "rank": 28,
+    "item_name": "Under the Never Sky"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Dark Divine"
+  },
+  {
+    "rank": 30,
+    "item_name": "My Heart and Other Black Holes"
+  },
+  {
+    "rank": 31,
+    "item_name": "Black Heart (The Curse Workers)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Thirteen Reasons Why"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Iron Queen (Iron Fey)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Audrey, Wait!"
+  },
+  {
+    "rank": 35,
+    "item_name": "Cress"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Son of Neptune (Heroes of Olympus Book 2)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Not a Drop to Drink"
+  },
+  {
+    "rank": 38,
+    "item_name": "Breathe"
+  },
+  {
+    "rank": 39,
+    "item_name": "Vampire Academy: Spirit Bound (book 5)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Eternity Cure (Blood of Eden)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Black Box"
+  },
+  {
+    "rank": 42,
+    "item_name": "Ruined: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Hallowed: An Unearthly Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Forest of Hands and Teeth"
+  },
+  {
+    "rank": 45,
+    "item_name": "When You Reach Me (Yearling Newbery)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Lions of Little Rock"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Magnolia League"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Body Finder"
+  },
+  {
+    "rank": 49,
+    "item_name": "A Corner of White: Book 1 of The Colors of Madeleine"
+  },
+  {
+    "rank": 50,
+    "item_name": "Fallen"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,260 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "One Flew Over the Cuckoo's Nest"
+  },
+  {
+    "item_name": "Forrest Gump"
+  },
+  {
+    "item_name": "Star Wars: Episode VI - Return of the Jedi"
+  },
+  {
+    "item_name": "Star Wars: Episode IV - A New Hope"
+  },
+  {
+    "item_name": "Silence of the Lambs, The"
+  },
+  {
+    "item_name": "Raiders of the Lost Ark"
+  },
+  {
+    "item_name": "Godfather: Part II, The"
+  },
+  {
+    "item_name": "Life Is Beautiful (La Vita è bella)"
+  },
+  {
+    "item_name": "Schindler's List"
+  },
+  {
+    "item_name": "Star Wars: Episode V - The Empire Strikes Back"
+  },
+  {
+    "item_name": "Great Escape, The"
+  },
+  {
+    "item_name": "High Noon"
+  },
+  {
+    "item_name": "Killing Fields, The"
+  },
+  {
+    "item_name": "Hud"
+  },
+  {
+    "item_name": "Shakespeare in Love"
+  },
+  {
+    "item_name": "Dog Day Afternoon"
+  },
+  {
+    "item_name": "Blade Runner"
+  },
+  {
+    "item_name": "Kagemusha"
+  },
+  {
+    "item_name": "Manchurian Candidate, The"
+  },
+  {
+    "item_name": "Seven Samurai (The Magnificent Seven) (Shichinin no samurai)"
+  },
+  {
+    "item_name": "Ran"
+  },
+  {
+    "item_name": "Green Mile, The"
+  },
+  {
+    "item_name": "Cabaret"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 668,
+    "item_name": "Godfather, The"
+  },
+  {
+    "rank": 2,
+    "item_id": 420,
+    "item_name": "Casablanca"
+  },
+  {
+    "rank": 3,
+    "item_id": 321,
+    "item_name": "North by Northwest"
+  },
+  {
+    "rank": 4,
+    "item_id": 559,
+    "item_name": "Chinatown"
+  },
+  {
+    "rank": 5,
+    "item_id": 154,
+    "item_name": "Gone with the Wind"
+  },
+  {
+    "rank": 6,
+    "item_id": 718,
+    "item_name": "African Queen, The"
+  },
+  {
+    "rank": 7,
+    "item_id": 237,
+    "item_name": "Bridge on the River Kwai, The"
+  },
+  {
+    "rank": 8,
+    "item_id": 105,
+    "item_name": "American Beauty"
+  },
+  {
+    "rank": 9,
+    "item_id": 765,
+    "item_name": "Annie Hall"
+  },
+  {
+    "rank": 10,
+    "item_id": 49,
+    "item_name": "Saving Private Ryan"
+  },
+  {
+    "rank": 11,
+    "item_id": 717,
+    "item_name": "Lawrence of Arabia"
+  },
+  {
+    "rank": 12,
+    "item_id": 200,
+    "item_name": "Butch Cassidy and the Sundance Kid"
+  },
+  {
+    "rank": 13,
+    "item_id": 246,
+    "item_name": "L.A. Confidential"
+  },
+  {
+    "rank": 14,
+    "item_id": 661,
+    "item_name": "2001: A Space Odyssey"
+  },
+  {
+    "rank": 15,
+    "item_id": 629,
+    "item_name": "Rear Window"
+  },
+  {
+    "rank": 16,
+    "item_id": 338,
+    "item_name": "Maltese Falcon, The"
+  },
+  {
+    "rank": 17,
+    "item_id": 93,
+    "item_name": "Braveheart"
+  },
+  {
+    "rank": 18,
+    "item_id": 52,
+    "item_name": "Fargo"
+  },
+  {
+    "rank": 19,
+    "item_id": 611,
+    "item_name": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb"
+  },
+  {
+    "rank": 20,
+    "item_id": 660,
+    "item_name": "Citizen Kane"
+  },
+  {
+    "rank": 21,
+    "item_id": 214,
+    "item_name": "Jaws"
+  },
+  {
+    "rank": 22,
+    "item_id": 486,
+    "item_name": "Taxi Driver"
+  },
+  {
+    "rank": 23,
+    "item_id": 546,
+    "item_name": "Boat, The (Das Boot)"
+  },
+  {
+    "rank": 24,
+    "item_id": 10,
+    "item_name": "Wizard of Oz, The"
+  },
+  {
+    "rank": 25,
+    "item_id": 27,
+    "item_name": "E.T. the Extra-Terrestrial"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

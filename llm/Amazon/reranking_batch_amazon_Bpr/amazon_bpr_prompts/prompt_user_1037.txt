@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Last Girl (The Dominion Trilogy Book 1) eBook"
+  },
+  {
+    "item_name": "The Final Trade (The Dominion Trilogy)"
+  },
+  {
+    "item_name": "Serial Love (Saints Protection &amp; Investigations)"
+  },
+  {
+    "item_name": "The Watson Girl"
+  },
+  {
+    "item_name": "Glimpse of Death"
+  },
+  {
+    "item_name": "Envy: A Novel of the Fallen Angels"
+  },
+  {
+    "item_name": "Redemption River: Men of Mercy"
+  },
+  {
+    "item_name": "Resurrection River: Men of Mercy"
+  },
+  {
+    "item_name": "My Kind of Wonderful (A Cedar Ridge Novel)"
+  },
+  {
+    "item_name": "Murphy's Law [Damaged Heroes, Book 1] (Bookstrand Publishing)"
+  },
+  {
+    "item_name": "Dark Legacy ('Dark' Carpathian)"
+  },
+  {
+    "item_name": "Married to the SEAL (HERO Force) (Volume 4)"
+  },
+  {
+    "item_name": "Undiscovered (Treasure Hunter Security) (Volume 1)"
+  },
+  {
+    "item_name": "With Every Breath: A Slow Burn Novel (Slow Burn Novels)"
+  },
+  {
+    "item_name": "Montana SEAL (Brotherhood Protectors) (Volume 1)"
+  },
+  {
+    "item_name": "Safe at Last: A Slow Burn Novel (Slow Burn Novels)"
+  },
+  {
+    "item_name": "Bride Protector SEAL (Brotherhood Protectors) (Volume 2)"
+  },
+  {
+    "item_name": "Montana D-Force (Brotherhood Protector Series) (Volume 3)"
+  },
+  {
+    "item_name": "Taken: LOST Series #5"
+  },
+  {
+    "item_name": "At Wolf Ranch: A Montana Men Novel"
+  },
+  {
+    "item_name": "Her Renegade Rancher: A Montana Men Novel"
+  },
+  {
+    "item_name": "Into Danger (Shadowy Assassins (S.A.S.S.), Book 1)"
+  },
+  {
+    "item_name": "Atonement (McIntire County)"
+  },
+  {
+    "item_name": "An Indecent Proposition"
+  },
+  {
+    "item_name": "Montana Dog Soldier (Brotherhood Protectors Series) (Volume 6)"
+  },
+  {
+    "item_name": "Dignity (The Breaking Point)"
+  },
+  {
+    "item_name": "Billionaire Undone: The Billionaire's Obsession ~ Travis (Volume 5)"
+  },
+  {
+    "item_name": "Darkest Before Dawn (A KGI Novel)"
+  },
+  {
+    "item_name": "Leopard's Blood (Leopard People)"
+  },
+  {
+    "item_name": "Unexpected Treasure - The Lost Andersons - Billionaire Bachelors Continued (Volume 10)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Navy SEAL's E-Mail Order Bride (Heroes of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Up to the Challenge (An Anchor Island Novel)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Fatal Affair: Book One of the Fatal Series: One Night with You"
+  },
+  {
+    "rank": 4,
+    "item_name": "Hell on Wheels (Black Knights Inc.)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Forgotten Sins (Sin Brothers)"
+  },
+  {
+    "rank": 6,
+    "item_name": "No Turning Back"
+  },
+  {
+    "rank": 7,
+    "item_name": "Deathwatch: Broslin Creek"
+  },
+  {
+    "rank": 8,
+    "item_name": "Protecting Fiona (SEAL of Protection) (Volume 3)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Dangerous Waters (The Barkley Sound Series)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Father Found (The Daddy School, Book 1) (Harlequin Superromance, No 763)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Jagged (Colorado Mountain)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Night is Darkest"
+  },
+  {
+    "rank": 13,
+    "item_name": "A Dark Lure"
+  },
+  {
+    "rank": 14,
+    "item_name": "Come Away With Me (The Andrades) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Midnight Exposure (The Midnight Series)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Reaper's Property (Ellora's Cave Moderne)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Scream For Me: A Novel of the Night Hunter"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Last Mile"
+  },
+  {
+    "rank": 19,
+    "item_name": "Long Hard Ride (Rough Riders)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Shark (Forgotten Files)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Not Quite Mine"
+  },
+  {
+    "rank": 22,
+    "item_name": "A Cold Dark Place (Cold Justice) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Devil's Game (Reapers Motorcycle Club)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Hot Pursuit: A Hostile Operations Team Novel (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Fire and Ice: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "Wild Man (Dream Man)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Short Drop (Gibson Vaughn)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Two Times As Hot (An Oklahoma Nights Romance)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Heart Of The Billionaire: : (The Billionaire's Obsession ~ Sam)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Hungry Like the Wolf (SWAT)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Dark Waters (Barkley Sound)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Forbidden Billionaire (The Sinclairs)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Winters Heat (Titan)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Secrets on the Sand (The Barefoot Bay Series)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Billionaire's Marriage Proposal: Billionaire Bachelors (Volume 4)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "rank": 37,
+    "item_name": "Lucky in Love"
+  },
+  {
+    "rank": 38,
+    "item_name": "Rocky Mountain Romance (Six Pack Ranch) (Volume 7)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Blue-Eyed Devil: A Novel (The Travis Family)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Shadows and Silk: A MacKenzie Novel (MacKenzie Security)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Wyoming Tough"
+  },
+  {
+    "rank": 42,
+    "item_name": "Only For You (Forever and Always)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Wicked Fall (Wicked Horse) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Wicked Games (A Games Novel) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Tycoon's Secret: Baby for the Billionaire (Volume 4)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Longing for Love (The McCarthys of Gansett Island Series) (Volume 7)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Promise (Thunder Point) (English Edition)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Fall Out (SEALs Undone) (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Perfection: A Neighbor From Hell Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Barefoot in White (The Barefoot Bay Series)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

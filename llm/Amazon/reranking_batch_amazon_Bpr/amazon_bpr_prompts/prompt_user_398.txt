@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Zero Volume 1: An Emergency TP"
+  },
+  {
+    "item_name": "The Sandman, Vol. 3: Dream Country"
+  },
+  {
+    "item_name": "Starlight Volume 1 (Starlight Tp)"
+  },
+  {
+    "item_name": "Trees Volume 1"
+  },
+  {
+    "item_name": "Empire"
+  },
+  {
+    "item_name": "Secret Origins Vol. 1 (The New 52)"
+  },
+  {
+    "item_name": "Satin Island: A novel"
+  },
+  {
+    "item_name": "The Book of Memory Gaps"
+  },
+  {
+    "item_name": "The Fade Out, Vol. 1"
+  },
+  {
+    "item_name": "Sex Criminals, Vol. 2: Two Worlds, One Cop"
+  },
+  {
+    "item_name": "The Farm"
+  },
+  {
+    "item_name": "The New Avengers, Vol. 3: Secrets And Lies"
+  },
+  {
+    "item_name": "Alex + Ada Volume 2"
+  },
+  {
+    "item_name": "Copperhead, Vol. 1: A New Sheriff in Town"
+  },
+  {
+    "item_name": "The Sleeper and the Spindle.."
+  },
+  {
+    "item_name": "Ms. Marvel Volume 2: Generation Why (Ms Marvel: Marvel Now!)"
+  },
+  {
+    "item_name": "Batgirl Vol. 3: Death of the Family (The New 52) (Batgirl (DC Comics Quality Paper))"
+  },
+  {
+    "item_name": "How to Fall Forever (Black Science)"
+  },
+  {
+    "item_name": "Low, Vol. 1: The Delirium of Hope"
+  },
+  {
+    "item_name": "Jupiter's Legacy, Vol. 1"
+  },
+  {
+    "item_name": "Hansel and Gretel Standard Edition: A TOON Graphic"
+  },
+  {
+    "item_name": "The Ocean at the End of the Lane CD: A Novel"
+  },
+  {
+    "item_name": "The Shepherd's Crown (Tiffany Aching)"
+  },
+  {
+    "item_name": "We Have Always Lived in the Castle"
+  },
+  {
+    "item_name": "Submission: A Novel"
+  },
+  {
+    "item_name": "CARTEL, THE"
+  },
+  {
+    "item_name": "The Grownup: A Story by the Author of Gone Girl"
+  },
+  {
+    "item_name": "Numero Zero"
+  },
+  {
+    "item_name": "In a Dark, Dark Wood"
+  },
+  {
+    "item_name": "The Borden Murders: Lizzie Borden and the Trial of the Century"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Saga, Vol. 2"
+  },
+  {
+    "rank": 2,
+    "item_name": "American Gods"
+  },
+  {
+    "rank": 3,
+    "item_name": "Batman Vol. 1: The Court of Owls (The New 52) (Batman (DC Comics Paperback))"
+  },
+  {
+    "rank": 4,
+    "item_name": "Ultimate Comics Spider-Man Vol. 1: The World According to Peter Parker"
+  },
+  {
+    "rank": 5,
+    "item_name": "Saga, Vol. 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 7,
+    "item_name": "Marvel Zombies"
+  },
+  {
+    "rank": 8,
+    "item_name": "Trinity Vol. 1: Better Together (Rebirth) (Trinity: DC Universe Rebirth)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 10,
+    "item_name": "Saga Volume 6"
+  },
+  {
+    "rank": 11,
+    "item_name": "Superman &amp; Batman: Generations, An Imaginary Tale (Elseworlds)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Secret Invasion: The Infiltration"
+  },
+  {
+    "rank": 13,
+    "item_name": "Marvel 1602"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Private Eye"
+  },
+  {
+    "rank": 15,
+    "item_name": "Fight Club"
+  },
+  {
+    "rank": 16,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Graveyard Book"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Walking Dead: Rise of the Governor"
+  },
+  {
+    "rank": 19,
+    "item_name": "Lone Wolf and Cub 6: Lanterns for the Dead"
+  },
+  {
+    "rank": 20,
+    "item_name": "Fray"
+  },
+  {
+    "rank": 21,
+    "item_name": "Neverwhere: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Vision Vol. 2: Little Better Than a Beast"
+  },
+  {
+    "rank": 23,
+    "item_name": "Batman/Superman/Wonder Woman - Trinity"
+  },
+  {
+    "rank": 24,
+    "item_name": "Fantastic Four, Vol. 4"
+  },
+  {
+    "rank": 25,
+    "item_name": "Fables: Werewolves of the Heartland"
+  },
+  {
+    "rank": 26,
+    "item_name": "Wolverine: Old Man Logan Vol. 0: Warzones"
+  },
+  {
+    "rank": 27,
+    "item_name": "Y: The Last Man, Vol. 10: Whys and Wherefores"
+  },
+  {
+    "rank": 28,
+    "item_name": "Justice League Dark, Vol. 2: The Books of Magic, No. 1"
+  },
+  {
+    "rank": 29,
+    "item_name": "Thief of Thieves, Vol. 1 (Thief of Thieves Tp)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Ocean at the End of the Lane CD: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Fables, Vol. 11: War and Pieces"
+  },
+  {
+    "rank": 33,
+    "item_name": "Fables Vol. 10: The Good Prince"
+  },
+  {
+    "rank": 34,
+    "item_name": "Think Tank Volume 1"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Sandman Vol. 8: World's End"
+  },
+  {
+    "rank": 36,
+    "item_name": "Spider-Man: The Gauntlet, Vol. 1 - Electro &amp; Sandman"
+  },
+  {
+    "rank": 37,
+    "item_name": "Hollow City"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 39,
+    "item_name": "Judge Dredd: v. 1"
+  },
+  {
+    "rank": 40,
+    "item_name": "Black Hole (Pantheon Graphic Library)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Lazarus, Vol. 2: Lift"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Monstress Volume 1: Awakening"
+  },
+  {
+    "rank": 44,
+    "item_name": "Uncanny X-Men Volume 5: The Omega Mutant"
+  },
+  {
+    "rank": 45,
+    "item_name": "Judge Dredd: v. 20: The Complete Case Files"
+  },
+  {
+    "rank": 46,
+    "item_name": "Thor Vol. 1: The Goddess of Thunder"
+  },
+  {
+    "rank": 47,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Forever War, The"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Fables Vol. 22: Farewell"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

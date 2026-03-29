@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Marriage of Inconvenience (Knitting in the City)"
+  },
+  {
+    "item_name": "Switch Hitter: a Jock Hard novella"
+  },
+  {
+    "item_name": "The Chosen: A Novella of the Elder Races"
+  },
+  {
+    "item_name": "Claimed: A For Her Novel"
+  },
+  {
+    "item_name": "Noah: Scifi Alien Invasion Romance (Hell Squad Book 6) - Kindle edition"
+  },
+  {
+    "item_name": "How to Break an Undead Heart (The Beginner's Guide to Necromancy) (Volume 3)"
+  },
+  {
+    "item_name": "Kissing in Cars (Kiss and Make Up) (Volume 1)"
+  },
+  {
+    "item_name": "Wait For It"
+  },
+  {
+    "item_name": "Lingus"
+  },
+  {
+    "item_name": "Kulti"
+  },
+  {
+    "item_name": "The Year We Hid Away (The Ivy Years) (Volume 2)"
+  },
+  {
+    "item_name": "The Understatement of the Year: (Ivy Years #3) (The Ivy Years) (Volume 3)"
+  },
+  {
+    "item_name": "Chaser: A Dive Bar Novel"
+  },
+  {
+    "item_name": "Hot Response (Boston Fire)"
+  },
+  {
+    "item_name": "Total Bravery (True Heroes)"
+  },
+  {
+    "item_name": "Midnight Wolf (A Shifters Unbound Novel)"
+  },
+  {
+    "item_name": "Friends Without Benefits: An Unrequited Romance (Knitting in the City) (Volume 2)"
+  },
+  {
+    "item_name": "Jock Row (Jock Hard) (Volume 1)"
+  },
+  {
+    "item_name": "Hero (Galactic Gladiators) (Volume 3)"
+  },
+  {
+    "item_name": "Planet Dragos: A Novella of the Elder Races"
+  },
+  {
+    "item_name": "The Big Alpha in Town"
+  },
+  {
+    "item_name": "Piece Of Work"
+  },
+  {
+    "item_name": "Rogue (Galactic Gladiators) (Volume 8)"
+  },
+  {
+    "item_name": "I Flipping Love You"
+  },
+  {
+    "item_name": "Bone Driven (The Foundling Series)"
+  },
+  {
+    "item_name": "The Varlet and the Voyeur (Rugby) (Volume 4)"
+  },
+  {
+    "item_name": "Tiger Striped: Shifters Unbound"
+  },
+  {
+    "item_name": "A Merciful Silence (Mercy Kilpatrick)"
+  },
+  {
+    "item_name": "Kill the Farm Boy: The Tales of Pell"
+  },
+  {
+    "item_name": "Shaw: Scifi Alien Invasion Romance (Hell Squad Book 7) - Kindle edition"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Dark Lover (Black Dagger Brotherhood, Book 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Night Broken: A Mercy Thompson Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Dead Heat: An Alpha and Omega novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Seventh Grave and No Body (Charley Davidson)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Lover Avenged (Black Dagger Brotherhood, Book 7)"
+  },
+  {
+    "rank": 6,
+    "item_name": "How to Run with a Naked Werewolf (Naked Werewolf Series)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Archangel's Heart (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Silence Fallen (A Mercy Thompson Novel)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Magic Binds (Kate Daniels)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Shadows (Black Dagger Brotherhood)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Rock Chick Rescue (Volume 2)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Sweet Ruin (Immortals After Dark)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Burn for Me (Hidden Legacy)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Hard Bitten (Chicagoland Vampires)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Wild Invitation: A Psy-Changeling Collection (Psy/Changelings)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Eighth Grave After Dark"
+  },
+  {
+    "rank": 17,
+    "item_name": "Lover At Last: A Novel of the Black Dagger Brotherhood"
+  },
+  {
+    "rank": 18,
+    "item_name": "Iced: Fever Series Book 6"
+  },
+  {
+    "rank": 19,
+    "item_name": "Obsession"
+  },
+  {
+    "rank": 20,
+    "item_name": "Magic Shifts (Kate Daniels)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Blood Kiss: Black Dagger Legacy"
+  },
+  {
+    "rank": 22,
+    "item_name": "Feral Sins (The Phoenix Pack Series)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Crux: Southern Arcana, Book 1"
+  },
+  {
+    "rank": 24,
+    "item_name": "The King: A Novel of the Black Dagger Brotherhood"
+  },
+  {
+    "rank": 25,
+    "item_name": "Murder of Crows (A Novel of the Others)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Archangel's Legion (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Heart of the Hunter"
+  },
+  {
+    "rank": 28,
+    "item_name": "Allegiance of Honor (Psy-Changeling Novel, A)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Dark Debt (Chicagoland Vampires)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Obsidian (Lux)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Cry Wolf (Alpha and Omega)"
+  },
+  {
+    "rank": 32,
+    "item_name": "From This Moment On (Sullivans)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Fair Game (Alpha and Omega)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Archangel's Blade (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Down to You (A Bad Boys Novel)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Revenant: Number 7 in series (Demonica Novel)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Dragon Bound (Elder Races)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Witch Hunt: An Urban Fantasy Mystery (Preternatural Affairs) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Angels' Blood (Guild Hunter, Book 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Magic Strikes (Kate Daniels)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Darkest Touch: A spellbinding paranormal romance novel (Lords of the Underworld)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Blaze of Memory (Psy-Changelings, Book 7)"
+  },
+  {
+    "rank": 43,
+    "item_name": "This Side of the Grave"
+  },
+  {
+    "rank": 44,
+    "item_name": "Dark Frost (The Mythos Academy)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Moon Called"
+  },
+  {
+    "rank": 46,
+    "item_name": "Neanderthal Marries Human: A Smarter Romance (Knitting in the City #1.5)"
+  },
+  {
+    "rank": 47,
+    "item_name": "First Drop of Crimson"
+  },
+  {
+    "rank": 48,
+    "item_name": "Lover Reborn (Black Dagger Brotherhood)"
+  },
+  {
+    "rank": 49,
+    "item_name": "When Darkness Comes (Guardians of Eternity, Book 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Light My Fire (Dragon Kin)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

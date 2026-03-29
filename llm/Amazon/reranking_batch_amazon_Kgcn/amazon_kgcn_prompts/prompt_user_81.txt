@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Before the Fall: The year's best suspense novel"
+  },
+  {
+    "item_name": "Peak: Secrets from the New Science of Expertise"
+  },
+  {
+    "item_name": "The Art of Risk: The New Science of Courage, Caution, and Chance"
+  },
+  {
+    "item_name": "The More of Less"
+  },
+  {
+    "item_name": "The Notorious Mrs. Clem: Murder and Money in the Gilded Age"
+  },
+  {
+    "item_name": "The Cheat Code: Going Off Script to Get More, Go Faster, and Shortcut Your Way to Success"
+  },
+  {
+    "item_name": "America the Anxious: How Our Pursuit of Happiness Is Creating a Nation of Nervous Wrecks"
+  },
+  {
+    "item_name": "Eyes Wide Open: Overcoming Obstacles and Recognizing Opportunities in a World That Can't See Clearly"
+  },
+  {
+    "item_name": "The Big Picture: On the Origins of Life, Meaning, and the Universe Itself"
+  },
+  {
+    "item_name": "Death Sentence (Signet)"
+  },
+  {
+    "item_name": "Almost Human: The Astonishing Tale of Homo naledi and the Discovery That Changed Our Human Story"
+  },
+  {
+    "item_name": "The Evolution of God (Back Bay Readers' Pick)"
+  },
+  {
+    "item_name": "You Got to Be Kidding! A Radical Satire of The Bible"
+  },
+  {
+    "item_name": "Irresistible: The Rise of Addictive Technology and the Business of Keeping Us Hooked"
+  },
+  {
+    "item_name": "The Greatest Story Ever Told--So Far: Why Are We Here?"
+  },
+  {
+    "item_name": "The Death of Expertise: The Campaign against Established Knowledge and Why it Matters"
+  },
+  {
+    "item_name": "Life Ascending: The Ten Great Inventions of Evolution"
+  },
+  {
+    "item_name": "A Generation of Sociopaths: How the Baby Boomers Betrayed America"
+  },
+  {
+    "item_name": "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life"
+  },
+  {
+    "item_name": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI"
+  },
+  {
+    "item_name": "Status Anxiety"
+  },
+  {
+    "item_name": "From Bacteria to Bach and Back: The Evolution of Minds"
+  },
+  {
+    "item_name": "How to Be a Stoic: Using Ancient Philosophy to Live a Modern Life"
+  },
+  {
+    "item_name": "How to Think: A Survival Guide for a World at Odds"
+  },
+  {
+    "item_name": "Barking Up the Wrong Tree: The Surprising Science Behind Why Everything You Know About Success Is (Mostly) Wrong"
+  },
+  {
+    "item_name": "The Crime of the Century"
+  },
+  {
+    "item_name": "American Fire: Love, Arson, and Life in a Vanishing Land"
+  },
+  {
+    "item_name": "Enlightenment Now: The Case for Reason, Science, Humanism, and Progress [Paperback] [Feb 12, 2018] Steven Pinker"
+  },
+  {
+    "item_name": "The Man from the Train: The Solving of a Century-Old Serial Killer Mystery"
+  },
+  {
+    "item_name": "I'll Be Gone in the Dark: One Woman's Obsessive Search for the Golden State Killer"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1122,
+    "item_name": "Drive: The Surprising Truth About What Motivates Us"
+  },
+  {
+    "rank": 2,
+    "item_id": 487,
+    "item_name": "Game Change: Obama and the Clintons, McCain and Palin, and the Race of a Lifetime"
+  },
+  {
+    "rank": 3,
+    "item_id": 2073,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 4,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 5,
+    "item_id": 41,
+    "item_name": "Open: An Autobiography"
+  },
+  {
+    "rank": 6,
+    "item_id": 1299,
+    "item_name": "Born to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never Seen"
+  },
+  {
+    "rank": 7,
+    "item_id": 2955,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 8,
+    "item_id": 3742,
+    "item_name": "Hitch-22: A Memoir"
+  },
+  {
+    "rank": 9,
+    "item_id": 753,
+    "item_name": "White Noise (Contemporary American Fiction)"
+  },
+  {
+    "rank": 10,
+    "item_id": 1104,
+    "item_name": "Escape from Camp 14: One Man's Remarkable Odyssey from North Korea to Freedom in the West"
+  },
+  {
+    "rank": 11,
+    "item_id": 3010,
+    "item_name": "The Well-Educated Mind: A Guide to the Classical Education You Never Had"
+  },
+  {
+    "rank": 12,
+    "item_id": 5301,
+    "item_name": "The Sixth Extinction: An Unnatural History"
+  },
+  {
+    "rank": 13,
+    "item_id": 1526,
+    "item_name": "The Orphan Master's Son: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_id": 1487,
+    "item_name": "Sex on the Moon: The Amazing Story Behind the Most Audacious Heist in History"
+  },
+  {
+    "rank": 15,
+    "item_id": 1507,
+    "item_name": "The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses"
+  },
+  {
+    "rank": 16,
+    "item_id": 4234,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 17,
+    "item_id": 2945,
+    "item_name": "Factory Girls: From Village to City in a Changing China"
+  },
+  {
+    "rank": 18,
+    "item_id": 2129,
+    "item_name": "The Shack"
+  },
+  {
+    "rank": 19,
+    "item_id": 859,
+    "item_name": "The Black Swan: The Impact of the Highly Improbable"
+  },
+  {
+    "rank": 20,
+    "item_id": 3005,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 21,
+    "item_id": 5711,
+    "item_name": "Champlain's Dream"
+  },
+  {
+    "rank": 22,
+    "item_id": 2550,
+    "item_name": "That Used to Be Us: How America Fell Behind in the World It Invented and How We Can Come Back"
+  },
+  {
+    "rank": 23,
+    "item_id": 4258,
+    "item_name": "The Eerie Silence: Renewing Our Search for Alien Intelligence"
+  },
+  {
+    "rank": 24,
+    "item_id": 3052,
+    "item_name": "Packing for Mars: The Curious Science of Life in the Void"
+  },
+  {
+    "rank": 25,
+    "item_id": 1304,
+    "item_name": "The Case for God"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

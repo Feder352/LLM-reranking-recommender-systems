@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Sacred Search: What If It's Not about Who You Marry, But Why?"
+  },
+  {
+    "item_name": "Naked Statistics: Stripping the Dread from the Data"
+  },
+  {
+    "item_name": "Disney U: How Disney University Develops the World's Most Engaged, Loyal, and Customer-Centric Employees"
+  },
+  {
+    "item_name": "Decisive: How to Make Better Choices in Life and Work"
+  },
+  {
+    "item_name": "Insourcing: Bringing Discipleship Back to the Local Church (Leadership Network Innovation Series)"
+  },
+  {
+    "item_name": "The I of Leadership: Strategies for Seeing, Being and Doing"
+  },
+  {
+    "item_name": "The Spiritual Danger of Doing Good"
+  },
+  {
+    "item_name": "The Firm: The Story of McKinsey and Its Secret Influence on American Business"
+  },
+  {
+    "item_name": "Innovation's Dirty Little Secret: Why Serial Innovators Succeed Where Others Fail (Leadership Network Innovation Series)"
+  },
+  {
+    "item_name": "How to Be Rich: It's Not What You Have. It's What You Do With What You Have."
+  },
+  {
+    "item_name": "Leaders Eat Last: Why Some Teams Pull Together and Others Don't"
+  },
+  {
+    "item_name": "Big Data at Work: Dispelling the Myths, Uncovering the Opportunities"
+  },
+  {
+    "item_name": "I Like Giving: The Transforming Power of a Generous Life"
+  },
+  {
+    "item_name": "What's Best Next: How the Gospel Transforms the Way You Get Things Done"
+  },
+  {
+    "item_name": "It's Not the How or the What but the Who: Succeed by Surrounding Yourself with the Best"
+  },
+  {
+    "item_name": "How Do I Keep My Employees Motivated?"
+  },
+  {
+    "item_name": "Billy Graham: Leading with Love: 5 Timeless Principles for Effective Leaders"
+  },
+  {
+    "item_name": "Own Your Future: How to Think Like an Entrepreneur and Thrive in an Unpredictable Economy"
+  },
+  {
+    "item_name": "Lead with Humility: 12 Leadership Lessons from Pope Francis"
+  },
+  {
+    "item_name": "Prayer"
+  },
+  {
+    "item_name": "Renegade Gospel: The Rebel Jesus (Renegade Gospel series)"
+  },
+  {
+    "item_name": "Digital Disruption: Unleashing the Next Wave of Innovation"
+  },
+  {
+    "item_name": "Confronting Capitalism: Real Solutions for a Troubled Economic System"
+  },
+  {
+    "item_name": "Return on Character: The Real Reason Leaders and Their Companies Win"
+  },
+  {
+    "item_name": "HBR's 10 Must Reads 2015: The Definitive Management Ideas of the Year from Harvard Business Review (with bonus McKinsey AwardWinning article The Focused Leader) (HBR's 10 Must Reads)"
+  },
+  {
+    "item_name": "Content Inc.: How Entrepreneurs Use Content to Build Massive Audiences and Create Radically  Successful Businesses"
+  },
+  {
+    "item_name": "The Entitlement Cure: Finding Success in Doing Hard Things the Right Way"
+  },
+  {
+    "item_name": "Concrete Economics: The Hamilton Approach to Economic Growth and Policy"
+  },
+  {
+    "item_name": "Integrity at Stake: Safeguarding Your Church from Financial Fraud"
+  },
+  {
+    "item_name": "Competing Against Luck: The Story of Innovation and Customer Choice"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 2,
+    "item_name": "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time"
+  },
+  {
+    "rank": 3,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Prayer of Jabez: Breaking Through To The Blessed Life"
+  },
+  {
+    "rank": 5,
+    "item_name": "Fooled By Randomness: The Hidden Role of Chance in Life and in the Markets"
+  },
+  {
+    "rank": 6,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Medici Effect: What Elephants and Epidemics Can Teach Us About Innovation"
+  },
+  {
+    "rank": 8,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 9,
+    "item_name": "7 Deadly Scenarios: A Military Futurist Explores the Changing Face of War in the 21st Century"
+  },
+  {
+    "rank": 10,
+    "item_name": "The New Depression: The Breakdown of the Paper Money Economy"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 12,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 13,
+    "item_name": "How Successful People Think: Change Your Thinking, Change Your Life"
+  },
+  {
+    "rank": 14,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 15,
+    "item_name": "Street Smarts: Beyond the Diploma"
+  },
+  {
+    "rank": 16,
+    "item_name": "Fearless: Imagine Your Life Without Fear"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Case for a Creator"
+  },
+  {
+    "rank": 18,
+    "item_name": "Decisive: How to Make Better Choices in Life and Work"
+  },
+  {
+    "rank": 19,
+    "item_name": "To Sell is Human: The Surprising Truth About Persuading, Convincing, and Influencing Others"
+  },
+  {
+    "rank": 20,
+    "item_name": "Welcome to Obamaland: I Have Seen Your Future and It Doesn't Work"
+  },
+  {
+    "rank": 21,
+    "item_name": "Antifragile: Things That Gain from Disorder"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Warrior Diet"
+  },
+  {
+    "rank": 23,
+    "item_name": "Get Slightly Famous: Become a Celebrity in Your Field and Attract More Business with Less Effort"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Next 100 Years: A Forecast for the 21st Century"
+  },
+  {
+    "rank": 25,
+    "item_name": "Getting Beyond Better: How Social Entrepreneurship Works"
+  },
+  {
+    "rank": 26,
+    "item_name": "Think and Grow Rich"
+  },
+  {
+    "rank": 27,
+    "item_name": "Conscious Capitalism: Liberating the Heroic Spirit of Business"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 29,
+    "item_name": "DIY U: Edupunks, Edupreneurs, and the Coming Transformation of Higher Education"
+  },
+  {
+    "rank": 30,
+    "item_name": "In the Line of Fire: How to Handle Tough Questions...When It Counts"
+  },
+  {
+    "rank": 31,
+    "item_name": "The World Almanac and Book of Facts 1998"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 33,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Darwin Economy: Liberty, Competition, and the Common Good"
+  },
+  {
+    "rank": 35,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 36,
+    "item_name": "Uncontrolled: The Surprising Payoff of Trial-and-Error for Business, Politics, and Society"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Happiness Advantage: The Seven Principles of Positive Psychology That Fuel Success and Performance at Work"
+  },
+  {
+    "rank": 38,
+    "item_name": "Born Entrepreneurs, Born Leaders: How Your Genes Affect Your Work Life"
+  },
+  {
+    "rank": 39,
+    "item_name": "Superforecasting: The Art and Science of Prediction"
+  },
+  {
+    "rank": 40,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 41,
+    "item_name": "What Happy People Know: How the New Science of Happiness Can Change Your Life for the Better"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Talent Code: Greatness Isn't Born. It's Grown."
+  },
+  {
+    "rank": 43,
+    "item_name": "The 1% Solution for Work and Life: How to Make Your Next 30 Days the Best Ever"
+  },
+  {
+    "rank": 44,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 45,
+    "item_name": "Magic of Believing"
+  },
+  {
+    "rank": 46,
+    "item_name": "How Full Is Your Bucket?: Positive Strategies for Work and Life"
+  },
+  {
+    "rank": 47,
+    "item_name": "One Big Thing: Discovering What You Were Born to Do"
+  },
+  {
+    "rank": 48,
+    "item_name": "Frommer's Paris 2010 (Frommer's Color Complete)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Coming Apart: The State of White America, 1960-2010"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Four: The Hidden DNA of Amazon, Apple, Facebook, and Google"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Never Let Me Go (Movie Tie-In Edition) (Vintage International)"
+  },
+  {
+    "item_name": "At Home: A Short History of Private Life (Random House Large Print)"
+  },
+  {
+    "item_name": "A Midwife's Tale: The Life of Martha Ballard, Based on Her Diary, 1785-1812"
+  },
+  {
+    "item_name": "The Sparrow: A Novel (The Sparrow Series)"
+  },
+  {
+    "item_name": "The Paris Architect"
+  },
+  {
+    "item_name": "Kristin Lavransdatter I: The Wreath (Penguin Classics)"
+  },
+  {
+    "item_name": "Light On Snow (Large Print)"
+  },
+  {
+    "item_name": "The Sandcastle Girls (Vintage Contemporaries)"
+  },
+  {
+    "item_name": "A Tale for the Time Being: A Novel"
+  },
+  {
+    "item_name": "When a Crocodile Eats the Sun: A Memoir of Africa"
+  },
+  {
+    "item_name": "My Dear I Wanted to Tell You"
+  },
+  {
+    "item_name": "Flora: A Novel"
+  },
+  {
+    "item_name": "Kaffir Boy: An Autobiography--The True Story of a Black Youth's Coming of Age in Apartheid South Africa"
+  },
+  {
+    "item_name": "A Separate Peace"
+  },
+  {
+    "item_name": "Furiously Happy: A Funny Book About Horrible Things"
+  },
+  {
+    "item_name": "Let's Pretend This Never Happened: (A Mostly True Memoir)"
+  },
+  {
+    "item_name": "Purge"
+  },
+  {
+    "item_name": "While We Were Watching Downton Abbey (Deckle edge)"
+  },
+  {
+    "item_name": "A Paris Apartment: A Novel"
+  },
+  {
+    "item_name": "S is for Silence"
+  },
+  {
+    "item_name": "The Baker's Daughter: A Novel"
+  },
+  {
+    "item_name": "S is for Silence"
+  },
+  {
+    "item_name": "T For Trespass ( A New Kinsey Millhone Mystery)"
+  },
+  {
+    "item_name": "A Wolf at the Table: A Memoir of My Father"
+  },
+  {
+    "item_name": "Room"
+  },
+  {
+    "item_name": "Night Heron"
+  },
+  {
+    "item_name": "U is for Undertow (A Kinsey Millhone Mystery, Book 21)"
+  },
+  {
+    "item_name": "Neither Here nor There: Travels in Europe"
+  },
+  {
+    "item_name": "Sihpromatum - Backpacks and Bra Straps: Backpacks and Bra Straps (Volume 2)"
+  },
+  {
+    "item_name": "Population: 485: Meeting Your Neighbors One Siren at a Time"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Memoirs of a Geisha Uk"
+  },
+  {
+    "rank": 2,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 4,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 5,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Of Mice and Men"
+  },
+  {
+    "rank": 7,
+    "item_name": "The House of Mirth (Vintage Classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Sense of an Ending"
+  },
+  {
+    "rank": 9,
+    "item_name": "A Thousand Splendid Suns: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Me Talk Pretty One Day"
+  },
+  {
+    "rank": 11,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Prodigal Summer"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Reader (Movie Tie-in Edition) (Vintage International)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Cannery Row"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 16,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Light in August (Modern Library College Editions Series)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Other Boleyn Girl"
+  },
+  {
+    "rank": 20,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Lost Continent: Travels in Small Town America"
+  },
+  {
+    "rank": 22,
+    "item_name": "Three Junes"
+  },
+  {
+    "rank": 23,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 24,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 26,
+    "item_name": "Red Dragon"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 28,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The White Tiger: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "At Swim, Two Boys: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Of Human Bondage (Bantam Classics)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Murder of Roger Ackroyd (Poirot)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Appointment in Samarra (Vintage Classics)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Skipping Christmas"
+  },
+  {
+    "rank": 36,
+    "item_name": "Breakfast At Tiffany's."
+  },
+  {
+    "rank": 37,
+    "item_name": "The Blind Assassin"
+  },
+  {
+    "rank": 38,
+    "item_name": "East of Eden"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Portrait of a Lady (Penguin Classics)"
+  },
+  {
+    "rank": 41,
+    "item_name": "For Whom the Bell Tolls"
+  },
+  {
+    "rank": 42,
+    "item_name": "Alias Grace"
+  },
+  {
+    "rank": 43,
+    "item_name": "Terrorist"
+  },
+  {
+    "rank": 44,
+    "item_name": "Talented MR Ripley"
+  },
+  {
+    "rank": 45,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 46,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Things They Carried (Contemporary American Fiction)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Sun Also Rises (Scribner Classics)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Feast of the Goat: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

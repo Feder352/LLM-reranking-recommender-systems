@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Better World (The Brilliance Trilogy)"
+  },
+  {
+    "item_name": "Children of Time"
+  },
+  {
+    "item_name": "Touch"
+  },
+  {
+    "item_name": "Wolfsong"
+  },
+  {
+    "item_name": "Diamond Bay"
+  },
+  {
+    "item_name": "Man on Fire"
+  },
+  {
+    "item_name": "Floodgates"
+  },
+  {
+    "item_name": "Bonfires"
+  },
+  {
+    "item_name": "Murder in the South of France: A Maggie Newberry Mystery, Vol. 1 (Maggie Newberry Mysteries)"
+  },
+  {
+    "item_name": "Enemies Like You"
+  },
+  {
+    "item_name": "Rattlesnake"
+  },
+  {
+    "item_name": "A Wizard of Earthsea (The Earthsea Cycle)"
+  },
+  {
+    "item_name": "Stay with Me"
+  },
+  {
+    "item_name": "Brilliance (The Brilliance Trilogy)"
+  },
+  {
+    "item_name": "Archangel"
+  },
+  {
+    "item_name": "Antisocial"
+  },
+  {
+    "item_name": "Idyll Threats: A Thomas Lynch Novel"
+  },
+  {
+    "item_name": "Idyll Fears: A Thomas Lynch Novel"
+  },
+  {
+    "item_name": "Nice Dragons Finish Last (Heartstrikers) (Volume 1)"
+  },
+  {
+    "item_name": "Moon Over Soho (Rivers of London)"
+  },
+  {
+    "item_name": "Fall Hard"
+  },
+  {
+    "item_name": "Blow Down"
+  },
+  {
+    "item_name": "Infamous"
+  },
+  {
+    "item_name": "Downtime"
+  },
+  {
+    "item_name": "Rule Breaker"
+  },
+  {
+    "item_name": "Not Safe for Work"
+  },
+  {
+    "item_name": "The Understatement of the Year: (Ivy Years #3) (The Ivy Years) (Volume 3)"
+  },
+  {
+    "item_name": "How to Bang a Billionaire (Arden St. Ives)"
+  },
+  {
+    "item_name": "Knight of Ocean Avenue"
+  },
+  {
+    "item_name": "Planetfall (A Planetfall Novel)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Shades of Gray"
+  },
+  {
+    "rank": 2,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Touch of Crimson: A Renegade Angels Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Slave to Sensation (Psy-Changelings, Book 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 6,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 7,
+    "item_name": "Cordina's Royal Family: Bennett &amp; Camilla"
+  },
+  {
+    "rank": 8,
+    "item_name": "Tell Me It's Real"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 10,
+    "item_name": "Fatal Shadows"
+  },
+  {
+    "rank": 11,
+    "item_name": "Lover Eternal (Black Dagger Brotherhood, Book 2)"
+  },
+  {
+    "rank": 12,
+    "item_name": "On the Edge"
+  },
+  {
+    "rank": 13,
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "rank": 15,
+    "item_name": "How to Walk Like a Man (Howl at the Moon) (Volume 2)"
+  },
+  {
+    "rank": 16,
+    "item_name": "I Can See You"
+  },
+  {
+    "rank": 17,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 18,
+    "item_name": "All She Wrote (Holmes and Moriarity)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Lover Reborn (Black Dagger Brotherhood)"
+  },
+  {
+    "rank": 20,
+    "item_name": "All Kinds of Tied Down"
+  },
+  {
+    "rank": 21,
+    "item_name": "Tigers and Devils"
+  },
+  {
+    "rank": 22,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 23,
+    "item_name": "Strain"
+  },
+  {
+    "rank": 24,
+    "item_name": "Touched by an Alien (Alien Novels)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Cut &amp; Run (Cut &amp; Run Series)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Enemy (Jack Reacher, No. 8)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Rebuilding Year"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Casual Vacancy 1st (first) Edition by Rowling, J.K. published by Little, Brown and Company (2012) Hardcover"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Ocean at the End of the Lane CD: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Chase in Shadow"
+  },
+  {
+    "rank": 31,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "A Wanted Man: A Jack Reacher Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Calculated in Death"
+  },
+  {
+    "rank": 34,
+    "item_name": "Shock &amp; Awe (A Sidewinder Story)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Willow Bend"
+  },
+  {
+    "rank": 36,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Concrete Blonde (Harry Bosch)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Kiss of Crimson (The Midnight Breed, Book 2)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Mind Magic (Triad)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Rosie Project"
+  },
+  {
+    "rank": 41,
+    "item_name": "Edge of Dawn: A Midnight Breed Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Truth As He Knows It"
+  },
+  {
+    "rank": 43,
+    "item_name": "Disasterology 101"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Gentleman and the Rogue"
+  },
+  {
+    "rank": 45,
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "rank": 46,
+    "item_name": "Shades of Gray: A KGI Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 48,
+    "item_name": "Hell &amp; High Water"
+  },
+  {
+    "rank": 49,
+    "item_name": "Odd Hours"
+  },
+  {
+    "rank": 50,
+    "item_name": "Fish &amp; Chips (Cut &amp; Run)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Best American Travel Writing 2017 (The Best American Series )"
+  },
+  {
+    "item_name": "Nomadland: Surviving America in the Twenty-First Century"
+  },
+  {
+    "item_name": "The Written World: The Power of Stories to Shape People, History, Civilization"
+  },
+  {
+    "item_name": "What You Did Not Tell: A Russian Past and the Journey Home"
+  },
+  {
+    "item_name": "Jefferson's Daughters: Three Sisters, White and Black, in a Young America (Random House Large Print)"
+  },
+  {
+    "item_name": "The Bad Food Bible: How and Why to Eat Sinfully"
+  },
+  {
+    "item_name": "Police: A Field Guide"
+  },
+  {
+    "item_name": "I Wrote This Book Because I Love You: Essays"
+  },
+  {
+    "item_name": "Educated: A Memoir"
+  },
+  {
+    "item_name": "Americanized: Rebel Without a Green Card"
+  },
+  {
+    "item_name": "Eisenhower: Becoming the Leader of the Free World"
+  },
+  {
+    "item_name": "Aging Thoughtfully: Conversations about Retirement, Romance, Wrinkles, and Regret"
+  },
+  {
+    "item_name": "Cats I've Known: On Love, Loss, and Being Graciously Ignored"
+  },
+  {
+    "item_name": "North on the Wing: Travels with the Songbird Migration of Spring"
+  },
+  {
+    "item_name": "A False Report: A True Story of Rape in America"
+  },
+  {
+    "item_name": "The Feminist Revolution: The Struggle for Women's Liberation"
+  },
+  {
+    "item_name": "The Big Picture: The Fight for the Future of Movies"
+  },
+  {
+    "item_name": "Work: The Last 1,000 Years"
+  },
+  {
+    "item_name": "Night Moves: An Alex Delaware Novel"
+  },
+  {
+    "item_name": "Asking for a Friend: Three Centuries of Advice on Life, Love, Money, and Other Burning Questions from a Nation Obsessed"
+  },
+  {
+    "item_name": "The Pope Who Would Be King: The Exile of Pius IX and the Emergence of Modern Europe"
+  },
+  {
+    "item_name": "Ritz and Escoffier: The Hotelier, The Chef, and the Rise of the Leisure Class"
+  },
+  {
+    "item_name": "A Lab of One's Own: Science and Suffrage in the First World War"
+  },
+  {
+    "item_name": "The Trials of Nina McCall: Sex, Surveillance, and the Decades-Long Government Plan to Imprison &quot;Promiscuous&quot; Women"
+  },
+  {
+    "item_name": "The Darkening Age: The Christian Destruction of the Classical World"
+  },
+  {
+    "item_name": "The Indian World of George Washington: The First President, the First Americans, and the Birth of the Nation"
+  },
+  {
+    "item_name": "The Punishment She Deserves: A Lynley Novel"
+  },
+  {
+    "item_name": "Love and Ruin: A Novel"
+  },
+  {
+    "item_name": "Tango Lessons: A Memoir"
+  },
+  {
+    "item_name": "The Cost of Living: A Working Autobiography"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 2,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 3,
+    "item_name": "Bird Dream: Adventures at the Extremes of Human Flight"
+  },
+  {
+    "rank": 4,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 5,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 7,
+    "item_name": "Social: Why Our Brains Are Wired to Connect"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Iran Wars: Spy Games, Bank Battles, and the Secret Deals That Reshaped the Middle East"
+  },
+  {
+    "rank": 9,
+    "item_name": "Fantasyland: How America Went Haywire: A 500-Year History"
+  },
+  {
+    "rank": 10,
+    "item_name": "At the Existentialist Caf: Freedom, Being, and Apricot Cocktails"
+  },
+  {
+    "rank": 11,
+    "item_name": "Dataclysm: Who We are (When We Think No One's Looking)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 13,
+    "item_name": "Small Data: The Tiny Clues That Uncover Huge Trends"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Geography of Genius: A Search for the World's Most Creative Places from Ancient Athens to Silicon Valley"
+  },
+  {
+    "rank": 16,
+    "item_name": "Black Flags: The Rise of ISIS"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Mushroom Hunters: On the Trail of an Underground America"
+  },
+  {
+    "rank": 18,
+    "item_name": "1493: Uncovering the New World Columbus Created"
+  },
+  {
+    "rank": 19,
+    "item_name": "Empire of Sin: A Story of Sex, Jazz, Murder, and the Battle for Modern New Orleans"
+  },
+  {
+    "rank": 20,
+    "item_name": "Dangerously Funny: The Uncensored Story of The Smothers Brothers Comedy Hour"
+  },
+  {
+    "rank": 21,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 22,
+    "item_name": "Catherine the Great: Portrait of a Woman"
+  },
+  {
+    "rank": 23,
+    "item_name": "Steve Jobs: A Biography"
+  },
+  {
+    "rank": 24,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Orphan Master's Son: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Man in the Monster: Inside the Mind of a Serial Killer"
+  },
+  {
+    "rank": 27,
+    "item_name": "Victoria: A Life"
+  },
+  {
+    "rank": 28,
+    "item_name": "Provence, 1970: M.F.K. Fisher, Julia Child, James Beard, and the Reinvention of American Taste"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Truck Full of Money"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Third Plate: Field Notes on the Future of Food"
+  },
+  {
+    "rank": 31,
+    "item_name": "Beautiful Souls: Saying No, Breaking Ranks, and Heeding the Voice of Conscience in Dark Times"
+  },
+  {
+    "rank": 32,
+    "item_name": "Rough Riders: Theodore Roosevelt, His Cowboy Regiment, and the Immortal Charge Up San Juan Hill"
+  },
+  {
+    "rank": 33,
+    "item_name": "Lusitania: Triumph, Tragedy, and the End of the Edwardian Age"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Life-Changing Magic of Tidying: A simple, effective way to banish clutter forever"
+  },
+  {
+    "rank": 35,
+    "item_name": "Oriana Fallaci: The Journalist, the Agitator, the Legend"
+  },
+  {
+    "rank": 36,
+    "item_name": "Creative Visualization"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Universe Within: Discovering the Common History of Rocks, Planets, and People"
+  },
+  {
+    "rank": 38,
+    "item_name": "Made to Stick: Why Some Ideas Take Hold and Others Come Unstuck"
+  },
+  {
+    "rank": 39,
+    "item_name": "Masters of Sex: The Life and Times of William Masters and Virginia Johnson, the Couple Who Taught America How to Lov"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Red Bandanna: A Life. A Choice. A Legacy."
+  },
+  {
+    "rank": 41,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 42,
+    "item_name": "Pilgrim's Wilderness: A True Story of Faith and Madness on the Alaska Frontier"
+  },
+  {
+    "rank": 43,
+    "item_name": "Benjamin Franklin: An American Life"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Accidental President: Harry S. Truman and the Four Months That Changed the World"
+  },
+  {
+    "rank": 45,
+    "item_name": "Billy Lynn's Long Halftime Walk"
+  },
+  {
+    "rank": 46,
+    "item_name": "On Paper: The Everything of Its Two-Thousand-Year History (ALA Notable Books for Adults)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Rogue Heroes: The History of the SAS, Britain's Secret Special Forces Unit That Sabotaged the Nazis and Changed the Nature of War"
+  },
+  {
+    "rank": 48,
+    "item_name": "Five Days at Memorial: Life and Death in a Storm-Ravaged Hospital"
+  },
+  {
+    "rank": 49,
+    "item_name": "Rosemary: The Hidden Kennedy Daughter"
+  },
+  {
+    "rank": 50,
+    "item_name": "Double Cross: The True Story of the D-Day Spies"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

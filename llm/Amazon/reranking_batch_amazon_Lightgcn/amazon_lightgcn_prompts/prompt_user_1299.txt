@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Ladies' Man (Silhouette Special Edition)"
+  },
+  {
+    "item_name": "Broken Things to Mend (Power of the Matchmaker)"
+  },
+  {
+    "item_name": "Duke of My Heart (A Season for Scandal)"
+  },
+  {
+    "item_name": "Cogling"
+  },
+  {
+    "item_name": "Jesus Helps Me: Knowing My God series"
+  },
+  {
+    "item_name": "Will's True Wish (True Gentlemen)"
+  },
+  {
+    "item_name": "The Infamous Heir (Spare Heirs)"
+  },
+  {
+    "item_name": "HUSBAND WANTED (Loveswept)"
+  },
+  {
+    "item_name": "One Texas Cowboy Too Many (Burnt Boot, Texas)"
+  },
+  {
+    "item_name": "Miss Match (No Match for Love) (Volume 3)"
+  },
+  {
+    "item_name": "Once a Rancher (The Carsons of Mustang Creek)"
+  },
+  {
+    "item_name": "Amanda Lester and the Pink Sugar Conspiracy (Amanda Lester, Detective)"
+  },
+  {
+    "item_name": "The Wedding Date (Belmont Beach Brides)"
+  },
+  {
+    "item_name": "Legally Wedded (Legally in Love)"
+  },
+  {
+    "item_name": "Cleansed by Death (A Jo Oliver Thriller) (Volume 1)"
+  },
+  {
+    "item_name": "Delivering the Truth (A Quaker Midwife Mystery)"
+  },
+  {
+    "item_name": "The Ugly Stepsister (Unfinished Fairy Tales)"
+  },
+  {
+    "item_name": "Secrets of the Magic Ring"
+  },
+  {
+    "item_name": "The Detective's 8 lb, 10 oz Surprise (Hurley's Homestyle Kitchen)"
+  },
+  {
+    "item_name": "Hot Cowboy Nights (Lucky Penny Ranch)"
+  },
+  {
+    "item_name": "The Fall of Lord Drayson (Tanglewood) (Volume 1)"
+  },
+  {
+    "item_name": "Misfortune Annie and the Locomotive Reaper (Volume 1)"
+  },
+  {
+    "item_name": "An Uncommon Courtship (Hawthorne House)"
+  },
+  {
+    "item_name": "Silly Elephant - Peace with Bees (Volume 2)"
+  },
+  {
+    "item_name": "Love Letters from God; Bible Stories for a Girl&rsquo;s Heart"
+  },
+  {
+    "item_name": "The Beginner's Bible Noah and the Noisy Ark"
+  },
+  {
+    "item_name": "Secrets"
+  },
+  {
+    "item_name": "God's Crime Scene for Kids: Investigate Creation with a Real Detective"
+  },
+  {
+    "item_name": "Blessed Are the Misfits: Great News for Believers who are Introverts, Spiritual Strugglers, or Just Feel Like They're Missing Something"
+  },
+  {
+    "item_name": "No Earls Allowed (The Survivors)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 33253,
+    "item_name": "Short-Straw Bride"
+  },
+  {
+    "rank": 2,
+    "item_id": 30820,
+    "item_name": "The Trouble with Cowboys (A Big Sky Romance)"
+  },
+  {
+    "rank": 3,
+    "item_id": 17673,
+    "item_name": "Homespun Bride (The McKaslin Clan: Historical Series, Book 1) (Steeple Hill Love Inspired Historical #2)"
+  },
+  {
+    "rank": 4,
+    "item_id": 33284,
+    "item_name": "My Stubborn Heart"
+  },
+  {
+    "rank": 5,
+    "item_id": 11616,
+    "item_name": "The Merchant's Daughter (Fairy Tale Romance Series)"
+  },
+  {
+    "rank": 6,
+    "item_id": 17707,
+    "item_name": "Love on the Range (Love Inspired Historical)"
+  },
+  {
+    "rank": 7,
+    "item_id": 40303,
+    "item_name": "The Blue Enchantress (Charles Towne Belles) (Volume 2)"
+  },
+  {
+    "rank": 8,
+    "item_id": 31385,
+    "item_name": "16 Lighthouse Road (Cedar Cove, Book 1)"
+  },
+  {
+    "rank": 9,
+    "item_id": 31379,
+    "item_name": "311 Pelican Court (Cedar Cove Series #3)"
+  },
+  {
+    "rank": 10,
+    "item_id": 76819,
+    "item_name": "By Linda Lael Miller Big Sky Mountain (Hqn) (Original) [Mass Market Paperback]"
+  },
+  {
+    "rank": 11,
+    "item_id": 37381,
+    "item_name": "The Elusive Miss Ellison (Regency Brides: A Legacy of Grace)"
+  },
+  {
+    "rank": 12,
+    "item_id": 63488,
+    "item_name": "Beauty for Ashes (A Hickory Ridge Romance)"
+  },
+  {
+    "rank": 13,
+    "item_id": 10450,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 14,
+    "item_id": 17501,
+    "item_name": "Rustler's Moon (Ransom Canyon)"
+  },
+  {
+    "rank": 15,
+    "item_id": 11452,
+    "item_name": "The Memory Jar (Seven Brides for Seven Bachelors)"
+  },
+  {
+    "rank": 16,
+    "item_id": 12899,
+    "item_name": "Rainshadow Road: A Novel (Friday Harbor)"
+  },
+  {
+    "rank": 17,
+    "item_id": 43877,
+    "item_name": "Rock Harbor Search and Rescue"
+  },
+  {
+    "rank": 18,
+    "item_id": 22091,
+    "item_name": "Chance of a Lifetime (Harmony, Book 5)"
+  },
+  {
+    "rank": 19,
+    "item_id": 69509,
+    "item_name": "Book Reviewer Yellow Pages: A Book Marketing Guide for Authors and Publishers"
+  },
+  {
+    "rank": 20,
+    "item_id": 47078,
+    "item_name": "Breathe: A Novel of Colorado (The Homeward Trilogy)"
+  },
+  {
+    "rank": 21,
+    "item_id": 17500,
+    "item_name": "Ransom Canyon: A Western Romance"
+  },
+  {
+    "rank": 22,
+    "item_id": 16954,
+    "item_name": "A Cold Creek Reunion"
+  },
+  {
+    "rank": 23,
+    "item_id": 31363,
+    "item_name": "204 Rosewood Lane (Cedar Cove, Book 2)"
+  },
+  {
+    "rank": 24,
+    "item_id": 51684,
+    "item_name": "Tidewater Inn (Hope Beach)"
+  },
+  {
+    "rank": 25,
+    "item_id": 76024,
+    "item_name": "The Inn at Rose Harbor: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

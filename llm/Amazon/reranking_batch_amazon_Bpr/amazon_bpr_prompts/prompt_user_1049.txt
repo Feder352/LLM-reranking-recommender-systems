@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Lost &amp; Found"
+  },
+  {
+    "item_name": "A Man Called Ove (Thorndike Press Large Print Core Series)"
+  },
+  {
+    "item_name": "Grounded (May Hollow Trilogy)"
+  },
+  {
+    "item_name": "Lancaster County Christmas, A"
+  },
+  {
+    "item_name": "A Simple Amish Christmas"
+  },
+  {
+    "item_name": "The Christmas Quilt: Quilts of Love Series"
+  },
+  {
+    "item_name": "Alexander and the Terrible, Horrible, No Good, Very Bad Day Low Price"
+  },
+  {
+    "item_name": "The Book With No Pictures"
+  },
+  {
+    "item_name": "Magic Tree House Collection Volume 1: Books 1-4: #1 Dinosaurs Before Dark; #2 The Knight at Dawn; #3 Mummies in the Morning; #4 Pirates Past Noon (Magic Tree House (R))"
+  },
+  {
+    "item_name": "Return of the Ascendant (The Ascendant Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Originals: The Rise"
+  },
+  {
+    "item_name": "To Ride a White Horse: An Irish historical love story"
+  },
+  {
+    "item_name": "The Wife Maker: The Husband Maker, Book 3 (Volume 3)"
+  },
+  {
+    "item_name": "Divergent"
+  },
+  {
+    "item_name": "I, Walter (The Eternity Series)"
+  },
+  {
+    "item_name": "Plan Bea (Volume 1)"
+  },
+  {
+    "item_name": "Novelista Girl (Blogger Girl Series) (Volume 2)"
+  },
+  {
+    "item_name": "Family Magic"
+  },
+  {
+    "item_name": "A Long Way Down"
+  },
+  {
+    "item_name": "The Keys of the Watchmen (Volume 1)"
+  },
+  {
+    "item_name": "Allegiant"
+  },
+  {
+    "item_name": "Return to Oakpine: A Novel"
+  },
+  {
+    "item_name": "Rarity From the Hollow"
+  },
+  {
+    "item_name": "Hotel on the Corner of Bitter and Sweet: A Novel"
+  },
+  {
+    "item_name": "Flyte (Septimus Heap, Book 2)"
+  },
+  {
+    "item_name": "Magyk (Septimus Heap, Book 1)"
+  },
+  {
+    "item_name": "Everless"
+  },
+  {
+    "item_name": "Match Made in Manhattan: A Novel"
+  },
+  {
+    "item_name": "Ice Kissed: The Kanin Chronicles (From the World of the Trylle)"
+  },
+  {
+    "item_name": "Frostfire: The Kanin Chronicles (From the World of the Trylle)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 3,
+    "item_name": "We Were Liars"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Selection. by Kiera Cass"
+  },
+  {
+    "rank": 5,
+    "item_name": "Cress"
+  },
+  {
+    "rank": 6,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Wonder"
+  },
+  {
+    "rank": 8,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Publicist"
+  },
+  {
+    "rank": 10,
+    "item_name": "Matched"
+  },
+  {
+    "rank": 11,
+    "item_name": "Scarlet (Lunar Chronicles, Book 2)"
+  },
+  {
+    "rank": 12,
+    "item_name": "World After: Penryn and the End of Days Book Two"
+  },
+  {
+    "rank": 13,
+    "item_name": "Everything, Everything"
+  },
+  {
+    "rank": 14,
+    "item_name": "Under the Never Sky"
+  },
+  {
+    "rank": 15,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 16,
+    "item_name": "I'll Follow the Moon"
+  },
+  {
+    "rank": 17,
+    "item_name": "Cinder"
+  },
+  {
+    "rank": 18,
+    "item_name": "Down the Rabbit Hole: Curious Adventures and Cautionary Tales of a Former Playboy Bunny"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Help"
+  },
+  {
+    "rank": 20,
+    "item_name": "Eve"
+  },
+  {
+    "rank": 21,
+    "item_name": "Shatter Me"
+  },
+  {
+    "rank": 22,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 23,
+    "item_name": "Ten"
+  },
+  {
+    "rank": 24,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Persuaded"
+  },
+  {
+    "rank": 26,
+    "item_name": "Before I Fall Enhanced Edition"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Elite (selection 2)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Abandon"
+  },
+  {
+    "rank": 29,
+    "item_name": "The DUFF: (Designated Ugly Fat Friend)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Sea of Tranquility: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Lying Game"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Haunting of Sunshine Girl: Book One (The Haunting of Sunshine Girl Series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Firelight"
+  },
+  {
+    "rank": 34,
+    "item_name": "Eleanor &amp; Park"
+  },
+  {
+    "rank": 35,
+    "item_name": "Requiem (Delirium Trilogy)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Attachments: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "All The Bright Places"
+  },
+  {
+    "rank": 38,
+    "item_name": "Arson: Book One in The Arson Trilogy"
+  },
+  {
+    "rank": 39,
+    "item_name": "Maze Runner. Correr o Morir / Maze Runner, Run or die (Spanish Edition)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Trapped"
+  },
+  {
+    "rank": 41,
+    "item_name": "Wonder"
+  },
+  {
+    "rank": 42,
+    "item_name": "Thirteen Reasons Why"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Girl of Fire and Thorns"
+  },
+  {
+    "rank": 44,
+    "item_name": "Isla and the Happily Ever After"
+  },
+  {
+    "rank": 45,
+    "item_name": "Fallen"
+  },
+  {
+    "rank": 46,
+    "item_name": "Dreamland"
+  },
+  {
+    "rank": 47,
+    "item_name": "This Is Where It Ends"
+  },
+  {
+    "rank": 48,
+    "item_name": "Crossroads"
+  },
+  {
+    "rank": 49,
+    "item_name": "Storm Siren (The Storm Siren Trilogy)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Birds, The"
+  },
+  {
+    "item_name": "Nightmare on Elm Street, A"
+  },
+  {
+    "item_name": "Interview with the Vampire"
+  },
+  {
+    "item_name": "Blob, The"
+  },
+  {
+    "item_name": "Scream"
+  },
+  {
+    "item_name": "Misery"
+  },
+  {
+    "item_name": "Gremlins"
+  },
+  {
+    "item_name": "Craft, The"
+  },
+  {
+    "item_name": "Mummy, The"
+  },
+  {
+    "item_name": "Masque of the Red Death, The"
+  },
+  {
+    "item_name": "Rocky Horror Picture Show, The"
+  },
+  {
+    "item_name": "Abbott and Costello Meet Frankenstein"
+  },
+  {
+    "item_name": "Lake Placid"
+  },
+  {
+    "item_name": "Robert A. Heinlein's The Puppet Masters"
+  },
+  {
+    "item_name": "Wolf"
+  },
+  {
+    "item_name": "Buffy the Vampire Slayer"
+  },
+  {
+    "item_name": "From Dusk Till Dawn"
+  },
+  {
+    "item_name": "Creepshow"
+  },
+  {
+    "item_name": "Hellbound: Hellraiser II"
+  },
+  {
+    "item_name": "Star Wars: Episode IV - A New Hope"
+  },
+  {
+    "item_name": "Excalibur"
+  },
+  {
+    "item_name": "Beetlejuice"
+  },
+  {
+    "item_name": "Big"
+  },
+  {
+    "item_name": "Willy Wonka and the Chocolate Factory"
+  },
+  {
+    "item_name": "E.T. the Extra-Terrestrial"
+  },
+  {
+    "item_name": "Ladyhawke"
+  },
+  {
+    "item_name": "20,000 Leagues Under the Sea"
+  },
+  {
+    "item_name": "Labyrinth"
+  },
+  {
+    "item_name": "Teenage Mutant Ninja Turtles"
+  },
+  {
+    "item_name": "Teenage Mutant Ninja Turtles II: The Secret of the Ooze"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1807,
+    "item_name": "Nightmare on Elm Street 5: The Dream Child, A"
+  },
+  {
+    "rank": 2,
+    "item_id": 1805,
+    "item_name": "Nightmare on Elm Street 3: Dream Warriors, A"
+  },
+  {
+    "rank": 3,
+    "item_id": 1806,
+    "item_name": "Nightmare on Elm Street 4: The Dream Master, A"
+  },
+  {
+    "rank": 4,
+    "item_id": 963,
+    "item_name": "Invasion of the Body Snatchers"
+  },
+  {
+    "rank": 5,
+    "item_id": 1227,
+    "item_name": "Hellraiser"
+  },
+  {
+    "rank": 6,
+    "item_id": 1803,
+    "item_name": "Nightmare on Elm Street Part 2: Freddy's Revenge, A"
+  },
+  {
+    "rank": 7,
+    "item_id": 1808,
+    "item_name": "Freddy's Dead: The Final Nightmare"
+  },
+  {
+    "rank": 8,
+    "item_id": 45,
+    "item_name": "Star Wars: Episode IV - A New Hope"
+  },
+  {
+    "rank": 9,
+    "item_id": 672,
+    "item_name": "Labyrinth"
+  },
+  {
+    "rank": 10,
+    "item_id": 973,
+    "item_name": "Phantasm"
+  },
+  {
+    "rank": 11,
+    "item_id": 1899,
+    "item_name": "NeverEnding Story II: The Next Chapter, The"
+  },
+  {
+    "rank": 12,
+    "item_id": 331,
+    "item_name": "Nightmare Before Christmas, The"
+  },
+  {
+    "rank": 13,
+    "item_id": 2365,
+    "item_name": "Tales From the Crypt Presents: Demon Knight"
+  },
+  {
+    "rank": 14,
+    "item_id": 210,
+    "item_name": "Alien"
+  },
+  {
+    "rank": 15,
+    "item_id": 789,
+    "item_name": "Blair Witch Project, The"
+  },
+  {
+    "rank": 16,
+    "item_id": 1114,
+    "item_name": "Shining, The"
+  },
+  {
+    "rank": 17,
+    "item_id": 622,
+    "item_name": "NeverEnding Story, The"
+  },
+  {
+    "rank": 18,
+    "item_id": 1120,
+    "item_name": "Dracula"
+  },
+  {
+    "rank": 19,
+    "item_id": 1125,
+    "item_name": "Frankenstein"
+  },
+  {
+    "rank": 20,
+    "item_id": 294,
+    "item_name": "Night of the Living Dead"
+  },
+  {
+    "rank": 21,
+    "item_id": 1731,
+    "item_name": "Halloween: The Curse of Michael Myers"
+  },
+  {
+    "rank": 22,
+    "item_id": 133,
+    "item_name": "Matrix, The"
+  },
+  {
+    "rank": 23,
+    "item_id": 1502,
+    "item_name": "Friday the 13th Part 3: 3D"
+  },
+  {
+    "rank": 24,
+    "item_id": 214,
+    "item_name": "Jaws"
+  },
+  {
+    "rank": 25,
+    "item_id": 2375,
+    "item_name": "Fog, The"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

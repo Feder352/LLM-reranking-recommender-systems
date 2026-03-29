@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Thank You Book (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Where the Jews Aren't: The Sad and Absurd Story of Birobidzhan, Russia's Jewish Autonomous Region (Jewish Encounters Series)"
+  },
+  {
+    "item_name": "Knuffle Bunny"
+  },
+  {
+    "item_name": "Duckling Gets a Cookie!?"
+  },
+  {
+    "item_name": "Are You Ready to Play Outside? (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "We Are in a Book! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Waiting Is Not Easy! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "People I Want to Punch in the Throat: Competitive Crafters, Drop-Off Despots, and Other Suburban Scourges"
+  },
+  {
+    "item_name": "My Friend Is Sad (An Elephant &amp; Piggie Book)"
+  },
+  {
+    "item_name": "There Is a Bird on Your Head!"
+  },
+  {
+    "item_name": "Can I Play Too? (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "I Am Invited to a Party!"
+  },
+  {
+    "item_name": "I Will Surprise My Friend! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "I Love My New Toy! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Elephants Cannot Dance! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Watch Me Throw the Ball! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Pigs Make Me Sneeze! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "I Am Going! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Listen to My Trumpet! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "My New Friend Is So Fun! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "I Really Like Slop! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "The Pigeon Has Feelings, Too! by Willems, Mo (unknown Edition) [Boardbook(2005)]"
+  },
+  {
+    "item_name": "Don't Let The Pigeon Drive The Bus!"
+  },
+  {
+    "item_name": "The Pigeon Has Feelings, Too!"
+  },
+  {
+    "item_name": "Knuffle Bunny Free: An Unexpected Diversion (Knuffle Bunny Series)"
+  },
+  {
+    "item_name": "Knuffle Bunny Too"
+  },
+  {
+    "item_name": "The Groucho Letters: Letters from and to Groucho Marx"
+  },
+  {
+    "item_name": "Margot (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "What She Left Behind"
+  },
+  {
+    "item_name": "The Storybook Knight"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 4478,
+    "item_name": "Mr. Wuffles! (Caldecott Medal - Honors Winning Title(s))"
+  },
+  {
+    "rank": 2,
+    "item_id": 2043,
+    "item_name": "Dave the Potter: Artist, Poet, Slave"
+  },
+  {
+    "rank": 3,
+    "item_id": 843,
+    "item_name": "Corduroy"
+  },
+  {
+    "rank": 4,
+    "item_id": 2562,
+    "item_name": "The Cat Who Walked Across France: A Picture Book"
+  },
+  {
+    "rank": 5,
+    "item_id": 2060,
+    "item_name": "Knock Knock: My Dad's Dream for Me"
+  },
+  {
+    "rank": 6,
+    "item_id": 1191,
+    "item_name": "Snowmen at Night (Storytown Library, Grade K, Story 8)"
+  },
+  {
+    "rank": 7,
+    "item_id": 2699,
+    "item_name": "I Have a Dream (Book &amp; CD)"
+  },
+  {
+    "rank": 8,
+    "item_id": 5184,
+    "item_name": "Martin's Big Words: The Life of Dr. Martin Luther King, Jr."
+  },
+  {
+    "rank": 9,
+    "item_id": 4529,
+    "item_name": "Doggies (Boynton on Board)"
+  },
+  {
+    "rank": 10,
+    "item_id": 5763,
+    "item_name": "Should I Share My Ice Cream? (An Elephant and Piggie Book)"
+  },
+  {
+    "rank": 11,
+    "item_id": 4647,
+    "item_name": "The Girl Who Loved Wild Horses"
+  },
+  {
+    "rank": 12,
+    "item_id": 844,
+    "item_name": "The Story About Ping"
+  },
+  {
+    "rank": 13,
+    "item_id": 2036,
+    "item_name": "The Blood Sugar Solution: The UltraHealthy Program for Losing Weight, Preventing Disease, and Feeling Great Now!"
+  },
+  {
+    "rank": 14,
+    "item_id": 2057,
+    "item_name": "Mr. Tiger Goes Wild (Boston Globe-Horn Book Awards (Awards))"
+  },
+  {
+    "rank": 15,
+    "item_id": 5193,
+    "item_name": "Leonardo, the Terrible Monster"
+  },
+  {
+    "rank": 16,
+    "item_id": 4889,
+    "item_name": "The LEGO Book"
+  },
+  {
+    "rank": 17,
+    "item_id": 5765,
+    "item_name": "My New Friend Is So Fun! (An Elephant and Piggie Book)"
+  },
+  {
+    "rank": 18,
+    "item_id": 845,
+    "item_name": "The Snowy Day"
+  },
+  {
+    "rank": 19,
+    "item_id": 2716,
+    "item_name": "Ramona the Pest"
+  },
+  {
+    "rank": 20,
+    "item_id": 1742,
+    "item_name": "Shrek!"
+  },
+  {
+    "rank": 21,
+    "item_id": 5187,
+    "item_name": "Don't Let the Pigeon Stay Up Late!"
+  },
+  {
+    "rank": 22,
+    "item_id": 1174,
+    "item_name": "How I Became a Pirate"
+  },
+  {
+    "rank": 23,
+    "item_id": 1719,
+    "item_name": "The Man Who Walked Between the Towers"
+  },
+  {
+    "rank": 24,
+    "item_id": 847,
+    "item_name": "Why Mosquitoes Buzz in People's Ears: A West African Tale"
+  },
+  {
+    "rank": 25,
+    "item_id": 1257,
+    "item_name": "Escape from Sobibor"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

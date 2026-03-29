@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Train Wreck: The Forensics of Rail Disasters"
+  },
+  {
+    "item_name": "Unusual Uses for Olive Oil (Professor Dr von Igelfeld Series)"
+  },
+  {
+    "item_name": "Henri, le Chat Noir: The Existential Musings of an Angst-Filled Cat"
+  },
+  {
+    "item_name": "Pizza on the Grill: 100+ Feisty Fire-Roasted Recipes for Pizza &amp; More"
+  },
+  {
+    "item_name": "Food Network Favorites: Recipes from Our All-Star Chefs"
+  },
+  {
+    "item_name": "I Want My Hat Back"
+  },
+  {
+    "item_name": "Total Immersion: The Revolutionary Way to Swim Better, Faster, and Easier"
+  },
+  {
+    "item_name": "Lunatics"
+  },
+  {
+    "item_name": "Full Moon"
+  },
+  {
+    "item_name": "The Ten, Make That Nine, Habits of Very Organized People. Make That Ten.: The Tweets of Steve Martin"
+  },
+  {
+    "item_name": "Things That Matter: Three Decades of Passions, Pastimes and Politics [Deckled Edge]"
+  },
+  {
+    "item_name": "Not Cool: The Hipster Elite and Their War on You"
+  },
+  {
+    "item_name": "Not Cool: The Hipster Elite and Their War on You - Kindle edition"
+  },
+  {
+    "item_name": "Awkward Family Pet Photos"
+  },
+  {
+    "item_name": "Live Right and Find Happiness (Although Beer is Much Faster): Life Lessons and Other Ravings from Dave Barry"
+  },
+  {
+    "item_name": "In the Kitchen with David: QVC's Resident Foodie Presents Comfort Foods That Take You Home: A Cookbook"
+  },
+  {
+    "item_name": "The Finest Hours (Young Readers Edition): The True Story of a Heroic Sea Rescue (True Storm Rescues)"
+  },
+  {
+    "item_name": "Shadow of the Titanic: The Extraordinary Stories of Those Who Survived"
+  },
+  {
+    "item_name": "The Serpent's Coil"
+  },
+  {
+    "item_name": "The Serpent's Coil"
+  },
+  {
+    "item_name": "The Serpent's Coil"
+  },
+  {
+    "item_name": "The serpent's coil"
+  },
+  {
+    "item_name": "The serpent's coil"
+  },
+  {
+    "item_name": "The serpent's coil"
+  },
+  {
+    "item_name": "Grey Seas Under"
+  },
+  {
+    "item_name": "Grey Seas Under"
+  },
+  {
+    "item_name": "Grey Seas Under"
+  },
+  {
+    "item_name": "Grey Seas Under"
+  },
+  {
+    "item_name": "Grey Seas Under"
+  },
+  {
+    "item_name": "Star Trek Cats"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1843,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 2,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 3,
+    "item_id": 2174,
+    "item_name": "The Demon-Haunted World: Science as a Candle in the Dark"
+  },
+  {
+    "rank": 4,
+    "item_id": 396,
+    "item_name": "Amazing Grace: William Wilberforce and the Heroic Campaign to End Slavery"
+  },
+  {
+    "rank": 5,
+    "item_id": 2669,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 6,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 7,
+    "item_id": 4136,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 8,
+    "item_id": 5174,
+    "item_name": "America Alone: The End of the World As We Know It"
+  },
+  {
+    "rank": 9,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 10,
+    "item_id": 2528,
+    "item_name": "Churchill: A Biography"
+  },
+  {
+    "rank": 11,
+    "item_id": 2019,
+    "item_name": "A Terrible Glory: Custer and the Little Bighorn - the Last Great Battle of the American West"
+  },
+  {
+    "rank": 12,
+    "item_id": 1028,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 13,
+    "item_id": 823,
+    "item_name": "The Rape of Nanking: The Forgotten Holocaust of World War II"
+  },
+  {
+    "rank": 14,
+    "item_id": 4213,
+    "item_name": "Economics in One Lesson: The Shortest and Surest Way to Understand Basic Economics"
+  },
+  {
+    "rank": 15,
+    "item_id": 237,
+    "item_name": "100 People Who Are Screwing Up America (And Al Franken Is #37)"
+  },
+  {
+    "rank": 16,
+    "item_id": 4621,
+    "item_name": "Benjamin Franklin: An American Life"
+  },
+  {
+    "rank": 17,
+    "item_id": 2073,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 18,
+    "item_id": 859,
+    "item_name": "The Black Swan: The Impact of the Highly Improbable"
+  },
+  {
+    "rank": 19,
+    "item_id": 3005,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 20,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 21,
+    "item_id": 3753,
+    "item_name": "Start-up Nation: The Story of Israel's Economic Miracle"
+  },
+  {
+    "rank": 22,
+    "item_id": 136,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 23,
+    "item_id": 676,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 24,
+    "item_id": 1468,
+    "item_name": "Revolutionary Summer: The Birth of American Independence"
+  },
+  {
+    "rank": 25,
+    "item_id": 2935,
+    "item_name": "The Stolen Child: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

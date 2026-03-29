@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dirty Deeds"
+  },
+  {
+    "item_name": "Alpha's Second Chance (Werebears Of The Everglades)"
+  },
+  {
+    "item_name": "The Milkman"
+  },
+  {
+    "item_name": "Stolen Son: A gripping psychological thriller that will have you hooked"
+  },
+  {
+    "item_name": "The Baby Mission"
+  },
+  {
+    "item_name": "King Size"
+  },
+  {
+    "item_name": "In The Darkness: A Project Artemis Novel (Volume 1)"
+  },
+  {
+    "item_name": "First Touch: First Touch: My Best Friend's Little Sister"
+  },
+  {
+    "item_name": "King of Wall Street"
+  },
+  {
+    "item_name": "We Own Tonight"
+  },
+  {
+    "item_name": "Holden's Mate (Daddy Dragon Guardians)"
+  },
+  {
+    "item_name": "The Dragon King's Prisoner: A Paranormal Romance (Separated by Time) (Volume 1)"
+  },
+  {
+    "item_name": "The CEO's Redemption"
+  },
+  {
+    "item_name": "Accidental Hero: A Marriage Mistake Romance"
+  },
+  {
+    "item_name": "The Forever Girl: Forever Girl Series, Volume One: Sophia's Journey (Volume 1)"
+  },
+  {
+    "item_name": "Billionaire Matchmaker"
+  },
+  {
+    "item_name": "Runaway Mate (Shifters of Bear's Den) (Volume 4)"
+  },
+  {
+    "item_name": "Dragon Shifter Romance: Playing With Fire: Dragons Of The Darkblood Secret Society (Paranormal Shapeshifter Romance)"
+  },
+  {
+    "item_name": "I Hired a Hitman: A Bad Boy Mafia Romance"
+  },
+  {
+    "item_name": "Deliciously Damaged: Reckless Bastards MC"
+  },
+  {
+    "item_name": "Merciless"
+  },
+  {
+    "item_name": "Scorpio"
+  },
+  {
+    "item_name": "Compromising the Billionaire (Scandals of the Bad Boy Billionaires) (Volume 9)"
+  },
+  {
+    "item_name": "Fated Attraction (Werebears Of The Everglades)"
+  },
+  {
+    "item_name": "Montana SEAL Undercover Daddy (Brotherhood Protectors) (Volume 9)"
+  },
+  {
+    "item_name": "The Dragon Warrior's Baby: A Paranormal Romance (Separated by Time) (Volume 2)"
+  },
+  {
+    "item_name": "Protector"
+  },
+  {
+    "item_name": "Beau's Mate (Daddy Dragon Guardians)"
+  },
+  {
+    "item_name": "His Banana"
+  },
+  {
+    "item_name": "Damien's Nanny (Beverly Hills Dragons)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "His Banana"
+  },
+  {
+    "rank": 2,
+    "item_name": "Hostage of the Hitman: A Bad Boy Mafia Romance"
+  },
+  {
+    "rank": 3,
+    "item_name": "Broken: A Dark Romance"
+  },
+  {
+    "rank": 4,
+    "item_name": "How We Fall"
+  },
+  {
+    "rank": 5,
+    "item_name": "Captive of the Hitman: A Bad Boy Mafia Romance Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Accidental Daddy: A Billionaire's Baby Romance"
+  },
+  {
+    "rank": 7,
+    "item_name": "Stockholm Syndromance: A Bad Boy Romance (Still a Bad Boy) (Volume 4)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Throttle Me (Men of Inked) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Two Wrongs (Trouble by Numbers) (Volume 2)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Cold Hearted"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Cruel Kind of Beautiful (Sex, Love, and Rock and Roll series) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Hot Daddy: A Single Dad Billionaire Romance"
+  },
+  {
+    "rank": 13,
+    "item_name": "Loaded: An Enemies-to-Lovers Romance"
+  },
+  {
+    "rank": 14,
+    "item_name": "Pennies (Dollar) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Torch CAOS MC"
+  },
+  {
+    "rank": 16,
+    "item_name": "Anaconda"
+  },
+  {
+    "rank": 17,
+    "item_name": "Velocity (A Dangerous Bad Boy Romance)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Captain Hotness"
+  },
+  {
+    "rank": 19,
+    "item_name": "Kissing booth"
+  },
+  {
+    "rank": 20,
+    "item_name": "Rescue Me: A Bad Boy Romance"
+  },
+  {
+    "rank": 21,
+    "item_name": "Damaged"
+  },
+  {
+    "rank": 22,
+    "item_name": "Billionaire's Bombshell"
+  },
+  {
+    "rank": 23,
+    "item_name": "Stealing Amy: A Dark Romance (Disciples) (Volume 2)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Captive Vow"
+  },
+  {
+    "rank": 25,
+    "item_name": "For the Love of Luca (Chicago Syndicate) (Volume 8)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Corrupted"
+  },
+  {
+    "rank": 27,
+    "item_name": "Torn: A Dark Bad Boy Romance"
+  },
+  {
+    "rank": 28,
+    "item_name": "Burn So Bad (Into The Fire) (Volume 3)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Dark Vow (Dark Saints MC) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Italian Billionaire's Stubborn Lover (The Romano Brothers Series) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Pretend You're Mine"
+  },
+  {
+    "rank": 32,
+    "item_name": "One More Kiss: A Second Chance Romance (One More Series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Dirty"
+  },
+  {
+    "rank": 34,
+    "item_name": "Hostage for the Sheikh: A Royal Billionaire Romance Novel (Curves for Sheikhs Series) (Volume 3)"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Wonderful Kind of Love"
+  },
+  {
+    "rank": 36,
+    "item_name": "Shameless (The Shameless Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Submission Specialist: A Bad Boy Romance (Still a Bad Boy) (Volume 2)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Released: Devil's Blaze MC Book 3 (Volume 3)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Anchor"
+  },
+  {
+    "rank": 40,
+    "item_name": "Dex: MC Biker Romance (Great Wolves Motorcycle Club) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Ivan (An Out of the Cage Novel) (Volume 2)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Well Hung Over in Vegas: A Standalone Romantic Comedy"
+  },
+  {
+    "rank": 43,
+    "item_name": "Royal Stripper"
+  },
+  {
+    "rank": 44,
+    "item_name": "Every Moment with You (Redeeming Love)"
+  },
+  {
+    "rank": 45,
+    "item_name": "P.S. I Hate You"
+  },
+  {
+    "rank": 46,
+    "item_name": "Trapped in the Cabin"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Perfect Illusion"
+  },
+  {
+    "rank": 48,
+    "item_name": "Sin (Sin Duet)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Queen of My Heart (Life Won't Wait) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Your One True Love (The Bennett Family) (Volume 8)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

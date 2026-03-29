@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Before We Were Yours: A Novel"
+  },
+  {
+    "item_name": "The Reformer (Power of the Matchmaker) (Volume 12)"
+  },
+  {
+    "item_name": "Born of Darkness: A Hunter Legacy Novel (Midnight Breed Hunter Legacy) (Volume 1)"
+  },
+  {
+    "item_name": "Secrets of Midnight (The Man of My Dreams Series Book 1)"
+  },
+  {
+    "item_name": "Severed Relations (Finn O'Brien/Cori Anderson Thriller) (Volume 1)"
+  },
+  {
+    "item_name": "Tribute"
+  },
+  {
+    "item_name": "The Bride Who Got Lucky: The Cavensham Heiresses"
+  },
+  {
+    "item_name": "The Sacrifice (The Soul Summoner) (Volume 5)"
+  },
+  {
+    "item_name": "Wicked in His Arms"
+  },
+  {
+    "item_name": "Accidentally Compromising the Duke"
+  },
+  {
+    "item_name": "The Scandal in Kissing an Heir: At the Kingsborough Ball"
+  },
+  {
+    "item_name": "Spellbound"
+  },
+  {
+    "item_name": "Loyalty in Death"
+  },
+  {
+    "item_name": "Forgotten &amp; Remembered: The Duke's Late Wife (Love's Second Chance Series) (Volume 1)"
+  },
+  {
+    "item_name": "In Hot Water (Triple-D Ranch) (Volume 1)"
+  },
+  {
+    "item_name": "Thunder and Roses (Signet Historical Romance)"
+  },
+  {
+    "item_name": "Cold River Resurrection"
+  },
+  {
+    "item_name": "Someone to Love (Westcott)"
+  },
+  {
+    "item_name": "Charming the Scholar (The Seven Curses of London) (Volume 2)"
+  },
+  {
+    "item_name": "Dead Certain: A Novel (Broden Legal)"
+  },
+  {
+    "item_name": "The Duke Meets His Match (Infamous Somertons)"
+  },
+  {
+    "item_name": "My Fair Lily (The Farthingale Series) (Volume 1)"
+  },
+  {
+    "item_name": "Her Last Word"
+  },
+  {
+    "item_name": "Never Say Never to an Earl (Heart of Enquiry) (Volume 5)"
+  },
+  {
+    "item_name": "Tiger Striped: Shifters Unbound"
+  },
+  {
+    "item_name": "Vampire's Faith"
+  },
+  {
+    "item_name": "A Merciful Silence (Mercy Kilpatrick)"
+  },
+  {
+    "item_name": "A Steep Price (Tracy Crosswhite)"
+  },
+  {
+    "item_name": "Natural Dual-Mage (Magical Mayhem) (Volume 3)"
+  },
+  {
+    "item_name": "Shelter in Place"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 15233,
+    "item_name": "Heart of the Hunter"
+  },
+  {
+    "rank": 2,
+    "item_id": 69089,
+    "item_name": "Hanover House"
+  },
+  {
+    "rank": 3,
+    "item_id": 56186,
+    "item_name": "The Body Reader (Detective Jude Fontaine Mysteries)"
+  },
+  {
+    "rank": 4,
+    "item_id": 15904,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 5,
+    "item_id": 1588,
+    "item_name": "Kill the Competition"
+  },
+  {
+    "rank": 6,
+    "item_id": 56230,
+    "item_name": "The Butterfly Garden (The Collector)"
+  },
+  {
+    "rank": 7,
+    "item_id": 53128,
+    "item_name": "Hungry Like the Wolf (SWAT)"
+  },
+  {
+    "rank": 8,
+    "item_id": 69908,
+    "item_name": "A Touch of Midnight: (vampire romance) (Midnight Breed)"
+  },
+  {
+    "rank": 9,
+    "item_id": 28936,
+    "item_name": "A Hidden Fire: Elemental Mysteries Book 1"
+  },
+  {
+    "rank": 10,
+    "item_id": 16241,
+    "item_name": "Fatal Affair: Book One of the Fatal Series: One Night with You"
+  },
+  {
+    "rank": 11,
+    "item_id": 36249,
+    "item_name": "White Lion's Lady"
+  },
+  {
+    "rank": 12,
+    "item_id": 70311,
+    "item_name": "Deathwatch: Broslin Creek"
+  },
+  {
+    "rank": 13,
+    "item_id": 38922,
+    "item_name": "Never Smile at Strangers"
+  },
+  {
+    "rank": 14,
+    "item_id": 70608,
+    "item_name": "Switching Hour: Magic and Mayhem Book One (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_id": 12271,
+    "item_name": "First Grave on the Right (Charley Davidson Series)"
+  },
+  {
+    "rank": 16,
+    "item_id": 59777,
+    "item_name": "Southern Spirits (Southern Ghost Hunter Mysteries)"
+  },
+  {
+    "rank": 17,
+    "item_id": 26187,
+    "item_name": "Entwined (Eternal Guardians)"
+  },
+  {
+    "rank": 18,
+    "item_id": 43269,
+    "item_name": "Echoes in Death: An Eve Dallas Novel (In Death, Book 44)"
+  },
+  {
+    "rank": 19,
+    "item_id": 16118,
+    "item_name": "Shadow Rider"
+  },
+  {
+    "rank": 20,
+    "item_id": 8369,
+    "item_name": "The Chase (An Isaac Bell Adventure)"
+  },
+  {
+    "rank": 21,
+    "item_id": 39427,
+    "item_name": "Guarding Suzannah: Book 1 in the Serve and Protect Series (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_id": 26174,
+    "item_name": "Driven (SHOMI)"
+  },
+  {
+    "rank": 23,
+    "item_id": 48304,
+    "item_name": "Forever Road (Peri Jean Mace) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_id": 16131,
+    "item_name": "Brotherhood in Death: 42"
+  },
+  {
+    "rank": 25,
+    "item_id": 21429,
+    "item_name": "The Hanover Square Affair"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

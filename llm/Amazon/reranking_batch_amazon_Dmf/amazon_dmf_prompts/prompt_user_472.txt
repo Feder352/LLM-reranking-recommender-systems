@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Wicked in a Kilt (Hot Scots)"
+  },
+  {
+    "item_name": "Break My Heart (Pine Grove) (Volume 2)"
+  },
+  {
+    "item_name": "Embracing Love (Once Broken) (Volume 1)"
+  },
+  {
+    "item_name": "Part-time Princess (Royally Wed Romantic Comedy) (Volume 1)"
+  },
+  {
+    "item_name": "Stutter Creek"
+  },
+  {
+    "item_name": "The Bad Luck Bride: The Cavensham Heiresses"
+  },
+  {
+    "item_name": "Montana Wild"
+  },
+  {
+    "item_name": "Beyond Scandal and Desire: A Sins for All Seasons Novel"
+  },
+  {
+    "item_name": "Perfectly Mismatched"
+  },
+  {
+    "item_name": "Crossing Promises (Cross Creek)"
+  },
+  {
+    "item_name": "Marrying the Wedding Crasher (A Harmony Valley Novel)"
+  },
+  {
+    "item_name": "Because of You"
+  },
+  {
+    "item_name": "Dangerous in a Kilt (Hot Scots) (Volume 1)"
+  },
+  {
+    "item_name": "Roaming Wild (Steele Ridge) (Volume 6)"
+  },
+  {
+    "item_name": "Mail Order Bride"
+  },
+  {
+    "item_name": "Uniquely Mine: A Fitz Series"
+  },
+  {
+    "item_name": "Dangerous Embrace"
+  },
+  {
+    "item_name": "HIS Choice (Hamilton Investigation &amp; Security: HIS Series) (Volume 2)"
+  },
+  {
+    "item_name": "Broken Embrace: (Embrace Series, 3) (Volume 3)"
+  },
+  {
+    "item_name": "His Chance"
+  },
+  {
+    "item_name": "Deadly Lies"
+  },
+  {
+    "item_name": "True Crime 2017: Homicide &amp; True Crime Stories of 2017 (Annual True Crime Anthology) (Volume 2)"
+  },
+  {
+    "item_name": "True Crime Stories Volume 9: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "item_name": "Shopping for a Billionaire's Baby (Volume 13)"
+  },
+  {
+    "item_name": "My Own Nightmare (Shattered Lives) (Volume 1)"
+  },
+  {
+    "item_name": "Willow's Discovery (The Winters Sisters Series) (Volume 3)"
+  },
+  {
+    "item_name": "Chance Collision (Crossing Forces) (Volume 2)"
+  },
+  {
+    "item_name": "Blood Reaction: A Vampire Novel"
+  },
+  {
+    "item_name": "Superior Collision (Crossing Forces) (Volume 5)"
+  },
+  {
+    "item_name": "Love's Always Paws-able (Sheltered Love) (Volume 2)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 43365,
+    "item_name": "The Christmas Cowboy Hero (Heart of Texas)"
+  },
+  {
+    "rank": 2,
+    "item_id": 67832,
+    "item_name": "Hard Compromise"
+  },
+  {
+    "rank": 3,
+    "item_id": 56451,
+    "item_name": "Crossing Hearts (Cross Creek)"
+  },
+  {
+    "rank": 4,
+    "item_id": 41241,
+    "item_name": "Skin Deep (Station Seventeen) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_id": 73789,
+    "item_name": "His Undercover Princess"
+  },
+  {
+    "rank": 6,
+    "item_id": 61187,
+    "item_name": "The Real Thing (Sugar Lake)"
+  },
+  {
+    "rank": 7,
+    "item_id": 43367,
+    "item_name": "The Wicked Billionaire: A Billionaire SEAL Romance (The Tate Brothers)"
+  },
+  {
+    "rank": 8,
+    "item_id": 67847,
+    "item_name": "Taking the Score"
+  },
+  {
+    "rank": 9,
+    "item_id": 43336,
+    "item_name": "A Season of You: A Cloud Bay Christmas Novel"
+  },
+  {
+    "rank": 10,
+    "item_id": 43284,
+    "item_name": "The Dangerous Billionaire: A Billionaire Navy SEAL Romance (The Tate Brothers)"
+  },
+  {
+    "rank": 11,
+    "item_id": 43218,
+    "item_name": "Christmas at Two Love Lane"
+  },
+  {
+    "rank": 12,
+    "item_id": 46181,
+    "item_name": "Fearless (Rescue Squad)"
+  },
+  {
+    "rank": 13,
+    "item_id": 64028,
+    "item_name": "Wicked Edge"
+  },
+  {
+    "rank": 14,
+    "item_id": 64096,
+    "item_name": "Wicked Ride"
+  },
+  {
+    "rank": 15,
+    "item_id": 67735,
+    "item_name": "Compromising Her Position"
+  },
+  {
+    "rank": 16,
+    "item_id": 67800,
+    "item_name": "Fool Me Once"
+  },
+  {
+    "rank": 17,
+    "item_id": 46172,
+    "item_name": "Reckless (Rescue Squad)"
+  },
+  {
+    "rank": 18,
+    "item_id": 53215,
+    "item_name": "Devil and the Deep (The Deep Six)"
+  },
+  {
+    "rank": 19,
+    "item_id": 67758,
+    "item_name": "The Best Friend Bargain"
+  },
+  {
+    "rank": 20,
+    "item_id": 36320,
+    "item_name": "Ignited: A Most Wanted Novel"
+  },
+  {
+    "rank": 21,
+    "item_id": 48690,
+    "item_name": "Run to You (Risking It All)"
+  },
+  {
+    "rank": 22,
+    "item_id": 43329,
+    "item_name": "Cowboy Stole My Heart: A River Ranch Novel"
+  },
+  {
+    "rank": 23,
+    "item_id": 67837,
+    "item_name": "One Week to Score"
+  },
+  {
+    "rank": 24,
+    "item_id": 61809,
+    "item_name": "The Nanny Arrangement"
+  },
+  {
+    "rank": 25,
+    "item_id": 61233,
+    "item_name": "Crossing the Line (Cross Creek)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dreaming Spies: A Novel of Suspense Featuring Mary Russell and Sherlock Holmes"
+  },
+  {
+    "item_name": "George Washington's Secret Six: The Spy Ring That Saved the American Revolution"
+  },
+  {
+    "item_name": "Paper Lion: Confessions of a Last-String Quarterback"
+  },
+  {
+    "item_name": "Off the Grid (A Joe Pickett Novel)"
+  },
+  {
+    "item_name": "Thomas Jefferson and the Tripoli Pirates: The Forgotten War That Changed American History"
+  },
+  {
+    "item_name": "H Is For Hawk (Vintage Books)"
+  },
+  {
+    "item_name": "Here's Looking at Euclid: From Counting Ants to Games of Chance - An Awe-Inspiring Journey Through the World of Numbers"
+  },
+  {
+    "item_name": "The Marketplace of Ideas: Reform and Resistance in the American University (Issues of Our Time)"
+  },
+  {
+    "item_name": "Mycroft Holmes"
+  },
+  {
+    "item_name": "Persuader (Jack Reacher, No. 7)"
+  },
+  {
+    "item_name": "The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics"
+  },
+  {
+    "item_name": "Behind the Beautiful Forevers: Life, death, and hope in a Mumbai undercity"
+  },
+  {
+    "item_name": "Mary Russell's War (Mary Russell and Sherlock Holmes)"
+  },
+  {
+    "item_name": "The Murder of Mary Russell (Mary Russell &amp; Sherlock Holmes)"
+  },
+  {
+    "item_name": "The Bones of Paris (Stuyvesant &amp; Grey)"
+  },
+  {
+    "item_name": "Touchstone: A Stuyvesant &amp; Grey Novel"
+  },
+  {
+    "item_name": "The SHIPPING NEWS"
+  },
+  {
+    "item_name": "Black Elk Speaks Being the Life Story of a Holy Man of the Oglala Sioux"
+  },
+  {
+    "item_name": "River of Doubt"
+  },
+  {
+    "item_name": "Vicious Circle (A Joe Pickett Novel)"
+  },
+  {
+    "item_name": "Kokoro (Dover Books on Literature &amp; Drama)"
+  },
+  {
+    "item_name": "How the Hell Did This Happen?: The Election of 2016"
+  },
+  {
+    "item_name": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI"
+  },
+  {
+    "item_name": "Insane Clown President: Dispatches from the 2016 Circus"
+  },
+  {
+    "item_name": "Devil's Bargain: Steve Bannon, Donald Trump, and the Storming of the Presidency"
+  },
+  {
+    "item_name": "Paradise Valley: A Novel (Highway Quartet)"
+  },
+  {
+    "item_name": "Unbelievable: My Front-Row Seat to the Craziest Campaign in American History"
+  },
+  {
+    "item_name": "On Tyranny: Twenty Lessons from the Twentieth Century"
+  },
+  {
+    "item_name": "Ordinary Wolves: A Novel (Milkweed National Fiction Prize)"
+  },
+  {
+    "item_name": "Educated: A Memoir"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 221,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 2,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 3,
+    "item_id": 2073,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 4,
+    "item_id": 2669,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 5,
+    "item_id": 2664,
+    "item_name": "The Passage of Power: The Years of Lyndon Johnson, Vol. IV"
+  },
+  {
+    "rank": 6,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 7,
+    "item_id": 1531,
+    "item_name": "Destiny of the Republic: A Tale of Madness, Medicine and the Murder of a President"
+  },
+  {
+    "rank": 8,
+    "item_id": 1431,
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "rank": 9,
+    "item_id": 2621,
+    "item_name": "Ghost Soldiers: The Forgotten Epic Story of World War II's Most Dramatic Mission"
+  },
+  {
+    "rank": 10,
+    "item_id": 2955,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 11,
+    "item_id": 2279,
+    "item_name": "Under and Alone: The True Story of the Undercover Agent Who Infiltrated America's Most Violent Outlaw Motorcycle Gang"
+  },
+  {
+    "rank": 12,
+    "item_id": 1934,
+    "item_name": "In Harm's Way: The Sinking of the U.S.S. Indianapolis and the Extraordinary Story of Its Survivors"
+  },
+  {
+    "rank": 13,
+    "item_id": 1116,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 14,
+    "item_id": 2620,
+    "item_name": "Cobra II: The Inside Story of the Invasion and Occupation of Iraq"
+  },
+  {
+    "rank": 15,
+    "item_id": 2596,
+    "item_name": "Skinny Dip"
+  },
+  {
+    "rank": 16,
+    "item_id": 3005,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 17,
+    "item_id": 811,
+    "item_name": "Black Hawk Down: A Story of Modern War"
+  },
+  {
+    "rank": 18,
+    "item_id": 2588,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 19,
+    "item_id": 1432,
+    "item_name": "Operation Mincemeat: How a Dead Man and a Bizarre Plan Fooled the Nazis and Assured an Allied Victory"
+  },
+  {
+    "rank": 20,
+    "item_id": 4522,
+    "item_name": "Truman"
+  },
+  {
+    "rank": 21,
+    "item_id": 685,
+    "item_name": "Salt: A World History"
+  },
+  {
+    "rank": 22,
+    "item_id": 5799,
+    "item_name": "Unfamiliar Fishes"
+  },
+  {
+    "rank": 23,
+    "item_id": 1392,
+    "item_name": "On Chesil Beach"
+  },
+  {
+    "rank": 24,
+    "item_id": 1423,
+    "item_name": "Where Men Win Glory: The Odyssey of Pat Tillman"
+  },
+  {
+    "rank": 25,
+    "item_id": 1658,
+    "item_name": "Paranoia"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

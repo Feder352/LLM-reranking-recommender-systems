@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Duchess: A Novel"
+  },
+  {
+    "item_name": "Blackthorne's Bride: A Bitter Creek Novel"
+  },
+  {
+    "item_name": "The Duke of Danger (The Untouchables) (Volume 6)"
+  },
+  {
+    "item_name": "When a Lord Loves a Lady: A Waltz with a Rogue Collection, 1-5"
+  },
+  {
+    "item_name": "Third Son's a Charm (The Survivors)"
+  },
+  {
+    "item_name": "Beauty Like the Night (The Spymaster Series)"
+  },
+  {
+    "item_name": "Heart of Eden (Colorado Hearts)"
+  },
+  {
+    "item_name": "My One True Highlander: A No Ordinary Hero Novel"
+  },
+  {
+    "item_name": "A Devil in Scotland: A No Ordinary Hero Novel"
+  },
+  {
+    "item_name": "Wallflower Most Wanted: A Studies in Scandal Novel"
+  },
+  {
+    "item_name": "Lady Fortescue Steps Out (The Poor Relation)"
+  },
+  {
+    "item_name": "Surrender: A Bitter Creek Novel"
+  },
+  {
+    "item_name": "Devil in Tartan (The Highland Grooms)"
+  },
+  {
+    "item_name": "Wild Wicked Scot (The Highland Grooms)"
+  },
+  {
+    "item_name": "Hard-Hearted Highlander: A Sexy Scottish Historical Romance (The Highland Grooms)"
+  },
+  {
+    "item_name": "Sinful Scottish Laird: A Historical Romance Novel (The Highland Grooms)"
+  },
+  {
+    "item_name": "The Spring Bride (A Chance Sisters Romance)"
+  },
+  {
+    "item_name": "Wolfishly Yours"
+  },
+  {
+    "item_name": "Undercover with the Earl (Brotherhood of the Sword)"
+  },
+  {
+    "item_name": "A Duke in the Night (The Devils of Dover)"
+  },
+  {
+    "item_name": "Maybe This Time: A Whiskey and Weddings Novel"
+  },
+  {
+    "item_name": "No Earls Allowed (The Survivors)"
+  },
+  {
+    "item_name": "Someone to Hold (A Westcott Novel)"
+  },
+  {
+    "item_name": "How to Marry a Royal Highlander (Renegade Royal book 4)"
+  },
+  {
+    "item_name": "As the Devil Dares (Capturing the Carlisles)"
+  },
+  {
+    "item_name": "The Girl With The Make-Believe Husband: A Bridgertons Prequel"
+  },
+  {
+    "item_name": "Blaike: Secrets Gone Askew (Conundrums of the Misses Culpepper) (Volume 4)"
+  },
+  {
+    "item_name": "When a Scot Gives His Heart (Highlander Vows: Entangled Hearts) (Volume 7)"
+  },
+  {
+    "item_name": "An Affair with a Spare (The Survivors)"
+  },
+  {
+    "item_name": "The Romanov Empress: A Novel of Tsarina Maria Feodorovna"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Inconvenient Duchess"
+  },
+  {
+    "rank": 2,
+    "item_name": "How to Lose a Lord in 10 Days or Less (Tricks of the Ton)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Sapphires Are an Earl's Best Friend (Jewels of the Ton)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Winter Bride (Chance Sisters)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Marrying Winterborne"
+  },
+  {
+    "rank": 6,
+    "item_name": "Outrageous Confessions of Lady Deborah"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Escape (A Survivors' Club Novel)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Daniel's True Desire (True Gentlemen)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Desperately Seeking Suzanna (Tricks of the Ton)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Seducing the Governess (Regency Flings)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Sweet Enemy: A Veiled Seduction Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "Highland Spy: Mercenary Maidens - Book One (The Mercenary Maidens Series)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Ethan: Lord of Scandals (The Lonely Lords)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Dangerous Gentlemen (Daughters of Sin)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Prince's Bride (Royal Trilogy)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Highland Knight of Rapture (Highland Dynasty) (Volume 4)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Wedding Night With the Earl: The Heirs' Club of Scoundrels"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Untamed Earl (Playful Brides)"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Sinful Deception (Breconridge Brothers)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Dark Before the Rising Sun"
+  },
+  {
+    "rank": 21,
+    "item_name": "David: Lord of Honor (The Lonely Lords)"
+  },
+  {
+    "rank": 22,
+    "item_name": "How to Seduce a Scot (Broadswords and Ballrooms)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Captain's Bluestocking Mistress (Dukes of War) (Volume 3)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Luck of the Bride: The Cavensham Heiresses"
+  },
+  {
+    "rank": 25,
+    "item_name": "A Most Devilish Rogue (A Most Series)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Moonstruck Madness"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Duke's Disaster"
+  },
+  {
+    "rank": 28,
+    "item_name": "Gareth: Lord of Rakes (The Lonely Lords)"
+  },
+  {
+    "rank": 29,
+    "item_name": "What a Duke Dares (Sons of Sin)"
+  },
+  {
+    "rank": 30,
+    "item_name": "I Married the Duke: The Prince Catchers"
+  },
+  {
+    "rank": 31,
+    "item_name": "Once Upon a Kiss (Book Club Belles Society)"
+  },
+  {
+    "rank": 32,
+    "item_name": "My American Duchess"
+  },
+  {
+    "rank": 33,
+    "item_name": "Dark Fancy"
+  },
+  {
+    "rank": 34,
+    "item_name": "Lady Louisa's Christmas Knight (Windham Series)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Only Beloved (Survivors' Club)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Art of Temptation (Signet Eclipse)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Highlander's Princess Bride (The Improper Princesses)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Highland Hellcat (Hot Highlanders)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Harlot Countess (Wicked Deceptions)"
+  },
+  {
+    "rank": 40,
+    "item_name": "It's All About the Duke: The Rakes of St. James"
+  },
+  {
+    "rank": 41,
+    "item_name": "How to Plan a Wedding for a Royal Spy (The Renegade Royals)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Why Lords Lose Their Hearts"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Pleasures of Passion (The Sinful Suitors)"
+  },
+  {
+    "rank": 44,
+    "item_name": "A Duke Like No Other (Playful Brides)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Groom Says Yes (Brides of Wishmore)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Magnate (The Knickerbocker Club)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Because of Miss Bridgerton"
+  },
+  {
+    "rank": 48,
+    "item_name": "To Wed a Wild Lord (The Hellions of Halstead Hall)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The MacGregor's Lady (MacGregor Series)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Hunk for the Holidays"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

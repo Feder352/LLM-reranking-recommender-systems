@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Sentry (Joe Pike)"
+  },
+  {
+    "item_name": "Born in Death"
+  },
+  {
+    "item_name": "Odd Thomas: You Are Destined to Be Together Forever (Odd Thomas Series)"
+  },
+  {
+    "item_name": "Extreme Prey (A Prey Novel)"
+  },
+  {
+    "item_name": "Innocent in Death"
+  },
+  {
+    "item_name": "Blow Fly (A Scarpetta Novel)"
+  },
+  {
+    "item_name": "Face Off"
+  },
+  {
+    "item_name": "Escape Clause (A Virgil Flowers Novel)"
+  },
+  {
+    "item_name": "Pirate (A Sam and Remi Fargo Adventure)"
+  },
+  {
+    "item_name": "Pirate: Fargo Adventures #8"
+  },
+  {
+    "item_name": "Golden Prey (A Prey Novel)"
+  },
+  {
+    "item_name": "Vacations from Hell"
+  },
+  {
+    "item_name": "The Door in the Hedge"
+  },
+  {
+    "item_name": "The Children Return: A Bruno, Chief of Police novel (Bruno, Chief of Police Series)"
+  },
+  {
+    "item_name": "The Third Victim: An FBI Profiler Novel"
+  },
+  {
+    "item_name": "Darkness, Take My Hand (Patrick Kenzie and Angela Gennaro Series)"
+  },
+  {
+    "item_name": "Killer in High Heels"
+  },
+  {
+    "item_name": "The Resistance Man: A Mystery of the French Countryside"
+  },
+  {
+    "item_name": "Creation in Death"
+  },
+  {
+    "item_name": "Love Me to Death: A Novel of Suspense (Lucy Kincaid)"
+  },
+  {
+    "item_name": "The Godwulf Manuscript"
+  },
+  {
+    "item_name": "God Save the Child"
+  },
+  {
+    "item_name": "Sunset Express (Elvis Cole)"
+  },
+  {
+    "item_name": "Paris Is A Bitch -- A Rain/Delilah Short Story (A John Rain Novel) eBook"
+  },
+  {
+    "item_name": "Trunk Music (Harry Bosch Novels)"
+  },
+  {
+    "item_name": "Mortal Stakes (Spenser)"
+  },
+  {
+    "item_name": "The Final Cut"
+  },
+  {
+    "item_name": "15th Affair (Women's Murder Club)"
+  },
+  {
+    "item_name": "The Gate Keeper: An Inspector Ian Rutledge Mystery (Inspector Ian Rutledge Mysteries)"
+  },
+  {
+    "item_name": "Partners"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 2,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Dead Wrong (Joanna Brady Mysteries, Book 12)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Jack Reacher: One Shot (Movie Tie-in Edition): A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Calculated in Death"
+  },
+  {
+    "rank": 6,
+    "item_name": "Odd Hours"
+  },
+  {
+    "rank": 7,
+    "item_name": "Hidden Prey (Lucas Davenport Mysteries)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Gone Tomorrow: A Jack Reacher Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "Tomb of the Golden Bird (Amelia Peabody Series)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Sizzling Sixteen (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Burning Room (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Mortal Prey"
+  },
+  {
+    "rank": 13,
+    "item_name": "Wicked Prey (Lucas Davenport Mysteries)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Lost Light"
+  },
+  {
+    "rank": 15,
+    "item_name": "Sizzling Sixteen (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Affair: A Jack Reacher Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 18,
+    "item_name": "Delusion in Death"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Surgeon (with Bonus Content): A Rizzoli &amp; Isles Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "Fantasy in Death"
+  },
+  {
+    "rank": 21,
+    "item_name": "Maisie Dobbs (Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "A Wanted Man: A Jack Reacher Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "Extreme Prey (A Prey Novel)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Celebrity In Death"
+  },
+  {
+    "rank": 25,
+    "item_name": "61 Hours: A Reacher Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Brass Verdict: A Novel (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Bloodline"
+  },
+  {
+    "rank": 28,
+    "item_name": "Spirit of Steamboat: A Longmire Story (A Longmire Mystery)"
+  },
+  {
+    "rank": 29,
+    "item_name": "One for the Money (Stephanie Plum, No. 1) (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 30,
+    "item_name": "An Impartial Witness: A Bess Crawford Mystery (Bess Crawford Mysteries)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Dry Bones: A Longmire Mystery"
+  },
+  {
+    "rank": 32,
+    "item_name": "Persuader (Jack Reacher, No. 7)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Deja Dead"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Cruelest Month (Three Pines Mysteries, No. 3)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Apprentice: A Rizzoli &amp; Isles Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Two for the Dough (Stephanie Plum, No. 2)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Enemy (Jack Reacher, No. 8)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Gallows View: The First Inspector Banks Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "The 6th Target"
+  },
+  {
+    "rank": 40,
+    "item_name": "1st to Die (Women's Murder Club)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Fourth Bear: A Nursery Crime (Jack Spratt Investigates)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Kiss The Girls"
+  },
+  {
+    "rank": 43,
+    "item_name": "Light of the World"
+  },
+  {
+    "rank": 44,
+    "item_name": "Shadow Prey"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Casual Vacancy 1st (first) Edition by Rowling, J.K. published by Little, Brown and Company (2012) Hardcover"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Fifth Witness (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Midnight at Marble Arch (Thomas Pitt, Book 28)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Death Without Company: A Longmire Mystery"
+  },
+  {
+    "rank": 49,
+    "item_name": "Ten Big Ones (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Bones of the Lost"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

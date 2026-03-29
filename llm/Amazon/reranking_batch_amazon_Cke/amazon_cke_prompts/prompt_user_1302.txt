@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "How We Work: Live Your Purpose, Reclaim Your Sanity, and Embrace the Daily Grind"
+  },
+  {
+    "item_name": "Victorians Undone: Tales of the Flesh in the Age of Decorum"
+  },
+  {
+    "item_name": "Little Boy Brown"
+  },
+  {
+    "item_name": "Aging Thoughtfully: Conversations about Retirement, Romance, Wrinkles, and Regret"
+  },
+  {
+    "item_name": "The Girl Who Drew Butterflies: How Maria Merian's Art Changed Science"
+  },
+  {
+    "item_name": "Daughters of the Storm"
+  },
+  {
+    "item_name": "How I Killed Pluto and Why It Had It Coming"
+  },
+  {
+    "item_name": "My Father's Wake: How the Irish Teach Us to Live, Love, and Die"
+  },
+  {
+    "item_name": "The Big Picture: The Fight for the Future of Movies"
+  },
+  {
+    "item_name": "Work: The Last 1,000 Years"
+  },
+  {
+    "item_name": "Willpower Doesn't Work: Discover the Hidden Keys to Success"
+  },
+  {
+    "item_name": "Harper and the Night Forest"
+  },
+  {
+    "item_name": "Holmes Entangled"
+  },
+  {
+    "item_name": "The Truth About Animals: Stoned Sloths, Lovelorn Hippos, and Other Tales from the Wild Side of Wildlife"
+  },
+  {
+    "item_name": "The New Policeman (New Policeman Trilogy)"
+  },
+  {
+    "item_name": "Harry: Life, Loss, and Love"
+  },
+  {
+    "item_name": "Marley Dias Gets It Done: And So Can You!"
+  },
+  {
+    "item_name": "American by Day"
+  },
+  {
+    "item_name": "Futureface: A Family Mystery, an Epic Quest, and the Secret to Belonging"
+  },
+  {
+    "item_name": "The Bengal Identity (A Cat Groomer Mystery)"
+  },
+  {
+    "item_name": "Colorama: From Fuchsia to Midnight Blue"
+  },
+  {
+    "item_name": "Nonprofit Meetings, Minutes &amp; Records: How to Run Your Nonprofit Corporation So You Don't Run Into Trouble"
+  },
+  {
+    "item_name": "The Mastery of You: A Journey Toward the Understanding of Self"
+  },
+  {
+    "item_name": "Go Ask Fannie"
+  },
+  {
+    "item_name": "Ecstasy: A Novel"
+  },
+  {
+    "item_name": "In the Enemy's House: The Secret Saga of the FBI Agent and the Code Breaker Who Caught the Russian Spies"
+  },
+  {
+    "item_name": "Into the Storm: Two Ships, a Deadly Hurricane, and an Epic Battle for Survival"
+  },
+  {
+    "item_name": "A Brotherhood of Spies: The U-2 and the CIA's Secret War"
+  },
+  {
+    "item_name": "Tango Lessons: A Memoir"
+  },
+  {
+    "item_name": "Police Exams Prep 2018-2019: 4 Practice Tests + Proven Strategies (Kaplan Test Prep)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2848,
+    "item_name": "The Telling Room: A Tale of Love, Betrayal, Revenge, and the World's Greatest Piece of Cheese"
+  },
+  {
+    "rank": 2,
+    "item_id": 1393,
+    "item_name": "The Universe Within: Discovering the Common History of Rocks, Planets, and People"
+  },
+  {
+    "rank": 3,
+    "item_id": 647,
+    "item_name": "The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers"
+  },
+  {
+    "rank": 4,
+    "item_id": 2065,
+    "item_name": "Grain Brain: The Surprising Truth about Wheat, Carbs,  and Sugar--Your Brain's Silent Killers"
+  },
+  {
+    "rank": 5,
+    "item_id": 2331,
+    "item_name": "Opium Fiend: A 21st Century Slave to a 19th Century Addiction"
+  },
+  {
+    "rank": 6,
+    "item_id": 2896,
+    "item_name": "Hardwiring Happiness: The New Brain Science of Contentment, Calm, and Confidence"
+  },
+  {
+    "rank": 7,
+    "item_id": 3066,
+    "item_name": "End This Depression Now!"
+  },
+  {
+    "rank": 8,
+    "item_id": 4594,
+    "item_name": "The Things That Matter"
+  },
+  {
+    "rank": 9,
+    "item_id": 1545,
+    "item_name": "Wave"
+  },
+  {
+    "rank": 10,
+    "item_id": 2893,
+    "item_name": "My Promised Land: The Triumph and Tragedy of Israel"
+  },
+  {
+    "rank": 11,
+    "item_id": 5349,
+    "item_name": "Let's Take the Long Way Home: A Memoir of Friendship"
+  },
+  {
+    "rank": 12,
+    "item_id": 2396,
+    "item_name": "Beyond Outrage: Expanded Edition: What has gone wrong with our economy and our democracy, and how to fix it"
+  },
+  {
+    "rank": 13,
+    "item_id": 508,
+    "item_name": "Heroes for My Daughter"
+  },
+  {
+    "rank": 14,
+    "item_id": 6233,
+    "item_name": "Sell It Today, Sell It Now: Mastering the Art of the One-Call Close"
+  },
+  {
+    "rank": 15,
+    "item_id": 4234,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 16,
+    "item_id": 5287,
+    "item_name": "The Outsourced Self: Intimate Life in Market Times"
+  },
+  {
+    "rank": 17,
+    "item_id": 1104,
+    "item_name": "Escape from Camp 14: One Man's Remarkable Odyssey from North Korea to Freedom in the West"
+  },
+  {
+    "rank": 18,
+    "item_id": 2968,
+    "item_name": "Fraternity: In 1968, a visionary priest recruited 20 black men to the College of the Holy Cross and changed their lives and the course of history."
+  },
+  {
+    "rank": 19,
+    "item_id": 1359,
+    "item_name": "Lost in the Meritocracy: The Undereducation of an Overachiever"
+  },
+  {
+    "rank": 20,
+    "item_id": 6069,
+    "item_name": "The Good Lord Bird: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_id": 1475,
+    "item_name": "Provence, 1970: M.F.K. Fisher, Julia Child, James Beard, and the Reinvention of American Taste"
+  },
+  {
+    "rank": 22,
+    "item_id": 1096,
+    "item_name": "Detroit: An American Autopsy"
+  },
+  {
+    "rank": 23,
+    "item_id": 2550,
+    "item_name": "That Used to Be Us: How America Fell Behind in the World It Invented and How We Can Come Back"
+  },
+  {
+    "rank": 24,
+    "item_id": 1280,
+    "item_name": "Kaboom: Embracing the Suck in a Savage Little War"
+  },
+  {
+    "rank": 25,
+    "item_id": 4141,
+    "item_name": "The Theoretical Minimum: What You Need to Know to Start Doing Physics"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

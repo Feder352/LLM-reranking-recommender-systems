@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Zoo (Zoo Series)"
+  },
+  {
+    "item_name": "After The Ending (The Ending Series) (Volume 1)"
+  },
+  {
+    "item_name": "Final Girls: A Novel"
+  },
+  {
+    "item_name": "The Dark Man (The Graveyard: Classified Paranormal Series) (Volume 1)"
+  },
+  {
+    "item_name": "Beware the Orchids (A Shady Acres Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...the American West: An Introduction to Civilizations Throughout Time (Volume 10)"
+  },
+  {
+    "item_name": "Hell Divers (Hell Divers Series, Book 1)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in... Elizabethan England: An Introduction to Civilizations Throughout Time (Volume 8)"
+  },
+  {
+    "item_name": "Maze of Souls: (Ellie Jordan, Ghost Trapper Book 6) (Volume 6)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Renaissance Italy: An Introduction to Civilizations Throughout Time (Volume 7)"
+  },
+  {
+    "item_name": "Lullaby: (Ellie Jordan, Ghost Trapper Book 7) (Volume 7)"
+  },
+  {
+    "item_name": "The Keeper: (Ellie Jordan, Ghost Trapper Book 8) (Volume 8)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in....the Mayan Empire: An Introduction to Civilizations Throughout Time (Volume 4)"
+  },
+  {
+    "item_name": "The Tower: (Ellie Jordan, Ghost Trapper Book 9) (Volume 9)"
+  },
+  {
+    "item_name": "The Book of Riley: A Zombie Tale"
+  },
+  {
+    "item_name": "Run to Ground (Rocky Mountain K9 Unit)"
+  },
+  {
+    "item_name": "Egyptian Heart"
+  },
+  {
+    "item_name": "Look for Her: A Novel (Keene and Frohmann)"
+  },
+  {
+    "item_name": "The Boy Who Swallows Flies"
+  },
+  {
+    "item_name": "Don't Ever Look Behind Door 32"
+  },
+  {
+    "item_name": "Six Feet Under (A Kenni Lowry Mystery) (Volume 4)"
+  },
+  {
+    "item_name": "The Summer of New Beginnings: A Magnolia Grove Novel"
+  },
+  {
+    "item_name": "Trackers 2: The Hunted (Volume 2)"
+  },
+  {
+    "item_name": "One to Ten: Squirrel's Bad Day (Bedtime Dream Collection)"
+  },
+  {
+    "item_name": "Trackers 3: The Storm (Volume 3)"
+  },
+  {
+    "item_name": "Ice (A Chris Matheson Cold Case Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "White Witch"
+  },
+  {
+    "item_name": "Cake and Punishment: A Southern Cake Baker Mystery"
+  },
+  {
+    "item_name": "Dead As A Doornail (A Kenni Lowry Mystery)"
+  },
+  {
+    "item_name": "Beyond Dead"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2864,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 2,
+    "item_id": 2046,
+    "item_name": "Mary, Mary"
+  },
+  {
+    "rank": 3,
+    "item_id": 2367,
+    "item_name": "Odd Thomas: An Odd Thomas Novel"
+  },
+  {
+    "rank": 4,
+    "item_id": 1498,
+    "item_name": "Never Go Back: A Jack Reacher Novel"
+  },
+  {
+    "rank": 5,
+    "item_id": 1125,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 6,
+    "item_id": 19,
+    "item_name": "Bloodline"
+  },
+  {
+    "rank": 7,
+    "item_id": 3215,
+    "item_name": "The First Rule (A Joe Pike Novel)"
+  },
+  {
+    "rank": 8,
+    "item_id": 895,
+    "item_name": "The Secret Life of Bees"
+  },
+  {
+    "rank": 9,
+    "item_id": 2049,
+    "item_name": "The Lincoln Lawyer (Large Print)"
+  },
+  {
+    "rank": 10,
+    "item_id": 1730,
+    "item_name": "Heartsick (Archie Sheridan &amp; Gretchen Lowell)"
+  },
+  {
+    "rank": 11,
+    "item_id": 2109,
+    "item_name": "The Collectors"
+  },
+  {
+    "rank": 12,
+    "item_id": 1927,
+    "item_name": "The Last Coyote (Harry Bosch)"
+  },
+  {
+    "rank": 13,
+    "item_id": 4022,
+    "item_name": "Six Years"
+  },
+  {
+    "rank": 14,
+    "item_id": 2081,
+    "item_name": "Pop Goes the Weasel (Alex Cross)"
+  },
+  {
+    "rank": 15,
+    "item_id": 1116,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 16,
+    "item_id": 971,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 17,
+    "item_id": 1517,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 18,
+    "item_id": 2083,
+    "item_name": "3rd Degree"
+  },
+  {
+    "rank": 19,
+    "item_id": 3751,
+    "item_name": "Still Life with Crows (Pendergast, Book 4)"
+  },
+  {
+    "rank": 20,
+    "item_id": 1928,
+    "item_name": "The Black Ice (Harry Bosch)"
+  },
+  {
+    "rank": 21,
+    "item_id": 3270,
+    "item_name": "Suspect"
+  },
+  {
+    "rank": 22,
+    "item_id": 3947,
+    "item_name": "Hold Tight: A Suspense Thriller"
+  },
+  {
+    "rank": 23,
+    "item_id": 715,
+    "item_name": "Skipping Christmas"
+  },
+  {
+    "rank": 24,
+    "item_id": 2411,
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "rank": 25,
+    "item_id": 1443,
+    "item_name": "Dearly Devoted Dexter"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

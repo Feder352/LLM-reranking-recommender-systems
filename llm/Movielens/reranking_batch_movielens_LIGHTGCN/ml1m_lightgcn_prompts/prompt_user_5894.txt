@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Unforgiven"
+  },
+  {
+    "item_name": "Butch Cassidy and the Sundance Kid"
+  },
+  {
+    "item_name": "Searchers, The"
+  },
+  {
+    "item_name": "Big Country, The"
+  },
+  {
+    "item_name": "Dances with Wolves"
+  },
+  {
+    "item_name": "Dorado, El"
+  },
+  {
+    "item_name": "Outlaw Josey Wales, The"
+  },
+  {
+    "item_name": "High Plains Drifter"
+  },
+  {
+    "item_name": "Tombstone"
+  },
+  {
+    "item_name": "Wild Bunch, The"
+  },
+  {
+    "item_name": "True Grit"
+  },
+  {
+    "item_name": "Hang 'em High"
+  },
+  {
+    "item_name": "Wyatt Earp"
+  },
+  {
+    "item_name": "Apple Dumpling Gang, The"
+  },
+  {
+    "item_name": "Bad Girls"
+  },
+  {
+    "item_name": "Geronimo: An American Legend"
+  },
+  {
+    "item_name": "Young Guns II"
+  },
+  {
+    "item_name": "Hot Lead and Cold Feet"
+  },
+  {
+    "item_name": "Lightning Jack"
+  },
+  {
+    "item_name": "Godfather, The"
+  },
+  {
+    "item_name": "Fargo"
+  },
+  {
+    "item_name": "Sting, The"
+  },
+  {
+    "item_name": "Midnight Run"
+  },
+  {
+    "item_name": "Few Good Men, A"
+  },
+  {
+    "item_name": "Seven (Se7en)"
+  },
+  {
+    "item_name": "Mask, The"
+  },
+  {
+    "item_name": "Newton Boys, The"
+  },
+  {
+    "item_name": "Armed and Dangerous"
+  },
+  {
+    "item_name": "Shawshank Redemption, The"
+  },
+  {
+    "item_name": "One Flew Over the Cuckoo's Nest"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1476,
+    "item_name": "Dirty Dozen, The"
+  },
+  {
+    "rank": 2,
+    "item_id": 2293,
+    "item_name": "Heartbreak Ridge"
+  },
+  {
+    "rank": 3,
+    "item_id": 118,
+    "item_name": "Die Hard 2"
+  },
+  {
+    "rank": 4,
+    "item_id": 896,
+    "item_name": "Air Force One"
+  },
+  {
+    "rank": 5,
+    "item_id": 1469,
+    "item_name": "Where Eagles Dare"
+  },
+  {
+    "rank": 6,
+    "item_id": 714,
+    "item_name": "Lethal Weapon 2"
+  },
+  {
+    "rank": 7,
+    "item_id": 100,
+    "item_name": "Guns of Navarone, The"
+  },
+  {
+    "rank": 8,
+    "item_id": 1473,
+    "item_name": "Longest Day, The"
+  },
+  {
+    "rank": 9,
+    "item_id": 1114,
+    "item_name": "Live and Let Die"
+  },
+  {
+    "rank": 10,
+    "item_id": 1477,
+    "item_name": "Kelly's Heroes"
+  },
+  {
+    "rank": 11,
+    "item_id": 1337,
+    "item_name": "Red Dawn"
+  },
+  {
+    "rank": 12,
+    "item_id": 1020,
+    "item_name": "For Your Eyes Only"
+  },
+  {
+    "rank": 13,
+    "item_id": 137,
+    "item_name": "French Connection, The"
+  },
+  {
+    "rank": 14,
+    "item_id": 1694,
+    "item_name": "Force 10 from Navarone"
+  },
+  {
+    "rank": 15,
+    "item_id": 58,
+    "item_name": "Untouchables, The"
+  },
+  {
+    "rank": 16,
+    "item_id": 147,
+    "item_name": "Die Hard: With a Vengeance"
+  },
+  {
+    "rank": 17,
+    "item_id": 217,
+    "item_name": "Goldfinger"
+  },
+  {
+    "rank": 18,
+    "item_id": 127,
+    "item_name": "Twister"
+  },
+  {
+    "rank": 19,
+    "item_id": 1023,
+    "item_name": "Thunderball"
+  },
+  {
+    "rank": 20,
+    "item_id": 1072,
+    "item_name": "Man with the Golden Gun, The"
+  },
+  {
+    "rank": 21,
+    "item_id": 121,
+    "item_name": "Enemy of the State"
+  },
+  {
+    "rank": 22,
+    "item_id": 67,
+    "item_name": "Jackal, The"
+  },
+  {
+    "rank": 23,
+    "item_id": 2294,
+    "item_name": "Under Siege 2: Dark Territory"
+  },
+  {
+    "rank": 24,
+    "item_id": 1155,
+    "item_name": "Dr. No"
+  },
+  {
+    "rank": 25,
+    "item_id": 192,
+    "item_name": "Ghost and the Darkness, The"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

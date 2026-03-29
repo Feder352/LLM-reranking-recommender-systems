@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Quickie"
+  },
+  {
+    "item_name": "Platform: Get Noticed in a Noisy World"
+  },
+  {
+    "item_name": "Running with the Kenyans: Discovering the Secrets of the Fastest People on Earth"
+  },
+  {
+    "item_name": "The Other Woman (Jane Ryland)"
+  },
+  {
+    "item_name": "Underneath It All: A Girl's Guide to Buying, Wearing and Loving Lingerie"
+  },
+  {
+    "item_name": "Markets of New England"
+  },
+  {
+    "item_name": "Happier at Home: Kiss More, Jump More, Abandon Self-Control, and My Other Experiments in Everyday Life"
+  },
+  {
+    "item_name": "Chilled (A Bone Secrets Novel)"
+  },
+  {
+    "item_name": "Bushman Lives!"
+  },
+  {
+    "item_name": "Wrestling For Dummies"
+  },
+  {
+    "item_name": "Ship It Holla Ballas!: How a Bunch of 19-Year-Old College Dropouts Used the Internet to Become Poker's Loudest, Craziest, and Richest Crew"
+  },
+  {
+    "item_name": "Finding Ultra: Rejecting Middle Age, Becoming One of the World's Fittest Men, and Discovering Myself"
+  },
+  {
+    "item_name": "The America's Test Kitchen Quick Family Cookbook: A Faster, Smarter Way to Cook Everything from America's Most Trusted Test Kitchen"
+  },
+  {
+    "item_name": "Amazing Things Will Happen: A Real-World Guide on Achieving Success and Happiness"
+  },
+  {
+    "item_name": "The Social Trade Show: Leveraging Social Media and Virtual Events to Connect With Your Customers (Que Biz-Tech)"
+  },
+  {
+    "item_name": "The World's Strongest Librarian: A Book Lover's Adventures"
+  },
+  {
+    "item_name": "Don't Go"
+  },
+  {
+    "item_name": "The Perfect Ghost"
+  },
+  {
+    "item_name": "Ctrl Alt Delete: Reboot Your Business. Reboot Your Life. Your Future Depends on It."
+  },
+  {
+    "item_name": "Lean In: Women, Work, and the Will to Lead"
+  },
+  {
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "item_name": "You Are a Writer (So Start Acting Like One)"
+  },
+  {
+    "item_name": "The Good Girl (English Edition)"
+  },
+  {
+    "item_name": "For Love of Livvy"
+  },
+  {
+    "item_name": "Anything: The Prayer That Unlocked My God and My Soul"
+  },
+  {
+    "item_name": "Killer Cupcakes: A Lexy Baker Bakery Cozy Mystery (Lexy Baker Bakery Cozy Mysteries)"
+  },
+  {
+    "item_name": "Tricky Twenty-Two: A Stephanie Plum Novel"
+  },
+  {
+    "item_name": "Yappy Hour: A Mystery (Roundup Crew Series)"
+  },
+  {
+    "item_name": "Eyes on You: A Novel of Suspense"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Columbus Affair: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Help"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Five People You Meet in Heaven (Random House Large Print)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 9,
+    "item_name": "How Starbucks Saved My Life: A Son of Privilege Learns to Live Like Everyone Else"
+  },
+  {
+    "rank": 10,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 12,
+    "item_name": "Go Set a Watchman: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Secret Life of Bees"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Lovely Bones: Deluxe Edition"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Day Of The Jackal"
+  },
+  {
+    "rank": 17,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Still Alice"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Lost Symbol (Dan Brown)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Blink - The Power Of Thinking Without Thinking"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Mephisto Club (Jane Rizzoli, Book 6)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Poisonwood Bible"
+  },
+  {
+    "rank": 25,
+    "item_name": "Orphan Train: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Immortal Life of Henrietta Lacks"
+  },
+  {
+    "rank": 27,
+    "item_name": "State of Fear"
+  },
+  {
+    "rank": 28,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Reincarnationist (Reincarnationist (Paperback))"
+  },
+  {
+    "rank": 30,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 31,
+    "item_name": "Steve Jobs: A Biography"
+  },
+  {
+    "rank": 32,
+    "item_name": "Skipping Christmas"
+  },
+  {
+    "rank": 33,
+    "item_name": "State of Fear"
+  },
+  {
+    "rank": 34,
+    "item_name": "Three Cups of Tea"
+  },
+  {
+    "rank": 35,
+    "item_name": "Minding Frankie"
+  },
+  {
+    "rank": 36,
+    "item_name": "PEOPLE OF THE BOOK"
+  },
+  {
+    "rank": 37,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Painted House"
+  },
+  {
+    "rank": 39,
+    "item_name": "At Home: A Short History of Private Life (Random House Large Print)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Husband: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "Angels &amp; Demons (Random House Large Print)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Jungle (The Penguin American Library)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Last Lecture"
+  },
+  {
+    "rank": 45,
+    "item_name": "Loving Frank: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 47,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 48,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 49,
+    "item_name": "Snow Flower and the Secret Fan: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "So Many Books, So Little Time"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "My Nepenthe: Bohemian Tales of Food, Family, and Big Sur"
+  },
+  {
+    "item_name": "The Lost History of Christianity: The Thousand-Year Golden Age of the Church in the Middle East, Africa, and Asia--and How It Died"
+  },
+  {
+    "item_name": "Sound, Lighting and Video: A Resource for Worship"
+  },
+  {
+    "item_name": "Lunch in Paris: A Love Story, with Recipes"
+  },
+  {
+    "item_name": "Boozehound: On the Trail of the Rare, the Obscure, and the Overrated in Spirits"
+  },
+  {
+    "item_name": "America's Prophet: Moses and the American Story"
+  },
+  {
+    "item_name": "Beautiful &amp; Pointless: A Guide to Modern Poetry"
+  },
+  {
+    "item_name": "The Lake"
+  },
+  {
+    "item_name": "The Grace of Everyday Saints: How a Band of Believers Lost Their Church and Found Their Faith"
+  },
+  {
+    "item_name": "The Book that Made Your World: How the Bible Created the Soul of Western Civilization"
+  },
+  {
+    "item_name": "The Promised One (A 10-week Bible Study): Seeing Jesus in Genesis"
+  },
+  {
+    "item_name": "Welcome to the Story: Reading, Loving, and Living God's Word"
+  },
+  {
+    "item_name": "Sunset Park: A Novel"
+  },
+  {
+    "item_name": "Walking in the Dust of Rabbi Jesus: How the Jewish Words of Jesus Can Change Your Life"
+  },
+  {
+    "item_name": "Christian Apologetics Past and Present (Volume 2, From 1500): A Primary Source Reader"
+  },
+  {
+    "item_name": "Disciple: Getting Your Identity from Jesus"
+  },
+  {
+    "item_name": "Lit!: A Christian Guide to Reading Books"
+  },
+  {
+    "item_name": "Know the Creeds and Councils (KNOW Series)"
+  },
+  {
+    "item_name": "NIV, God's Word for Gardeners, Hardcover: Grow Your Faith While Growing Your Garden"
+  },
+  {
+    "item_name": "Guests on Earth: A Novel"
+  },
+  {
+    "item_name": "Suddenly, Love: A Novel"
+  },
+  {
+    "item_name": "Thirty Girls"
+  },
+  {
+    "item_name": "Dumplings All Day Wong: A Cookbook of Asian Delights From a Top Chef"
+  },
+  {
+    "item_name": "Citrus: Sweet and Savory Sun-Kissed Recipes"
+  },
+  {
+    "item_name": "The Nourished Kitchen: Farm-to-Table Recipes for the Traditional Foods Lifestyle Featuring Bone Broths, Fermented Vegetables, Grass-Fed Meats, Wholesome Fats, Raw Dairy, and Kombuchas"
+  },
+  {
+    "item_name": "Radically Simple: Brilliant Flavors with Breathtaking Ease: 325 Inspiring Recipes from Award-Winning Chef Rozanne Gold"
+  },
+  {
+    "item_name": "32 Yolks: From My Mother's Table to Working the Line"
+  },
+  {
+    "item_name": "Yes, Chef: A Memoir"
+  },
+  {
+    "item_name": "The Really Quite Good British Cookbook: The Food We Love from 100 of Our Best Chefs, Cooks, Bakers and Local Heroes"
+  },
+  {
+    "item_name": "Tamales: Fast and Delicious Mexican Meals"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 996,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 2,
+    "item_id": 3005,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 3,
+    "item_id": 2588,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 4,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 5,
+    "item_id": 674,
+    "item_name": "The Plague"
+  },
+  {
+    "rank": 6,
+    "item_id": 1205,
+    "item_name": "Homage to Catalonia"
+  },
+  {
+    "rank": 7,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 8,
+    "item_id": 4564,
+    "item_name": "Lincoln at Gettysburg: The Words That Re-Made America"
+  },
+  {
+    "rank": 9,
+    "item_id": 1698,
+    "item_name": "The World Without Us"
+  },
+  {
+    "rank": 10,
+    "item_id": 5265,
+    "item_name": "James Madison (The American Presidents Series)"
+  },
+  {
+    "rank": 11,
+    "item_id": 4632,
+    "item_name": "Lies My Teacher Told Me : Everything Your American History Textbook Got Wrong"
+  },
+  {
+    "rank": 12,
+    "item_id": 908,
+    "item_name": "Michelangelo and the Pope's Ceiling"
+  },
+  {
+    "rank": 13,
+    "item_id": 1767,
+    "item_name": "The Bonfire of the Vanities"
+  },
+  {
+    "rank": 14,
+    "item_id": 811,
+    "item_name": "Black Hawk Down: A Story of Modern War"
+  },
+  {
+    "rank": 15,
+    "item_id": 3079,
+    "item_name": "Waiting for Godot: A Tragicomedy in Two Acts"
+  },
+  {
+    "rank": 16,
+    "item_id": 5272,
+    "item_name": "Freethinkers: A History of American Secularism"
+  },
+  {
+    "rank": 17,
+    "item_id": 18,
+    "item_name": "From Beirut to Jerusalem"
+  },
+  {
+    "rank": 18,
+    "item_id": 2621,
+    "item_name": "Ghost Soldiers: The Forgotten Epic Story of World War II's Most Dramatic Mission"
+  },
+  {
+    "rank": 19,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 20,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 21,
+    "item_id": 2202,
+    "item_name": "Gone for Soldiers: A Novel of the Mexican War"
+  },
+  {
+    "rank": 22,
+    "item_id": 1424,
+    "item_name": "The Book of General Ignorance"
+  },
+  {
+    "rank": 23,
+    "item_id": 91,
+    "item_name": "God's Secretaries: The Making of the King James Bible"
+  },
+  {
+    "rank": 24,
+    "item_id": 2662,
+    "item_name": "Bushwhacked: Life in George W. Bush's America"
+  },
+  {
+    "rank": 25,
+    "item_id": 1338,
+    "item_name": "Your Inner Fish: A Journey into the 3.5-Billion-Year History of the Human Body"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

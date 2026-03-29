@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Once We Were Brothers"
+  },
+  {
+    "item_name": "The Baker's Daughter: A Novel"
+  },
+  {
+    "item_name": "Oh Susannah: It's in the Bag (An Oh Susannah Story)"
+  },
+  {
+    "item_name": "The Flip (A Haunting On Long Island Series)"
+  },
+  {
+    "item_name": "If You Were Me and Lived on...Mars (A Child's Introduction to Cultures Around the World) (Volume 23)"
+  },
+  {
+    "item_name": "The Women in the Castle: A Novel"
+  },
+  {
+    "item_name": "Can a Princess Be a Firefighter?"
+  },
+  {
+    "item_name": "The Girl Who Came Home: A Novel of the Titanic (P.S.)"
+  },
+  {
+    "item_name": "If you were me and lived in... Russia: A Child's Introduction to Cultures Around the World (Volume 9)"
+  },
+  {
+    "item_name": "Millard Salter's Last Day"
+  },
+  {
+    "item_name": "If You Were Me and Lived in... Elizabethan England: An Introduction to Civilizations Throughout Time (Volume 8)"
+  },
+  {
+    "item_name": "You Knew Me When"
+  },
+  {
+    "item_name": "If you were me and lived in... France: A Child's Introduction to Cultures Around the World (Volume 2)"
+  },
+  {
+    "item_name": "Doc: A Novel"
+  },
+  {
+    "item_name": "Being a Captain is Hard Work: A Captain No Beard Story (Volume 10)"
+  },
+  {
+    "item_name": "Next to Love: A Novel"
+  },
+  {
+    "item_name": "The House I Loved"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Germany: A Child's Introduction to Cultures Around the World (Volume 20)"
+  },
+  {
+    "item_name": "Past Lives of the Rich and Famous"
+  },
+  {
+    "item_name": "If You Were Me and Lived in ...Kenya: A Child's Introduction to Cultures around the World (Volume 5)"
+  },
+  {
+    "item_name": "The Taster"
+  },
+  {
+    "item_name": "Death in the City of Light: The Serial Killer of Nazi-Occupied Paris"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Greece: A Child's Introduction to Cultures Around the World (Volume 11)"
+  },
+  {
+    "item_name": "Pokergeist (A Haunting on Long Island Series)"
+  },
+  {
+    "item_name": "Brighton: A Novel"
+  },
+  {
+    "item_name": "Killer Choice"
+  },
+  {
+    "item_name": "The Lake House"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...India: A Child's Introduction to Cultures Around the World (Volume 7)"
+  },
+  {
+    "item_name": "A Certain Summer"
+  },
+  {
+    "item_name": "If you were me and lived in... Mexico: A Child's Introduction to Cultures Around the World"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 6680,
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "rank": 2,
+    "item_id": 76371,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 3,
+    "item_id": 75993,
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "rank": 4,
+    "item_id": 15896,
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_id": 74748,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 6,
+    "item_id": 11488,
+    "item_name": "In a Time of Torment"
+  },
+  {
+    "rank": 7,
+    "item_id": 19589,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 8,
+    "item_id": 8568,
+    "item_name": "The Widow"
+  },
+  {
+    "rank": 9,
+    "item_id": 43188,
+    "item_name": "One Perfect Lie"
+  },
+  {
+    "rank": 10,
+    "item_id": 7184,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 11,
+    "item_id": 53221,
+    "item_name": "This Is Where It Ends"
+  },
+  {
+    "rank": 12,
+    "item_id": 43317,
+    "item_name": "The Breakdown: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 32176,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 14,
+    "item_id": 7638,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 15,
+    "item_id": 48204,
+    "item_name": "The Passenger"
+  },
+  {
+    "rank": 16,
+    "item_id": 30943,
+    "item_name": "The couple next door."
+  },
+  {
+    "rank": 17,
+    "item_id": 41789,
+    "item_name": "Try Not to Breathe: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_id": 55531,
+    "item_name": "The Red Hunter: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_id": 28654,
+    "item_name": "The Child: The must-read Richard and Judy Book Club pick 2018"
+  },
+  {
+    "rank": 20,
+    "item_id": 50997,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 21,
+    "item_id": 22768,
+    "item_name": "&Eacute;clair and Present Danger (An Emergency Dessert Squad Mystery)"
+  },
+  {
+    "rank": 22,
+    "item_id": 22867,
+    "item_name": "The Girl Before: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_id": 25397,
+    "item_name": "The Sound of Glass"
+  },
+  {
+    "rank": 24,
+    "item_id": 65757,
+    "item_name": "Pane and Suffering (A Webb's Glass Shop Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_id": 65739,
+    "item_name": "Flipped For Murder (A Country Store Mystery)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

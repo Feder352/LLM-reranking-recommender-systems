@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Penric's Demon"
+  },
+  {
+    "item_name": "The Unlikely Spy"
+  },
+  {
+    "item_name": "The Last Hero: A Life of Henry Aaron"
+  },
+  {
+    "item_name": "Murder on Amsterdam Avenue (A Gaslight Mystery)"
+  },
+  {
+    "item_name": "A Toxic Trousseau"
+  },
+  {
+    "item_name": "The Dollhouse: A Novel"
+  },
+  {
+    "item_name": "A Dangerous Place: A Maisie Dobbs Novel"
+  },
+  {
+    "item_name": "As Death Draws Near (A Lady Darby Mystery)"
+  },
+  {
+    "item_name": "Death on the Sapphire: A Lady Frances Ffolkes Mystery"
+  },
+  {
+    "item_name": "Merlin's Harp"
+  },
+  {
+    "item_name": "The Paris Spy: A Maggie Hope Mystery"
+  },
+  {
+    "item_name": "Murder in the Bowery (A Gaslight Mystery)"
+  },
+  {
+    "item_name": "In Farleigh Field: A Novel of World War II"
+  },
+  {
+    "item_name": "The Girls in the Picture: A Novel"
+  },
+  {
+    "item_name": "A Lot Like Christmas: Stories"
+  },
+  {
+    "item_name": "A Tale of Two Kitties (Magical Cats)"
+  },
+  {
+    "item_name": "Goodnight from London: A Novel"
+  },
+  {
+    "item_name": "To Helvetica and Back (A Dangerous Type Mystery)"
+  },
+  {
+    "item_name": "FIRSTS: Women Who Are Changing the World"
+  },
+  {
+    "item_name": "The Scientology Murders: A Dead Detective Novel"
+  },
+  {
+    "item_name": "The English Wife: A Novel"
+  },
+  {
+    "item_name": "Death Comes in through the Kitchen"
+  },
+  {
+    "item_name": "My Berlin Kitchen: Adventures in Love and Life"
+  },
+  {
+    "item_name": "The Ghost of Christmas Past: A Molly Murphy Mystery (Molly Murphy Mysteries)"
+  },
+  {
+    "item_name": "A Treacherous Curse (A Veronica Speedwell Mystery)"
+  },
+  {
+    "item_name": "A Brush with Shadows (A Lady Darby Mystery)"
+  },
+  {
+    "item_name": "Serenity: Leaves on the Wind"
+  },
+  {
+    "item_name": "A Magical Match (Witchcraft Mystery)"
+  },
+  {
+    "item_name": "The Diva Cooks up a Storm (Domestic Diva)"
+  },
+  {
+    "item_name": "Paris Picnic Club: More Than 100 Recipes to Savor and Share"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Silent in the Grave"
+  },
+  {
+    "rank": 2,
+    "item_name": "Silent in the Sanctuary: A Lady Julia Grey Mystery"
+  },
+  {
+    "rank": 3,
+    "item_name": "Maisie Dobbs (Book 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Archie Meets Nero Wolfe: A Prequel to Rex Stout's Nero Wolfe Mysteries (The Nero Wolfe Mysteries)"
+  },
+  {
+    "rank": 5,
+    "item_name": "A Test of Wills (Inspector Ian Rutledge Mysteries)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Her Royal Spyness"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Sweetness at the Bottom of the Pie: A Flavia de Luce Mystery"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Beekeeper's Apprentice: or, On the Segregation of the Queen (A Mary Russell Mystery)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Yard"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Tropic of Serpents: A Memoir by Lady Trent (The Lady Trent Memoirs)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Empress Dowager Cixi"
+  },
+  {
+    "rank": 12,
+    "item_name": "American Gods"
+  },
+  {
+    "rank": 13,
+    "item_name": "Ghost at Work (Bailey Ruth Mysteries, No. 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Thrice the Brinded Cat Hath Mew'd: A Flavia de Luce Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Burial at Sea (Charles Lenox Mysteries)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Whose Body? (Lord Peter Wimsey Mysteries)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Poisoner's Handbook: Murder and the Birth of Forensic Medicine in Jazz Age New York"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Secrets of Wishtide (A Laetitia Rodd Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Butter: A Rich History"
+  },
+  {
+    "rank": 20,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Song of the Quarkbeast: The Chronicles of Kazam, Book 2"
+  },
+  {
+    "rank": 22,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Twelve Clues of Christmas: A Royal Spyness Mystery"
+  },
+  {
+    "rank": 24,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Death Comes to Pemberley"
+  },
+  {
+    "rank": 26,
+    "item_name": "Inkspell (Inkheart)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Gallow's Thief"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Dying Fall (Ruth Galloway Mystery) (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Weed That Strings the Hangman's Bag: A Flavia de Luce Mystery"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Secret Adversary"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 32,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 33,
+    "item_name": "Gretel and the Case of the Missing Frog Prints: A Brothers Grimm Mystery (Brothers Grimm Mysteries)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Dying in the Wool (A Kate Shackleton Mystery)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Crossing Places (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Boy in the Suitcase (A Nina Borg Novel)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Cocaine Blues (Phryne Fisher Mysteries)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Marsh Madness (A Book Collector Mystery)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Keeper of Lost Causes"
+  },
+  {
+    "rank": 40,
+    "item_name": "Why Kings Confess (Sebastian St. Cyr Mystery)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Dreaming Spies: A Novel of Suspense Featuring Mary Russell and Sherlock Holmes"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 43,
+    "item_name": "Charlotte's Web (50th Anniversary Retrospective Edition)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Sentenced to Death (A Booktown Mystery)"
+  },
+  {
+    "rank": 45,
+    "item_name": "If Books Could Kill: A Bibliophile Mystery"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Forgotten Garden"
+  },
+  {
+    "rank": 47,
+    "item_name": "In a Witch's Wardrobe: A Witchcraft Mystery"
+  },
+  {
+    "rank": 48,
+    "item_name": "Stuff Matters: Exploring the Marvelous Materials That Shape Our Man-Made World"
+  },
+  {
+    "rank": 49,
+    "item_name": "Wool - Omnibus Edition"
+  },
+  {
+    "rank": 50,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

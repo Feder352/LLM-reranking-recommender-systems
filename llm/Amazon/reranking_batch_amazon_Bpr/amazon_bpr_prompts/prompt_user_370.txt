@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "item_name": "Modern Classics Outsider (Penguin Modern Classics)"
+  },
+  {
+    "item_name": "Why Marx Was Right"
+  },
+  {
+    "item_name": "Death of a Salesman (Modern Classics)"
+  },
+  {
+    "item_name": "Zona: A Book About a Film About a Journey to a Room"
+  },
+  {
+    "item_name": "The Life and Times of Michael K"
+  },
+  {
+    "item_name": "Teach Yourself Finnish Complete Course"
+  },
+  {
+    "item_name": "The Body Artist"
+  },
+  {
+    "item_name": "Jude the Obscure (English Library)"
+  },
+  {
+    "item_name": "Cosmopolis"
+  },
+  {
+    "item_name": "Pnin (Penguin Modern Classics)"
+  },
+  {
+    "item_name": "The Moviegoer"
+  },
+  {
+    "item_name": "The Book of Sand and Shakespeare's Memory (Penguin Classics)"
+  },
+  {
+    "item_name": "The Book of Sand and Shakespeare's Memory (Penguin Classics)"
+  },
+  {
+    "item_name": "Power and the Glory"
+  },
+  {
+    "item_name": "Falling Man: A Novel"
+  },
+  {
+    "item_name": "The Peripheral"
+  },
+  {
+    "item_name": "Summertime"
+  },
+  {
+    "item_name": "Point Omega"
+  },
+  {
+    "item_name": "Rosencrantz and Guildenstern Are Dead (Faber Drama)"
+  },
+  {
+    "item_name": "The China Study Cookbook: Over 120 Whole Food, Plant-Based Recipes"
+  },
+  {
+    "item_name": "Going Clear: Scientology, Hollywood, and the Prison of Belief"
+  },
+  {
+    "item_name": "Murder in the Cathedral"
+  },
+  {
+    "item_name": "The Unconsoled"
+  },
+  {
+    "item_name": "How Music Got Free: A Story of Obsession and Invention"
+  },
+  {
+    "item_name": "Aurora"
+  },
+  {
+    "item_name": "Fashionable Nonsense: Postmodern Intellectuals' Abuse of Science"
+  },
+  {
+    "item_name": "Dubliners"
+  },
+  {
+    "item_name": "The Disaster Artist: My Life Inside The Room, the Greatest Bad Movie Ever Made"
+  },
+  {
+    "item_name": "As I Lay Dying: The Corrected Text"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Alexandria Quartet"
+  },
+  {
+    "rank": 2,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 3,
+    "item_name": "Power and the Glory"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 5,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 9,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Ulysses"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Amazing Adventures of Kavalier &amp; Clay"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Autobiography of Benjamin Franklin with Related Readings (Glencoe Literature Library)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Burr"
+  },
+  {
+    "rank": 14,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 15,
+    "item_name": "Underworld"
+  },
+  {
+    "rank": 16,
+    "item_name": "A confederacy of dunces"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Inside the Third Reich"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 20,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 21,
+    "item_name": "A Distant Mirror: the Calamitous 14th Century"
+  },
+  {
+    "rank": 22,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Iliad"
+  },
+  {
+    "rank": 24,
+    "item_name": "Lord of the Flies"
+  },
+  {
+    "rank": 25,
+    "item_name": "Elric Of Melnibone: Book One of the Elric Saga"
+  },
+  {
+    "rank": 26,
+    "item_name": "King Leopold's Ghost: A Story of Greed, Terror, and Heroism in Colonial Africa"
+  },
+  {
+    "rank": 27,
+    "item_name": "Balthazar [Paperback] [Jan 01, 2008] Lawrence Durrell"
+  },
+  {
+    "rank": 28,
+    "item_name": "The GUNS OF AUGUST"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Canticle for Leibowitz"
+  },
+  {
+    "rank": 30,
+    "item_name": "Mr Lincoln's Army"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 33,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 35,
+    "item_name": "Homage to Catalonia"
+  },
+  {
+    "rank": 36,
+    "item_name": "Musicophilia: Tales of Music and the Brain"
+  },
+  {
+    "rank": 37,
+    "item_name": "Emerson's Essays"
+  },
+  {
+    "rank": 38,
+    "item_name": "For Whom the Bell Tolls"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Elements of Style, Third Edition"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Metaphysical Club : A Story of Ideas in America"
+  },
+  {
+    "rank": 41,
+    "item_name": "Lord Jim (New School Classics)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Cannery Row"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Glass Menagerie (Modern Classics (Penguin))"
+  },
+  {
+    "rank": 44,
+    "item_name": "Don Quixote"
+  },
+  {
+    "rank": 45,
+    "item_name": "Jazz: A History of America's Music"
+  },
+  {
+    "rank": 46,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Flaubert's Parrot, A History of the World in 10 1/2 Chapters (Everyman's Library Contemporary Classics Series)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Starship Troopers"
+  },
+  {
+    "rank": 50,
+    "item_name": "Night: With Connected Readings"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

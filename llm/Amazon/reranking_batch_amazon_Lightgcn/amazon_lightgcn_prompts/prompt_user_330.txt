@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Shape Shifter"
+  },
+  {
+    "item_name": "Solomon's Jar (Rogue Angel, Book 2)"
+  },
+  {
+    "item_name": "WebMage (Ravirn, Book 1)"
+  },
+  {
+    "item_name": "Triptych (The Will Trent Series)"
+  },
+  {
+    "item_name": "The Book of the Dead"
+  },
+  {
+    "item_name": "The Prayer of the Night Shepherd (A Merrily Watkins Mystery)"
+  },
+  {
+    "item_name": "The Plot to Save Socrates"
+  },
+  {
+    "item_name": "Urban Shaman"
+  },
+  {
+    "item_name": "Guards! Guards!"
+  },
+  {
+    "item_name": "Dime Store Magic"
+  },
+  {
+    "item_name": "Thirteen (Otherworld)"
+  },
+  {
+    "item_name": "For a Few Demons More (The Hollows, Book 5)"
+  },
+  {
+    "item_name": "The Winds of Change"
+  },
+  {
+    "item_name": "Rebel Fay (The Noble Dead)"
+  },
+  {
+    "item_name": "Harbingers: A Repairman Jack Novel"
+  },
+  {
+    "item_name": "Thunderbird Falls (The Walker Papers, Book 2)"
+  },
+  {
+    "item_name": "Dzur (Vlad Taltos)"
+  },
+  {
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "item_name": "The Prayer of the Night Shepherd (A Merrily Watkins Mystery)"
+  },
+  {
+    "item_name": "The Lighthouse, No. 13 (Adam Dalgliesh mysteries)"
+  },
+  {
+    "item_name": "The Color of Magic: A Discworld Novel"
+  },
+  {
+    "item_name": "The Light Fantastic: A Discworld Novel"
+  },
+  {
+    "item_name": "A Hat Full of Sky"
+  },
+  {
+    "item_name": "Lords and Ladies: A Novel of Discworld"
+  },
+  {
+    "item_name": "Feet of Clay"
+  },
+  {
+    "item_name": "Remains of an Altar: A Merrily Watkins Mystery (Merrily Watkins Mysteries)"
+  },
+  {
+    "item_name": "Whose Bible Is It? : A Short History of the Scriptures"
+  },
+  {
+    "item_name": "A Kiss Before the Apocalypse (A Remy Chandler Novel)"
+  },
+  {
+    "item_name": "Kiss the Dead (Anita Blake, Vampire Hunter)"
+  },
+  {
+    "item_name": "The Ocean at the End of the Lane CD: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 10339,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 2,
+    "item_id": 37864,
+    "item_name": "Summon the Keeper (Keeper's Chronicles)"
+  },
+  {
+    "rank": 3,
+    "item_id": 200,
+    "item_name": "Ship of Magic (Liveship Traders)"
+  },
+  {
+    "rank": 4,
+    "item_id": 8468,
+    "item_name": "White Night (The Dresden Files)"
+  },
+  {
+    "rank": 5,
+    "item_id": 682,
+    "item_name": "Assassin's Apprentice"
+  },
+  {
+    "rank": 6,
+    "item_id": 18675,
+    "item_name": "A Night in the Lonesome October"
+  },
+  {
+    "rank": 7,
+    "item_id": 784,
+    "item_name": "Paradise Lost and Paradise Regained (Collins Classics)"
+  },
+  {
+    "rank": 8,
+    "item_id": 6702,
+    "item_name": "The Lost World: Being an Account of the Recent Amazing Adventures of Professor E. Challenger... (Puffin Classics)"
+  },
+  {
+    "rank": 9,
+    "item_id": 2375,
+    "item_name": "Wyrd Sisters"
+  },
+  {
+    "rank": 10,
+    "item_id": 13134,
+    "item_name": "The Moon is a Harsh Mistress"
+  },
+  {
+    "rank": 11,
+    "item_id": 23297,
+    "item_name": "Od Magic"
+  },
+  {
+    "rank": 12,
+    "item_id": 29555,
+    "item_name": "Kobayashi Maru (Star Trek)"
+  },
+  {
+    "rank": 13,
+    "item_id": 14715,
+    "item_name": "The Search"
+  },
+  {
+    "rank": 14,
+    "item_id": 13371,
+    "item_name": "Hidden Empire (The Saga of Seven Suns)"
+  },
+  {
+    "rank": 15,
+    "item_id": 10049,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 16,
+    "item_id": 26248,
+    "item_name": "Micah (Anita Blake, Vampire Hunter, Book 13)"
+  },
+  {
+    "rank": 17,
+    "item_id": 2379,
+    "item_name": "Mort"
+  },
+  {
+    "rank": 18,
+    "item_id": 23333,
+    "item_name": "Hex and the City (Nightside, Book 4)"
+  },
+  {
+    "rank": 19,
+    "item_id": 2449,
+    "item_name": "The Curse of Chalion (Chalion series)"
+  },
+  {
+    "rank": 20,
+    "item_id": 13163,
+    "item_name": "Calculating God"
+  },
+  {
+    "rank": 21,
+    "item_id": 23267,
+    "item_name": "Blood Music"
+  },
+  {
+    "rank": 22,
+    "item_id": 21520,
+    "item_name": "Grave Sight (Harper Connelly Mysteries, Book 1)"
+  },
+  {
+    "rank": 23,
+    "item_id": 2344,
+    "item_name": "Reaper Man"
+  },
+  {
+    "rank": 24,
+    "item_id": 25182,
+    "item_name": "Conquistador"
+  },
+  {
+    "rank": 25,
+    "item_id": 20329,
+    "item_name": "Double Deuce"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Christmas in the Duke's Arms: A Historical Romance Holiday Anthology"
+  },
+  {
+    "item_name": "The Lies of Locke Lamora (Gentleman Bastards)"
+  },
+  {
+    "item_name": "Dreaming Spies: A Novel of Suspense Featuring Mary Russell and Sherlock Holmes"
+  },
+  {
+    "item_name": "I Have No Mouth &amp; I Must Scream"
+  },
+  {
+    "item_name": "The Deeds of the Disturber (Amelia Peabody Mysteries) (Amelia Peabody Series)"
+  },
+  {
+    "item_name": "Elfin (The Elfin Series) (Volume 1)"
+  },
+  {
+    "item_name": "Guilty Pleasures (Anita Blake, Vampire Hunter)"
+  },
+  {
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "item_name": "A Spirited Tail (Mystic Notch Cozy Mystery Series) (Volume 2)"
+  },
+  {
+    "item_name": "Guilty Pleasures by Laurell K. Hamilton Unabridged CD Audiobook (Anita Blake Vampire Hunter Novel)"
+  },
+  {
+    "item_name": "Inspector Hobbes and the Blood: unhuman I - A fast paced comedy crime fantasy (Volume 1)"
+  },
+  {
+    "item_name": "A Study In Scarlet Women (The Lady Sherlock Series)"
+  },
+  {
+    "item_name": "Miss Julia Speaks Her Mind: A Novel"
+  },
+  {
+    "item_name": "Monster Hunter International"
+  },
+  {
+    "item_name": "The Wicked Wyckerly: The Rebellious Sons"
+  },
+  {
+    "item_name": "Call of the Herald (The Dawning of Power)"
+  },
+  {
+    "item_name": "Dragon's Egg"
+  },
+  {
+    "item_name": "Carnival Tricks (Double Helix Case Files) (Volume 1)"
+  },
+  {
+    "item_name": "Saving Grace (What Doesn't Kill You, #1): A Katie Romantic Mystery"
+  },
+  {
+    "item_name": "To Catch Her Death (Grim Reality Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Transformation of Anna (Cornerstone Deep) (Volume 1)"
+  },
+  {
+    "item_name": "Burn Bright"
+  },
+  {
+    "item_name": "Modern Sorcery"
+  },
+  {
+    "item_name": "The Descent Series, Books 1-3: Death's Hand, The Darkest Gate, and Dark Union: An Urban Fantasy Omnibus"
+  },
+  {
+    "item_name": "Angelbound (Angelbound Origins)"
+  },
+  {
+    "item_name": "The Decoy Princess"
+  },
+  {
+    "item_name": "She's No Faerie Princess (The Others, Book 10)"
+  },
+  {
+    "item_name": "Nun After The Other (A Giulia Driscoll Mystery)"
+  },
+  {
+    "item_name": "The Vanishing Thief (A Victorian Bookshop Mystery)"
+  },
+  {
+    "item_name": "The Lightning-Struck Heart"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 260,
+    "item_name": "For a Few Demons More (The Hollows, Book 5)"
+  },
+  {
+    "rank": 2,
+    "item_id": 4066,
+    "item_name": "Nightlife (Cal Leandros)"
+  },
+  {
+    "rank": 3,
+    "item_id": 2357,
+    "item_name": "Hexed (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 4,
+    "item_id": 2333,
+    "item_name": "Hammered (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 5,
+    "item_id": 4072,
+    "item_name": "A Kiss Before the Apocalypse (A Remy Chandler Novel)"
+  },
+  {
+    "rank": 6,
+    "item_id": 4099,
+    "item_name": "Blood Cross (Jane Yellowrock, Book 2)"
+  },
+  {
+    "rank": 7,
+    "item_id": 3670,
+    "item_name": "Kitty Raises Hell (Kitty Norville)"
+  },
+  {
+    "rank": 8,
+    "item_id": 2302,
+    "item_name": "A Lick of Frost (Meredith Gentry, Book 6)"
+  },
+  {
+    "rank": 9,
+    "item_id": 3672,
+    "item_name": "Kitty and the Dead Man's Hand (Kitty Norville)"
+  },
+  {
+    "rank": 10,
+    "item_id": 4887,
+    "item_name": "Ashes of Honor"
+  },
+  {
+    "rank": 11,
+    "item_id": 3458,
+    "item_name": "Angels' Flight: A Guild Hunter Collection (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 12,
+    "item_id": 3515,
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 2408,
+    "item_name": "No Humans Involved"
+  },
+  {
+    "rank": 14,
+    "item_id": 4884,
+    "item_name": "Chimes at Midnight"
+  },
+  {
+    "rank": 15,
+    "item_id": 6195,
+    "item_name": "Magic Rises (Kate Daniels)"
+  },
+  {
+    "rank": 16,
+    "item_id": 3650,
+    "item_name": "Magic Strikes (Kate Daniels)"
+  },
+  {
+    "rank": 17,
+    "item_id": 1119,
+    "item_name": "Princeps' Fury (Codex Alera, Book 5)"
+  },
+  {
+    "rank": 18,
+    "item_id": 3409,
+    "item_name": "On the Prowl"
+  },
+  {
+    "rank": 19,
+    "item_id": 3636,
+    "item_name": "Sharper Than a Serpent's Tooth (Nightside, Book 6)"
+  },
+  {
+    "rank": 20,
+    "item_id": 2347,
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 21,
+    "item_id": 4084,
+    "item_name": "Touch the Dark (Cassandra Palmer)"
+  },
+  {
+    "rank": 22,
+    "item_id": 3641,
+    "item_name": "Magic Burns (Kate Daniels)"
+  },
+  {
+    "rank": 23,
+    "item_id": 3806,
+    "item_name": "Kitty Goes to Washington (Kitty Norville)"
+  },
+  {
+    "rank": 24,
+    "item_id": 422,
+    "item_name": "One Foot in the Grave (Night Huntress, Book 2)"
+  },
+  {
+    "rank": 25,
+    "item_id": 2011,
+    "item_name": "Changeless (The Parasol Protectorate)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

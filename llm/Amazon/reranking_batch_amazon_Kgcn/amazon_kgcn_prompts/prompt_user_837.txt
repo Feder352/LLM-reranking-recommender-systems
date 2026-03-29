@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Romancing Olive"
+  },
+  {
+    "item_name": "Blush for Me: A Fusion Novel"
+  },
+  {
+    "item_name": "Unleashing Mr. Darcy"
+  },
+  {
+    "item_name": "A Gentleman's Game (Romance of the Turf)"
+  },
+  {
+    "item_name": "Mrs. Lincoln's Dressmaker: A Novel"
+  },
+  {
+    "item_name": "Shopping for an Heir (Shopping Series)"
+  },
+  {
+    "item_name": "Lighten Up, Y'all: Classic Southern Recipes Made Healthy and Wholesome"
+  },
+  {
+    "item_name": "Engaging the Bachelor"
+  },
+  {
+    "item_name": "Shopping for a Billionaire 1"
+  },
+  {
+    "item_name": "Resisting Roots (Lotus House)"
+  },
+  {
+    "item_name": "Shopping for a Billionaire 2"
+  },
+  {
+    "item_name": "Mystic Horseman"
+  },
+  {
+    "item_name": "Scandalous Ever After (Romance of the Turf)"
+  },
+  {
+    "item_name": "A New Leash on Love (Rescue Me)"
+  },
+  {
+    "item_name": "His Prairie Princess (Prairie Brides, Book One) (Volume 1)"
+  },
+  {
+    "item_name": "Beauty and the Wiener: A Rescue Dog Romance"
+  },
+  {
+    "item_name": "Time for Love (The McCarthys of Gansett Island) (Volume 9)"
+  },
+  {
+    "item_name": "Ride A Painted Pony (MIRA Single Title Hardbacks)"
+  },
+  {
+    "item_name": "Home Run (The Boys of Summer)"
+  },
+  {
+    "item_name": "A Study In Scarlet Women (The Lady Sherlock Series)"
+  },
+  {
+    "item_name": "Bridesmaid, The (Home to Hickory Hollow)"
+  },
+  {
+    "item_name": "Meant for Love (Gansett Island Series) (Volume 10)"
+  },
+  {
+    "item_name": "The Cowboy's Summer Love: Grass Valley Cowboys (Volume 3)"
+  },
+  {
+    "item_name": "Friendship on Fire (LOVE IN BLOOM: The Bradens) (Volume 6)"
+  },
+  {
+    "item_name": "Lovers at Heart (Love in Bloom: The Bradens) (Volume 4)"
+  },
+  {
+    "item_name": "Foolish Bride"
+  },
+  {
+    "item_name": "Lady Bridget's Diary: Keeping Up with the Cavendishes"
+  },
+  {
+    "item_name": "Perfect"
+  },
+  {
+    "item_name": "Lady Claire Is All That: Keeping Up with the Cavendishes"
+  },
+  {
+    "item_name": "By Her Touch (Blank Canvas)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2879,
+    "item_name": "Written in My Own Heart's Blood (Outlander)"
+  },
+  {
+    "rank": 2,
+    "item_id": 2310,
+    "item_name": "Fire and Ice: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_id": 5130,
+    "item_name": "Virgin River (Virgin River, Book 1) (A Virgin River Novel)"
+  },
+  {
+    "rank": 4,
+    "item_id": 3253,
+    "item_name": "Whiskey Beach"
+  },
+  {
+    "rank": 5,
+    "item_id": 2391,
+    "item_name": "The Arrangement"
+  },
+  {
+    "rank": 6,
+    "item_id": 2374,
+    "item_name": "True Love (Nantucket Brides Trilogy)"
+  },
+  {
+    "rank": 7,
+    "item_id": 3680,
+    "item_name": "Breath of Scandal"
+  },
+  {
+    "rank": 8,
+    "item_id": 5140,
+    "item_name": "The Wanderer (Thunder Point)"
+  },
+  {
+    "rank": 9,
+    "item_id": 2444,
+    "item_name": "Brands Who Came for Christmas (The Oklahoma All-Girl Brands) (Silhouette Intimate Moments, 1039)"
+  },
+  {
+    "rank": 10,
+    "item_id": 596,
+    "item_name": "Along Came a Duke: Rhymes With Love"
+  },
+  {
+    "rank": 11,
+    "item_id": 5202,
+    "item_name": "Heat Rises (Nikki Heat)"
+  },
+  {
+    "rank": 12,
+    "item_id": 5925,
+    "item_name": "Dirty Little Secrets: A J.J. Graves Mystery"
+  },
+  {
+    "rank": 13,
+    "item_id": 3970,
+    "item_name": "The Ideal Man"
+  },
+  {
+    "rank": 14,
+    "item_id": 3778,
+    "item_name": "Simply Irresistible (Lucky Harbor)"
+  },
+  {
+    "rank": 15,
+    "item_id": 5116,
+    "item_name": "Three Sisters"
+  },
+  {
+    "rank": 16,
+    "item_id": 611,
+    "item_name": "The Hurricane Sisters: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_id": 4016,
+    "item_name": "AN Innocent Client (Joe Dillard)"
+  },
+  {
+    "rank": 18,
+    "item_id": 1643,
+    "item_name": "Bet Me"
+  },
+  {
+    "rank": 19,
+    "item_id": 5136,
+    "item_name": "Four Friends"
+  },
+  {
+    "rank": 20,
+    "item_id": 1072,
+    "item_name": "The Divorce Party: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_id": 515,
+    "item_name": "An English Bride in Scotland: Highland Brides (The Highland Brides)"
+  },
+  {
+    "rank": 22,
+    "item_id": 5123,
+    "item_name": "Can't Help Falling in Love (The Sullivans)"
+  },
+  {
+    "rank": 23,
+    "item_id": 5520,
+    "item_name": "Jane's Melody"
+  },
+  {
+    "rank": 24,
+    "item_id": 3187,
+    "item_name": "Tribute"
+  },
+  {
+    "rank": 25,
+    "item_id": 4705,
+    "item_name": "redeeming Love"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Better Late Than Never (A Library Lover's Mystery)"
+  },
+  {
+    "item_name": "Love Between the Lines: An Adult Coloring Book for Book Lovers"
+  },
+  {
+    "item_name": "Death at First Sight (A Bay Island Psychic Mystery)"
+  },
+  {
+    "item_name": "MURDER, MADNESS &amp; LOVE: a mystery"
+  },
+  {
+    "item_name": "Wishing on Snowflakes"
+  },
+  {
+    "item_name": "Fat Fridays"
+  },
+  {
+    "item_name": "The Obsidian Chamber (Agent Pendergast series)"
+  },
+  {
+    "item_name": "High Heat"
+  },
+  {
+    "item_name": "Egg Drop Dead (A Cackleberry Club Mystery)"
+  },
+  {
+    "item_name": "Better Off Thread (Embroidery Mystery)"
+  },
+  {
+    "item_name": "Prose and Cons (A Magical Bookshop Mystery)"
+  },
+  {
+    "item_name": "Lone Wolf (An F.B.I. K-9 Novel)"
+  },
+  {
+    "item_name": "Telling Tails (Second Chance Cat Mystery)"
+  },
+  {
+    "item_name": "No Man's Land (John Puller Series)"
+  },
+  {
+    "item_name": "Crash and Burn (Sisterhood)"
+  },
+  {
+    "item_name": "Third Time's a Crime (A Love or Money Mystery)"
+  },
+  {
+    "item_name": "Dead Cold Brew (A Coffeehouse Mystery)"
+  },
+  {
+    "item_name": "Walk Into Silence (Jo Larsen)"
+  },
+  {
+    "item_name": "Plaid and Plagiarism: The Highland Bookshop Mystery Series: Book 1 (The Highland Bookshop Mystery Series)"
+  },
+  {
+    "item_name": "Blown Away (A Kite Shop Mystery)"
+  },
+  {
+    "item_name": "Caraval: A Caraval Novel"
+  },
+  {
+    "item_name": "Mission Impawsible (A Paws &amp; Claws Mystery)"
+  },
+  {
+    "item_name": "The Remnant"
+  },
+  {
+    "item_name": "Pekoe Most Poison (A Tea Shop Mystery)"
+  },
+  {
+    "item_name": "Cold Pressed Murder (An Olive Grove Mystery)"
+  },
+  {
+    "item_name": "Forever a Hero: A Western Romance Novel (The Carsons of Mustang Creek)"
+  },
+  {
+    "item_name": "The Last Chance Olive Ranch (China Bayles Mystery)"
+  },
+  {
+    "item_name": "Any Day Now (Sullivan's Crossing)"
+  },
+  {
+    "item_name": "Silence of the Jams (A Down South Caf Mystery)"
+  },
+  {
+    "item_name": "Beach Breeze"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Merry and Bright: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Final Sentence (A Cookbook Nook Mystery)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Pop Goes the Weasel (A Helen Grace Thriller)"
+  },
+  {
+    "rank": 4,
+    "item_name": "When the Grits Hit the Fan (A Country Store Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_name": "A Treacherous Curse (A Veronica Speedwell Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Plantation Shudders: A Cajun Country Mystery"
+  },
+  {
+    "rank": 7,
+    "item_name": "That Darkness (A Gardiner and Renner Novel)"
+  },
+  {
+    "rank": 8,
+    "item_name": "A Muddied Murder (A Greenhouse Mystery) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Karma's a Killer (A Downward Dog Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Dead on Ice: A Lovers In Crime Mystery"
+  },
+  {
+    "rank": 11,
+    "item_name": "Dry Bones: A Longmire Mystery"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Job (Fox and O'Hare)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Hunted (The Profiler)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Once Upon a Grind (A Coffeehouse Mystery)"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Curious Beginning (A Veronica Speedwell Mystery)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Pane and Suffering (A Webb's Glass Shop Mystery)"
+  },
+  {
+    "rank": 17,
+    "item_name": "All Signs Point to Murder (A Zodiac Mystery)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Bearly Departed (A Teddy Bear Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Tempest in a Teapot (A Teapot Collector Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 21,
+    "item_name": "A Deadly Grind (A Vintage Kitchen Mystery)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Guilt by Association (A Rachel Knight Novel)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Shadow of Doubt (A Carol Childs Mystery) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Killer Jam (Dewberry Farm Mysteries)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Throw in the Trowel (Flower Shop Mystery)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Billionaire Blend (A Coffeehouse Mystery)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Dangling by a Thread (A Mainely Needlepoint Mystery)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Angels Burning"
+  },
+  {
+    "rank": 29,
+    "item_name": "Read It and Weep (A Library Lover's Mystery)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Dressed To Kill"
+  },
+  {
+    "rank": 31,
+    "item_name": "Beyond a Doubt (A Carol Childs Mystery) (Volume 2)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Mrs. Lincoln&#39;s Rival: A Novel - Kindle edition"
+  },
+  {
+    "rank": 33,
+    "item_name": "Ladle to the Grave (A Soup Lover's Mystery)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Thread and Gone (A Mainely Needlepoint Mystery)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Inherit the Word (A Cookbook Nook Mystery)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Way of the Guilty: A Hope Street Church Mystery (Hope Street Church Mysteries)"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Turn for the Bad (A County Cork Mystery)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Elementary, She Read: A Sherlock Holmes Bookshop Mystery"
+  },
+  {
+    "rank": 39,
+    "item_name": "Demise in Denim (A Consignment Shop Mystery)"
+  },
+  {
+    "rank": 40,
+    "item_name": "On Borrowed Time (A Library Lover's Mystery)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Guilt by Degrees (A Rachel Knight Novel)"
+  },
+  {
+    "rank": 42,
+    "item_name": "All Fudged Up (A Candy-coated Mystery)"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Finely Knit Murder (Seaside Knitters Mystery)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Pudding Up With Murder (An Undercover Dish Mystery)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Silence of the Library (Cat in the Stacks Mystery)"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Whole Latte Murder (Java Jive Mystery)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Grilled For Murder (A Country Store Mystery)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Diva Digs Up the Dirt (A Domestic Diva Mystery)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Remains of Innocence: A Brady Novel of Suspense (Joanna Brady Mysteries)"
+  },
+  {
+    "rank": 50,
+    "item_name": "A Merciful Death (Mercy Kilpatrick)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

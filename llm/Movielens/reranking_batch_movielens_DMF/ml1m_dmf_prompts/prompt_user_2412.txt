@@ -1,0 +1,242 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Thelma & Louise"
+  },
+  {
+    "item_name": "Saving Private Ryan"
+  },
+  {
+    "item_name": "Braveheart"
+  },
+  {
+    "item_name": "Titanic"
+  },
+  {
+    "item_name": "Mutiny on the Bounty"
+  },
+  {
+    "item_name": "Star Wars: Episode IV - A New Hope"
+  },
+  {
+    "item_name": "Jaws"
+  },
+  {
+    "item_name": "Godfather, The"
+  },
+  {
+    "item_name": "Westworld"
+  },
+  {
+    "item_name": "French Connection, The"
+  },
+  {
+    "item_name": "Rocky"
+  },
+  {
+    "item_name": "Alien"
+  },
+  {
+    "item_name": "Rocky II"
+  },
+  {
+    "item_name": "Death Wish"
+  },
+  {
+    "item_name": "Towering Inferno, The"
+  },
+  {
+    "item_name": "Shaft"
+  },
+  {
+    "item_name": "Conquest of the Planet of the Apes"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 125,
+    "item_name": "Star Wars: Episode V - The Empire Strikes Back"
+  },
+  {
+    "rank": 2,
+    "item_id": 65,
+    "item_name": "Star Wars: Episode VI - Return of the Jedi"
+  },
+  {
+    "rank": 3,
+    "item_id": 98,
+    "item_name": "Terminator 2: Judgment Day"
+  },
+  {
+    "rank": 4,
+    "item_id": 114,
+    "item_name": "Jurassic Park"
+  },
+  {
+    "rank": 5,
+    "item_id": 218,
+    "item_name": "Terminator, The"
+  },
+  {
+    "rank": 6,
+    "item_id": 128,
+    "item_name": "Raiders of the Lost Ark"
+  },
+  {
+    "rank": 7,
+    "item_id": 133,
+    "item_name": "Matrix, The"
+  },
+  {
+    "rank": 8,
+    "item_id": 663,
+    "item_name": "2001: A Space Odyssey"
+  },
+  {
+    "rank": 9,
+    "item_id": 61,
+    "item_name": "Star Wars: Episode I - The Phantom Menace"
+  },
+  {
+    "rank": 10,
+    "item_id": 63,
+    "item_name": "Total Recall"
+  },
+  {
+    "rank": 11,
+    "item_id": 744,
+    "item_name": "Blade Runner"
+  },
+  {
+    "rank": 12,
+    "item_id": 715,
+    "item_name": "Aliens"
+  },
+  {
+    "rank": 13,
+    "item_id": 190,
+    "item_name": "Men in Black"
+  },
+  {
+    "rank": 14,
+    "item_id": 23,
+    "item_name": "Back to the Future"
+  },
+  {
+    "rank": 15,
+    "item_id": 27,
+    "item_name": "E.T. the Extra-Terrestrial"
+  },
+  {
+    "rank": 16,
+    "item_id": 278,
+    "item_name": "Abyss, The"
+  },
+  {
+    "rank": 17,
+    "item_id": 644,
+    "item_name": "Star Trek: The Wrath of Khan"
+  },
+  {
+    "rank": 18,
+    "item_id": 152,
+    "item_name": "Fugitive, The"
+  },
+  {
+    "rank": 19,
+    "item_id": 129,
+    "item_name": "Silence of the Lambs, The"
+  },
+  {
+    "rank": 20,
+    "item_id": 105,
+    "item_name": "American Beauty"
+  },
+  {
+    "rank": 21,
+    "item_id": 247,
+    "item_name": "L.A. Confidential"
+  },
+  {
+    "rank": 22,
+    "item_id": 52,
+    "item_name": "Fargo"
+  },
+  {
+    "rank": 23,
+    "item_id": 749,
+    "item_name": "Planet of the Apes"
+  },
+  {
+    "rank": 24,
+    "item_id": 212,
+    "item_name": "Mad Max"
+  },
+  {
+    "rank": 25,
+    "item_id": 211,
+    "item_name": "Die Hard"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Their Daring Hearts (Forever Freedom Series)"
+  },
+  {
+    "item_name": "Ain't Misbehaving (Dallas Duets) (Volume 1)"
+  },
+  {
+    "item_name": "Hidden Currents: A Lantern Beach Mystery (Lantern Beach Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "Flood Watch (Lantern Beach Mysteries) (Volume 2)"
+  },
+  {
+    "item_name": "Love by the Numbers"
+  },
+  {
+    "item_name": "Sea Before Us (Surise at Normandy)"
+  },
+  {
+    "item_name": "Holding the Fort (The Fort Reno Series)"
+  },
+  {
+    "item_name": "Fugitive Spy (Love Inspired Suspense)"
+  },
+  {
+    "item_name": "Love Finds You in Annapolis, Maryland"
+  },
+  {
+    "item_name": "His Risk: The Amish of Hart County"
+  },
+  {
+    "item_name": "Beneath the Surface (Dive Team Investigations)"
+  },
+  {
+    "item_name": "High Treason (FBI Task Force)"
+  },
+  {
+    "item_name": "High Cotton (Bucklin Family Reunion)"
+  },
+  {
+    "item_name": "Out of the Ashes (The Heart of Alaska)"
+  },
+  {
+    "item_name": "Sons of Thunder (Brothers in Arms)"
+  },
+  {
+    "item_name": "Winning Miss Winthrop (Regency Brides: A Promise of Hope)"
+  },
+  {
+    "item_name": "A Loyal Heart"
+  },
+  {
+    "item_name": "Nightingale (Brothers in Arms Collection, No. 2)"
+  },
+  {
+    "item_name": "Treacherous Trails (Gold Country Cowboys)"
+  },
+  {
+    "item_name": "Red Sky Over America (Ladies of Oberlin) (Volume 1)"
+  },
+  {
+    "item_name": "A Refuge Assured"
+  },
+  {
+    "item_name": "The Heart's Appeal (London Beginnings)"
+  },
+  {
+    "item_name": "A Most Noble Heir"
+  },
+  {
+    "item_name": "Credible Threat (Love Inspired Suspense)"
+  },
+  {
+    "item_name": "Pelican Point: A Hope Harbor Novel"
+  },
+  {
+    "item_name": "Dangerous Waters (Lantern Beach) (Volume 4)"
+  },
+  {
+    "item_name": "STORM SURGE (Lantern Beach) (Volume 3)"
+  },
+  {
+    "item_name": "Theory of Happily Ever After"
+  },
+  {
+    "item_name": "Just Let Go"
+  },
+  {
+    "item_name": "Darkwater Secrets (Darkwater Inn)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Golden Braid"
+  },
+  {
+    "rank": 3,
+    "item_name": "Chance of Loving You: Romance Collection (Thorndike Press Large Print Christian Fiction)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Every Bride Needs a Groom: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Dance: A Novel (The Restoration Series)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 7,
+    "item_name": "Kissed by a Cowboy (A Four of Hearts Ranch Romance)"
+  },
+  {
+    "rank": 8,
+    "item_name": "If I Run (If I Run Series)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Every Girl Gets Confused: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Red Door Inn: A Novel (Prince Edward Island Dreams)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Writing Desk"
+  },
+  {
+    "rank": 12,
+    "item_name": "Fatal Mistake: A Novel (White Knights)"
+  },
+  {
+    "rank": 13,
+    "item_name": "My Heart Belongs on Mackinac Island: Maude&rsquo;s Mooring"
+  },
+  {
+    "rank": 14,
+    "item_name": "Dressed for Death (A Drew Farthering Mystery)"
+  },
+  {
+    "rank": 15,
+    "item_name": "To Follow Her Heart: A Novel (The Southold Chronicles) (Volume 3)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Talon: Combat Tracking Team (A Breed Apart)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Heiress of Winterwood (Whispers On The Moors)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Wedding Dress"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Marriage in Middlebury"
+  },
+  {
+    "rank": 20,
+    "item_name": "Song of My Heart"
+  },
+  {
+    "rank": 21,
+    "item_name": "Hope Harbor: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Sea Keeper's Daughters (A Carolina Heirlooms Novel)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Daughters of the Heart (Texas Romance) (Volume 5)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Trouble with Cowboys (A Big Sky Romance)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Courageous (Valiant Hearts)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Phoebe's Light (Nantucket Legacy)"
+  },
+  {
+    "rank": 27,
+    "item_name": "A Love Like Ours (Porter Family Novels)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Made to Last"
+  },
+  {
+    "rank": 29,
+    "item_name": "Miracle in a Dry Season"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Heart's Home (A Journey of the Heart)"
+  },
+  {
+    "rank": 31,
+    "item_name": "5 Days to a Clutter-Free House: Quick, Easy Ways to Clear Up Your Space"
+  },
+  {
+    "rank": 32,
+    "item_name": "And It Was Beautiful: Celebrating Life in the Midst of the Long Good-Bye"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Mayflower Bride: Daughters of the Mayflower - Book 1"
+  },
+  {
+    "rank": 34,
+    "item_name": "Deadly Echoes (Finding Sanctuary) (Volume 2)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Home to Paradise: The Coming Home Series  Book 3"
+  },
+  {
+    "rank": 36,
+    "item_name": "Moms' Night Out and Other Things I Miss: Devotions To Help You Survive"
+  },
+  {
+    "rank": 37,
+    "item_name": "Glittering Promises: A Novel (Grand Tour Series)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Too Deep for Words: A Civil War Novel (Shenandoah Valley Saga)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Justice Buried"
+  },
+  {
+    "rank": 40,
+    "item_name": "The View from Rainshadow Bay (A Lavender Tides Novel)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Divide (The Alliance)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Painter's Daughter"
+  },
+  {
+    "rank": 43,
+    "item_name": "Cold-Case Christianity for Kids: Investigate Jesus with a Real Detective"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Outcast"
+  },
+  {
+    "rank": 45,
+    "item_name": "Smitten"
+  },
+  {
+    "rank": 46,
+    "item_name": "Where Trust Lies (Return to the Canadian West)"
+  },
+  {
+    "rank": 47,
+    "item_name": "By Your Side (Crisis Team)"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Love Surrendered (Winds of Change)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Covered Deep"
+  },
+  {
+    "rank": 50,
+    "item_name": "Newton and Polly: A Novel of Amazing Grace"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

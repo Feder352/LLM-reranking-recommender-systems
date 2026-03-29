@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Our Chemical Hearts"
+  },
+  {
+    "item_name": "A Certain Age: A Novel"
+  },
+  {
+    "item_name": "After You: A Novel (Me Before You Trilogy)"
+  },
+  {
+    "item_name": "The Raphael Affair"
+  },
+  {
+    "item_name": "Monticello: A Daughter and Her Father; A Novel"
+  },
+  {
+    "item_name": "Holding Up the Universe"
+  },
+  {
+    "item_name": "The Last Time We Say Goodbye"
+  },
+  {
+    "item_name": "The Book of Unknown Americans"
+  },
+  {
+    "item_name": "I Take You: A Novel"
+  },
+  {
+    "item_name": "The Loose Ends List"
+  },
+  {
+    "item_name": "Something in Between: A thought-provoking coming-of-age novel"
+  },
+  {
+    "item_name": "Born a Crime"
+  },
+  {
+    "item_name": "The Best Man"
+  },
+  {
+    "item_name": "Bellweather Rhapsody"
+  },
+  {
+    "item_name": "Words on Bathroom Walls"
+  },
+  {
+    "item_name": "The Inexplicable Logic of My Life"
+  },
+  {
+    "item_name": "Long Black Veil: A Novel"
+  },
+  {
+    "item_name": "The Widow's House: A Novel"
+  },
+  {
+    "item_name": "The Arrangement: A Novel"
+  },
+  {
+    "item_name": "Born Both: An Intersex Life"
+  },
+  {
+    "item_name": "What the F: What Swearing Reveals About Our Language, Our Brains, and Ourselves"
+  },
+  {
+    "item_name": "The Alice Network: A Novel"
+  },
+  {
+    "item_name": "Cocoa Beach: A Novel"
+  },
+  {
+    "item_name": "Strangers Tend to Tell Me Things: A Memoir of Love, Loss, and Coming Home"
+  },
+  {
+    "item_name": "Bluebird, Bluebird"
+  },
+  {
+    "item_name": "Miss Kopp's Midnight Confessions (A Kopp Sisters Novel)"
+  },
+  {
+    "item_name": "Lift Off: From the Classroom to the Stars"
+  },
+  {
+    "item_name": "The Wedding Date"
+  },
+  {
+    "item_name": "All the Beautiful Girls: An Uplifting Story of Freedom, Love and Identity"
+  },
+  {
+    "item_name": "What You Don't Know About Charlie Outlaw"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 75903,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 2,
+    "item_id": 10339,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 3,
+    "item_id": 74721,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 4,
+    "item_id": 7638,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 5,
+    "item_id": 13288,
+    "item_name": "The Last Coyote (Harry Bosch)"
+  },
+  {
+    "rank": 6,
+    "item_id": 74748,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 7,
+    "item_id": 9629,
+    "item_name": "Gone Girl"
+  },
+  {
+    "rank": 8,
+    "item_id": 19006,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 9,
+    "item_id": 13679,
+    "item_name": "Room"
+  },
+  {
+    "rank": 10,
+    "item_id": 9963,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 11,
+    "item_id": 13387,
+    "item_name": "One Good Turn"
+  },
+  {
+    "rank": 12,
+    "item_id": 19589,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 13,
+    "item_id": 6177,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 14,
+    "item_id": 28648,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 15,
+    "item_id": 6239,
+    "item_name": "The Lost Symbol (Dan Brown)"
+  },
+  {
+    "rank": 16,
+    "item_id": 19564,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 17,
+    "item_id": 13364,
+    "item_name": "The Lovely Bones: Deluxe Edition"
+  },
+  {
+    "rank": 18,
+    "item_id": 28156,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 19,
+    "item_id": 75993,
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "rank": 20,
+    "item_id": 45081,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 21,
+    "item_id": 19121,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 22,
+    "item_id": 18969,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 23,
+    "item_id": 76371,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 24,
+    "item_id": 73132,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 25,
+    "item_id": 13822,
+    "item_name": "Life After Life: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

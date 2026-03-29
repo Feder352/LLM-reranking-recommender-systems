@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Henry Wood Detective Agency"
+  },
+  {
+    "item_name": "X (A Kinsey Millhone Novel)"
+  },
+  {
+    "item_name": "Sunbaked (Pineapple Cay Stories)"
+  },
+  {
+    "item_name": "At Home in Mitford"
+  },
+  {
+    "item_name": "A Slight Change of Plan"
+  },
+  {
+    "item_name": "Armed and Outrageous: An Agnes Barton Mystery (Volume 1)"
+  },
+  {
+    "item_name": "The Guestbook"
+  },
+  {
+    "item_name": "A Body at Bunco (A Myrtle Clover Cozy Mystery) (Volume 8)"
+  },
+  {
+    "item_name": "Rogue Lawyer: A Novel"
+  },
+  {
+    "item_name": "Cranberry Bluff"
+  },
+  {
+    "item_name": "Murder by Chance (Betty Chance Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "No Game for A Dame"
+  },
+  {
+    "item_name": "Sharpe Shooter (Maycroft Mystery Series)"
+  },
+  {
+    "item_name": "A Haunted Murder (A Lin Coffin Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "A Man Called Ove (Thorndike Press Large Print Core Series)"
+  },
+  {
+    "item_name": "Reservations for Two"
+  },
+  {
+    "item_name": "The Gordonston Ladies Dog Walking Club"
+  },
+  {
+    "item_name": "Wonderful Tonight: George Harrison, Eric Clapton, and Me"
+  },
+  {
+    "item_name": "Breakfast for Two: A Peakview Novel (Peakview series) (Volume 2)"
+  },
+  {
+    "item_name": "The Tour"
+  },
+  {
+    "item_name": "Beautiful Storm (Lightning Strikes) (Volume 1)"
+  },
+  {
+    "item_name": "Gone but Knot Forgotten (A Quilting Mystery)"
+  },
+  {
+    "item_name": "Good And Cheap: Eat Well On $4/Day (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "Back Story (The Reed Ferguson Mystery Series) (Volume 10)"
+  },
+  {
+    "item_name": "Deadly Gamble: The First Charlie Parker Mystery"
+  },
+  {
+    "item_name": "Bed, Breakfast &amp; Bones: A Ravenwood Cove Mystery (Ravenwood Cove Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "A Goose Creek Christmas (Tales from the Goose Creek B&amp;B) (Volume 5)"
+  },
+  {
+    "item_name": "The Christmas Cat"
+  },
+  {
+    "item_name": "The Reluctant Jesus"
+  },
+  {
+    "item_name": "Mango Bob"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 221,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 2,
+    "item_id": 730,
+    "item_name": "Time Traveler's Wife"
+  },
+  {
+    "rank": 3,
+    "item_id": 1668,
+    "item_name": "Ten Big Ones (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 4,
+    "item_id": 1125,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 5,
+    "item_id": 895,
+    "item_name": "The Secret Life of Bees"
+  },
+  {
+    "rank": 6,
+    "item_id": 697,
+    "item_name": "The Last Juror"
+  },
+  {
+    "rank": 7,
+    "item_id": 1645,
+    "item_name": "Eleven on Top"
+  },
+  {
+    "rank": 8,
+    "item_id": 1956,
+    "item_name": "One Good Turn"
+  },
+  {
+    "rank": 9,
+    "item_id": 2669,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 10,
+    "item_id": 5605,
+    "item_name": "The White Tiger: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_id": 806,
+    "item_name": "Bridget Jones's Diary: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_id": 699,
+    "item_name": "Atonement"
+  },
+  {
+    "rank": 13,
+    "item_id": 345,
+    "item_name": "One for the Money (Stephanie Plum, No. 1) (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 14,
+    "item_id": 1331,
+    "item_name": "The Devil Wears Prada"
+  },
+  {
+    "rank": 15,
+    "item_id": 2351,
+    "item_name": "The King of Torts: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_id": 2083,
+    "item_name": "3rd Degree"
+  },
+  {
+    "rank": 17,
+    "item_id": 2046,
+    "item_name": "Mary, Mary"
+  },
+  {
+    "rank": 18,
+    "item_id": 3113,
+    "item_name": "Interpreter of Maladies"
+  },
+  {
+    "rank": 19,
+    "item_id": 4502,
+    "item_name": "Fatal Voyage (Temperance Brennan Novels)"
+  },
+  {
+    "rank": 20,
+    "item_id": 15,
+    "item_name": "The Namesake"
+  },
+  {
+    "rank": 21,
+    "item_id": 713,
+    "item_name": "Cutting for Stone: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_id": 1635,
+    "item_name": "Running with Scissors: A Memoir"
+  },
+  {
+    "rank": 23,
+    "item_id": 1295,
+    "item_name": "Whitethorn Woods"
+  },
+  {
+    "rank": 24,
+    "item_id": 2847,
+    "item_name": "Shopaholic Ties the Knot (Shopaholic, No 3)"
+  },
+  {
+    "rank": 25,
+    "item_id": 4437,
+    "item_name": "Still Alice"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Happily Ever After Collection (A Timeless Romance Anthology) (Volume 20)"
+  },
+  {
+    "item_name": "The Captain's Daughter (London Beginnings)"
+  },
+  {
+    "item_name": "Yesterday's Promise (Hearthfire Scottish Romance) (Volume 1)"
+  },
+  {
+    "item_name": "The Gentleman's Deception"
+  },
+  {
+    "item_name": "His Frontier Christmas Family (Frontier Bachelors)"
+  },
+  {
+    "item_name": "Mail-Order Christmas Baby (Montana Courtships)"
+  },
+  {
+    "item_name": "To Wager Her Heart (A Belle Meade Plantation Novel)"
+  },
+  {
+    "item_name": "A Tailor-Made Husband (Texas Grooms (Love Inspired Historical))"
+  },
+  {
+    "item_name": "#Starstruck (A #Lovestruck Novel)"
+  },
+  {
+    "item_name": "Heart on the Line"
+  },
+  {
+    "item_name": "Boneseeker"
+  },
+  {
+    "item_name": "Inconvenient Beauty (Hawthorne House)"
+  },
+  {
+    "item_name": "The Nobleman's Governess Bride (The Glass Slipper Chronicles)"
+  },
+  {
+    "item_name": "A Tangled Inheritance"
+  },
+  {
+    "item_name": "Check Me Out (Proper Romance Contemporary)"
+  },
+  {
+    "item_name": "A Lady Unrivaled (Ladies of the Manor)"
+  },
+  {
+    "item_name": "Lightning Struck (Brothers Maledetti)"
+  },
+  {
+    "item_name": "Love's Journey Home"
+  },
+  {
+    "item_name": "Beauty and Her Boss (Once Upon a Fairytale)"
+  },
+  {
+    "item_name": "The Austen Escape"
+  },
+  {
+    "item_name": "Ashes on the Moor (Proper Romance Victorian)"
+  },
+  {
+    "item_name": "Holding the Fort (The Fort Reno Series)"
+  },
+  {
+    "item_name": "A Chance at Forever (Teaville Moral Society)"
+  },
+  {
+    "item_name": "The Boden Birthright: Novella (The Cimarron Legacy Novella)"
+  },
+  {
+    "item_name": "No Way Up (The Cimarron Legacy)"
+  },
+  {
+    "item_name": "Long Time Gone (The Cimarron Legacy)"
+  },
+  {
+    "item_name": "Hearts Entwined: A Historical Romance Novella Collection"
+  },
+  {
+    "item_name": "The Summer of Broken Things"
+  },
+  {
+    "item_name": "My Dearest Enemy"
+  },
+  {
+    "item_name": "The Orphan's Wish"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Prejudice Meets Pride (Meet Your Match, book 1) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Persuaded"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Match Maker: The Husband Maker, Book 2 (Volume 2)"
+  },
+  {
+    "rank": 4,
+    "item_name": "A Fine Gentleman"
+  },
+  {
+    "rank": 5,
+    "item_name": "Rewind to You"
+  },
+  {
+    "rank": 6,
+    "item_name": "Working It Out: A Romantic Comedy"
+  },
+  {
+    "rank": 7,
+    "item_name": "Not Always Happenstance (Power of the Matchmaker)"
+  },
+  {
+    "rank": 8,
+    "item_name": "A Heart Revealed (Proper Romance)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Perfectly You (The Perfect Series)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Husband Maker (The Husband Maker, Book 1) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Uncovering Cobbogoth"
+  },
+  {
+    "rank": 12,
+    "item_name": "Love at First Note"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Merchant's Daughter (Fairy Tale Romance Series)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Do Over"
+  },
+  {
+    "rank": 15,
+    "item_name": "Drops of Gold"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Dancing Master"
+  },
+  {
+    "rank": 17,
+    "item_name": "Love Remains (Hope Springs)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Redeem This (Tenderness and Terror (Clean Romantic Suspense)) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "All I Want: Three couples. Three Stories. One Holiday"
+  },
+  {
+    "rank": 20,
+    "item_name": "Keeping Kate"
+  },
+  {
+    "rank": 21,
+    "item_name": "Just Ella (Books of Dalthia)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Heart of the Ocean"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Fairest Beauty (Fairy Tale Romance Series)"
+  },
+  {
+    "rank": 24,
+    "item_name": "An Inconvenient Romance"
+  },
+  {
+    "rank": 25,
+    "item_name": "Always Will"
+  },
+  {
+    "rank": 26,
+    "item_name": "More Trouble in Loveland (Timeless Romance Single) (Volume 6)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Tried and True (Wild at Heart) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Motherhood Matters: Joyful Reminders of the Divinity, Reality, and Rewards of Motherhood"
+  },
+  {
+    "rank": 29,
+    "item_name": "How I Fly (How I Fall Series)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Everneath"
+  },
+  {
+    "rank": 31,
+    "item_name": "Winter in Full Bloom"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Sage After Rain: A love story"
+  },
+  {
+    "rank": 33,
+    "item_name": "Between Heaven and Earth (Power of the Matchmaker)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Rapunzel Untangled"
+  },
+  {
+    "rank": 35,
+    "item_name": "True to You (A Bradford Sisters Romance)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Christmas Grace"
+  },
+  {
+    "rank": 37,
+    "item_name": "Stealing the Preacher"
+  },
+  {
+    "rank": 38,
+    "item_name": "More Than Meets the Eye"
+  },
+  {
+    "rank": 39,
+    "item_name": "Not A Word"
+  },
+  {
+    "rank": 40,
+    "item_name": "Under a Georgia Moon (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Dark Halo (An Angel Eyes Novel)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Destiny (The Destiny Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Silver Linings (A Ripple Effect Romance Novella, Book 2) (Volume 2)"
+  },
+  {
+    "rank": 44,
+    "item_name": "A Brush with Love: A January Wedding Story (A Year of Weddings Novella)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Loving Helen (A Hearthfire Romance) (Volume 2)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Trouble in Paradise"
+  },
+  {
+    "rank": 47,
+    "item_name": "One Last Spring"
+  },
+  {
+    "rank": 48,
+    "item_name": "Eruption"
+  },
+  {
+    "rank": 49,
+    "item_name": "Love, Jane"
+  },
+  {
+    "rank": 50,
+    "item_name": "Sixty Acres and a Bride"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

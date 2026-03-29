@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Sea Room"
+  },
+  {
+    "item_name": "Mrs. Roosevelt's Confidante: A Maggie Hope Mystery"
+  },
+  {
+    "item_name": "His Right Hand (A Linda Wallheim Mystery)"
+  },
+  {
+    "item_name": "Carrying Albert Home: The Somewhat True Story of a Man, His Wife, and Her Alligator"
+  },
+  {
+    "item_name": "A Ghostly Murder: A Ghostly Southern Mystery (Ghostly Southern Mysteries)"
+  },
+  {
+    "item_name": "Bryant &amp; May and the Burning Man: A Peculiar Crimes Unit Mystery"
+  },
+  {
+    "item_name": "I Really Like Slop! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "The Considerate Killer (A Nina Borg Novel)"
+  },
+  {
+    "item_name": "Summer at Little Beach Street Bakery: A Novel"
+  },
+  {
+    "item_name": "The Murder of Mary Russell (Mary Russell &amp; Sherlock Holmes)"
+  },
+  {
+    "item_name": "Mother Bruce"
+  },
+  {
+    "item_name": "Breakdown: An Alex Delaware Novel"
+  },
+  {
+    "item_name": "Cat Shout for Joy: A Joe Grey Mystery (Joe Grey Mystery Series)"
+  },
+  {
+    "item_name": "The Agency 1: A Spy in the House"
+  },
+  {
+    "item_name": "Rough Riders: Theodore Roosevelt, His Cowboy Regiment, and the Immortal Charge Up San Juan Hill"
+  },
+  {
+    "item_name": "I Will Take A Nap! (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Diana's Altar (A Detective Joe Sandilands Novel)"
+  },
+  {
+    "item_name": "The Body in the Wardrobe: A Faith Fairchild Mystery"
+  },
+  {
+    "item_name": "Will Tanner: U.S. Deputy Marshal (A Will Tanner Western)"
+  },
+  {
+    "item_name": "Daniel Silva Thriller 6"
+  },
+  {
+    "item_name": "The Pursuit: A Fox and O'Hare Novel"
+  },
+  {
+    "item_name": "Ordinary Grace (Thorndike Press Large Print Mystery)"
+  },
+  {
+    "item_name": "The Thank You Book (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "I Shot the Buddha (A Dr. Siri Paiboun Mystery)"
+  },
+  {
+    "item_name": "Curious Minds: A Knight and Moon Novel"
+  },
+  {
+    "item_name": "Players: The Story of Sports and Money, and the Visionaries Who Fought to Create a Revolution"
+  },
+  {
+    "item_name": "What Elephants Know"
+  },
+  {
+    "item_name": "The Obsidian Chamber (Agent Pendergast series)"
+  },
+  {
+    "item_name": "Thrice the Brinded Cat Hath Mew'd: A Flavia de Luce Novel"
+  },
+  {
+    "item_name": "Not My Mother's Kitchen: Rediscovering Italian-American Cooking Through Stories and Recipes"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "From Bruges with Love (The Pieter Van In Mysteries)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Secrets of Wishtide (A Laetitia Rodd Mystery)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 4,
+    "item_name": "Murder at the Brightwell: A Mystery (An Amory Ames Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_name": "White Houses: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Whole Town's Talking: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Dying Fall (Ruth Galloway Mystery) (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Glass Houses (Chief Inspector Gamache)"
+  },
+  {
+    "rank": 9,
+    "item_name": "A Dangerous Place: A Maisie Dobbs Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Beautiful Blue Death (Charles Lenox Mysteries)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Chilbury Ladies' Choir"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Summer Before the War: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Journey on a Runaway Train (The Boxcar Children Great Adventure)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Coffin Scarcely Used"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Water's Edge"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Tea Party in the Woods"
+  },
+  {
+    "rank": 17,
+    "item_name": "A Week in Winter"
+  },
+  {
+    "rank": 18,
+    "item_name": "New Boy: William Shakespeare's Othello Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Oliver and the Seawigs"
+  },
+  {
+    "rank": 20,
+    "item_name": "Stop the Presses! (The Nero Wolfe Mysteries)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Queen's Accomplice: A Maggie Hope Mystery"
+  },
+  {
+    "rank": 22,
+    "item_name": "Mayhem in Margaux (Winemaker Detective)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Serafina and the Black Cloak"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Care and Management of Lies: A Novel of the Great War (P.S. (Paperback))"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Hired Girl"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Book With No Pictures"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 28,
+    "item_name": "Thirteen Guests (British Library Crime Classics)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Prince Charles: The Passions and Paradoxes of an Improbable Life"
+  },
+  {
+    "rank": 30,
+    "item_name": "You are Not Small"
+  },
+  {
+    "rank": 31,
+    "item_name": "Artemis"
+  },
+  {
+    "rank": 32,
+    "item_name": "Maisie Dobbs (Book 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Cruel Winter: A County Cork Mystery"
+  },
+  {
+    "rank": 34,
+    "item_name": "A Question of Honor"
+  },
+  {
+    "rank": 35,
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "rank": 36,
+    "item_name": "In Such Good Company: Eleven Years of Laughter, Mayhem, and Fun in the Sandbox"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Angel Court Affair: A Charlotte and Thomas Pitt Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "The chaperone."
+  },
+  {
+    "rank": 39,
+    "item_name": "The Singer from Memphis (An Athenian Mystery)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Ten Lords A-Leaping: A Father Christmas Mystery"
+  },
+  {
+    "rank": 41,
+    "item_name": "Mr. Churchill's Secretary: A Maggie Hope Mystery"
+  },
+  {
+    "rank": 42,
+    "item_name": "In the Name of the Family: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Victoria: The Queen: An Intimate Biography of the Woman who Ruled an Empire"
+  },
+  {
+    "rank": 44,
+    "item_name": "Lillian on Life"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Partial History of Lost Causes: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Banquet of Consequences: A Lynley Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Kissing Hand"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Twelve Clues of Christmas: A Royal Spyness Mystery"
+  },
+  {
+    "rank": 50,
+    "item_name": "A Murder of Magpies: A Novel (Sam Clair)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Ready to Go Guided Reading: Connect, Grades 5 - 6"
+  },
+  {
+    "item_name": "Sell It Today, Sell It Now: Mastering the Art of the One-Call Close"
+  },
+  {
+    "item_name": "Biografiktion"
+  },
+  {
+    "item_name": "Women Who Tri: A Reluctant Athlete's Journey Into the Heart of America's Newest Obsession"
+  },
+  {
+    "item_name": "The Fallen Star: The Nocturnals Book 3"
+  },
+  {
+    "item_name": "The Underground Culinary Tour: How the New Metrics of Today's Top Restaurants Are Transforming How America Eats"
+  },
+  {
+    "item_name": "The Temporary Bride: A Memoir of Love and Food in Iran"
+  },
+  {
+    "item_name": "Lift Off: From the Classroom to the Stars"
+  },
+  {
+    "item_name": "Give a Girl a Knife: A Memoir"
+  },
+  {
+    "item_name": "The World of Laura Ingalls Wilder: The Frontier Landscapes that Inspired the Little House Books"
+  },
+  {
+    "item_name": "The Football Fanbook: Everything You Need to Become a Gridiron Know-it-All (A Sports Illustrated Kids Book)"
+  },
+  {
+    "item_name": "Klutz LEGO Chain Reactions Craft Kit"
+  },
+  {
+    "item_name": "Ready to Go Guided Reading: Infer, Grades 1 - 2"
+  },
+  {
+    "item_name": "Ready to Go Guided Reading: Infer, Grades 3 - 4"
+  },
+  {
+    "item_name": "Valerie's Home Cooking: More than 100 Delicious Recipes to Share with Friends and Family"
+  },
+  {
+    "item_name": "The Entrepreneurs Book of Actions: Essential Daily Exercises and Habits for Becoming Wealthier, Smarter, and More Successful"
+  },
+  {
+    "item_name": "The Innovation Code: The Creative Power of Constructive Conflict"
+  },
+  {
+    "item_name": "Teacher Coloring Planner"
+  },
+  {
+    "item_name": "Freeda the Cheetah"
+  },
+  {
+    "item_name": "All-Star Activity Book (A Sports Illustrated Kids Book)"
+  },
+  {
+    "item_name": "Edmond, The Moonlit Party"
+  },
+  {
+    "item_name": "Reach: A New Strategy to Help You Step Outside Your Comfort Zone, Rise to the Challenge and Build Confidence"
+  },
+  {
+    "item_name": "Tell Me More: Stories About the 12 Hardest Things I'm Learning to Say"
+  },
+  {
+    "item_name": "Avalanche! (Survivor Diaries)"
+  },
+  {
+    "item_name": "Ayobami and the Names of the Animals"
+  },
+  {
+    "item_name": "Crushing It in Apartments and Commercial Real Estate: How a Small Investor Can Make It Big"
+  },
+  {
+    "item_name": "Sparks!"
+  },
+  {
+    "item_name": "Step-by-Step Problem Solving, Grade 5 (Singapore Math)"
+  },
+  {
+    "item_name": "My First Book of Lacrosse: A Rookie Book (A Sports Illustrated Kids Book) (Sports Illustrated Kids Rookie Books)"
+  },
+  {
+    "item_name": "Two Dogs in a Trench Coat Go to School: Book 1"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2539,
+    "item_name": "Mr. Penumbra's 24-Hour Bookstore: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_id": 4022,
+    "item_name": "Six Years"
+  },
+  {
+    "rank": 3,
+    "item_id": 1125,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 4,
+    "item_id": 5864,
+    "item_name": "The Blackhouse: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_id": 479,
+    "item_name": "I'd Know You Anywhere: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_id": 1091,
+    "item_name": "Broken Harbor: A Novel (Dublin Murder Squad)"
+  },
+  {
+    "rank": 7,
+    "item_id": 2973,
+    "item_name": "The Winter People: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_id": 1312,
+    "item_name": "Bad Monkey"
+  },
+  {
+    "rank": 9,
+    "item_id": 5915,
+    "item_name": "The Last Town (Wayward Pines)"
+  },
+  {
+    "rank": 10,
+    "item_id": 5923,
+    "item_name": "The Hanging Judge: A Novel (The Judge Norcross Novels)"
+  },
+  {
+    "rank": 11,
+    "item_id": 946,
+    "item_name": "Shelter (Book One): A Mickey Bolitar Novel"
+  },
+  {
+    "rank": 12,
+    "item_id": 2001,
+    "item_name": "Started Early, Took My Dog: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 1063,
+    "item_name": "Faithful Place"
+  },
+  {
+    "rank": 14,
+    "item_id": 1842,
+    "item_name": "Dead Scared (Lacey Flint Novels)"
+  },
+  {
+    "rank": 15,
+    "item_id": 1701,
+    "item_name": "The Last Child"
+  },
+  {
+    "rank": 16,
+    "item_id": 510,
+    "item_name": "Wishin' and Hopin': A Christmas Story"
+  },
+  {
+    "rank": 17,
+    "item_id": 1861,
+    "item_name": "The Beautiful Mystery: A Chief Inspector Gamache Novel"
+  },
+  {
+    "rank": 18,
+    "item_id": 5800,
+    "item_name": "The Silver Star: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_id": 4032,
+    "item_name": "Catch Me (Detective D. D. Warren)"
+  },
+  {
+    "rank": 20,
+    "item_id": 2002,
+    "item_name": "The Gods of Guilt (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 21,
+    "item_id": 1964,
+    "item_name": "Case Histories: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_id": 558,
+    "item_name": "Before I Go to Sleep: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_id": 4123,
+    "item_name": "This Is Where I Leave You: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_id": 501,
+    "item_name": "Labor Day: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_id": 3824,
+    "item_name": "The Unlikely Pilgrimage of Harold Fry: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Trouble with Mistletoe: A Heartbreaker Bay Novel"
+  },
+  {
+    "item_name": "Vicious (Sinners of Saint) (Volume 1)"
+  },
+  {
+    "item_name": "Darker: Fifty Shades Darker as Told by Christian (Fifty Shades of Grey Series)"
+  },
+  {
+    "item_name": "Oklahoma Christmas Blues: A Prequel to the McIntyre Men"
+  },
+  {
+    "item_name": "Ricochet Joe"
+  },
+  {
+    "item_name": "The Chemist"
+  },
+  {
+    "item_name": "At Any Price (Gaming the System) (Volume 1)"
+  },
+  {
+    "item_name": "At Any Turn (Gaming The System) (Volume 2)"
+  },
+  {
+    "item_name": "Big Man"
+  },
+  {
+    "item_name": "Get Lucky"
+  },
+  {
+    "item_name": "Seek"
+  },
+  {
+    "item_name": "Mystic Wolves, Books 1 &amp; 2: Accidentally Wolf ~ Book 1  His Perfect Wolf ~ Book 2 (Volume 1)"
+  },
+  {
+    "item_name": "Beard in Mind (Winston Brothers) (Volume 4)"
+  },
+  {
+    "item_name": "Craving (Steel Brothers Saga Book 1)"
+  },
+  {
+    "item_name": "Grizzly Cove, Volumes 1-3 (Tales of the Were)"
+  },
+  {
+    "item_name": "Single for the Sheikh: A Royal Billionaire Romance Novel (Curves for Sheikhs Series) (Volume 4)"
+  },
+  {
+    "item_name": "With This Man (A This Man Novel)"
+  },
+  {
+    "item_name": "Stuck-Up Suit (Cocky Bastard)"
+  },
+  {
+    "item_name": "Transcend (The Transcend Duet) (Volume 1)"
+  },
+  {
+    "item_name": "Badd Motherf*cker (Badd Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "Epoch (The Transcend Duet) (Volume 2)"
+  },
+  {
+    "item_name": "Real Deal"
+  },
+  {
+    "item_name": "Scarlet Stone"
+  },
+  {
+    "item_name": "Vandal (Ashes &amp; Embers) (Volume 2)"
+  },
+  {
+    "item_name": "Lukas (Ashes &amp; Embers) (Volume 3)"
+  },
+  {
+    "item_name": "Talon (Ashes &amp; Embers) (Volume 4)"
+  },
+  {
+    "item_name": "Loving Storm (Ashes &amp; Embers) (Volume 5)"
+  },
+  {
+    "item_name": "Bane (Sinners of Saint) (Volume 5)"
+  },
+  {
+    "item_name": "An Imperfect Heart"
+  },
+  {
+    "item_name": "His Banana"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Her Heart for the Asking"
+  },
+  {
+    "rank": 2,
+    "item_name": "Reaper's Property (Ellora's Cave Moderne)"
+  },
+  {
+    "rank": 3,
+    "item_name": "All I Want for Christmas is You"
+  },
+  {
+    "rank": 4,
+    "item_name": "Maid for Love (Gansett Island)"
+  },
+  {
+    "rank": 5,
+    "item_name": "From This Moment On (Sullivans)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Maid for the Billionaire: Ruth Cardello (Legacy Collection)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Game of Love (Love in Bloom: The Remingtons, Book 1) (Volume 10)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Christmas at Copper Mountain (Taming of the Sheenans) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Prejudice Meets Pride (Meet Your Match, book 1) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Rocky Mountain Heat (Six Pack Ranch) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Doctor's Secret Bride (Billionaire Brides of Granite Falls) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Wild Man (Dream Man)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Dare to Love"
+  },
+  {
+    "rank": 14,
+    "item_name": "Neanderthal Seeks Human: A Smart Romance (Knitting in the City) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Unexpected Gifts: Castle Mountain Lodge Series"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Doctor Wears A Stetson: The Diamondback Ranch Series"
+  },
+  {
+    "rank": 17,
+    "item_name": "Intertwine"
+  },
+  {
+    "rank": 18,
+    "item_name": "Romancing Rosalie - A Cascade Creek Christmas: A Ladies of Cascade Creek Novella (The Ladies of Cascade Creek) (Volume 5)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Mail Order Bride: Westward winds: A Clean Historical Mail Order Bride Romance (Montana Mail Order Brides) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Violet"
+  },
+  {
+    "rank": 21,
+    "item_name": "Almost A Bride (Wyoming Wildflowers)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Winters Heat (Titan)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Gamble (Colorado Mountain)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Lost-and-Found Groom (Place Called Home)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Ready to Fall"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Teacher's Billionaire: The Sherbrookes of Newport Book 1"
+  },
+  {
+    "rank": 27,
+    "item_name": "Forever His (Stolen Brides Series) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Duchess War (The Brothers Sinister) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Saving Grace: Book 2 in the Serve and Protect Series (Volume 2)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Father Found (The Daddy School, Book 1) (Harlequin Superromance, No 763)"
+  },
+  {
+    "rank": 31,
+    "item_name": "I Married a Billionaire (Contemporary Romance)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Protecting Caroline (SEAL of Protection) (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Nellie (The Brides of San Francisco) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Holding Out (Hawks Motorcycle Club Series) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Adam (Farraday Country) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Lady Luck (Colorado Mountain)"
+  },
+  {
+    "rank": 37,
+    "item_name": "When You're Ready (Ready Series) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Kiss Of Fire"
+  },
+  {
+    "rank": 39,
+    "item_name": "In Bed with a Highlander (The Highlanders)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Caught Up In Us (Caught Up In Love)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Edge of Courage: Red Team Book 1"
+  },
+  {
+    "rank": 42,
+    "item_name": "Capture (Seaside Pictures) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Santa Society"
+  },
+  {
+    "rank": 44,
+    "item_name": "Maid for Love (The McCarthys of Gansett Island Series) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Pretending He's Mine"
+  },
+  {
+    "rank": 46,
+    "item_name": "Married by Monday (Weekday Brides)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Nothing But Trouble (Domhan Books)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Misplaced Princess"
+  },
+  {
+    "rank": 49,
+    "item_name": "Jagged (Colorado Mountain)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Heart of the Hunter"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Stone Cold Bastards"
+  },
+  {
+    "item_name": "Department Zero"
+  },
+  {
+    "item_name": "The Hidden Twin eBook"
+  },
+  {
+    "item_name": "Avenged (Ruined)"
+  },
+  {
+    "item_name": "Ride Rough: A Raven Riders Novel"
+  },
+  {
+    "item_name": "The Black Witch: An Epic Fantasy Novel (The Black Witch Chronicles)"
+  },
+  {
+    "item_name": "Gilded Cage SIGNED / AUTOGRAPHED COPY"
+  },
+  {
+    "item_name": "Half-Off Ragnarok"
+  },
+  {
+    "item_name": "Chaos Choreography (InCryptid)"
+  },
+  {
+    "item_name": "Pocket Apocalypse (InCryptid)"
+  },
+  {
+    "item_name": "Magic For Nothing (InCryptid)"
+  },
+  {
+    "item_name": "Red Sister (Book of the Ancestor)"
+  },
+  {
+    "item_name": "Dark Breaks the Dawn"
+  },
+  {
+    "item_name": "Royal Bastards"
+  },
+  {
+    "item_name": "The Turn: The Hollows Begins with Death"
+  },
+  {
+    "item_name": "Traitor's Blade (The Greatcoats)"
+  },
+  {
+    "item_name": "Empire of Night (Age of Legends)"
+  },
+  {
+    "item_name": "Forever with You"
+  },
+  {
+    "item_name": "The Dastardly Miss Lizzie: An Electric Empire Novel"
+  },
+  {
+    "item_name": "Missing"
+  },
+  {
+    "item_name": "Empire of Dust (Blood of Gods and Royals)"
+  },
+  {
+    "item_name": "Legacy of Kings (Blood of Gods and Royals)"
+  },
+  {
+    "item_name": "Divided (Dualed Sequel)"
+  },
+  {
+    "item_name": "Creed"
+  },
+  {
+    "item_name": "Midnight Blue-Light Special (InCryptid)"
+  },
+  {
+    "item_name": "The Billionaires: A Billionaire Menage Romance (Lover's Triangle)"
+  },
+  {
+    "item_name": "Black City Saint"
+  },
+  {
+    "item_name": "Taming Him (Bishop Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "Blood Lust (The Sentinels)"
+  },
+  {
+    "item_name": "Congress of Secrets"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Take Me On"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Selection. by Kiera Cass"
+  },
+  {
+    "rank": 3,
+    "item_name": "Marked In Flesh (A Novel of the Others)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Magic Binds (Kate Daniels)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Vampire Academy: Spirit Bound (book 5)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Magic Shifts (Kate Daniels)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Fiery Heart: A Bloodlines Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Ruby Red (The Ruby Red Trilogy)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Hard Bitten (Chicagoland Vampires)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Dreams of Gods &amp; Monsters (Daughter of Smoke &amp; Bone)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Lover Avenged (Black Dagger Brotherhood, Book 7)"
+  },
+  {
+    "rank": 12,
+    "item_name": "City of Glass (The Mortal Instruments)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Talon (The Talon Saga)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Crash into You"
+  },
+  {
+    "rank": 15,
+    "item_name": "How to Run with a Naked Werewolf (Naked Werewolf Series)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Spectacle: A Novel (The Menagerie Series)"
+  },
+  {
+    "rank": 17,
+    "item_name": "With All My Soul (Soul Screamers)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Novice: Summoner: Book One (The Summoner Trilogy)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Etiquette &amp; Espionage (Finishing School)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Vault of Dreamers (The Vault of Dreamers Trilogy)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Mortal Instruments 5: City of Lost Souls"
+  },
+  {
+    "rank": 22,
+    "item_name": "Blaze (or Love in the Time of Supervillains)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Cursed"
+  },
+  {
+    "rank": 24,
+    "item_name": "Labyrinth Lost (Brooklyn Brujas)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Wicked Game"
+  },
+  {
+    "rank": 26,
+    "item_name": "Red Queen"
+  },
+  {
+    "rank": 27,
+    "item_name": "Ruin and Rising (The Shadow and Bone Trilogy)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Dark Triumph: His Fair Assassins, Book II"
+  },
+  {
+    "rank": 29,
+    "item_name": "Menagerie"
+  },
+  {
+    "rank": 30,
+    "item_name": "Scorched (Scorched series)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Bitter Kingdom (Girl of Fire and Thorns)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Confessions of an Angry Girl"
+  },
+  {
+    "rank": 33,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 34,
+    "item_name": "Steel's Edge (The Edge, Book 4)"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Midsummer's Nightmare"
+  },
+  {
+    "rank": 36,
+    "item_name": "Once a Witch"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Court of Wings and Ruin (A Court of Thorns and Roses)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Beautiful Ashes (Broken Destiny)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Hex Hall (A Hex Hall Novel)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Once Burned (Night Prince, Book 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "To All the Boys I've Loved Before"
+  },
+  {
+    "rank": 42,
+    "item_name": "Ghost Town (Morganville Vampires, Book 9)"
+  },
+  {
+    "rank": 43,
+    "item_name": "My Soul to Save (Soul Screamers Book 2)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Dark Lover (Black Dagger Brotherhood, Book 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Under the Gun (Underworld Detective Agency)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Requiem (Delirium Trilogy)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Wild Things (Chicagoland Vampires)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Dark Debt (Chicagoland Vampires)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Shadow Study (Study Series)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Hysteria"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

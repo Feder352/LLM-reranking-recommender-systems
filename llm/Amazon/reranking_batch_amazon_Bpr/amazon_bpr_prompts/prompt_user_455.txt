@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "On the origin of species by means of natural selection,: Or, The preservation of favoured races in the struggle for life"
+  },
+  {
+    "item_name": "The Merry Wives of Windsor (The Pelican Shakespeare)"
+  },
+  {
+    "item_name": "The Problems of Philosophy"
+  },
+  {
+    "item_name": "The Adventures of Sherlock Holmes (Collins Classics)"
+  },
+  {
+    "item_name": "The Complete Sherlock Holmes (Volume One)"
+  },
+  {
+    "item_name": "The Lost City of Z: A Tale of Deadly Obsession in the Amazon"
+  },
+  {
+    "item_name": "Erewhon (Penguin Classics)"
+  },
+  {
+    "item_name": "Erewhon: Or, over the Range"
+  },
+  {
+    "item_name": "The Twisted Claw (Hardy Boys #18)"
+  },
+  {
+    "item_name": "Eric Clapton: The Autobiography. by Eric Clapton with Christopher Simon Sykes"
+  },
+  {
+    "item_name": "Dune (Penguin Galaxy)"
+  },
+  {
+    "item_name": "Dune"
+  },
+  {
+    "item_name": "Dune"
+  },
+  {
+    "item_name": "Wind River"
+  },
+  {
+    "item_name": "Into the Wild"
+  },
+  {
+    "item_name": "The BFG"
+  },
+  {
+    "item_name": "The Red Thumb Mark (Dover Mystery Classics)"
+  },
+  {
+    "item_name": "City (Collier Nucleus Fantasy &amp; Science Fiction)"
+  },
+  {
+    "item_name": "Narziss and Goldmund"
+  },
+  {
+    "item_name": "A Farewell to Arms (A Scribner Classic)"
+  },
+  {
+    "item_name": "The Memoirs of Sherlock Holmes"
+  },
+  {
+    "item_name": "Little Fuzzy (Vintage Avon, F118)"
+  },
+  {
+    "item_name": "Dune Messiah"
+  },
+  {
+    "item_name": "Periodic Tales"
+  },
+  {
+    "item_name": "The Wizard of Oz"
+  },
+  {
+    "item_name": "How to Be a Stoic: Using Ancient Philosophy to Live a Modern Life"
+  },
+  {
+    "item_name": "The Stranger in the Woods: The Extraordinary Story of the Last True Hermit"
+  },
+  {
+    "item_name": "A Universe from Nothing: Why There Is Something Rather than Nothing"
+  },
+  {
+    "item_name": "James and the Giant Peach CD"
+  },
+  {
+    "item_name": "The King in Yellow and Other Horror Stories (Dover Mystery, Detective, &amp; Other Fiction)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 2,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 4,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 9,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 10,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 11,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 15,
+    "item_name": "Lord of the Flies"
+  },
+  {
+    "rank": 16,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Elements of Style, Third Edition"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 20,
+    "item_name": "One, Two, Buckle My Shoe"
+  },
+  {
+    "rank": 21,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Prince (Classics)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 26,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 27,
+    "item_name": "Of Mice and Men"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Connecticut Yankee in King Arthur's Court (Penguin Classics)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Turn of the Screw and Other Stories (Penguin modern classics)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Maltese Falcon (Picador Books)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 32,
+    "item_name": "The ADVENTURES OF PINOCCHIO (DELUXE EDITION)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Gulliver's Travels (Penguin Classics)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Dharma Bums"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Little Sister"
+  },
+  {
+    "rank": 37,
+    "item_name": "Starship Troopers"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Moonstone: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Amazing Adventures of Kavalier &amp; Clay"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Glass Menagerie (Modern Classics (Penguin))"
+  },
+  {
+    "rank": 41,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 42,
+    "item_name": "To Your Scattered Bodies Go (Riverworld Saga, Book 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "FOUNDATION- PB"
+  },
+  {
+    "rank": 44,
+    "item_name": "Confessions (Penguin Classics)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Elric Of Melnibone: Book One of the Elric Saga"
+  },
+  {
+    "rank": 46,
+    "item_name": "Of Human Bondage (Bantam Classics)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Murder on the Links"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Alchemist"
+  },
+  {
+    "rank": 50,
+    "item_name": "Power and the Glory"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

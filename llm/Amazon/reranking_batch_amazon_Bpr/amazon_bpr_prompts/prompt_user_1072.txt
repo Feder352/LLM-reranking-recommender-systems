@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Disappearances"
+  },
+  {
+    "item_name": "One for Sorrow: A Ghost Story"
+  },
+  {
+    "item_name": "Klutz LEGO Chain Reactions Craft Kit"
+  },
+  {
+    "item_name": "Family Game Night and Other Catastrophes"
+  },
+  {
+    "item_name": "Spectrum Critical Thinking for Math, Grade 8"
+  },
+  {
+    "item_name": "Lucy and the Rocket Dog"
+  },
+  {
+    "item_name": "Sparks of Light"
+  },
+  {
+    "item_name": "The Story Orchestra: The Nutcracker: Press the Note to Hear Tchaikovsky's Music"
+  },
+  {
+    "item_name": "NCLEX-PN Premier 2017 with 2 Practice Tests: Online + Book + Video Tutorials + Mobile (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "5 Steps to a 5: AP Biology 2018"
+  },
+  {
+    "item_name": "Pharm Phlash!: Pharmacology Flash Cards"
+  },
+  {
+    "item_name": "Dragon Captives (The Unwanteds Quests)"
+  },
+  {
+    "item_name": "Dirt"
+  },
+  {
+    "item_name": "Girling Up: How to Be Strong, Smart and Spectacular"
+  },
+  {
+    "item_name": "See You in the Cosmos"
+  },
+  {
+    "item_name": "Insignificant Events in the Life of a Cactus"
+  },
+  {
+    "item_name": "Strange Practice (A Dr. Greta Helsing Novel)"
+  },
+  {
+    "item_name": "The Confessions of Young Nero"
+  },
+  {
+    "item_name": "Incendiary: The Psychiatrist, the Mad Bomber, and the Invention of Criminal Profiling"
+  },
+  {
+    "item_name": "Soupy Leaves Home"
+  },
+  {
+    "item_name": "Grizzly Peak (Aaron's Wilderness)"
+  },
+  {
+    "item_name": "Sucktown, Alaska"
+  },
+  {
+    "item_name": "The Window"
+  },
+  {
+    "item_name": "Katherine's Bike Was Wonderfully Strange"
+  },
+  {
+    "item_name": "The Battle of Junk Mountain"
+  },
+  {
+    "item_name": "Singapore Math Practice, Level 5A, Grade 6"
+  },
+  {
+    "item_name": "Ghosts"
+  },
+  {
+    "item_name": "The Traitor's Game (The Traitor's Game, Book One)"
+  },
+  {
+    "item_name": "National Registry Paramedic Examination Strategies, Practice &amp; Review (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "Junior Ninja Champion: The Competition Begins"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Wild Ones"
+  },
+  {
+    "rank": 2,
+    "item_name": "Vivian Apple Needs a Miracle"
+  },
+  {
+    "rank": 3,
+    "item_name": "Railhead"
+  },
+  {
+    "rank": 4,
+    "item_name": "Space Case (Moon Base Alpha)"
+  },
+  {
+    "rank": 5,
+    "item_name": "An Inheritance of Ashes"
+  },
+  {
+    "rank": 6,
+    "item_name": "Gated"
+  },
+  {
+    "rank": 7,
+    "item_name": "Neo Parasyte m"
+  },
+  {
+    "rank": 8,
+    "item_name": "Dirt"
+  },
+  {
+    "rank": 9,
+    "item_name": "Empress Game: The Empress Game Trilogy Book 1"
+  },
+  {
+    "rank": 10,
+    "item_name": "Born of Illusion"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Scarecrow Princess"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Voyage of Lucy P. Simmons"
+  },
+  {
+    "rank": 13,
+    "item_name": "Book of the Dead (TombQuest, Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Glory (The Dust Chronicles)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Skateboard Party: The Carver Chronicles, Book Two"
+  },
+  {
+    "rank": 16,
+    "item_name": "Megaskull (Nobrow Serial Box)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Bed Hog"
+  },
+  {
+    "rank": 18,
+    "item_name": "You Know What You Have To Do"
+  },
+  {
+    "rank": 19,
+    "item_name": "My Lady Pocahontas"
+  },
+  {
+    "rank": 20,
+    "item_name": "Sway: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "Don't Touch"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Call"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Apprentice Witch"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Raven (A Jane Harper Horror Novel)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Breakout"
+  },
+  {
+    "rank": 26,
+    "item_name": "Ghost Time"
+  },
+  {
+    "rank": 27,
+    "item_name": "Scarlett Epstein Hates It Here"
+  },
+  {
+    "rank": 28,
+    "item_name": "Curiosity House: The Shrunken Head"
+  },
+  {
+    "rank": 29,
+    "item_name": "Willy Maykit in Space"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Silver Witch: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Ultimate Disney Party Book: 8 Fantastic Disney Themes"
+  },
+  {
+    "rank": 32,
+    "item_name": "Listening for Lucca"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Rosemary Spell"
+  },
+  {
+    "rank": 34,
+    "item_name": "Against the Country"
+  },
+  {
+    "rank": 35,
+    "item_name": "Vengeance Road"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Key to Extraordinary"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Horse and the Plains Indians: A Powerful Partnership"
+  },
+  {
+    "rank": 38,
+    "item_name": "The True Tale of the Monster Billy Dean"
+  },
+  {
+    "rank": 39,
+    "item_name": "Boston Jacky: Being an Account of the Further Adventures of Jacky Faber, Taking Care of Business (Bloody Jack Adventures)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Burn: The Rephaim Book IV"
+  },
+  {
+    "rank": 41,
+    "item_name": "The True Source of Healing: How the Ancient Tibetan Practice of Soul Retrieval Can Transform and Enrich Your Life"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Tick-Tock Man: Gadgets and Gears, Book 3"
+  },
+  {
+    "rank": 43,
+    "item_name": "Raising Kids Who Read: What Parents and Teachers Can Do"
+  },
+  {
+    "rank": 44,
+    "item_name": "Rise of the Earth Dragon: A Branches Book (Dragon Masters #1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Aunty Lee's Chilled Revenge: A Singaporean Mystery"
+  },
+  {
+    "rank": 46,
+    "item_name": "Poached (FunJungle)"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Bad Character: A novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Little Red Hot"
+  },
+  {
+    "rank": 49,
+    "item_name": "It Ain't So Awful, Falafel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Sister Bear: A Norse Tale"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

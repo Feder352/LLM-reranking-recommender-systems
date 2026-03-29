@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Barbed Wire Heart"
+  },
+  {
+    "item_name": "The Darling Dahlias and the Unlucky Clover"
+  },
+  {
+    "item_name": "The Broken Girls"
+  },
+  {
+    "item_name": "The Gone World"
+  },
+  {
+    "item_name": "The Women in the Castle: A Novel"
+  },
+  {
+    "item_name": "Tangerine: A Novel"
+  },
+  {
+    "item_name": "Munich"
+  },
+  {
+    "item_name": "The Indigo Girl: A Novel"
+  },
+  {
+    "item_name": "Look for Her: A Novel (Keene and Frohmann)"
+  },
+  {
+    "item_name": "A Wolf in the Woods: An Ozarks Mystery (Ozarks Mysteries)"
+  },
+  {
+    "item_name": "The Secret Life of Violet Grant"
+  },
+  {
+    "item_name": "The Innocents (A Quinn Colson Novel)"
+  },
+  {
+    "item_name": "The Cold Light of Dawn (The King's Greatest Enemy)"
+  },
+  {
+    "item_name": "The Cutting Edge (A Lincoln Rhyme Novel)"
+  },
+  {
+    "item_name": "Pendle Fire"
+  },
+  {
+    "item_name": "My Dear Hamilton: A Novel of Eliza Schuyler Hamilton"
+  },
+  {
+    "item_name": "The Lucky Ones"
+  },
+  {
+    "item_name": "Hank and Jim: The Fifty-Year Friendship of Henry Fonda and James Stewart"
+  },
+  {
+    "item_name": "Ecstasy: A Novel"
+  },
+  {
+    "item_name": "I Was Anastasia: A Novel"
+  },
+  {
+    "item_name": "The Forgotten Ones: A Novel"
+  },
+  {
+    "item_name": "Without Mercy: A Body Farm Novel"
+  },
+  {
+    "item_name": "The Secrets of Flight: A Novel"
+  },
+  {
+    "item_name": "Shattered Mirror: An Eve Duncan Novel"
+  },
+  {
+    "item_name": "Every Single Secret: A Novel"
+  },
+  {
+    "item_name": "The Fallen (Memory Man series)"
+  },
+  {
+    "item_name": "The Pharaoh Key (Gideon Crew)"
+  },
+  {
+    "item_name": "What My Sister Knew"
+  },
+  {
+    "item_name": "Double Blind: A Novel (Kendra Michaels)"
+  },
+  {
+    "item_name": "A Noise Downstairs: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Ink and Bone"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Passenger"
+  },
+  {
+    "rank": 3,
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Cop Town: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 7,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 8,
+    "item_name": "Six Years"
+  },
+  {
+    "rank": 9,
+    "item_name": "Find Her (A D.D. Warren and Flora Dane Novel)"
+  },
+  {
+    "rank": 10,
+    "item_name": "IQ (An IQ Novel)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Angels Burning"
+  },
+  {
+    "rank": 12,
+    "item_name": "That Darkness (A Gardiner and Renner Novel)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Ashley Bell"
+  },
+  {
+    "rank": 14,
+    "item_name": "Cherringham - Murder on Thames"
+  },
+  {
+    "rank": 15,
+    "item_name": "Black Widow: A Jack Parlabane Thriller"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Paper Magician"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "Eleventh Grave in Moonlight (Charley Davidson)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Whispering Room: A Jane Hawk Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Scam: A Fox and O'Hare Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "All Is Not Forgotten: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Child: The must-read Richard and Judy Book Club pick 2018"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Fifth Petal"
+  },
+  {
+    "rank": 25,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 26,
+    "item_name": "Liesmith: Book 1 of The Wyrd - Kindle edition"
+  },
+  {
+    "rank": 27,
+    "item_name": "Deadly Secrets: An absolutely gripping crime thriller (Detective Erika Foster) (Volume 6)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Every Dead Thing"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Missing Ones: An absolutely gripping thriller with a jaw-dropping twist (Detective Lottie Parker) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Widow"
+  },
+  {
+    "rank": 31,
+    "item_name": "Bellman &amp; Black"
+  },
+  {
+    "rank": 32,
+    "item_name": "Blind Justice: A William Monk Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Into the Water: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Secrets She Keeps: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Insidious Intent (Tony Hill and Carol Jordan)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Missing, Presumed: A Novel (Manon Bradshaw)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Lie With Me: the gripping Richard &amp; Judy bestseller - a perfect summer read [Paperback] [Dec 28, 2016] Sabine Durrant"
+  },
+  {
+    "rank": 38,
+    "item_name": "Memory Man (Amos Decker series)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Gathering Prey (A Prey Novel)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Holding"
+  },
+  {
+    "rank": 41,
+    "item_name": "Past Crimes: A Van Shaw Novel (Van Shaw Novels)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Wicked Charms: A Lizzy and Diesel Novel (Lizzy &amp; Diesel)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Sometimes I Lie: A psychological thriller with a killer twist you'll never forget"
+  },
+  {
+    "rank": 44,
+    "item_name": "That Night"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Lantern: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Last to Die: A Rizzoli &amp; Isles Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Moon Over Soho (Rivers of London)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Redemption Road: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Where Monsters Dwell (Odd Singsaker)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Insidious (An FBI Thriller)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Picture of Dorian Gray (Collins Classics)"
+  },
+  {
+    "item_name": "Paradise Lost and Paradise Regained (Collins Classics)"
+  },
+  {
+    "item_name": "The Razor's Edge"
+  },
+  {
+    "item_name": "The Razor's Edge"
+  },
+  {
+    "item_name": "Plato: The Republic (Penguin Books for Philosophy)"
+  },
+  {
+    "item_name": "The Gay Science: With a Prelude in Rhymes and an Appendix of Songs"
+  },
+  {
+    "item_name": "A Modest Proposal"
+  },
+  {
+    "item_name": "A Delusion Of Satan"
+  },
+  {
+    "item_name": "The Problems of Philosophy"
+  },
+  {
+    "item_name": "Confessions (Penguin Classics)"
+  },
+  {
+    "item_name": "Confessions (Penguin Classics)"
+  },
+  {
+    "item_name": "The Christian Theology Reader"
+  },
+  {
+    "item_name": "The Confessions of Saint Augustine"
+  },
+  {
+    "item_name": "The Confessions of Saint Augustine"
+  },
+  {
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "item_name": "Doctor Faustus and Other Plays (The World's Classics) (Pts. 1 &amp; 2)"
+  },
+  {
+    "item_name": "Atlas Shrugged"
+  },
+  {
+    "item_name": "Bilbo's Last Song"
+  },
+  {
+    "item_name": "Henri, le Chat Noir: The Existential Musings of an Angst-Filled Cat"
+  },
+  {
+    "item_name": "The Great Crash, 1929"
+  },
+  {
+    "item_name": "The Meaning of the Holy Qur'an"
+  },
+  {
+    "item_name": "The Scarlet Letter: A Romance (The Penguin American Library)"
+  },
+  {
+    "item_name": "Last Stop on Market Street"
+  },
+  {
+    "item_name": "Romeo and Juliet (Teen Classics)"
+  },
+  {
+    "item_name": "The Generals: Patton, MacArthur, Marshall, and the Winning of World War II"
+  },
+  {
+    "item_name": "The Art of the Hobbit"
+  },
+  {
+    "item_name": "Hobbit"
+  },
+  {
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 2,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 3,
+    "item_name": "1776 : America and Britain at War"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Prince (Classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 9,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 10,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 11,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Tortilla Flat"
+  },
+  {
+    "rank": 13,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 14,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 15,
+    "item_name": "FOUNDATION- PB"
+  },
+  {
+    "rank": 16,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 17,
+    "item_name": "Atlas Shrugged"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Hound of the Baskervilles (Puffin Classics)"
+  },
+  {
+    "rank": 22,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Iliad"
+  },
+  {
+    "rank": 24,
+    "item_name": "Liberal Fascism: The Secret History of the Left from Mussolini to the Politics of Meaning"
+  },
+  {
+    "rank": 25,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 26,
+    "item_name": "Undaunted Courage: Meriwether Lewis, Thomas Jefferson, And The Opening Of The American West"
+  },
+  {
+    "rank": 27,
+    "item_name": "Maltese Falcon (Picador Books)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The GUNS OF AUGUST"
+  },
+  {
+    "rank": 30,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 31,
+    "item_name": "Fabric Of Reality (Penguin Science)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Catechism Of The Catholic Church, Second Edition"
+  },
+  {
+    "rank": 33,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Lost World"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Winnie-the-Pooh"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 38,
+    "item_name": "Case Closed: Lee Harvey Oswald and the Assassination of JFK"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Universe in a Nutshell"
+  },
+  {
+    "rank": 40,
+    "item_name": "A Connecticut Yankee in King Arthur's Court (Penguin Classics)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Lord of the Flies"
+  },
+  {
+    "rank": 42,
+    "item_name": "What Jesus Meant"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Screwtape Letters: How a Senior Devil Instructs a Junior Devil in the Art of Temptation"
+  },
+  {
+    "rank": 44,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 45,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Communist Manifesto"
+  },
+  {
+    "rank": 47,
+    "item_name": "The ADVENTURES OF PINOCCHIO (DELUXE EDITION)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Appointment in Samarra (Vintage Classics)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Night"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

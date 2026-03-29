@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Patient H.M.: A Story of Memory, Madness, and Family Secrets"
+  },
+  {
+    "item_name": "The Serial Killer Books: 15 Famous Serial Killers True Crime Stories That Shocked The World (The Serial Killer Files) (Volume 1)"
+  },
+  {
+    "item_name": "The Secrets of My Life"
+  },
+  {
+    "item_name": "The Stranger in the Woods: The Extraordinary Story of the Last True Hermit"
+  },
+  {
+    "item_name": "Girl in the Dark: A Memoir"
+  },
+  {
+    "item_name": "The Wrong Man: The Final Verdict on the Dr. Sam Sheppard Murder Case (Ohio)"
+  },
+  {
+    "item_name": "Filthy Rich: A Powerful Billionaire, the Sex Scandal that Undid Him, and All the Justice that Money Can Buy - The Shocking True Story of Jeffrey Epstein"
+  },
+  {
+    "item_name": "Heads in Beds: A Reckless Memoir of Hotels, Hustles, and So-Called Hospitality"
+  },
+  {
+    "item_name": "Sick Girl"
+  },
+  {
+    "item_name": "You Don't Have to Say You Love Me: A Memoir"
+  },
+  {
+    "item_name": "Born a Crime"
+  },
+  {
+    "item_name": "True Crime Stories Volume 7: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "item_name": "Who Killed These Girls?: Cold Case: The Yogurt Shop Murders"
+  },
+  {
+    "item_name": "Sweetness: The Enigmatic Life of Walter Payton"
+  },
+  {
+    "item_name": "This Life I Live: One Man's Extraordinary, Ordinary Life and the Woman Who Changed It Forever"
+  },
+  {
+    "item_name": "Death Sentence (Signet)"
+  },
+  {
+    "item_name": "HILLBILLY ELEGY- PB"
+  },
+  {
+    "item_name": "Serpentine"
+  },
+  {
+    "item_name": "The Magnificent Medills: America's Royal Family of Journalism During a Century of Turbulent Splendor"
+  },
+  {
+    "item_name": "The Last Girl: My Story of Captivity, and My Fight Against the Islamic State"
+  },
+  {
+    "item_name": "I Am Nujood, Age 10 and Divorced"
+  },
+  {
+    "item_name": "The Toolbox Killers: A Deadly Rape, Torture &amp; Murder Duo (The Serial Killer Books) (Volume 3)"
+  },
+  {
+    "item_name": "Into the Wild"
+  },
+  {
+    "item_name": "An American Family: A Memoir of Hope and Sacrifice"
+  },
+  {
+    "item_name": "True Crime 2017: Homicide &amp; True Crime Stories of 2017 (Annual True Crime Anthology) (Volume 2)"
+  },
+  {
+    "item_name": "True Crime Stories Volume 9: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "item_name": "Fire and Fury: Inside the Trump White House"
+  },
+  {
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "item_name": "Nomadland: Surviving America in the Twenty-First Century"
+  },
+  {
+    "item_name": "Promise Me, Dad: A Year of Hope, Hardship, and Purpose"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 9335,
+    "item_name": "The Immortal Life of Henrietta Lacks"
+  },
+  {
+    "rank": 2,
+    "item_id": 584,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 3,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 4,
+    "item_id": 800,
+    "item_name": "Lost in Shangri-La: Escape from a Hidden World"
+  },
+  {
+    "rank": 5,
+    "item_id": 2351,
+    "item_name": "Gifted Hands: The Ben Carson Story"
+  },
+  {
+    "rank": 6,
+    "item_id": 1936,
+    "item_name": "On The Road CD Unabridged"
+  },
+  {
+    "rank": 7,
+    "item_id": 24831,
+    "item_name": "Evicted: Poverty and Profit in the American City"
+  },
+  {
+    "rank": 8,
+    "item_id": 19825,
+    "item_name": "The Stranger Beside Me: The Twentieth Anniversary Edition"
+  },
+  {
+    "rank": 9,
+    "item_id": 8566,
+    "item_name": "One Nation: What We Can All Do to Save America's Future"
+  },
+  {
+    "rank": 10,
+    "item_id": 45159,
+    "item_name": "Steve Jobs: A Biography"
+  },
+  {
+    "rank": 11,
+    "item_id": 11415,
+    "item_name": "America the Beautiful: Rediscovering What Made This Nation Great"
+  },
+  {
+    "rank": 12,
+    "item_id": 6277,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 13,
+    "item_id": 1210,
+    "item_name": "To Kill a Mockingbird"
+  },
+  {
+    "rank": 14,
+    "item_id": 6719,
+    "item_name": "Walden and Civil Disobedience (Penguin American Library)"
+  },
+  {
+    "rank": 15,
+    "item_id": 989,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 16,
+    "item_id": 75897,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 17,
+    "item_id": 7105,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 18,
+    "item_id": 36359,
+    "item_name": "Zealot: The Life and Times of Jesus of Nazareth"
+  },
+  {
+    "rank": 19,
+    "item_id": 987,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader Narrative of the Life of Frederick Douglas"
+  },
+  {
+    "rank": 20,
+    "item_id": 65253,
+    "item_name": "Grandma Gatewood39;s Walk - The Inspiring Story of the Woman Who Saved the Appalachian Trail"
+  },
+  {
+    "rank": 21,
+    "item_id": 39699,
+    "item_name": "Funeral in a Feminine Dress: Depravity Reborn as Virtue"
+  },
+  {
+    "rank": 22,
+    "item_id": 75568,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 23,
+    "item_id": 35259,
+    "item_name": "Have a Little Faith: A True Story"
+  },
+  {
+    "rank": 24,
+    "item_id": 8361,
+    "item_name": "Worthy Fights: A Memoir of Leadership in War and Peace"
+  },
+  {
+    "rank": 25,
+    "item_id": 74431,
+    "item_name": "The Worst Hard Time: The Untold Story of Those Who Survived the Great American Dust Bowl"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

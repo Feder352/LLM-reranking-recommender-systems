@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Abducted"
+  },
+  {
+    "item_name": "Murder at Monticello: A Homer Kelly Mystery (Homer Kelly Mysteries)"
+  },
+  {
+    "item_name": "Trust"
+  },
+  {
+    "item_name": "TRUST: A London gangland romantic suspense novel (The Bailey Boys Book 1) - Kindle edition"
+  },
+  {
+    "item_name": "Untamed (A Bad Boy Secret Baby Romance)"
+  },
+  {
+    "item_name": "Vengeance Be Mine (Vengeance Demons) (Volume 1)"
+  },
+  {
+    "item_name": "My Sister's Bones: A Novel of Suspense"
+  },
+  {
+    "item_name": "The Angel: Act I (An Isabella Rose Thriller)"
+  },
+  {
+    "item_name": "A Slice of Honeybear Pie (Bearly Legal) (Volume 1)"
+  },
+  {
+    "item_name": "Unraveled"
+  },
+  {
+    "item_name": "Wicked Torture"
+  },
+  {
+    "item_name": "Saving the Princess"
+  },
+  {
+    "item_name": "SEALs of Honor: Hawk (Volume 2)"
+  },
+  {
+    "item_name": "SEALs of Honor: Dane (Volume 3)"
+  },
+  {
+    "item_name": "Life II"
+  },
+  {
+    "item_name": "The Colony"
+  },
+  {
+    "item_name": "Blood Web"
+  },
+  {
+    "item_name": "Blood and Metal"
+  },
+  {
+    "item_name": "Fatal Mistake: A Novel (White Knights)"
+  },
+  {
+    "item_name": "Dying for Dinner Rolls (Georgia Coast Cozy Mysteries)"
+  },
+  {
+    "item_name": "I Know Lucy (A Fugitive Novel) (Volume 1)"
+  },
+  {
+    "item_name": "Lilac Lane (A Chesapeake Shores Novel)"
+  },
+  {
+    "item_name": "When We Met (Fool's Gold, Book 15)"
+  },
+  {
+    "item_name": "The Chance (Thunder Point)"
+  },
+  {
+    "item_name": "Kill Shot: A Novel (White Knights)"
+  },
+  {
+    "item_name": "The Coincidence Makers: A Novel"
+  },
+  {
+    "item_name": "The Untold Tales of Dolly Williamson: An Occult Steampunk Thriller: Prequel to The Guild Chronicles"
+  },
+  {
+    "item_name": "HIS FLING: A Small Town Romance (The Sumner Brothers) (Volume 3)"
+  },
+  {
+    "item_name": "The Shadow Priest"
+  },
+  {
+    "item_name": "The Ghost of Normandy Road: Haunted Minds Series Book One (A Supernatural Ghost Thriller) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Magic in the Stars: Unexpected Magic Book One (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Witch Who Cried Wolf: New Adult Paranormal Romance (Cry Wolf)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Beauty Bride"
+  },
+  {
+    "rank": 4,
+    "item_name": "Huntress Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Gypsy Hunted"
+  },
+  {
+    "rank": 6,
+    "item_name": "Brotherhood in Death: 42"
+  },
+  {
+    "rank": 7,
+    "item_name": "Justice Calling (The Twenty-Sided Sorceress) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Viscount's Christmas Temptation (Dukes of War) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Hanover House"
+  },
+  {
+    "rank": 10,
+    "item_name": "Accounting for Love: A Western Romance Novel (Long Valley) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Haunting of Hotel LaBelle"
+  },
+  {
+    "rank": 12,
+    "item_name": "Easy Innocence (Georgia Davis Mysteries)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Mountain Lion's Secretary: A Billionaire BBW Paranormal Shape Shifter Romance (Billionaire Security Shifters) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "When You Make It Home"
+  },
+  {
+    "rank": 15,
+    "item_name": "Dinosaur Lake"
+  },
+  {
+    "rank": 16,
+    "item_name": "Firelight (Darkest London)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Whiskey Rebellion: An Addison Holmes Mystery"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Governess Affair"
+  },
+  {
+    "rank": 19,
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "rank": 20,
+    "item_name": "Wolf at the Door (The Others, Book 9)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Heart of the Hunter"
+  },
+  {
+    "rank": 22,
+    "item_name": "Bitter Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Hell on Wheels (Black Knights Inc.)"
+  },
+  {
+    "rank": 24,
+    "item_name": "City of Gold (Matthew Connor Adventure Series)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Nights Embrace (Others of Seattle) (Volume 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Bait: The Angler Series-Book One"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Immortal Hunter: A Rogue Hunter Novel (Argeneau Vampire)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Saved by Alpha Bear"
+  },
+  {
+    "rank": 29,
+    "item_name": "Scottish Werebear: An Unexpected Affair (Scottish Werebears) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Chasing Rabbits (The Underground) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Murder on the SS Rosa (A Ginger God Mystery - a Prequel Novella)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Forever Road (Peri Jean Mace) (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Wicked Intentions (Maiden Lane)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Hidden Summit (A Virgin River Novel)"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Heartless Design (Secrets of the Zodiac) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Cade: Le Beau Brothers: New Orleans Billionaire Shifters with BBW mates Series (Le Beau Series) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Dream Doctor (The Dream Doctor Mysteries)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Holiday in Death[HOLIDAY IN DEATH][Prebound]"
+  },
+  {
+    "rank": 39,
+    "item_name": "Discern (Katon University) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Sapphires Are an Earl's Best Friend (Jewels of the Ton)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Wait For Me"
+  },
+  {
+    "rank": 42,
+    "item_name": "A Merciful Death (Mercy Kilpatrick)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Echoes in Death: An Eve Dallas Novel (In Death, Book 44)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Cat's Lair (Leopard People)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Body Reader (Detective Jude Fontaine Mysteries)"
+  },
+  {
+    "rank": 46,
+    "item_name": "It's Just a Little Crush: A Lizzie Hart Mystery (The Lizzie Hart Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Escape (A Survivors' Club Novel)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Just Evil: The Evil Trilogy Book One (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Loving the Marquess (Landing a Lord) (Volume 2)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Onyx Webb: Book One: Episodes 1, 2 &amp; 3"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

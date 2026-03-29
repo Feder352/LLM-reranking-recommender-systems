@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Spark: Book Two of the Sky Chasers"
+  },
+  {
+    "item_name": "City of Ghosts (Downside Ghosts)"
+  },
+  {
+    "item_name": "A Taste of Crimson (Crimson City)"
+  },
+  {
+    "item_name": "Heartbroken: A Novel"
+  },
+  {
+    "item_name": "Silver"
+  },
+  {
+    "item_name": "The Dead Path"
+  },
+  {
+    "item_name": "Summer Breeze: A Novel"
+  },
+  {
+    "item_name": "Midnight Exposure (The Midnight Series)"
+  },
+  {
+    "item_name": "Need You Now: A Novel"
+  },
+  {
+    "item_name": "Intimate Deception"
+  },
+  {
+    "item_name": "The Walking Dead: Rise of the Governor"
+  },
+  {
+    "item_name": "Wake (A Watersong Novel)"
+  },
+  {
+    "item_name": "Fated (Soul Seekers)"
+  },
+  {
+    "item_name": "Hemlock Grove: A Novel"
+  },
+  {
+    "item_name": "Fallen Masters"
+  },
+  {
+    "item_name": "The Darkest Lie (Lords of the Underworld)"
+  },
+  {
+    "item_name": "Below"
+  },
+  {
+    "item_name": "The Hiding Place: A Thriller"
+  },
+  {
+    "item_name": "My Soul to Save (Soul Screamers Book 2)"
+  },
+  {
+    "item_name": "Spin: A Novel"
+  },
+  {
+    "item_name": "Dead Is a Battlefield"
+  },
+  {
+    "item_name": "Tighter"
+  },
+  {
+    "item_name": "Dracula, My Love: The Secret Journals of Mina Harker"
+  },
+  {
+    "item_name": "Once in a Full Moon"
+  },
+  {
+    "item_name": "The Humming Room: A Novel Inspired by the Secret Garden"
+  },
+  {
+    "item_name": "Something Strange and Deadly (Something Strange and Deadly Trilogy)"
+  },
+  {
+    "item_name": "Switch"
+  },
+  {
+    "item_name": "The Truth of the Matter (The Homelanders)"
+  },
+  {
+    "item_name": "Archon: The Books of Raziel"
+  },
+  {
+    "item_name": "Slide"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Magic Study (Study Series)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 3,
+    "item_name": "Twelve Sharp (A Stephanie Plum Novel) (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 5,
+    "item_name": "I Am Number Four (Lorien Legacies, Book 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Poison Study"
+  },
+  {
+    "rank": 7,
+    "item_name": "I Can See You"
+  },
+  {
+    "rank": 8,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 9,
+    "item_name": "Monument 14: Sky on Fire (Monument 14 Series)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Inside Out"
+  },
+  {
+    "rank": 11,
+    "item_name": "Ruby Red (The Ruby Red Trilogy)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Touched by an Alien (Alien Novels)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Beastly"
+  },
+  {
+    "rank": 14,
+    "item_name": "Fearless Fourteen: A Stephanie Plum Novel (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Viscount Who Loved Me (Bridgertons)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Summoning"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Racketeer"
+  },
+  {
+    "rank": 19,
+    "item_name": "Kitty and the Midnight Hour (Kitty Norville)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Wither (Chemical Garden)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Holiday in Death[HOLIDAY IN DEATH][Prebound]"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Iron Daughter"
+  },
+  {
+    "rank": 23,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Seraphina"
+  },
+  {
+    "rank": 25,
+    "item_name": "My Soul to Keep (Soul Screamers, Book 3)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Finders Keepers: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "rank": 28,
+    "item_name": "My Soul to Take"
+  },
+  {
+    "rank": 29,
+    "item_name": "Sweet Venom"
+  },
+  {
+    "rank": 30,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Kitty and the Dead Man's Hand (Kitty Norville)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Dark Time: Mortal Path Book One (Mortal Path Series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Lies (Gone)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Wicked Lovely"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Winner's Curse (The Winner's Trilogy)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Wings"
+  },
+  {
+    "rank": 37,
+    "item_name": "Enchanted, Inc. (Katie Chandler, Book 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Dead in the Family (Sookie Stackhouse/True Blood, Book 10)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Forgotten"
+  },
+  {
+    "rank": 40,
+    "item_name": "Shelter (Book One): A Mickey Bolitar Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "Ghost Town (Morganville Vampires, Book 9)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Girl of Fire and Thorns"
+  },
+  {
+    "rank": 43,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 44,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Arson: Book One in The Arson Trilogy"
+  },
+  {
+    "rank": 46,
+    "item_name": "Low Red Moon"
+  },
+  {
+    "rank": 47,
+    "item_name": "Betrayed (A House of Night)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Undead and Unappreciated"
+  },
+  {
+    "rank": 49,
+    "item_name": "Nine Rules to Break When Romancing a Rake: Number 1 in series (Love by Numbers)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Etiquette &amp; Espionage: Finishing School, Book 1"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

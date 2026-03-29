@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Keynote Mastery: The Personal Journey of a Professional Speaker"
+  },
+  {
+    "item_name": "Selling Vision: The X-XY-Y Formula for Driving Results by Selling Change"
+  },
+  {
+    "item_name": "Drive!: Henry Ford, George Selden, and the Race to Invent the Auto Age"
+  },
+  {
+    "item_name": "Extreme Ownership: How U.S. Navy SEALs Lead and Win"
+  },
+  {
+    "item_name": "Modern Monopolies: What It Takes to Dominate the 21st Century Economy"
+  },
+  {
+    "item_name": "Age of Discovery: Navigating the Risks and Rewards of Our New Renaissance"
+  },
+  {
+    "item_name": "Invisible Influence"
+  },
+  {
+    "item_name": "Main Street Entrepreneur: Build Your Dream Company Doing What You Love Where You Live"
+  },
+  {
+    "item_name": "No Fears, No Excuses: What You Need to Do to Have a Great Career"
+  },
+  {
+    "item_name": "Speaking Well: Essential Skills for Speakers, Leaders, and Preachers"
+  },
+  {
+    "item_name": "The Closing of the Net"
+  },
+  {
+    "item_name": "The Business of Good: Social Entrepreneurship and the New Bottom Line"
+  },
+  {
+    "item_name": "The Inevitable: Understanding the 12 Technological Forces That Will Shape Our Future"
+  },
+  {
+    "item_name": "Stop Spending, Start Managing: Strategies to Transform Wasteful Habits"
+  },
+  {
+    "item_name": "The Brand Mapping Strategy: Design, Build, and Accelerate Your Brand"
+  },
+  {
+    "item_name": "Chaos Monkeys: Obscene Fortune and Random Failure in Silicon Valley"
+  },
+  {
+    "item_name": "That's Not How We Do It Here!: A Story about How Organizations Rise and Fall--and Can Rise Again"
+  },
+  {
+    "item_name": "The 12 Powers of a Marketing Leader: How to Succeed by Building Customer and Company Value"
+  },
+  {
+    "item_name": "Pre-Suasion: A Revolutionary Way to Influence and Persuade"
+  },
+  {
+    "item_name": "Skewed: A Critical Thinker's Guide to Media Bias"
+  },
+  {
+    "item_name": "The Content Trap: A Strategist's Guide to Digital Change"
+  },
+  {
+    "item_name": "The Attention Merchants: The Epic Scramble to Get Inside Our Heads"
+  },
+  {
+    "item_name": "Dynamic Communication: 27 Strategies to Grow, Lead, and Manage Your Business"
+  },
+  {
+    "item_name": "The Innovation Mentality: Six Strategies to Disrupt the Status Quo and Reinvent the Way We Work"
+  },
+  {
+    "item_name": "The Bully-Proof Workplace: Essential Strategies, Tips, and Scripts for Dealing with the Office Sociopath"
+  },
+  {
+    "item_name": "Reach Out: The Simple Strategy You Need to Expand Your Network and Increase Your Influence"
+  },
+  {
+    "item_name": "Killing Marketing: How Innovative Businesses Are Turning Marketing Cost Into Profit"
+  },
+  {
+    "item_name": "Six Billion Shoppers: The Companies Winning the Global E-Commerce Boom"
+  },
+  {
+    "item_name": "The War on Kids: How American Juvenile Justice Lost Its Way"
+  },
+  {
+    "item_name": "The Four: The Hidden DNA of Amazon, Apple, Facebook, and Google"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Integrity at Stake: Safeguarding Your Church from Financial Fraud"
+  },
+  {
+    "rank": 2,
+    "item_name": "End of Discussion: How the Left's Outrage Industry Shuts Down Debate, Manipulates Voters, and Makes America Less Free (and Fun)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 4,
+    "item_name": "Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy"
+  },
+  {
+    "rank": 5,
+    "item_name": "Rejection Proof: How I Beat Fear and Became Invincible Through 100 Days of Rejection"
+  },
+  {
+    "rank": 6,
+    "item_name": "Alibaba's World: How a Remarkable Chinese Company is Changing the Face of Global Business"
+  },
+  {
+    "rank": 7,
+    "item_name": "Economism: Bad Economics and the Rise of Inequality"
+  },
+  {
+    "rank": 8,
+    "item_name": "Superforecasting: The Art and Science of Prediction"
+  },
+  {
+    "rank": 9,
+    "item_name": "Christmas in the Crosshairs: Two Thousand Years of Denouncing and Defending the World's Most Celebrated Holiday"
+  },
+  {
+    "rank": 10,
+    "item_name": "The New Depression: The Breakdown of the Paper Money Economy"
+  },
+  {
+    "rank": 11,
+    "item_name": "Draw to Win: A Crash Course on How to Lead, Sell, and Innovate With Your Visual Mind"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Race Underground: Boston, New York, and the Incredible Rivalry That Built Americas First Subway"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Arab of the Future 2: A Childhood in the Middle East, 1984-1985: A Graphic Memoir"
+  },
+  {
+    "rank": 14,
+    "item_name": "Creative Schools: The Grassroots Revolution That's Transforming Education"
+  },
+  {
+    "rank": 15,
+    "item_name": "Chickenizing Farms and Food: How Industrial Meat Production Endangers Workers, Animals, and Consumers"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Upside of Irrationality: The Unexpected Benefits of Defying Logic"
+  },
+  {
+    "rank": 17,
+    "item_name": "Lonely Planet USA (Travel Guide)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Impossible to Ignore: Creating Memorable Content to Influence Decisions"
+  },
+  {
+    "rank": 19,
+    "item_name": "Real Artists Don't Starve: Timeless Strategies for Thriving in the New Creative Age"
+  },
+  {
+    "rank": 20,
+    "item_name": "Born Entrepreneurs, Born Leaders: How Your Genes Affect Your Work Life"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Power of Negative Thinking: An Unconventional Approach to Achieving Positive Results"
+  },
+  {
+    "rank": 22,
+    "item_name": "7 Deadly Scenarios: A Military Futurist Explores the Changing Face of War in the 21st Century"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Happiness Advantage: The Seven Principles of Positive Psychology That Fuel Success and Performance at Work"
+  },
+  {
+    "rank": 24,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 25,
+    "item_name": "Nonsense: The Power of Not Knowing"
+  },
+  {
+    "rank": 26,
+    "item_name": "Social: Why Our Brains Are Wired to Connect"
+  },
+  {
+    "rank": 27,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 28,
+    "item_name": "Made to Stick: Why Some Ideas Take Hold and Others Come Unstuck"
+  },
+  {
+    "rank": 29,
+    "item_name": "Inventology: How We Dream Up Things That Change the World"
+  },
+  {
+    "rank": 30,
+    "item_name": "Bird Dream: Adventures at the Extremes of Human Flight"
+  },
+  {
+    "rank": 31,
+    "item_name": "I Am Second: Real Stories. Changing Lives."
+  },
+  {
+    "rank": 32,
+    "item_name": "Decisive: How to Make Better Choices in Life and Work"
+  },
+  {
+    "rank": 33,
+    "item_name": "At the Existentialist Caf: Freedom, Being, and Apricot Cocktails"
+  },
+  {
+    "rank": 34,
+    "item_name": "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time"
+  },
+  {
+    "rank": 35,
+    "item_name": "DIY U: Edupunks, Edupreneurs, and the Coming Transformation of Higher Education"
+  },
+  {
+    "rank": 36,
+    "item_name": "In Wartime: Stories from Ukraine"
+  },
+  {
+    "rank": 37,
+    "item_name": "The More of Less"
+  },
+  {
+    "rank": 38,
+    "item_name": "Europe Entrapped"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Geography of Genius: A Search for the World's Most Creative Places from Ancient Athens to Silicon Valley"
+  },
+  {
+    "rank": 40,
+    "item_name": "Rework: Change The Way You Work Forever"
+  },
+  {
+    "rank": 41,
+    "item_name": "That's Not How We Do It Here!: A Story about How Organizations Rise and Fall--and Can Rise Again"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Defender: How the Legendary Black Newspaper Changed America"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Obstacle Is the Way: The Timeless Art of Turning Trials into Triumph"
+  },
+  {
+    "rank": 44,
+    "item_name": "Emotional Agility"
+  },
+  {
+    "rank": 45,
+    "item_name": "Black Flags: The Rise of ISIS"
+  },
+  {
+    "rank": 46,
+    "item_name": "Understanding the Big Picture of the Bible: A Guide to Reading the Bible Well"
+  },
+  {
+    "rank": 47,
+    "item_name": "Street Smarts: Beyond the Diploma"
+  },
+  {
+    "rank": 48,
+    "item_name": "Exorbitant Privilege: The Rise and Fall of the Dollar and the Future of the International Monetary System"
+  },
+  {
+    "rank": 49,
+    "item_name": "Unfinished Business: Women Men Work Family"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Complacent Class: The Self-Defeating Quest for the American Dream"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

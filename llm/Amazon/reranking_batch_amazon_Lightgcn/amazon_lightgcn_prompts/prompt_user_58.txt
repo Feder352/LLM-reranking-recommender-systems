@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Warlock: A Novel of Ancient Egypt (Novels of Ancient Egypt)"
+  },
+  {
+    "item_name": "Hotspur"
+  },
+  {
+    "item_name": "A Knight in Shining Armor"
+  },
+  {
+    "item_name": "Green Hills of Africa"
+  },
+  {
+    "item_name": "Ziggy Marley and Family Cookbook: Delicious Meals Made With Whole, Organic Ingredients from the Marley Kitchen"
+  },
+  {
+    "item_name": "River God, a Novel Of Ancient Egypt"
+  },
+  {
+    "item_name": "The Hobbit"
+  },
+  {
+    "item_name": "How to Win Friends and Influence People"
+  },
+  {
+    "item_name": "Hobbit"
+  },
+  {
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "item_name": "You Can't Spell America Without Me: The Really Tremendous Inside Story of My Fantastic First Year as President Donald J. Trump (A So-Called Parody)"
+  },
+  {
+    "item_name": "Shoot Like a Girl: One Woman's Dramatic Fight in Afghanistan and on the Home Front"
+  },
+  {
+    "item_name": "The Pioneer Woman: Black Heels to Tractor Wheels--A Love Story"
+  },
+  {
+    "item_name": "The Pioneer Woman Cooks: Food from My Frontier"
+  },
+  {
+    "item_name": "Make Your Bed: Little Things That Can Change Your Life...And Maybe the World"
+  },
+  {
+    "item_name": "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life"
+  },
+  {
+    "item_name": "Born to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never Seen"
+  },
+  {
+    "item_name": "Why Buddhism is True: The Science and Philosophy of Meditation and Enlightenment"
+  },
+  {
+    "item_name": "Driven to Distraction (Revised): Recognizing and Coping with Attention Deficit Disorder"
+  },
+  {
+    "item_name": "The Most Beautiful: My Life with Prince"
+  },
+  {
+    "item_name": "Zen in the Art of Archery"
+  },
+  {
+    "item_name": "Peak: Secrets from the New Science of Expertise"
+  },
+  {
+    "item_name": "Power of Positive Thinking for Young People"
+  },
+  {
+    "item_name": "Finding Ultra: Rejecting Middle Age, Becoming One of the World's Fittest Men, and Discovering Myself"
+  },
+  {
+    "item_name": "Declutter Your Mind: How to Stop Worrying, Relieve Anxiety, and Eliminate Negative Thinking"
+  },
+  {
+    "item_name": "OATrageous Oatmeals: Delicious &amp; Surprising Plant-Based Dishes From This Humble, Heart-Healthy Grain"
+  },
+  {
+    "item_name": "How Proust Can Change Your Life"
+  },
+  {
+    "item_name": "The Hero With a Thousand Faces (Paladin Books)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 584,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 2,
+    "item_id": 989,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 3,
+    "item_id": 6920,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 4,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 5,
+    "item_id": 75897,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 6,
+    "item_id": 7105,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 7,
+    "item_id": 76816,
+    "item_name": "By Marie Kondo The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing (Unabridged CD) [Audio CD]"
+  },
+  {
+    "rank": 8,
+    "item_id": 9963,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 9,
+    "item_id": 6815,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 10,
+    "item_id": 5638,
+    "item_name": "How to Win Friends and Influence People"
+  },
+  {
+    "rank": 11,
+    "item_id": 7043,
+    "item_name": "Outliers, The Story of Success"
+  },
+  {
+    "rank": 12,
+    "item_id": 45159,
+    "item_name": "Steve Jobs: A Biography"
+  },
+  {
+    "rank": 13,
+    "item_id": 6719,
+    "item_name": "Walden and Civil Disobedience (Penguin American Library)"
+  },
+  {
+    "rank": 14,
+    "item_id": 5646,
+    "item_name": "The Life-Changing Magic of Tidying: A simple, effective way to banish clutter forever"
+  },
+  {
+    "rank": 15,
+    "item_id": 10130,
+    "item_name": "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+  },
+  {
+    "rank": 16,
+    "item_id": 2715,
+    "item_name": "The Art of War: The New Translation (Harper Perennial Modern Classics)"
+  },
+  {
+    "rank": 17,
+    "item_id": 7004,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 18,
+    "item_id": 8767,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 19,
+    "item_id": 6721,
+    "item_name": "The Jungle (The Penguin American Library)"
+  },
+  {
+    "rank": 20,
+    "item_id": 1141,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 21,
+    "item_id": 16,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 22,
+    "item_id": 957,
+    "item_name": "Betty Crocker's New Cookbook: Everything You Need to Know to Cook (8th Ed.)"
+  },
+  {
+    "rank": 23,
+    "item_id": 9335,
+    "item_name": "The Immortal Life of Henrietta Lacks"
+  },
+  {
+    "rank": 24,
+    "item_id": 6993,
+    "item_name": "A New Earth"
+  },
+  {
+    "rank": 25,
+    "item_id": 601,
+    "item_name": "Frankenstein (Collins Classics)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

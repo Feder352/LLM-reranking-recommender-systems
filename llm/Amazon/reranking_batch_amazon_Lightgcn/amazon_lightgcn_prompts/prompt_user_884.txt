@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Until our last embrace (a Sharyn Howard mystery)"
+  },
+  {
+    "item_name": "Dune, Dock and a Dead Man: A Ravenwood Cove Cozy Mystery (Volume 2)"
+  },
+  {
+    "item_name": "Midnight Sacrifice (The Midnight Series)"
+  },
+  {
+    "item_name": "The Curse of Arundel Hall (The Yellow Cottage Vintage Mysteries) (Volume 2)"
+  },
+  {
+    "item_name": "Witch Chocolate Fudge (BEWITCHED BY CHOCOLATE Mysteries ~ Book 2) (Volume 2)"
+  },
+  {
+    "item_name": "Pancakes and Corpses: A Cozy Murder Mystery (Peridale Cafe Mystery)"
+  },
+  {
+    "item_name": "From Garden To Grave (The Leafy Hollow Mysteries)"
+  },
+  {
+    "item_name": "Fatal Frost (Dewberry Farm Mysteries)"
+  },
+  {
+    "item_name": "Nothing To Croak About (Silver Hollow Paranormal Cozy Mystery Series) (Volume 3)"
+  },
+  {
+    "item_name": "Abandon"
+  },
+  {
+    "item_name": "Life and Other Near-Death Experiences"
+  },
+  {
+    "item_name": "Paper, Scissors, Death: A Kiki Lowenstein Scrap-N-Craft Mystery"
+  },
+  {
+    "item_name": "Till Death Do Us Tart (Oxford Tearoom Mysteries ~ Book 4) (Volume 4)"
+  },
+  {
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "item_name": "The Lilac Bouquet"
+  },
+  {
+    "item_name": "A Witch Called Wanda (An iWitch Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "The Bigfoot Blunder (A Charlie Rhodes Cozy Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Barking up the Wrong Bakery (Happy Tails Dog Walking Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "The Postman Always Dies Twice (Movie Club Mysteries, Book 2) (Volume 2)"
+  },
+  {
+    "item_name": "Murder at Hartigan House: a cozy historical mystery (A Ginger Gold Mystery) (Volume 2)"
+  },
+  {
+    "item_name": "Mother's Little Helper (A Margie Peterson Mystery)"
+  },
+  {
+    "item_name": "Death Around the Bend (A Lady Hardcastle Mystery)"
+  },
+  {
+    "item_name": "That One May Smile"
+  },
+  {
+    "item_name": "The Woodcutter's Wife"
+  },
+  {
+    "item_name": "Bed and Breakfast and Murder (Fiona Fleming Cozy Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "Dead Man Talking: A Cozy Paranormal Mystery (The Happily Everlasting Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Witch's Heart (The One Part Witch Series) (Volume 1)"
+  },
+  {
+    "item_name": "Mistletoe Murder (Dewberry Farm Mysteries)"
+  },
+  {
+    "item_name": "Cookies and Scream (Baker Street Cozy Mysterys) (Volume 2)"
+  },
+  {
+    "item_name": "Scraps of Paper (Avalon Mystery)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 51248,
+    "item_name": "Louisiana Longshot: A Miss Fortune Mystery (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_id": 26171,
+    "item_name": "Trouble in Mudbug"
+  },
+  {
+    "rank": 3,
+    "item_id": 53386,
+    "item_name": "Innocent in Las Vegas: A Humorous Tiffany Black Mystery (Tiffany Black Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_id": 47892,
+    "item_name": "Maids of Misfortune: A Victorian San Francisco Mystery"
+  },
+  {
+    "rank": 5,
+    "item_id": 1588,
+    "item_name": "Kill the Competition"
+  },
+  {
+    "rank": 6,
+    "item_id": 54522,
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "rank": 7,
+    "item_id": 24184,
+    "item_name": "Play Dead"
+  },
+  {
+    "rank": 8,
+    "item_id": 52764,
+    "item_name": "Just Add Salt (Hetta Coffey Series) (Volume 2)"
+  },
+  {
+    "rank": 9,
+    "item_id": 39687,
+    "item_name": "Dog Collar Crime: Misadventures of a Frustrated Mob Princess (A Lucie Rizzo Mystery) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_id": 64964,
+    "item_name": "Desperate Housedogs: Pampered Pets Mystery Series, Book 1"
+  },
+  {
+    "rank": 11,
+    "item_id": 37540,
+    "item_name": "'Scuse Me While I Kill This Guy"
+  },
+  {
+    "rank": 12,
+    "item_id": 53458,
+    "item_name": "A Murder in Mount Moriah: a Reverend Lindsay Harding Mystery"
+  },
+  {
+    "rank": 13,
+    "item_id": 16567,
+    "item_name": "Murder on the Mind: A Jeff Resnick Mystery"
+  },
+  {
+    "rank": 14,
+    "item_id": 38556,
+    "item_name": "This Doesn't Happen In The Movies (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_id": 55320,
+    "item_name": "Haunted Hijinks (An Agnes Barton Paranormal Mystery) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_id": 38113,
+    "item_name": "Deadly Gamble: The First Charlie Parker Mystery"
+  },
+  {
+    "rank": 17,
+    "item_id": 37531,
+    "item_name": "Spying in High Heels"
+  },
+  {
+    "rank": 18,
+    "item_id": 70836,
+    "item_name": "The Housewife Assassin's Handbook (The Housewife Assassin Series) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_id": 24328,
+    "item_name": "Never Buried: A Leigh Koslow Mystery (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_id": 30507,
+    "item_name": "Pineapple Lies: A Pineapple Port Mystery: Book One (Pineapple Port Cozy Mystery)"
+  },
+  {
+    "rank": 21,
+    "item_id": 51712,
+    "item_name": "A Shot in the Bark: A Dog Park Mystery (Lia Anderson Dog Park Mysteries)"
+  },
+  {
+    "rank": 22,
+    "item_id": 49200,
+    "item_name": "Saints Preserve Us (Ronnie Lord Mystery)"
+  },
+  {
+    "rank": 23,
+    "item_id": 73831,
+    "item_name": "A Good Man Gone: A Mercy Watts Mystery (Mercy Watts Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_id": 28849,
+    "item_name": "Death By A HoneyBee (Josiah Reynolds Mystery 1)"
+  },
+  {
+    "rank": 25,
+    "item_id": 47893,
+    "item_name": "Foreclosed: A Mitzy Neuhaus Mystery"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "My First Handy Bible"
+  },
+  {
+    "item_name": "But What If We're Wrong?: Thinking About the Present As If It Were the Past"
+  },
+  {
+    "item_name": "The Sandman Vol. 8: World's End"
+  },
+  {
+    "item_name": "The Monster at the End of This Book"
+  },
+  {
+    "item_name": "Kaptara Volume 1: Fear Not, Tiny Alien (Kaptara Tp)"
+  },
+  {
+    "item_name": "Nemo: Heart of Ice"
+  },
+  {
+    "item_name": "Briggs Land Volume 1: State of Grace"
+  },
+  {
+    "item_name": "World War Hulk - Warbound"
+  },
+  {
+    "item_name": "Imperial Life in The Emerald City: Inside Iraq's Green Zone"
+  },
+  {
+    "item_name": "Appleseed Alpha"
+  },
+  {
+    "item_name": "Cave Carson Has a Cybernetic Eye Vol. 1: Going Underground (Young Animal)"
+  },
+  {
+    "item_name": "The Last Mughal: The Fall of a Dynasty, Delhi, 1857"
+  },
+  {
+    "item_name": "Shade the Changing Girl Vol. 1: Earth Girl Made Easy (Young Animal)"
+  },
+  {
+    "item_name": "Vampirina Ballerina"
+  },
+  {
+    "item_name": "Land of the Lustrous 1"
+  },
+  {
+    "item_name": "Supreme: Blue Rose"
+  },
+  {
+    "item_name": "Punisher MAX: Born"
+  },
+  {
+    "item_name": "Ragnarok Volume 1: Last God Standing"
+  },
+  {
+    "item_name": "Avengers Disassembled: Thor"
+  },
+  {
+    "item_name": "Aesop's Fables"
+  },
+  {
+    "item_name": "Aesop's Fables"
+  },
+  {
+    "item_name": "Fire and Fury: Inside the Trump White House"
+  },
+  {
+    "item_name": "Ghosts"
+  },
+  {
+    "item_name": "Uni the Unicorn"
+  },
+  {
+    "item_name": "Phoebe And Her Unicorn (Turtleback School &amp; Library Binding Edition) (Heavenly Nostrils Chronicle)"
+  },
+  {
+    "item_name": "The Great Race: The Story of the Chinese Zodiac"
+  },
+  {
+    "item_name": "Frau Faust 1"
+  },
+  {
+    "item_name": "Battle Angel Alita Mars Chronicle 1"
+  },
+  {
+    "item_name": "The Book With No Pictures"
+  },
+  {
+    "item_name": "Noah's Ark"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Spider-Man Noir"
+  },
+  {
+    "rank": 2,
+    "item_name": "Transmetropolitan, Vol. 1: Back on the Street"
+  },
+  {
+    "rank": 3,
+    "item_name": "The New Avengers, Vol. 3: Secrets And Lies"
+  },
+  {
+    "rank": 4,
+    "item_name": "Marvel 1602"
+  },
+  {
+    "rank": 5,
+    "item_name": "Batman: Hush - Volume One"
+  },
+  {
+    "rank": 6,
+    "item_name": "Daytripper"
+  },
+  {
+    "rank": 7,
+    "item_name": "Green Lantern: Blackest Night"
+  },
+  {
+    "rank": 8,
+    "item_name": "Lady in the Water"
+  },
+  {
+    "rank": 9,
+    "item_name": "Black Panther: A Nation Under Our Feet Book 1"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 11,
+    "item_name": "Ultimate Spider-Man Vol. 1: Power and Responsibility"
+  },
+  {
+    "rank": 12,
+    "item_name": "Fables, Vol. 11: War and Pieces"
+  },
+  {
+    "rank": 13,
+    "item_name": "Marvel Zombies"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Dame to Kill for (Sin City)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Batman/Superman/Wonder Woman - Trinity"
+  },
+  {
+    "rank": 16,
+    "item_name": "Trinity Vol. 1: Better Together (Rebirth) (Trinity: DC Universe Rebirth)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Batman: The Killing Joke"
+  },
+  {
+    "rank": 18,
+    "item_name": "Ball Peen Hammer"
+  },
+  {
+    "rank": 19,
+    "item_name": "Ultimate Comics Spider-Man Vol. 1: The World According to Peter Parker"
+  },
+  {
+    "rank": 20,
+    "item_name": "Sandman Preludes &amp; Nocturnes"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 22,
+    "item_name": "From Hell: Being a Melodrama in Sixteen Parts, Vol. 3"
+  },
+  {
+    "rank": 23,
+    "item_name": "Star Wars Volume 1: In the Shadow of Yavin"
+  },
+  {
+    "rank": 24,
+    "item_name": "All Star Superman (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Jack of Fables, Vol. 3: The Bad Prince"
+  },
+  {
+    "rank": 26,
+    "item_name": "Batman Vol. 1: The Court of Owls (The New 52) (Batman (DC Comics Paperback))"
+  },
+  {
+    "rank": 27,
+    "item_name": "Secret Invasion: The Infiltration"
+  },
+  {
+    "rank": 28,
+    "item_name": "Kurt Busiek's Astro City: The Tarnished Angel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Vision Vol. 2: Little Better Than a Beast"
+  },
+  {
+    "rank": 30,
+    "item_name": "Batman: No Man's Land"
+  },
+  {
+    "rank": 31,
+    "item_name": "Spider-Man Loves Mary Jane (v. 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Justice League, Vol. 2: The Villain's Journey (The New 52)"
+  },
+  {
+    "rank": 33,
+    "item_name": "American Born Chinese"
+  },
+  {
+    "rank": 34,
+    "item_name": "DAREDEVIL: YELLOW"
+  },
+  {
+    "rank": 35,
+    "item_name": "Batman : The Dark Knight Returns"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Arrival"
+  },
+  {
+    "rank": 37,
+    "item_name": "X-Men: Marvels"
+  },
+  {
+    "rank": 38,
+    "item_name": "Secret Origins Vol. 1 (The New 52)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Fray"
+  },
+  {
+    "rank": 40,
+    "item_name": "Saga, Vol. 2"
+  },
+  {
+    "rank": 41,
+    "item_name": "Fables Vol. 22: Farewell"
+  },
+  {
+    "rank": 42,
+    "item_name": "Jack of Fables Vol. 1: The (Nearly) Great Escape"
+  },
+  {
+    "rank": 43,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 44,
+    "item_name": "20,000 Leagues Under the Sea"
+  },
+  {
+    "rank": 45,
+    "item_name": "Spider-Man: The Gauntlet, Vol. 1 - Electro &amp; Sandman"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Private Eye"
+  },
+  {
+    "rank": 47,
+    "item_name": "Uncanny X-Men Volume 5: The Omega Mutant"
+  },
+  {
+    "rank": 48,
+    "item_name": "Deadpool Kills the Marvel Universe"
+  },
+  {
+    "rank": 49,
+    "item_name": "Ricky Ricotta's Mighty Robot (Astro-Activity Book O'Fun) by Pilkey, Dav (unknown Edition) [Paperback(2006)]"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Rocketeer: The Complete Deluxe Edition"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

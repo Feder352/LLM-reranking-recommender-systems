@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Money and Power: How Goldman Sachs Came to Rule the World"
+  },
+  {
+    "item_name": "Grand Pursuit: The Story of Economic Genius"
+  },
+  {
+    "item_name": "Endgame: The End of the Debt Supercycle and How It Changes Everything"
+  },
+  {
+    "item_name": "The Progress Principle: Using Small Wins to Ignite Joy, Engagement, and Creativity at Work"
+  },
+  {
+    "item_name": "The Greatest Salesman in the World (Part II)"
+  },
+  {
+    "item_name": "Finance and the Good Society"
+  },
+  {
+    "item_name": "The Information Diet: A Case for Conscious Consumption"
+  },
+  {
+    "item_name": "The Great A&amp;P and the Struggle for Small Business in America"
+  },
+  {
+    "item_name": "How Will You Measure Your Life?"
+  },
+  {
+    "item_name": "Click Millionaires: Work Less, Live More with an Internet Business You Love"
+  },
+  {
+    "item_name": "Reverse Innovation: Create Far From Home, Win Everywhere"
+  },
+  {
+    "item_name": "23 Things They Don't Tell You About Capitalism"
+  },
+  {
+    "item_name": "The Innovator's DNA: Mastering the Five Skills of Disruptive Innovators"
+  },
+  {
+    "item_name": "The Knockoff Economy: How Imitation Sparks Innovation"
+  },
+  {
+    "item_name": "Exorbitant Privilege: The Rise and Fall of the Dollar and the Future of the International Monetary System"
+  },
+  {
+    "item_name": "Strategy for Sustainability: A Business Manifesto"
+  },
+  {
+    "item_name": "Priceless: The Myth of Fair Value (and How to Take Advantage of It)"
+  },
+  {
+    "item_name": "The Challenger Sale: Taking Control of the Customer Conversation"
+  },
+  {
+    "item_name": "Wait: The Art and Science of Delay"
+  },
+  {
+    "item_name": "Practically Radical: Not-So-Crazy Ways to Transform Your Company, Shake Up Your Industry, and Challenge Yourself"
+  },
+  {
+    "item_name": "The Candidate: What It Takes to Win - and Hold - the White House"
+  },
+  {
+    "item_name": "Confidence Men: Wall Street, Washington, and the Education of a President"
+  },
+  {
+    "item_name": "Leaders Make the Future: Ten New Leadership Skills for an Uncertain World (BK Business)"
+  },
+  {
+    "item_name": "Positive Intelligence: Why Only 20% of Teams and Individuals Achieve Their True Potential AND HOW YOU CAN ACHIEVE YOURS"
+  },
+  {
+    "item_name": "One Big Thing: Discovering What You Were Born to Do"
+  },
+  {
+    "item_name": "The Darwin Economy: Liberty, Competition, and the Common Good"
+  },
+  {
+    "item_name": "Creating Innovators: The Making of Young People Who Will Change the World"
+  },
+  {
+    "item_name": "Platform: Get Noticed in a Noisy World"
+  },
+  {
+    "item_name": "Antifragile: Things That Gain from Disorder"
+  },
+  {
+    "item_name": "Lead with a Story: A Guide to Crafting Business Narratives That Captivate, Convince, and Inspire"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Rework: Change The Way You Work Forever"
+  },
+  {
+    "rank": 2,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 3,
+    "item_name": "Ultimate Leadership: Winning Execution Strategies for Your Situation"
+  },
+  {
+    "rank": 4,
+    "item_name": "How Full Is Your Bucket?: Positive Strategies for Work and Life"
+  },
+  {
+    "rank": 5,
+    "item_name": "Conscious Capitalism: Liberating the Heroic Spirit of Business"
+  },
+  {
+    "rank": 6,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 7,
+    "item_name": "Trick or Treatment: The Undeniable Facts about Alternative Medicine"
+  },
+  {
+    "rank": 8,
+    "item_name": "7 Deadly Scenarios: A Military Futurist Explores the Changing Face of War in the 21st Century"
+  },
+  {
+    "rank": 9,
+    "item_name": "The New Depression: The Breakdown of the Paper Money Economy"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 11,
+    "item_name": "Pre-Suasion: A Revolutionary Way to Influence and Persuade"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 13,
+    "item_name": "How Full Is Your Bucket?: Positive Strategies for Work and Life"
+  },
+  {
+    "rank": 14,
+    "item_name": "Ask and It Is Given: Learning to Manifest Your Desires"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Knack: How Street-Smart Entrepreneurs Learn to Handle Whatever Comes Up"
+  },
+  {
+    "rank": 16,
+    "item_name": "Leaders Eat Last: Why Some Teams Pull Together and Others Don't"
+  },
+  {
+    "rank": 17,
+    "item_name": "Nightly Business Report Presents Lasting Leadership: What You Can Learn from the Top 25 Business People of our Times"
+  },
+  {
+    "rank": 18,
+    "item_name": "Getting Beyond Better: How Social Entrepreneurship Works"
+  },
+  {
+    "rank": 19,
+    "item_name": "Please Stop Helping Us: How Liberals Make It Harder for Blacks to Succeed"
+  },
+  {
+    "rank": 20,
+    "item_name": "Superforecasting: The Art and Science of Prediction"
+  },
+  {
+    "rank": 21,
+    "item_name": "Made to Stick: Why Some Ideas Take Hold and Others Come Unstuck"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Medici Effect: What Elephants and Epidemics Can Teach Us About Innovation"
+  },
+  {
+    "rank": 23,
+    "item_name": "Do As I Say (Not As I Do): Profiles in Liberal Hypocrisy"
+  },
+  {
+    "rank": 24,
+    "item_name": "The 48 Laws of Power"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Secrets of Economic Indicators: Hidden Clues to Future Economic Trends and Investment Opportunities"
+  },
+  {
+    "rank": 26,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 27,
+    "item_name": "Big Coal: The Dirty Secret Behind America's Energy Future"
+  },
+  {
+    "rank": 28,
+    "item_name": "What Happy People Know: How the New Science of Happiness Can Change Your Life for the Better"
+  },
+  {
+    "rank": 29,
+    "item_name": "Talking to Crazy: How to Deal with the Irrational and Impossible People in Your Life"
+  },
+  {
+    "rank": 30,
+    "item_name": "The One Thing: The Surprisingly Simple Truth Behind Extraordinary Results"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  },
+  {
+    "rank": 32,
+    "item_name": "Lead with Humility: 12 Leadership Lessons from Pope Francis"
+  },
+  {
+    "rank": 33,
+    "item_name": "Welcome to Obamaland: I Have Seen Your Future and It Doesn't Work"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Happiness Advantage: The Seven Principles of Positive Psychology That Fuel Success and Performance at Work"
+  },
+  {
+    "rank": 35,
+    "item_name": "How the Mighty Fall CD: And Why Some Companies Never Give In"
+  },
+  {
+    "rank": 36,
+    "item_name": "Uncontrolled: The Surprising Payoff of Trial-and-Error for Business, Politics, and Society"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Warrior Diet"
+  },
+  {
+    "rank": 38,
+    "item_name": "Flat Tax Revolution: Using a Postcard to Abolish the IRS"
+  },
+  {
+    "rank": 39,
+    "item_name": "Ignore Everybody: And 39 Other Keys to Creativity"
+  },
+  {
+    "rank": 40,
+    "item_name": "The End of Oil: On the Edge of a Perilous New World"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Four Obsessions of an Extraordinary Executive: A Leadership Fable"
+  },
+  {
+    "rank": 42,
+    "item_name": "How Successful People Think: Change Your Thinking, Change Your Life"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Atomic Bazaar: The Rise of the Nuclear Poor"
+  },
+  {
+    "rank": 44,
+    "item_name": "Makers and Takers: How Wall Street Destroyed Main Street"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 46,
+    "item_name": "Courage and Consequence: My Life as a Conservative in the Fight"
+  },
+  {
+    "rank": 47,
+    "item_name": "Blackett's War: The Men Who Defeated the Nazi U-Boats and Brought Science to the Art of Warfare"
+  },
+  {
+    "rank": 48,
+    "item_name": "The 4-hour Workweek: Escape the 9-5, Live Anywhere and Join the New Rich"
+  },
+  {
+    "rank": 49,
+    "item_name": "Listen to Your Mother: Stand Up Straight: How Progressives Can Win"
+  },
+  {
+    "rank": 50,
+    "item_name": "True North: Discover Your Authentic Leadership"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

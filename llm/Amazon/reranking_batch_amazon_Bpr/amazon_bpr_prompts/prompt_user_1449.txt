@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "His Risk: The Amish of Hart County"
+  },
+  {
+    "item_name": "If I Live (If I Run Series)"
+  },
+  {
+    "item_name": "Fugitive Spy (Love Inspired Suspense)"
+  },
+  {
+    "item_name": "The Innkeeper's Daughter (Bow Street Runners Trilogy)"
+  },
+  {
+    "item_name": "Frontier Matchmaker Bride (Frontier Bachelors)"
+  },
+  {
+    "item_name": "The Heart's Appeal (London Beginnings)"
+  },
+  {
+    "item_name": "Lethal Licorice (An Amish Candy Shop Mystery)"
+  },
+  {
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "item_name": "I Will Not Fear: My Story of a Lifetime of Building Faith under Fire"
+  },
+  {
+    "item_name": "All This Time (Walker Family) (Volume 4)"
+  },
+  {
+    "item_name": "Crisis Shot (The Line of Duty)"
+  },
+  {
+    "item_name": "An Unexpected Amish Romance (The Amish Bachelors)"
+  },
+  {
+    "item_name": "Out of the Ordinary (Apart From the Crowd)"
+  },
+  {
+    "item_name": "Vanishing Point: A Nikki Boyd Novel"
+  },
+  {
+    "item_name": "My Daughter's Legacy (Cousins of the Dove)"
+  },
+  {
+    "item_name": "Isaiah's Daughter: A Novel of Prophets and Kings"
+  },
+  {
+    "item_name": "Beneath the Surface (Dive Team Investigations)"
+  },
+  {
+    "item_name": "Mission to Protect (Military K-9 Unit)"
+  },
+  {
+    "item_name": "Troubled Waters (Montana Rescue)"
+  },
+  {
+    "item_name": "The Lacemaker"
+  },
+  {
+    "item_name": "The Heart of an Agent (The Adirondack Pinkertons)"
+  },
+  {
+    "item_name": "A New Shade of Summer (Love in Lenox)"
+  },
+  {
+    "item_name": "The Secret Life of Sarah Hollenbeck"
+  },
+  {
+    "item_name": "Phoebe's Light (Nantucket Legacy)"
+  },
+  {
+    "item_name": "The Wedding Quilt Bride (Brides of Lost Creek)"
+  },
+  {
+    "item_name": "Light of Dawn (The Remnant)"
+  },
+  {
+    "item_name": "Just the Way You Are (A Pleasant Gap Romance) (Volume 1)"
+  },
+  {
+    "item_name": "The Rancher's Secret Child (Bluebonnet Springs)"
+  },
+  {
+    "item_name": "My Unexpected Hope (The Fairfield)"
+  },
+  {
+    "item_name": "Reckoning at Gossamer Pond"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Through Waters Deep (Waves of Freedom)"
+  },
+  {
+    "rank": 2,
+    "item_name": "A Bride at Last"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Sweet Misfortune: A Novel (Virtues and Vices of the Old West)"
+  },
+  {
+    "rank": 4,
+    "item_name": "For Love and Honor"
+  },
+  {
+    "rank": 5,
+    "item_name": "Counting on a Cowboy (A Four of Hearts Ranch Romance)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Beautiful Pretender (A Medieval Fairy Tale)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Tried and True (Wild at Heart) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Kissed by a Cowboy (A Four of Hearts Ranch Romance)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Drawing Fire (Cold Case Justice)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Gathering the Threads: A Novel (The Amish of Summer Grove)"
+  },
+  {
+    "rank": 11,
+    "item_name": "After a Fashion"
+  },
+  {
+    "rank": 12,
+    "item_name": "If I Run (If I Run Series)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Dear Mr. Knightley: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Vendetta (The Nikki Boyd Files)"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Place in His Heart: A Novel (The Southold Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "A Marriage in Middlebury"
+  },
+  {
+    "rank": 17,
+    "item_name": "Playing the Part"
+  },
+  {
+    "rank": 18,
+    "item_name": "A Most Inconvenient Marriage"
+  },
+  {
+    "rank": 19,
+    "item_name": "Irish Meadows (Courage to Dream)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Governess of Highland Hall: A Novel (Edwardian Brides)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Where Trust Lies (Return to the Canadian West)"
+  },
+  {
+    "rank": 22,
+    "item_name": "To Follow Her Heart: A Novel (The Southold Chronicles) (Volume 3)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Winter in Full Bloom"
+  },
+  {
+    "rank": 24,
+    "item_name": "Courageous (Valiant Hearts)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Talon: Combat Tracking Team (A Breed Apart)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Every Girl Gets Confused: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Shadows of the Past: A Novel (Logan Point) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Heart's Home (A Journey of the Heart)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Wedding Shop"
+  },
+  {
+    "rank": 30,
+    "item_name": "More Than Meets the Eye"
+  },
+  {
+    "rank": 31,
+    "item_name": "It Had to Be You (Christiansen Family)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Chasing Secrets (Elite Guardians)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Surprised by Love: A Novel (The Heart of San Francisco) (Volume 3)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Dance: A Novel (The Restoration Series)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Rachel: A Novel (Wives of the Patriarchs) (Volume 3)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 37,
+    "item_name": "Last Chance Hero: A Novel (A Place to Call Home)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Love's Rescue: A Novel (Keys of Promise)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Made to Last"
+  },
+  {
+    "rank": 40,
+    "item_name": "A Dream of Miracles (The Amish Wonders Series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Sincerely Yours: A Novella Collection"
+  },
+  {
+    "rank": 42,
+    "item_name": "And It Was Beautiful: Celebrating Life in the Midst of the Long Good-Bye"
+  },
+  {
+    "rank": 43,
+    "item_name": "Phoebe's Light (Nantucket Legacy)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Dangerous Passage: A Novel (Southern Crimes) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Not by Sight"
+  },
+  {
+    "rank": 46,
+    "item_name": "Annie's Stories (Ellis Island)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Lost Heiress (Ladies of the Manor)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Justice Buried"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Methuselah Project: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "A Light in the Window"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

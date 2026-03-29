@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Ring of Steel: Germany and Austria-Hungary in World War I"
+  },
+  {
+    "item_name": "Worthy Fights: A Memoir of Leadership in War and Peace"
+  },
+  {
+    "item_name": "The Return of George Washington: Uniting the States, 1783-1789"
+  },
+  {
+    "item_name": "Stalin: Paradoxes of Power, 1878-1928"
+  },
+  {
+    "item_name": "Stalin: Paradoxes of Power, 1878-1928"
+  },
+  {
+    "item_name": "Washington's Circle: The Creation of the President"
+  },
+  {
+    "item_name": "The Speechwriter: A Brief Education in Politics"
+  },
+  {
+    "item_name": "The Maisky Diaries: Red Ambassador to the Court of St James's, 1932-1943"
+  },
+  {
+    "item_name": "The German War: A Nation Under Arms, 1939-1945"
+  },
+  {
+    "item_name": "Custer's Trials: A Life on the Frontier of a New America"
+  },
+  {
+    "item_name": "No More Champagne: Churchill and His Money"
+  },
+  {
+    "item_name": "The First Congress: How James Madison, George Washington, and a Group of Extraordinary Men Invented the Government"
+  },
+  {
+    "item_name": "The Vanishing Velzquez: A 19th Century Bookseller's Obsession with a Lost Masterpiece"
+  },
+  {
+    "item_name": "The Last Days of Stalin"
+  },
+  {
+    "item_name": "The War That Forged a Nation: Why the Civil War Still Matters"
+  },
+  {
+    "item_name": "Lincolns Greatest Journey: Sixteen Days that Changed a Presidency, March 24  April 8, 1865"
+  },
+  {
+    "item_name": "American Ulysses: A Life of Ulysses S. Grant"
+  },
+  {
+    "item_name": "The Art of Rivalry: Four Friendships, Betrayals, and Breakthroughs in Modern Art"
+  },
+  {
+    "item_name": "The Word Detective: Searching for the Meaning of It All at the Oxford English Dictionary"
+  },
+  {
+    "item_name": "The Vanquished: Why the First World War Failed to End"
+  },
+  {
+    "item_name": "Rasputin: Faith, Power, and the Twilight of the Romanovs"
+  },
+  {
+    "item_name": "The Beautiful Country and the Middle Kingdom: America and China, 1776 to the Present"
+  },
+  {
+    "item_name": "The House of Truth: A Washington Political Salon and the Foundations of American Liberalism"
+  },
+  {
+    "item_name": "Jonathan Swift: The Reluctant Rebel"
+  },
+  {
+    "item_name": "Third Reich at War: How the Nazis Led Germany from Conquest to Disaster"
+  },
+  {
+    "item_name": "William Tecumseh Sherman: In the Service of My Country: A Life"
+  },
+  {
+    "item_name": "Grant"
+  },
+  {
+    "item_name": "What You Did Not Tell: A Russian Past and the Journey Home"
+  },
+  {
+    "item_name": "The Three Lives of James Madison: Genius, Partisan, President"
+  },
+  {
+    "item_name": "Eisenhower: Becoming the Leader of the Free World"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3005,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 2,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 3,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 4,
+    "item_id": 811,
+    "item_name": "Black Hawk Down: A Story of Modern War"
+  },
+  {
+    "rank": 5,
+    "item_id": 996,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 6,
+    "item_id": 5272,
+    "item_name": "Freethinkers: A History of American Secularism"
+  },
+  {
+    "rank": 7,
+    "item_id": 1698,
+    "item_name": "The World Without Us"
+  },
+  {
+    "rank": 8,
+    "item_id": 674,
+    "item_name": "The Plague"
+  },
+  {
+    "rank": 9,
+    "item_id": 1297,
+    "item_name": "American Creation: Triumphs and Tragedies at the Founding of the Republic"
+  },
+  {
+    "rank": 10,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 11,
+    "item_id": 2588,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 12,
+    "item_id": 2621,
+    "item_name": "Ghost Soldiers: The Forgotten Epic Story of World War II's Most Dramatic Mission"
+  },
+  {
+    "rank": 13,
+    "item_id": 2073,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 14,
+    "item_id": 1122,
+    "item_name": "Drive: The Surprising Truth About What Motivates Us"
+  },
+  {
+    "rank": 15,
+    "item_id": 1509,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 16,
+    "item_id": 4714,
+    "item_name": "1491: New Revelations of the Americas Before Columbus"
+  },
+  {
+    "rank": 17,
+    "item_id": 5265,
+    "item_name": "James Madison (The American Presidents Series)"
+  },
+  {
+    "rank": 18,
+    "item_id": 18,
+    "item_name": "From Beirut to Jerusalem"
+  },
+  {
+    "rank": 19,
+    "item_id": 4564,
+    "item_name": "Lincoln at Gettysburg: The Words That Re-Made America"
+  },
+  {
+    "rank": 20,
+    "item_id": 68,
+    "item_name": "The Paradox of Choice: Why More Is Less"
+  },
+  {
+    "rank": 21,
+    "item_id": 487,
+    "item_name": "Game Change: Obama and the Clintons, McCain and Palin, and the Race of a Lifetime"
+  },
+  {
+    "rank": 22,
+    "item_id": 1476,
+    "item_name": "Going Clear: Scientology, Hollywood, and the Prison of Belief"
+  },
+  {
+    "rank": 23,
+    "item_id": 1503,
+    "item_name": "War of the Worldviews: Science Vs. Spirituality"
+  },
+  {
+    "rank": 24,
+    "item_id": 1372,
+    "item_name": "Imperial Life in The Emerald City: Inside Iraq's Green Zone"
+  },
+  {
+    "rank": 25,
+    "item_id": 2067,
+    "item_name": "The Gift of Fear : Survival Signals That Protect Us from Violence"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

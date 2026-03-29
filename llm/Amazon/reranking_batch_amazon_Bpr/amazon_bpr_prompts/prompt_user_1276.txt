@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Only Thing (The Donnigans)"
+  },
+  {
+    "item_name": "Until There Was Us (Montgomery Brothers)"
+  },
+  {
+    "item_name": "Caught Up in a Cowboy (Cowboys of Creedence)"
+  },
+  {
+    "item_name": "Bro Code"
+  },
+  {
+    "item_name": "The Good Luck Sister: A Wildstone Novella"
+  },
+  {
+    "item_name": "Merciless (Playboys In Love)"
+  },
+  {
+    "item_name": "An Imperfect Heart"
+  },
+  {
+    "item_name": "Pucked Up (The Pucked Series) (Volume 2)"
+  },
+  {
+    "item_name": "Skystone Canyon (Iron Feather Brothers) (Volume 2)"
+  },
+  {
+    "item_name": "Breathe (Rosewood Bay) (Volume 2)"
+  },
+  {
+    "item_name": "Screwed"
+  },
+  {
+    "item_name": "I Flipping Love You"
+  },
+  {
+    "item_name": "Dead Girls"
+  },
+  {
+    "item_name": "Dirty Exes (Liars, Inc.)"
+  },
+  {
+    "item_name": "Cowboy SEAL Redemption (Navy SEAL Cowboys)"
+  },
+  {
+    "item_name": "More Than Words: A Love Story"
+  },
+  {
+    "item_name": "Mister Tonight"
+  },
+  {
+    "item_name": "Rainy Day Friends: A Novel"
+  },
+  {
+    "item_name": "The Date: An unputdownable psychological thriller with a breathtaking twist"
+  },
+  {
+    "item_name": "The Upside of Falling"
+  },
+  {
+    "item_name": "Devoted to Pleasure (A Devoted Lovers Novel)"
+  },
+  {
+    "item_name": "Cowboy Bold (Longhorn Canyon)"
+  },
+  {
+    "item_name": "The Real Deal: A Novel"
+  },
+  {
+    "item_name": "Baby Teeth: A Novel"
+  },
+  {
+    "item_name": "Believe Me: A Novel"
+  },
+  {
+    "item_name": "Cooper's Charm: A Novel"
+  },
+  {
+    "item_name": "After Nightfall"
+  },
+  {
+    "item_name": "The Other Woman: A Novel"
+  },
+  {
+    "item_name": "Not Her Daughter"
+  },
+  {
+    "item_name": "Tear Me Apart"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "One Snowy Night: A Heartbreaker Bay Christmas Novella"
+  },
+  {
+    "rank": 2,
+    "item_name": "Stealing Rose: A Novel (The Fowler Sisters)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Trouble with Mistletoe: A Heartbreaker Bay Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Billionaire Next Door (Billionaire Bad Boys)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Final Siege (Love Over Duty)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Max: A Cold Fury Hockey Novel (Carolina Cold Fury Hockey)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Emergency Attraction (Love Emergency)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Run to You (Risking It All)"
+  },
+  {
+    "rank": 9,
+    "item_name": "A Millionaire at Midnight"
+  },
+  {
+    "rank": 10,
+    "item_name": "Undercover Attraction (The O'Malleys series)"
+  },
+  {
+    "rank": 11,
+    "item_name": "To Have and to Hold (Wedding Belles)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Rainy Day Friends: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Legend: A Sons of Texas Novel (The Sons of Texas)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Maybe This Love (Colorado Ice)"
+  },
+  {
+    "rank": 15,
+    "item_name": "On the Plus Side (A Perfect Fit)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Until You're Mine (Fighting for Her) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Now That It's You"
+  },
+  {
+    "rank": 18,
+    "item_name": "Damage Control: A Dirty Money Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Sugar Free: A Sugar Bowl Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "Lips Close to Mine (Wherever You Go) (Volume 2)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Sparking the Fire (Hot in Chicago)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Cuff Me (New York's Finest)"
+  },
+  {
+    "rank": 23,
+    "item_name": "One More Kiss (Shaughnessy Brothers: Band on the Run)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Feel Me: An O'Brien Family Novel (The O'Brien Family)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Taking What's His"
+  },
+  {
+    "rank": 26,
+    "item_name": "Twist: A Dive Bar Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Crossing Promises (Cross Creek)"
+  },
+  {
+    "rank": 28,
+    "item_name": "One More Promise (Shaughnessy Brothers: Band on the Run)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Sinner's Steel: Sinner's Tribe Motorcycle Club (The Sinner's Tribe Motorcycle Club)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Hero"
+  },
+  {
+    "rank": 31,
+    "item_name": "Misadventures of a Backup Bride (Misadventures Book 2)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Collision Point: A Brute Force Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Tailored for Trouble: A Romantic Comedy (Happy Pants)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Any Dream Will Do: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Truth About Him: A Novel (Everything I Left Unsaid)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The First Kiss of Spring: An Eternity Springs Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Charming Hannah (The Big Sky Series) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Wild Kisses (Wildwood)"
+  },
+  {
+    "rank": 39,
+    "item_name": "A Girl's Guide to Moving On: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Talk British to Me (Wherever You Go)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Sugar Rush: A Sugar Bowl Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "A Charmed Little Lie"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Finn Factor"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Secret Sister (Fairham Island)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Misadventures with a Rookie (Misadventures Book 10)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Inseverable: A Carolina Beach Novel (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Millionaire Under the Mistletoe"
+  },
+  {
+    "rank": 48,
+    "item_name": "Under Your Skin (A For Your Love Novel)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Hold Me Until Forever"
+  },
+  {
+    "rank": 50,
+    "item_name": "An Indecent Proposal (O'Malleys)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

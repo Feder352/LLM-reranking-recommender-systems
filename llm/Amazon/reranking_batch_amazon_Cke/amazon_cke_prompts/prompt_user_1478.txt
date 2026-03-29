@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Witch at Heart: A Jinx Hamilton Witch Mystery Book 1 (The Jinx Hamilton Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "The Shark (Forgotten Files)"
+  },
+  {
+    "item_name": "Silver Flame (Vampire Girl) (Volume 3)"
+  },
+  {
+    "item_name": "Everything We Keep: A Novel"
+  },
+  {
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "item_name": "The Dollmaker (Forgotten Files)"
+  },
+  {
+    "item_name": "Getting Wilde: Immortal Vegas, Book 1 (Volume 1)"
+  },
+  {
+    "item_name": "Huntress Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "item_name": "Blood Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "item_name": "Cold Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "item_name": "Fractured State"
+  },
+  {
+    "item_name": "Bitter Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "item_name": "Smoke"
+  },
+  {
+    "item_name": "Follow You Home"
+  },
+  {
+    "item_name": "Between the Devil and the Deep Blue Sea (A Niki Slobodian Novel, Book 1)"
+  },
+  {
+    "item_name": "Hunter's Trail (Scarlett Bernard)"
+  },
+  {
+    "item_name": "The Academy: A Short Story"
+  },
+  {
+    "item_name": "Dangerous Waters (The Barkley Sound Series)"
+  },
+  {
+    "item_name": "Hidden Blade (Soul Eater) (Volume 1)"
+  },
+  {
+    "item_name": "The Devil Was an Angel (A Niki Slobodian Novel"
+  },
+  {
+    "item_name": "Dead in the Water (Gemini) (Volume 1)"
+  },
+  {
+    "item_name": "The Immortal Circus (Cirque des Immortels)"
+  },
+  {
+    "item_name": "Off to Be the Wizard"
+  },
+  {
+    "item_name": "Repressed (Deadly Secrets)"
+  },
+  {
+    "item_name": "Moonlight Prince (Vampire Girl) (Volume 4)"
+  },
+  {
+    "item_name": "Murder on the Rocks (Gray Whale Inn Mysteries, No. 1)"
+  },
+  {
+    "item_name": "Dead and Berried (Gray Whale Inn Mystery)"
+  },
+  {
+    "item_name": "Berried to the Hilt (Gray Whale Inn Mystery)"
+  },
+  {
+    "item_name": "Morgue Drawer Four"
+  },
+  {
+    "item_name": "The Handmaid's Tale (Contemporary Classics)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3806,
+    "item_name": "Kitty Goes to Washington (Kitty Norville)"
+  },
+  {
+    "rank": 2,
+    "item_id": 2411,
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "rank": 3,
+    "item_id": 2285,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 4,
+    "item_id": 3804,
+    "item_name": "Kitty and the Midnight Hour (Kitty Norville)"
+  },
+  {
+    "rank": 5,
+    "item_id": 4064,
+    "item_name": "Heat Stroke (Weather Warden, Book 2)"
+  },
+  {
+    "rank": 6,
+    "item_id": 259,
+    "item_name": "A Fistful of Charms (The Hollows, Book 4)"
+  },
+  {
+    "rank": 7,
+    "item_id": 3800,
+    "item_name": "Kitty Takes a Holiday (Kitty Norville)"
+  },
+  {
+    "rank": 8,
+    "item_id": 3810,
+    "item_name": "Kitty and the Silver Bullet (Kitty Norville)"
+  },
+  {
+    "rank": 9,
+    "item_id": 2347,
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 10,
+    "item_id": 3493,
+    "item_name": "Deadlocked (Sookie Stackhouse/True Blood, Book 12)"
+  },
+  {
+    "rank": 11,
+    "item_id": 1869,
+    "item_name": "Stone of Tears (Sword of Truth, Book 2)"
+  },
+  {
+    "rank": 12,
+    "item_id": 3345,
+    "item_name": "The Laughing Corpse (Anita Blake Vampire Hunter)"
+  },
+  {
+    "rank": 13,
+    "item_id": 3669,
+    "item_name": "Kitty's House of Horrors (Kitty Norville)"
+  },
+  {
+    "rank": 14,
+    "item_id": 4079,
+    "item_name": "Skinwalker (Jane Yellowrock, Book 1)"
+  },
+  {
+    "rank": 15,
+    "item_id": 4188,
+    "item_name": "Micah (Anita Blake, Vampire Hunter, Book 13)"
+  },
+  {
+    "rank": 16,
+    "item_id": 4099,
+    "item_name": "Blood Cross (Jane Yellowrock, Book 2)"
+  },
+  {
+    "rank": 17,
+    "item_id": 4096,
+    "item_name": "Dhampir (Noble Dead)"
+  },
+  {
+    "rank": 18,
+    "item_id": 260,
+    "item_name": "For a Few Demons More (The Hollows, Book 5)"
+  },
+  {
+    "rank": 19,
+    "item_id": 4887,
+    "item_name": "Ashes of Honor"
+  },
+  {
+    "rank": 20,
+    "item_id": 3657,
+    "item_name": "Magic Bleeds (Kate Daniels)"
+  },
+  {
+    "rank": 21,
+    "item_id": 3633,
+    "item_name": "Hex and the City (Nightside, Book 4)"
+  },
+  {
+    "rank": 22,
+    "item_id": 1941,
+    "item_name": "Working for the Devil (Dante Valentine, Book 1)"
+  },
+  {
+    "rank": 23,
+    "item_id": 1552,
+    "item_name": "A Clash of Kings: A Song of Ice and Fire: Book Two"
+  },
+  {
+    "rank": 24,
+    "item_id": 376,
+    "item_name": "The Curse of Chalion (Chalion series)"
+  },
+  {
+    "rank": 25,
+    "item_id": 4097,
+    "item_name": "Blood Trade (Jane Yellowrock)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

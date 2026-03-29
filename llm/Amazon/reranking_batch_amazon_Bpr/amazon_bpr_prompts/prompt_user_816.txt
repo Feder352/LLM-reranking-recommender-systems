@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "China Rich Girlfriend: A Novel"
+  },
+  {
+    "item_name": "The Rocks: A Novel"
+  },
+  {
+    "item_name": "Music for Wartime: Stories"
+  },
+  {
+    "item_name": "Our Souls at Night (Vintage Contemporaries)"
+  },
+  {
+    "item_name": "The Sunlit Night"
+  },
+  {
+    "item_name": "Among the Ten Thousand Things: A Novel"
+  },
+  {
+    "item_name": "More Happy Than Not"
+  },
+  {
+    "item_name": "The Armada (The American Heritage Library)"
+  },
+  {
+    "item_name": "The Armada (Easton Press)"
+  },
+  {
+    "item_name": "A Little Life: A Novel"
+  },
+  {
+    "item_name": "BULL MOUNTAIN"
+  },
+  {
+    "item_name": "Modern Romance"
+  },
+  {
+    "item_name": "Because You'll Never Meet Me"
+  },
+  {
+    "item_name": "Fortune Smiles: Stories"
+  },
+  {
+    "item_name": "Another Day"
+  },
+  {
+    "item_name": "Days of Awe: A novel"
+  },
+  {
+    "item_name": "Days of Awe"
+  },
+  {
+    "item_name": "Miracles and Conundrums of the Secondary Planets"
+  },
+  {
+    "item_name": "Did You Ever Have a Family"
+  },
+  {
+    "item_name": "The Art of Crash Landing: A Novel (P.S. (Paperback))"
+  },
+  {
+    "item_name": "Bream Gives Me Hiccups"
+  },
+  {
+    "item_name": "The Last September"
+  },
+  {
+    "item_name": "Fates and Furies"
+  },
+  {
+    "item_name": "Still Life Las Vegas: A Novel"
+  },
+  {
+    "item_name": "After the Parade: A Novel"
+  },
+  {
+    "item_name": "The Rest of Us Just Live Here"
+  },
+  {
+    "item_name": "After You: A Novel (Me Before You Trilogy)"
+  },
+  {
+    "item_name": "Slade House: A Novel"
+  },
+  {
+    "item_name": "What Belongs to You: A Novel"
+  },
+  {
+    "item_name": "The Invisible Life of Ivan Isaenko: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Before the Fall: The year's best suspense novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 3,
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Dark Places"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 6,
+    "item_name": "Life After Life: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "Fourth of July Creek: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Racketeer"
+  },
+  {
+    "rank": 9,
+    "item_name": "Life Drawing: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Norwegian by Night"
+  },
+  {
+    "rank": 11,
+    "item_name": "Caribou Island: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "Don't You Cry"
+  },
+  {
+    "rank": 13,
+    "item_name": "Afterwards"
+  },
+  {
+    "rank": 14,
+    "item_name": "Eileen: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Guest Room: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "Still Alice"
+  },
+  {
+    "rank": 17,
+    "item_name": "Pretty Girls"
+  },
+  {
+    "rank": 18,
+    "item_name": "A Man Called Ove (Thorndike Press Large Print Core Series)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Bossypants"
+  },
+  {
+    "rank": 20,
+    "item_name": "The couple next door."
+  },
+  {
+    "rank": 21,
+    "item_name": "Sharp Objects"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 23,
+    "item_name": "Mr. Penumbra's 24-Hour Bookstore: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Freedom"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Storyteller"
+  },
+  {
+    "rank": 26,
+    "item_name": "Water For Elephants"
+  },
+  {
+    "rank": 27,
+    "item_name": "Flora: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Close Your Eyes, Hold Hands (Vintage Contemporaries)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Everything, Everything"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Hour I First Believed"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Language of Flowers"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Shore"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Elegance of the Hedgehog"
+  },
+  {
+    "rank": 35,
+    "item_name": "Maine"
+  },
+  {
+    "rank": 36,
+    "item_name": "One Step Too Far: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Orange Is the New Black: My Year in a Women's Prison"
+  },
+  {
+    "rank": 38,
+    "item_name": "22/11/63"
+  },
+  {
+    "rank": 39,
+    "item_name": "Sisterland: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Paying Guests"
+  },
+  {
+    "rank": 41,
+    "item_name": "Hyacinth Girls: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Bees"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Deepest Secret"
+  },
+  {
+    "rank": 44,
+    "item_name": "Summer House with Swimming Pool: A Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "NOS4A2: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Death of Bees: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Fragile (Jones Cooper)"
+  },
+  {
+    "rank": 48,
+    "item_name": "My Absolute Darling: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Guest Room: A Novel - Kindle edition"
+  },
+  {
+    "rank": 50,
+    "item_name": "Etta &amp; Otto &amp; Russell &amp; James Ome"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Christmas in the Billionaire's Bed (The Kavanaghs of Silver Glen)"
+  },
+  {
+    "item_name": "Carrying the Lost Heir's Child (The Barrington Trilogy)"
+  },
+  {
+    "item_name": "Geared for the Grave (A Cycle Path Mystery)"
+  },
+  {
+    "item_name": "Love Me If You Dare: A Coral Cove Novel"
+  },
+  {
+    "item_name": "Rescue Me (Second Chance Ranch)"
+  },
+  {
+    "item_name": "Closer Than You Think (The Cincinnati Series)"
+  },
+  {
+    "item_name": "Still the One (An Animal Magnetism Novel)"
+  },
+  {
+    "item_name": "Bridged (Callahan &amp; McLane)"
+  },
+  {
+    "item_name": "Twins on the Way (The Kavanaghs of Silver Glen)"
+  },
+  {
+    "item_name": "No One Like You (Barefoot William Beach)"
+  },
+  {
+    "item_name": "Demise in Denim (A Consignment Shop Mystery)"
+  },
+  {
+    "item_name": "Wild Heat (Northern Fire)"
+  },
+  {
+    "item_name": "Minding Her Boss's Business (Dynasties: The Montoros)"
+  },
+  {
+    "item_name": "Pursued by the Rich Rancher (Diamonds in the Rough)"
+  },
+  {
+    "item_name": "All of Me: A Love Between the Bases Novel"
+  },
+  {
+    "item_name": "Spiraled (Callahan &amp; McLane)"
+  },
+  {
+    "item_name": "Pregnant by the Cowboy CEO (Diamonds in the Rough)"
+  },
+  {
+    "item_name": "Second Chance Summer (Turtleback School &amp; Library Binding Edition) (Cedar Ridge)"
+  },
+  {
+    "item_name": "Fire Me Up (A Pine Mountain Novel)"
+  },
+  {
+    "item_name": "Second Chance with the Billionaire (The Kavanaghs of Silver Glen)"
+  },
+  {
+    "item_name": "Light My Fire (Rock Royalty) (Volume 1)"
+  },
+  {
+    "item_name": "Running Wild"
+  },
+  {
+    "item_name": "Courting the Cowboy Boss: An Anthology (Texas Cattleman's Club: Lies and Lullabies)"
+  },
+  {
+    "item_name": "Trapped with the Tycoon (Mafia Moguls)"
+  },
+  {
+    "item_name": "All I Want (An Animal Magnetism Novel)"
+  },
+  {
+    "item_name": "Take Me All the Way: A Coral Cove Novel"
+  },
+  {
+    "item_name": "My Kind of Wonderful (A Cedar Ridge Novel)"
+  },
+  {
+    "item_name": "Wrapped In You (The Monroes)"
+  },
+  {
+    "item_name": "Braking for Bodies (A Cycle Path Mystery)"
+  },
+  {
+    "item_name": "Alone in the Dark (The Cincinnati Series)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Surrender My Love (Haardrad Family)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Cordina's Royal Family: Bennett &amp; Camilla"
+  },
+  {
+    "rank": 3,
+    "item_name": "Every Waking Moment"
+  },
+  {
+    "rank": 4,
+    "item_name": "Almost Perfect (Fool's Gold, Book 2)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Lip Service (Lone Star Sisters, Book 2)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Standing in the Shadows (The McCloud Brothers, Book 2)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Wild Card (Elite Ops, Book 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Just One Kiss (Fool's Gold, Book 11)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Behind Closed Doors (The McCloud Brothers, Book 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Unspoken (Zebra Books)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Nine Rules to Break When Romancing a Rake: Number 1 in series (Love by Numbers)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Fool Me Twice (Rules for the Reckless)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Next to Die (Navy SEALs, Book 4)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Mistress: An Anthology (Bestselling Author Collection)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Immortals: The Crossing"
+  },
+  {
+    "rank": 16,
+    "item_name": "Blood Ties (The Searchers)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Left To Die (An Alvarez &amp; Pescoli Novel Book 1) - Kindle edition"
+  },
+  {
+    "rank": 18,
+    "item_name": "First Comes Marriage"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Night Like This"
+  },
+  {
+    "rank": 20,
+    "item_name": "Only Yours (Fool's Gold, Book 5)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Nicholas: The Lords of Satyr"
+  },
+  {
+    "rank": 22,
+    "item_name": "Operation Sheba: A Super Agent Novel (Super Agent Series) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Never Seduce a Scot: The Montgomerys and Armstrongs"
+  },
+  {
+    "rank": 24,
+    "item_name": "Hot Item (Hot Zone, Book 3)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Maiden and the Monster"
+  },
+  {
+    "rank": 26,
+    "item_name": "Last Man Standing (Black Ops, Inc)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Secret Sisters"
+  },
+  {
+    "rank": 28,
+    "item_name": "Second Hand: A Tucker Springs Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Shadow Dance: A Novel (Buchanan-Renard)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Smooth Talking Stranger"
+  },
+  {
+    "rank": 31,
+    "item_name": "Blue-Eyed Devil: A Novel (The Travis Family)"
+  },
+  {
+    "rank": 32,
+    "item_name": "When Darkness Comes (Guardians of Eternity, Book 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Cover of Night: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Devil's Bride (Cynster Novels)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Enticed by His Forgotten Lover"
+  },
+  {
+    "rank": 36,
+    "item_name": "L.A. Heat: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Somebody To Love (Hqn)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Other Guy's Bride"
+  },
+  {
+    "rank": 39,
+    "item_name": "You Can't Hide"
+  },
+  {
+    "rank": 40,
+    "item_name": "Only Enchanting (Survivors' Club)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Dark Room (Pete Montgomery)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Tristan's Temptation"
+  },
+  {
+    "rank": 43,
+    "item_name": "Redwood Bend (A Virgin River Novel)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Blood Stains (The Searchers)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Carolina Home (A Dare Island Novel)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Tigers and Devils"
+  },
+  {
+    "rank": 47,
+    "item_name": "In Seconds (Bulletproof)"
+  },
+  {
+    "rank": 48,
+    "item_name": "French Twist"
+  },
+  {
+    "rank": 49,
+    "item_name": "To Taste Temptation (The Legend of the Four Soldiers)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Deep in the Valley (Grace Valley Trilogy, Book 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

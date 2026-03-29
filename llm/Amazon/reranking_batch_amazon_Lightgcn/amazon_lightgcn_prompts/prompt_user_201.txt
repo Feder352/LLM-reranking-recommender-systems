@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Anatomy of a Murder"
+  },
+  {
+    "item_name": "The Grifters"
+  },
+  {
+    "item_name": "Little Wolves"
+  },
+  {
+    "item_name": "Tinkers"
+  },
+  {
+    "item_name": "A Tap on the Window"
+  },
+  {
+    "item_name": "Left Drowning"
+  },
+  {
+    "item_name": "The Son"
+  },
+  {
+    "item_name": "Theodore Rex"
+  },
+  {
+    "item_name": "Den of Thieves"
+  },
+  {
+    "item_name": "The Grass Is Singing"
+  },
+  {
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "item_name": "The Round House"
+  },
+  {
+    "item_name": "Nothing Gold Can Stay: Stories"
+  },
+  {
+    "item_name": "Aftermath: An Inspector Banks Novel (Inspector Banks Novels)"
+  },
+  {
+    "item_name": "Cold Is the Grave: An Inspector Banks Novel (Inspector Banks Novels)"
+  },
+  {
+    "item_name": "In a Dry Season: An Inspector Banks Novel (Inspector Banks Novels)"
+  },
+  {
+    "item_name": "Lolita: A Screenplay"
+  },
+  {
+    "item_name": "Cover Her Face (Fingerprint Books)"
+  },
+  {
+    "item_name": "The Gods of Guilt (A Lincoln Lawyer Novel)"
+  },
+  {
+    "item_name": "Maltese Falcon (Picador Books)"
+  },
+  {
+    "item_name": "Shake Hands Forever"
+  },
+  {
+    "item_name": "A Sleeping Life"
+  },
+  {
+    "item_name": "Enon: A Novel"
+  },
+  {
+    "item_name": "The Crocodile Bird: A Novel"
+  },
+  {
+    "item_name": "The Complete Calvin and Hobbes [Box Set]"
+  },
+  {
+    "item_name": "A Constellation of Vital Phenomena"
+  },
+  {
+    "item_name": "A Face in the Crowd"
+  },
+  {
+    "item_name": "Aftermath: A Novel of Suspense"
+  },
+  {
+    "item_name": "Exiles in the Garden"
+  },
+  {
+    "item_name": "Dark Passage"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 37,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 2,
+    "item_id": 43781,
+    "item_name": "The White Tiger: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_id": 653,
+    "item_name": "Tender Is the Night"
+  },
+  {
+    "rank": 4,
+    "item_id": 7085,
+    "item_name": "Modern Classics Scoop Centennial Edition (Penguin Modern Classics)"
+  },
+  {
+    "rank": 5,
+    "item_id": 75568,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 6,
+    "item_id": 222,
+    "item_name": "The Corrections"
+  },
+  {
+    "rank": 7,
+    "item_id": 6453,
+    "item_name": "The Things They Carried (Contemporary American Fiction)"
+  },
+  {
+    "rank": 8,
+    "item_id": 1940,
+    "item_name": "Double Indemnity CD"
+  },
+  {
+    "rank": 9,
+    "item_id": 5873,
+    "item_name": "Brighton Rock"
+  },
+  {
+    "rank": 10,
+    "item_id": 75903,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 11,
+    "item_id": 7,
+    "item_name": "For Whom the Bell Tolls"
+  },
+  {
+    "rank": 12,
+    "item_id": 18336,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 13,
+    "item_id": 6892,
+    "item_name": "Madame Bovary (Penguin Classics)"
+  },
+  {
+    "rank": 14,
+    "item_id": 20174,
+    "item_name": "The Lady in the Lake"
+  },
+  {
+    "rank": 15,
+    "item_id": 793,
+    "item_name": "Moby Dick (Collins Classics)"
+  },
+  {
+    "rank": 16,
+    "item_id": 18251,
+    "item_name": "The March: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_id": 8943,
+    "item_name": "Homage to Catalonia"
+  },
+  {
+    "rank": 18,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 19,
+    "item_id": 73895,
+    "item_name": "All the King's Men"
+  },
+  {
+    "rank": 20,
+    "item_id": 14480,
+    "item_name": "American Psycho"
+  },
+  {
+    "rank": 21,
+    "item_id": 915,
+    "item_name": "A Farewell to Arms (A Scribner Classic)"
+  },
+  {
+    "rank": 22,
+    "item_id": 1152,
+    "item_name": "The First Circle (English and Russian Edition)"
+  },
+  {
+    "rank": 23,
+    "item_id": 6330,
+    "item_name": "Ulysses"
+  },
+  {
+    "rank": 24,
+    "item_id": 74096,
+    "item_name": "The red and the black,"
+  },
+  {
+    "rank": 25,
+    "item_id": 229,
+    "item_name": "Doctor Zhivago"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

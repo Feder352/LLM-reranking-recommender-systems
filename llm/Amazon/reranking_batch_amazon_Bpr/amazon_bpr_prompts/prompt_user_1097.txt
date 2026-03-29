@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Real Deal: A Novel"
+  },
+  {
+    "item_name": "The Romanov Empress: A Novel of Tsarina Maria Feodorovna"
+  },
+  {
+    "item_name": "The Subway Girls: A Novel"
+  },
+  {
+    "item_name": "Baby Teeth: A Novel"
+  },
+  {
+    "item_name": "Double Blind: A Novel (Kendra Michaels)"
+  },
+  {
+    "item_name": "Believe Me: A Novel"
+  },
+  {
+    "item_name": "Girls' Night Out: A Novel"
+  },
+  {
+    "item_name": "A Noise Downstairs: A Novel"
+  },
+  {
+    "item_name": "Murder on the Marshes: A gripping murder mystery thriller that will keep you turning the pages (A Tara Thorpe Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "She Was the Quiet One: A Novel"
+  },
+  {
+    "item_name": "Bloody Sunday: A Thriller (A Dewey Andreas Novel)"
+  },
+  {
+    "item_name": "Deep Cover: A Love Over Duty Novel"
+  },
+  {
+    "item_name": "Our House"
+  },
+  {
+    "item_name": "Rust &amp; Stardust: A Novel"
+  },
+  {
+    "item_name": "Good Luck with That"
+  },
+  {
+    "item_name": "After Nightfall"
+  },
+  {
+    "item_name": "Jane Doe: A Novel"
+  },
+  {
+    "item_name": "The Sapphire Widow: A Novel"
+  },
+  {
+    "item_name": "The Coroner: A Novel"
+  },
+  {
+    "item_name": "Rush: A Novel"
+  },
+  {
+    "item_name": "The Other Woman: A Novel"
+  },
+  {
+    "item_name": "Dead Man Running (An Alex McKnight Thriller)"
+  },
+  {
+    "item_name": "Ohio"
+  },
+  {
+    "item_name": "Not Her Daughter"
+  },
+  {
+    "item_name": "Vox"
+  },
+  {
+    "item_name": "Tear Me Apart"
+  },
+  {
+    "item_name": "Dagger's Edge: A Brute Force Novel"
+  },
+  {
+    "item_name": "Sold on a Monday: A Novel"
+  },
+  {
+    "item_name": "When the Lights Go Out"
+  },
+  {
+    "item_name": "The Forbidden Door: A Jane Hawk Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THEIR LOST DAUGHTERS a gripping crime thriller with a huge twist"
+  },
+  {
+    "rank": 2,
+    "item_name": "Best Friends Forever"
+  },
+  {
+    "rank": 3,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Immortalists"
+  },
+  {
+    "rank": 5,
+    "item_name": "Dark Water: A gripping serial killer thriller (Detective Erika Foster) (Volume 3)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Passenger"
+  },
+  {
+    "rank": 8,
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "You Will Pay"
+  },
+  {
+    "rank": 10,
+    "item_name": "After She's Gone (West Coast Series)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Bring Her Home"
+  },
+  {
+    "rank": 12,
+    "item_name": "Play Dead: A gripping serial killer thriller"
+  },
+  {
+    "rank": 13,
+    "item_name": "Someone Is Watching: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Multiple Listings"
+  },
+  {
+    "rank": 15,
+    "item_name": "Lone Wolf (An F.B.I. K-9 Novel)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Friend Request: The most addictive psychological thriller you'll read this year"
+  },
+  {
+    "rank": 17,
+    "item_name": "A Merciful Death (Mercy Kilpatrick)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Never Let You Go: A heart-stopping psychological thriller you won't be able to put down"
+  },
+  {
+    "rank": 19,
+    "item_name": "While You Were Sleeping: A gripping psychological thriller you just can't put down"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Bones of You"
+  },
+  {
+    "rank": 21,
+    "item_name": "That Darkness (A Gardiner and Renner Novel)"
+  },
+  {
+    "rank": 22,
+    "item_name": "BEWARE THE PAST a gripping crime thriller with a huge twist"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Mistake: An unputdownable psychological thriller with a brilliant twist"
+  },
+  {
+    "rank": 24,
+    "item_name": "Let Me Lie"
+  },
+  {
+    "rank": 25,
+    "item_name": "Somebody I Used to Know"
+  },
+  {
+    "rank": 26,
+    "item_name": "Among the Ten Thousand Things: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Best of Adam Sharp [Paperback] [Feb 09, 2017] Graeme Simsion"
+  },
+  {
+    "rank": 28,
+    "item_name": "Playing with Fire"
+  },
+  {
+    "rank": 29,
+    "item_name": "Witness: A gripping psychological thriller with a surprising twist"
+  },
+  {
+    "rank": 30,
+    "item_name": "Swimsuit Body (The Cypress Bay Mysteries)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Ink and Bone"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Girls in the Garden: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Dead Souls: A gripping serial killer thriller with a shocking twist (Detective Kim Stone Crime Thriller Series) (Volume 6)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Every Note Played"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Good Widow: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Lie to Me: A gripping psychological thriller with a shocking twist"
+  },
+  {
+    "rank": 37,
+    "item_name": "Don't Wake Up: The most gripping first chapter you will ever read!"
+  },
+  {
+    "rank": 38,
+    "item_name": "2 A.M. at The Cat's Pajamas"
+  },
+  {
+    "rank": 39,
+    "item_name": "No One Knows: A Book Club Recommendation!"
+  },
+  {
+    "rank": 40,
+    "item_name": "Victoria"
+  },
+  {
+    "rank": 41,
+    "item_name": "As Night Falls: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "Watch Me Disappear: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Gift: The gripping psychological thriller everyone is talking about"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Book of Summer: A Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "Believe Me: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Child&#39;s Play (The Elle Harrison Series Book 3) eBook"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Almost Sisters: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Last One: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Blood Lines (Detective Kim Stone crime thriller series) (Volume 5)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Keep You Close"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

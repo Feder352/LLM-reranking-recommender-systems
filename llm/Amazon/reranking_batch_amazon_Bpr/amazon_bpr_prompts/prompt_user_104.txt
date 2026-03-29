@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Chinese Lessons: Five Classmates and the Story of the New China"
+  },
+  {
+    "item_name": "The Swarm: A Novel"
+  },
+  {
+    "item_name": "Life as We Do Not Know It: The NASA Search for (and Synthesis of) Alien Life"
+  },
+  {
+    "item_name": "Your Inner Fish: A Journey into the 3.5-Billion-Year History of the Human Body"
+  },
+  {
+    "item_name": "Gods Behaving Badly"
+  },
+  {
+    "item_name": "The Accidental Mind: How Brain Evolution Has Given Us Love, Memory, Dreams, and God"
+  },
+  {
+    "item_name": "The Best American Science Writing 2007"
+  },
+  {
+    "item_name": "Kluge: The Haphazard Construction of the Human Mind"
+  },
+  {
+    "item_name": "The Age of American Unreason"
+  },
+  {
+    "item_name": "The Brain That Changes Itself: Stories of Personal Triumph from the Frontiers of Brain Science"
+  },
+  {
+    "item_name": "Microcosm: E. Coli and the New Science of Life"
+  },
+  {
+    "item_name": "Turkish Gambit"
+  },
+  {
+    "item_name": "Breath: A Novel"
+  },
+  {
+    "item_name": "Genesis: The Scientific Quest for Life's Origin"
+  },
+  {
+    "item_name": "The Great Warming: Climate Change and the Rise and Fall of Civilizations"
+  },
+  {
+    "item_name": "The Winter Queen: A Novel (An Erast Fandorin Mystery)"
+  },
+  {
+    "item_name": "Captivity"
+  },
+  {
+    "item_name": "The Miracle at Speedy Motors (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "item_name": "Only a Theory: Evolution and the Battle for America's Soul"
+  },
+  {
+    "item_name": "The Bush Tragedy"
+  },
+  {
+    "item_name": "Murder on the Leviathan: A Novel (Erast Fandorin)"
+  },
+  {
+    "item_name": "Kristallnacht: Prelude to Destruction (Making History)"
+  },
+  {
+    "item_name": "The Race"
+  },
+  {
+    "item_name": "A Carrion Death: Introducing Detective Kubu (Detective Kubu Series)"
+  },
+  {
+    "item_name": "Musicophilia: Tales of Music and the Brain"
+  },
+  {
+    "item_name": "Irreligion: A Mathematician Explains Why the Arguments for God Just Don't Add Up"
+  },
+  {
+    "item_name": "Evolution: What the Fossils Say and Why It Matters"
+  },
+  {
+    "item_name": "There Is a God: How the World's Most Notorious Atheist Changed His Mind"
+  },
+  {
+    "item_name": "The Death of Achilles"
+  },
+  {
+    "item_name": "Nation"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "King Leopold's Ghost: A Story of Greed, Terror, and Heroism in Colonial Africa"
+  },
+  {
+    "rank": 2,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 3,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 4,
+    "item_name": "History of the Peloponnesian War"
+  },
+  {
+    "rank": 5,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 7,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 9,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 10,
+    "item_name": "Fabric Of Reality (Penguin Science)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 12,
+    "item_name": "Hitler's Pope : The Secret History of Pius XII"
+  },
+  {
+    "rank": 13,
+    "item_name": "Lies My Teacher Told Me: Everything Your American History Textbook Got Wrong"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 15,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 16,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 18,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 19,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 20,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 21,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 23,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 24,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 25,
+    "item_name": "Memoirs of a Geisha Uk"
+  },
+  {
+    "rank": 26,
+    "item_name": "Free Lunch: How the Wealthiest Americans Enrich Themselves at Government Expense (and StickYou with the Bill)"
+  },
+  {
+    "rank": 27,
+    "item_name": "What's the Matter with Kansas? How Conservatives Won the Heart of America"
+  },
+  {
+    "rank": 28,
+    "item_name": "Starship Troopers"
+  },
+  {
+    "rank": 29,
+    "item_name": "Light in August (Modern Library College Editions Series)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Castle (Modern Library, 388.1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Curse of Chalion (Chalion series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Worse Than Watergate: The Secret Presidency of George W. Bush"
+  },
+  {
+    "rank": 34,
+    "item_name": "Night"
+  },
+  {
+    "rank": 35,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 36,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 37,
+    "item_name": "GUNS, GERMS AND STEEL - A Short History of Everybody for the Last 13,000 Years"
+  },
+  {
+    "rank": 38,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 39,
+    "item_name": "A Distant Mirror: the Calamitous 14th Century"
+  },
+  {
+    "rank": 40,
+    "item_name": "Power and the Glory"
+  },
+  {
+    "rank": 41,
+    "item_name": "At Any Cost: How Al Gore Tried to Steal the Election"
+  },
+  {
+    "rank": 42,
+    "item_name": "Stupid White Men ...And Other Sorry Excuses for the State of the Nation!"
+  },
+  {
+    "rank": 43,
+    "item_name": "Case Closed: Lee Harvey Oswald and the Assassination of JFK"
+  },
+  {
+    "rank": 44,
+    "item_name": "Rush Limbaugh Is a Big Fat Idiot : And Other Observations"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Great Influenza: The Story of the Deadliest Pandemic in History"
+  },
+  {
+    "rank": 46,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 47,
+    "item_name": "Crime and Punishment (Classics)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Modern Classics Outsider (Penguin Modern Classics)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Punic Wars"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

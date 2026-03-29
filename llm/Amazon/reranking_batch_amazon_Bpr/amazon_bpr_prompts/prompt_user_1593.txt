@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Untouchable: An Unacceptables MC Standalone Romance (Volume 4)"
+  },
+  {
+    "item_name": "Turning up the Heat"
+  },
+  {
+    "item_name": "Have My Baby (Dirty DILFs) (Volume 1)"
+  },
+  {
+    "item_name": "Show Me the Way (Fight for Me) (Volume 1)"
+  },
+  {
+    "item_name": "Hot Pursuit (Black Knights Inc.)"
+  },
+  {
+    "item_name": "From This Moment"
+  },
+  {
+    "item_name": "Fox's Awakening (Enchanted Immortals) (Volume 2)"
+  },
+  {
+    "item_name": "Rain Dance (Tulsa Thunderbirds) (Volume 5)"
+  },
+  {
+    "item_name": "The 7: Lust (Volume 6)"
+  },
+  {
+    "item_name": "Wicked Envy (The Wicked Horse Vegas) (Volume 3)"
+  },
+  {
+    "item_name": "Miss Fix-It"
+  },
+  {
+    "item_name": "Crank (Gibson Boys) (Volume 1)"
+  },
+  {
+    "item_name": "Issued to the Bride One Marine (Brides of Chance Creek) (Volume 4)"
+  },
+  {
+    "item_name": "Hunt Me Down (Fight for Me)"
+  },
+  {
+    "item_name": "Unraveled"
+  },
+  {
+    "item_name": "Locked"
+  },
+  {
+    "item_name": "Wicked Choice (The Wicked Horse Vegas) (Volume 4)"
+  },
+  {
+    "item_name": "Neutral Zone (Portland Storm) (Volume 17)"
+  },
+  {
+    "item_name": "The Upside to Being Single"
+  },
+  {
+    "item_name": "Follow Me Back (Fight for Me) (Volume 2)"
+  },
+  {
+    "item_name": "Stud: A Smart, Sexy Romantic Comedy"
+  },
+  {
+    "item_name": "Chased"
+  },
+  {
+    "item_name": "Only You"
+  },
+  {
+    "item_name": "Craft"
+  },
+  {
+    "item_name": "Pretty as a Peach (The Sex &amp; Sweet Tea Series) (Volume 4)"
+  },
+  {
+    "item_name": "Breakaway (The Rule Book Collection)"
+  },
+  {
+    "item_name": "Licks"
+  },
+  {
+    "item_name": "One Wild Night: A Hollywood Chronicles Novel"
+  },
+  {
+    "item_name": "The Pecker Briefs: Ford and Viveka's Story (The Legal Affairs Series) (Volume 7)"
+  },
+  {
+    "item_name": "Lead Me Home (Fight for Me) (Volume 3)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "A Millionaire at Midnight"
+  },
+  {
+    "rank": 2,
+    "item_name": "Crossing Promises (Cross Creek)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Tucked Away (Hearts of Montana) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Now That It's You"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Millionaire's Revenge"
+  },
+  {
+    "rank": 6,
+    "item_name": "A Fool for You"
+  },
+  {
+    "rank": 7,
+    "item_name": "Cowboy Stole My Heart: A River Ranch Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Claiming Alexis (Ace Security)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Crossing Hearts (Cross Creek)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Christmas at Two Love Lane"
+  },
+  {
+    "rank": 11,
+    "item_name": "Stealing Rose: A Novel (The Fowler Sisters)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Legend: A Sons of Texas Novel (The Sons of Texas)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Starfish Moon (The Brides Of Blueberry Cove)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Going Down Hard (Billionaire Bad Boys) (Volume 3)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Rugged Texas Cowboy: Two Stories in One: Cowboy and the Captive, Cowboy and the Thief"
+  },
+  {
+    "rank": 16,
+    "item_name": "The First Kiss of Spring: An Eternity Springs Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Damage Control: A Dirty Money Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "Misadventures of a Backup Bride (Misadventures Book 2)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Close Contact (Body Armor)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Millionaire's Gamble"
+  },
+  {
+    "rank": 21,
+    "item_name": "Misadventures of a Good Wife (Misadventures Book 6)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Without Words"
+  },
+  {
+    "rank": 23,
+    "item_name": "Darkest Night: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Wrong Turn, Right Direction (The Bourbon Street Boys)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Final Siege (Love Over Duty)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Billionaire Next Door (Billionaire Bad Boys)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Emergency Attraction (Love Emergency)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Fearless (Rosewood Bay)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Dagger's Edge: A Brute Force Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Tailored for Trouble: A Romantic Comedy (Happy Pants)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Friction (Legal Affairs)"
+  },
+  {
+    "rank": 32,
+    "item_name": "In a Ranger's Arms"
+  },
+  {
+    "rank": 33,
+    "item_name": "Trigger: A Circle of Justice Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Forbidden Fling (Wildwood)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Lips Close to Mine (Wherever You Go) (Volume 2)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Taming Lily: A Novel (The Fowler Sisters)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Not Quite Perfect"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Real Thing (Sugar Lake)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Playing with Fire (Hot in Chicago)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Deep Cover: A Love Over Duty Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "Crossing the Line (Cross Creek)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Destiny Disgraced (Talon Pack Book 6) (Volume 6)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Tempt Me (Bodyguard Bad Boys Book 2) (Volume 2)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Her Enemy Protector"
+  },
+  {
+    "rank": 45,
+    "item_name": "Misadventures with a Rookie (Misadventures Book 10)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Landing the Air Marshal"
+  },
+  {
+    "rank": 47,
+    "item_name": "Fix Me Not (The Fix Series) (Volume 2)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Beautiful Mess (Rock 'n' Ink)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Collision Point: A Brute Force Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Luck of the Bride: The Cavensham Heiresses"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

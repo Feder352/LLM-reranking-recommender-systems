@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Royal Dragon (The Bride Hunt) (Volume 1)"
+  },
+  {
+    "item_name": "Water Dragon (The Bride Hunt)"
+  },
+  {
+    "item_name": "Dragon King (The Bride Hunt)"
+  },
+  {
+    "item_name": "Seven Stones to Stand or Fall: A Collection of Outlander Fiction"
+  },
+  {
+    "item_name": "The Heiress's Deception (Sinful Brides)"
+  },
+  {
+    "item_name": "The Scottish Prisoner: A Novel (Lord John Grey)"
+  },
+  {
+    "item_name": "The Duke's Accidental Wife (Dukes of War) (Volume 7)"
+  },
+  {
+    "item_name": "Duke of Scandal (Moonlight Square, Book 1)"
+  },
+  {
+    "item_name": "Duke of Secrets (Moonlight Square, Book 2)"
+  },
+  {
+    "item_name": "The Highlander's Princess Bride (The Improper Princesses)"
+  },
+  {
+    "item_name": "Accidental Daddy: A Billionaire's Baby Romance"
+  },
+  {
+    "item_name": "More or Less a Marchioness"
+  },
+  {
+    "item_name": "Never Let Go (Lazarus Rising) (Volume 1)"
+  },
+  {
+    "item_name": "Keep Me Close (Lazarus Rising) (Volume 2)"
+  },
+  {
+    "item_name": "Stay With Me (Lazarus Rising) (Volume 3)"
+  },
+  {
+    "item_name": "Run To Me (Lazarus Rising) (Volume 4)"
+  },
+  {
+    "item_name": "Hello Stranger: The Ravenels, Book 4"
+  },
+  {
+    "item_name": "The Winter Duchess (A Duchess for All Seasons)"
+  },
+  {
+    "item_name": "The Lady Who Loved Him (The Brethren)"
+  },
+  {
+    "item_name": "Covert Game (A GhostWalker Novel)"
+  },
+  {
+    "item_name": "Highland Wolf Pact Compromising Positions (Volume 2)"
+  },
+  {
+    "item_name": "Highland Wolf Pact: Blood Reign (Volume 3)"
+  },
+  {
+    "item_name": "Born of Darkness: A Hunter Legacy Novel (Midnight Breed Hunter Legacy) (Volume 1)"
+  },
+  {
+    "item_name": "Lie Close To Me (Lazarus Rising) (Volume 5)"
+  },
+  {
+    "item_name": "Forbidden"
+  },
+  {
+    "item_name": "The Hellion (Wicked Wallflowers)"
+  },
+  {
+    "item_name": "What a Difference a Duke Makes: School for Dukes"
+  },
+  {
+    "item_name": "The Duke She Wished For (Happily Ever After) (Volume 1)"
+  },
+  {
+    "item_name": "Once Upon a Duke's Dream (Happily Ever After) (Volume 3)"
+  },
+  {
+    "item_name": "He's a Duke, But I Love Him: A Historical Regency Romance (Happily Ever After) (Volume 4)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Heart of the Hunter"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Escape (A Survivors' Club Novel)"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Knight in Shining Armor"
+  },
+  {
+    "rank": 4,
+    "item_name": "Fire and Ice: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Surrender My Love (Haardrad Family)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Wicked Intentions (Maiden Lane)"
+  },
+  {
+    "rank": 7,
+    "item_name": "No Rest for the Wicked (The Immortals After Dark, Book 2)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Dragon Bound (Elder Races)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Romancing the Duke: Castles Ever After"
+  },
+  {
+    "rank": 10,
+    "item_name": "Never Seduce a Scot: The Montgomerys and Armstrongs"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Governess Affair"
+  },
+  {
+    "rank": 12,
+    "item_name": "Sweet Release"
+  },
+  {
+    "rank": 13,
+    "item_name": "Iced: Fever Series Book 6"
+  },
+  {
+    "rank": 14,
+    "item_name": "Nine Rules to Break When Romancing a Rake (Love By Numbers)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Lucas: Vampires In America (Volume 6)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Immortal Highlander"
+  },
+  {
+    "rank": 17,
+    "item_name": "Marrying Winterborne"
+  },
+  {
+    "rank": 18,
+    "item_name": "Kissed by a Dark Prince (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "No Ifs, Ands, or Bears About It: Paranormal BBW Romance (Grayslake) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Shadows (Black Dagger Brotherhood)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Caressed By Ice (Psy-Changelings, Book 3)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Out of Time: A Paranormal Romance"
+  },
+  {
+    "rank": 23,
+    "item_name": "Nine Rules to Break When Romancing a Rake: Number 1 in series (Love by Numbers)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Notorious Pleasures (Maiden Lane)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Hell on Wheels (Black Knights Inc.)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Firelight (Darkest London)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Lady Most Likely...: A Novel in Three Parts"
+  },
+  {
+    "rank": 28,
+    "item_name": "Darling Beast (Maiden Lane)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Warlord Wants Forever (Immortals After Dark)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Dragon Actually (Dragon Kin)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Otherwise Engaged"
+  },
+  {
+    "rank": 32,
+    "item_name": "Tempting the Beast (Feline Breeds, Book 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Awaken Me Darkly (Alien Huntress, Book 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Deeper Than Midnight (The Midnight Breed, Book 9)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Oracle's Moon (A Novel of the Elder Races)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Wild Invitation: A Psy-Changeling Collection (Psy/Changelings)"
+  },
+  {
+    "rank": 37,
+    "item_name": "What Happens in Scotland (Second Sons)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Devil in Spring: The Ravenels, Book 3"
+  },
+  {
+    "rank": 39,
+    "item_name": "Her Wicked Ways"
+  },
+  {
+    "rank": 40,
+    "item_name": "Consumed (Dark Protectors)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Immortal Rider (Lords of Deliverance, Book 2)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Wild Wolf (A Shifters Unbound Novel)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Dragon Fall"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Darkest Secret (Lords of the Underworld)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Season for Surrender"
+  },
+  {
+    "rank": 46,
+    "item_name": "Night Broken: A Mercy Thompson Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Storm Warrior (Grim)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Pack Challenge"
+  },
+  {
+    "rank": 49,
+    "item_name": "Embrace The Darkness (Guardians of Eternity, Book 2)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Only a Promise (Survivors' Club)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

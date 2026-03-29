@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Heart of Venom (Elemental Assassin)"
+  },
+  {
+    "item_name": "Shadow Hunt (Disrupted Magic)"
+  },
+  {
+    "item_name": "The Spider (Elemental Assassin)"
+  },
+  {
+    "item_name": "Poison Promise (Elemental Assassin)"
+  },
+  {
+    "item_name": "Black Widow (Elemental Assassin)"
+  },
+  {
+    "item_name": "Ready To Were: Shift Happens Series Book One (Volume 1)"
+  },
+  {
+    "item_name": "Some Were in Time: Shift Happens Book 2 (Volume 2)"
+  },
+  {
+    "item_name": "No Were To Run (Shift Happens) (Volume 3)"
+  },
+  {
+    "item_name": "Were Me Out: Shift Happens Book Four (Volume 4)"
+  },
+  {
+    "item_name": "Tall, Dark &amp; Lonely: A Pyte Series Novel"
+  },
+  {
+    "item_name": "The Accidental Werewolf (The Accidental Series, Book 1)"
+  },
+  {
+    "item_name": "Slave to Sensation (Psy-Changelings, Book 1)"
+  },
+  {
+    "item_name": "Blade Song"
+  },
+  {
+    "item_name": "Night Blade (Colbana Files) (Volume 2)"
+  },
+  {
+    "item_name": "Broken Blade` (Colbana Files) (Volume 3)"
+  },
+  {
+    "item_name": "Shadowed Blade: A Kit Colbana Novel (The Colbana Files) (Volume 5)"
+  },
+  {
+    "item_name": "Shadowed Blade (Colbana Files Series Book 5) eBook"
+  },
+  {
+    "item_name": "Stoned: A Billionaire Stepbrother With Benefits Romance (My Stepbrother's Keeper) (Volume 1)"
+  },
+  {
+    "item_name": "Burn Bright"
+  },
+  {
+    "item_name": "Hot and Badgered (The Honey Badger Chronicles)"
+  },
+  {
+    "item_name": "Archangel's Consort (A Guild Hunter Novel)"
+  },
+  {
+    "item_name": "Kade's Dark Embrace: Immortals of New Orleans Book 1 (Volume 1)"
+  },
+  {
+    "item_name": "Dragon Bound (Elder Races)"
+  },
+  {
+    "item_name": "Matefinder (Volume 1)"
+  },
+  {
+    "item_name": "Keystone (Crossbreed)"
+  },
+  {
+    "item_name": "Ravenheart (Crossbreed)"
+  },
+  {
+    "item_name": "Deathtrap (Crossbreed)"
+  },
+  {
+    "item_name": "Gaslight (Crossbreed Series Book 4)"
+  },
+  {
+    "item_name": "Planet Dragos: A Novella of the Elder Races"
+  },
+  {
+    "item_name": "Natural Dual-Mage (Magical Mayhem) (Volume 3)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 494,
+    "item_name": "Once Burned (Night Prince, Book 1)"
+  },
+  {
+    "rank": 2,
+    "item_id": 3651,
+    "item_name": "Bone Crossed (Mercy Thompson, Book 4)"
+  },
+  {
+    "rank": 3,
+    "item_id": 6195,
+    "item_name": "Magic Rises (Kate Daniels)"
+  },
+  {
+    "rank": 4,
+    "item_id": 3515,
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  },
+  {
+    "rank": 5,
+    "item_id": 3493,
+    "item_name": "Deadlocked (Sookie Stackhouse/True Blood, Book 12)"
+  },
+  {
+    "rank": 6,
+    "item_id": 3641,
+    "item_name": "Magic Burns (Kate Daniels)"
+  },
+  {
+    "rank": 7,
+    "item_id": 1849,
+    "item_name": "Cinder"
+  },
+  {
+    "rank": 8,
+    "item_id": 3657,
+    "item_name": "Magic Bleeds (Kate Daniels)"
+  },
+  {
+    "rank": 9,
+    "item_id": 2895,
+    "item_name": "Iced: Fever Series Book 6"
+  },
+  {
+    "rank": 10,
+    "item_id": 3491,
+    "item_name": "Gunmetal Magic"
+  },
+  {
+    "rank": 11,
+    "item_id": 2865,
+    "item_name": "Faefever (Fever, Book 3)"
+  },
+  {
+    "rank": 12,
+    "item_id": 3650,
+    "item_name": "Magic Strikes (Kate Daniels)"
+  },
+  {
+    "rank": 13,
+    "item_id": 2395,
+    "item_name": "Shattered (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 14,
+    "item_id": 6196,
+    "item_name": "Steel's Edge (The Edge, Book 4)"
+  },
+  {
+    "rank": 15,
+    "item_id": 2882,
+    "item_name": "Bloodfever (Fever Series, Book 2)"
+  },
+  {
+    "rank": 16,
+    "item_id": 3516,
+    "item_name": "Wild Invitation: A Psy-Changeling Collection (Psy/Changelings)"
+  },
+  {
+    "rank": 17,
+    "item_id": 3432,
+    "item_name": "Visions of Heat (Psy-Changelings, Book 2)"
+  },
+  {
+    "rank": 18,
+    "item_id": 2011,
+    "item_name": "Changeless (The Parasol Protectorate)"
+  },
+  {
+    "rank": 19,
+    "item_id": 1936,
+    "item_name": "Fantasy Lover"
+  },
+  {
+    "rank": 20,
+    "item_id": 260,
+    "item_name": "For a Few Demons More (The Hollows, Book 5)"
+  },
+  {
+    "rank": 21,
+    "item_id": 3529,
+    "item_name": "Dark Wolf (Carpathian Novel, A)"
+  },
+  {
+    "rank": 22,
+    "item_id": 4240,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 23,
+    "item_id": 6077,
+    "item_name": "Bloodlines"
+  },
+  {
+    "rank": 24,
+    "item_id": 259,
+    "item_name": "A Fistful of Charms (The Hollows, Book 4)"
+  },
+  {
+    "rank": 25,
+    "item_id": 3462,
+    "item_name": "Archangel's Legion (A Guild Hunter Novel)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

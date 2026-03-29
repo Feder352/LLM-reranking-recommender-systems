@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Surrender, New York: A Novel"
+  },
+  {
+    "item_name": "Murder, Stage Left (The Nero Wolfe Mysteries)"
+  },
+  {
+    "item_name": "Speculation: A History of the Fine Line between Gambling and Investing"
+  },
+  {
+    "item_name": "What the F: What Swearing Reveals About Our Language, Our Brains, and Ourselves"
+  },
+  {
+    "item_name": "Mystery in the Channel (British Library Crime Classics)"
+  },
+  {
+    "item_name": "Crimson Snow (British Library Crime Classics)"
+  },
+  {
+    "item_name": "The One-Eyed Judge: A Novel (The Judge Norcross Novels)"
+  },
+  {
+    "item_name": "Scale: The Universal Laws of Life and Death in Organisms, Cities and Companies"
+  },
+  {
+    "item_name": "Double Up (A Davis Way Crime Caper) (Volume 6)"
+  },
+  {
+    "item_name": "The Case of the Famished Parson"
+  },
+  {
+    "item_name": "My Darling Detective"
+  },
+  {
+    "item_name": "The End of the Day"
+  },
+  {
+    "item_name": "Stockholm Delete"
+  },
+  {
+    "item_name": "Scarweather (British Library Crime Classics)"
+  },
+  {
+    "item_name": "The Painted Queen: An Amelia Peabody Novel of Suspense (Amelia Peabody Series)"
+  },
+  {
+    "item_name": "Miraculous Mysteries: Locked-Room Murders and Impossible Crimes (British Library Crime Classics)"
+  },
+  {
+    "item_name": "Continental Crimes (British Library Crime Classics)"
+  },
+  {
+    "item_name": "The Incredible Crime: A Cambridge Mystery (British Library Crime Classics)"
+  },
+  {
+    "item_name": "Robert B. Parker's Little White Lies (Spenser)"
+  },
+  {
+    "item_name": "Robert B. Parker's The Hangman's Sonnet (A Jesse Stone Novel)"
+  },
+  {
+    "item_name": "Crime Scene: A Novel"
+  },
+  {
+    "item_name": "From Holmes to Sherlock: The Story of the Men and Women Who Created an Icon"
+  },
+  {
+    "item_name": "Sea Power: The History and Geopolitics of the World's Oceans"
+  },
+  {
+    "item_name": "I Know a Secret: A Rizzoli &amp; Isles Novel"
+  },
+  {
+    "item_name": "The Dark Lake (Gemma Woodstock)"
+  },
+  {
+    "item_name": "Holmes Entangled"
+  },
+  {
+    "item_name": "Night Moves: An Alex Delaware Novel"
+  },
+  {
+    "item_name": "Seven Dead (British Library Crime Classics)"
+  },
+  {
+    "item_name": "Foreign Bodies (British Library Crime Classics)"
+  },
+  {
+    "item_name": "The Third Victim: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Made to Stick: Why Some Ideas Take Hold and Others Come Unstuck"
+  },
+  {
+    "rank": 2,
+    "item_name": "If I Understood You, Would I Have This Look on My Face?: My Adventures in the Art and Science of Relating and Communicating"
+  },
+  {
+    "rank": 3,
+    "item_name": "Salt Sugar Fat: How the Food Giants Hooked Us"
+  },
+  {
+    "rank": 4,
+    "item_name": "Rogue Heroes: The History of the SAS, Britain's Secret Special Forces Unit That Sabotaged the Nazis and Changed the Nature of War"
+  },
+  {
+    "rank": 5,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 6,
+    "item_name": "In Wartime: Stories from Ukraine"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 8,
+    "item_name": "Modern Monopolies: What It Takes to Dominate the 21st Century Economy"
+  },
+  {
+    "rank": 9,
+    "item_name": "Rework: Change The Way You Work Forever"
+  },
+  {
+    "rank": 10,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 11,
+    "item_name": "Fantasyland: How America Went Haywire: A 500-Year History"
+  },
+  {
+    "rank": 12,
+    "item_name": "Homo Deus: A Brief History of Tomorrow"
+  },
+  {
+    "rank": 13,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 14,
+    "item_name": "Small Data: The Tiny Clues That Uncover Huge Trends"
+  },
+  {
+    "rank": 15,
+    "item_name": "A Good Month for Murder: The Inside Story of a Homicide Squad"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Hidden White House: Harry Truman and the Reconstruction of Americas Most Famous Residence"
+  },
+  {
+    "rank": 17,
+    "item_name": "A Common Struggle: A Personal Journey Through the Past and Future of Mental Illness and Addiction"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Art Hunters Handbook: How To Buy Art For $5 And Sell It For $1,000,000"
+  },
+  {
+    "rank": 19,
+    "item_name": "Integrity at Stake: Safeguarding Your Church from Financial Fraud"
+  },
+  {
+    "rank": 20,
+    "item_name": "Impossible to Ignore: Creating Memorable Content to Influence Decisions"
+  },
+  {
+    "rank": 21,
+    "item_name": "Spycraft: The Secret History of the CIA's Spytechs, from Communism to Al-Qaeda"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Murder That Never Was: A Forensic Instincts Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "Seattle Justice: The Rise and Fall of the Police Payoff System in Seattle"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Full Catastrophe: Travels Among the New Greek Ruins"
+  },
+  {
+    "rank": 25,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Empire of Sin: A Story of Sex, Jazz, Murder, and the Battle for Modern New Orleans"
+  },
+  {
+    "rank": 27,
+    "item_name": "On Paper: The Everything of Its Two-Thousand-Year History (ALA Notable Books for Adults)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Modernist Cuisine at Home"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Reaper: Autobiography of One of the Deadliest Special Ops Snipers"
+  },
+  {
+    "rank": 30,
+    "item_name": "Mistakes Were Made (But Not by Me): Why We Justify Foolish Beliefs, Bad Decisions, and Hurtful Acts"
+  },
+  {
+    "rank": 31,
+    "item_name": "Bird Dream: Adventures at the Extremes of Human Flight"
+  },
+  {
+    "rank": 32,
+    "item_name": "Social: Why Our Brains Are Wired to Connect"
+  },
+  {
+    "rank": 33,
+    "item_name": "Five Days at Memorial: Life and Death in a Storm-Ravaged Hospital"
+  },
+  {
+    "rank": 34,
+    "item_name": "In Montmartre: Picasso, Matisse and the Birth of Modernist Art"
+  },
+  {
+    "rank": 35,
+    "item_name": "Twenty-one Days: A Daniel Pitt Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Oriana Fallaci: The Journalist, the Agitator, the Legend"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Crooked Mirror: A Memoir of Polish-Jewish Reconciliation"
+  },
+  {
+    "rank": 38,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 39,
+    "item_name": "Thomas Jefferson and the Tripoli Pirates: The Forgotten War That Changed American History"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Art of People: 11 Simple People Skills That Will Get You Everything You Want"
+  },
+  {
+    "rank": 41,
+    "item_name": "Economism: Bad Economics and the Rise of Inequality"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Pot Thief Who Studied Georgia O'Keeffe (The Pot Thief Mysteries)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Witches Protection Program"
+  },
+  {
+    "rank": 44,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Geography of Genius: A Search for the World's Most Creative Places from Ancient Athens to Silicon Valley"
+  },
+  {
+    "rank": 46,
+    "item_name": "Unfair: The New Science of Criminal Injustice"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Art of Fielding: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Happiness Advantage: The Seven Principles of Positive Psychology That Fuel Success and Performance at Work"
+  },
+  {
+    "rank": 49,
+    "item_name": "Heartbreak Hotel: An Alex Delaware Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "A Truck Full of Money"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

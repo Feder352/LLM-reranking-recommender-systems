@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Unchained by a Forbidden Love: Eternal Mates Romance Series"
+  },
+  {
+    "item_name": "Otherworld (Last Reality)"
+  },
+  {
+    "item_name": "Oath Bound (An Unbound Novel)"
+  },
+  {
+    "item_name": "To the Nines: Stephanie Plum Novels"
+  },
+  {
+    "item_name": "To the Nines"
+  },
+  {
+    "item_name": "Bad Moon Rising: A Dark-Hunter Novel (Dark-Hunter Novels)"
+  },
+  {
+    "item_name": "Total Surrender (Sin Brothers)"
+  },
+  {
+    "item_name": "Ceremony in Death"
+  },
+  {
+    "item_name": "Iron Gold: Book 4 of the Red Rising Saga (Red Rising Series)"
+  },
+  {
+    "item_name": "Rosemarked"
+  },
+  {
+    "item_name": "The Silent Corner: A Novel of Suspense (Jane Hawk)"
+  },
+  {
+    "item_name": "Hawkyn: A Demonica Underworld Novella"
+  },
+  {
+    "item_name": "Shoot the Messenger (Messenger Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "Make Me Want"
+  },
+  {
+    "item_name": "Ride Dirty: A Raven Riders Novella"
+  },
+  {
+    "item_name": "Three to Ride (Nights in Bliss, Colorado) (Volume 1)"
+  },
+  {
+    "item_name": "Born of Darkness: A Hunter Legacy Novel (Midnight Breed Hunter Legacy) (Volume 1)"
+  },
+  {
+    "item_name": "Obsidio (The Illuminae Files)"
+  },
+  {
+    "item_name": "The Heart Forger (The Bone Witch)"
+  },
+  {
+    "item_name": "The Crossover (The Crossover Series)"
+  },
+  {
+    "item_name": "Her Guardian Angel: A Demonica Underworld/Masters and Mercenaries Novella"
+  },
+  {
+    "item_name": "Too Wilde to Tame"
+  },
+  {
+    "item_name": "Small Town Siren: Texas Sirens Book 1 (Volume 1)"
+  },
+  {
+    "item_name": "Steal the Light (Thieves) (Volume 1)"
+  },
+  {
+    "item_name": "The Cruel Prince (The Folk of the Air)"
+  },
+  {
+    "item_name": "Siren in the City: Texas Sirens, Book 2 (Volume 2)"
+  },
+  {
+    "item_name": "Code of Honor (Hornet) (Volume 4)"
+  },
+  {
+    "item_name": "The Belles"
+  },
+  {
+    "item_name": "Reckless Honor (Hornet) (Volume 5)"
+  },
+  {
+    "item_name": "Fighting for Everything (Warrior Fight Club)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 2,
+    "item_name": "Lover Avenged (Black Dagger Brotherhood, Book 7)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Dark Lover (Black Dagger Brotherhood, Book 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Moon Called"
+  },
+  {
+    "rank": 5,
+    "item_name": "Night Broken: A Mercy Thompson Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 7,
+    "item_name": "Under the Never Sky"
+  },
+  {
+    "rank": 8,
+    "item_name": "Murder of Crows (A Novel of the Others)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Bloodlines: Silver Shadows (book 5)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Iron Kissed (Mercy Thompson, Book 3)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Vampire Academy: Spirit Bound (book 5)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Spider's Bite (Elemental Assassin, Book 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Lover Eternal (Black Dagger Brotherhood, Book 2)"
+  },
+  {
+    "rank": 14,
+    "item_name": "How to Run with a Naked Werewolf (Naked Werewolf Series)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Vision in Silver (A Novel of the Others)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Blood Kiss: Black Dagger Legacy"
+  },
+  {
+    "rank": 17,
+    "item_name": "Friday Night Bites (Chicagoland Vampires, Book 2)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Shadows (Black Dagger Brotherhood)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Mortal Instruments 5: City of Lost Souls"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Fiery Heart: A Bloodlines Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "Obsession"
+  },
+  {
+    "rank": 22,
+    "item_name": "The King: A Novel of the Black Dagger Brotherhood"
+  },
+  {
+    "rank": 23,
+    "item_name": "Iron Kissed (Mercy Thompson, Book 3)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Marked In Flesh (A Novel of the Others)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Lover At Last: A Novel of the Black Dagger Brotherhood"
+  },
+  {
+    "rank": 26,
+    "item_name": "Rock Chick Rescue (Volume 2)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Hot and Badgered (The Honey Badger Chronicles)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Hard Bitten (Chicagoland Vampires)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Lover Revealed (Black Dagger Brotherhood, Book 4)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Seventh Grave and No Body (Charley Davidson)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Night's Honor (Elder Races)"
+  },
+  {
+    "rank": 32,
+    "item_name": "First Drop of Crimson"
+  },
+  {
+    "rank": 33,
+    "item_name": "Fourth Grave Beneath My Feet"
+  },
+  {
+    "rank": 34,
+    "item_name": "At Grave's End"
+  },
+  {
+    "rank": 35,
+    "item_name": "Angels' Blood (Guild Hunter, Book 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Blood Bound (Mercy Thompson, Book 2)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Biting Bad (Chicagoland Vampires)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Lover Reborn (Black Dagger Brotherhood)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Third Grave Dead Ahead"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Selection. by Kiera Cass"
+  },
+  {
+    "rank": 42,
+    "item_name": "Firelight (Darkest London)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Beautiful Creatures. by Kami Garcia &amp; Margaret Stohl"
+  },
+  {
+    "rank": 44,
+    "item_name": "Some Girls Bite (Chicagoland Vampires)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Unbreakable (Legion)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Eighth Grave After Dark"
+  },
+  {
+    "rank": 47,
+    "item_name": "Black Widow (Elemental Assassin)"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Court of Wings and Ruin (A Court of Thorns and Roses)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Stray"
+  },
+  {
+    "rank": 50,
+    "item_name": "First Grave on the Right (Charley Davidson Series)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

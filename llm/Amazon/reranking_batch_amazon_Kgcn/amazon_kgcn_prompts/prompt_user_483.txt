@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Earth Is Weeping: The Epic Story of the Indian Wars for the American West"
+  },
+  {
+    "item_name": "The Blood of Emmett Till"
+  },
+  {
+    "item_name": "Leo Durocher: Baseball's Prodigal Son"
+  },
+  {
+    "item_name": "Dynastic, Bombastic, Fantastic: Reggie, Rollie, Catfish, and Charlie Finleys Swingin As"
+  },
+  {
+    "item_name": "Incendiary: The Psychiatrist, the Mad Bomber, and the Invention of Criminal Profiling"
+  },
+  {
+    "item_name": "The Pride of the Yankees: Lou Gehrig, Gary Cooper, and the Making of a Classic"
+  },
+  {
+    "item_name": "The Black Hand: The Epic War Between a Brilliant Detective and the Deadliest Secret Society in American History"
+  },
+  {
+    "item_name": "Gwendy's Button Box: A Novella"
+  },
+  {
+    "item_name": "The Streak: Lou Gehrig, Cal Ripken Jr., and Baseball's Most Historic Record"
+  },
+  {
+    "item_name": "The Stranger in the Woods: The Extraordinary Story of the Last True Hermit"
+  },
+  {
+    "item_name": "Last Hope Island: Britain, Occupied Europe, and the Brotherhood That Helped Turn the Tide of War"
+  },
+  {
+    "item_name": "Sting Like a Bee: Muhammad Ali vs. the United States of America, 1966-1971"
+  },
+  {
+    "item_name": "Electric October: Seven World Series Games, Six Lives, Five Minutes of Fame That Lasted Forever"
+  },
+  {
+    "item_name": "The Address: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "Custer's Trials: A Life on the Frontier of a New America"
+  },
+  {
+    "item_name": "Al Franken, Giant of the Senate"
+  },
+  {
+    "item_name": "The Year of the Pitcher: Bob Gibson, Denny McLain, and the End of Baseballs Golden Age"
+  },
+  {
+    "item_name": "Bobby Kennedy: A Raging Spirit"
+  },
+  {
+    "item_name": "I Will Find You: Solving Killer Cases from My Life Fighting Crime (Homicide Hunter)"
+  },
+  {
+    "item_name": "The Accidental President: Harry S. Truman and the Four Months That Changed the World"
+  },
+  {
+    "item_name": "Playing with Fire: The 1968 Election and the Transformation of American Politics"
+  },
+  {
+    "item_name": "Promise Me, Dad: A Year of Hope, Hardship, and Purpose"
+  },
+  {
+    "item_name": "Blizzard of Glass: The Halifax Explosion of 1917"
+  },
+  {
+    "item_name": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI"
+  },
+  {
+    "item_name": "Obama: An Intimate Portrait"
+  },
+  {
+    "item_name": "Escape From Davao: The Forgotten Story of the Most Daring Prison Break of the Pacific War"
+  },
+  {
+    "item_name": "The Stowaway: A Young Man's Extraordinary Adventure to Antarctica"
+  },
+  {
+    "item_name": "Ruthless River: Love and Survival by Raft on the Amazon's Relentless Madre de Dios (Vintage Departures)"
+  },
+  {
+    "item_name": "Chasing King's Killer: The Hunt for Martin Luther King, Jr.'s Assassin"
+  },
+  {
+    "item_name": "A Season in the Sun: The Rise of Mickey Mantle"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 676,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 2,
+    "item_id": 1415,
+    "item_name": "Dreams from My Father: A Story of Race and Inheritance"
+  },
+  {
+    "rank": 3,
+    "item_id": 835,
+    "item_name": "Daisy Miller (Penguin Classics)"
+  },
+  {
+    "rank": 4,
+    "item_id": 68,
+    "item_name": "The Paradox of Choice: Why More Is Less"
+  },
+  {
+    "rank": 5,
+    "item_id": 4522,
+    "item_name": "Truman"
+  },
+  {
+    "rank": 6,
+    "item_id": 1468,
+    "item_name": "Revolutionary Summer: The Birth of American Independence"
+  },
+  {
+    "rank": 7,
+    "item_id": 5203,
+    "item_name": "Leap of Faith: Memoirs of an Unexpected Life"
+  },
+  {
+    "rank": 8,
+    "item_id": 1403,
+    "item_name": "French Women Don't Get Fat: The Secret of Eating for Pleasure"
+  },
+  {
+    "rank": 9,
+    "item_id": 3730,
+    "item_name": "Dude, Where's My Country?"
+  },
+  {
+    "rank": 10,
+    "item_id": 88,
+    "item_name": "A First-Class Temperament: The Emergence of Franklin Roosevelt"
+  },
+  {
+    "rank": 11,
+    "item_id": 3888,
+    "item_name": "4 Blondes"
+  },
+  {
+    "rank": 12,
+    "item_id": 3048,
+    "item_name": "The Hemingses of Monticello: An American Family"
+  },
+  {
+    "rank": 13,
+    "item_id": 996,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 14,
+    "item_id": 2075,
+    "item_name": "Why Sinatra Matters"
+  },
+  {
+    "rank": 15,
+    "item_id": 2588,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 16,
+    "item_id": 3787,
+    "item_name": "The Brothers Bulger: How They Terrorized and Corrupted Boston for a Quarter Century"
+  },
+  {
+    "rank": 17,
+    "item_id": 781,
+    "item_name": "The Pastures of Heaven (Penguin Great Books of the 20th Century)"
+  },
+  {
+    "rank": 18,
+    "item_id": 4621,
+    "item_name": "Benjamin Franklin: An American Life"
+  },
+  {
+    "rank": 19,
+    "item_id": 4584,
+    "item_name": "Walt Disney: The Triumph of the American Imagination"
+  },
+  {
+    "rank": 20,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 21,
+    "item_id": 227,
+    "item_name": "The Pursuit of Happyness"
+  },
+  {
+    "rank": 22,
+    "item_id": 4625,
+    "item_name": "Lee"
+  },
+  {
+    "rank": 23,
+    "item_id": 2966,
+    "item_name": "The State of Jones: The Small Southern County That Seceded from the Confederacy"
+  },
+  {
+    "rank": 24,
+    "item_id": 423,
+    "item_name": "Waiter Rant: Thanks for the Tip--Confessions of a Cynical Waiter"
+  },
+  {
+    "rank": 25,
+    "item_id": 5289,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

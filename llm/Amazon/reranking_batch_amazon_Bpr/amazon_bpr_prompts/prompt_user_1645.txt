@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Book of Greens: A Cook's Compendium of 40 Varieties, from Arugula to Watercress, with More Than 175 Recipes"
+  },
+  {
+    "item_name": "To the Farthest Shores"
+  },
+  {
+    "item_name": "Vibrant India: Fresh Vegetarian Recipes from Bangalore to Brooklyn"
+  },
+  {
+    "item_name": "Trusting Grace: A Novel (Virtues and Vices of the Old West)"
+  },
+  {
+    "item_name": "What Hope Remembers (Misty Willow)"
+  },
+  {
+    "item_name": "This Life I Live: One Man's Extraordinary, Ordinary Life and the Woman Who Changed It Forever"
+  },
+  {
+    "item_name": "The Physics of Everyday Things: The Extraordinary Science Behind an Ordinary Day"
+  },
+  {
+    "item_name": "Freedom's Price: A Novel (Keys of Promise)"
+  },
+  {
+    "item_name": "The Captain's Daughter (London Beginnings)"
+  },
+  {
+    "item_name": "Abiding Mercy (An Amish Mercies Novel)"
+  },
+  {
+    "item_name": "Holiday Cookies: Showstopping Recipes to Sweeten the Season"
+  },
+  {
+    "item_name": "With You Always (Orphan Train)"
+  },
+  {
+    "item_name": "Fatal Trust"
+  },
+  {
+    "item_name": "Beyond the Castle: A Guide to Discovering Your Happily Ever After"
+  },
+  {
+    "item_name": "Christmas at Carnton: A Novella"
+  },
+  {
+    "item_name": "Fiercehearted: Live Fully, Love Bravely"
+  },
+  {
+    "item_name": "Maverick and Me"
+  },
+  {
+    "item_name": "Nourished: A Memoir of Food, Faith &amp; Enduring Love (with Recipes)"
+  },
+  {
+    "item_name": "An Amish Christmas Love: Four Novellas"
+  },
+  {
+    "item_name": "Staying Stylish: Cultivating a Confident Look, Style, and Attitude"
+  },
+  {
+    "item_name": "Praying the Scriptures for Your Adult Children: Trusting God with the Ones You Love"
+  },
+  {
+    "item_name": "Pupcakes: A Christmas Novel"
+  },
+  {
+    "item_name": "The House on Foster Hill"
+  },
+  {
+    "item_name": "The Lacemaker"
+  },
+  {
+    "item_name": "Missing Isaac"
+  },
+  {
+    "item_name": "Very Veggie Bedtime Prayers (VeggieTales)"
+  },
+  {
+    "item_name": "Before We Were Yours: A Novel"
+  },
+  {
+    "item_name": "That Grand Easter Day!"
+  },
+  {
+    "item_name": "Sunrise, Easter Surprise!"
+  },
+  {
+    "item_name": "The Lost Castle: A Split-Time Romance (A Lost Castle Novel)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Beyond All Dreams"
+  },
+  {
+    "rank": 3,
+    "item_name": "Among the Fair Magnolias: Four Southern Love Stories"
+  },
+  {
+    "rank": 4,
+    "item_name": "Chance of Loving You: Romance Collection (Thorndike Press Large Print Christian Fiction)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Through Waters Deep (Waves of Freedom)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 7,
+    "item_name": "Every Girl Gets Confused: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Dressed for Death (A Drew Farthering Mystery)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Rachel: A Novel (Wives of the Patriarchs) (Volume 3)"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Bride at Last"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Name Unknown (Shadows Over England)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Dance: A Novel (The Restoration Series)"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Sweet Misfortune: A Novel (Virtues and Vices of the Old West)"
+  },
+  {
+    "rank": 15,
+    "item_name": "True to You (A Bradford Sisters Romance)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Gathering the Threads: A Novel (The Amish of Summer Grove)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Playing the Part"
+  },
+  {
+    "rank": 18,
+    "item_name": "Winter in Full Bloom"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Heart's Obsession (A Journey of the Heart)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Kissed by a Cowboy (A Four of Hearts Ranch Romance)"
+  },
+  {
+    "rank": 21,
+    "item_name": "A Marriage in Middlebury"
+  },
+  {
+    "rank": 22,
+    "item_name": "Enemies of the Heart: Breaking Free from the Four Emotions That Control You"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Tapestry of Secrets"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Governess of Highland Hall: A Novel (Edwardian Brides)"
+  },
+  {
+    "rank": 25,
+    "item_name": "A Sparrow in Terezin (A Hidden Masterpiece Novel)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Dear Mr. Knightley: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "As Waters Gone By"
+  },
+  {
+    "rank": 28,
+    "item_name": "For Love and Honor"
+  },
+  {
+    "rank": 29,
+    "item_name": "When I Fall in Love (Christiansen Family)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Cold-Case Christianity for Kids: Investigate Jesus with a Real Detective"
+  },
+  {
+    "rank": 31,
+    "item_name": "Too Deep for Words: A Civil War Novel (Shenandoah Valley Saga)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Mayflower Bride: Daughters of the Mayflower - Book 1"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Inheritance (Secrets of the Shetlands)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Christmas in Apple Ridge: Three-in-One Collection: The Sound of Sleigh Bells, The Christmas Singing, NEW! The Dawn of Christmas"
+  },
+  {
+    "rank": 35,
+    "item_name": "Critical Condition"
+  },
+  {
+    "rank": 36,
+    "item_name": "And It Was Beautiful: Celebrating Life in the Midst of the Long Good-Bye"
+  },
+  {
+    "rank": 37,
+    "item_name": "Moms' Night Out and Other Things I Miss: Devotions To Help You Survive"
+  },
+  {
+    "rank": 38,
+    "item_name": "Phoebe's Light (Nantucket Legacy)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Talon: Combat Tracking Team (A Breed Apart)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Innocent: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "A Respectable Actress"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Divide (The Alliance)"
+  },
+  {
+    "rank": 43,
+    "item_name": "After a Fashion"
+  },
+  {
+    "rank": 44,
+    "item_name": "Sea Rose Lane: A Hope Harbor Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "Beyond the Silence"
+  },
+  {
+    "rank": 46,
+    "item_name": "Not by Sight: A Novel (Ozark Mountain Trilogy)"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Place in His Heart: A Novel (The Southold Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Domino Effect"
+  },
+  {
+    "rank": 49,
+    "item_name": "Vendetta (The Nikki Boyd Files)"
+  },
+  {
+    "rank": 50,
+    "item_name": "To Follow Her Heart: A Novel (The Southold Chronicles) (Volume 3)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

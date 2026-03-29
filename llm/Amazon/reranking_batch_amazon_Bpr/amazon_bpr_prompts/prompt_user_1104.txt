@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Heather, the Totality"
+  },
+  {
+    "item_name": "The Frozen Woman"
+  },
+  {
+    "item_name": "Come A Little Closer"
+  },
+  {
+    "item_name": "Paris in the Twentieth Century: Jules Verne, The Lost Novel"
+  },
+  {
+    "item_name": "Macbeth"
+  },
+  {
+    "item_name": "Bring Me Flowers: A gripping serial killer thriller with a shocking twist (Detectives Kane and Alton) (Volume 2)"
+  },
+  {
+    "item_name": "The Gaslight Stalker: Nobody is safe in Whitechapel... (Esther &amp; Jack Enright Mystery)"
+  },
+  {
+    "item_name": "Zero Day: A Novel (The Hatching Series)"
+  },
+  {
+    "item_name": "When evil calls your name"
+  },
+  {
+    "item_name": "Sometimes I Lie: A psychological thriller with a killer twist you'll never forget"
+  },
+  {
+    "item_name": "Exhibit Alexandra [Paperback] [Mar 08, 2018] Natasha Bell"
+  },
+  {
+    "item_name": "Looking Glass (The Naturalist)"
+  },
+  {
+    "item_name": "Tangerine: A Novel"
+  },
+  {
+    "item_name": "School for Psychics: Book One"
+  },
+  {
+    "item_name": "Unbury Carol: A Novel"
+  },
+  {
+    "item_name": "Deadly Secrets: An absolutely gripping crime thriller (Detective Erika Foster) (Volume 6)"
+  },
+  {
+    "item_name": "Noir: A Novel"
+  },
+  {
+    "item_name": "Timebound (The Chronos Files)"
+  },
+  {
+    "item_name": "Only Human (The Themis Files)"
+  },
+  {
+    "item_name": "The Perfect Mother: A Novel"
+  },
+  {
+    "item_name": "Dying Truth: completely gripping crime thriller (Detective Kim Stone) (Volume 8)"
+  },
+  {
+    "item_name": "Something in the Water: A Novel"
+  },
+  {
+    "item_name": "Providence: A Novel"
+  },
+  {
+    "item_name": "Of Human Bondage, Twentieth Century Classics"
+  },
+  {
+    "item_name": "A Steep Price (Tracy Crosswhite)"
+  },
+  {
+    "item_name": "Baby Teeth: A Novel"
+  },
+  {
+    "item_name": "Nyxia Unleashed (The Nyxia Triad)"
+  },
+  {
+    "item_name": "Believe Me: A Novel"
+  },
+  {
+    "item_name": "Our House"
+  },
+  {
+    "item_name": "When the Lights Go Out"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Girl in the Ice: A gripping serial killer thriller (Detective Erika Foster crime thriller novel) (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Passenger"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Girls Next Door: A gripping, edge-of-your-seat crime thriller (Detective Eden Berrisford crime thriller series) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Mistake: An unputdownable psychological thriller with a brilliant twist"
+  },
+  {
+    "rank": 8,
+    "item_name": "Hidden Bodies"
+  },
+  {
+    "rank": 9,
+    "item_name": "Final Girls: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Ink and Bone"
+  },
+  {
+    "rank": 11,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Last One: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 14,
+    "item_name": "I Let You Go"
+  },
+  {
+    "rank": 15,
+    "item_name": "Black Widow: A Jack Parlabane Thriller"
+  },
+  {
+    "rank": 16,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Wicked Boy: An Infamous Murder in Victorian London"
+  },
+  {
+    "rank": 18,
+    "item_name": "Before the Fall: The year's best suspense novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Defending Jacob: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Girls: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "Ashley Bell"
+  },
+  {
+    "rank": 22,
+    "item_name": "Wreckage"
+  },
+  {
+    "rank": 23,
+    "item_name": "Six Years"
+  },
+  {
+    "rank": 24,
+    "item_name": "Fool Me Once"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Husband's Secret"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Shut Eye"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Farm"
+  },
+  {
+    "rank": 28,
+    "item_name": "In a Dark, Dark Wood"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Missing Ones: An absolutely gripping thriller with a jaw-dropping twist (Detective Lottie Parker) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Good Behavior (Letty Dobesh Chronicles)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Beauty of the End"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Couple Next Door"
+  },
+  {
+    "rank": 33,
+    "item_name": "Missing You"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Immortalists"
+  },
+  {
+    "rank": 35,
+    "item_name": "Among the Ten Thousand Things: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Chalk Man"
+  },
+  {
+    "rank": 37,
+    "item_name": "Scandal (English and Japanese Edition)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Hausfrau: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Before I Go to Sleep: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Summer House with Swimming Pool: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "Case Histories: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "Eeny Meeny (A Helen Grace Thriller)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Every Dead Thing"
+  },
+  {
+    "rank": 44,
+    "item_name": "Cop Town: A Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "All Is Not Forgotten: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Lying Game: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Broken Promise (Promise Falls Trilogy)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Anything for Her"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Silent Corner: A Novel of Suspense (Jane Hawk)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Humber Boy B: Shocking. Page-Turning. Intelligent. Psychological Thriller Series with Cate Austin"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

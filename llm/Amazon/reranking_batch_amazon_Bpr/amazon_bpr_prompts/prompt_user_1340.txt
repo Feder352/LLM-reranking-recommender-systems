@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Close Contact (Body Armor)"
+  },
+  {
+    "item_name": "Rough &amp; Tumble: A Steamy, Action-Filled Possessive Hero Romance (Men of Haven)"
+  },
+  {
+    "item_name": "Wild &amp; Sweet: A Steamy, Opposites Attract Contemporary Romance (Men of Haven)"
+  },
+  {
+    "item_name": "The Lady Travelers Guide to Larceny with a Dashing Stranger: A Novel (Lady Travelers Society)"
+  },
+  {
+    "item_name": "Whiskey Sharp: Unraveled"
+  },
+  {
+    "item_name": "Texas-Sized Trouble: An Anthology (A Wrangler's Creek Novel)"
+  },
+  {
+    "item_name": "A Million Little Things: A Novel (Mischief Bay)"
+  },
+  {
+    "item_name": "About That Kiss: A Heartbreaker Bay Novel"
+  },
+  {
+    "item_name": "Any Day Now (Sullivan's Crossing)"
+  },
+  {
+    "item_name": "Seduce Me, Cowboy (Copper Ridge)"
+  },
+  {
+    "item_name": "Smooth-Talking Cowboy: An Anthology (A Gold Valley Novel)"
+  },
+  {
+    "item_name": "Best Laid Plans (Madaris Family Saga)"
+  },
+  {
+    "item_name": "Protecting Her Secret Son (Escape Club Heroes)"
+  },
+  {
+    "item_name": "Marrying the Wedding Crasher (A Harmony Valley Novel)"
+  },
+  {
+    "item_name": "Devil in Tartan (The Highland Grooms)"
+  },
+  {
+    "item_name": "Fast Burn (Body Armor)"
+  },
+  {
+    "item_name": "Whiskey Sharp: Jagged"
+  },
+  {
+    "item_name": "Fatal Chaos (The Fatal Series)"
+  },
+  {
+    "item_name": "Texas Born (Long, Tall Texans)"
+  },
+  {
+    "item_name": "Bachelor Remedy (Seasons of Alaska)"
+  },
+  {
+    "item_name": "Now That You Mention It: A Novel"
+  },
+  {
+    "item_name": "Fatal Threat: A Novel of Romantic Suspense (The Fatal Series)"
+  },
+  {
+    "item_name": "Deadly Silence (Blood Brothers)"
+  },
+  {
+    "item_name": "Montana Heat: True to You"
+  },
+  {
+    "item_name": "Hot Response (Boston Fire)"
+  },
+  {
+    "item_name": "Welcome to Moonlight Harbor (A Moonlight Harbor Novel)"
+  },
+  {
+    "item_name": "Holiday in Your Heart (A Caribou Crossing Romance)"
+  },
+  {
+    "item_name": "Fly Away with Me (Blue Moon Harbor)"
+  },
+  {
+    "item_name": "Inconclusive Evidence (McAllister Justice Series) (Volume 3)"
+  },
+  {
+    "item_name": "The Cottages on Silver Beach (Haven Point)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Take Me Tonight (The Bullet Catchers, Book 3)"
+  },
+  {
+    "rank": 2,
+    "item_name": "A Girl's Guide to Moving On: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Hero (Thunder Point)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Promise (Thunder Point) (English Edition)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Blossom Street Brides: A Blossom Street Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Just One Kiss (Fool's Gold, Book 11)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Secret Sister (Fairham Island)"
+  },
+  {
+    "rank": 8,
+    "item_name": "STARRY NIGHT"
+  },
+  {
+    "rank": 9,
+    "item_name": "Evergreen Springs: A Christmas Romance (Haven Point)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Redwood Bend (A Virgin River Novel)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Rose Harbor in Bloom: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Best Man (The Blue Heron Series)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Home to Whiskey Creek"
+  },
+  {
+    "rank": 14,
+    "item_name": "Back in the Game: A Stardust, Texas Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "Need You for Mine (Heroes of St. Helena)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Woodrose Mountain (Hope's Crossing)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Any Dream Will Do: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "Hunted (The Profiler)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Good Luck Sister: A Wildstone Novella"
+  },
+  {
+    "rank": 20,
+    "item_name": "Risk Taker (Shadow Warriors)"
+  },
+  {
+    "rank": 21,
+    "item_name": "On Second Thought: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Best of My Love (Fool's Gold, Book 22)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Kiss Me (Fool's Gold, Book 19)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Liar"
+  },
+  {
+    "rank": 25,
+    "item_name": "Home to Seaview Key (A Seaview Key Novel)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Sea Glass Sunrise (The Brides Of Blueberry Cove)"
+  },
+  {
+    "rank": 27,
+    "item_name": "A Cold Creek Noel"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Great Escape: A Novel (Wynette, Texas)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Hold Me (Fool's Gold, Book 18)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Wild Man Creek (A Virgin River Novel)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Lawman's Convenient Bride (The Bravos of Justice Creek)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Driftwood Cottage (Chesapeake Shores)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Next Best Thing (Hqn)"
+  },
+  {
+    "rank": 34,
+    "item_name": "In a Ranger's Arms"
+  },
+  {
+    "rank": 35,
+    "item_name": "Somebody To Love (Hqn)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Snow Angel Cove: A small-town romance (Haven Point)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Winter Wishes"
+  },
+  {
+    "rank": 38,
+    "item_name": "MAYBE THIS CHRISTMAS"
+  },
+  {
+    "rank": 39,
+    "item_name": "Christmas in Snowflake Canyon (Hope's Crossing)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Wyoming Tough"
+  },
+  {
+    "rank": 41,
+    "item_name": "All He Ever Dreamed (The Kowalskis)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Saving Jake (Blessings, Georgia)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Sweet Little Lies: A Heartbreaker Bay Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "Lip Service (Lone Star Sisters, Book 2)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Secrets She Kept (Fairham Island)"
+  },
+  {
+    "rank": 46,
+    "item_name": "One Snowy Night: A Heartbreaker Bay Christmas Novella"
+  },
+  {
+    "rank": 47,
+    "item_name": "Yours for Christmas (Fool's Gold Series)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Still the One (An Animal Magnetism Novel)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Indecent Proposal (The Boys of Bishop)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Into The Whirlwind (A BOSS, Inc. Novel)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

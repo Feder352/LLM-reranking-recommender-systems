@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Runaway Romance (A Reality Romance) (Volume 1)"
+  },
+  {
+    "item_name": "Lady Jayne Disappears"
+  },
+  {
+    "item_name": "All Things Now Living (Seventh Daughter)"
+  },
+  {
+    "item_name": "A Time to Stand"
+  },
+  {
+    "item_name": "A Dangerous Legacy"
+  },
+  {
+    "item_name": "The Wanderers"
+  },
+  {
+    "item_name": "Troubled Waters (Montana Rescue)"
+  },
+  {
+    "item_name": "Deeds of Darkness (The Chronicles of Hugh de Singleton, Sur)"
+  },
+  {
+    "item_name": "The Sound of Rain"
+  },
+  {
+    "item_name": "You're Gonna Love Me"
+  },
+  {
+    "item_name": "Isaiah's Daughter: A Novel of Prophets and Kings"
+  },
+  {
+    "item_name": "The Ladies of Ivy Cottage (Tales from Ivy Hill)"
+  },
+  {
+    "item_name": "P.S. I Like You"
+  },
+  {
+    "item_name": "Kill Shot: A Novel (White Knights)"
+  },
+  {
+    "item_name": "The Saturday Night Supper Club"
+  },
+  {
+    "item_name": "A Song Unheard (Shadows Over England)"
+  },
+  {
+    "item_name": "Sea Before Us (Surise at Normandy)"
+  },
+  {
+    "item_name": "A Loyal Heart"
+  },
+  {
+    "item_name": "Keturah (The Sugar Baron's Daughters)"
+  },
+  {
+    "item_name": "Why I Hate Green Beans: And Other Confessions about Relationships, Reality TV, and How We See Ourselves"
+  },
+  {
+    "item_name": "The Innkeeper's Daughter (Bow Street Runners Trilogy)"
+  },
+  {
+    "item_name": "Winning Miss Winthrop (Regency Brides: A Promise of Hope)"
+  },
+  {
+    "item_name": "The Engagement Plot"
+  },
+  {
+    "item_name": "No One Ever Asked: A Novel"
+  },
+  {
+    "item_name": "A Light on the Hill (Cities of Refuge)"
+  },
+  {
+    "item_name": "Julie"
+  },
+  {
+    "item_name": "Pelican Point: A Hope Harbor Novel"
+  },
+  {
+    "item_name": "Just Let Go"
+  },
+  {
+    "item_name": "Sons of Blackbird Mountain (A Blackbird Mountain Novel)"
+  },
+  {
+    "item_name": "Dead Drift (Chesapeake Valor)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 2,
+    "item_name": "Playing the Part"
+  },
+  {
+    "rank": 3,
+    "item_name": "Chance of Loving You: Romance Collection (Thorndike Press Large Print Christian Fiction)"
+  },
+  {
+    "rank": 4,
+    "item_name": "A Bride at Last"
+  },
+  {
+    "rank": 5,
+    "item_name": "Dear Mr. Knightley: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Fool and His Monet (Serena Jones Mysteries)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Wedding Dress"
+  },
+  {
+    "rank": 9,
+    "item_name": "After a Fashion"
+  },
+  {
+    "rank": 10,
+    "item_name": "One Perfect Spring: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Dancing Master"
+  },
+  {
+    "rank": 12,
+    "item_name": "As Waters Gone By"
+  },
+  {
+    "rank": 13,
+    "item_name": "Rachel: A Novel (Wives of the Patriarchs) (Volume 3)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Medical Judgment"
+  },
+  {
+    "rank": 15,
+    "item_name": "Kissed by a Cowboy (A Four of Hearts Ranch Romance)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Annabel Lee (Coffey &amp; Hill)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Governess of Highland Hall: A Novel (Edwardian Brides)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Tutor's Daughter"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Sweet Misfortune: A Novel (Virtues and Vices of the Old West)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Gathering the Threads: A Novel (The Amish of Summer Grove)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Out of the Ordinary (Apart From the Crowd)"
+  },
+  {
+    "rank": 22,
+    "item_name": "A Marriage in Middlebury"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Inheritance (Secrets of the Shetlands)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Winnowing Season: Book Two in the Amish Vines and Orchards Series"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Writing Desk"
+  },
+  {
+    "rank": 26,
+    "item_name": "Crazy Little Thing Called Love: A Destination Wedding Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Outcast"
+  },
+  {
+    "rank": 28,
+    "item_name": "5 Days to a Clutter-Free House: Quick, Easy Ways to Clear Up Your Space"
+  },
+  {
+    "rank": 29,
+    "item_name": "Deceived: A Novel (Private Justice) (Volume 3)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Sandpiper Cove: A Hope Harbor Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "A Wreath of Snow: A Victorian Christmas Novella"
+  },
+  {
+    "rank": 32,
+    "item_name": "By the Light of the Silvery Moon"
+  },
+  {
+    "rank": 33,
+    "item_name": "If I Run (If I Run Series)"
+  },
+  {
+    "rank": 34,
+    "item_name": "A Respectable Actress"
+  },
+  {
+    "rank": 35,
+    "item_name": "Fair Play: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Dance: A Novel (The Restoration Series)"
+  },
+  {
+    "rank": 37,
+    "item_name": "It Had to Be You (Christiansen Family)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Talon: Combat Tracking Team (A Breed Apart)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Phoebe's Light (Nantucket Legacy)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Shadows of the Past: A Novel (Logan Point) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Moms' Night Out and Other Things I Miss: Devotions To Help You Survive"
+  },
+  {
+    "rank": 42,
+    "item_name": "Love Comes Home: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Vanished: A Novel (Private Justice) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Home to Paradise: The Coming Home Series  Book 3"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Sound of Sleigh Bells: A Romance from the Heart of Amish Country (Apple Ridge)"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Moonbow Night"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Beautiful Pretender (A Medieval Fairy Tale)"
+  },
+  {
+    "rank": 48,
+    "item_name": "To Follow Her Heart: A Novel (The Southold Chronicles) (Volume 3)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Deeply Devoted: A Novel (The Blue Willow Brides) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Innocent: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

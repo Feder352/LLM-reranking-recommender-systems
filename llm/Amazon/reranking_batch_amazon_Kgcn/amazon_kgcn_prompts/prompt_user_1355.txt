@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Peanut &amp; Sparky: A Story About New Friendships (Peanut and Sparky Book 1) - Kindle edition"
+  },
+  {
+    "item_name": "Happy Monsters: Short Stories, Jokes, Games, and More! (Fun Time Reader) - Kindle edition"
+  },
+  {
+    "item_name": "Creative Haven Creative Cats Coloring Book (Creative Haven Coloring Books) by Sarnat, Marjorie (2015) Paperback"
+  },
+  {
+    "item_name": "Wiggly the Worm: Fun Short Stories for Kids (Early Bird Reader Book 1) - Kindle edition"
+  },
+  {
+    "item_name": "Presumed Guilty (Love Inspired Suspense)"
+  },
+  {
+    "item_name": "I Have Lived a Thousand Years:  Growing up in the Holocaust"
+  },
+  {
+    "item_name": "This Is Where It Ends"
+  },
+  {
+    "item_name": "Some Boys"
+  },
+  {
+    "item_name": "The Life We Bury (Wheeler Large Print Book Series)"
+  },
+  {
+    "item_name": "Cellar of Horror (Vol. 1)"
+  },
+  {
+    "item_name": "All but My Life (FSG Audio)"
+  },
+  {
+    "item_name": "30 Days"
+  },
+  {
+    "item_name": "The Taste of Fear"
+  },
+  {
+    "item_name": "I Love to Eat Fruits and Vegetables"
+  },
+  {
+    "item_name": "Rushed"
+  },
+  {
+    "item_name": "Terry Treetop and the lost egg: the lost egg (Bedtime story)"
+  },
+  {
+    "item_name": "DARK WEB"
+  },
+  {
+    "item_name": "Green Lake"
+  },
+  {
+    "item_name": "Everybody Gets Angry"
+  },
+  {
+    "item_name": "Dinosaur and Monster and The Magic Carpet (Dinosaur and Monster stories Book 1) - Kindle edition"
+  },
+  {
+    "item_name": "Now That She's Gone (A Waterman &amp; Stark Thriller)"
+  },
+  {
+    "item_name": "Twenty-Eight and a Half Wishes (A Rose Gardner Mystery)"
+  },
+  {
+    "item_name": "Butterfly"
+  },
+  {
+    "item_name": "Dream Decor: Styling a Cool, Creative and Comfortable Home, Wherever You Live"
+  },
+  {
+    "item_name": "Color Me Calm: 100 Coloring Templates for Meditation and Relaxation (A Zen Coloring Book)"
+  },
+  {
+    "item_name": "Atlas of Animal Adventures: A collection of nature's most unmissable events, epic migrations and extraordinary behaviours"
+  },
+  {
+    "item_name": "All the Blue-Eyed Angels"
+  },
+  {
+    "item_name": "TJ's Last Summer in Cape Cod: A Novel"
+  },
+  {
+    "item_name": "Licensed to Thrill 1: Hunt For Jack Reacher Series Thrillers Books 1-3 (Diane Capri&#39;s Licensed to Thrill Sets) - Kindle edition"
+  },
+  {
+    "item_name": "Drained (An Agent Hank Rawlings FBI Thriller Book 1) eBook"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 484,
+    "item_name": "Delirium (Delirium Trilogy)"
+  },
+  {
+    "rank": 2,
+    "item_id": 4846,
+    "item_name": "City of Bones (The Mortal Instruments)"
+  },
+  {
+    "rank": 3,
+    "item_id": 4956,
+    "item_name": "A Monster Calls: Inspired by an idea from Siobhan Dowd"
+  },
+  {
+    "rank": 4,
+    "item_id": 5758,
+    "item_name": "Hex Hall (A Hex Hall Novel)"
+  },
+  {
+    "rank": 5,
+    "item_id": 651,
+    "item_name": "Dorothy Must Die"
+  },
+  {
+    "rank": 6,
+    "item_id": 4240,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 7,
+    "item_id": 1187,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 8,
+    "item_id": 878,
+    "item_name": "The Moon and More"
+  },
+  {
+    "rank": 9,
+    "item_id": 1849,
+    "item_name": "Cinder"
+  },
+  {
+    "rank": 10,
+    "item_id": 958,
+    "item_name": "Across the Universe"
+  },
+  {
+    "rank": 11,
+    "item_id": 5769,
+    "item_name": "Austenland: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_id": 4243,
+    "item_name": "The False Prince (The Ascendance Trilogy, Book 1)"
+  },
+  {
+    "rank": 13,
+    "item_id": 2042,
+    "item_name": "Heartless (The Parasol Protectorate)"
+  },
+  {
+    "rank": 14,
+    "item_id": 2033,
+    "item_name": "The Diviners"
+  },
+  {
+    "rank": 15,
+    "item_id": 1136,
+    "item_name": "Out of the Easy"
+  },
+  {
+    "rank": 16,
+    "item_id": 3492,
+    "item_name": "Dead Reckoning (Sookie Stackhouse/True Blood, Book 11)"
+  },
+  {
+    "rank": 17,
+    "item_id": 150,
+    "item_name": "13 Little Blue Envelopes"
+  },
+  {
+    "rank": 18,
+    "item_id": 5704,
+    "item_name": "Promise of the Wolves: A Novel (The Wolf Chronicles)"
+  },
+  {
+    "rank": 19,
+    "item_id": 5556,
+    "item_name": "Horde (The Razorland Trilogy)"
+  },
+  {
+    "rank": 20,
+    "item_id": 5653,
+    "item_name": "Code Name Verity"
+  },
+  {
+    "rank": 21,
+    "item_id": 1517,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 22,
+    "item_id": 523,
+    "item_name": "Paranormalcy"
+  },
+  {
+    "rank": 23,
+    "item_id": 5293,
+    "item_name": "Shadow and Bone (Grisha Trilogy)"
+  },
+  {
+    "rank": 24,
+    "item_id": 5654,
+    "item_name": "Clockwork Angel"
+  },
+  {
+    "rank": 25,
+    "item_id": 3410,
+    "item_name": "Undead and Uneasy (Queen Betsy, Book 6)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Civil War"
+  },
+  {
+    "item_name": "Civil War: Peter Parker, Spider-Man"
+  },
+  {
+    "item_name": "Pearl Harbor: A Novel of December 8th"
+  },
+  {
+    "item_name": "April 1865: The Month That Saved America"
+  },
+  {
+    "item_name": "Civil War: Young Avengers &amp; Runaways"
+  },
+  {
+    "item_name": "Harlequin"
+  },
+  {
+    "item_name": "Days with Frog and Toad (An I Can Read Book)"
+  },
+  {
+    "item_name": "Frog and Toad are Friends"
+  },
+  {
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "item_name": "Will the Vampire People Please Leave the Lobby? (True Adventures in Cult Fandom)"
+  },
+  {
+    "item_name": "Smoke and Mirrors: Short Fictions and Illusions"
+  },
+  {
+    "item_name": "Power Play"
+  },
+  {
+    "item_name": "Buffy the Vampire Slayer Omnibus, Vol. 1"
+  },
+  {
+    "item_name": "A Lick of Frost (Meredith Gentry, Book 6)"
+  },
+  {
+    "item_name": "Book of the Dead (A Scarpetta Novel)"
+  },
+  {
+    "item_name": "Rhett Butler's People"
+  },
+  {
+    "item_name": "Good Luck Chuck"
+  },
+  {
+    "item_name": "Days of Infamy"
+  },
+  {
+    "item_name": "The Dirty Secrets Club (Jo Beckett)"
+  },
+  {
+    "item_name": "Six Good Innings: How One Small Town Became a Little League Giant"
+  },
+  {
+    "item_name": "Before Green Gables"
+  },
+  {
+    "item_name": "Given Day Unabridged CD, The"
+  },
+  {
+    "item_name": "Spider-Man: Kraven's Last Hunt (Marvel Premiere Classic)"
+  },
+  {
+    "item_name": "The Yankee Years"
+  },
+  {
+    "item_name": "Heat Wave: A Social Autopsy of Disaster in Chicago"
+  },
+  {
+    "item_name": "Heat Wave (Nikki Heat)"
+  },
+  {
+    "item_name": "Bullet (Anita Blake, Vampire Hunter)"
+  },
+  {
+    "item_name": "Under the Dome"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 3,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 4,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 5,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 6,
+    "item_name": "To Your Scattered Bodies Go (Riverworld Saga, Book 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 8,
+    "item_name": "Midnight in the Garden of Good and Evil (AUDIO CD)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 11,
+    "item_name": "I Am Legend"
+  },
+  {
+    "rank": 12,
+    "item_name": "Speaker for the Dead"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Complete Sherlock Holmes (Volume One)"
+  },
+  {
+    "rank": 14,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Cat in the Hat Comes Back: Green Back Book (Dr Seuss - Green Back Book)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Hidden Empire (The Saga of Seven Suns)"
+  },
+  {
+    "rank": 18,
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 20,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Lost World"
+  },
+  {
+    "rank": 22,
+    "item_name": "Memoirs of a Geisha Uk"
+  },
+  {
+    "rank": 23,
+    "item_name": "Of Mice and Men"
+  },
+  {
+    "rank": 24,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Sleeping Beauty Novels: The Claiming of Sleeping Beauty / Beauty's Release / Beauty's Punishment"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Curse of Chalion (Chalion series)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 28,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 29,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Stranger in a Strange Land (Penguin Galaxy)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Dark Tower: Wolves of the Calla"
+  },
+  {
+    "rank": 33,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Dune (Penguin Galaxy)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Twenty Thousand Leagues Under the Sea (Vintage Classics)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Calculating God"
+  },
+  {
+    "rank": 37,
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "rank": 38,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Adventures of Sherlock Holmes (Collins Classics)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Eye of the Needle"
+  },
+  {
+    "rank": 41,
+    "item_name": "Confessor: Chainfire Trilogy, Part 3 (Sword Of Truth, Book 11)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Cat in the Hat Song Book"
+  },
+  {
+    "rank": 43,
+    "item_name": "Hyperion (Hyperion Cantos)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Northern Lights: A Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Light Fantastic: A Discworld Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Legion of Super-Heroes: The Great Darkness Saga"
+  },
+  {
+    "rank": 47,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 48,
+    "item_name": "My Man Godfrey"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Snow Queen (Everyman's Library Children's Classics Series)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Superman &amp; Batman: Generations, An Imaginary Tale (Elseworlds)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

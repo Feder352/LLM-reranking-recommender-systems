@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Eighth Day"
+  },
+  {
+    "item_name": "Marked for Life (Jana Berzelius)"
+  },
+  {
+    "item_name": "Christmas at Promise Lodge"
+  },
+  {
+    "item_name": "Curse of the Boggin (The Library Book 1)"
+  },
+  {
+    "item_name": "Isabella for Real"
+  },
+  {
+    "item_name": "Livia Lone (A Livia Lone Novel)"
+  },
+  {
+    "item_name": "Plague of Justice - A True Crime Story"
+  },
+  {
+    "item_name": "Covenant Bible Study: Covenant Meditations"
+  },
+  {
+    "item_name": "Where I Can See You"
+  },
+  {
+    "item_name": "Jesus and the Beanstalk: Overcoming Your Giants and Living a Fruitful Life"
+  },
+  {
+    "item_name": "Bitter Creek (The Montana Mysteries Featuring Gabriel Du Pr)"
+  },
+  {
+    "item_name": "Dark Road Home: A Gin Sullivan Mystery"
+  },
+  {
+    "item_name": "Color of Evil"
+  },
+  {
+    "item_name": "The Amazing Adventures of Ellie The Elephant: Ellie Camps Under the Stars (Volume 6)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...the Ancient Mali Empire: An Introduction to Civilizations Throughout Time (Volume 5)"
+  },
+  {
+    "item_name": "If You Were Me and Lived on...Mars (A Child's Introduction to Cultures Around the World) (Volume 23)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in... Elizabethan England: An Introduction to Civilizations Throughout Time (Volume 8)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Viking Europe: An Introduction to Civilizations Throughout Time (Volume 3)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...the Middle Ages: An Introduction to Civilizations Throughout Time (Volume 6)"
+  },
+  {
+    "item_name": "The Murder That Never Was: A Forensic Instincts Novel"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Ancient Greece: An Introduction to Civilizations Throughout Time (Volume 1)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...the American West: An Introduction to Civilizations Throughout Time (Volume 10)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in....the Mayan Empire: An Introduction to Civilizations Throughout Time (Volume 4)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Germany: A Child's Introduction to Cultures Around the World (Volume 20)"
+  },
+  {
+    "item_name": "Devil's Harbor: A Novel"
+  },
+  {
+    "item_name": "The Shimmering Road"
+  },
+  {
+    "item_name": "A Kiss Before Doomsday (A Dru Jasper Novel)"
+  },
+  {
+    "item_name": "Once Shadows Fall: A Thriller (A Jack Kale and Beth Sturgis Thriller)"
+  },
+  {
+    "item_name": "Finding Grace in the Face of Dementia: Experiencing Dementia--Honoring God"
+  },
+  {
+    "item_name": "Murder.com (The Reuben Frost Mysteries)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "If You Were Me and Lived in...Israel: A Child's Introduction to Cultures Around the World (Volume 19)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Witches Protection Program"
+  },
+  {
+    "rank": 3,
+    "item_name": "If You Were Me and Lived in...Ancient Greece: An Introduction to Civilizations Throughout Time (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "If You Were Me and Lived in...Colonial America: An Introduction to Civilizations Throughout Time (Volume 9)"
+  },
+  {
+    "rank": 5,
+    "item_name": "If You Were Me and Lived in... Hungary: A Child's Introduction to Cultures Around the World (Volume 13)"
+  },
+  {
+    "rank": 6,
+    "item_name": "If You Were Me and Lived in...the Middle Ages: An Introduction to Civilizations Throughout Time (Volume 6)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Oh Susannah: It's in the Bag (An Oh Susannah Story)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Treasure of Snake Island: A Captain No Beard Story (Volume 5)"
+  },
+  {
+    "rank": 9,
+    "item_name": "If You Were Me and Lived in....the Mayan Empire: An Introduction to Civilizations Throughout Time (Volume 4)"
+  },
+  {
+    "rank": 10,
+    "item_name": "If You Were Me and Lived in...Brazil: A Child's Introduction to Cultures Around the World (Volume 17)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Snowman's Revenge"
+  },
+  {
+    "rank": 12,
+    "item_name": "One to Ten: Squirrel's Bad Day (Bedtime Dream Collection)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Monsterland"
+  },
+  {
+    "rank": 14,
+    "item_name": "If you were me and lived in... Mexico: A Child's Introduction to Cultures Around the World"
+  },
+  {
+    "rank": 15,
+    "item_name": "Creatively Ever After: A Path to Innovation"
+  },
+  {
+    "rank": 16,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Gifted: How to Live the Life of Your Dreams"
+  },
+  {
+    "rank": 18,
+    "item_name": "If you were me and lived in... France: A Child's Introduction to Cultures Around the World (Volume 2)"
+  },
+  {
+    "rank": 19,
+    "item_name": "LOVE SAYINGS: wit &amp; wisdom of romance, courtship and marriage."
+  },
+  {
+    "rank": 20,
+    "item_name": "If You Were Me and Lived in...Renaissance Italy: An Introduction to Civilizations Throughout Time (Volume 7)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Skinny on Time Management: How to Maximize Your 24-Hour Gift"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Imposter - How a Juvenile Criminal Succeeded in Business and Life"
+  },
+  {
+    "rank": 23,
+    "item_name": "If you were me and lived in... Australia: A Child's Introduction to Cultures around the World (Volume 8)"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Walk for Sunshine: A 2,160 Mile Expedition for Charity on the Appalachian Trail"
+  },
+  {
+    "rank": 25,
+    "item_name": "Hidden Strengths: Unleashing the Crucial Leadership Skills You Already Have"
+  },
+  {
+    "rank": 26,
+    "item_name": "Children's book: SPLASH DOWN (Bedtime story):Beginner reader- Nursery rhymes-Kids action story: Adventures in Firefighting Series (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Friends of the Wigwam: A Civil War Story"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Four Intelligences of the Business Mind: How to Rewire Your Brain and Your Business for Success"
+  },
+  {
+    "rank": 29,
+    "item_name": "Navigating Indieworld: A Beginner's Guide to Self-Publishing and Marketing Your"
+  },
+  {
+    "rank": 30,
+    "item_name": "Street Smarts: Beyond the Diploma"
+  },
+  {
+    "rank": 31,
+    "item_name": "If You Were Me and Lived in...Ancient China: The Han Dynasty - An Introduction to Civilizations Throughout Time (Volume 2)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Art Hunters Handbook: How To Buy Art For $5 And Sell It For $1,000,000"
+  },
+  {
+    "rank": 33,
+    "item_name": "Things I Wish I'd Known: Cancer and Kids"
+  },
+  {
+    "rank": 34,
+    "item_name": "Children&#39;s Books: Emma Learns to Sprout [short stories for children] - Kindle edition"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Skinny on Success: Why not you?"
+  },
+  {
+    "rank": 36,
+    "item_name": "Oh Susannah: Things That Go Bump: An Oh Susannah Story (Volume 2)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Three Cups of Tea"
+  },
+  {
+    "rank": 38,
+    "item_name": "Titan the Talking Cloud: Books ages 4-8 Bedtime stories for children (Nanook and the Zirons Collection Book 2) - Kindle edition"
+  },
+  {
+    "rank": 39,
+    "item_name": "Yummy Stories: Fruits, Vegetables and Healthy Eating Habits (Read aloud; Volume: 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Patriots of Treason"
+  },
+  {
+    "rank": 41,
+    "item_name": "Children&#39;S Books:When Monsters Come Out to Play. Bedtime stories, Rhyming Books for Children. (Monster Books For Kids Book 1) - Kindle edition"
+  },
+  {
+    "rank": 42,
+    "item_name": "Inca's Death Cave an Archaeological Mystery Thriller"
+  },
+  {
+    "rank": 43,
+    "item_name": "Rocket-Bye (Bedtime Dream Collection)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Terry Treetop Finds New Friends (Bedtime Stories Children's Books for Early &amp; Beginner Readers) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "President Lincoln: From Log Cabin to White House"
+  },
+  {
+    "rank": 46,
+    "item_name": "Grit in Your Craw: The 8 Strengths You Need to Succeed in Business and in Life"
+  },
+  {
+    "rank": 47,
+    "item_name": "Rover and the Dog Hotel: Bedtime Stories Book For Children's Age 3-10. (Ebook About a dog) (Good night &amp; Bedtime Children's Story Ebook Collection)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Children Book : The Magical Zoo #1 (Illustrated childrens books &amp; Great bedtime stories) - Kindle edition"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Great Fat Fraud: Why the Obesity Epidemic Isn't, How to Be Totally Healthy without Losing Weight and If You Should Lose Some Pounds, How to Keep Them from Finding You Again"
+  },
+  {
+    "rank": 50,
+    "item_name": "It's Time To Eat: A Children's Picture Book for Early/Beginner Readers"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

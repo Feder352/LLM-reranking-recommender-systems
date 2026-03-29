@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "They Can't Kill Us All: Ferguson, Baltimore, and a New Era in America's Racial Justice Movement"
+  },
+  {
+    "item_name": "Kill the Next One"
+  },
+  {
+    "item_name": "The Killer in Me"
+  },
+  {
+    "item_name": "Love and First Sight"
+  },
+  {
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "item_name": "Difficult Women"
+  },
+  {
+    "item_name": "History Is All You Left Me"
+  },
+  {
+    "item_name": "Loving vs. Virginia: A Documentary Novel of the Landmark Civil Rights Case"
+  },
+  {
+    "item_name": "The You I've Never Known"
+  },
+  {
+    "item_name": "Wintersong: A Novel"
+  },
+  {
+    "item_name": "The Impossible Fortress"
+  },
+  {
+    "item_name": "The Land of Nod"
+  },
+  {
+    "item_name": "The Beast Is an Animal"
+  },
+  {
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "item_name": "The Fall of Lisa Bellow: A Novel"
+  },
+  {
+    "item_name": "Nightlights"
+  },
+  {
+    "item_name": "A Crown of Wishes (Star-Touched)"
+  },
+  {
+    "item_name": "Waking Gods: Themis Files Book 2"
+  },
+  {
+    "item_name": "Bitch Planet Volume 2: President Bitch"
+  },
+  {
+    "item_name": "Lady Mechanika TP Vol 03: The Lost Boys of West Abbey"
+  },
+  {
+    "item_name": "Lessons from Shadow: My Life Lessons for Boys and Girls"
+  },
+  {
+    "item_name": "Star Trek Cats"
+  },
+  {
+    "item_name": "Kindred: A Graphic Novel Adaptation"
+  },
+  {
+    "item_name": "Final Girls: A Novel"
+  },
+  {
+    "item_name": "All Our Wrong Todays: A BBC Radio 2 Book Club Choice 2017"
+  },
+  {
+    "item_name": "Fetch: How a Bad Dog Brought Me Home"
+  },
+  {
+    "item_name": "Into the Drowning Deep"
+  },
+  {
+    "item_name": "Incognegro"
+  },
+  {
+    "item_name": "Only Human (The Themis Files)"
+  },
+  {
+    "item_name": "Manfried the Man: A Graphic Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Golem and the Jinni: A Novel (P.S.)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Perks Of Being A Wallflower (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Young Elites"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Fold: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Rot &amp; Ruin (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Armada (Easton Press)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Graveyard Book"
+  },
+  {
+    "rank": 9,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 10,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 11,
+    "item_name": "Thirteen Reasons Why"
+  },
+  {
+    "rank": 12,
+    "item_name": "Wolf by Wolf"
+  },
+  {
+    "rank": 13,
+    "item_name": "Beautiful Creatures. by Kami Garcia &amp; Margaret Stohl"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Iron Queen (Iron Fey)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Salt to the Sea"
+  },
+  {
+    "rank": 16,
+    "item_name": "Final Girls: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Dark Triumph: His Fair Assassins, Book II"
+  },
+  {
+    "rank": 18,
+    "item_name": "All The Bright Places"
+  },
+  {
+    "rank": 19,
+    "item_name": "The 5th Wave (Book 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Saga, Vol. 2"
+  },
+  {
+    "rank": 21,
+    "item_name": "Born of Illusion"
+  },
+  {
+    "rank": 22,
+    "item_name": "LOCKWOOD &amp; CO:SCREAMING (B)"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Thousand Pieces of You (Firebird)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Denton Little's Deathdate (Denton Little Series)"
+  },
+  {
+    "rank": 25,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 26,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Armada (The American Heritage Library)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Raven Boys"
+  },
+  {
+    "rank": 29,
+    "item_name": "Asylum"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Geography of You and Me"
+  },
+  {
+    "rank": 32,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 33,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Days of Blood &amp; Starlight"
+  },
+  {
+    "rank": 35,
+    "item_name": "In a Handful of Dust"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Bone Witch"
+  },
+  {
+    "rank": 37,
+    "item_name": "Steelheart (The Reckoners)"
+  },
+  {
+    "rank": 38,
+    "item_name": "MaddAddam (MaddAddam Trilogy)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Mr. Penumbra's 24-Hour Bookstore: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Those Across the River"
+  },
+  {
+    "rank": 41,
+    "item_name": "Uglies (The Uglies)"
+  },
+  {
+    "rank": 42,
+    "item_name": "14"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Feast for Crows (Song of Ice and Fire)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Twelve (Passage)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Far Far Away"
+  },
+  {
+    "rank": 46,
+    "item_name": "Slide"
+  },
+  {
+    "rank": 47,
+    "item_name": "Partials. by Dan Wells"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Body Finder"
+  },
+  {
+    "rank": 49,
+    "item_name": "Grave Mercy: His Fair Assassin, Book I"
+  },
+  {
+    "rank": 50,
+    "item_name": "Mind Games"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

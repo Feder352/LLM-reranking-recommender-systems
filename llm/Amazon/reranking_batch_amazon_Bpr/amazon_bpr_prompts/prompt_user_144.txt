@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Furiously Happy: A Funny Book About Horrible Things"
+  },
+  {
+    "item_name": "The High Mountains of Portugal: A Novel"
+  },
+  {
+    "item_name": "The Guest Room: A Novel"
+  },
+  {
+    "item_name": "American Housewife: Stories"
+  },
+  {
+    "item_name": "The Arrangement: A Novel"
+  },
+  {
+    "item_name": "The Guest Room: A Novel - Kindle edition"
+  },
+  {
+    "item_name": "Undocumented: A Dominican Boy's Odyssey from a Homeless Shelter to the Ivy League"
+  },
+  {
+    "item_name": "Undocumented: A Dominican Boy's Odyssey from a Homeless Shelter to the Ivy League"
+  },
+  {
+    "item_name": "Polar Animals (Animal Planet Animal Bites)"
+  },
+  {
+    "item_name": "Shrill"
+  },
+  {
+    "item_name": "Pride And Prejudice And Zombies"
+  },
+  {
+    "item_name": "Lust &amp; Wonder: A Memoir"
+  },
+  {
+    "item_name": "First Comes Love: A Novel"
+  },
+  {
+    "item_name": "By The Numbers"
+  },
+  {
+    "item_name": "Harry Potter and the Cursed Child, parts one and two. [Based on the original new story by J.J. Rowling, John Tiffany &amp; Jack Thorne]. First produced by ... End production, special rehearsal edition."
+  },
+  {
+    "item_name": "The Wind-Up Bird Chronicle"
+  },
+  {
+    "item_name": "The Glorious Heresies: A Novel"
+  },
+  {
+    "item_name": "A Fine Imitation: A Novel"
+  },
+  {
+    "item_name": "Shaken and Stirred: Intoxicating Stories (Everyman's Library Pocket Classics Series)"
+  },
+  {
+    "item_name": "The Girl with the Lower Back Tattoo"
+  },
+  {
+    "item_name": "The Residence: Inside the Private World of the White House"
+  },
+  {
+    "item_name": "Me Before You: A Novel (Movie Tie-In) (Me Before You Trilogy)"
+  },
+  {
+    "item_name": "The Clothing of Books"
+  },
+  {
+    "item_name": "Big Little Lies"
+  },
+  {
+    "item_name": "Make Your Home Among Strangers: A Novel"
+  },
+  {
+    "item_name": "Untitled Personal Essays (Thorndike Press Large Print Popular and Narrative Nonfiction)"
+  },
+  {
+    "item_name": "The Gatekeepers"
+  },
+  {
+    "item_name": "The Story Orchestra: The Nutcracker: Press the Note to Hear Tchaikovsky's Music"
+  },
+  {
+    "item_name": "The Seven Husbands of Evelyn Hugo: A Novel"
+  },
+  {
+    "item_name": "An American Marriage: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Rosie Project"
+  },
+  {
+    "rank": 2,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 4,
+    "item_name": "22/11/63"
+  },
+  {
+    "rank": 5,
+    "item_name": "Freedom"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Perks Of Being A Wallflower (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Water For Elephants"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Sense of an Ending"
+  },
+  {
+    "rank": 10,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 11,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Age of Miracles: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 14,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 16,
+    "item_name": "Where'd You Go, Bernadette"
+  },
+  {
+    "rank": 17,
+    "item_name": "A Reliable Wife (Thorndike Core)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Book of Unknown Americans"
+  },
+  {
+    "rank": 19,
+    "item_name": "Go Set a Watchman: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "At Home: A Short History of Private Life (Random House Large Print)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Giver (Collins Modern Classics)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Golem and the Jinni: A Novel (P.S.)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Into the Wild"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Leftovers"
+  },
+  {
+    "rank": 25,
+    "item_name": "A Visit from the Goon Squad"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Reconstructing Amelia: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Tree Grows in Brooklyn"
+  },
+  {
+    "rank": 29,
+    "item_name": "Flora: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Hotel on the Corner of Bitter and Sweet: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "Still Life with Bread Crumbs: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Storyteller"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Columbus Affair: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Girls: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "On Chesil Beach"
+  },
+  {
+    "rank": 37,
+    "item_name": "Empty Mansions: The Mysterious Life of Huguette Clark and the Spending of a Great American Fortune"
+  },
+  {
+    "rank": 38,
+    "item_name": "Orphan Train: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 40,
+    "item_name": "Battle Hymn of the Tiger Mother"
+  },
+  {
+    "rank": 41,
+    "item_name": "Hyacinth Girls: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Woman Upstairs"
+  },
+  {
+    "rank": 44,
+    "item_name": "Paying Guests"
+  },
+  {
+    "rank": 45,
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "rank": 46,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "NOS4A2: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "City of Women"
+  },
+  {
+    "rank": 49,
+    "item_name": "Mr. Mercedes"
+  },
+  {
+    "rank": 50,
+    "item_name": "The End of Your Life Book Club"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

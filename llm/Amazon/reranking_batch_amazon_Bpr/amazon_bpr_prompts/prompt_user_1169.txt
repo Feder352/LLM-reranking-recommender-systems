@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Elemental Secrets (The Essential Elements)"
+  },
+  {
+    "item_name": "Haven (Tranquilli Bloodline) (Volume 1)"
+  },
+  {
+    "item_name": "In the Eye of the Storm / Catering to the CEO"
+  },
+  {
+    "item_name": "Witches Gone Wicked: A Cozy Witch Mystery (Womby's School for Wayward Witches) (Volume 3)"
+  },
+  {
+    "item_name": "Coming Unraveled (Welcome to Carson) (Volume 5)"
+  },
+  {
+    "item_name": "Here Be Dragons"
+  },
+  {
+    "item_name": "The Road to Jonestown: Jim Jones and Peoples Temple"
+  },
+  {
+    "item_name": "Collision Point: A Brute Force Novel"
+  },
+  {
+    "item_name": "Eight Simple Rules for Dating a Dragon: A Novel of the Embraced"
+  },
+  {
+    "item_name": "Protected (Deadly Secrets)"
+  },
+  {
+    "item_name": "Shadow Hunt (Disrupted Magic)"
+  },
+  {
+    "item_name": "Thanks Fur Last Night"
+  },
+  {
+    "item_name": "X-Ops Exposed"
+  },
+  {
+    "item_name": "Forbidden (House of Sin)"
+  },
+  {
+    "item_name": "The Secret of Flirting (The Sinful Suitors)"
+  },
+  {
+    "item_name": "Alpha Unleashed (Grizzlies Gone Wild)"
+  },
+  {
+    "item_name": "What to Expect When Your Demon Slayer is Expecting (Biker Witches Mystery) (Volume 8)"
+  },
+  {
+    "item_name": "Blood Will Tell (Blood Series) (Volume 1)"
+  },
+  {
+    "item_name": "Burned (Viking Bastards MC) (Volume 3)"
+  },
+  {
+    "item_name": "All's Fair in Love and Wolf (Silver Town Wolf)"
+  },
+  {
+    "item_name": "Truly Dead (Elise Sandburg)"
+  },
+  {
+    "item_name": "The Heart of a Texas Cowboy (Men of Legend)"
+  },
+  {
+    "item_name": "Some Kind of Magic (Flirting with Fame)"
+  },
+  {
+    "item_name": "Without Words"
+  },
+  {
+    "item_name": "Until There Was Us (Montgomery Brothers)"
+  },
+  {
+    "item_name": "Foolish Bride"
+  },
+  {
+    "item_name": "Can't Fight the Feeling (Nashville Dreams)"
+  },
+  {
+    "item_name": "The Summer I Met Jack: A Novel"
+  },
+  {
+    "item_name": "Shadow's Bane (Dorina Basarab)"
+  },
+  {
+    "item_name": "Dagger's Edge: A Brute Force Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "My One True Highlander: A No Ordinary Hero Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Rugged Texas Cowboy: Two Stories in One: Cowboy and the Captive, Cowboy and the Thief"
+  },
+  {
+    "rank": 3,
+    "item_name": "When the Stars Come Out: A Cottonbloom Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Cowboy Stole My Heart: A River Ranch Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Deep Cover: A Love Over Duty Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Now That It's You"
+  },
+  {
+    "rank": 7,
+    "item_name": "The First Kiss of Spring: An Eternity Springs Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "A Duke Like No Other (Playful Brides)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Turn Me Loose (Alpha Ops)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Heart Like Mine: An Echo Lake Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "Murder Notes (Lilah Love)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Take to the Limit: An Unbroken Heroes Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "A Wedding At Two Love Lane"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Luck of the Bride: The Cavensham Heiresses"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Earl's New Bride (Daughters of Amhurst)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Caught Up In You (The Monroes)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Protector: A Sons of Texas Novel (The Sons of Texas)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Broken Promise: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Spy Fall: A Regency Spymasters Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Trouble with Mistletoe: A Heartbreaker Bay Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "Wolf Moon"
+  },
+  {
+    "rank": 22,
+    "item_name": "Firestorm: A Dragon Romance (Dark Kings)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Growl: Werewolf/Shifter Romance"
+  },
+  {
+    "rank": 24,
+    "item_name": "Tucked Away (Hearts of Montana) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Christmas Comes to Main Street (The Briar Creek Series)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Millionaire's Revenge"
+  },
+  {
+    "rank": 27,
+    "item_name": "Desperate Bride"
+  },
+  {
+    "rank": 28,
+    "item_name": "Mistletoe Cottage (Harmony Harbor)"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Stardance Summer: An Eternity Springs Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "So I Married a Sorcerer: A Novel of the Embraced"
+  },
+  {
+    "rank": 31,
+    "item_name": "Protecting His Witch"
+  },
+  {
+    "rank": 32,
+    "item_name": "It's All About the Duke: The Rakes of St. James"
+  },
+  {
+    "rank": 33,
+    "item_name": "Falling For His Mate (Crescent Moon Series) (Volume 6)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Lethal Game (Red Stone Security Series) (Volume 15)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Locked In Stone"
+  },
+  {
+    "rank": 36,
+    "item_name": "Deadly Silence (Blood Brothers)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Judgment Road (Torpedo Ink)"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Taste of Fire"
+  },
+  {
+    "rank": 39,
+    "item_name": "Hard Rules: A Dirty Money Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Baby, I'm Howling For You (Alphaville)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Cop On Her Doorstep (True Love In Uniform) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Idea of You"
+  },
+  {
+    "rank": 43,
+    "item_name": "If I Run (If I Run Series)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Woman Who Couldn't Scream: A Novel (The Virtue Falls Series)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Tailored for Trouble: A Romantic Comedy (Happy Pants)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Pretend You're Safe (The Agency)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Perfect Stranger: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Untamed Vampire (Last True Vampire series)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Hero (The Sons of Texas)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Call Me Daddy: A Cass Adams Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

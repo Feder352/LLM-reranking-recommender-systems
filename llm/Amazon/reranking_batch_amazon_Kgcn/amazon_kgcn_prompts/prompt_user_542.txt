@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "South with the Sun: Roald Amundsen, His Polar Explorations, and the Quest for Discovery"
+  },
+  {
+    "item_name": "A Tragic Legacy: How a Good vs. Evil Mentality Destroyed the Bush Presidency"
+  },
+  {
+    "item_name": "Immortality: The Quest to Live Forever and How It Drives Civilization"
+  },
+  {
+    "item_name": "What If? : Military Historians Imagine What Might Have Been"
+  },
+  {
+    "item_name": "The Tea Party: A Brief History"
+  },
+  {
+    "item_name": "Bill Veeck: Baseball's Greatest Maverick"
+  },
+  {
+    "item_name": "Monkey Girl: Evolution, Education, Religion, and the Battle for America's Soul"
+  },
+  {
+    "item_name": "Screwed: The Undeclared War Against the Middle Class - And What We Can Do about It"
+  },
+  {
+    "item_name": "Lefty: An American Odyssey"
+  },
+  {
+    "item_name": "Kingdom Coming: The Rise of Christian Nationalism"
+  },
+  {
+    "item_name": "Gabby: A Story of Courage and Hope"
+  },
+  {
+    "item_name": "Twilight of the Elites: America After Meritocracy"
+  },
+  {
+    "item_name": "Benjamin Franklin"
+  },
+  {
+    "item_name": "Born on a Mountaintop: On the Road with Davy Crockett and the Ghosts of the Wild Frontier"
+  },
+  {
+    "item_name": "The Candidate: What It Takes to Win - and Hold - the White House"
+  },
+  {
+    "item_name": "The Sea and Civilization: A Maritime History of the World"
+  },
+  {
+    "item_name": "The Ageless Generation: How Advances in Biomedicine Will Transform the Global Economy"
+  },
+  {
+    "item_name": "Celebrity Politics"
+  },
+  {
+    "item_name": "Who Owns America's Past?: The Smithsonian and the Problem of History"
+  },
+  {
+    "item_name": "Pete Rose: An American Dilemma"
+  },
+  {
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "item_name": "The Science of Shakespeare: A New Look at the Playwright's Universe"
+  },
+  {
+    "item_name": "Dog Whistle Politics: How Coded Racial Appeals Have Reinvented Racism and Wrecked the Middle Class"
+  },
+  {
+    "item_name": "Cooperstown Confidential: Heroes, Rogues, and the Inside Story of the Baseball Hall of Fame"
+  },
+  {
+    "item_name": "Exit Berlin: How One Woman Saved Her Family from Nazi Germany"
+  },
+  {
+    "item_name": "Analyze West: A Psychiatrist Takes Western Civilization on a Journey of Transformation"
+  },
+  {
+    "item_name": "Evolution vs. Creationism: An Introduction"
+  },
+  {
+    "item_name": "Print the Legend: The Life and Times of John Ford"
+  },
+  {
+    "item_name": "Leo Durocher: Baseball's Prodigal Son"
+  },
+  {
+    "item_name": "The Gashouse Gang: How Dizzy Dean, Leo Durocher, Branch Rickey, Pepper Martin, and Their Colorful, Come-from-Behind Ball Club Won the World Seriesand Americas HeartDuring the Great Depression"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 2,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 3,
+    "item_id": 3005,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 4,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 5,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 6,
+    "item_id": 2914,
+    "item_name": "Papal Sin: Structures of Deceit"
+  },
+  {
+    "rank": 7,
+    "item_id": 136,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 8,
+    "item_id": 168,
+    "item_name": "God's Politics: Why the Right Gets It Wrong and the Left Doesn't Get It"
+  },
+  {
+    "rank": 9,
+    "item_id": 5272,
+    "item_name": "Freethinkers: A History of American Secularism"
+  },
+  {
+    "rank": 10,
+    "item_id": 2588,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 11,
+    "item_id": 1382,
+    "item_name": "If Democrats Had Any Brains, They'd Be Republicans"
+  },
+  {
+    "rank": 12,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 13,
+    "item_id": 674,
+    "item_name": "The Plague"
+  },
+  {
+    "rank": 14,
+    "item_id": 237,
+    "item_name": "100 People Who Are Screwing Up America (And Al Franken Is #37)"
+  },
+  {
+    "rank": 15,
+    "item_id": 1698,
+    "item_name": "The World Without Us"
+  },
+  {
+    "rank": 16,
+    "item_id": 1097,
+    "item_name": "The World Until Yesterday: What Can We Learn from Traditional Societies?"
+  },
+  {
+    "rank": 17,
+    "item_id": 4522,
+    "item_name": "Truman"
+  },
+  {
+    "rank": 18,
+    "item_id": 1372,
+    "item_name": "Imperial Life in The Emerald City: Inside Iraq's Green Zone"
+  },
+  {
+    "rank": 19,
+    "item_id": 2907,
+    "item_name": "Case Closed: Lee Harvey Oswald and the Assassination of JFK"
+  },
+  {
+    "rank": 20,
+    "item_id": 2621,
+    "item_name": "Ghost Soldiers: The Forgotten Epic Story of World War II's Most Dramatic Mission"
+  },
+  {
+    "rank": 21,
+    "item_id": 852,
+    "item_name": "The Smartest Guys in the Room: The Amazing Rise and Scandalous Fall of Enron"
+  },
+  {
+    "rank": 22,
+    "item_id": 4564,
+    "item_name": "Lincoln at Gettysburg: The Words That Re-Made America"
+  },
+  {
+    "rank": 23,
+    "item_id": 4672,
+    "item_name": "On Bullshit"
+  },
+  {
+    "rank": 24,
+    "item_id": 4441,
+    "item_name": "How the Scots Invented the Modern World: The True Story of How Western Europe's Poorest Nation Created Our World and Everything in It"
+  },
+  {
+    "rank": 25,
+    "item_id": 2174,
+    "item_name": "The Demon-Haunted World: Science as a Candle in the Dark"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

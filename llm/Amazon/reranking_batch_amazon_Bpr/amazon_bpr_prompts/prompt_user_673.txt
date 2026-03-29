@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "item_name": "Gretel and the Case of the Missing Frog Prints: A Brothers Grimm Mystery (Brothers Grimm Mysteries)"
+  },
+  {
+    "item_name": "Thunderstruck"
+  },
+  {
+    "item_name": "The Strings of Murder: Frey &amp; McGray Book 1 (A Case for Frey &amp; McGray)"
+  },
+  {
+    "item_name": "The Night Bell: A Novel (A Detective Hazel Micallef Mystery)"
+  },
+  {
+    "item_name": "The Butcher Bird: Oswald de Lacy Book 2"
+  },
+  {
+    "item_name": "Abolition of Evil (Matt Hawkins Series) (Volume 2)"
+  },
+  {
+    "item_name": "Best. State. Ever.: A Florida Man Defends His Homeland"
+  },
+  {
+    "item_name": "The Lost Boy (Patrik Hedstrom and Erica Falck)"
+  },
+  {
+    "item_name": "The Drowning, Patrik Hedstrom 6"
+  },
+  {
+    "item_name": "Dying for Christmas: A Novel"
+  },
+  {
+    "item_name": "Dead Gone"
+  },
+  {
+    "item_name": "The Nightwalker: A Novel"
+  },
+  {
+    "item_name": "Ripper: The Secret Life of Walter Sickert"
+  },
+  {
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "item_name": "Into Thin Air: A Personal Account of the Mt. Everest Disaster"
+  },
+  {
+    "item_name": "Left for Dead: My Journey Home from Everest"
+  },
+  {
+    "item_name": "Touching the Void"
+  },
+  {
+    "item_name": "The Climb: Tragic Ambitions on Everest"
+  },
+  {
+    "item_name": "Climbing High: A Woman's Account of Surviving the Everest Tragedy"
+  },
+  {
+    "item_name": "How I Helped O. J. Get Away With Murder: The Shocking Inside Story of Violence, Loyalty, Regret, and Remorse"
+  },
+  {
+    "item_name": "Killing Time: The First Full Investigation into the Unsolved Murders of Nicole Brown Simpson and Ronald Goldman"
+  },
+  {
+    "item_name": "Blind Descent: Surviving Alone and Blind on Mount Everest"
+  },
+  {
+    "item_name": "Blind Descent: Surviving Alone and Blind on Mount Everest"
+  },
+  {
+    "item_name": "Think No Evil: Inside the Story of the Amish Schoolhouse Shooting...and Beyond"
+  },
+  {
+    "item_name": "Pretty Jane and the Viper of Kidbrooke Lane: A True Story of Victorian Law and Disorder: The Unsolved Murder that Shocked Victorian England"
+  },
+  {
+    "item_name": "Batman: A Death in the Family"
+  },
+  {
+    "item_name": "Batman/The Shadow: The Murder Geniuses"
+  },
+  {
+    "item_name": "The Shadow: Midnight in Moscow"
+  },
+  {
+    "item_name": "Mephisto Waltz: A Max Liebermann Mystery (Max Lieberman Mysteries)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Thomas Jefferson and the Tripoli Pirates: The Forgotten War That Changed American History"
+  },
+  {
+    "rank": 4,
+    "item_name": "Salt Sugar Fat: How the Food Giants Hooked Us"
+  },
+  {
+    "rank": 5,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Jungle (The Penguin American Library)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Maisie Dobbs (Book 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 9,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 10,
+    "item_name": "American Gods"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Secret Adversary"
+  },
+  {
+    "rank": 12,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 15,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 16,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 17,
+    "item_name": "PREY."
+  },
+  {
+    "rank": 18,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Case Histories: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 21,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Art of War: The New Translation (Harper Perennial Modern Classics)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Marley &amp; Me: Life and Love with the World's Worst Dog"
+  },
+  {
+    "rank": 25,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 26,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader Narrative of the Life of Frederick Douglas"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Murder of Roger Ackroyd (Poirot)"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The A. B. C. Murders: A Hercule Poirot Mystery"
+  },
+  {
+    "rank": 31,
+    "item_name": "War and Peace (Penguin Classics)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 34,
+    "item_name": "Lord Jim (New School Classics)"
+  },
+  {
+    "rank": 35,
+    "item_name": "At Home: A Short History of Private Life (Random House Large Print)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Rogue Heroes: The History of the SAS, Britain's Secret Special Forces Unit That Sabotaged the Nazis and Changed the Nature of War"
+  },
+  {
+    "rank": 37,
+    "item_name": "Around the World in Eighty Days"
+  },
+  {
+    "rank": 38,
+    "item_name": "Silence of the Grave"
+  },
+  {
+    "rank": 39,
+    "item_name": "Firewall: Kurt Wallander"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Wright Brothers (Thorndike Press Large Print Popular and Narrative Nonfiction Series)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Walden and Civil Disobedience (Penguin American Library)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Whose Body? (Lord Peter Wimsey Mysteries)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 44,
+    "item_name": "Empress Dowager Cixi"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Killer Angels: A Novel of the Civil War"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Fifth Witness (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Sea-Wolf eBook"
+  },
+  {
+    "rank": 48,
+    "item_name": "SPQR: A History of Ancient Rome"
+  },
+  {
+    "rank": 49,
+    "item_name": "Battlefield Earth: A Saga of the Year 3000"
+  },
+  {
+    "rank": 50,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

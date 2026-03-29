@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Fables: Werewolves of the Heartland"
+  },
+  {
+    "item_name": "Animal Man, Vol. 2: Animal vs. Man (Animal Man: The New 52)"
+  },
+  {
+    "item_name": "Secret Wars (Marvel Super Heroes)"
+  },
+  {
+    "item_name": "Incredible Hulk: Planet Hulk"
+  },
+  {
+    "item_name": "Wolverine and the X-Men, Vol. 3"
+  },
+  {
+    "item_name": "Copper"
+  },
+  {
+    "item_name": "World War Hulk - Warbound"
+  },
+  {
+    "item_name": "Silk Vol. 0: The Life and Times of Cindy Moon"
+  },
+  {
+    "item_name": "Spider-Gwen Vol. 0: Most Wanted?"
+  },
+  {
+    "item_name": "Spider-Gwen Vol. 1: Greater Power"
+  },
+  {
+    "item_name": "Infinity Gauntlet (Marvel Comics)"
+  },
+  {
+    "item_name": "Batman: Arkham Asylum"
+  },
+  {
+    "item_name": "Wolverine and the X-Men, Vol. 2"
+  },
+  {
+    "item_name": "X-Men: God Loves, Man Kills"
+  },
+  {
+    "item_name": "Captain America, Vol. 1: Winter Soldier Ultimate Collection"
+  },
+  {
+    "item_name": "All-New X-Men Vol. 7: The Utopians (All-New X-Mmen)"
+  },
+  {
+    "item_name": "Plants vs. Zombies Volume 1: Lawnmageddon"
+  },
+  {
+    "item_name": "Infinity War"
+  },
+  {
+    "item_name": "Uncanny Avengers Volume 1: The Red Shadow (Marvel Now) (Avengers: Marvel Now!)"
+  },
+  {
+    "item_name": "Fables Vol. 2: Animal Farm"
+  },
+  {
+    "item_name": "Spider-Man: The Gauntlet, Vol. 1 - Electro &amp; Sandman"
+  },
+  {
+    "item_name": "Marvel Universe Vs. the Punisher"
+  },
+  {
+    "item_name": "Ultimate Comics Thor"
+  },
+  {
+    "item_name": "I Hate Fairyland Volume 1: Madly Ever After"
+  },
+  {
+    "item_name": "Batwoman: Elegy"
+  },
+  {
+    "item_name": "Dark Avengers Assemble 1"
+  },
+  {
+    "item_name": "Invincible Iron Man, Vol. 1: The Five Nightmares"
+  },
+  {
+    "item_name": "Invincible Iron Man, Vol. 2: World's Most Wanted, Book 1"
+  },
+  {
+    "item_name": "Spider-Women (Spider-Woman)"
+  },
+  {
+    "item_name": "Batman Eternal Vol. 1 (The New 52)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 4580,
+    "item_name": "The Machine Crusade (Legends of Dune 2)"
+  },
+  {
+    "rank": 2,
+    "item_id": 3841,
+    "item_name": "Beyond This Horizon"
+  },
+  {
+    "rank": 3,
+    "item_id": 1959,
+    "item_name": "Orphan's Destiny (Jason Wander)"
+  },
+  {
+    "rank": 4,
+    "item_id": 4052,
+    "item_name": "Lord of Mountains (A Novel of the Change)"
+  },
+  {
+    "rank": 5,
+    "item_id": 4427,
+    "item_name": "The Mote in God's Eye"
+  },
+  {
+    "rank": 6,
+    "item_id": 6150,
+    "item_name": "After the Fall, Before the Fall, During the Fall"
+  },
+  {
+    "rank": 7,
+    "item_id": 3616,
+    "item_name": "Red Thunder"
+  },
+  {
+    "rank": 8,
+    "item_id": 5063,
+    "item_name": "Shadows in Flight (The Shadow Series)"
+  },
+  {
+    "rank": 9,
+    "item_id": 6099,
+    "item_name": "Andre the Giant: Life and Legend"
+  },
+  {
+    "rank": 10,
+    "item_id": 2409,
+    "item_name": "Empire of the East"
+  },
+  {
+    "rank": 11,
+    "item_id": 5158,
+    "item_name": "The Road to Civil War"
+  },
+  {
+    "rank": 12,
+    "item_id": 3303,
+    "item_name": "Children Of The Lens (Lensman Series #6)"
+  },
+  {
+    "rank": 13,
+    "item_id": 4833,
+    "item_name": "We Few (March Upcountry)"
+  },
+  {
+    "rank": 14,
+    "item_id": 2789,
+    "item_name": "Mike Nelson's Movie Megacheese"
+  },
+  {
+    "rank": 15,
+    "item_id": 6220,
+    "item_name": "The Early Asimov"
+  },
+  {
+    "rank": 16,
+    "item_id": 4320,
+    "item_name": "The Practice Effect: A Novel (Bantam Spectra Book)"
+  },
+  {
+    "rank": 17,
+    "item_id": 3307,
+    "item_name": "First Lensman (Lensman Series #2)"
+  },
+  {
+    "rank": 18,
+    "item_id": 6234,
+    "item_name": "Graphic Classics Volume 7: Bram Stoker - 1st Edition"
+  },
+  {
+    "rank": 19,
+    "item_id": 5618,
+    "item_name": "Fairest, Vol. 1 (Fables)"
+  },
+  {
+    "rank": 20,
+    "item_id": 5993,
+    "item_name": "Sin City: Hell and Back (Book 7)"
+  },
+  {
+    "rank": 21,
+    "item_id": 4337,
+    "item_name": "Dying of the Light: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_id": 4094,
+    "item_name": "The High King of Montival: A Novel of the Change (Change Series)"
+  },
+  {
+    "rank": 23,
+    "item_id": 2041,
+    "item_name": "Leviathan Wakes"
+  },
+  {
+    "rank": 24,
+    "item_id": 342,
+    "item_name": "Carpe Jugulum (Discworld)"
+  },
+  {
+    "rank": 25,
+    "item_id": 3598,
+    "item_name": "The Book of Three (Pyrdain Chronicles)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

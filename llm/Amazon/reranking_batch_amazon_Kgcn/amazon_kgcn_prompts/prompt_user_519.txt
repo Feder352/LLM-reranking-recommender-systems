@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Little Book of Plagiarism"
+  },
+  {
+    "item_name": "How the Catholic Church Built Western Civilization [UNABRIDGED]"
+  },
+  {
+    "item_name": "If You Find the Buddha"
+  },
+  {
+    "item_name": "Desire of the Everlasting Hills: The World Before and After Jesus (Hinges of History)"
+  },
+  {
+    "item_name": "Martin Luther King, Jr., on Leadership: Inspiration and Wisdom for Challenging Times"
+  },
+  {
+    "item_name": "Martin Luther King, Jr., on Leadership: Inspiration and Wisdom for Challenging Times"
+  },
+  {
+    "item_name": "The Writers Journey: Mythic Structure for Writers, 2nd Edition"
+  },
+  {
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "item_name": "America's Living History - The Early Years (A Traveler's Guide)"
+  },
+  {
+    "item_name": "Unholy Business: A True Tale of Faith, Greed and Forgery in the Holy Land"
+  },
+  {
+    "item_name": "Old World, New World"
+  },
+  {
+    "item_name": "The Meaning of Life: A Very Short Introduction (Very Short Introductions)"
+  },
+  {
+    "item_name": "A Writer's House in Wales (National Geographic Directions)"
+  },
+  {
+    "item_name": "Immortal Poems of the English Language"
+  },
+  {
+    "item_name": "The Adventures of Sherlock Holmes (Collins Classics)"
+  },
+  {
+    "item_name": "The Complete Sherlock Holmes (Volume One)"
+  },
+  {
+    "item_name": "An Inquiry Concerning Human Understanding"
+  },
+  {
+    "item_name": "The King's Speech"
+  },
+  {
+    "item_name": "The King's Speech"
+  },
+  {
+    "item_name": "Confessions (Penguin Classics)"
+  },
+  {
+    "item_name": "The Confessions of Saint Augustine"
+  },
+  {
+    "item_name": "How the Catholic Church Built Western Civilization [UNABRIDGED]"
+  },
+  {
+    "item_name": "The Dumas Club"
+  },
+  {
+    "item_name": "Club Dumas, Spanish Edition"
+  },
+  {
+    "item_name": "El Club Dumas (Punto de Lectura) (Spanish Edition)"
+  },
+  {
+    "item_name": "Acedia &amp; me: A Marriage, Monks, and a Writer's Life"
+  },
+  {
+    "item_name": "The Christian Priest Today"
+  },
+  {
+    "item_name": "Immortal Poems of the English Language"
+  },
+  {
+    "item_name": "So, Anyway...: The Autobiography"
+  },
+  {
+    "item_name": "The Story of Christianity, Volume 1: The Early Church to the Dawn of the Reformation (Story of Christianity)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 2,
+    "item_id": 2588,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 3,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 4,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 5,
+    "item_id": 1698,
+    "item_name": "The World Without Us"
+  },
+  {
+    "rank": 6,
+    "item_id": 674,
+    "item_name": "The Plague"
+  },
+  {
+    "rank": 7,
+    "item_id": 2621,
+    "item_name": "Ghost Soldiers: The Forgotten Epic Story of World War II's Most Dramatic Mission"
+  },
+  {
+    "rank": 8,
+    "item_id": 4564,
+    "item_name": "Lincoln at Gettysburg: The Words That Re-Made America"
+  },
+  {
+    "rank": 9,
+    "item_id": 4714,
+    "item_name": "1491: New Revelations of the Americas Before Columbus"
+  },
+  {
+    "rank": 10,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 11,
+    "item_id": 136,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 12,
+    "item_id": 1205,
+    "item_name": "Homage to Catalonia"
+  },
+  {
+    "rank": 13,
+    "item_id": 5272,
+    "item_name": "Freethinkers: A History of American Secularism"
+  },
+  {
+    "rank": 14,
+    "item_id": 4632,
+    "item_name": "Lies My Teacher Told Me : Everything Your American History Textbook Got Wrong"
+  },
+  {
+    "rank": 15,
+    "item_id": 3730,
+    "item_name": "Dude, Where's My Country?"
+  },
+  {
+    "rank": 16,
+    "item_id": 4643,
+    "item_name": "Lies Across America: What Our Historic Sites Get Wrong"
+  },
+  {
+    "rank": 17,
+    "item_id": 3005,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 18,
+    "item_id": 68,
+    "item_name": "The Paradox of Choice: Why More Is Less"
+  },
+  {
+    "rank": 19,
+    "item_id": 4522,
+    "item_name": "Truman"
+  },
+  {
+    "rank": 20,
+    "item_id": 4621,
+    "item_name": "Benjamin Franklin: An American Life"
+  },
+  {
+    "rank": 21,
+    "item_id": 4587,
+    "item_name": "The Consolations of Philosophy"
+  },
+  {
+    "rank": 22,
+    "item_id": 2635,
+    "item_name": "The Last Stand of the Tin Can Sailors: The Extraordinary World War II Story of the U.S. Navy's Finest Hour"
+  },
+  {
+    "rank": 23,
+    "item_id": 1338,
+    "item_name": "Your Inner Fish: A Journey into the 3.5-Billion-Year History of the Human Body"
+  },
+  {
+    "rank": 24,
+    "item_id": 3079,
+    "item_name": "Waiting for Godot: A Tragicomedy in Two Acts"
+  },
+  {
+    "rank": 25,
+    "item_id": 2931,
+    "item_name": "Blood and Thunder: An Epic of the American West"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The War That Saved My Life"
+  },
+  {
+    "item_name": "Hag-Seed (Hogarth Shakespeare)"
+  },
+  {
+    "item_name": "Crosstalk: A Novel"
+  },
+  {
+    "item_name": "The Nightingale: A Novel"
+  },
+  {
+    "item_name": "Les Parisiennes: How the Women of Paris Lived, Loved, and Died Under Nazi Occupation"
+  },
+  {
+    "item_name": "The Road to Little Dribbling: Adventures of an American in Britain"
+  },
+  {
+    "item_name": "I Am Number Four (Lorien Legacies, Book 1)"
+  },
+  {
+    "item_name": "My Name Is Asher Lev"
+  },
+  {
+    "item_name": "Brave Companions: Portraits in History"
+  },
+  {
+    "item_name": "Pygmalion (Penguin Classics)"
+  },
+  {
+    "item_name": "Pachinko (National Book Award Finalist)"
+  },
+  {
+    "item_name": "The Girl Who Drank the Moon"
+  },
+  {
+    "item_name": "Garlic and Sapphires: The Secret Life of a Critic in Disguise"
+  },
+  {
+    "item_name": "Norse Mythology CD"
+  },
+  {
+    "item_name": "Wolf Hollow"
+  },
+  {
+    "item_name": "Behold the Dreamers: An Oprah's Book Club Pick"
+  },
+  {
+    "item_name": "The Inquisitor's Tale: Or, The Three Magical Children and Their Holy Dog"
+  },
+  {
+    "item_name": "Whitethorn Woods"
+  },
+  {
+    "item_name": "The Tea Girl of Hummingbird Lane: A Novel"
+  },
+  {
+    "item_name": "The Impossible Knife of Memory"
+  },
+  {
+    "item_name": "Strange the Dreamer"
+  },
+  {
+    "item_name": "The Visitors"
+  },
+  {
+    "item_name": "Alexander Hamilton"
+  },
+  {
+    "item_name": "Breakfast At Tiffany's."
+  },
+  {
+    "item_name": "The Smell of Other People's Houses"
+  },
+  {
+    "item_name": "Leonardo da Vinci"
+  },
+  {
+    "item_name": "Next Year in Havana"
+  },
+  {
+    "item_name": "The Stowaway: A Young Man's Extraordinary Adventure to Antarctica"
+  },
+  {
+    "item_name": "When: The Scientific Secrets of Perfect Timing (Random House Large Print)"
+  },
+  {
+    "item_name": "As Bright as Heaven"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 3,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 9,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 10,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Moonstone: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 14,
+    "item_name": "One, Two, Buckle My Shoe"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 19,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "rank": 21,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Cuckoo's Calling (Cormoran Strike)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Other Boleyn Girl"
+  },
+  {
+    "rank": 26,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 27,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 29,
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "rank": 30,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 31,
+    "item_name": "Of Mice and Men"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 34,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 35,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Hound of the Baskervilles (Puffin Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Giver (Collins Modern Classics)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Good Earth"
+  },
+  {
+    "rank": 41,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 42,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 46,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Graveyard Book"
+  },
+  {
+    "rank": 48,
+    "item_name": "Pope Joan: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Help"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "City of Dreams: The 400-Year Epic History of Immigrant New York"
+  },
+  {
+    "item_name": "Heartbreak Hotel"
+  },
+  {
+    "item_name": "Quicksand: A Novel"
+  },
+  {
+    "item_name": "Bellevue: Three Centuries of Medicine and Mayhem at America's Most Storied Hospital"
+  },
+  {
+    "item_name": "To Love and Be Wise"
+  },
+  {
+    "item_name": "Murder in an Irish Village (Irish Village Mystery)"
+  },
+  {
+    "item_name": "Faithless (Oslo Detective Series)"
+  },
+  {
+    "item_name": "The Franchise Affair"
+  },
+  {
+    "item_name": "Cursed (Henning Juul)"
+  },
+  {
+    "item_name": "An American Sickness: How Healthcare Became Big Business and How You Can Take It Back (Random House Large Print)"
+  },
+  {
+    "item_name": "Burned (The Henning Juul Series)"
+  },
+  {
+    "item_name": "The Buzzard Table (A Deborah Knott Mystery)"
+  },
+  {
+    "item_name": "Designated Daughters (A Deborah Knott Mystery)"
+  },
+  {
+    "item_name": "Long Upon The Land (A Deborah Knott Mystery)"
+  },
+  {
+    "item_name": "Why Buddhism is True: The Science and Philosophy of Meditation and Enlightenment"
+  },
+  {
+    "item_name": "Trade Secrets: A mystery set in Ancient Rome (A Marcus Corvinus mystery)"
+  },
+  {
+    "item_name": "Camino Island: A Novel"
+  },
+  {
+    "item_name": "The Bone Collection: Four Novellas (Temperance Brennan)"
+  },
+  {
+    "item_name": "Fantasyland: How America Went Haywire: A 500-Year History"
+  },
+  {
+    "item_name": "Scars of Independence: America's Violent Birth"
+  },
+  {
+    "item_name": "The Deepest Grave: Fiona Griffiths Crime Thriller Series Book 6"
+  },
+  {
+    "item_name": "It's All Relative: Adventures Up and Down the World's Family Tree"
+  },
+  {
+    "item_name": "A Brief History of Everyone Who Ever Lived: The Human Story Retold Through Our Genes"
+  },
+  {
+    "item_name": "Sing, Unburied, Sing: A Novel"
+  },
+  {
+    "item_name": "Prisoners of Geography: Ten Maps That Explain Everything About the World (Politics of Place)"
+  },
+  {
+    "item_name": "Pachinko (National Book Award Finalist)"
+  },
+  {
+    "item_name": "Now That You Mention It: A Novel"
+  },
+  {
+    "item_name": "PERFECT"
+  },
+  {
+    "item_name": "Something About You (An FBI/US Attorney Novel)"
+  },
+  {
+    "item_name": "Night Moves: An Alex Delaware Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 996,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 2,
+    "item_id": 4677,
+    "item_name": "The Judgement of Paris: Manet, Meisonnier and An Artistic Revolution"
+  },
+  {
+    "rank": 3,
+    "item_id": 1821,
+    "item_name": "Knots and Crosses: An Inspector Rebus Novel (Inspector Rebus Novels)"
+  },
+  {
+    "rank": 4,
+    "item_id": 1432,
+    "item_name": "Operation Mincemeat: How a Dead Man and a Bizarre Plan Fooled the Nazis and Assured an Allied Victory"
+  },
+  {
+    "rank": 5,
+    "item_id": 221,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 6,
+    "item_id": 908,
+    "item_name": "Michelangelo and the Pope's Ceiling"
+  },
+  {
+    "rank": 7,
+    "item_id": 3313,
+    "item_name": "The Bishop's Tale (Sister Frevisse Medieval Mysteries)"
+  },
+  {
+    "rank": 8,
+    "item_id": 393,
+    "item_name": "Careless in Red (Inspector Lynley Mystery, Book 15)"
+  },
+  {
+    "rank": 9,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 10,
+    "item_id": 4714,
+    "item_name": "1491: New Revelations of the Americas Before Columbus"
+  },
+  {
+    "rank": 11,
+    "item_id": 674,
+    "item_name": "The Plague"
+  },
+  {
+    "rank": 12,
+    "item_id": 1431,
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "rank": 13,
+    "item_id": 2931,
+    "item_name": "Blood and Thunder: An Epic of the American West"
+  },
+  {
+    "rank": 14,
+    "item_id": 4311,
+    "item_name": "Playing for the Ashes (Inspector Lynley)"
+  },
+  {
+    "rank": 15,
+    "item_id": 1823,
+    "item_name": "The Black Book: An Inspector Rebus Novel (Inspector Rebus Novels)"
+  },
+  {
+    "rank": 16,
+    "item_id": 1785,
+    "item_name": "Among the Mad (Maisie Dobbs)"
+  },
+  {
+    "rank": 17,
+    "item_id": 42,
+    "item_name": "Agatha Christie's Secret Notebooks: Fifty Years of Mysteries in the Making - Includes Two Unpublished Poirot Stories"
+  },
+  {
+    "rank": 18,
+    "item_id": 5605,
+    "item_name": "The White Tiger: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_id": 1020,
+    "item_name": "The White Man's Burden: Why the West's Efforts to Aid the Rest Have Done So Much Ill and So Little Good"
+  },
+  {
+    "rank": 20,
+    "item_id": 109,
+    "item_name": "Playing with Fire: A Novel of Suspense (Inspector Banks Novels)"
+  },
+  {
+    "rank": 21,
+    "item_id": 2930,
+    "item_name": "Saturday: A novel"
+  },
+  {
+    "rank": 22,
+    "item_id": 2621,
+    "item_name": "Ghost Soldiers: The Forgotten Epic Story of World War II's Most Dramatic Mission"
+  },
+  {
+    "rank": 23,
+    "item_id": 4612,
+    "item_name": "So Long, See You Tomorrow"
+  },
+  {
+    "rank": 24,
+    "item_id": 2730,
+    "item_name": "Blind Descent (Anna Pigeon Mysteries)"
+  },
+  {
+    "rank": 25,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

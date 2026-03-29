@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Money and Power: How Goldman Sachs Came to Rule the World"
+  },
+  {
+    "item_name": "Grand Pursuit: The Story of Economic Genius"
+  },
+  {
+    "item_name": "Endgame: The End of the Debt Supercycle and How It Changes Everything"
+  },
+  {
+    "item_name": "The Progress Principle: Using Small Wins to Ignite Joy, Engagement, and Creativity at Work"
+  },
+  {
+    "item_name": "The Greatest Salesman in the World (Part II)"
+  },
+  {
+    "item_name": "Finance and the Good Society"
+  },
+  {
+    "item_name": "The Information Diet: A Case for Conscious Consumption"
+  },
+  {
+    "item_name": "The Great A&amp;P and the Struggle for Small Business in America"
+  },
+  {
+    "item_name": "How Will You Measure Your Life?"
+  },
+  {
+    "item_name": "Click Millionaires: Work Less, Live More with an Internet Business You Love"
+  },
+  {
+    "item_name": "Reverse Innovation: Create Far From Home, Win Everywhere"
+  },
+  {
+    "item_name": "23 Things They Don't Tell You About Capitalism"
+  },
+  {
+    "item_name": "The Innovator's DNA: Mastering the Five Skills of Disruptive Innovators"
+  },
+  {
+    "item_name": "The Knockoff Economy: How Imitation Sparks Innovation"
+  },
+  {
+    "item_name": "Exorbitant Privilege: The Rise and Fall of the Dollar and the Future of the International Monetary System"
+  },
+  {
+    "item_name": "Strategy for Sustainability: A Business Manifesto"
+  },
+  {
+    "item_name": "Priceless: The Myth of Fair Value (and How to Take Advantage of It)"
+  },
+  {
+    "item_name": "The Challenger Sale: Taking Control of the Customer Conversation"
+  },
+  {
+    "item_name": "Wait: The Art and Science of Delay"
+  },
+  {
+    "item_name": "Practically Radical: Not-So-Crazy Ways to Transform Your Company, Shake Up Your Industry, and Challenge Yourself"
+  },
+  {
+    "item_name": "The Candidate: What It Takes to Win - and Hold - the White House"
+  },
+  {
+    "item_name": "Confidence Men: Wall Street, Washington, and the Education of a President"
+  },
+  {
+    "item_name": "Leaders Make the Future: Ten New Leadership Skills for an Uncertain World (BK Business)"
+  },
+  {
+    "item_name": "Positive Intelligence: Why Only 20% of Teams and Individuals Achieve Their True Potential AND HOW YOU CAN ACHIEVE YOURS"
+  },
+  {
+    "item_name": "One Big Thing: Discovering What You Were Born to Do"
+  },
+  {
+    "item_name": "The Darwin Economy: Liberty, Competition, and the Common Good"
+  },
+  {
+    "item_name": "Creating Innovators: The Making of Young People Who Will Change the World"
+  },
+  {
+    "item_name": "Platform: Get Noticed in a Noisy World"
+  },
+  {
+    "item_name": "Antifragile: Things That Gain from Disorder"
+  },
+  {
+    "item_name": "Lead with a Story: A Guide to Crafting Business Narratives That Captivate, Convince, and Inspire"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1382,
+    "item_name": "If Democrats Had Any Brains, They'd Be Republicans"
+  },
+  {
+    "rank": 2,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 3,
+    "item_id": 1559,
+    "item_name": "The Case for a Creator"
+  },
+  {
+    "rank": 4,
+    "item_id": 2907,
+    "item_name": "Case Closed: Lee Harvey Oswald and the Assassination of JFK"
+  },
+  {
+    "rank": 5,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 6,
+    "item_id": 4732,
+    "item_name": "The Geography of Thought: How Asians and Westerners Think Differently...and Why"
+  },
+  {
+    "rank": 7,
+    "item_id": 136,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 8,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 9,
+    "item_id": 5272,
+    "item_name": "Freethinkers: A History of American Secularism"
+  },
+  {
+    "rank": 10,
+    "item_id": 237,
+    "item_name": "100 People Who Are Screwing Up America (And Al Franken Is #37)"
+  },
+  {
+    "rank": 11,
+    "item_id": 3181,
+    "item_name": "Are Men Necessary?: When Sexes Collide"
+  },
+  {
+    "rank": 12,
+    "item_id": 2542,
+    "item_name": "The Origins of Political Order: From Prehuman Times to the French Revolution"
+  },
+  {
+    "rank": 13,
+    "item_id": 419,
+    "item_name": "The Complete TurtleTrader: The Legend, the Lessons, the Results"
+  },
+  {
+    "rank": 14,
+    "item_id": 789,
+    "item_name": "The Portable Nietzsche (Portable Library)"
+  },
+  {
+    "rank": 15,
+    "item_id": 4441,
+    "item_name": "How the Scots Invented the Modern World: The True Story of How Western Europe's Poorest Nation Created Our World and Everything in It"
+  },
+  {
+    "rank": 16,
+    "item_id": 5492,
+    "item_name": "The PayPal Wars: Battles with eBay, the Media, the Mafia, and the Rest of Planet Earth"
+  },
+  {
+    "rank": 17,
+    "item_id": 2945,
+    "item_name": "Factory Girls: From Village to City in a Changing China"
+  },
+  {
+    "rank": 18,
+    "item_id": 168,
+    "item_name": "God's Politics: Why the Right Gets It Wrong and the Left Doesn't Get It"
+  },
+  {
+    "rank": 19,
+    "item_id": 5875,
+    "item_name": "The Trial of Henry Kissinger"
+  },
+  {
+    "rank": 20,
+    "item_id": 51,
+    "item_name": "The Bell Curve: Intelligence and Class Structure in American Life"
+  },
+  {
+    "rank": 21,
+    "item_id": 4128,
+    "item_name": "The 10000 Year Explosion: How Civilization Accelerated Human Evolution"
+  },
+  {
+    "rank": 22,
+    "item_id": 1122,
+    "item_name": "Drive: The Surprising Truth About What Motivates Us"
+  },
+  {
+    "rank": 23,
+    "item_id": 3760,
+    "item_name": "Righteous Indignation: Excuse Me While I Save the World!"
+  },
+  {
+    "rank": 24,
+    "item_id": 5797,
+    "item_name": "The Roots of Obama's Rage"
+  },
+  {
+    "rank": 25,
+    "item_id": 4141,
+    "item_name": "The Theoretical Minimum: What You Need to Know to Start Doing Physics"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

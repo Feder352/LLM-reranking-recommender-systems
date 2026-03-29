@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Nonsense: The Power of Not Knowing"
+  },
+  {
+    "item_name": "Misbehaving: The Making of Behavioral Economics"
+  },
+  {
+    "item_name": "Talking to Crazy: How to Deal with the Irrational and Impossible People in Your Life"
+  },
+  {
+    "item_name": "Misbehaving"
+  },
+  {
+    "item_name": "The Case for Christ:  A Journalist's Personal Investigation of the Evidence for Jesus"
+  },
+  {
+    "item_name": "Church of Spies: The Popes Secret War Against Hitler"
+  },
+  {
+    "item_name": "How to Have a Good Day: Harness the Power of Behavioral Science to Transform Your Working Life"
+  },
+  {
+    "item_name": "1924: The Year That Made Hitler"
+  },
+  {
+    "item_name": "Amazing Truths: How Science and the Bible Agree"
+  },
+  {
+    "item_name": "The Life-Changing Magic of Tidying: A simple, effective way to banish clutter forever"
+  },
+  {
+    "item_name": "By Marie Kondo The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing (Unabridged CD) [Audio CD]"
+  },
+  {
+    "item_name": "Smarter Faster Better: The Secrets of Being Productive"
+  },
+  {
+    "item_name": "The Devils Pleasure Palace: The Cult of Critical Theory and the Subversion of the West"
+  },
+  {
+    "item_name": "Draw to Win: A Crash Course on How to Lead, Sell, and Innovate With Your Visual Mind"
+  },
+  {
+    "item_name": "Utopia"
+  },
+  {
+    "item_name": "Things That Matter: Three Decades of Passions, Pastimes and Politics [Deckled Edge]"
+  },
+  {
+    "item_name": "How to Fail at Almost Everything and Still Win Big: Kind of the Story of My Life"
+  },
+  {
+    "item_name": "HOUSE BY THE LAKE, THE"
+  },
+  {
+    "item_name": "Visual Intelligence: Sharpen Your Perception, Change Your Life"
+  },
+  {
+    "item_name": "Pre-Suasion: A Revolutionary Way to Influence and Persuade"
+  },
+  {
+    "item_name": "The Dream of Enlightenment: The Rise of Modern Philosophy"
+  },
+  {
+    "item_name": "How to Be a Stoic: Using Ancient Philosophy to Live a Modern Life"
+  },
+  {
+    "item_name": "Churchill's Ministry of Ungentlemanly Warfare: The Mavericks Who Plotted Hitler's Defeat"
+  },
+  {
+    "item_name": "The Undoing Project: A Friendship that Changed the World"
+  },
+  {
+    "item_name": "Sensemaking: The Power of the Humanities in the Age of the Algorithm"
+  },
+  {
+    "item_name": "Fools, Frauds and Firebrands: Thinkers of the New Left"
+  },
+  {
+    "item_name": "It's All Relative: Adventures Up and Down the World's Family Tree"
+  },
+  {
+    "item_name": "The American Miracle: Divine Providence in the Rise of the Republic"
+  },
+  {
+    "item_name": "The Story of Philosophy (Touchstone Books) (Touchstone Books (Paperback))"
+  },
+  {
+    "item_name": "Impossible to Ignore: Creating Memorable Content to Influence Decisions"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3779,
+    "item_name": "Microtrends: The Small Forces Behind Tomorrow's Big Changes"
+  },
+  {
+    "rank": 2,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 3,
+    "item_id": 4294,
+    "item_name": "Emotional Intelligence: Why It Can Matter More than IQ"
+  },
+  {
+    "rank": 4,
+    "item_id": 1028,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 5,
+    "item_id": 1110,
+    "item_name": "Give and Take: Why Helping Others Drives Our Success"
+  },
+  {
+    "rank": 6,
+    "item_id": 2890,
+    "item_name": "Lean In: Women, Work, and the Will to Lead"
+  },
+  {
+    "rank": 7,
+    "item_id": 812,
+    "item_name": "The 48 Laws of Power"
+  },
+  {
+    "rank": 8,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 9,
+    "item_id": 4136,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 10,
+    "item_id": 2073,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 11,
+    "item_id": 4234,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 12,
+    "item_id": 2174,
+    "item_name": "The Demon-Haunted World: Science as a Candle in the Dark"
+  },
+  {
+    "rank": 13,
+    "item_id": 1122,
+    "item_name": "Drive: The Surprising Truth About What Motivates Us"
+  },
+  {
+    "rank": 14,
+    "item_id": 4670,
+    "item_name": "Irrational Exuberance"
+  },
+  {
+    "rank": 15,
+    "item_id": 3066,
+    "item_name": "End This Depression Now!"
+  },
+  {
+    "rank": 16,
+    "item_id": 4632,
+    "item_name": "Lies My Teacher Told Me : Everything Your American History Textbook Got Wrong"
+  },
+  {
+    "rank": 17,
+    "item_id": 3742,
+    "item_name": "Hitch-22: A Memoir"
+  },
+  {
+    "rank": 18,
+    "item_id": 1843,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 19,
+    "item_id": 4213,
+    "item_name": "Economics in One Lesson: The Shortest and Surest Way to Understand Basic Economics"
+  },
+  {
+    "rank": 20,
+    "item_id": 5592,
+    "item_name": "The Bed of Procrustes: Philosophical and Practical Aphorisms (Incerto)"
+  },
+  {
+    "rank": 21,
+    "item_id": 5312,
+    "item_name": "Fortune's Formula: The Untold Story of the Scientific Betting System That Beat the Casinos and Wall Street"
+  },
+  {
+    "rank": 22,
+    "item_id": 4672,
+    "item_name": "On Bullshit"
+  },
+  {
+    "rank": 23,
+    "item_id": 451,
+    "item_name": "The Way of the World: A Story of Truth and Hope in an Age of Extremism"
+  },
+  {
+    "rank": 24,
+    "item_id": 1040,
+    "item_name": "The Assault on Reason: Our Information Ecosystem, from the Age of Print to the Age of Trump"
+  },
+  {
+    "rank": 25,
+    "item_id": 2389,
+    "item_name": "Mindless Eating: Why We Eat More Than We Think"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

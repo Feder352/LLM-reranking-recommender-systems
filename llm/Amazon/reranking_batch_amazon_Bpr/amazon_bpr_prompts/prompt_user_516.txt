@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "My Father's Dragon 60th Anniversary Edition"
+  },
+  {
+    "item_name": "Longshot Into The West: A hidden part of the Civil War affects lives, property and nations' futures (Volume 2)"
+  },
+  {
+    "item_name": "Curse the Moon"
+  },
+  {
+    "item_name": "Moonlight Falls"
+  },
+  {
+    "item_name": "Holy Moly"
+  },
+  {
+    "item_name": "Maroon Rising"
+  },
+  {
+    "item_name": "Remembering Dresden (Jack Turner Suspense Series) (Volume 2)"
+  },
+  {
+    "item_name": "True Crime Stories Volume 7: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "item_name": "Haunted House"
+  },
+  {
+    "item_name": "Ten Days in a Mad-House"
+  },
+  {
+    "item_name": "The Dying Hour"
+  },
+  {
+    "item_name": "Primal Deception (A Lacy Merrick Thriller) (Volume 1)"
+  },
+  {
+    "item_name": "Palm Beach Poison (Charlie Crawford Palm Beach Mysteries) (Volume 2)"
+  },
+  {
+    "item_name": "A Campy Christmas: A Frannie Shoemaker Campground Adventure (Frannie Shoemaker Campground Mysteries) (Volume 6)"
+  },
+  {
+    "item_name": "A Christmas Dozen: Christmas Stories to Warm the Heart (Storyteller of the Heart, 2)"
+  },
+  {
+    "item_name": "Snarl (A Kate Redman Mystery: Book 4) (The Kate Redman Mysteries) (Volume 4)"
+  },
+  {
+    "item_name": "Close to the Bones: A Thriller Anthology"
+  },
+  {
+    "item_name": "An American Cage"
+  },
+  {
+    "item_name": "A Light in the Window (The Mitford Years)"
+  },
+  {
+    "item_name": "Today I'm a Monster"
+  },
+  {
+    "item_name": "Samantha Moon: The First Four Vampire for Hire Novels, Plus the Christmas Moon Novella and a Never-Before-Published Short Story"
+  },
+  {
+    "item_name": "The Defendants (Thaddeus Murfee Legal Thrillers)"
+  },
+  {
+    "item_name": "Execution of Justice"
+  },
+  {
+    "item_name": "The Great God Pan"
+  },
+  {
+    "item_name": "The Lady of the Lake (The Frannie Shoemaker Campground Mysteries) (Volume 4)"
+  },
+  {
+    "item_name": "Undead Worlds: A Reanimated Writers Anthology"
+  },
+  {
+    "item_name": "The Watson Girl"
+  },
+  {
+    "item_name": "Bringing the Thunder: The Missions of a World War II B-29 Pilot in the Pacific"
+  },
+  {
+    "item_name": "Every Fear"
+  },
+  {
+    "item_name": "Try Dying (Ty Buchanan Legal Thriller #1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "This Doesn't Happen In The Movies (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Wanted: A Leopold Blake Thriller (Leopold Blake Series)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Ties That Bind: A Madison Knight Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Deadly Stillwater"
+  },
+  {
+    "rank": 6,
+    "item_name": "Foreclosed: A Mitzy Neuhaus Mystery"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Last Survivors: A Dystopian Society in a Post Apocalyptic World (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "STATELINE: A Dan Reno Novel (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Dark Space"
+  },
+  {
+    "rank": 10,
+    "item_name": "Wired"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Grave Man - A Sam Prichard Novel (The Sam Prichard Series) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Breakthrough"
+  },
+  {
+    "rank": 13,
+    "item_name": "3500: An Autistic Boy's Ten-Year Romance with Snow White"
+  },
+  {
+    "rank": 14,
+    "item_name": "Cruel Justice (Justice Series) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Vengeance is Mine: A Benjamin Tucker Mystery (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Jakarta Pandemic"
+  },
+  {
+    "rank": 17,
+    "item_name": "Blood and Justice: A Private Investigator Mystery Series (A Jake &amp; Annie Lincoln Thriller) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Russian Hill: Abby Kane FBI Thriller"
+  },
+  {
+    "rank": 19,
+    "item_name": "Hard Fall (Thomas Blume)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Ravage"
+  },
+  {
+    "rank": 21,
+    "item_name": "The One You Love: Emma Holden Suspense Mystery Trilogy: Book One (Emma Holden Trilogy)"
+  },
+  {
+    "rank": 22,
+    "item_name": "A View to Die For (Books To Die For) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Rose Hill: Rose Hill Mystery Series"
+  },
+  {
+    "rank": 24,
+    "item_name": "Just Add Salt (Hetta Coffey Series) (Volume 2)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Qualify"
+  },
+  {
+    "rank": 26,
+    "item_name": "Taking Flight"
+  },
+  {
+    "rank": 27,
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Dead on Demand"
+  },
+  {
+    "rank": 29,
+    "item_name": "In a Small Town"
+  },
+  {
+    "rank": 30,
+    "item_name": "Free Falling"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Privateer Clause: Cruising has never been more dangerous"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Advocate's Dilemma (The Advocate Series) (Volume 4)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Devil's Grin - A Crime Novel featuring Anna Kronberg and Sherlock Holmes"
+  },
+  {
+    "rank": 34,
+    "item_name": "Seven Unholy Days"
+  },
+  {
+    "rank": 35,
+    "item_name": "Bubba and the 12 Deadly Days of Christmas: A Bubba Mystery"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Hiding Place Publisher: Blackstone Audio, Inc.; Unabridged edition"
+  },
+  {
+    "rank": 37,
+    "item_name": "Hostile Witness"
+  },
+  {
+    "rank": 38,
+    "item_name": "No Way Back"
+  },
+  {
+    "rank": 39,
+    "item_name": "After The Event (ATE) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Trick Question (Tubby Dubonnet Mysteries)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Inhuman (Post-Human)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Never Coming Home (Lincoln Pierce Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Crooked Man"
+  },
+  {
+    "rank": 44,
+    "item_name": "Black Flagged"
+  },
+  {
+    "rank": 45,
+    "item_name": "Quantum Lens"
+  },
+  {
+    "rank": 46,
+    "item_name": "Cold River Rising"
+  },
+  {
+    "rank": 47,
+    "item_name": "Sea Sick"
+  },
+  {
+    "rank": 48,
+    "item_name": "Dark Sky (The Misadventures of Max Bowman) (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "A Dead Red Cadillac"
+  },
+  {
+    "rank": 50,
+    "item_name": "To Kill For"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

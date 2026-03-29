@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "With Wings Like Eagles: A History of the Battle of Britain"
+  },
+  {
+    "item_name": "Tear Down This Myth: How the Reagan Legacy Has Distorted Our Politics and Haunts Our Future"
+  },
+  {
+    "item_name": "Master of War: The Life of General George H. Thomas"
+  },
+  {
+    "item_name": "The Spartacus War"
+  },
+  {
+    "item_name": "Rising '44: The Battle for Warsaw"
+  },
+  {
+    "item_name": "Ireland 164952: Cromwells Protestant Crusade (Campaign)"
+  },
+  {
+    "item_name": "The Poison King: The Life and Legend of Mithradates, Rome's Deadliest Enemy"
+  },
+  {
+    "item_name": "I'm Staying with My Boys: The Heroic Life of Sgt. John Basilone, USMC"
+  },
+  {
+    "item_name": "The Yankee Years"
+  },
+  {
+    "item_name": "Hitler's Most Controversial General"
+  },
+  {
+    "item_name": "Mary Tudor: Princess, Bastard, Queen"
+  },
+  {
+    "item_name": "After the War: The Lives and Images of Major Civil War Figures After the Shooting Stopped"
+  },
+  {
+    "item_name": "Bloody Crimes: The Funeral of Abraham Lincoln and the Chase for Jefferson Davis"
+  },
+  {
+    "item_name": "Battleground Prussia: The Assault on Germany's Eastern Front 1944-45 (General Military)"
+  },
+  {
+    "item_name": "Axis Sally: The American Voice of Nazi Germany"
+  },
+  {
+    "item_name": "The Boy: A Holocaust Story"
+  },
+  {
+    "item_name": "Teutoburg Forest AD 9: The destruction of Varus and his legions (Campaign)"
+  },
+  {
+    "item_name": "The Last Founding Father: James Monroe and a Nation's Call to Greatness"
+  },
+  {
+    "item_name": "The Big Scrum: How Teddy Roosevelt Saved Football"
+  },
+  {
+    "item_name": "Dividing the Spoils: The War for Alexander the Great's Empire (Ancient Warfare and Civilization)"
+  },
+  {
+    "item_name": "Blind Allegiance to Sarah Palin: A Memoir of Our Tumultuous Years"
+  },
+  {
+    "item_name": "Harry Potter Page to Screen: The Complete Filmmaking Journey"
+  },
+  {
+    "item_name": "Pacific Crucible: War at Sea in the Pacific, 1941-1942"
+  },
+  {
+    "item_name": "The Name of War: King Philip's War and the Origins of American Identity"
+  },
+  {
+    "item_name": "The City on the Edge of Forever"
+  },
+  {
+    "item_name": "Behind Soviet Lines: Hitlers Brandenburgers capture the Maikop Oilfields 1942 (Raid)"
+  },
+  {
+    "item_name": "Operation Market-Garden 1944 (1): The American Airborne Missions (Campaign)"
+  },
+  {
+    "item_name": "Born with Teeth: A Memoir"
+  },
+  {
+    "item_name": "Star Trek: The City on the Edge of Forever"
+  },
+  {
+    "item_name": "Leonard: My Fifty-Year Friendship with a Remarkable Man"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2588,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 2,
+    "item_id": 996,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 3,
+    "item_id": 674,
+    "item_name": "The Plague"
+  },
+  {
+    "rank": 4,
+    "item_id": 2621,
+    "item_name": "Ghost Soldiers: The Forgotten Epic Story of World War II's Most Dramatic Mission"
+  },
+  {
+    "rank": 5,
+    "item_id": 1698,
+    "item_name": "The World Without Us"
+  },
+  {
+    "rank": 6,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 7,
+    "item_id": 1205,
+    "item_name": "Homage to Catalonia"
+  },
+  {
+    "rank": 8,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 9,
+    "item_id": 4621,
+    "item_name": "Benjamin Franklin: An American Life"
+  },
+  {
+    "rank": 10,
+    "item_id": 4632,
+    "item_name": "Lies My Teacher Told Me : Everything Your American History Textbook Got Wrong"
+  },
+  {
+    "rank": 11,
+    "item_id": 4643,
+    "item_name": "Lies Across America: What Our Historic Sites Get Wrong"
+  },
+  {
+    "rank": 12,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 13,
+    "item_id": 3079,
+    "item_name": "Waiting for Godot: A Tragicomedy in Two Acts"
+  },
+  {
+    "rank": 14,
+    "item_id": 1338,
+    "item_name": "Your Inner Fish: A Journey into the 3.5-Billion-Year History of the Human Body"
+  },
+  {
+    "rank": 15,
+    "item_id": 4564,
+    "item_name": "Lincoln at Gettysburg: The Words That Re-Made America"
+  },
+  {
+    "rank": 16,
+    "item_id": 2202,
+    "item_name": "Gone for Soldiers: A Novel of the Mexican War"
+  },
+  {
+    "rank": 17,
+    "item_id": 136,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 18,
+    "item_id": 1509,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 19,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 20,
+    "item_id": 1767,
+    "item_name": "The Bonfire of the Vanities"
+  },
+  {
+    "rank": 21,
+    "item_id": 676,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 22,
+    "item_id": 3028,
+    "item_name": "Death by Black Hole: And Other Cosmic Quandaries"
+  },
+  {
+    "rank": 23,
+    "item_id": 3081,
+    "item_name": "The Power Broker: Robert Moses and the Fall of New York"
+  },
+  {
+    "rank": 24,
+    "item_id": 3730,
+    "item_name": "Dude, Where's My Country?"
+  },
+  {
+    "rank": 25,
+    "item_id": 1843,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

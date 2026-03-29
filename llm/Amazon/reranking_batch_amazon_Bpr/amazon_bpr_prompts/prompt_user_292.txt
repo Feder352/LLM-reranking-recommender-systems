@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Drowning Girl"
+  },
+  {
+    "item_name": "The Owl Who Liked Sitting on Caesar: Living with a Tawny Owl"
+  },
+  {
+    "item_name": "Mr. Fox"
+  },
+  {
+    "item_name": "The Secrets She Keeps: A Novel"
+  },
+  {
+    "item_name": "An Astronaut's Guide to Life on Earth: What Going to Space Taught Me About Ingenuity, Determination, and Being Prepared for Anything"
+  },
+  {
+    "item_name": "Cloche and Dagger (A Hat Shop Mystery)"
+  },
+  {
+    "item_name": "Shutter Island"
+  },
+  {
+    "item_name": "The Sparrow Sisters: A Novel"
+  },
+  {
+    "item_name": "Big Fish: A Novel of Mythic Proportions"
+  },
+  {
+    "item_name": "Mourning Gloria (China Bayles Mystery)"
+  },
+  {
+    "item_name": "The Stonecutter (Patrick Hedstrom and Erica Falck)"
+  },
+  {
+    "item_name": "Like This, For Ever"
+  },
+  {
+    "item_name": "Like This, For Ever"
+  },
+  {
+    "item_name": "Stake &amp; Eggs (A Cackleberry Club Mystery)"
+  },
+  {
+    "item_name": "Power of Habit, the (Lib)(CD)"
+  },
+  {
+    "item_name": "Paw and Order: A Chet and Bernie Mystery (The Chet and Bernie Mystery Series)"
+  },
+  {
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "item_name": "The Irresistible Blueberry Bakeshop &amp; Cafe"
+  },
+  {
+    "item_name": "The Little French Bistro: A Novel"
+  },
+  {
+    "item_name": "A Dark and Twisted Tide: A Novel (Lacey Flint Novels)"
+  },
+  {
+    "item_name": "The Fairest of Them All: A Novel"
+  },
+  {
+    "item_name": "Origin: A Novel (Robert Langdon)"
+  },
+  {
+    "item_name": "Naughty in Nice (A Royal Spyness Mystery)"
+  },
+  {
+    "item_name": "The Life-Changing Magic of Tidying: A simple, effective way to banish clutter forever"
+  },
+  {
+    "item_name": "By Marie Kondo The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing (Unabridged CD) [Audio CD]"
+  },
+  {
+    "item_name": "HHhH: A Novel"
+  },
+  {
+    "item_name": "Gods and Beasts: A Novel (Alex Morrow)"
+  },
+  {
+    "item_name": "The Wedding Bees: A Novel of Honey, Love, and Manners"
+  },
+  {
+    "item_name": "Altered (Crewel World)"
+  },
+  {
+    "item_name": "The Heiress of Winterwood (Whispers On The Moors)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Silent in the Grave"
+  },
+  {
+    "rank": 2,
+    "item_name": "Maisie Dobbs (Book 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Fearless Fourteen: A Stephanie Plum Novel (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Age of Desire: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "An Unmarked Grave (Bess Crawford Mysteries)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 9,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Moon Over Soho (Rivers of London)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Looking for Salvation at the Dairy Queen: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "Dead by Midnight (Death on Demand)"
+  },
+  {
+    "rank": 13,
+    "item_name": "A Royal Pain (A Royal Spyness Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Saving CeeCee Honeycutt"
+  },
+  {
+    "rank": 15,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Heretic's Daughter: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "The House On Tradd Street"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Yard"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Test of Wills (Inspector Ian Rutledge Mysteries)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Last Queen"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 22,
+    "item_name": "A Curious Beginning (A Veronica Speedwell Mystery)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Innocent Traitor"
+  },
+  {
+    "rank": 24,
+    "item_name": "Garden Spells: A Novel (Waverly Family)"
+  },
+  {
+    "rank": 25,
+    "item_name": "As You Wish: Inconceivable Tales from the Making of The Princess Bride"
+  },
+  {
+    "rank": 26,
+    "item_name": "I'd Know You Anywhere: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Conqueror"
+  },
+  {
+    "rank": 28,
+    "item_name": "Smokin' Seventeen: A Stephanie Plum Novel (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 29,
+    "item_name": "And When She Was Good: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Room"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Constant Princess"
+  },
+  {
+    "rank": 32,
+    "item_name": "Sizzling Sixteen (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Bloody Tower (Daisy Dalrymple Mysteries, No. 16)"
+  },
+  {
+    "rank": 34,
+    "item_name": "In the Unlikely Event"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Shadow of Your Smile (Thorndike Press Large Print Basic Series)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Virgin Blue: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Boleyn Inheritance (The Plantagenet and Tudor Novels)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Hour I First Believed"
+  },
+  {
+    "rank": 40,
+    "item_name": "True Sisters"
+  },
+  {
+    "rank": 41,
+    "item_name": "Venetia"
+  },
+  {
+    "rank": 42,
+    "item_name": "Silver Girl: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Twelve Sharp (A Stephanie Plum Novel) (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Seraphina"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Girl Who Chased the Moon: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The House At Riverton (Large Print Edition)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Tudor Rose"
+  },
+  {
+    "rank": 49,
+    "item_name": "Lean Mean Thirteen (Stephanie Plum, No. 13)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Winter Rose"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

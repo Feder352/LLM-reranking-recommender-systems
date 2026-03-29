@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Beyond All Recognition: A Brent Marks Legal Thriller (Brent Marks Legal thrillers) (Volume 9)"
+  },
+  {
+    "item_name": "Rising Tide: Dark Innocence (The Maura DeLuca Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Persephone's Orchard (The Chrysomelia Stories)"
+  },
+  {
+    "item_name": "Kiss A Cowboy (Kiss A Cowboy Series Book One) (Volume 1)"
+  },
+  {
+    "item_name": "White Spirit (A novel based on a true story)"
+  },
+  {
+    "item_name": "Ghosts of Tsavo (Society for Paranormals) (Volume 1)"
+  },
+  {
+    "item_name": "Murder's a Witch: A Beechwood Harbor Magic Mystery (Beechwood Harbor Magic Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "Death on Windmill Way (Hamptons Murder Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "Murder at Mistletoe Manor: A Mystery Novella"
+  },
+  {
+    "item_name": "Tinkers"
+  },
+  {
+    "item_name": "Deadly Spirits (A Mac McClellan Mystery)"
+  },
+  {
+    "item_name": "Deadly Spirits (A Mac McClellan Mystery)"
+  },
+  {
+    "item_name": "The Fifth Petal"
+  },
+  {
+    "item_name": "Hidden Wings"
+  },
+  {
+    "item_name": "Moving In (Moving In Series) (Volume 1)"
+  },
+  {
+    "item_name": "Raining Men and Corpses: A Raina Sun Mystery (Volume 1)"
+  },
+  {
+    "item_name": "Crane"
+  },
+  {
+    "item_name": "The Elusive Miss Ellison (Regency Brides: A Legacy of Grace)"
+  },
+  {
+    "item_name": "Davenport House (Volume 1)"
+  },
+  {
+    "item_name": "The Ghost Files (The Ghost Files (Book 1))"
+  },
+  {
+    "item_name": "Adventures of a Vegan Vamp (Volume 1)"
+  },
+  {
+    "item_name": "True Crime eBook"
+  },
+  {
+    "item_name": "Skeletal (A Christchurch Crime Thriller)"
+  },
+  {
+    "item_name": "Four Ladies Only"
+  },
+  {
+    "item_name": "Berkley Street (Berkley Street Series) (Volume 1)"
+  },
+  {
+    "item_name": "Mischling"
+  },
+  {
+    "item_name": "A Poisoned Season (Lady Emily Ashton) (Lady Emily Mysteries)"
+  },
+  {
+    "item_name": "One Flew Over the Cuckoo's Nest"
+  },
+  {
+    "item_name": "Silent Fear (A novel inspired by true crimes)"
+  },
+  {
+    "item_name": "These Haunts Are Made For Walking"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Publicist"
+  },
+  {
+    "rank": 2,
+    "item_name": "Treasure, Darkly"
+  },
+  {
+    "rank": 3,
+    "item_name": "This Doesn't Happen In The Movies (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Annihilation of Foreverland"
+  },
+  {
+    "rank": 5,
+    "item_name": "Let's Get Digital: How To Self-Publish, And Why You Should"
+  },
+  {
+    "rank": 6,
+    "item_name": "Strictly Murder (The Verity Long Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "A View to Die For (Books To Die For) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Foreclosed: A Mitzy Neuhaus Mystery"
+  },
+  {
+    "rank": 9,
+    "item_name": "Alien Species Intervention"
+  },
+  {
+    "rank": 10,
+    "item_name": "Shadow of Time"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Case of the Hidden Flame: An Inspector David Graham Cozy Mystery (Inspector David Graham Cozy Mystery Series) (Volume 2)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Wind Catcher (Chosen)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "rank": 14,
+    "item_name": "Onyx Webb: Book One: Episodes 1, 2 &amp; 3"
+  },
+  {
+    "rank": 15,
+    "item_name": "Heaven to Betsy (What Doesn't Kill You, #5): An Emily Romantic Mystery"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Witnesses (BookShots)"
+  },
+  {
+    "rank": 17,
+    "item_name": "A Cereal Killer (A Sibyl Potts Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Mortom"
+  },
+  {
+    "rank": 19,
+    "item_name": "Rae of Hope"
+  },
+  {
+    "rank": 20,
+    "item_name": "Dead Line (A Cal Murphy Thriller) (Volume 2)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Dream Student (The Dream Doctor Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Killer Cupcakes: A Lexy Baker Bakery Cozy Mystery (Lexy Baker Bakery Cozy Mysteries)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Last Survivors: A Dystopian Society in a Post Apocalyptic World (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Dead Husband (Jessica HuntingtonDesert Cities Mystery) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "First to Find: Book One in the Caching Out Series (Volume 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Killer Twist: A Ghostwriter Mystery (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Elusive (On The Run International Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Bentwhistle the Dragon in A Threat from the Past (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Paper Phoenix"
+  },
+  {
+    "rank": 30,
+    "item_name": "Murder in Half Moon Bay: A Jillian Bradley Mystery, Book 1"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Dream Doctor (The Dream Doctor Mysteries)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Three Sisters (Emily Castles Mysteries)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Six Train to Wisconsin (The Six Train to Wisconsin Series) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Dead Red Heart: humorous mystery, amateur sleuth woman protagonist"
+  },
+  {
+    "rank": 36,
+    "item_name": "Murder in Cuba"
+  },
+  {
+    "rank": 37,
+    "item_name": "Killing at the Carnival (Cassie Pengear Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Heartless Design (Secrets of the Zodiac) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "In a Small Town"
+  },
+  {
+    "rank": 40,
+    "item_name": "Shelf Life: The Publicist - Book Two"
+  },
+  {
+    "rank": 41,
+    "item_name": "Amanda's Eyes: An A. J. Gregson Novel (A. J. Gregson Series) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Watching Grandma Circle the Drain"
+  },
+  {
+    "rank": 43,
+    "item_name": "Limoncello Yellow (Franki Amato Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Deep End (The Country Club Murders) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Wind in the Willows"
+  },
+  {
+    "rank": 46,
+    "item_name": "Broken Ferns"
+  },
+  {
+    "rank": 47,
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Louisiana Longshot: A Miss Fortune Mystery (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Importance of Being Earnest"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

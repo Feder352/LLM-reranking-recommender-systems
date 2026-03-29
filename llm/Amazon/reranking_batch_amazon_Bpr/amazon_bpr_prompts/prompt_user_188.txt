@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Superfood Seagreens: A Guide to Cooking with Power-packed Seaweed (Superfoods for Life)"
+  },
+  {
+    "item_name": "The Immortal Irishman: The Irish Revolutionary Who Became an American Hero"
+  },
+  {
+    "item_name": "The Gift of the Gab: How Eloquence Works"
+  },
+  {
+    "item_name": "Engineering Eden: The True Story of a Violent Death, a Trial, and the Fight over Controlling Nature"
+  },
+  {
+    "item_name": "The Emperor of Any Place"
+  },
+  {
+    "item_name": "The New Wild: Why Invasive Species Will Be Nature's Salvation"
+  },
+  {
+    "item_name": "The Dark Missions of Edgar Brim"
+  },
+  {
+    "item_name": "Wolf Hollow"
+  },
+  {
+    "item_name": "Mapping the Heavens: The Radical Scientific Ideas That Reveal the Cosmos"
+  },
+  {
+    "item_name": "Railhead"
+  },
+  {
+    "item_name": "Sabotage: The Mission to Destroy Hitler's Atomic Bomb: Young Adult Edition"
+  },
+  {
+    "item_name": "Ashes (The Seeds of America Trilogy)"
+  },
+  {
+    "item_name": "Thrice the Brinded Cat Hath Mew'd: A Flavia de Luce Novel"
+  },
+  {
+    "item_name": "The Tunnels: Escapes Under the Berlin Wall and the Historic Films the JFK White House Tried to Kill (Random House Large Print)"
+  },
+  {
+    "item_name": "Odysseus: The Oath (Odysseus)"
+  },
+  {
+    "item_name": "Death Coming Up the Hill"
+  },
+  {
+    "item_name": "Pandora's Lab: Seven Stories of Science Gone Wrong"
+  },
+  {
+    "item_name": "See You in the Cosmos"
+  },
+  {
+    "item_name": "Container Gardens: Over 200 Fresh Ideas for Indoor and Outdoor Inspired Plantings"
+  },
+  {
+    "item_name": "The Plague of War: Athens, Sparta, and the Struggle for Ancient Greece (Ancient Warfare and Civilization)"
+  },
+  {
+    "item_name": "Rome Stories (Everyman's Library Pocket Classics Series)"
+  },
+  {
+    "item_name": "The Great Quake: How the Biggest Earthquake in North America Changed Our Understanding of the  Planet"
+  },
+  {
+    "item_name": "The Little Exile"
+  },
+  {
+    "item_name": "The Massacre of Mankind: Authorised Sequel to The War of the Worlds"
+  },
+  {
+    "item_name": "The Idea Factory: Bell Labs and the Great Age of American Innovation"
+  },
+  {
+    "item_name": "The Grave's a Fine and Private Place: A Flavia de Luce Novel"
+  },
+  {
+    "item_name": "The Man Who Wouldn't Stand Up"
+  },
+  {
+    "item_name": "Until Tomorrow, Mr. Marsworth"
+  },
+  {
+    "item_name": "A Brotherhood of Spies: The U-2 and the CIA's Secret War"
+  },
+  {
+    "item_name": "The Darkening Age: The Christian Destruction of the Classical World"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 2,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 3,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 6,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Night"
+  },
+  {
+    "rank": 9,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 12,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Purpose Driven Life"
+  },
+  {
+    "rank": 14,
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Treasure Island (Penguin Classics)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 18,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 19,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 22,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 23,
+    "item_name": "One Child: The Story of China's Most Radical Experiment"
+  },
+  {
+    "rank": 24,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 25,
+    "item_name": "On Writing"
+  },
+  {
+    "rank": 26,
+    "item_name": "Purpose-driven Life [Paperback]  by Warren        , Rick"
+  },
+  {
+    "rank": 27,
+    "item_name": "1493: Uncovering the New World Columbus Created"
+  },
+  {
+    "rank": 28,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 29,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 30,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 31,
+    "item_name": "In the Land of Believers: An Outsider's Extraordinary Journey into the Heart of the Evangelical Church"
+  },
+  {
+    "rank": 32,
+    "item_name": "Catechism Of The Catholic Church, Second Edition"
+  },
+  {
+    "rank": 33,
+    "item_name": "Fire in the Ashes: Twenty-Five Years Among the Poorest Children in America"
+  },
+  {
+    "rank": 34,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Amber Spyglass"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Great Divorce"
+  },
+  {
+    "rank": 37,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 39,
+    "item_name": "20,000 Leagues Under the Sea"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 41,
+    "item_name": "22/11/63"
+  },
+  {
+    "rank": 42,
+    "item_name": "Angels &amp; Demons (Random House Large Print)"
+  },
+  {
+    "rank": 43,
+    "item_name": "In Defense of Food: An Eater's Manifesto"
+  },
+  {
+    "rank": 44,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 45,
+    "item_name": "1491: New Revelations of the Americas Before Columbus"
+  },
+  {
+    "rank": 46,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Grief Observed"
+  },
+  {
+    "rank": 48,
+    "item_name": "FOUNDATION- PB"
+  },
+  {
+    "rank": 49,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Conard County Marine (Conard County: The Next Generation)"
+  },
+  {
+    "item_name": "Blame It on the Cowboy: An Anthology (The McCord Brothers)"
+  },
+  {
+    "item_name": "Snowfall on Haven Point"
+  },
+  {
+    "item_name": "The Life She Wants: A Novel"
+  },
+  {
+    "item_name": "Wilde One"
+  },
+  {
+    "item_name": "Christmas in Eternity Springs: An Eternity Springs Novel"
+  },
+  {
+    "item_name": "Teetotaled: A Mystery (Discreet Retrieval Agency Mysteries)"
+  },
+  {
+    "item_name": "Corporate Citizen"
+  },
+  {
+    "item_name": "Cured by the Dragon (Stonefire British Dragons) (Volume 8)"
+  },
+  {
+    "item_name": "The Black Sheep's Secret Child (Billionaires and Babies)"
+  },
+  {
+    "item_name": "Scandalous Intentions (Ladies &amp; Scoundrels) (Volume 2)"
+  },
+  {
+    "item_name": "A Very Jaguar Christmas (Heart of the Jaguar)"
+  },
+  {
+    "item_name": "Her Halloween Treat (Men at Work)"
+  },
+  {
+    "item_name": "Honor Bound (The Montana Hamiltons)"
+  },
+  {
+    "item_name": "Landon: A thrilling romantic suspense (The Lawmen of Silver Creek Ranch)"
+  },
+  {
+    "item_name": "Legacy (The Biodome Chronicles series Book 1)"
+  },
+  {
+    "item_name": "A Child Under His Tree (Return to the Double C)"
+  },
+  {
+    "item_name": "Amish Christmas Blessings: An Anthology (Love Inspired)"
+  },
+  {
+    "item_name": "Wind River Wrangler"
+  },
+  {
+    "item_name": "Hold Me, Cowboy (Copper Ridge)"
+  },
+  {
+    "item_name": "Legacy of Lies (Hell's Valley)"
+  },
+  {
+    "item_name": "Mystery on the Bayou (Amelia Moore Detective Series) (Volume 6)"
+  },
+  {
+    "item_name": "The Dragon Warrior (Lochguard Highland Dragons) (Volume 4)"
+  },
+  {
+    "item_name": "Deadly Spirits (A Mac McClellan Mystery)"
+  },
+  {
+    "item_name": "Coilhunter (A Coilhunter Chronicles Novel) (The Coilhunter Chronicles)"
+  },
+  {
+    "item_name": "Aiding the Dragon (Stonefire Dragons) (Volume 9)"
+  },
+  {
+    "item_name": "The Wallflower's Wicked Wager (A Waltz with a Rogue Novella) (Volume 5)"
+  },
+  {
+    "item_name": "A Diamond for a Duke (Seductive Scoundrels) (Volume 1)"
+  },
+  {
+    "item_name": "Finding the Dragon (Stonefire Dragons) (Volume 10)"
+  },
+  {
+    "item_name": "Rustkiller (The Coilhunter Chronicles)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Hanover House"
+  },
+  {
+    "rank": 2,
+    "item_name": "Lucky in Love"
+  },
+  {
+    "rank": 3,
+    "item_name": "Never Desire a Duke (One Scandalous Season)"
+  },
+  {
+    "rank": 4,
+    "item_name": "By Linda Lael Miller Big Sky Mountain (Hqn) (Original) [Mass Market Paperback]"
+  },
+  {
+    "rank": 5,
+    "item_name": "Long Tall Texans Ii (By Request)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Captain's Bluestocking Mistress (Dukes of War) (Volume 3)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Viscount's Christmas Temptation (Dukes of War) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Homecoming (Thunder Point)"
+  },
+  {
+    "rank": 9,
+    "item_name": "From This Moment On (Sullivans)"
+  },
+  {
+    "rank": 10,
+    "item_name": "One Wish (Thunder Point)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Navy SEAL's E-Mail Order Bride (Heroes of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The CEO's Unexpected Child (Billionaires and Babies)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Accidentally Married on Purpose (a Love and Games novel)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Single by Saturday (Weekday Brides)"
+  },
+  {
+    "rank": 15,
+    "item_name": "A New Leash on Love (Rescue Me)"
+  },
+  {
+    "rank": 16,
+    "item_name": "A Most Devilish Rogue (A Most Series)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Betrayed by Your Kiss"
+  },
+  {
+    "rank": 18,
+    "item_name": "When Lightning Strikes (Whiskey Creek)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Christmas at Cardwell Ranch (Harlequin Intrigue)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Secrets She Kept (Fairham Island)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Sinful: A Bitter Creek Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Until You Loved Me (Silver Springs)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Sugar Pine Trail: A Small-Town Christmas Romance (Haven Point)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Marriage Bargain"
+  },
+  {
+    "rank": 25,
+    "item_name": "All I Want for Christmas is You"
+  },
+  {
+    "rank": 26,
+    "item_name": "Fire Away (Somewhere, TX) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "A Winter Wedding (Whiskey Creek)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Outlaw's Honor: A Western Romance Novel (The Montana Cahills)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Just One Kiss (Fool's Gold, Book 11)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Perfect Match (The Blue Heron Series)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Cowgirl Ropes a Billionaire (Cowboys of Chance Creek) (Volume 4)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Look of Love (The Sullivans)"
+  },
+  {
+    "rank": 33,
+    "item_name": "At Wolf Ranch: A Montana Men Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Broken Promise: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Untamed"
+  },
+  {
+    "rank": 36,
+    "item_name": "Three Weeks With Lady X (Desperate Duchesses)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Three Little Words (Fool's Gold, Book 13)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Inconvenient Duchess"
+  },
+  {
+    "rank": 39,
+    "item_name": "Come Home to Me (Whiskey Creek)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Hold Your Breath (Search and Rescue)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Unwrapping Her Perfect Match: A London Legends Christmas Romance"
+  },
+  {
+    "rank": 42,
+    "item_name": "Just Kiss Me"
+  },
+  {
+    "rank": 43,
+    "item_name": "Wyoming Tough"
+  },
+  {
+    "rank": 44,
+    "item_name": "Montana Cherries (The Wildes of Birch Bay)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Christmas Brides"
+  },
+  {
+    "rank": 46,
+    "item_name": "Rugged Hearts (The Kinnison Legacy) (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Taming of Ryder Cavanaugh (Cynster Sisters Duo)"
+  },
+  {
+    "rank": 48,
+    "item_name": "A SEAL's Kiss (Uniformly Hot!)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Call Me Wild"
+  },
+  {
+    "rank": 50,
+    "item_name": "Treasure on Moon Lake (Love on the Lake) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Blitzed"
+  },
+  {
+    "item_name": "The Brain Defense: Murder in Manhattan and the Dawn of Neuroscience in America's Courtrooms"
+  },
+  {
+    "item_name": "The New York Times Disunion: A History of the Civil War"
+  },
+  {
+    "item_name": "The Framers' Coup: The Making of the United States Constitution"
+  },
+  {
+    "item_name": "The House of Truth: A Washington Political Salon and the Foundations of American Liberalism"
+  },
+  {
+    "item_name": "The Soul of a New Machine"
+  },
+  {
+    "item_name": "Sea Power: The History and Geopolitics of the World's Oceans"
+  },
+  {
+    "item_name": "Destination X"
+  },
+  {
+    "item_name": "Making the Most of the Anthropocene: Facing the Future"
+  },
+  {
+    "item_name": "Jonathan Strange and Mr. Norrell"
+  },
+  {
+    "item_name": "How Not to Die: Discover the Foods Scientifically Proven to Prevent and Reverse Disease"
+  },
+  {
+    "item_name": "Fantasyland: How America Went Haywire: A 500-Year History"
+  },
+  {
+    "item_name": "Drawn To Drawing"
+  },
+  {
+    "item_name": "The Three Lives of James Madison: Genius, Partisan, President"
+  },
+  {
+    "item_name": "The Apparitionists: A Tale of Phantoms, Fraud, Photography, and the Man Who Captured Lincoln's Ghost"
+  },
+  {
+    "item_name": "The Idea Factory: Bell Labs and the Great Age of American Innovation"
+  },
+  {
+    "item_name": "Blackett's War: The Men Who Defeated the Nazi U-Boats and Brought Science to the Art of Warfare"
+  },
+  {
+    "item_name": "Rocket Men: The Daring Odyssey of Apollo 8 and the Astronauts Who Made Man's First Journey to the Moon"
+  },
+  {
+    "item_name": "I, Mammal: The Story of What Makes Us Mammals"
+  },
+  {
+    "item_name": "A Charlie Brown Christmas: Vince Guaraldi Trio (Piano Solo/Vocal/Chords)"
+  },
+  {
+    "item_name": "The Spectator Bird (Contemporary American Fiction)"
+  },
+  {
+    "item_name": "Kobane Calling: Greetings from Northern Syria"
+  },
+  {
+    "item_name": "Death Traps: The Survival of an American Armored Division in World War II"
+  },
+  {
+    "item_name": "The Girl Who Drew Butterflies: How Maria Merian's Art Changed Science"
+  },
+  {
+    "item_name": "The War on Neighborhoods: Policing, Prison, and Punishment in a Divided City"
+  },
+  {
+    "item_name": "Mother American Night: My Life in Crazy Times"
+  },
+  {
+    "item_name": "Figures in a Landscape: People and Places"
+  },
+  {
+    "item_name": "Ratio: The Simple Codes Behind the Craft of Everyday Cooking"
+  },
+  {
+    "item_name": "The Invisible Gorilla: And Other Ways Our Intuition Deceives Us"
+  },
+  {
+    "item_name": "The Fortune Cookie Chronicles: Adventures in the World of Chinese Food"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 36807,
+    "item_name": "Irreligion: A Mathematician Explains Why the Arguments for God Just Don't Add Up"
+  },
+  {
+    "rank": 2,
+    "item_id": 19388,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 3,
+    "item_id": 63153,
+    "item_name": "Embattled Rebel: Jefferson Davis as Commander in Chief"
+  },
+  {
+    "rank": 4,
+    "item_id": 12933,
+    "item_name": "Breakthrough: Elizabeth Hughes, the Discovery of Insulin, and the Making of a Medical Miracle"
+  },
+  {
+    "rank": 5,
+    "item_id": 9819,
+    "item_name": "You Are Not a Gadget: A Manifesto"
+  },
+  {
+    "rank": 6,
+    "item_id": 37026,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 7,
+    "item_id": 45159,
+    "item_name": "Steve Jobs: A Biography"
+  },
+  {
+    "rank": 8,
+    "item_id": 26022,
+    "item_name": "Against the Gods: The Remarkable Story of Risk"
+  },
+  {
+    "rank": 9,
+    "item_id": 30020,
+    "item_name": "Bobos in Paradise: The New Upper Class and How They Got There"
+  },
+  {
+    "rank": 10,
+    "item_id": 9213,
+    "item_name": "Cradle to Cradle"
+  },
+  {
+    "rank": 11,
+    "item_id": 10321,
+    "item_name": "Fields of Blood: Religion and the History of Violence"
+  },
+  {
+    "rank": 12,
+    "item_id": 6943,
+    "item_name": "Fabric of the Cosmos: Space, Time and the Texture of Reality (Penguin Press Science)"
+  },
+  {
+    "rank": 13,
+    "item_id": 2715,
+    "item_name": "The Art of War: The New Translation (Harper Perennial Modern Classics)"
+  },
+  {
+    "rank": 14,
+    "item_id": 33103,
+    "item_name": "Bird Dream: Adventures at the Extremes of Human Flight"
+  },
+  {
+    "rank": 15,
+    "item_id": 9831,
+    "item_name": "1493: Uncovering the New World Columbus Created"
+  },
+  {
+    "rank": 16,
+    "item_id": 76469,
+    "item_name": "Climate of Uncertainty: A Balanced Look at Global Warming &amp; Renewable Energy (Paperback) - Common"
+  },
+  {
+    "rank": 17,
+    "item_id": 36805,
+    "item_name": "Fortune's Formula: The Untold Story of the Scientific Betting System That Beat the Casinos and Wall Street"
+  },
+  {
+    "rank": 18,
+    "item_id": 62556,
+    "item_name": "The Ultimate Competitive Advantage: Secrets of Continually Developing a More Profitable Business Model"
+  },
+  {
+    "rank": 19,
+    "item_id": 8335,
+    "item_name": "Embattled Rebel: Jefferson Davis and the Confederate Civil War"
+  },
+  {
+    "rank": 20,
+    "item_id": 35151,
+    "item_name": "The Politically Incorrect Guide to Islam"
+  },
+  {
+    "rank": 21,
+    "item_id": 9147,
+    "item_name": "Exorbitant Privilege: The Rise and Fall of the Dollar and the Future of the International Monetary System"
+  },
+  {
+    "rank": 22,
+    "item_id": 12691,
+    "item_name": "Eaarth: Making a Life on a Tough New Planet"
+  },
+  {
+    "rank": 23,
+    "item_id": 30015,
+    "item_name": "Why We Buy: The Science Of Shopping"
+  },
+  {
+    "rank": 24,
+    "item_id": 1141,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 25,
+    "item_id": 17791,
+    "item_name": "Beowulf: A New Verse Translation"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

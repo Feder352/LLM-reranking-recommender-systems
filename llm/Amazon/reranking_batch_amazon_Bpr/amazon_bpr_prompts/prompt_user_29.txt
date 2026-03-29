@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Breathless"
+  },
+  {
+    "item_name": "Bloody Jack: Being an Account of the Curious Adventures of Mary Jacky Faber, Ship's Boy (Bloody Jack Adventures)"
+  },
+  {
+    "item_name": "The White Mountains (The Tripods, Book No. 2)"
+  },
+  {
+    "item_name": "Princess and the Goblin (Abridged Classics)"
+  },
+  {
+    "item_name": "Pax"
+  },
+  {
+    "item_name": "ILLUSTRATED Water Babies (A Fairy Tale for a Land-Baby)"
+  },
+  {
+    "item_name": "ILLUSTRATED Water Babies (A Fairy Tale for a Land-Baby)"
+  },
+  {
+    "item_name": "The City of Gold and Lead"
+  },
+  {
+    "item_name": "When the Tripods Came"
+  },
+  {
+    "item_name": "The Wolves of Willoughby Chase"
+  },
+  {
+    "item_name": "The League and the Lantern"
+  },
+  {
+    "item_name": "Remember Me"
+  },
+  {
+    "item_name": "Benjamin Harrison: The American Presidents Series: The 23rd President, 1889-1893"
+  },
+  {
+    "item_name": "How to Speak Dragonese by Hiccup Horrendous Haddock III"
+  },
+  {
+    "item_name": "The Prince Warriors"
+  },
+  {
+    "item_name": "The Warrior's Apprentice"
+  },
+  {
+    "item_name": "Prince Preemie: A Tale of a Tiny Puppy Who Arrives Early"
+  },
+  {
+    "item_name": "My Brother Is Special: A Cerebral Palsy Story"
+  },
+  {
+    "item_name": "Mercy's Prince (He Who Finds Mercy) (Volume 1)"
+  },
+  {
+    "item_name": "When Calls the Heart (Canadian West #1)"
+  },
+  {
+    "item_name": "A Separate Peace"
+  },
+  {
+    "item_name": "The Land That Time Forgot"
+  },
+  {
+    "item_name": "The GUNS OF AUGUST"
+  },
+  {
+    "item_name": "The War That Saved My Life"
+  },
+  {
+    "item_name": "Tom Swift and the Cosmic Astronauts (Tom Swift Jr. Adventures, 16)"
+  },
+  {
+    "item_name": "Tom Swift in the Race to the Moon (The New Tom Swift Jr. Adventures, Series No. 12)"
+  },
+  {
+    "item_name": "The False Prince (The Ascendance Trilogy, Book 1)"
+  },
+  {
+    "item_name": "The Friendly Persuasion."
+  },
+  {
+    "item_name": "The Neverending Story"
+  },
+  {
+    "item_name": "Wonder"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 2,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 5,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 6,
+    "item_name": "A Connecticut Yankee in King Arthur's Court (Penguin Classics)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 9,
+    "item_name": "Magic Tree House Collection Volume 1: Books 1-4: #1 Dinosaurs Before Dark; #2 The Knight at Dawn; #3 Mummies in the Morning; #4 Pirates Past Noon (Magic Tree House (R))"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Last Unicorn"
+  },
+  {
+    "rank": 11,
+    "item_name": "Alexander and the Terrible, Horrible, No Good, Very Bad Day Low Price"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Black Cauldron (Pyrdain Chronicles)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Genius Files: Mission Unstoppable"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Winnie-the-Pooh"
+  },
+  {
+    "rank": 15,
+    "item_name": "The BFG"
+  },
+  {
+    "rank": 16,
+    "item_name": "Speak"
+  },
+  {
+    "rank": 17,
+    "item_name": "Knuffle Bunny"
+  },
+  {
+    "rank": 18,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Childhood's End"
+  },
+  {
+    "rank": 21,
+    "item_name": "These Happy Golden Years (Little House)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 24,
+    "item_name": "John Bunyan's The Pilgrim's Progress: A Classic Story Wonderfully Told (Listeners Collection of Classic Christian Literature)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Borrowers"
+  },
+  {
+    "rank": 26,
+    "item_name": "Anything But Typical"
+  },
+  {
+    "rank": 27,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 28,
+    "item_name": "Little House On The Prairie"
+  },
+  {
+    "rank": 29,
+    "item_name": "Treasure Island (Penguin Classics)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Flatland: A Romance of Many Dimensions (Penguin Classics)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Jungle Book (Collins Classics)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Where the Wild Things Are"
+  },
+  {
+    "rank": 35,
+    "item_name": "So You Want to Be a Wizard"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Hound of the Baskervilles (Puffin Classics)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Call of the Wild with related readings"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Children of H&uacute;rin"
+  },
+  {
+    "rank": 39,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 40,
+    "item_name": "The High King"
+  },
+  {
+    "rank": 41,
+    "item_name": "Roll of Thunder, Hear My Cry"
+  },
+  {
+    "rank": 42,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Star Wars: Darth Maul, Shadow Hunter (Star Wars - Legends)"
+  },
+  {
+    "rank": 44,
+    "item_name": "American Born Chinese"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Book of Three (Pyrdain Chronicles)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Door In the Wall"
+  },
+  {
+    "rank": 48,
+    "item_name": "Pippi Longstocking"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Les Miserables"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

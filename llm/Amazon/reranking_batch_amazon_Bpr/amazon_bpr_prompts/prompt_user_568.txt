@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "John Quincy Adams: American Visionary"
+  },
+  {
+    "item_name": "Blood of the Reich"
+  },
+  {
+    "item_name": "Operation Neptune: The D-Day Landings and the Allied Invasion of Europe"
+  },
+  {
+    "item_name": "Russian Roulette: A Deadly Game: How British Spies Thwarted Lenin's Global Plot"
+  },
+  {
+    "item_name": "Stormbird: Stormbird (Wars of the Roses)"
+  },
+  {
+    "item_name": "Wars of the Roses: Stormbird: Book 1 - Kindle edition"
+  },
+  {
+    "item_name": "The Kill Switch: A Tucker Wayne Novel"
+  },
+  {
+    "item_name": "Andre the Giant: Life and Legend"
+  },
+  {
+    "item_name": "The Lincoln Myth (Cotton Malone)"
+  },
+  {
+    "item_name": "The Immortals of Meluha: The Shiva Trilogy: Book 1"
+  },
+  {
+    "item_name": "Warburg in Rome"
+  },
+  {
+    "item_name": "The Monster Realm"
+  },
+  {
+    "item_name": "Exit Berlin: How One Woman Saved Her Family from Nazi Germany"
+  },
+  {
+    "item_name": "Innocent Blood: The Order of the Sanguines Series"
+  },
+  {
+    "item_name": "The Blonde"
+  },
+  {
+    "item_name": "The Wife, the Maid, and the Mistress"
+  },
+  {
+    "item_name": "The Book of Jonah: A Novel"
+  },
+  {
+    "item_name": "Jesus Is the Question: The 307 Questions Jesus Asked and the 3 He Answered"
+  },
+  {
+    "item_name": "The Complete C. S. Lewis Signature Classics: Boxed Set"
+  },
+  {
+    "item_name": "One Night in Winter: A Novel (P.S. (Paperback))"
+  },
+  {
+    "item_name": "The River of Souls"
+  },
+  {
+    "item_name": "The Accident"
+  },
+  {
+    "item_name": "Lion Heart"
+  },
+  {
+    "item_name": "The Last Kings of Sark"
+  },
+  {
+    "item_name": "Pinnacle Event: A Novel"
+  },
+  {
+    "item_name": "The Lost Codex (OPSIG Team Black)"
+  },
+  {
+    "item_name": "North of the Tension Line"
+  },
+  {
+    "item_name": "The Setup Man: A Novel"
+  },
+  {
+    "item_name": "The Viceroys: A Novel"
+  },
+  {
+    "item_name": "Double Switch: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 2,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 5,
+    "item_name": "FOUNDATION- PB"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Kite Runner"
+  },
+  {
+    "rank": 7,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Godless: The Church of Liberalism"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 10,
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Historian"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 13,
+    "item_name": "Angels &amp; Demons (Random House Large Print)"
+  },
+  {
+    "rank": 14,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 17,
+    "item_name": "Bomber"
+  },
+  {
+    "rank": 18,
+    "item_name": "Stranger in a Strange Land (Penguin Galaxy)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 20,
+    "item_name": "Les Miserables (Penguin Classics)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Childhood's End"
+  },
+  {
+    "rank": 22,
+    "item_name": "Treasure Island (Penguin Classics)"
+  },
+  {
+    "rank": 23,
+    "item_name": "1776 : America and Britain at War"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Show Must Go On/The Cry and the Covenant/Autobiography of Will Rogers/Cry, the Beloved Country (Reader's Digest Condensed Books, Volume 1: 1950)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Comrades: Brothers, Fathers, Sons, Pals"
+  },
+  {
+    "rank": 26,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 28,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 29,
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "rank": 30,
+    "item_name": "Good to Great CD: Why Some Companies Make the Leap.And Others Don't"
+  },
+  {
+    "rank": 31,
+    "item_name": "Persepolis"
+  },
+  {
+    "rank": 32,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 33,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 34,
+    "item_name": "Freakonomics: A Rogue Economist Explores the Hidden Side of Everything - by Steven D. Levitt &amp; Stephen J. Dubner"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 38,
+    "item_name": "Star Wars: Heir to the Empire, 20th Anniversary Edition"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 40,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 41,
+    "item_name": "Purpose-driven Life [Paperback]  by Warren        , Rick"
+  },
+  {
+    "rank": 42,
+    "item_name": "Christ the Lord: Out of Egypt"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Purpose Driven Life"
+  },
+  {
+    "rank": 44,
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "rank": 45,
+    "item_name": "State of Fear"
+  },
+  {
+    "rank": 46,
+    "item_name": "Dune"
+  },
+  {
+    "rank": 47,
+    "item_name": "Star Wars: The Old Republic - Fatal Alliance"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Illustrated A Brief History of Time and The Universe in a Nutshell"
+  },
+  {
+    "rank": 49,
+    "item_name": "Maltese Falcon (Picador Books)"
+  },
+  {
+    "rank": 50,
+    "item_name": "A Separate Peace"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

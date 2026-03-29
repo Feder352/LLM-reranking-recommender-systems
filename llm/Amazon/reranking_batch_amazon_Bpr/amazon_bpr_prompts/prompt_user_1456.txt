@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "52 Small Changes: One Year to a Happier, Healthier You"
+  },
+  {
+    "item_name": "The Garner Files: A Memoir (Thorndike Press Large Print Biography Series)"
+  },
+  {
+    "item_name": "Sonoma Rose (Elm Creek Quilts)"
+  },
+  {
+    "item_name": "The Great Northern Express: A Writer's Journey Home"
+  },
+  {
+    "item_name": "Blues Highway Blues (A Crossroads Thriller)"
+  },
+  {
+    "item_name": "Take A Shot!: A Remarkable Story of Perseverance, Friendship, and a Really Crazy Adventure"
+  },
+  {
+    "item_name": "Buffalo Bill's Dead Now (A Wind River Mystery)"
+  },
+  {
+    "item_name": "Christmas at Eagle Pond"
+  },
+  {
+    "item_name": "From Germany to Germany: Diary 1990"
+  },
+  {
+    "item_name": "The Little Bookstore of Big Stone Gap: A Memoir of Friendship, Community, and the Uncommon Pleasure of a Good Book"
+  },
+  {
+    "item_name": "Good Prose: The Art of Nonfiction"
+  },
+  {
+    "item_name": "A Friendly Game of Murder: An Algonquin Round Table Mystery"
+  },
+  {
+    "item_name": "Kinsey and Me: Stories"
+  },
+  {
+    "item_name": "You Might As Well Die: An Algonquin Round Table Mystery"
+  },
+  {
+    "item_name": "Margaret Fuller: A New American Life"
+  },
+  {
+    "item_name": "The Union Street Bakery (A Union Street Bakery Novel)"
+  },
+  {
+    "item_name": "Minnesota Recreation Atlas (National Geographic Recreation Atlas)"
+  },
+  {
+    "item_name": "Blind Curves: &nbsp;One Woman's Unusual Journey to Reinvent Herself and Answer: What Now?"
+  },
+  {
+    "item_name": "Let It Be"
+  },
+  {
+    "item_name": "Custer's Last Battle: Red Hawk's Account of the Battle of the Little Bighorn"
+  },
+  {
+    "item_name": "W is for Wasted"
+  },
+  {
+    "item_name": "Give Yourself a Raise: how to have more money, less stress, financial freedom"
+  },
+  {
+    "item_name": "The Spymistress: A Novel"
+  },
+  {
+    "item_name": "Out on a Limb: What Black Bears Have Taught Me about Intelligence and Intuition"
+  },
+  {
+    "item_name": "The Homing Instinct: Meaning and Mystery in Animal Migration"
+  },
+  {
+    "item_name": "The Gifted: How to Live the Life of Your Dreams"
+  },
+  {
+    "item_name": "Some Luck (The Last Hundred Years Trilogy: A Family Saga)"
+  },
+  {
+    "item_name": "Death at Chinatown (Emily Cabot Mysteries) (Volume 5)"
+  },
+  {
+    "item_name": "The Happiness of Pursuit: Finding the Quest That Will Bring Purpose to Your Life"
+  },
+  {
+    "item_name": "Thoreau in Phantom Bog (A Henry David Thoreau Mystery)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "March of the Penguins: Companion to the Major Motion Picture"
+  },
+  {
+    "rank": 2,
+    "item_name": "Winter Study (Anna Pigeon)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 4,
+    "item_name": "An Impartial Witness: A Bess Crawford Mystery (Bess Crawford Mysteries)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Better Homes and Gardens New Cook Book"
+  },
+  {
+    "rank": 7,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 8,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Five People You Meet in Heaven (Random House Large Print)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Achieve Anything in Just One Year: Be Inspired Daily to Live Your Dreams and Accomplish Your Goals"
+  },
+  {
+    "rank": 11,
+    "item_name": "Escape"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Snowman's Revenge"
+  },
+  {
+    "rank": 13,
+    "item_name": "Three Cups of Tea"
+  },
+  {
+    "rank": 14,
+    "item_name": "Olive Kitteridge"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 16,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "At Home: A Short History of Private Life (Random House Large Print)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Barefoot Contessa Cookbook Collection: The Barefoot Contessa Cookbook, Barefoot Contessa Parties!, and Barefoot Contessa Family Style"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Dying Fall (Ruth Galloway Mystery) (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Judgment Ridge: The True Story Behind the Dartmouth Murders"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Stranger Beside Me: The Twentieth Anniversary Edition"
+  },
+  {
+    "rank": 22,
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "rank": 23,
+    "item_name": "OUT STEALING HORSES"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Immortal Life of Henrietta Lacks"
+  },
+  {
+    "rank": 25,
+    "item_name": "Marley &amp; Me: Life and Love with the World's Worst Dog"
+  },
+  {
+    "rank": 26,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Things They Carried (Contemporary American Fiction)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Fifth Witness (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Night of the Magical Flight: U.S.English Edition - Exciting Rhyming Bedtime Story - Picture Book / Beginner Reader (Ages 3-7) (Top of the Wardrobe Gang Picture Books) (Volume 2)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Don't Juggle Bees! And Other Useless Advice For Silly Children"
+  },
+  {
+    "rank": 32,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 33,
+    "item_name": "Mrs. Kimble: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Destiny of the Republic: A Tale of Madness, Medicine and the Murder of a President"
+  },
+  {
+    "rank": 35,
+    "item_name": "Betty Crocker's New Cookbook: Everything You Need to Know to Cook (8th Ed.)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Alexander and the Terrible, Horrible, No Good, Very Bad Day Low Price"
+  },
+  {
+    "rank": 37,
+    "item_name": "Mennonite in a Little Black Dress: A Memoir of Going Home"
+  },
+  {
+    "rank": 38,
+    "item_name": "Blue Shoes and Happiness"
+  },
+  {
+    "rank": 39,
+    "item_name": "22/11/63"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Life-Changing Magic of Tidying: A simple, effective way to banish clutter forever"
+  },
+  {
+    "rank": 41,
+    "item_name": "Blink - The Power Of Thinking Without Thinking"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Jungle Book (Collins Classics)"
+  },
+  {
+    "rank": 43,
+    "item_name": "By Marie Kondo The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing (Unabridged CD) [Audio CD]"
+  },
+  {
+    "rank": 44,
+    "item_name": "With the Old Breed: The World War Two Pacific Classic"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Noticer: Sometimes, all a person needs is a little perspective."
+  },
+  {
+    "rank": 46,
+    "item_name": "Case Histories: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Lies Across America: What Our Historic Sites Get Wrong"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Walk for Sunshine: A 2,160 Mile Expedition for Charity on the Appalachian Trail"
+  },
+  {
+    "rank": 49,
+    "item_name": "Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
+  },
+  {
+    "rank": 50,
+    "item_name": "U is for Undertow (A Kinsey Millhone Mystery, Book 21)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

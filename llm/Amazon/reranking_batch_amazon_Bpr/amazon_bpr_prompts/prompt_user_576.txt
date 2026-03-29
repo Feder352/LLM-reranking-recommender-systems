@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Four Puddings and a Funeral (Oxford Tearoom Mysteries ~ Book 6) (Volume 6)"
+  },
+  {
+    "item_name": "Fundamentals of Nursing: Content Review Plus Practice Questions (Davis's Success Plus)"
+  },
+  {
+    "item_name": "Supermarket Healthy: Recipes and Know-How for Eating Well Without Spending a Lot"
+  },
+  {
+    "item_name": "Witch Summer Night's Cream (BEWITCHED BY CHOCOLATE Mysteries ~ Book 3) (Volume 3)"
+  },
+  {
+    "item_name": "Your First Year"
+  },
+  {
+    "item_name": "GRE Premier 2017 with 6 Practice Tests: Online + Book + Videos + Mobile (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "Candy Corn Murder (A Lucy Stone Mystery)"
+  },
+  {
+    "item_name": "A Spirited Tail (Mystic Notch Cozy Mystery Series) (Volume 2)"
+  },
+  {
+    "item_name": "Witch Chocolate Bites (BEWITCHED BY CHOCOLATE Mysteries ~ Book 4) (Volume 4)"
+  },
+  {
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "item_name": "Reservations for Two: A Novel of Fresh Flavors and New Horizons (Two Blue Doors)"
+  },
+  {
+    "item_name": "The Gospel according to God: Rediscovering the Most Remarkable Chapter in the Old Testament"
+  },
+  {
+    "item_name": "The Skeleton Paints a Picture: A Family Skeleton Mystery (#4)"
+  },
+  {
+    "item_name": "12 Days at Bleakly Manor: Book 1 in Once Upon a Dickens Christmas"
+  },
+  {
+    "item_name": "Dead and Breakfast: A Merry Ghost Inn Mystery"
+  },
+  {
+    "item_name": "Another One Bites the Crust (Oxford Tearoom Mysteries ~ Book 7) (Volume 7)"
+  },
+  {
+    "item_name": "Murder with Lemon Tea Cakes (A Daisy's Tea Garden Mystery)"
+  },
+  {
+    "item_name": "Cherry Pie Or Die (Baker Street Cozy Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "Off Kilter (A Scottish Highlands Mystery)"
+  },
+  {
+    "item_name": "From a Paris Balcony"
+  },
+  {
+    "item_name": "Anatomy of a Miracle: A Novel*"
+  },
+  {
+    "item_name": "Bitter Harvest (Greenhouse Mystery)"
+  },
+  {
+    "item_name": "The Little Cottage on the Hill: A gorgeous feel good romance to escape with"
+  },
+  {
+    "item_name": "Raspberry Danish Murder (A Hannah Swensen Mystery)"
+  },
+  {
+    "item_name": "Good And Cheap: Eat Well On $4/Day (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "No Less Days"
+  },
+  {
+    "item_name": "A Riesling to Die"
+  },
+  {
+    "item_name": "The Diva Cooks up a Storm (Domestic Diva)"
+  },
+  {
+    "item_name": "Freshly Ground Murder (A Killer Coffee) (Volume 3)"
+  },
+  {
+    "item_name": "Death of a Dead Man (Juniper Grove Cozy Mystery) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Plantation Shudders: A Cajun Country Mystery"
+  },
+  {
+    "rank": 2,
+    "item_name": "Murder at the Courthouse: A Hidden Springs Mystery (The Hidden Springs Mysteries)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Secrets of Wishtide (A Laetitia Rodd Mystery)"
+  },
+  {
+    "rank": 4,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Christmas Bus"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Fifth Petal"
+  },
+  {
+    "rank": 7,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Christmas Cat"
+  },
+  {
+    "rank": 9,
+    "item_name": "Dubiosity"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Hideaway"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Writing Desk"
+  },
+  {
+    "rank": 12,
+    "item_name": "Invisible (Ivy Malone Mystery Series #1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Pilgrim's Wilderness: A True Story of Faith and Madness on the Alaska Frontier"
+  },
+  {
+    "rank": 14,
+    "item_name": "Cruel Winter: A County Cork Mystery"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Wrong Girl (Jane Ryland)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Chilbury Ladies' Choir"
+  },
+  {
+    "rank": 17,
+    "item_name": "Plain Pursuit (A Daughters of the Promise Novel)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Brooklyn on Fire: A Mary Handley Mystery"
+  },
+  {
+    "rank": 19,
+    "item_name": "When the Grits Hit the Fan (A Country Store Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Killing Trail: A Timber Creek K-9 Mystery"
+  },
+  {
+    "rank": 21,
+    "item_name": "The World of Laura Ingalls Wilder: The Frontier Landscapes that Inspired the Little House Books"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Queen's Accomplice: A Maggie Hope Mystery"
+  },
+  {
+    "rank": 23,
+    "item_name": "Victoria"
+  },
+  {
+    "rank": 24,
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Portrait of Vengeance (A Gwen Marcey Novel)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Faithful to Laura (A Middlefield Family Novel)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Aunty Lee's Deadly Specials: A Singaporean Mystery (The Aunty Lee Series)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Cranberry Bluff"
+  },
+  {
+    "rank": 30,
+    "item_name": "Elegy for Eddie: A Maisie Dobbs Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Sea House: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Gone but Knot Forgotten (A Quilting Mystery)"
+  },
+  {
+    "rank": 33,
+    "item_name": "A Mother's Love"
+  },
+  {
+    "rank": 34,
+    "item_name": "Cat Got Your Diamonds: A Kitty Couture Mystery"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Paris Spy: A Maggie Hope Mystery"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Bee In Her Bonnet (The Honeybee Sisters)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Final Sentence (A Cookbook Nook Mystery)"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Banquet of Consequences: A Lynley Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Space Between Words"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Other Einstein: A Novel - Kindle edition"
+  },
+  {
+    "rank": 41,
+    "item_name": "Through the Smoke"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Hawaiian Discovery"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Long Way Home"
+  },
+  {
+    "rank": 44,
+    "item_name": "Killer Jam (Dewberry Farm Mysteries)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Curse of Crow Hollow"
+  },
+  {
+    "rank": 46,
+    "item_name": "Masterpiece Marriage: Quilts of Love Series"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Trick of the Light: A Chief Inspector Gamache Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Finding Fontainebleau: An American Boy in France"
+  },
+  {
+    "rank": 49,
+    "item_name": "Murder on the Last Frontier (A Charlotte Brody Mystery)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Murder in the Locked Library (A Book Retreat Mystery)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

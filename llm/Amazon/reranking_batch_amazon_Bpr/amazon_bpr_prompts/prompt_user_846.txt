@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Escape: A New Life (Volume 1)"
+  },
+  {
+    "item_name": "The Ranger (Quinn Colson Novels)"
+  },
+  {
+    "item_name": "Blood Of Others"
+  },
+  {
+    "item_name": "Russian Hill: Abby Kane FBI Thriller"
+  },
+  {
+    "item_name": "Back to War: Book 1 of the Corps Justice series"
+  },
+  {
+    "item_name": "Sleeping Dog"
+  },
+  {
+    "item_name": "Chain of Command: A Corps Justice Novel (Volume 9)"
+  },
+  {
+    "item_name": "In Desperation (A Jack Gannon Novel)"
+  },
+  {
+    "item_name": "Deadly Encounter (DI Sally Parker thriller series) (Volume 4)"
+  },
+  {
+    "item_name": "A River in Darkness: One Man's Escape from North Korea"
+  },
+  {
+    "item_name": "Cold Blooded - Sins and Sanctions (Nick McCarty Assassin Series) (Volume 3)"
+  },
+  {
+    "item_name": "The Dead Man"
+  },
+  {
+    "item_name": "Rick Cantelli, P.I."
+  },
+  {
+    "item_name": "Among The Shadows: A Detective Byron Mystery (A John Byron Novel)"
+  },
+  {
+    "item_name": "The Absence of Guilt (A. Scott Fenney)"
+  },
+  {
+    "item_name": "An Ace and A Pair: A Dead Cold Mystery (Volume 1)"
+  },
+  {
+    "item_name": "The Professor (McMurtrie and Drake Legal Thrillers)"
+  },
+  {
+    "item_name": "False Dawn"
+  },
+  {
+    "item_name": "Stiff Arm Steal (Miami Jones Florida Mystery Series) (Volume 1)"
+  },
+  {
+    "item_name": "True Fiction (Ian Ludlow Thrillers)"
+  },
+  {
+    "item_name": "Devils And Dust: A Jack Keller Novel"
+  },
+  {
+    "item_name": "A Life Worth Taking (Tom Greer Thrillers)"
+  },
+  {
+    "item_name": "Looking Glass (The Naturalist)"
+  },
+  {
+    "item_name": "The Grave Man - A Sam Prichard Novel (The Sam Prichard Series) (Volume 1)"
+  },
+  {
+    "item_name": "Death Sung Softly - A Sam Prichard Novel (The Sam Prichard Series) (Volume 2)"
+  },
+  {
+    "item_name": "Deadly Recall (Jessie Cole)"
+  },
+  {
+    "item_name": "Adrift"
+  },
+  {
+    "item_name": "Child of the State (An Elizabeth McClaine Thriller) (Volume 2)"
+  },
+  {
+    "item_name": "A Darker Path (Corps Justice)"
+  },
+  {
+    "item_name": "The Boat Man"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "JET - Ops Files"
+  },
+  {
+    "rank": 2,
+    "item_name": "Crooked Man"
+  },
+  {
+    "rank": 3,
+    "item_name": "Burning Man (A Gideon and Sirius Novel)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Taboo: CSI Reilly Steel #1 (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Wanted: A Leopold Blake Thriller (Leopold Blake Series)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Girl Jacked"
+  },
+  {
+    "rank": 7,
+    "item_name": "CyberStorm"
+  },
+  {
+    "rank": 8,
+    "item_name": "Ravage"
+  },
+  {
+    "rank": 9,
+    "item_name": "Buck Fever: A Blanco County Texas Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Loose Ends (California Corwin P.I. Mystery) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Neon Lawyer"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Jakarta Pandemic"
+  },
+  {
+    "rank": 13,
+    "item_name": "Louisiana Bigshot: A Talba Wallis Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Bloody Mary (Jack Daniels Mysteries)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The One You Love: Emma Holden Suspense Mystery Trilogy: Book One (Emma Holden Trilogy)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Devil's Grin - A Crime Novel featuring Anna Kronberg and Sherlock Holmes"
+  },
+  {
+    "rank": 17,
+    "item_name": "One Way"
+  },
+  {
+    "rank": 18,
+    "item_name": "Fallen Out: A Jesse McDermitt Novel (Caribbean Adventure Series) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Come Monday (Book 1)(The Jake Sullivan Series)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Taste of Fear"
+  },
+  {
+    "rank": 21,
+    "item_name": "No Good Deed"
+  },
+  {
+    "rank": 22,
+    "item_name": "Vengeance is Mine: A Benjamin Tucker Mystery (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Dead Red Alibi: #4 in the Dead Red Mystery Series (Volume 4)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Gray Justice (A Tom Gray Novel)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Oath of Office (a Luke Stone Thriller-Book #2)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Good Soldier: Jack Noble Early Years Bundle (Noble Beginnings &amp; A Deadly Distance)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Cruel Justice (Justice Series) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Scion"
+  },
+  {
+    "rank": 29,
+    "item_name": "Seven Unholy Days"
+  },
+  {
+    "rank": 30,
+    "item_name": "Blood and Justice: A Private Investigator Mystery Series (A Jake &amp; Annie Lincoln Thriller) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "State vs. Lassiter (Jake Lassiter Series)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Hollywood Games: A Hollywood Alphabet Series Thriller - Kindle edition"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Alexandria Project: A Tale of Deception and Elections (Frank Adversego Thrillers) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Blood on the Tracks (Sydney Rose Parnell)"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Perfect Grave"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Tenth Chamber"
+  },
+  {
+    "rank": 37,
+    "item_name": "Betrayal"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Touch of Deceit (A Nick Bracco Thriller Book 1) eBook"
+  },
+  {
+    "rank": 39,
+    "item_name": "Once Gone (a Riley Paige Mystery--Book #1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "New Orleans Mourning"
+  },
+  {
+    "rank": 41,
+    "item_name": "Quick (A Hunter Kincaid Novel)"
+  },
+  {
+    "rank": 42,
+    "item_name": "3 a.m. (Henry Bins) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Easy Innocence (Georgia Davis Mysteries)"
+  },
+  {
+    "rank": 44,
+    "item_name": "King City"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Watcher: A Romantic Thriller"
+  },
+  {
+    "rank": 46,
+    "item_name": "Founders' Keeper (A David and Martin Yerxa Thriller) (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "HABIT: a detective thriller you won't want to put down"
+  },
+  {
+    "rank": 48,
+    "item_name": "To the Bone (David Wolf) (Volume 7)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Afraid"
+  },
+  {
+    "rank": 50,
+    "item_name": "Wired"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

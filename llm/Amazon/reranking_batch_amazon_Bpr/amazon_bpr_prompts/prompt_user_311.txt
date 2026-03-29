@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Menagerie"
+  },
+  {
+    "item_name": "American Vampire"
+  },
+  {
+    "item_name": "Vampire Moon"
+  },
+  {
+    "item_name": "Moon Child"
+  },
+  {
+    "item_name": "Christmas Moon"
+  },
+  {
+    "item_name": "Vampire Dawn (Vampire for Hire Book 5) eBook"
+  },
+  {
+    "item_name": "Vampire Games (Vampire for Hire Book 6) eBook"
+  },
+  {
+    "item_name": "Moon Island"
+  },
+  {
+    "item_name": "Hunter's Trail (Scarlett Bernard)"
+  },
+  {
+    "item_name": "Boundary Lines (Boundary Magic)"
+  },
+  {
+    "item_name": "Moon River (Vampire for Hire #8)"
+  },
+  {
+    "item_name": "Vampire Sun (Vampire for Hire #9)"
+  },
+  {
+    "item_name": "Moon Dragon"
+  },
+  {
+    "item_name": "The Masked Truth"
+  },
+  {
+    "item_name": "The Single Undead Moms Club (Half-Moon Hollow Series)"
+  },
+  {
+    "item_name": "Mind Magic (A Novel of the Lupi)"
+  },
+  {
+    "item_name": "Alpha Unleashed (Alpha Girl) (Volume 5)"
+  },
+  {
+    "item_name": "Sweep In Peace (Innkeeper Chronicles) (Volume 2)"
+  },
+  {
+    "item_name": "Mercenary Magic (Dragon Born Serafina) (Volume 1)"
+  },
+  {
+    "item_name": "Fledgling: The Shapeshifter Chronicles (Volume 1)"
+  },
+  {
+    "item_name": "Fated (Servants of Fate)"
+  },
+  {
+    "item_name": "Magic Games (Dragon Born Serafina) (Volume 2)"
+  },
+  {
+    "item_name": "Demon Street Blues (Wicked Good Witches) (Volume 1)"
+  },
+  {
+    "item_name": "Crux: Southern Arcana, Book 1"
+  },
+  {
+    "item_name": "Darkness Haunts (Sensor)"
+  },
+  {
+    "item_name": "Stalked by Flames"
+  },
+  {
+    "item_name": "Wedding Cake Murder (A Hannah Swensen Mystery with Recipes)"
+  },
+  {
+    "item_name": "Secret Garden: An Inky Treasure Hunt And Coloring Book (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "Color Me Calm: 100 Coloring Templates for Meditation and Relaxation (A Zen Coloring Book)"
+  },
+  {
+    "item_name": "Somebody Tell Aunt Tillie She's Dead (Toad Witch Mysteries) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Night Broken: A Mercy Thompson Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Dead Witch Walking"
+  },
+  {
+    "rank": 3,
+    "item_name": "Lover Avenged (Black Dagger Brotherhood, Book 7)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Holiday in Death[HOLIDAY IN DEATH][Prebound]"
+  },
+  {
+    "rank": 5,
+    "item_name": "Delusion in Death"
+  },
+  {
+    "rank": 6,
+    "item_name": "Firelight (Darkest London)"
+  },
+  {
+    "rank": 7,
+    "item_name": "First Grave on the Right (Charley Davidson Series)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Lover Eternal (Black Dagger Brotherhood, Book 2)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Calculated in Death"
+  },
+  {
+    "rank": 11,
+    "item_name": "Magic Binds (Kate Daniels)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Wolf with Benefits (Brava Paranormal Romance)"
+  },
+  {
+    "rank": 13,
+    "item_name": "A Perfect Blood"
+  },
+  {
+    "rank": 14,
+    "item_name": "Spider's Bite (Elemental Assassin, Book 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Sacrificial Magic (Downside Ghosts)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Archangel's Legion (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 18,
+    "item_name": "Iced: Fever Series Book 6"
+  },
+  {
+    "rank": 19,
+    "item_name": "Kitty and the Midnight Hour (Kitty Norville)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Archangel's Consort (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Trouble in Mudbug"
+  },
+  {
+    "rank": 22,
+    "item_name": "Trail of Dead (A Scarlett Bernard Novel)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Archangel's Heart (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Hidden Fire: Elemental Mysteries Book 1"
+  },
+  {
+    "rank": 25,
+    "item_name": "Ceremony in Death"
+  },
+  {
+    "rank": 26,
+    "item_name": "Celebrity In Death"
+  },
+  {
+    "rank": 27,
+    "item_name": "Secrets in Death: An Eve Dallas Novel (In Death, Book 45)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Heart of the Hunter"
+  },
+  {
+    "rank": 29,
+    "item_name": "White Witch, Black Curse"
+  },
+  {
+    "rank": 30,
+    "item_name": "Caressed By Ice (Psy-Changelings, Book 3)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Accidental Demon Slayer"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Witness"
+  },
+  {
+    "rank": 33,
+    "item_name": "Etiquette &amp; Espionage (Finishing School)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Kitty Goes to Washington (Kitty Norville)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Living with the Dead: Women of the Otherworld (The Women of the Otherworld Series)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Marked In Flesh (A Novel of the Others)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Burn for Me (Hidden Legacy)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Shadows (Black Dagger Brotherhood)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Silence Fallen (A Mercy Thompson Novel)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Cursed: A Fallen Siren Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "Blood Cross (Jane Yellowrock, Book 2)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Dark Lover (Black Dagger Brotherhood, Book 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "One Foot in the Grave (Night Huntress, Book 2)"
+  },
+  {
+    "rank": 44,
+    "item_name": "On the Edge"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Undead Pool"
+  },
+  {
+    "rank": 46,
+    "item_name": "Concealed in Death"
+  },
+  {
+    "rank": 47,
+    "item_name": "At Grave's End"
+  },
+  {
+    "rank": 48,
+    "item_name": "Oracle's Moon (A Novel of the Elder Races)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Eleventh Grave in Moonlight (Charley Davidson)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Bitter Bite (Elemental Assassin)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

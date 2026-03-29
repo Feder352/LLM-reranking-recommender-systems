@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Two Boys Kissing"
+  },
+  {
+    "item_name": "The Aftermath"
+  },
+  {
+    "item_name": "A Brief History of Seven Killings: A Novel"
+  },
+  {
+    "item_name": "Arctic Summer"
+  },
+  {
+    "item_name": "Arctic Summer"
+  },
+  {
+    "item_name": "Arctic Summer"
+  },
+  {
+    "item_name": "A Home at the End of the World: A Novel"
+  },
+  {
+    "item_name": "The Price of Salt, or Carol"
+  },
+  {
+    "item_name": "Why Christianity Must Change or Die: A Bishop Speaks To Believers In Exile A New Reformation of the Church's Faith &amp; Practice"
+  },
+  {
+    "item_name": "Why Christianity Must Change or Die: A Bishop Speaks To Believers In Exile A New Reformation of the Church's Faith &amp; Practice"
+  },
+  {
+    "item_name": "As Meat Loves Salt"
+  },
+  {
+    "item_name": "Gilead"
+  },
+  {
+    "item_name": "Inside a Pearl: My Years in Paris"
+  },
+  {
+    "item_name": "Lifted by the Great Nothing"
+  },
+  {
+    "item_name": "Silence (Film Tie-In)"
+  },
+  {
+    "item_name": "Now"
+  },
+  {
+    "item_name": "Now"
+  },
+  {
+    "item_name": "What Belongs to You: A Novel"
+  },
+  {
+    "item_name": "Beijing Comrades"
+  },
+  {
+    "item_name": "Beijing Comrades"
+  },
+  {
+    "item_name": "Beijing Comrades"
+  },
+  {
+    "item_name": "Beijing Comrades"
+  },
+  {
+    "item_name": "Beijing Comrades"
+  },
+  {
+    "item_name": "Days Without End: A Novel"
+  },
+  {
+    "item_name": "Falconer (Penguin Classics)"
+  },
+  {
+    "item_name": "Falconer (Penguin Classics)"
+  },
+  {
+    "item_name": "My Cat Yugoslavia: A Novel"
+  },
+  {
+    "item_name": "In the Courtyard of the Kabbalist"
+  },
+  {
+    "item_name": "Golden Boy: A Novel"
+  },
+  {
+    "item_name": "Jesus Through Middle Eastern Eyes - Cultural Studies in the Gospels"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Sense of an Ending"
+  },
+  {
+    "rank": 3,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 5,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 6,
+    "item_name": "Cannery Row"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 9,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Call of the Wild with related readings"
+  },
+  {
+    "rank": 12,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Remains of the Day"
+  },
+  {
+    "rank": 15,
+    "item_name": "Disgrace: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Bluest Eye (Vintage International)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Alexandria Quartet"
+  },
+  {
+    "rank": 20,
+    "item_name": "Ulysses"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 22,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 23,
+    "item_name": "Power and the Glory"
+  },
+  {
+    "rank": 24,
+    "item_name": "Night"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Things They Carried (Contemporary American Fiction)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 27,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Musicophilia: Tales of Music and the Brain"
+  },
+  {
+    "rank": 29,
+    "item_name": "Robinson Crusoe"
+  },
+  {
+    "rank": 30,
+    "item_name": "One, Two, Buckle My Shoe"
+  },
+  {
+    "rank": 31,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Alchemist"
+  },
+  {
+    "rank": 33,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Woman in the Dunes"
+  },
+  {
+    "rank": 35,
+    "item_name": "Of Mice and Men"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Moonstone: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "rank": 38,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Amazing Adventures of Kavalier &amp; Clay"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Buried Giant: A novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 42,
+    "item_name": "Lord of the Flies"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Epic of Gilgamesh"
+  },
+  {
+    "rank": 44,
+    "item_name": "Between the World and Me"
+  },
+  {
+    "rank": 45,
+    "item_name": "Howards End (Penguin Twentieth-Century Classics)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Dharma Bums"
+  },
+  {
+    "rank": 48,
+    "item_name": "Amusing Ourselves to Death: Public Discourse in the Age of Show Business"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Manchurian Candidate"
+  },
+  {
+    "rank": 50,
+    "item_name": "Twenty Thousand Leagues Under the Sea (Vintage Classics)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

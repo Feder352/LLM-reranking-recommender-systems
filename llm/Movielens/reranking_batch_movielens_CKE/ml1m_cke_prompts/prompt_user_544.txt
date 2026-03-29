@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Nightmare Before Christmas, The"
+  },
+  {
+    "item_name": "Beauty and the Beast"
+  },
+  {
+    "item_name": "Gigi"
+  },
+  {
+    "item_name": "King and I, The"
+  },
+  {
+    "item_name": "Cinderella"
+  },
+  {
+    "item_name": "Dumbo"
+  },
+  {
+    "item_name": "Jungle Book, The"
+  },
+  {
+    "item_name": "Lady and the Tramp"
+  },
+  {
+    "item_name": "West Side Story"
+  },
+  {
+    "item_name": "Sound of Music, The"
+  },
+  {
+    "item_name": "Misérables, Les"
+  },
+  {
+    "item_name": "American in Paris, An"
+  },
+  {
+    "item_name": "Sleeping Beauty"
+  },
+  {
+    "item_name": "Mary Poppins"
+  },
+  {
+    "item_name": "Lion King, The"
+  },
+  {
+    "item_name": "Alice in Wonderland"
+  },
+  {
+    "item_name": "Great Race, The"
+  },
+  {
+    "item_name": "Doctor Dolittle"
+  },
+  {
+    "item_name": "Dances with Wolves"
+  },
+  {
+    "item_name": "Adventures of Robin Hood, The"
+  },
+  {
+    "item_name": "Star Wars: Episode IV - A New Hope"
+  },
+  {
+    "item_name": "Ben-Hur"
+  },
+  {
+    "item_name": "Borrowers, The"
+  },
+  {
+    "item_name": "Princess Bride, The"
+  },
+  {
+    "item_name": "Mutiny on the Bounty"
+  },
+  {
+    "item_name": "Around the World in 80 Days"
+  },
+  {
+    "item_name": "Star Trek: The Wrath of Khan"
+  },
+  {
+    "item_name": "King Kong"
+  },
+  {
+    "item_name": "Jurassic Park"
+  },
+  {
+    "item_name": "20,000 Leagues Under the Sea"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 612,
+    "item_name": "Peter Pan"
+  },
+  {
+    "rank": 2,
+    "item_id": 10,
+    "item_name": "Wizard of Oz, The"
+  },
+  {
+    "rank": 3,
+    "item_id": 47,
+    "item_name": "Dumbo"
+  },
+  {
+    "rank": 4,
+    "item_id": 18,
+    "item_name": "Bambi"
+  },
+  {
+    "rank": 5,
+    "item_id": 740,
+    "item_name": "Willy Wonka and the Chocolate Factory"
+  },
+  {
+    "rank": 6,
+    "item_id": 588,
+    "item_name": "Pinocchio"
+  },
+  {
+    "rank": 7,
+    "item_id": 1045,
+    "item_name": "101 Dalmatians"
+  },
+  {
+    "rank": 8,
+    "item_id": 629,
+    "item_name": "Rear Window"
+  },
+  {
+    "rank": 9,
+    "item_id": 209,
+    "item_name": "Fistful of Dollars, A"
+  },
+  {
+    "rank": 10,
+    "item_id": 214,
+    "item_name": "Jaws"
+  },
+  {
+    "rank": 11,
+    "item_id": 100,
+    "item_name": "Guns of Navarone, The"
+  },
+  {
+    "rank": 12,
+    "item_id": 1527,
+    "item_name": "King and I, The"
+  },
+  {
+    "rank": 13,
+    "item_id": 2340,
+    "item_name": "Song of the South"
+  },
+  {
+    "rank": 14,
+    "item_id": 669,
+    "item_name": "Winnie the Pooh and the Blustery Day"
+  },
+  {
+    "rank": 15,
+    "item_id": 1549,
+    "item_name": "Swiss Family Robinson"
+  },
+  {
+    "rank": 16,
+    "item_id": 1194,
+    "item_name": "Some Like It Hot"
+  },
+  {
+    "rank": 17,
+    "item_id": 41,
+    "item_name": "Toy Story"
+  },
+  {
+    "rank": 18,
+    "item_id": 727,
+    "item_name": "From Russia with Love"
+  },
+  {
+    "rank": 19,
+    "item_id": 1571,
+    "item_name": "South Pacific"
+  },
+  {
+    "rank": 20,
+    "item_id": 23,
+    "item_name": "Back to the Future"
+  },
+  {
+    "rank": 21,
+    "item_id": 738,
+    "item_name": "Absent Minded Professor, The"
+  },
+  {
+    "rank": 22,
+    "item_id": 668,
+    "item_name": "Godfather, The"
+  },
+  {
+    "rank": 23,
+    "item_id": 11,
+    "item_name": "Beauty and the Beast"
+  },
+  {
+    "rank": 24,
+    "item_id": 116,
+    "item_name": "Doctor Zhivago"
+  },
+  {
+    "rank": 25,
+    "item_id": 210,
+    "item_name": "Alien"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

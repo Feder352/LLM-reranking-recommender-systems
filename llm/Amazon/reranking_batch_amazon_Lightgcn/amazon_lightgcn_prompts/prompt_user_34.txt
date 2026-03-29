@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Civil War"
+  },
+  {
+    "item_name": "Civil War: Peter Parker, Spider-Man"
+  },
+  {
+    "item_name": "Pearl Harbor: A Novel of December 8th"
+  },
+  {
+    "item_name": "April 1865: The Month That Saved America"
+  },
+  {
+    "item_name": "Civil War: Young Avengers &amp; Runaways"
+  },
+  {
+    "item_name": "Harlequin"
+  },
+  {
+    "item_name": "Days with Frog and Toad (An I Can Read Book)"
+  },
+  {
+    "item_name": "Frog and Toad are Friends"
+  },
+  {
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "item_name": "Will the Vampire People Please Leave the Lobby? (True Adventures in Cult Fandom)"
+  },
+  {
+    "item_name": "Smoke and Mirrors: Short Fictions and Illusions"
+  },
+  {
+    "item_name": "Power Play"
+  },
+  {
+    "item_name": "Buffy the Vampire Slayer Omnibus, Vol. 1"
+  },
+  {
+    "item_name": "A Lick of Frost (Meredith Gentry, Book 6)"
+  },
+  {
+    "item_name": "Book of the Dead (A Scarpetta Novel)"
+  },
+  {
+    "item_name": "Rhett Butler's People"
+  },
+  {
+    "item_name": "Good Luck Chuck"
+  },
+  {
+    "item_name": "Days of Infamy"
+  },
+  {
+    "item_name": "The Dirty Secrets Club (Jo Beckett)"
+  },
+  {
+    "item_name": "Six Good Innings: How One Small Town Became a Little League Giant"
+  },
+  {
+    "item_name": "Before Green Gables"
+  },
+  {
+    "item_name": "Given Day Unabridged CD, The"
+  },
+  {
+    "item_name": "Spider-Man: Kraven's Last Hunt (Marvel Premiere Classic)"
+  },
+  {
+    "item_name": "The Yankee Years"
+  },
+  {
+    "item_name": "Heat Wave: A Social Autopsy of Disaster in Chicago"
+  },
+  {
+    "item_name": "Heat Wave (Nikki Heat)"
+  },
+  {
+    "item_name": "Bullet (Anita Blake, Vampire Hunter)"
+  },
+  {
+    "item_name": "Under the Dome"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 74439,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 2,
+    "item_id": 60,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 3,
+    "item_id": 14738,
+    "item_name": "Dreamcatcher"
+  },
+  {
+    "rank": 4,
+    "item_id": 34859,
+    "item_name": "The New Avengers, Vol. 3: Secrets And Lies"
+  },
+  {
+    "rank": 5,
+    "item_id": 37990,
+    "item_name": "Batman: A Death in the Family"
+  },
+  {
+    "rank": 6,
+    "item_id": 22978,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 7,
+    "item_id": 27345,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 8,
+    "item_id": 37,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 9,
+    "item_id": 34841,
+    "item_name": "Ultimate Spider-Man Vol. 7: Irresponsible"
+  },
+  {
+    "rank": 10,
+    "item_id": 21205,
+    "item_name": "The Bourne Identity"
+  },
+  {
+    "rank": 11,
+    "item_id": 43928,
+    "item_name": "Villains United (Countdown to Infinite Crisis)"
+  },
+  {
+    "rank": 12,
+    "item_id": 43895,
+    "item_name": "Batman: Hush - Volume One"
+  },
+  {
+    "rank": 13,
+    "item_id": 324,
+    "item_name": "The Cat in the Hat Comes Back: Green Back Book (Dr Seuss - Green Back Book)"
+  },
+  {
+    "rank": 14,
+    "item_id": 5854,
+    "item_name": "Skipping Christmas"
+  },
+  {
+    "rank": 15,
+    "item_id": 6702,
+    "item_name": "The Lost World: Being an Account of the Recent Amazing Adventures of Professor E. Challenger... (Puffin Classics)"
+  },
+  {
+    "rank": 16,
+    "item_id": 34893,
+    "item_name": "Essential Dazzler, Vol. 1 (Marvel Essentials) (v. 1)"
+  },
+  {
+    "rank": 17,
+    "item_id": 6391,
+    "item_name": "The Talisman"
+  },
+  {
+    "rank": 18,
+    "item_id": 958,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 19,
+    "item_id": 29549,
+    "item_name": "Batman: No Man's Land"
+  },
+  {
+    "rank": 20,
+    "item_id": 9641,
+    "item_name": "The Illustrated Hitch-hiker's Guide to the Galaxy"
+  },
+  {
+    "rank": 21,
+    "item_id": 62472,
+    "item_name": "Hellboy Volume 1: Seed of Destruction (Hellboy (Pocket eBook))"
+  },
+  {
+    "rank": 22,
+    "item_id": 14471,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 23,
+    "item_id": 74840,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 24,
+    "item_id": 16,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 25,
+    "item_id": 6680,
+    "item_name": "Anne of Green Gables"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

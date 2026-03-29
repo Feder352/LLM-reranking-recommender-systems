@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "You've Got Tail (Peculiar Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "Scorched (Scorched series)"
+  },
+  {
+    "item_name": "Heart Dance (Celta's HeartMates, Book 6)"
+  },
+  {
+    "item_name": "A Promise of Fire (The Kingmaker Chronicles)"
+  },
+  {
+    "item_name": "Juggling Elephants? Be the Ringmaster of Your Work and Life"
+  },
+  {
+    "item_name": "The First Kiss of Spring: An Eternity Springs Novel"
+  },
+  {
+    "item_name": "Alpha Unleashed (Grizzlies Gone Wild)"
+  },
+  {
+    "item_name": "Silent Threat (Mission Recovery)"
+  },
+  {
+    "item_name": "It Started with a Kiss (Sequoia Lake)"
+  },
+  {
+    "item_name": "The Angel of Death (The Soul Summoner Series) (Volume 3)"
+  },
+  {
+    "item_name": "Eight Simple Rules for Dating a Dragon: A Novel of the Embraced"
+  },
+  {
+    "item_name": "Wolf's Mate: A Paranormal Shifter Romance (Shifter Rogues)"
+  },
+  {
+    "item_name": "The Taken (The Soul Summoner) (Volume 4)"
+  },
+  {
+    "item_name": "The Sacrifice (The Soul Summoner) (Volume 5)"
+  },
+  {
+    "item_name": "X-Ops Exposed"
+  },
+  {
+    "item_name": "After Anna"
+  },
+  {
+    "item_name": "Ruff Around the Edges (The Dogfather) (Volume 6)"
+  },
+  {
+    "item_name": "Point of No Return (Kathleen Turner)"
+  },
+  {
+    "item_name": "One Intrepid SEAL (Mission: Six)"
+  },
+  {
+    "item_name": "What to Expect When Your Demon Slayer is Expecting (Biker Witches Mystery) (Volume 8)"
+  },
+  {
+    "item_name": "Saving Mercy (Fatal Truth)"
+  },
+  {
+    "item_name": "Savage Rising (Redemption Harbor Series) (Volume 2)"
+  },
+  {
+    "item_name": "Dangerous Witness (Redemption Harbor Series) (Volume 3)"
+  },
+  {
+    "item_name": "The Big Alpha in Town"
+  },
+  {
+    "item_name": "Dragon Unleashed (Dragon Point)"
+  },
+  {
+    "item_name": "Threat of Danger (Mission Recovery)"
+  },
+  {
+    "item_name": "Vampire's Faith"
+  },
+  {
+    "item_name": "Good Luck with That"
+  },
+  {
+    "item_name": "Double Dog Dare (The Dogfather) (Volume 7)"
+  },
+  {
+    "item_name": "Ignite the Stars"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Wolf with Benefits (Brava Paranormal Romance)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Kill Without Shame (Ares Security)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Hot and Badgered (The Honey Badger Chronicles)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Better Homes and Hauntings"
+  },
+  {
+    "rank": 5,
+    "item_name": "Rugged Texas Cowboy: Two Stories in One: Cowboy and the Captive, Cowboy and the Thief"
+  },
+  {
+    "rank": 6,
+    "item_name": "Firelight (Darkest London)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Archangel's Heart (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Oracle's Moon (A Novel of the Elder Races)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Hell on Wheels (Black Knights Inc.)"
+  },
+  {
+    "rank": 10,
+    "item_name": "When Darkness Ends (Guardians Of Eternity)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Her True Match (X-Ops)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Howl For It"
+  },
+  {
+    "rank": 13,
+    "item_name": "Shards of Hope (Psy-Changeling Novel, A)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Secrets in Death: An Eve Dallas Novel (In Death, Book 45)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Her Lone Wolf (X-Ops)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Kill Without Mercy (Ares Security)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Blind Faith (Sin Brothers)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Archangel's Legion (A Guild Hunter Novel)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Navy SEAL's E-Mail Order Bride (Heroes of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Darkest Night: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Night's Honor (Elder Races)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Broken Promise: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Dead Heat: An Alpha and Omega novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Brotherhood in Death: 42"
+  },
+  {
+    "rank": 25,
+    "item_name": "Heart of the Hunter"
+  },
+  {
+    "rank": 26,
+    "item_name": "Claiming His Mate (A Werewolf Romance)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Die For Me: A Novel of the Valentine Killer"
+  },
+  {
+    "rank": 28,
+    "item_name": "How to Run with a Naked Werewolf (Naked Werewolf Series)"
+  },
+  {
+    "rank": 29,
+    "item_name": "My One True Highlander: A No Ordinary Hero Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Warrior Prince: Dragon Lords Book Four"
+  },
+  {
+    "rank": 31,
+    "item_name": "Murder of Crows (A Novel of the Others)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Heart of Stone: A Beauty and Beast Novel (Gargoyles Series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Survive the Night (Rocky Mountain K9 Unit)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Fire Away (Somewhere, TX) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Under His Protection (Red Stone Security Series) (Volume 9)"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Silver Wolf Christmas (Silver Town Wolf)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Need Me (Dark Obsession) (Volume 3)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Mercury Striking (The Scorpius Syndrome)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Beware Of Me (Dark Obsession) (Volume 4)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Wicked Intentions (Maiden Lane)"
+  },
+  {
+    "rank": 41,
+    "item_name": "By Linda Lael Miller Big Sky Mountain (Hqn) (Original) [Mass Market Paperback]"
+  },
+  {
+    "rank": 42,
+    "item_name": "Dark Blood ('Dark' Carpathian)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Wicked Charms: A Lizzy and Diesel Novel (Lizzy &amp; Diesel)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Wicked Burn"
+  },
+  {
+    "rank": 45,
+    "item_name": "Blood Assassin (The Sentinels)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Headed for Trouble (Troubleshooters)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Wicked Billionaire: A Billionaire SEAL Romance (The Tate Brothers)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Tristan's Temptation"
+  },
+  {
+    "rank": 49,
+    "item_name": "Revenant: Number 7 in series (Demonica Novel)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Charming The Beast"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

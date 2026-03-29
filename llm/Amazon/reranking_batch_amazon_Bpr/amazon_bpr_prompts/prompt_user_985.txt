@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Your Personal Paleo Code: The 3-Step Plan to Lose Weight, Reverse Disease, and Stay Fit and Healthy for Life"
+  },
+  {
+    "item_name": "Word Biblical Commentary: Psalms 1-50"
+  },
+  {
+    "item_name": "Incision Decisions: A Guide to Getting Through Surgery, Recovery, and Your Hospital Stay"
+  },
+  {
+    "item_name": "Reason and Responsibility: Readings in Some Basic Problems of Philosophy, 13th Edition"
+  },
+  {
+    "item_name": "Surgeon's Story: If You Can't Operate in Heels, You Can't Operate!"
+  },
+  {
+    "item_name": "The Smartest Guys in the Room: The Amazing Rise and Scandalous Fall of Enron"
+  },
+  {
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "item_name": "Philosophy of Religion"
+  },
+  {
+    "item_name": "Running the Books: The Adventures of an Accidental Prison Librarian"
+  },
+  {
+    "item_name": "What's Wrong?: Applied Ethicists and Their Critics"
+  },
+  {
+    "item_name": "The Laws of Simplicity (Simplicity: Design, Technology, Business, Life)"
+  },
+  {
+    "item_name": "The New World: A History of the English Speaking Peoples, Volume II (The Classic Collection)"
+  },
+  {
+    "item_name": "The Magic of Thinking Big"
+  },
+  {
+    "item_name": "The Roaring 2000s:  Building the Wealth and Life Style You Desire"
+  },
+  {
+    "item_name": "Commentary on the Gospel of Luke: The English Text"
+  },
+  {
+    "item_name": "First Epistle to the Corinthians (New International Commentary on the New Testament)"
+  },
+  {
+    "item_name": "Epistles of Paul to the Philippians and to Philemon (New International Commentary on the New Testament)"
+  },
+  {
+    "item_name": "The Book of Revelation (The New International Commentary on the New Testament)"
+  },
+  {
+    "item_name": "Reason and Responsibility: Readings in Some Basic Problems of Philosophy, 13th Edition"
+  },
+  {
+    "item_name": "Abortion: A Rational Look at An Emotional Issue"
+  },
+  {
+    "item_name": "The Age of Louis XIV (The Story of Civilization VIII)"
+  },
+  {
+    "item_name": "Falling Into Place: A Memoir of Overcoming"
+  },
+  {
+    "item_name": "There's a Hair in My Dirt!: A Worm's Story"
+  },
+  {
+    "item_name": "Charismatic Chaos"
+  },
+  {
+    "item_name": "Fundamentals of Business Law: Summarized Cases (Cengage Advantage Books)"
+  },
+  {
+    "item_name": "Listening Is an Act of Love: A Celebration of American Life from the StoryCorps Project (Penguin Books for English: Developmental)"
+  },
+  {
+    "item_name": "The Conservative Intellectual Movement in America Since 1945"
+  },
+  {
+    "item_name": "Finnegans Wake: Centennial Edition"
+  },
+  {
+    "item_name": "Consider Ethics: Theory, Readings, and Contemporary Issues (3rd Edition)"
+  },
+  {
+    "item_name": "Philosophy of Religion"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Year of Living Biblically: One Man's Humble Quest to Follow the Bible as Literally as Possible"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Case for Christ:  A Journalist's Personal Investigation of the Evidence for Jesus"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Prayer of Jabez: Breaking Through To The Blessed Life"
+  },
+  {
+    "rank": 5,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 6,
+    "item_name": "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time"
+  },
+  {
+    "rank": 7,
+    "item_name": "Faith of My Fathers: A Family Memoir"
+  },
+  {
+    "rank": 8,
+    "item_name": "Uncontrolled: The Surprising Payoff of Trial-and-Error for Business, Politics, and Society"
+  },
+  {
+    "rank": 9,
+    "item_name": "Christless Christianity: The Alternative Gospel of the American Church"
+  },
+  {
+    "rank": 10,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 12,
+    "item_name": "One Bullet Away: The Making of a Marine Officer"
+  },
+  {
+    "rank": 13,
+    "item_name": "I Don't Have Enough Faith to Be an Atheist"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Killer Angels: A Novel of the Civil War"
+  },
+  {
+    "rank": 15,
+    "item_name": "Stellaluna"
+  },
+  {
+    "rank": 16,
+    "item_name": "Three Cups of Tea"
+  },
+  {
+    "rank": 17,
+    "item_name": "Up from Slavery: An Autobiography (Penguin Classics)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Grandma Gatewood39;s Walk - The Inspiring Story of the Woman Who Saved the Appalachian Trail"
+  },
+  {
+    "rank": 19,
+    "item_name": "Do As I Say (Not As I Do): Profiles in Liberal Hypocrisy"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Case for a Creator"
+  },
+  {
+    "rank": 21,
+    "item_name": "Primetime Propaganda: The True Hollywood Story of How the Left Took Over Your TV"
+  },
+  {
+    "rank": 22,
+    "item_name": "The 5 Love Languages Military Edition: The Secret to Love That Lasts"
+  },
+  {
+    "rank": 23,
+    "item_name": "How I Helped O. J. Get Away With Murder: The Shocking Inside Story of Violence, Loyalty, Regret, and Remorse"
+  },
+  {
+    "rank": 24,
+    "item_name": "In the Line of Fire: How to Handle Tough Questions...When It Counts"
+  },
+  {
+    "rank": 25,
+    "item_name": "Flags of Our Fathers: Heroes of Iwo Jima"
+  },
+  {
+    "rank": 26,
+    "item_name": "Moneyball: The Art of Winning an Unfair Game"
+  },
+  {
+    "rank": 27,
+    "item_name": "7 Habits Of Highly Effective People"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Talent Code: Greatness Isn't Born. It's Grown."
+  },
+  {
+    "rank": 29,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 30,
+    "item_name": "By Marie Kondo The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing (Unabridged CD) [Audio CD]"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Skinny on Success: Why not you?"
+  },
+  {
+    "rank": 32,
+    "item_name": "SuperFreakonomics CD: Global Cooling, Patriotic Prostitutes, and Why Suicide Bombers Should Buy Life Insurance"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Life-Changing Magic of Tidying: A simple, effective way to banish clutter forever"
+  },
+  {
+    "rank": 34,
+    "item_name": "Killing Pablo: The Hunt for the World's Greatest Outlaw"
+  },
+  {
+    "rank": 35,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 36,
+    "item_name": "Dont Sweat Small Stuff"
+  },
+  {
+    "rank": 37,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 38,
+    "item_name": "To Kill a Mockingbird"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  },
+  {
+    "rank": 40,
+    "item_name": "Lost in Shangri-La: Escape from a Hidden World - A True Story"
+  },
+  {
+    "rank": 41,
+    "item_name": "Decision Points"
+  },
+  {
+    "rank": 42,
+    "item_name": "These High, Green Hills (The Mitford Years)"
+  },
+  {
+    "rank": 43,
+    "item_name": "One Hundred Years of Solitude"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Worst Hard Time: The Untold Story of Those Who Survived the Great American Dust Bowl"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Grand Jihad: How Islam and the Left Sabotage America"
+  },
+  {
+    "rank": 46,
+    "item_name": "The New Depression: The Breakdown of the Paper Money Economy"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Bell Curve: Intelligence and Class Structure in American Life"
+  },
+  {
+    "rank": 48,
+    "item_name": "Tiger Woods How I Play Golf"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Stranger Beside Me: The Twentieth Anniversary Edition"
+  },
+  {
+    "rank": 50,
+    "item_name": "Renegade: The Making of a President"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Money: The Unauthorized Biography"
+  },
+  {
+    "item_name": "Berlin: The Downfall, 1945"
+  },
+  {
+    "item_name": "Blind Man's Bluff: The Untold Story of American Submarine Espionage"
+  },
+  {
+    "item_name": "Paradox: The Nine Greatest Enigmas in Physics"
+  },
+  {
+    "item_name": "The Theoretical Minimum: What You Need to Know to Start Doing Physics"
+  },
+  {
+    "item_name": "The Illustrated A Brief History of Time and The Universe in a Nutshell"
+  },
+  {
+    "item_name": "The Universe in a Nutshell"
+  },
+  {
+    "item_name": "D-Day [Sound Recording]: The Battle for Normandy"
+  },
+  {
+    "item_name": "War of Two: Alexander Hamilton, Aaron Burr, and the Duel that Stunned the Nation"
+  },
+  {
+    "item_name": "The Six Wives of Henry VIII"
+  },
+  {
+    "item_name": "The End: The Defiance and Destruction of Hitler's Germany, 1944-1945"
+  },
+  {
+    "item_name": "Longest Winter"
+  },
+  {
+    "item_name": "Victoria: A Life"
+  },
+  {
+    "item_name": "Victoria: A Life"
+  },
+  {
+    "item_name": "A History of the Ancient Near East: ca. 3000-323 BC (Blackwell History of the Ancient World)"
+  },
+  {
+    "item_name": "Breakfast of Champions CD Unabridged"
+  },
+  {
+    "item_name": "Welcome to the Monkey House Unabridged CD"
+  },
+  {
+    "item_name": "Slaughterhouse Five"
+  },
+  {
+    "item_name": "Breakfast of Champions CD Unabridged"
+  },
+  {
+    "item_name": "God Bless You, Mr. Rosewater: A Novel"
+  },
+  {
+    "item_name": "Cat's Cradle (Essential Penguin)"
+  },
+  {
+    "item_name": "Player Piano: A Novel"
+  },
+  {
+    "item_name": "Dividing the Spoils: The War for Alexander the Great's Empire (Ancient Warfare and Civilization)"
+  },
+  {
+    "item_name": "Islam : A Short History (Universal History)"
+  },
+  {
+    "item_name": "In the Shadow of the Sword: The Birth of Islam and the Rise of the Global Arab Empire"
+  },
+  {
+    "item_name": "Ottoman Centuries"
+  },
+  {
+    "item_name": "The Great Game: On Secret Service in High Asia"
+  },
+  {
+    "item_name": "All the Shah's Men: An American Coup and the Roots of Middle East Terror"
+  },
+  {
+    "item_name": "All the Shah's Men: An American Coup and the Roots of Middle East Terror"
+  },
+  {
+    "item_name": "Leonardo da Vinci"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 35285,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 2,
+    "item_id": 18166,
+    "item_name": "Armageddon: The Battle for Germany, 1944-1945"
+  },
+  {
+    "rank": 3,
+    "item_id": 10698,
+    "item_name": "Why Nations Fail: The Origins of Power, Prosperity, and Poverty"
+  },
+  {
+    "rank": 4,
+    "item_id": 9051,
+    "item_name": "Six Days of War: June 1967 and the Making of the Modern Middle East"
+  },
+  {
+    "rank": 5,
+    "item_id": 25879,
+    "item_name": "Why Orwell Matters"
+  },
+  {
+    "rank": 6,
+    "item_id": 18302,
+    "item_name": "Cicero: The Life and Times of Rome's Greatest Politician"
+  },
+  {
+    "rank": 7,
+    "item_id": 63689,
+    "item_name": "The Great Warming: Climate Change and the Rise and Fall of Civilizations"
+  },
+  {
+    "rank": 8,
+    "item_id": 9026,
+    "item_name": "What Hath God Wrought: The Transformation of America, 1815-1848 (The Oxford History of the United States, Vol. 5)"
+  },
+  {
+    "rank": 9,
+    "item_id": 20239,
+    "item_name": "King Leopold's Ghost: A Story of Greed, Terror, and Heroism in Colonial Africa"
+  },
+  {
+    "rank": 10,
+    "item_id": 18036,
+    "item_name": "Crucible of War: The Seven Years' War and the Fate of Empire in British North America, 1754-1766"
+  },
+  {
+    "rank": 11,
+    "item_id": 417,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 12,
+    "item_id": 25835,
+    "item_name": "Ring of Steel: Germany and Austria-Hungary in World War I"
+  },
+  {
+    "rank": 13,
+    "item_id": 18282,
+    "item_name": "Paris 1919: Six Months That Changed the World"
+  },
+  {
+    "rank": 14,
+    "item_id": 30036,
+    "item_name": "The Bible Unearthed: Archaeology's New Vision of Ancient Israel and the Origin of Its Sacred Texts"
+  },
+  {
+    "rank": 15,
+    "item_id": 7747,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 16,
+    "item_id": 1539,
+    "item_name": "Krakatoa: The Day the World Exploded: August 27, 1883"
+  },
+  {
+    "rank": 17,
+    "item_id": 19398,
+    "item_name": "Iron Curtain: The Crushing of Eastern Europe, 1944-1956"
+  },
+  {
+    "rank": 18,
+    "item_id": 78053,
+    "item_name": "Ireland 164952: Cromwells Protestant Crusade (Campaign)"
+  },
+  {
+    "rank": 19,
+    "item_id": 31951,
+    "item_name": "The Guns at Last Light: The War in Western Europe, 1944-1945 (Liberation Trilogy)"
+  },
+  {
+    "rank": 20,
+    "item_id": 7789,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 21,
+    "item_id": 10869,
+    "item_name": "Colonel Roosevelt"
+  },
+  {
+    "rank": 22,
+    "item_id": 7927,
+    "item_name": "The Wages of Destruction: The Making and Breaking of the Nazi Economy"
+  },
+  {
+    "rank": 23,
+    "item_id": 29455,
+    "item_name": "The War That Ended Peace: The Road to 1914"
+  },
+  {
+    "rank": 24,
+    "item_id": 10905,
+    "item_name": "Neptune's Inferno: The U.S. Navy at Guadalcanal"
+  },
+  {
+    "rank": 25,
+    "item_id": 20137,
+    "item_name": "The Rise and Fall of the Great Powers: Economic Change and Military Conflict from 1500 to 2000"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

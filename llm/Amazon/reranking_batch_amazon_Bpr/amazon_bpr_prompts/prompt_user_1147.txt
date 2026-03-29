@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dinosaurs on Other Planets: Stories"
+  },
+  {
+    "item_name": "Girl on a Plane"
+  },
+  {
+    "item_name": "Surveillance (A Chris Bruen Novel)"
+  },
+  {
+    "item_name": "The Gathering (Shadow House, Book 1)"
+  },
+  {
+    "item_name": "It Takes One (An Audrey Harte novel)"
+  },
+  {
+    "item_name": "The Quality of Silence: A Novel"
+  },
+  {
+    "item_name": "The Trap"
+  },
+  {
+    "item_name": "Point of Control"
+  },
+  {
+    "item_name": "The Red Bandanna: A Life. A Choice. A Legacy."
+  },
+  {
+    "item_name": "The After Party: Poems"
+  },
+  {
+    "item_name": "The Future Tense of Joy: A Memoir"
+  },
+  {
+    "item_name": "The Beauty of the End"
+  },
+  {
+    "item_name": "Hot Little Hands: Fiction"
+  },
+  {
+    "item_name": "In Wartime: Stories from Ukraine"
+  },
+  {
+    "item_name": "The Twelve Days of Dash &amp; Lily (Dash &amp; Lily Series)"
+  },
+  {
+    "item_name": "The Eastern Shore"
+  },
+  {
+    "item_name": "The Virgin (The Original Sinners)"
+  },
+  {
+    "item_name": "The Most Wonderful Time (Wheeler Large Print Book Series)"
+  },
+  {
+    "item_name": "The Redemption of Scrooge Worship Resources Flash Drive (The Pop in Culture Series)"
+  },
+  {
+    "item_name": "All the Time in the World: A Novel"
+  },
+  {
+    "item_name": "Life Sentences"
+  },
+  {
+    "item_name": "Dating Tips for the Unemployed"
+  },
+  {
+    "item_name": "Crude Carrier (The Touchstone Agency Mysteries)"
+  },
+  {
+    "item_name": "Solemn: A Novel"
+  },
+  {
+    "item_name": "A Tree or a Person or a Wall: Stories"
+  },
+  {
+    "item_name": "Twelve Days of Christmas: A Christmas Novel"
+  },
+  {
+    "item_name": "Dead Letters"
+  },
+  {
+    "item_name": "Karolina's Twins: A Novel (Liam Taggart and Catherine Lockhart)"
+  },
+  {
+    "item_name": "Intimations: Stories"
+  },
+  {
+    "item_name": "Murder, Stage Left (The Nero Wolfe Mysteries)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Shadow Queen: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Against the Country"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Stud Book"
+  },
+  {
+    "rank": 4,
+    "item_name": "Sometimes the Wolf: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Gated"
+  },
+  {
+    "rank": 6,
+    "item_name": "Another Kind of Hurricane"
+  },
+  {
+    "rank": 7,
+    "item_name": "Arts &amp; Entertainments: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Under a Silent Moon: A Novel (Briarstone)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Vanishing Island (Chronicles of the Black Tulip)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Gospel of Winter"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Predator Paradox: Ending the War with Wolves, Bears, Cougars, and Coyotes"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Language of Silence"
+  },
+  {
+    "rank": 14,
+    "item_name": "Section 60: Arlington National Cemetery: Where War Comes Home"
+  },
+  {
+    "rank": 15,
+    "item_name": "Stringer: A Reporter's Journey in the Congo"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Color of Light (Goddesses Anonymous)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Neo Parasyte m"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Swiss Affair"
+  },
+  {
+    "rank": 19,
+    "item_name": "Dancer, Daughter, Traitor, Spy"
+  },
+  {
+    "rank": 20,
+    "item_name": "Starting from Scratch"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Key to Extraordinary"
+  },
+  {
+    "rank": 22,
+    "item_name": "Listening for Lucca"
+  },
+  {
+    "rank": 23,
+    "item_name": "Traveling Light: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Under the Wide and Starry Sky: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_name": "With Schwarzkopf: Life Lessons of The Bear"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Raven (A Jane Harper Horror Novel)"
+  },
+  {
+    "rank": 27,
+    "item_name": "I, Iago: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Manolito Four-Eyes: The 2nd Volume of the Great Encyclopedia of My Life"
+  },
+  {
+    "rank": 29,
+    "item_name": "Secrets of State"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Outsider: My Life in Intrigue"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Dog Who Saved Me: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Conversations with Saint Bernard: A Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "Muse: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 35,
+    "item_name": "Cuckoo Feathers (Simply Sarah)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Talk: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Breakout"
+  },
+  {
+    "rank": 38,
+    "item_name": "Beach House No. 9"
+  },
+  {
+    "rank": 39,
+    "item_name": "Ruby: A Novel (Oprahs Book Club 2.0)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Fire Shut Up in My Bones"
+  },
+  {
+    "rank": 41,
+    "item_name": "Saving Grace: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Lying Year"
+  },
+  {
+    "rank": 43,
+    "item_name": "Golden Age (The Last Hundred Years Trilogy: A Family Saga)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Skateboard Party: The Carver Chronicles, Book Two"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Twin Powers (The Twinning Project)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Marvel and a Wonder"
+  },
+  {
+    "rank": 47,
+    "item_name": "Lenny Cyrus, School Virus"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Antagonist"
+  },
+  {
+    "rank": 49,
+    "item_name": "Seattle City of Literature: Reflections from a Community of Writers"
+  },
+  {
+    "rank": 50,
+    "item_name": "This Is the Story of a Happy Marriage"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

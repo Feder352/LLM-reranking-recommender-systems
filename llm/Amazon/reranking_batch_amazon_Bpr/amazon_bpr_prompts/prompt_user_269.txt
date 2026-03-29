@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "To End All Wars: How the First World War Divided Britain"
+  },
+  {
+    "item_name": "Sex at Dawn: The Prehistoric Origins of Modern Sexuality"
+  },
+  {
+    "item_name": "Hypothermia"
+  },
+  {
+    "item_name": "The Last Brother: A Novel (Lannan Translation Selection (Graywolf Paperback))"
+  },
+  {
+    "item_name": "The Seventh: A Parker Novel"
+  },
+  {
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "item_name": "Brighton Rock"
+  },
+  {
+    "item_name": "The Worst Hard Time: The Untold Story of Those Who Survived the Great American Dust Bowl"
+  },
+  {
+    "item_name": "The Worst Hard Time: The Untold Story of Those Who Survived the Great American Dust Bowl"
+  },
+  {
+    "item_name": "Rising Road: A True Tale of Love, Race, and Religion in America"
+  },
+  {
+    "item_name": "Fantastic Mr. Fox"
+  },
+  {
+    "item_name": "The Dean's December"
+  },
+  {
+    "item_name": "Insectopedia"
+  },
+  {
+    "item_name": "Death and the Maiden: A Max Liebermann Mystery"
+  },
+  {
+    "item_name": "Roseanna: A Martin Beck Police Mystery (1) (Martin Beck Police Mystery Series)"
+  },
+  {
+    "item_name": "The Hunger Angel: A Novel"
+  },
+  {
+    "item_name": "Cain"
+  },
+  {
+    "item_name": "Nemesis (A Harry Hole Novel)"
+  },
+  {
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "item_name": "Gerard Manley Hopkins: The Major Works (Oxford World's Classics)"
+  },
+  {
+    "item_name": "Operation Napoleon"
+  },
+  {
+    "item_name": "The Dinner"
+  },
+  {
+    "item_name": "Moby Dick (Collins Classics)"
+  },
+  {
+    "item_name": "Typee: A Peep at Polynesian Life, During a Four Months Residence in a Valley of the Marquesas, Vol. 1 (Classic Reprint)"
+  },
+  {
+    "item_name": "The White War: Life and Death on the Italian Front 1915-1919"
+  },
+  {
+    "item_name": "Hall of Small Mammals: Stories"
+  },
+  {
+    "item_name": "The Dying Animal"
+  },
+  {
+    "item_name": "Everyman"
+  },
+  {
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "item_name": "The Great Gatsby (Collins Classics)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 2,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Alexandria Quartet"
+  },
+  {
+    "rank": 4,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 6,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 7,
+    "item_name": "King Leopold's Ghost: A Story of Greed, Terror, and Heroism in Colonial Africa"
+  },
+  {
+    "rank": 8,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Dharma Bums"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Amazing Adventures of Kavalier &amp; Clay"
+  },
+  {
+    "rank": 13,
+    "item_name": "Burr"
+  },
+  {
+    "rank": 14,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Price of Glory: Verdun 1916"
+  },
+  {
+    "rank": 16,
+    "item_name": "Balthazar [Paperback] [Jan 01, 2008] Lawrence Durrell"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 18,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 19,
+    "item_name": "Of Mice and Men"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Iliad"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Bluest Eye (Vintage International)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Motherless Brooklyn"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Meaning of the Holy Qur'an"
+  },
+  {
+    "rank": 24,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Castle (Modern Library, 388.1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Jazz: A History of America's Music"
+  },
+  {
+    "rank": 27,
+    "item_name": "Other Voices, Other Rooms (Penguin Modern Classics)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Appointment in Samarra (Vintage Classics)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 30,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 31,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 32,
+    "item_name": "For Whom the Bell Tolls"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Autobiography of Benjamin Franklin with Related Readings (Glencoe Literature Library)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Corrections"
+  },
+  {
+    "rank": 35,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 36,
+    "item_name": "Tender Is the Night"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 38,
+    "item_name": "Steppenwolf: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "All the King's Men"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Glass Menagerie (Modern Classics (Penguin))"
+  },
+  {
+    "rank": 41,
+    "item_name": "Underworld"
+  },
+  {
+    "rank": 42,
+    "item_name": "Big Sur"
+  },
+  {
+    "rank": 43,
+    "item_name": "Disgrace: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "A confederacy of dunces"
+  },
+  {
+    "rank": 45,
+    "item_name": "Utopia (Penguin Classics)"
+  },
+  {
+    "rank": 46,
+    "item_name": "All Quiet on the Western Front (World War I) by Erich Maria Remarque (2014-03-15)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 48,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 49,
+    "item_name": "Modern Classics Decline And Fall (Penguin Modern Classics)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Double Indemnity CD"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

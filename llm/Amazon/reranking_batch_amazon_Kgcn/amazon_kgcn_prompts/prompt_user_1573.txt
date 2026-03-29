@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Stolen Mate (Wild Lake Origins) (Volume 2)"
+  },
+  {
+    "item_name": "Too Far Gone (Adirondack Pack) (Volume 1)"
+  },
+  {
+    "item_name": "The Wife Lottery: Fallon (Six Men of Alaska)"
+  },
+  {
+    "item_name": "Kiss of the Dragon"
+  },
+  {
+    "item_name": "Destiny Of The Dragon Prince"
+  },
+  {
+    "item_name": "Soul Shift (The Charming Shifter Mysteries) (Volume 4)"
+  },
+  {
+    "item_name": "The Sacrifice (The Soul Summoner) (Volume 5)"
+  },
+  {
+    "item_name": "Born of Darkness: A Hunter Legacy Novel (Midnight Breed Hunter Legacy) (Volume 1)"
+  },
+  {
+    "item_name": "Dark Oath (Dark Saints MC) (Volume 9)"
+  },
+  {
+    "item_name": "The Fury Queen's Harem: A Reverse Harem Paranormal Romance (The Cursed Dragon Queen and Her Mates) (Volume 1)"
+  },
+  {
+    "item_name": "The Traitor's Bride: A science fiction romance (Keepers of Xereill)"
+  },
+  {
+    "item_name": "Tornado: A Paranormal Romance (Savage Brotherhood MC) (Volume 1)"
+  },
+  {
+    "item_name": "Triple Daddies"
+  },
+  {
+    "item_name": "Softhearted (Deep in the Heart)"
+  },
+  {
+    "item_name": "Oceanside (Rock Stars, Surf and Second Chances) (Volume 3)"
+  },
+  {
+    "item_name": "The Bride's Heart: Mail Order Bride (Brides and Promises)"
+  },
+  {
+    "item_name": "Tempted By Fire (Dragons Of The Darkblood Secret Society) (Volume 4)"
+  },
+  {
+    "item_name": "Rescued by the Alpha"
+  },
+  {
+    "item_name": "Knights of Stone: Mason (Highland Gargoyles) (Volume 1)"
+  },
+  {
+    "item_name": "Housekeeping"
+  },
+  {
+    "item_name": "The Deadly Thief (Stolen Hearts) (Volume 7)"
+  },
+  {
+    "item_name": "For the Love of Luca (Chicago Syndicate) (Volume 8)"
+  },
+  {
+    "item_name": "Shiftless: Werewolf Paranormal Fantasy (Wolf Rampant) (Volume 1)"
+  },
+  {
+    "item_name": "The Angel Trials (Dark World: The Angel Trials) (Volume 1)"
+  },
+  {
+    "item_name": "Alpha's Second Chance (Werebears Of The Everglades)"
+  },
+  {
+    "item_name": "Rebel Dragon (Aloha Shifters: Pearls of Desire) (Volume 1)"
+  },
+  {
+    "item_name": "Dragon Fate (Misty Woods Dragons)"
+  },
+  {
+    "item_name": "The Dragon King's Prisoner: A Paranormal Romance (Separated by Time) (Volume 1)"
+  },
+  {
+    "item_name": "Runaway Mate (Shifters of Bear's Den) (Volume 4)"
+  },
+  {
+    "item_name": "Fated Attraction (Werebears Of The Everglades)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5885,
+    "item_name": "Beautiful Oblivion (Maddox Brothers)"
+  },
+  {
+    "rank": 2,
+    "item_id": 5954,
+    "item_name": "Mine To Take (Mine - Romantic Suspense) (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_id": 2386,
+    "item_name": "Blue Lines: The Assassins Series"
+  },
+  {
+    "rank": 4,
+    "item_id": 5906,
+    "item_name": "Tangled (The Tangled Series)"
+  },
+  {
+    "rank": 5,
+    "item_id": 5900,
+    "item_name": "The Marriage Merger (Marriage to a Billionaire)"
+  },
+  {
+    "rank": 6,
+    "item_id": 6198,
+    "item_name": "Alpha"
+  },
+  {
+    "rank": 7,
+    "item_id": 5933,
+    "item_name": "A Different Blue"
+  },
+  {
+    "rank": 8,
+    "item_id": 3530,
+    "item_name": "Devil's Game (Reapers Motorcycle Club)"
+  },
+  {
+    "rank": 9,
+    "item_id": 5924,
+    "item_name": "Hard to Love"
+  },
+  {
+    "rank": 10,
+    "item_id": 4453,
+    "item_name": "Twisted (Torn) (Volume 2)"
+  },
+  {
+    "rank": 11,
+    "item_id": 5535,
+    "item_name": "With You (Tear Asunder)"
+  },
+  {
+    "rank": 12,
+    "item_id": 5966,
+    "item_name": "Phenomenal X (Hard Knocks)"
+  },
+  {
+    "rank": 13,
+    "item_id": 5532,
+    "item_name": "Fixed On You (Fixed - Book 1) (Fixed Series) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_id": 5949,
+    "item_name": "Bad Rep"
+  },
+  {
+    "rank": 15,
+    "item_id": 5563,
+    "item_name": "Rules of Entanglement (Fighting for Love)"
+  },
+  {
+    "rank": 16,
+    "item_id": 5259,
+    "item_name": "One Week Girlfriend: A Novel (One Week Girlfriend Quartet)"
+  },
+  {
+    "rank": 17,
+    "item_id": 5963,
+    "item_name": "Night After Night (Seductive Nights: Julia &amp; Clay Book 1) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_id": 3531,
+    "item_name": "Reaper's Legacy (Reapers Motorcycle Club)"
+  },
+  {
+    "rank": 19,
+    "item_id": 4102,
+    "item_name": "Fall from India Place"
+  },
+  {
+    "rank": 20,
+    "item_id": 5910,
+    "item_name": "Text Appeal"
+  },
+  {
+    "rank": 21,
+    "item_id": 4451,
+    "item_name": "If You Stay"
+  },
+  {
+    "rank": 22,
+    "item_id": 5878,
+    "item_name": "The Secret of Ella and Micha"
+  },
+  {
+    "rank": 23,
+    "item_id": 5905,
+    "item_name": "Loving Cara (Love Under the Big Sky)"
+  },
+  {
+    "rank": 24,
+    "item_id": 5961,
+    "item_name": "Beyond Me: Sex on the Beach"
+  },
+  {
+    "rank": 25,
+    "item_id": 655,
+    "item_name": "Rome: A Marked Men Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

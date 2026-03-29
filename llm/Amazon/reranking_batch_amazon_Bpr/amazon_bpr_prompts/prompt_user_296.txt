@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dare You To"
+  },
+  {
+    "item_name": "The Calling"
+  },
+  {
+    "item_name": "Only Time Will Tell"
+  },
+  {
+    "item_name": "The Thousand Year Curse (A Curse Books)"
+  },
+  {
+    "item_name": "Ecstasy Unbound (The Guardians of the Realms Series) (Volume 1)"
+  },
+  {
+    "item_name": "Purified"
+  },
+  {
+    "item_name": "Wake"
+  },
+  {
+    "item_name": "Legacy Code (Legacy Code Saga) (Volume 1)"
+  },
+  {
+    "item_name": "Still Life with Strings"
+  },
+  {
+    "item_name": "West of the Moon"
+  },
+  {
+    "item_name": "Ben the Dragonborn (The Six Worlds) (Volume 1)"
+  },
+  {
+    "item_name": "Becoming Alpha (Alpha Girl) (Volume 1)"
+  },
+  {
+    "item_name": "The Golden Sword (The Camelot Inheritance - Book 1) (Volume 1)"
+  },
+  {
+    "item_name": "Sisterland: A Novel"
+  },
+  {
+    "item_name": "Broken Skies"
+  },
+  {
+    "item_name": "Deamhan"
+  },
+  {
+    "item_name": "The Well of Tears (The Dream Stewards)"
+  },
+  {
+    "item_name": "Zenn Scarlett (Strange Chemistry)"
+  },
+  {
+    "item_name": "Destruction: The December People, Book One"
+  },
+  {
+    "item_name": "Becoming Human: A Dystopian Post Apocalyptic Novel (Exilon 5 Book 1) (Volume 1)"
+  },
+  {
+    "item_name": "Arrow of the Mist"
+  },
+  {
+    "item_name": "Last Light Falling: The Covenant, Book I"
+  },
+  {
+    "item_name": "Shade"
+  },
+  {
+    "item_name": "Revelation (The Revelation Series) (Volume 1)"
+  },
+  {
+    "item_name": "Cracked (The Soul Eaters) (Volume 1)"
+  },
+  {
+    "item_name": "Moon Over Soho (Rivers of London)"
+  },
+  {
+    "item_name": "Romulus Buckle &amp; the City of the Founders (The Chronicles of the Pneumatic Zeppelin)"
+  },
+  {
+    "item_name": "London Dawn (The Danforths of Lancashire)"
+  },
+  {
+    "item_name": "Lost Library: A Paranormal Romance Series (The Lost Library Series) (Volume 1)"
+  },
+  {
+    "item_name": "Heart Shaped Rock"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Hunger Games (Book 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 7,
+    "item_name": "Mockingjay: The Hunger Games"
+  },
+  {
+    "rank": 8,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 10,
+    "item_name": "Percy Jackson and the Sea of Monsters (Book 2)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse/True Blood, Book 2)"
+  },
+  {
+    "rank": 12,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 13,
+    "item_name": "Eldest (Inheritance, Book 2)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 15,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Dead And Gone: A Sookie Stackhouse Novel (Sookie Stackhouse/True Blood)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Casual Vacancy"
+  },
+  {
+    "rank": 19,
+    "item_name": "Daughter of Smoke &amp; Bone"
+  },
+  {
+    "rank": 20,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 22,
+    "item_name": "Hollow City"
+  },
+  {
+    "rank": 23,
+    "item_name": "One for the Money (Stephanie Plum, No. 1) (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Moon Called"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 27,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Clockwork Angel"
+  },
+  {
+    "rank": 29,
+    "item_name": "ARTEMIS FOWL - The Eternity Code"
+  },
+  {
+    "rank": 30,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 31,
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Club Dead (Sookie Stackhouse/True Blood, Book 3)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Scarlet (Lunar Chronicles, Book 2)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Howl's Moving Castle"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Clash of Kings: A Song of Ice and Fire: Book Two"
+  },
+  {
+    "rank": 36,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Cinder"
+  },
+  {
+    "rank": 39,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse) By Charlaine Harris"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Sleeping Beauty Novels: The Claiming of Sleeping Beauty / Beauty's Release / Beauty's Punishment"
+  },
+  {
+    "rank": 41,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Handmaid's Tale (Contemporary Classics)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Seraphina"
+  },
+  {
+    "rank": 44,
+    "item_name": "Cress"
+  },
+  {
+    "rank": 45,
+    "item_name": "Changes (The Dresden Files)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Etiquette &amp; Espionage (Finishing School)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Dead in the Family (Sookie Stackhouse/True Blood, Book 10)"
+  },
+  {
+    "rank": 48,
+    "item_name": "City of Bones (The Mortal Instruments)"
+  },
+  {
+    "rank": 49,
+    "item_name": "White Witch, Black Curse"
+  },
+  {
+    "rank": 50,
+    "item_name": "Saga, Vol. 2"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

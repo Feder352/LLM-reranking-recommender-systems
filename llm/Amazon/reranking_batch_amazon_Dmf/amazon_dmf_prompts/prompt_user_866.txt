@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Blood and Salt"
+  },
+  {
+    "item_name": "Everything, Everything"
+  },
+  {
+    "item_name": "Jillian Cade: (Fake) Paranormal Investigator"
+  },
+  {
+    "item_name": "Smoke"
+  },
+  {
+    "item_name": "Seize the Night: New Tales of Vampiric Terror"
+  },
+  {
+    "item_name": "The Pioneer Woman: Black Heels to Tractor Wheels--A Love Story"
+  },
+  {
+    "item_name": "Food Whore: A Novel of Dining and Deceit"
+  },
+  {
+    "item_name": "Planetfall (A Planetfall Novel)"
+  },
+  {
+    "item_name": "The Killing Jar"
+  },
+  {
+    "item_name": "Love in Lowercase: A Novel"
+  },
+  {
+    "item_name": "Platinum Doll"
+  },
+  {
+    "item_name": "In Another Life"
+  },
+  {
+    "item_name": "No Ordinary Life"
+  },
+  {
+    "item_name": "I'm Traveling Alone: A Novel"
+  },
+  {
+    "item_name": "The Widow"
+  },
+  {
+    "item_name": "The Opposite of Everyone: A Novel"
+  },
+  {
+    "item_name": "The Passenger"
+  },
+  {
+    "item_name": "Girl in the Blue Coat"
+  },
+  {
+    "item_name": "Country Cooking from a Redneck Kitchen"
+  },
+  {
+    "item_name": "The Star-Touched Queen"
+  },
+  {
+    "item_name": "We're All Damaged"
+  },
+  {
+    "item_name": "The Elements of Pizza: Unlocking the Secrets to World-Class Pies at Home"
+  },
+  {
+    "item_name": "Dark Matter"
+  },
+  {
+    "item_name": "And the Trees Crept In"
+  },
+  {
+    "item_name": "Fractured"
+  },
+  {
+    "item_name": "Ashes to Dust: A Thriller (Thora Gudmundsdottir)"
+  },
+  {
+    "item_name": "Briar Rose"
+  },
+  {
+    "item_name": "As Red As Blood (The Snow White Trilogy)"
+  },
+  {
+    "item_name": "The Travelers: A Novel"
+  },
+  {
+    "item_name": "Ghosts of Witches Past (Witches of Tower Hill) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 27175,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 2,
+    "item_id": 603,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 3,
+    "item_id": 74778,
+    "item_name": "City of Ashes: The Mortal Instruments, Book Two"
+  },
+  {
+    "rank": 4,
+    "item_id": 3628,
+    "item_name": "Eve"
+  },
+  {
+    "rank": 5,
+    "item_id": 3795,
+    "item_name": "Shatter Me"
+  },
+  {
+    "rank": 6,
+    "item_id": 7473,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 7,
+    "item_id": 583,
+    "item_name": "Wither (Chemical Garden)"
+  },
+  {
+    "rank": 8,
+    "item_id": 32019,
+    "item_name": "Hush, Hush"
+  },
+  {
+    "rank": 9,
+    "item_id": 7184,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 10,
+    "item_id": 14642,
+    "item_name": "Abandon"
+  },
+  {
+    "rank": 11,
+    "item_id": 23322,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 12,
+    "item_id": 36546,
+    "item_name": "Shadow and Bone (Grisha Trilogy)"
+  },
+  {
+    "rank": 13,
+    "item_id": 19131,
+    "item_name": "Eleanor &amp; Park"
+  },
+  {
+    "rank": 14,
+    "item_id": 3040,
+    "item_name": "Delirium (Delirium Trilogy)"
+  },
+  {
+    "rank": 15,
+    "item_id": 7175,
+    "item_name": "Scarlet (Lunar Chronicles, Book 2)"
+  },
+  {
+    "rank": 16,
+    "item_id": 73113,
+    "item_name": "Maze Runner. Correr o Morir / Maze Runner, Run or die (Spanish Edition)"
+  },
+  {
+    "rank": 17,
+    "item_id": 10450,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 18,
+    "item_id": 7236,
+    "item_name": "Beautiful Creatures. by Kami Garcia &amp; Margaret Stohl"
+  },
+  {
+    "rank": 19,
+    "item_id": 7169,
+    "item_name": "Matched"
+  },
+  {
+    "rank": 20,
+    "item_id": 26749,
+    "item_name": "Grave Mercy: His Fair Assassin, Book I"
+  },
+  {
+    "rank": 21,
+    "item_id": 45007,
+    "item_name": "Throne of Glass"
+  },
+  {
+    "rank": 22,
+    "item_id": 31993,
+    "item_name": "Leviathan"
+  },
+  {
+    "rank": 23,
+    "item_id": 31979,
+    "item_name": "City of Bones (The Mortal Instruments)"
+  },
+  {
+    "rank": 24,
+    "item_id": 74741,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 25,
+    "item_id": 12739,
+    "item_name": "Ruby Red (The Ruby Red Trilogy)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

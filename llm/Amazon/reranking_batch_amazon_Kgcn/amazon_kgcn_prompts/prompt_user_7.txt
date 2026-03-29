@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Patient H.M.: A Story of Memory, Madness, and Family Secrets"
+  },
+  {
+    "item_name": "The Serial Killer Books: 15 Famous Serial Killers True Crime Stories That Shocked The World (The Serial Killer Files) (Volume 1)"
+  },
+  {
+    "item_name": "The Secrets of My Life"
+  },
+  {
+    "item_name": "The Stranger in the Woods: The Extraordinary Story of the Last True Hermit"
+  },
+  {
+    "item_name": "Girl in the Dark: A Memoir"
+  },
+  {
+    "item_name": "The Wrong Man: The Final Verdict on the Dr. Sam Sheppard Murder Case (Ohio)"
+  },
+  {
+    "item_name": "Filthy Rich: A Powerful Billionaire, the Sex Scandal that Undid Him, and All the Justice that Money Can Buy - The Shocking True Story of Jeffrey Epstein"
+  },
+  {
+    "item_name": "Heads in Beds: A Reckless Memoir of Hotels, Hustles, and So-Called Hospitality"
+  },
+  {
+    "item_name": "Sick Girl"
+  },
+  {
+    "item_name": "You Don't Have to Say You Love Me: A Memoir"
+  },
+  {
+    "item_name": "Born a Crime"
+  },
+  {
+    "item_name": "True Crime Stories Volume 7: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "item_name": "Who Killed These Girls?: Cold Case: The Yogurt Shop Murders"
+  },
+  {
+    "item_name": "Sweetness: The Enigmatic Life of Walter Payton"
+  },
+  {
+    "item_name": "This Life I Live: One Man's Extraordinary, Ordinary Life and the Woman Who Changed It Forever"
+  },
+  {
+    "item_name": "Death Sentence (Signet)"
+  },
+  {
+    "item_name": "HILLBILLY ELEGY- PB"
+  },
+  {
+    "item_name": "Serpentine"
+  },
+  {
+    "item_name": "The Magnificent Medills: America's Royal Family of Journalism During a Century of Turbulent Splendor"
+  },
+  {
+    "item_name": "The Last Girl: My Story of Captivity, and My Fight Against the Islamic State"
+  },
+  {
+    "item_name": "I Am Nujood, Age 10 and Divorced"
+  },
+  {
+    "item_name": "The Toolbox Killers: A Deadly Rape, Torture &amp; Murder Duo (The Serial Killer Books) (Volume 3)"
+  },
+  {
+    "item_name": "Into the Wild"
+  },
+  {
+    "item_name": "An American Family: A Memoir of Hope and Sacrifice"
+  },
+  {
+    "item_name": "True Crime 2017: Homicide &amp; True Crime Stories of 2017 (Annual True Crime Anthology) (Volume 2)"
+  },
+  {
+    "item_name": "True Crime Stories Volume 9: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "item_name": "Fire and Fury: Inside the Trump White House"
+  },
+  {
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "item_name": "Nomadland: Surviving America in the Twenty-First Century"
+  },
+  {
+    "item_name": "Promise Me, Dad: A Year of Hope, Hardship, and Purpose"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5468,
+    "item_name": "The Life And Times Of Scrooge McDuck"
+  },
+  {
+    "rank": 2,
+    "item_id": 1154,
+    "item_name": "Save the Deli: In Search of Perfect Pastrami, Crusty Rye, and the Heart of Jewish Delicatessen"
+  },
+  {
+    "rank": 3,
+    "item_id": 5330,
+    "item_name": "Blinded by the Right: The Conscience of an Ex-Conservative"
+  },
+  {
+    "rank": 4,
+    "item_id": 1274,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 5,
+    "item_id": 476,
+    "item_name": "Fortune's Favorites (Masters of Rome)"
+  },
+  {
+    "rank": 6,
+    "item_id": 5469,
+    "item_name": "The Encyclopedia of Country Living: An Old Fashioned Recipe Book"
+  },
+  {
+    "rank": 7,
+    "item_id": 4718,
+    "item_name": "The Complete Far Side: 1980-1994"
+  },
+  {
+    "rank": 8,
+    "item_id": 2067,
+    "item_name": "The Gift of Fear : Survival Signals That Protect Us from Violence"
+  },
+  {
+    "rank": 9,
+    "item_id": 68,
+    "item_name": "The Paradox of Choice: Why More Is Less"
+  },
+  {
+    "rank": 10,
+    "item_id": 1209,
+    "item_name": "Almayer's Folly: A Story of an Eastern River (The World's Classics)"
+  },
+  {
+    "rank": 11,
+    "item_id": 6024,
+    "item_name": "I'm Just Here for the Food: Food + Heat = Cooking"
+  },
+  {
+    "rank": 12,
+    "item_id": 737,
+    "item_name": "Out on a Limb"
+  },
+  {
+    "rank": 13,
+    "item_id": 3109,
+    "item_name": "An American Plague: The True and Terrifying Story of the Yellow Fever Epidemic of 1793 (Newbery Honor Book)"
+  },
+  {
+    "rank": 14,
+    "item_id": 1415,
+    "item_name": "Dreams from My Father: A Story of Race and Inheritance"
+  },
+  {
+    "rank": 15,
+    "item_id": 676,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 16,
+    "item_id": 1299,
+    "item_name": "Born to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never Seen"
+  },
+  {
+    "rank": 17,
+    "item_id": 2125,
+    "item_name": "Tortured for Christ"
+  },
+  {
+    "rank": 18,
+    "item_id": 4147,
+    "item_name": "Why Is Sex Fun?: The Evolution of Human Sexuality (Science Masters)"
+  },
+  {
+    "rank": 19,
+    "item_id": 2154,
+    "item_name": "If This Was Happiness"
+  },
+  {
+    "rank": 20,
+    "item_id": 6034,
+    "item_name": "And the Money Kept Rolling In (and Out): Wall Street, the IMF, and the Bankrupting of Argentina"
+  },
+  {
+    "rank": 21,
+    "item_id": 1207,
+    "item_name": "A Single Shard"
+  },
+  {
+    "rank": 22,
+    "item_id": 831,
+    "item_name": "The Ear, the Eye, and the Arm"
+  },
+  {
+    "rank": 23,
+    "item_id": 4145,
+    "item_name": "Our Final Hour"
+  },
+  {
+    "rank": 24,
+    "item_id": 5327,
+    "item_name": "F in Exams: The Very Best Totally Wrong Test Answers"
+  },
+  {
+    "rank": 25,
+    "item_id": 1638,
+    "item_name": "The Satanic Verses: A Novel (Bestselling Backlist)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

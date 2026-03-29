@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Neighborhood (A Twin Estates Novel) (Volume 2)"
+  },
+  {
+    "item_name": "Stone (Stone Cold Fox Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Savage Prince: An Anti-Heroes Collection Novel (The Savage Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Angels Fall (Original Sin) (Volume 2)"
+  },
+  {
+    "item_name": "The Good Liar"
+  },
+  {
+    "item_name": "Rebel Heir: Book One (The Rush Series) (Volume 1)"
+  },
+  {
+    "item_name": "My Last Love Story: A Novel"
+  },
+  {
+    "item_name": "Cold (Stone Cold Fox Trilogy) (Volume 2)"
+  },
+  {
+    "item_name": "Iron Princess: An Anti-Heroes Collection Novel (The Savage Trilogy) (Volume 2)"
+  },
+  {
+    "item_name": "Six Feet Under (Mad Love Duet) (Volume 1)"
+  },
+  {
+    "item_name": "Lead Me Home (Fight for Me) (Volume 3)"
+  },
+  {
+    "item_name": "By the Book: A Book Club Recommendation!"
+  },
+  {
+    "item_name": "Everything That Follows: A Novel"
+  },
+  {
+    "item_name": "The Favorite Sister"
+  },
+  {
+    "item_name": "The Controversial Princess (Smoke &amp; Mirrors Duology)"
+  },
+  {
+    "item_name": "I Flipping Love You"
+  },
+  {
+    "item_name": "The Ever After: A Novel"
+  },
+  {
+    "item_name": "Double Down (All In) (Volume 2)"
+  },
+  {
+    "item_name": "Providence: A Novel"
+  },
+  {
+    "item_name": "Rainy Day Friends: A Novel"
+  },
+  {
+    "item_name": "Fixed Forever (Volume 5)"
+  },
+  {
+    "item_name": "Moonlight Seduction: A de Vincent Novel (de Vincent series)"
+  },
+  {
+    "item_name": "More Than Words: A Love Story"
+  },
+  {
+    "item_name": "The Summer Wives: A Novel"
+  },
+  {
+    "item_name": "The Real Deal: A Novel"
+  },
+  {
+    "item_name": "All Your Perfects: A Novel"
+  },
+  {
+    "item_name": "Girls' Night Out: A Novel"
+  },
+  {
+    "item_name": "She Was the Quiet One: A Novel"
+  },
+  {
+    "item_name": "Good Luck with That"
+  },
+  {
+    "item_name": "The Simple Wild: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Ugly Love: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Silent Waters (The Element)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Sea of Tranquility: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "All the Ugly and Wonderful Things: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 7,
+    "item_name": "Everything You Want Me to Be: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Me Before You: A Novel (Movie Tie-In) (Me Before You Trilogy)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 10,
+    "item_name": "Don't You Cry"
+  },
+  {
+    "rank": 11,
+    "item_name": "Confess: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "Everything, Everything"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Good Girl (English Edition)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Hero"
+  },
+  {
+    "rank": 15,
+    "item_name": "Swear on This Life: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Wife Between Us: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Rosie Project"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Way I Used to Be"
+  },
+  {
+    "rank": 19,
+    "item_name": "Hitched: Imperfect Love, Volume 1"
+  },
+  {
+    "rank": 20,
+    "item_name": "Believe Me: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "Seven Days of Us: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Maybe in Another Life: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Breakdown: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "After You: A Novel (Me Before You Trilogy)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Pictures of You"
+  },
+  {
+    "rank": 26,
+    "item_name": "Virgin: a Novel (Girl cover)"
+  },
+  {
+    "rank": 27,
+    "item_name": "More Than Her (Volume 2)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Wallbanger (The Cocktail Series)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Bookstore: A Book Club Recommendation!"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Girl Before: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Nightingale: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Baller"
+  },
+  {
+    "rank": 33,
+    "item_name": "The couple next door."
+  },
+  {
+    "rank": 34,
+    "item_name": "The Ghostwriter"
+  },
+  {
+    "rank": 35,
+    "item_name": "Listen To Me: A Fusion Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Night Road"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Girls of Mischief Bay"
+  },
+  {
+    "rank": 38,
+    "item_name": "My Not So Perfect Life: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Hating Game: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Manwhore"
+  },
+  {
+    "rank": 41,
+    "item_name": "Maya's Notebook"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Widow"
+  },
+  {
+    "rank": 43,
+    "item_name": "Eileen: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "After the Rain: A Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "Nuts (The Hudson Valley Series)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Other Woman: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Until It Fades: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Air He Breathes (Elements)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Finding Eden (A Sign of Love)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Couple Next Door"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

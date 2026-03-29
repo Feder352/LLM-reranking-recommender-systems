@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Big Lies: The Right-Wing Propaganda Machine and How It Distorts the Truth"
+  },
+  {
+    "item_name": "Life After Life: The Bestselling Original Investigation That Revealed Near-Death Experiences"
+  },
+  {
+    "item_name": "Encountering Heaven and the Afterlife: True Stories From People Who Have Glimpsed the World Beyond"
+  },
+  {
+    "item_name": "Embraced by the Light: The Most Profound and Complete Near-Death Experience Ever"
+  },
+  {
+    "item_name": "Proof of Heaven: A Neurosurgeon's Journey into the Afterlife"
+  },
+  {
+    "item_name": "Mary's Mosaic: The CIA Conspiracy to Murder John F. Kennedy, Mary Pinchot Meyer, and Their Vision for World Peace: Third Edition"
+  },
+  {
+    "item_name": "Brothers: The Hidden History of the Kennedy Years"
+  },
+  {
+    "item_name": "They Killed Our President: 63 Reasons to Believe There Was a Conspiracy to Assassinate JFK"
+  },
+  {
+    "item_name": "A Fighting Chance"
+  },
+  {
+    "item_name": "Divided: The Perils of Our Growing Inequality"
+  },
+  {
+    "item_name": "End This Depression Now!"
+  },
+  {
+    "item_name": "Great Again: How to Fix Our Crippled America"
+  },
+  {
+    "item_name": "The Garner Files: A Memoir (Thorndike Press Large Print Biography Series)"
+  },
+  {
+    "item_name": "ECONned: How Unenlightened Self Interest Undermined Democracy and Corrupted Capitalism"
+  },
+  {
+    "item_name": "Billy Joel"
+  },
+  {
+    "item_name": "Badasses: The Legend of Snake, Foo, Dr. Death, and John Madden's Oakland Raiders"
+  },
+  {
+    "item_name": "Dark Money: The Hidden History of the Billionaires Behind the Rise of the Radical Right"
+  },
+  {
+    "item_name": "But Enough About Me: A Memoir"
+  },
+  {
+    "item_name": "But Enough About Me: A Memoir"
+  },
+  {
+    "item_name": "Homeward Bound: The Life of Paul Simon"
+  },
+  {
+    "item_name": "Born to Run (Wheeler Publishing Large Print Hardcover)"
+  },
+  {
+    "item_name": "The Party Is Over: How Republicans Went Crazy, Democrats Became Useless, and the Middle Class Got Shafted"
+  },
+  {
+    "item_name": "Our Revolution: A Future to Believe In"
+  },
+  {
+    "item_name": "The Making of Donald Trump"
+  },
+  {
+    "item_name": "The Great Suppression: Voting Rights, Corporate Cash, and the Conservative Assault on Democracy"
+  },
+  {
+    "item_name": "Listen, Liberal: Or, What Ever Happened to the Party of the People?"
+  },
+  {
+    "item_name": "Makers and Takers: How Wall Street Destroyed Main Street"
+  },
+  {
+    "item_name": "The Essays of Warren Buffett : Lessons for Corporate America"
+  },
+  {
+    "item_name": "Slash"
+  },
+  {
+    "item_name": "Life"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 2,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 3,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Next 100 Years: A Forecast for the 21st Century"
+  },
+  {
+    "rank": 5,
+    "item_name": "Do As I Say (Not As I Do): Profiles in Liberal Hypocrisy"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Popes Against the Jews: The Vatican's Role in the Rise of Modern Anti-Semitism"
+  },
+  {
+    "rank": 8,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 10,
+    "item_name": "Being A Dad: The Stuff No One Told Me"
+  },
+  {
+    "rank": 11,
+    "item_name": "Deliver Us from Evil: Defeating Terrorism, Despotism, and Liberalism"
+  },
+  {
+    "rank": 12,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 13,
+    "item_name": "Victory of Reason"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Atomic Bazaar: The Rise of the Nuclear Poor"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  },
+  {
+    "rank": 16,
+    "item_name": "Welcome to Obamaland: I Have Seen Your Future and It Doesn't Work"
+  },
+  {
+    "rank": 17,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Gamble: General Petraeus and the American Military Adventure in Iraq"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Truth About Muhammad: Founder of the World's Most Intolerant Religion"
+  },
+  {
+    "rank": 20,
+    "item_name": "A Universe from Nothing: Why There Is Something Rather than Nothing"
+  },
+  {
+    "rank": 21,
+    "item_name": "How I Helped O. J. Get Away With Murder: The Shocking Inside Story of Violence, Loyalty, Regret, and Remorse"
+  },
+  {
+    "rank": 22,
+    "item_name": "Jesus, Interrupted: Revealing the Hidden Contradictions in the Bible (And Why We Don't Know About Them)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Crisis of Islam: Holy War and Unholy Terror"
+  },
+  {
+    "rank": 24,
+    "item_name": "Fooled By Randomness: The Hidden Role of Chance in Life and in the Markets"
+  },
+  {
+    "rank": 25,
+    "item_name": "One Bullet Away: The Making of a Marine Officer"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Cosmic Landscape: String Theory and the Illusion of Intelligent Design"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Medici Effect: What Elephants and Epidemics Can Teach Us About Innovation"
+  },
+  {
+    "rank": 28,
+    "item_name": "Devil Take the Hindmost: A History of Financial Speculation"
+  },
+  {
+    "rank": 29,
+    "item_name": "Physics of the Impossible: A Scientific Exploration into the World of Phasers, Force Fields, Teleportation, and Time Travel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 31,
+    "item_name": "7 Deadly Scenarios: A Military Futurist Explores the Changing Face of War in the 21st Century"
+  },
+  {
+    "rank": 32,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Art of Making Money: The Story of a Master Counterfeiter (Thorndike Crime Scene)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Innovator's Dilemma: The Revolutionary Book that Will Change the Way You Do Business (Collins Business Essentials)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Winning the Future: A 21st Century Contract with America"
+  },
+  {
+    "rank": 36,
+    "item_name": "Countdown to Crisis: The Coming Nuclear Showdown with Iran"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 38,
+    "item_name": "Trump - The Art Of The Deal"
+  },
+  {
+    "rank": 39,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 40,
+    "item_name": "This Time Is Different: Eight Centuries of Financial Folly"
+  },
+  {
+    "rank": 41,
+    "item_name": "Finding Fertile Ground: Identifying Extraordinary Opportunities for New Ventures"
+  },
+  {
+    "rank": 42,
+    "item_name": "Trick or Treatment: The Undeniable Facts about Alternative Medicine"
+  },
+  {
+    "rank": 43,
+    "item_name": "The End of Oil: On the Edge of a Perilous New World"
+  },
+  {
+    "rank": 44,
+    "item_name": "The World Almanac and Book of Facts 1998"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Politically Incorrect Guide to American History"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Warrior Diet"
+  },
+  {
+    "rank": 47,
+    "item_name": "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time"
+  },
+  {
+    "rank": 48,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 49,
+    "item_name": "Blackett's War: The Men Who Defeated the Nazi U-Boats and Brought Science to the Art of Warfare"
+  },
+  {
+    "rank": 50,
+    "item_name": "The New Depression: The Breakdown of the Paper Money Economy"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

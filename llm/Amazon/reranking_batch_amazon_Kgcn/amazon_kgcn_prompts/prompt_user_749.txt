@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Understanding the Big Picture of the Bible: A Guide to Reading the Bible Well"
+  },
+  {
+    "item_name": "Beating Sugar Addiction For Dummies"
+  },
+  {
+    "item_name": "Paleo Fitness: A Primal Training and Nutrition Program to Get Lean, Strong and Healthy"
+  },
+  {
+    "item_name": "Grain Brain: The Surprising Truth about Wheat, Carbs,  and Sugar--Your Brain's Silent Killers"
+  },
+  {
+    "item_name": "National Geographic Traveler: New Zealand"
+  },
+  {
+    "item_name": "A Twist of Lyme: Battling a Disease That &quot;Doesn't Exist&quot;"
+  },
+  {
+    "item_name": "The Calorie Myth: How to Eat More, Exercise Less, Lose Weight, and Live Better"
+  },
+  {
+    "item_name": "Your Personal Paleo Code: The 3-Step Plan to Lose Weight, Reverse Disease, and Stay Fit and Healthy for Life"
+  },
+  {
+    "item_name": "Talk Like TED: The 9 Public-Speaking Secrets of the World's Top Minds"
+  },
+  {
+    "item_name": "In Meat We Trust: An Unexpected History of Carnivore America"
+  },
+  {
+    "item_name": "Are We All Scientific Experts Now? (New Human Frontiers)"
+  },
+  {
+    "item_name": "National Geographic Pocket Guide to Rocks and Minerals of North America"
+  },
+  {
+    "item_name": "One Simple Change: Surprisingly Easy Ways to Transform Your Life"
+  },
+  {
+    "item_name": "How to Make Your Cat an Internet Celebrity: A Guide to Financial Freedom"
+  },
+  {
+    "item_name": "The Big Fat Surprise: Why Butter, Meat and Cheese Belong in a Healthy Diet"
+  },
+  {
+    "item_name": "I Quit Sugar: Your Complete 8-Week Detox Program and Cookbook"
+  },
+  {
+    "item_name": "Wheat Belly Total Health: The Ultimate Grain-Free Health and Weight-Loss Life Plan"
+  },
+  {
+    "item_name": "So You've Been Publicly Shamed"
+  },
+  {
+    "item_name": "Do You Talk Funny?: 7 Comedy Habits to Become a Better (and Funnier) Public Speaker"
+  },
+  {
+    "item_name": "Simple Lessons for A Better Life: Unexpected Inspiration from Inside the Nursing Home"
+  },
+  {
+    "item_name": "Think Like a 5 Year Old: Reclaim Your Wonder &amp; Create Great Things"
+  },
+  {
+    "item_name": "Bogus Balance: Your Journey to Real Work/Life Bliss"
+  },
+  {
+    "item_name": "Pop Sonnets: Shakespearean Spins on Your Favorite Songs"
+  },
+  {
+    "item_name": "Kaplan AP U.S. History 2016: Book + DVD (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "Cheddar: A Journey to the Heart of Americas Most Iconic Cheese"
+  },
+  {
+    "item_name": "In a Different Key: The Story of Autism"
+  },
+  {
+    "item_name": "Brown Is the New White: How the Demographic Revolution Has Created a New American Majority"
+  },
+  {
+    "item_name": "Gem: The Definitive Visual Guide"
+  },
+  {
+    "item_name": "The Case Against Sugar"
+  },
+  {
+    "item_name": "Dare to Be Kind: How Extraordinary Compassion Can Transform Our World"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1238,
+    "item_name": "The Overflowing Brain: Information Overload and the Limits of Working Memory"
+  },
+  {
+    "rank": 2,
+    "item_id": 2673,
+    "item_name": "The Way of Zen"
+  },
+  {
+    "rank": 3,
+    "item_id": 672,
+    "item_name": "Way of the Turtle: The Secret Methods that Turned Ordinary People into Legendary Traders"
+  },
+  {
+    "rank": 4,
+    "item_id": 5230,
+    "item_name": "Over Time: My Life as a Sportswriter"
+  },
+  {
+    "rank": 5,
+    "item_id": 1483,
+    "item_name": "The Wisdom of Insecurity: A Message for an Age of Anxiety"
+  },
+  {
+    "rank": 6,
+    "item_id": 3019,
+    "item_name": "Foreign Babes In Beijing: Behind The Scenes Of A New China"
+  },
+  {
+    "rank": 7,
+    "item_id": 5094,
+    "item_name": "A Rabbi Talks with Jesus"
+  },
+  {
+    "rank": 8,
+    "item_id": 5214,
+    "item_name": "The Great Emergence: How Christianity Is Changing and Why (Emergent Village Resources for Communities of Faith)"
+  },
+  {
+    "rank": 9,
+    "item_id": 6213,
+    "item_name": "Aspects of the Theory of Syntax"
+  },
+  {
+    "rank": 10,
+    "item_id": 1559,
+    "item_name": "The Case for a Creator"
+  },
+  {
+    "rank": 11,
+    "item_id": 859,
+    "item_name": "The Black Swan: The Impact of the Highly Improbable"
+  },
+  {
+    "rank": 12,
+    "item_id": 3747,
+    "item_name": "Thinking for a Change: 11 Ways Highly Successful People Approach Life and Work"
+  },
+  {
+    "rank": 13,
+    "item_id": 6053,
+    "item_name": "The Prosecution of George W. Bush for Murder"
+  },
+  {
+    "rank": 14,
+    "item_id": 4524,
+    "item_name": "The Closing of the American Mind"
+  },
+  {
+    "rank": 15,
+    "item_id": 5859,
+    "item_name": "The Dust Bowl: An Illustrated History"
+  },
+  {
+    "rank": 16,
+    "item_id": 1375,
+    "item_name": "The Case Against Homework: How Homework Is Hurting Our Children and What We Can Do About It"
+  },
+  {
+    "rank": 17,
+    "item_id": 4139,
+    "item_name": "A Conflict of Visions: Ideological Origins of Political Struggles"
+  },
+  {
+    "rank": 18,
+    "item_id": 5498,
+    "item_name": "The Biology Of Belief: Unleashing The Power Of Consciousness, Matter And Miracles"
+  },
+  {
+    "rank": 19,
+    "item_id": 745,
+    "item_name": "Rebound: A Proven Plan for Starting Over After Job Loss"
+  },
+  {
+    "rank": 20,
+    "item_id": 6228,
+    "item_name": "The First and Second Epistles to the Thessalonians (New International Commentary on the New Testament)"
+  },
+  {
+    "rank": 21,
+    "item_id": 4673,
+    "item_name": "The Myth of the Rational Voter: Why Democracies Choose Bad Policies"
+  },
+  {
+    "rank": 22,
+    "item_id": 284,
+    "item_name": "Condi vs. Hillary: The Next Great Presidential Race"
+  },
+  {
+    "rank": 23,
+    "item_id": 5803,
+    "item_name": "Salinger"
+  },
+  {
+    "rank": 24,
+    "item_id": 6002,
+    "item_name": "Perfect Madness: Motherhood in the Age of Anxiety"
+  },
+  {
+    "rank": 25,
+    "item_id": 647,
+    "item_name": "The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

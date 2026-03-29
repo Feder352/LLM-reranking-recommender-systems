@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Breakthrough: Elizabeth Hughes, the Discovery of Insulin, and the Making of a Medical Miracle"
+  },
+  {
+    "item_name": "Cut to the Bone: A Body Farm Novel"
+  },
+  {
+    "item_name": "Forensics: What Bugs, Burns, Prints, DNA and More Tell Us About Crime"
+  },
+  {
+    "item_name": "A Perfect Grave"
+  },
+  {
+    "item_name": "This Is Your Brain on Parasites: How Tiny Creatures Manipulate Our Behavior and Shape Society"
+  },
+  {
+    "item_name": "Final Judgment"
+  },
+  {
+    "item_name": "Final Verdict"
+  },
+  {
+    "item_name": "The Trapped Girl (Tracy Crosswhite)"
+  },
+  {
+    "item_name": "Disease and History"
+  },
+  {
+    "item_name": "With Wings Like Eagles: A History of the Battle of Britain"
+  },
+  {
+    "item_name": "Patient H.M.: A Story of Memory, Madness, and Family Secrets"
+  },
+  {
+    "item_name": "Criminal Intent"
+  },
+  {
+    "item_name": "Incriminating Evidence (Mike Daley, Book 2)"
+  },
+  {
+    "item_name": "Bellevue: Three Centuries of Medicine and Mayhem at America's Most Storied Hospital"
+  },
+  {
+    "item_name": "When Breath Becomes Air"
+  },
+  {
+    "item_name": "Eisenhower in War and Peace"
+  },
+  {
+    "item_name": "The Shattered Tree: A Bess Crawford Mystery (Bess Crawford Mysteries)"
+  },
+  {
+    "item_name": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI"
+  },
+  {
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "item_name": "The Radium Girls"
+  },
+  {
+    "item_name": "In the Dark Places: An Inspector Banks Novel (Inspector Banks Novels)"
+  },
+  {
+    "item_name": "Charlatan: America's Most Dangerous Huckster, the Man Who Pursued Him, and the Age of Flimflam"
+  },
+  {
+    "item_name": "Gratitude"
+  },
+  {
+    "item_name": "Necessary Decisions: A Gino Cataldi Mystery (A Redemption Novel) (Volume 2)"
+  },
+  {
+    "item_name": "Homer and Langley"
+  },
+  {
+    "item_name": "Gulp: Adventures on the Alimentary Canal"
+  },
+  {
+    "item_name": "The Naturalist"
+  },
+  {
+    "item_name": "Only Yesterday"
+  },
+  {
+    "item_name": "The Butchering Art: Joseph Lister's Quest to Transform the Grisly World of Victorian Medicine"
+  },
+  {
+    "item_name": "To Heaven and Back: A Doctor's Extraordinary Account of Her Death, Heaven, Angels, and Life Again: A True Story"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 10339,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 2,
+    "item_id": 75903,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 3,
+    "item_id": 74748,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 4,
+    "item_id": 13288,
+    "item_name": "The Last Coyote (Harry Bosch)"
+  },
+  {
+    "rank": 5,
+    "item_id": 8451,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 6,
+    "item_id": 18969,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 7,
+    "item_id": 74721,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 8,
+    "item_id": 20358,
+    "item_name": "Tripwire (Jack Reacher, No. 3)"
+  },
+  {
+    "rank": 9,
+    "item_id": 11209,
+    "item_name": "The Columbus Affair: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 10,
+    "item_id": 75675,
+    "item_name": "The Day Of The Jackal"
+  },
+  {
+    "rank": 11,
+    "item_id": 9963,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 12,
+    "item_id": 13816,
+    "item_name": "The Lincoln Lawyer (Large Print)"
+  },
+  {
+    "rank": 13,
+    "item_id": 77133,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 14,
+    "item_id": 10840,
+    "item_name": "61 Hours: A Reacher Novel"
+  },
+  {
+    "rank": 15,
+    "item_id": 7638,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 16,
+    "item_id": 13458,
+    "item_name": "The Brass Verdict: A Novel (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 17,
+    "item_id": 31929,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 18,
+    "item_id": 77131,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 19,
+    "item_id": 10807,
+    "item_name": "A Wanted Man: A Jack Reacher Novel"
+  },
+  {
+    "rank": 20,
+    "item_id": 13588,
+    "item_name": "The Fifth Witness (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 21,
+    "item_id": 7307,
+    "item_name": "Maisie Dobbs (Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_id": 13595,
+    "item_name": "The Reversal (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 23,
+    "item_id": 6239,
+    "item_name": "The Lost Symbol (Dan Brown)"
+  },
+  {
+    "rank": 24,
+    "item_id": 20755,
+    "item_name": "Silken Prey"
+  },
+  {
+    "rank": 25,
+    "item_id": 13808,
+    "item_name": "Mary, Mary"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Cold Pursuit (Cold Justice) (Volume 2)"
+  },
+  {
+    "item_name": "Rescuing Casey (Delta Force Heroes) (Volume 7)"
+  },
+  {
+    "item_name": "Vanishing Girls: A totally heart-stopping crime thriller"
+  },
+  {
+    "item_name": "The Voice Inside: A Thriller (Frost Easton)"
+  },
+  {
+    "item_name": "Falling Under (Walker Security Series)"
+  },
+  {
+    "item_name": "The Kill Sign: A Jamie Sinclair Novel - Kindle edition"
+  },
+  {
+    "item_name": "Innocent Lies (Hidden Truth) (Volume 4)"
+  },
+  {
+    "item_name": "Death of a Citizen"
+  },
+  {
+    "item_name": "Hellbent: An Orphan X Novel"
+  },
+  {
+    "item_name": "Silent Knight: Deep Six Security Book 7 (Deep Six Security Series) (Volume 7)"
+  },
+  {
+    "item_name": "Fatal Chaos (The Fatal Series)"
+  },
+  {
+    "item_name": "Bring Me Flowers: A gripping serial killer thriller with a shocking twist (Detectives Kane and Alton) (Volume 2)"
+  },
+  {
+    "item_name": "The Woman Left Behind: A Novel"
+  },
+  {
+    "item_name": "The Kremlin Conspiracy"
+  },
+  {
+    "item_name": "Justice for Milena (Badge of Honor: Texas Heroes) (Volume 10)"
+  },
+  {
+    "item_name": "A Life Worth Taking (Tom Greer Thrillers)"
+  },
+  {
+    "item_name": "A Dark Lure"
+  },
+  {
+    "item_name": "Murder Notes (Lilah Love)"
+  },
+  {
+    "item_name": "The Viscount and the Vicar's Daughter: A Victorian Romance"
+  },
+  {
+    "item_name": "Code of Honor (Hornet) (Volume 4)"
+  },
+  {
+    "item_name": "There Once Was A Child"
+  },
+  {
+    "item_name": "The Girl With No Name: Absolutely gripping mystery and suspense (Detective Josie Quinn) (Volume 2)"
+  },
+  {
+    "item_name": "Tier One (Tier One Thrillers)"
+  },
+  {
+    "item_name": "Twisted Prey (A Prey Novel)"
+  },
+  {
+    "item_name": "HIS FLING: A Small Town Romance (The Sumner Brothers) (Volume 3)"
+  },
+  {
+    "item_name": "Her Last Word"
+  },
+  {
+    "item_name": "Secret Admirer"
+  },
+  {
+    "item_name": "Montana SEAL Undercover Daddy (Brotherhood Protectors) (Volume 9)"
+  },
+  {
+    "item_name": "A Darker Path (Corps Justice)"
+  },
+  {
+    "item_name": "Tailspin"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Tougher Than The Rest: MacLarens of Fire Mountain (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Father Found (The Daddy School, Book 1) (Harlequin Superromance, No 763)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Blood on the Tracks (Sydney Rose Parnell)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Adam (Farraday Country) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Deathscape (Broslin Creek) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Branded for You: Riding Tall"
+  },
+  {
+    "rank": 7,
+    "item_name": "No Ordinary Billionaire (The Sinclairs)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Whiskey Rebellion: An Addison Holmes Mystery"
+  },
+  {
+    "rank": 9,
+    "item_name": "The One That Got Away"
+  },
+  {
+    "rank": 10,
+    "item_name": "Witness Protection"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Cowboy Inherits a Bride (Cowboys of Chance Creek)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Spiraled (Callahan &amp; McLane)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Navy SEAL's E-Mail Order Bride (Heroes of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Noble Intentions: Season One (Jack Noble)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Last Mile"
+  },
+  {
+    "rank": 16,
+    "item_name": "Blank Slate"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Opposite of Wild (Clover Park) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Short Drop (Gibson Vaughn)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Nora Roberts Land (Dare Valley)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Night Bird (Frost Easton)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Justice for Corrie (Badge of Honor: Texas Heroes) (Volume 3)"
+  },
+  {
+    "rank": 22,
+    "item_name": "And Then She Was GONE: A riveting new suspense novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "Taboo: CSI Reilly Steel #1 (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Targeted (Callahan &amp; McLane)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Lucky Like Us: Book Two: The Hunted Series"
+  },
+  {
+    "rank": 26,
+    "item_name": "Close To Home (Westen Series)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Kidnapped: A Romantic Suspense Novel (Edgars Family)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Billionaire's Marriage Proposal: Billionaire Bachelors (Volume 4)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Winters Heat (Titan)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "rank": 31,
+    "item_name": "Blank Slate"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Watcher: A Romantic Thriller"
+  },
+  {
+    "rank": 33,
+    "item_name": "Crazy Little Thing (A Bell Harbor Novel)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Cade (MacKenzie Security)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Life After Wife (A Three Magic Words Romance)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The All-Star Antes Up (Wager of Hearts)"
+  },
+  {
+    "rank": 37,
+    "item_name": "First Do No Evil (Blood Secrets)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Protecting Fiona (SEAL of Protection) (Volume 3)"
+  },
+  {
+    "rank": 39,
+    "item_name": "She Can Tell"
+  },
+  {
+    "rank": 40,
+    "item_name": "Romancing Rosalie - A Cascade Creek Christmas: A Ladies of Cascade Creek Novella (The Ladies of Cascade Creek) (Volume 5)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Maid for Love (Gansett Island)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Taken, Not Spurred (Lone Star Burn)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Barefoot in White (The Barefoot Bay Series)"
+  },
+  {
+    "rank": 44,
+    "item_name": "For Love or Legacy: Can her love save him before he goes too far? (Legacy Collection)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Burned by Her Devotion (Rogue Vows)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Treasured by Thursday (Weekday Brides)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Only Witness"
+  },
+  {
+    "rank": 48,
+    "item_name": "Lovers at Heart (Love in Bloom: The Bradens) (Volume 4)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Broken Justice (The Justice Brothers) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Midnight Exposure (The Midnight Series)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

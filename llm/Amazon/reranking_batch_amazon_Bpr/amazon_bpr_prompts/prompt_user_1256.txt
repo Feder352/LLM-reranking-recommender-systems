@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Death and the Penguin (Panther)"
+  },
+  {
+    "item_name": "The Fleet at Flood Tide: America at Total War in the Pacific, 1944-1945"
+  },
+  {
+    "item_name": "Idaho"
+  },
+  {
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "item_name": "The Unwomanly Face of War [Jul 25, 2017] Alexievich, Svetlana; Pevear, Richard and Volokhonsky, Larissa"
+  },
+  {
+    "item_name": "Spoonbenders: A novel"
+  },
+  {
+    "item_name": "The Underground River: A Novel"
+  },
+  {
+    "item_name": "Spring Garden (Japanese Novellas)"
+  },
+  {
+    "item_name": "The Vanquished: Why the First World War Failed to End"
+  },
+  {
+    "item_name": "The Heirs: A Novel"
+  },
+  {
+    "item_name": "White Tears: A novel"
+  },
+  {
+    "item_name": "The Men in My Life: A Memoir of Love and Art in 1950s Manhattan"
+  },
+  {
+    "item_name": "Shadowbahn"
+  },
+  {
+    "item_name": "The Lady Matador's Hotel: A Novel"
+  },
+  {
+    "item_name": "In Shock: My Journey from Death to Recovery and the Redemptive Power of Hope"
+  },
+  {
+    "item_name": "Woman No. 17: A Novel"
+  },
+  {
+    "item_name": "The Force: A Novel"
+  },
+  {
+    "item_name": "Dept. of Speculation (Vintage Contemporaries)"
+  },
+  {
+    "item_name": "Exit West: SHORTLISTED for the Man Booker Prize 2017"
+  },
+  {
+    "item_name": "The Book of Joan: A Novel"
+  },
+  {
+    "item_name": "The Bomb Maker"
+  },
+  {
+    "item_name": "The Second World Wars: How the First Global Conflict Was Fought and Won"
+  },
+  {
+    "item_name": "How to Get Filthy Rich in Rising Asia: A Novel"
+  },
+  {
+    "item_name": "Fever Dream: A Novel"
+  },
+  {
+    "item_name": "Strange Weather: Four Short Novels"
+  },
+  {
+    "item_name": "Surprise Me: A Novel"
+  },
+  {
+    "item_name": "Surprise Me"
+  },
+  {
+    "item_name": "Defectors"
+  },
+  {
+    "item_name": "Her Body and Other Parties: Stories"
+  },
+  {
+    "item_name": "Gun Love: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Art of Fielding: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Canada"
+  },
+  {
+    "rank": 3,
+    "item_name": "Brooklyn: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "City of Secrets: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 6,
+    "item_name": "A Horse Walks into a Bar: A novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Death of Santini: The Story of a Father and His Son"
+  },
+  {
+    "rank": 8,
+    "item_name": "Rules of Civility: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Sense of an Ending"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Corrections"
+  },
+  {
+    "rank": 11,
+    "item_name": "Americanah"
+  },
+  {
+    "rank": 12,
+    "item_name": "At the Edge of the Orchard"
+  },
+  {
+    "rank": 13,
+    "item_name": "Still Midnight"
+  },
+  {
+    "rank": 14,
+    "item_name": "Being Mortal"
+  },
+  {
+    "rank": 15,
+    "item_name": "City of Secrets: A Novel - Kindle edition"
+  },
+  {
+    "rank": 16,
+    "item_name": "Case Histories: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Grant"
+  },
+  {
+    "rank": 18,
+    "item_name": "Memories of My Melancholy Whores. Gabriel Garca Mrquez"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Narrow Road to the Deep North: A novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "A Hologram for the King: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Testament of Mary"
+  },
+  {
+    "rank": 22,
+    "item_name": "Euphoria"
+  },
+  {
+    "rank": 23,
+    "item_name": "Nothing to Be Frightened Of"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Locals: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_name": "Magpie Murders: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "Battle Hymn of the Tiger Mother"
+  },
+  {
+    "rank": 27,
+    "item_name": "22 Britannia Road: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Every Day is for the Thief"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Barbarian Nurseries: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Thirteen Ways of Looking: Fiction"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Road Home: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Reader (Movie Tie-in Edition) (Vintage International)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Surrender, New York: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "The March: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "When Breath Becomes Air"
+  },
+  {
+    "rank": 36,
+    "item_name": "Specimen Days"
+  },
+  {
+    "rank": 37,
+    "item_name": "Madame Bovary (Penguin Classics)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Worthy Fights: A Memoir of Leadership in War and Peace"
+  },
+  {
+    "rank": 39,
+    "item_name": "Back When We Were Grownups"
+  },
+  {
+    "rank": 40,
+    "item_name": "River of Doubt"
+  },
+  {
+    "rank": 41,
+    "item_name": "Essays After Eighty"
+  },
+  {
+    "rank": 42,
+    "item_name": "One Bullet Away: The Making of a Marine Officer"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Echo Maker"
+  },
+  {
+    "rank": 44,
+    "item_name": "The White Tiger: A Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Visit from the Goon Squad"
+  },
+  {
+    "rank": 46,
+    "item_name": "Home: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Drowned Boy (Inspector Sejer Mysteries)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Bring Up the Bodies"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Infatuations"
+  },
+  {
+    "rank": 50,
+    "item_name": "Joseph Anton"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

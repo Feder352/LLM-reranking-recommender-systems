@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Tea Cups and Carnage"
+  },
+  {
+    "item_name": "Ambush at Dry Gulch (Big 'D' Dads: The Daltons)"
+  },
+  {
+    "item_name": "Revenge: The Faces of Evil Series: Book 5"
+  },
+  {
+    "item_name": "Ruthless: The Faces of Evil Series: Book 6"
+  },
+  {
+    "item_name": "Colton Cowboy Hideout (The Coltons of Texas)"
+  },
+  {
+    "item_name": "In a Killer's Sights (Smoky Mountain Secrets)"
+  },
+  {
+    "item_name": "Borrowing Death (A Charlotte Brody Mystery)"
+  },
+  {
+    "item_name": "Suddenly Royal (The Royals)"
+  },
+  {
+    "item_name": "The Pursuit: A Fox and O'Hare Novel"
+  },
+  {
+    "item_name": "Heating Up"
+  },
+  {
+    "item_name": "Deadly Fate: A paranormal, thrilling suspense novel (Krewe of Hunters)"
+  },
+  {
+    "item_name": "The Secrets She Kept (Fairham Island)"
+  },
+  {
+    "item_name": "Love Blooms on Main Street: The Briar Creek Series"
+  },
+  {
+    "item_name": "Secrets and Lies (Rookie K-9 Unit)"
+  },
+  {
+    "item_name": "Must Love Wieners: A Rescue Dog Romance"
+  },
+  {
+    "item_name": "Beauty and the Bodyguard (Bachelor Bodyguards)"
+  },
+  {
+    "item_name": "Hidden Deception: A Shelby Nichols Adventure (Volume 9)"
+  },
+  {
+    "item_name": "A Christmas Bride (Chapel of Love)"
+  },
+  {
+    "item_name": "Killer in the Band (A Lovers in Crime Mystery) (Volume 3)"
+  },
+  {
+    "item_name": "A New Witch in Town (Maybe Two) (A Modern Tale about the Witches of Springsville) (Volume 1)"
+  },
+  {
+    "item_name": "Later Gator (A Miss Fortune Mystery) (Volume 9)"
+  },
+  {
+    "item_name": "The Witch Who Couldn't Spell: Mpenzi Munro's First Cozy Mystery (Mpenzi Munro Cozy Mystery Series) (Volume 1)"
+  },
+  {
+    "item_name": "A Fine Year for Murder (A Thorny Rose Mystery) (Volume 2)"
+  },
+  {
+    "item_name": "A Spell Of Trouble (Silver Hollow Paranormal Cozy Mystery Series) (Volume 1)"
+  },
+  {
+    "item_name": "Silence Fallen (A Mercy Thompson Novel)"
+  },
+  {
+    "item_name": "The Tournament at Gorlan (Ranger's Apprentice: The Early Years)"
+  },
+  {
+    "item_name": "A Face to Die For (Forensic Instincts)"
+  },
+  {
+    "item_name": "Twofer Murder"
+  },
+  {
+    "item_name": "Burn Bright"
+  },
+  {
+    "item_name": "Ice (A Chris Matheson Cold Case Mystery) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Protecting Her Daughter (Wrangler's Corner)"
+  },
+  {
+    "rank": 2,
+    "item_name": "One Wish (Thunder Point)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Hero (Thunder Point)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Organized for Murder: Organized Mysteries book #1 (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "By Linda Lael Miller Big Sky Mountain (Hqn) (Original) [Mass Market Paperback]"
+  },
+  {
+    "rank": 6,
+    "item_name": "Ransom Canyon: A Western Romance"
+  },
+  {
+    "rank": 7,
+    "item_name": "Easy Bake Coven"
+  },
+  {
+    "rank": 8,
+    "item_name": "Once Upon a Prince (Royal Wedding Series)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Shattered Lullaby (Callahan Confidential)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Lucas (The Lawmen of Silver Creek Ranch)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Proposals and Poison (Wedding Planner Mysteries) (Volume 3)"
+  },
+  {
+    "rank": 12,
+    "item_name": "It Takes a Witch: A Wishcraft Mystery"
+  },
+  {
+    "rank": 13,
+    "item_name": "Hanover House"
+  },
+  {
+    "rank": 14,
+    "item_name": "Princess Ever After (Royal Wedding Series)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Wild Man Creek (A Virgin River Novel)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Serenity Harbor: A Heartwarming Small Town Romance (Haven Point)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Shadow of Time"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Perfect Match (The Blue Heron Series)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Dante's Gift (A Chicago Christmas) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Clock Strikes Nun (A Giulia Driscoll Mystery) (Volume 4)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Karma's a Killer (A Downward Dog Mystery)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Legally and Lawfully Yours"
+  },
+  {
+    "rank": 23,
+    "item_name": "What She Wants (Life in Icicle Falls)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Cowboy Creek Christmas: An Anthology"
+  },
+  {
+    "rank": 25,
+    "item_name": "Crossfire Christmas (The Precinct)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Marry Your Billionaire"
+  },
+  {
+    "rank": 27,
+    "item_name": "Big Sky Country (The Parable Series)"
+  },
+  {
+    "rank": 28,
+    "item_name": "When the Grits Hit the Fan (A Country Store Mystery)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Sign of the Green Dragon"
+  },
+  {
+    "rank": 30,
+    "item_name": "Untimed"
+  },
+  {
+    "rank": 31,
+    "item_name": "Southern Fried (A Kenni Lowry Mystery) (Volume 2)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Dangling by a Thread (A Mainely Needlepoint Mystery)"
+  },
+  {
+    "rank": 33,
+    "item_name": "More Than Words, Volume 6: An Anthology"
+  },
+  {
+    "rank": 34,
+    "item_name": "Sunrise Point (Virgin River)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Curious Minds: A Knight and Moon Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Fall of Lord Drayson (Tanglewood) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Home to Whiskey Creek"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Reformer (Power of the Matchmaker) (Volume 12)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Good Girl's Second Chance (The Bravos of Justice Creek)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Moonless (Maiden of Time) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Teacher's Billionaire: The Sherbrookes of Newport Book 1"
+  },
+  {
+    "rank": 42,
+    "item_name": "Candy Corn Murder (A Lucy Stone Mystery)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Witness"
+  },
+  {
+    "rank": 44,
+    "item_name": "A Bramble House Christmas (Carrigans of the Circle C) (Volume 6)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Merry and Bright: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Snowflakes on the Sea"
+  },
+  {
+    "rank": 47,
+    "item_name": "Smoke and Ashes (Harlequin Intrigue)"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Baby for the Deputy (Mustang Valley)"
+  },
+  {
+    "rank": 49,
+    "item_name": "A Muddied Murder (A Greenhouse Mystery) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "When Violet was Blue"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

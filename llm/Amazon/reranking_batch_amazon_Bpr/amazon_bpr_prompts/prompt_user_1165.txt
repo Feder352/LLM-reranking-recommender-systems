@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Song Unheard (Shadows Over England)"
+  },
+  {
+    "item_name": "Strains of Silence"
+  },
+  {
+    "item_name": "Soul's Cry"
+  },
+  {
+    "item_name": "Two Girls Down: A Novel"
+  },
+  {
+    "item_name": "Killer Choice"
+  },
+  {
+    "item_name": "Haven"
+  },
+  {
+    "item_name": "Her Good Girl"
+  },
+  {
+    "item_name": "Crossed Out"
+  },
+  {
+    "item_name": "Shame ON You (An Ozzie Novak Thriller, Book 4) (Redemption Thriller Series) (Volume 16)"
+  },
+  {
+    "item_name": "The Whispering Room: A Jane Hawk Novel"
+  },
+  {
+    "item_name": "The House on Foster Hill"
+  },
+  {
+    "item_name": "The Stand-In Boyfriend: A YA Contemporary Romance Novel (The Boyfriend Series) (Volume 5)"
+  },
+  {
+    "item_name": "What Dreams May Come (A Sweet Dreams Christian Romance) (Volume 1)"
+  },
+  {
+    "item_name": "The Bishop's Legacy (World of Shadows)"
+  },
+  {
+    "item_name": "Love by the Numbers"
+  },
+  {
+    "item_name": "Across the Blue: A Novel"
+  },
+  {
+    "item_name": "ON Fire: (An Ozzie Novak Thriller, Book 5) (Redemption Thriller Series) (Volume 17)"
+  },
+  {
+    "item_name": "Phoebe's Light (Nantucket Legacy)"
+  },
+  {
+    "item_name": "Returning Home: A Freedom Lake Novel"
+  },
+  {
+    "item_name": "Someplace Familiar: A Laurel Cove Romance"
+  },
+  {
+    "item_name": "The Massacre of Mankind: Authorised Sequel to The War of the Worlds"
+  },
+  {
+    "item_name": "Coffin Scarcely Used"
+  },
+  {
+    "item_name": "The Girl Who Lived: A Thrilling Suspense Novel"
+  },
+  {
+    "item_name": "ON The Run: (An Ozzie Novak Thriller, Book 6) (Redemption Thriller Series) (Volume 18)"
+  },
+  {
+    "item_name": "The Sparks: Book I of the Feud Trilogy (Volume 1)"
+  },
+  {
+    "item_name": "The Tempering Agent"
+  },
+  {
+    "item_name": "A Loyal Heart"
+  },
+  {
+    "item_name": "Judah's Wife: A Novel of the Maccabees (The Silent Years)"
+  },
+  {
+    "item_name": "She Who Knows No Fear - Another Tale of the Heart"
+  },
+  {
+    "item_name": "Dead Air: A Glenn Beckert Mystery"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Golden Braid"
+  },
+  {
+    "rank": 2,
+    "item_name": "If I Run (If I Run Series)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Vendetta (The Nikki Boyd Files)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Babel Conspiracy"
+  },
+  {
+    "rank": 5,
+    "item_name": "Twisted Innocence (Moonlighters Series)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Mermaid Moon (A Sunset Cove Novel)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Elusive Miss Ellison (Regency Brides: A Legacy of Grace)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Through Waters Deep (Waves of Freedom)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Among the Fair Magnolias: Four Southern Love Stories"
+  },
+  {
+    "rank": 10,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Witnesses"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Sweet Misfortune: A Novel (Virtues and Vices of the Old West)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Sea Keeper's Daughters (A Carolina Heirlooms Novel)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Sister Eve and the Blue Nun (A Divine Private Detective Agency Mystery)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Dangerous Passage: A Novel (Southern Crimes) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Newsmakers (A Newsmakers Novel)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Annabel Lee (Coffey &amp; Hill)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Because You're Mine"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Name I Call Myself"
+  },
+  {
+    "rank": 20,
+    "item_name": "Dawn at Emberwilde (A Treasures of Surrey Novel)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Illusionist's Apprentice"
+  },
+  {
+    "rank": 22,
+    "item_name": "When Death Draws Near (A Gwen Marcey Novel)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Inescapable (Road to Kingdom) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Gathering the Threads: A Novel (The Amish of Summer Grove)"
+  },
+  {
+    "rank": 25,
+    "item_name": "If I Live (If I Run Series)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Loft: The Memory House Collection (The Memory Houuse Series) (Volume 2)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Playing the Part"
+  },
+  {
+    "rank": 28,
+    "item_name": "As Waters Gone By"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Things We Knew"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Governess of Highland Hall: A Novel (Edwardian Brides)"
+  },
+  {
+    "rank": 33,
+    "item_name": "A Respectable Actress"
+  },
+  {
+    "rank": 34,
+    "item_name": "Long Way Gone"
+  },
+  {
+    "rank": 35,
+    "item_name": "Summer's List"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Red Door Inn: A Novel (Prince Edward Island Dreams)"
+  },
+  {
+    "rank": 37,
+    "item_name": "When Mountains Move"
+  },
+  {
+    "rank": 38,
+    "item_name": "Gilt Hollow (Blink)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Truth Stained Lies (Moonlighters Series)"
+  },
+  {
+    "rank": 40,
+    "item_name": "A Sparrow in Terezin (A Hidden Masterpiece Novel)"
+  },
+  {
+    "rank": 41,
+    "item_name": "A Portrait of Emily Price"
+  },
+  {
+    "rank": 42,
+    "item_name": "Hiding Places"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Dream of Miracles (The Amish Wonders Series)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Sister Dear"
+  },
+  {
+    "rank": 45,
+    "item_name": "Sea Rose Lane: A Hope Harbor Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Fatal Mistake: A Novel (White Knights)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Dear Mr. Knightley: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Dancing Master"
+  },
+  {
+    "rank": 49,
+    "item_name": "Freedom's Price: A Novel (Keys of Promise)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Writing Desk"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

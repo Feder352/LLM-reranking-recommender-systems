@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Briggs Land Volume 1: State of Grace"
+  },
+  {
+    "item_name": "X-Men: God Loves, Man Kills"
+  },
+  {
+    "item_name": "Rosalie Lightning: A Graphic Memoir"
+  },
+  {
+    "item_name": "Batman: The Dark Knight: Master Race"
+  },
+  {
+    "item_name": "Batman: The Dark Knight Strikes Again"
+  },
+  {
+    "item_name": "Fantasyland: A Sportswriter's Obsessive Bid to Win the World's Most Ruthless Fantasy Baseball"
+  },
+  {
+    "item_name": "George F. Kennan: An American Life"
+  },
+  {
+    "item_name": "Combat and Other Shenanigans: Tales of the Absurd from a Deployment to Iraq"
+  },
+  {
+    "item_name": "Let Trump Be Trump: The Inside Story of His Rise to the Presidency"
+  },
+  {
+    "item_name": "Rickey &amp; Robinson: The True, Untold Story of the Integration of Baseball"
+  },
+  {
+    "item_name": "American Dervish"
+  },
+  {
+    "item_name": "Peter Shaffer's Amadeus"
+  },
+  {
+    "item_name": "Tartuffe, by Moliere"
+  },
+  {
+    "item_name": "Wolverine: Old Man Logan"
+  },
+  {
+    "item_name": "Thor Vol. 1: The Goddess of Thunder"
+  },
+  {
+    "item_name": "Superior Spider-Man, Vol. 1: My Own Worst Enemy"
+  },
+  {
+    "item_name": "Superior Spider-Man, Vol. 2: A Troubled Mind"
+  },
+  {
+    "item_name": "The GUNS OF AUGUST"
+  },
+  {
+    "item_name": "I Never Had It Made: An Autobiography of Jackie Robinson"
+  },
+  {
+    "item_name": "Slugfest: Inside the Epic, 50-year Battle between Marvel and DC"
+  },
+  {
+    "item_name": "Thor Vol. 2: Who Holds the Hammer? (Thor: Marvel Now!)"
+  },
+  {
+    "item_name": "Mighty Thor Vol. 1: Thunder in Her Veins (The Mighty Thor)"
+  },
+  {
+    "item_name": "Green Lantern: Earth One Vol. 1"
+  },
+  {
+    "item_name": "Thor: God of Thunder Volume 3: The Accursed (Marvel Now)"
+  },
+  {
+    "item_name": "Original Sin: Thor &amp; Loki: The Tenth Realm"
+  },
+  {
+    "item_name": "Doctor Strange Vol. 1: The Way of the Weird"
+  },
+  {
+    "item_name": "Wolverine and the X-Men, Vol. 3"
+  },
+  {
+    "item_name": "Infinity Gauntlet (Marvel Comics)"
+  },
+  {
+    "item_name": "Wolverine and the X-Men, Vol. 2"
+  },
+  {
+    "item_name": "Fear: Trump in the White House"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 34859,
+    "item_name": "The New Avengers, Vol. 3: Secrets And Lies"
+  },
+  {
+    "rank": 2,
+    "item_id": 43994,
+    "item_name": "Batman: R.I.P."
+  },
+  {
+    "rank": 3,
+    "item_id": 44009,
+    "item_name": "Batman and Robin, Vol. 1: Batman Reborn"
+  },
+  {
+    "rank": 4,
+    "item_id": 34869,
+    "item_name": "World War Hulk - Warbound"
+  },
+  {
+    "rank": 5,
+    "item_id": 43895,
+    "item_name": "Batman: Hush - Volume One"
+  },
+  {
+    "rank": 6,
+    "item_id": 34918,
+    "item_name": "Spider-Man Noir"
+  },
+  {
+    "rank": 7,
+    "item_id": 43986,
+    "item_name": "Batman: Whatever Happened to the Caped Crusader? (Deluxe Edition)"
+  },
+  {
+    "rank": 8,
+    "item_id": 34839,
+    "item_name": "DAREDEVIL: YELLOW"
+  },
+  {
+    "rank": 9,
+    "item_id": 44098,
+    "item_name": "Batman: Noel"
+  },
+  {
+    "rank": 10,
+    "item_id": 23553,
+    "item_name": "Batman : The Dark Knight Returns"
+  },
+  {
+    "rank": 11,
+    "item_id": 43978,
+    "item_name": "Batman: The Black Glove"
+  },
+  {
+    "rank": 12,
+    "item_id": 44065,
+    "item_name": "Batman Vol. 2: The City of Owls (The New 52) (Batman: the New 52!)"
+  },
+  {
+    "rank": 13,
+    "item_id": 37997,
+    "item_name": "Batman: The Killing Joke"
+  },
+  {
+    "rank": 14,
+    "item_id": 44025,
+    "item_name": "Batman: Earth One"
+  },
+  {
+    "rank": 15,
+    "item_id": 68707,
+    "item_name": "Judge Dredd: v. 1"
+  },
+  {
+    "rank": 16,
+    "item_id": 43974,
+    "item_name": "Gotham Central 1: In the Line of Fire"
+  },
+  {
+    "rank": 17,
+    "item_id": 34994,
+    "item_name": "Spider-Gwen Vol. 1: Greater Power"
+  },
+  {
+    "rank": 18,
+    "item_id": 44118,
+    "item_name": "The Flash Vol. 2: Speed of Darkness (Rebirth)"
+  },
+  {
+    "rank": 19,
+    "item_id": 43971,
+    "item_name": "Batman: Year One Hundred"
+  },
+  {
+    "rank": 20,
+    "item_id": 34968,
+    "item_name": "Deadpool Kills the Marvel Universe"
+  },
+  {
+    "rank": 21,
+    "item_id": 44116,
+    "item_name": "Superman for All Seasons Deluxe Edition"
+  },
+  {
+    "rank": 22,
+    "item_id": 44071,
+    "item_name": "Batman Vol. 3: Death of the Family (The New 52) (Batman: the New 52!)"
+  },
+  {
+    "rank": 23,
+    "item_id": 44058,
+    "item_name": "Batman Vol. 1: The Court of Owls (The New 52) (Batman (DC Comics Paperback))"
+  },
+  {
+    "rank": 24,
+    "item_id": 34979,
+    "item_name": "X-Men: Battle of the Atom"
+  },
+  {
+    "rank": 25,
+    "item_id": 27922,
+    "item_name": "The Death and Life of Superman:  A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

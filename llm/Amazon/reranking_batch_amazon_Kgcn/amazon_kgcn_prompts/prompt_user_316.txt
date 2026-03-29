@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "It's a Long Story: My Life"
+  },
+  {
+    "item_name": "In Spite of the Odds: A True Inspirational Journey from Walk-on to Full Scholarship at Ole Miss"
+  },
+  {
+    "item_name": "Isn't That Rich?: Life Among the 1 Percent"
+  },
+  {
+    "item_name": "Boys in the Trees: A Memoir"
+  },
+  {
+    "item_name": "Love, Loss, and What We Ate: A Memoir"
+  },
+  {
+    "item_name": "If I did it : Confessions of the Killer"
+  },
+  {
+    "item_name": "Shoe Dog: A Memoir by the Creator of NIKE"
+  },
+  {
+    "item_name": "Dear Mr. You"
+  },
+  {
+    "item_name": "Players: The Story of Sports and Money, and the Visionaries Who Fought to Create a Revolution"
+  },
+  {
+    "item_name": "Kanye West Owes Me $300: And Other True Stories from a White Rapper Who Almost Made It Big"
+  },
+  {
+    "item_name": "How I Helped O. J. Get Away With Murder: The Shocking Inside Story of Violence, Loyalty, Regret, and Remorse"
+  },
+  {
+    "item_name": "The Breaks of the Game"
+  },
+  {
+    "item_name": "Chaos Monkeys: Obscene Fortune and Random Failure in Silicon Valley"
+  },
+  {
+    "item_name": "Rogue Heroes: The History of the SAS, Britain's Secret Special Forces Unit That Sabotaged the Nazis and Changed the Nature of War"
+  },
+  {
+    "item_name": "All the Gallant Men: An American Sailor's Firsthand Account of Pearl Harbor"
+  },
+  {
+    "item_name": "They're Playing Our Song: A Memoir"
+  },
+  {
+    "item_name": "Ray &amp; Joan: The Man Who Made the McDonald's Fortune and the Woman Who Gave It All Away"
+  },
+  {
+    "item_name": "A Long Way Home"
+  },
+  {
+    "item_name": "Insane Clown President: Dispatches from the 2016 Circus"
+  },
+  {
+    "item_name": "The Red Bandanna: A Life. A Choice. A Legacy."
+  },
+  {
+    "item_name": "The Cake and the Rain: A Memoir"
+  },
+  {
+    "item_name": "Everybody Lies: Big Data, New Data, and What the Internet Can Tell Us About Who We Really Are"
+  },
+  {
+    "item_name": "Devil's Bargain: Steve Bannon, Donald Trump, and the Storming of the Presidency"
+  },
+  {
+    "item_name": "Coach Wooden and Me: Our 50-Year Friendship On and Off the Court"
+  },
+  {
+    "item_name": "The Devil's Casino: Friendship, Betrayal, and the High Stakes Games Played Inside Lehman Brothers"
+  },
+  {
+    "item_name": "Chickenhawk"
+  },
+  {
+    "item_name": "Bringing the Thunder: The Missions of a World War II B-29 Pilot in the Pacific"
+  },
+  {
+    "item_name": "Hotel Scarface: Where Cocaine Cowboys Partied and Plotted to Control Miami"
+  },
+  {
+    "item_name": "Horse Soldiers: The Extraordinary Story of a Band of US Soldiers Who Rode to Victory in Afghanistan"
+  },
+  {
+    "item_name": "A Higher Loyalty: Truth, Lies, and Leadership"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1531,
+    "item_name": "Destiny of the Republic: A Tale of Madness, Medicine and the Murder of a President"
+  },
+  {
+    "rank": 2,
+    "item_id": 5289,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 3,
+    "item_id": 2624,
+    "item_name": "Culture Warrior (Random House Large Print)"
+  },
+  {
+    "rank": 4,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 5,
+    "item_id": 2955,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 6,
+    "item_id": 2937,
+    "item_name": "Seminary Boy: A Memoir"
+  },
+  {
+    "rank": 7,
+    "item_id": 5297,
+    "item_name": "Killing Kennedy: The End of Camelot"
+  },
+  {
+    "rank": 8,
+    "item_id": 1341,
+    "item_name": "Everyman"
+  },
+  {
+    "rank": 9,
+    "item_id": 1468,
+    "item_name": "Revolutionary Summer: The Birth of American Independence"
+  },
+  {
+    "rank": 10,
+    "item_id": 4250,
+    "item_name": "How Doctors Think"
+  },
+  {
+    "rank": 11,
+    "item_id": 1373,
+    "item_name": "Traitor to His Class: The Privileged Life and Radical Presidency of Franklin Delano Roosevelt"
+  },
+  {
+    "rank": 12,
+    "item_id": 5203,
+    "item_name": "Leap of Faith: Memoirs of an Unexpected Life"
+  },
+  {
+    "rank": 13,
+    "item_id": 3742,
+    "item_name": "Hitch-22: A Memoir"
+  },
+  {
+    "rank": 14,
+    "item_id": 5605,
+    "item_name": "The White Tiger: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_id": 1431,
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "rank": 16,
+    "item_id": 1846,
+    "item_name": "The Politician: An Insider's Account of John Edwards's Pursuit of the Presidency and the Scandal That Brought Him Down"
+  },
+  {
+    "rank": 17,
+    "item_id": 4729,
+    "item_name": "To America: Personal Reflections of an Historian"
+  },
+  {
+    "rank": 18,
+    "item_id": 2073,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 19,
+    "item_id": 1343,
+    "item_name": "Terrorist"
+  },
+  {
+    "rank": 20,
+    "item_id": 487,
+    "item_name": "Game Change: Obama and the Clintons, McCain and Palin, and the Race of a Lifetime"
+  },
+  {
+    "rank": 21,
+    "item_id": 5288,
+    "item_name": "This Land Is Their Land: Reports from a Divided Nation"
+  },
+  {
+    "rank": 22,
+    "item_id": 770,
+    "item_name": "The Red Pony (Penguin Great Books of the 20th Century)"
+  },
+  {
+    "rank": 23,
+    "item_id": 1297,
+    "item_name": "American Creation: Triumphs and Tragedies at the Founding of the Republic"
+  },
+  {
+    "rank": 24,
+    "item_id": 4234,
+    "item_name": "How Children Succeed"
+  },
+  {
+    "rank": 25,
+    "item_id": 2890,
+    "item_name": "Lean In: Women, Work, and the Will to Lead"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

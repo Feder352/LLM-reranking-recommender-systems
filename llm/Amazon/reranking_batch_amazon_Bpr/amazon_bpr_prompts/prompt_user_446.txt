@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Called to Justice (A Quaker Midwife Mystery)"
+  },
+  {
+    "item_name": "Earthly Remains: A Commissario Guido Brunetti Mystery"
+  },
+  {
+    "item_name": "Executive Order (Reeder and Rogers Thriller)"
+  },
+  {
+    "item_name": "Iced Under (A Maine Clambake Mystery)"
+  },
+  {
+    "item_name": "Salvation Lake (A Leo Waterman Mystery)"
+  },
+  {
+    "item_name": "Moral Defense (Samantha Brinkman)"
+  },
+  {
+    "item_name": "Crimson Snow (British Library Crime Classics)"
+  },
+  {
+    "item_name": "Scandal (English and Japanese Edition)"
+  },
+  {
+    "item_name": "Anything Is Possible: A Novel"
+  },
+  {
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "item_name": "Requiem in Yquem (Winemaker Detective)"
+  },
+  {
+    "item_name": "On Turpentine Lane"
+  },
+  {
+    "item_name": "Follow Me Back"
+  },
+  {
+    "item_name": "Hoodoo Harry"
+  },
+  {
+    "item_name": "The Accomplished Guest: Stories"
+  },
+  {
+    "item_name": "Ten Dead Comedians: A Murder Mystery"
+  },
+  {
+    "item_name": "Fifteen Minutes To Live"
+  },
+  {
+    "item_name": "True-Life Adventures (Paul McDonald Mysteries)"
+  },
+  {
+    "item_name": "A Witness Above (Frank Palvicek Mysteries)"
+  },
+  {
+    "item_name": "Hit and Run"
+  },
+  {
+    "item_name": "Love for Freedom (A Short Story)"
+  },
+  {
+    "item_name": "A Killing Sky (Frank Palvicek Mysteries)"
+  },
+  {
+    "item_name": "Stowed Away (A Maine Clambake Mystery)"
+  },
+  {
+    "item_name": "The Secret Diary of Adrian Mole, Aged 13 3/4"
+  },
+  {
+    "item_name": "The Growing Pains of Adrian Mole"
+  },
+  {
+    "item_name": "Adrian Mole: The Cappuccino Years"
+  },
+  {
+    "item_name": "Minced, Marinated, and Murdered (Gourmet Crimes)"
+  },
+  {
+    "item_name": "Robicheaux: You Know My Name (Dave Robicheaux)"
+  },
+  {
+    "item_name": "Death of an Honest Man (A Hamish Macbeth Mystery)"
+  },
+  {
+    "item_name": "Road to Perdition"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "That Darkness (A Gardiner and Renner Novel)"
+  },
+  {
+    "rank": 2,
+    "item_name": "A Beautiful Blue Death (Charles Lenox Mysteries)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The City"
+  },
+  {
+    "rank": 4,
+    "item_name": "Thrice the Brinded Cat Hath Mew'd: A Flavia de Luce Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 6,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 7,
+    "item_name": "From Bruges with Love (The Pieter Van In Mysteries)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Artemis"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "rank": 11,
+    "item_name": "Forgive Me, Leonard Peacock"
+  },
+  {
+    "rank": 12,
+    "item_name": "In Such Good Company: Eleven Years of Laughter, Mayhem, and Fun in the Sandbox"
+  },
+  {
+    "rank": 13,
+    "item_name": "A Room Full of Bones (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Serafina and the Black Cloak"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Paper Magician"
+  },
+  {
+    "rank": 16,
+    "item_name": "Miramont's Ghost"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Water's Edge"
+  },
+  {
+    "rank": 18,
+    "item_name": "Charlotte's Web (50th Anniversary Retrospective Edition)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Season of the Witch"
+  },
+  {
+    "rank": 20,
+    "item_name": "My Brief History (Deckle Edge) Hardcover"
+  },
+  {
+    "rank": 21,
+    "item_name": "Dark Side of the Road, The: A country house murder mystery with a supernatural twist (An Ishmael Jones Mystery)"
+  },
+  {
+    "rank": 22,
+    "item_name": "It's NOT Just A Dog! (Project Madison Series) (Volume 2)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Cherringham - Murder on Thames"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Bone Witch"
+  },
+  {
+    "rank": 25,
+    "item_name": "In Gallup, Greed"
+  },
+  {
+    "rank": 26,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Kissing Hand"
+  },
+  {
+    "rank": 28,
+    "item_name": "White Houses: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Salt Sugar Fat: How the Food Giants Hooked Us"
+  },
+  {
+    "rank": 30,
+    "item_name": "Before the Fall: The year's best suspense novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "Her Royal Spyness"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Fourteenth Goldfish"
+  },
+  {
+    "rank": 34,
+    "item_name": "Cherringham - Mystery at the Manor"
+  },
+  {
+    "rank": 35,
+    "item_name": "Thirteen Guests (British Library Crime Classics)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 37,
+    "item_name": "Pane and Suffering (A Webb's Glass Shop Mystery)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Blackhouse: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Broken Promise (Promise Falls Trilogy)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Horrorstor: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "A Wilder Rose(hardcover)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Gone but Knot Forgotten (A Quilting Mystery)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Dry Bones: A Longmire Mystery"
+  },
+  {
+    "rank": 44,
+    "item_name": "A Treacherous Curse (A Veronica Speedwell Mystery)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Liesmith: Book 1 of The Wyrd - Kindle edition"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Obsidian Chamber (Agent Pendergast series)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Devil&#39;s Prayer eBook"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Curious Beginning (A Veronica Speedwell Mystery)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Oliver and the Seawigs"
+  },
+  {
+    "rank": 50,
+    "item_name": "Brooklyn on Fire: A Mary Handley Mystery"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

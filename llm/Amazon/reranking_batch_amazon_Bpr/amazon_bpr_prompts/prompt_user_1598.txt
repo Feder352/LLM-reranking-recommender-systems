@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Eulogy (Eagle Elite Series) (Volume 9)"
+  },
+  {
+    "item_name": "Where We Began (Where We Began Duet #1)"
+  },
+  {
+    "item_name": "Inferno: Part 1 (The Vault) (Volume 1)"
+  },
+  {
+    "item_name": "Undertaker: An Evil Dead MC Story (The Evil Dead MC Series) (Volume 8)"
+  },
+  {
+    "item_name": "Enforce (Eagle Elite)"
+  },
+  {
+    "item_name": "Rip"
+  },
+  {
+    "item_name": "Valor (Sons of Scotland)"
+  },
+  {
+    "item_name": "The Dark Ones (The Dark Ones Saga) (Volume 1)"
+  },
+  {
+    "item_name": "Crash: An Evil Dead MC Story (The Evil Dead MC Series) (Volume 2)"
+  },
+  {
+    "item_name": "Vow: A Lords of Action Novel (Volume 1)"
+  },
+  {
+    "item_name": "One Last Time"
+  },
+  {
+    "item_name": "What He Doesn't Know (What He Doesn't Know Duet) (Volume 1)"
+  },
+  {
+    "item_name": "Loving the Hawke (The Seven Curses of London) (Volume 1)"
+  },
+  {
+    "item_name": "Forbid Me: The Good Ol' Boys: The Good Ol' Boys Series Book Two (Volume 2)"
+  },
+  {
+    "item_name": "Hidden (A McKenzie Ridge Novel) (Volume 2)"
+  },
+  {
+    "item_name": "Clipped Wings: (A Kings MC Romance, Book 2, Standalone)"
+  },
+  {
+    "item_name": "Savage Prince: An Anti-Heroes Collection Novel (The Savage Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Sergio: a Dark Mafia Romance"
+  },
+  {
+    "item_name": "El Pecador (El Santo) (Volume 2)"
+  },
+  {
+    "item_name": "Castle of Kings: (A Kings MC Romance)"
+  },
+  {
+    "item_name": "Candy Coated Chaos (Sweet Treats) (Volume 1)"
+  },
+  {
+    "item_name": "Sweet Jayne"
+  },
+  {
+    "item_name": "Get Lucky"
+  },
+  {
+    "item_name": "Ford: The Dudnik Circle #1 (Volume 1)"
+  },
+  {
+    "item_name": "Muse in Lingerie (Volume 1)"
+  },
+  {
+    "item_name": "Yegor: The Dudnik Circle #2 (Volume 2)"
+  },
+  {
+    "item_name": "His Virgin: A First Time Romance"
+  },
+  {
+    "item_name": "Defying Him"
+  },
+  {
+    "item_name": "The Azure Kingdom (The Iridescent Realm) (Volume 1)"
+  },
+  {
+    "item_name": "Songbird (A Zeta Cartel Novel Book 2) - Kindle edition"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "How We Fall"
+  },
+  {
+    "rank": 2,
+    "item_name": "Muffin Top"
+  },
+  {
+    "rank": 3,
+    "item_name": "Throttle Me (Men of Inked) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Lane (Grim Sinners) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "When a Laird Loves a Lady (Highlander Vows: Entangled Hearts) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "My Protector (Bewitched and Bewildered) (Volume 2)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Ruined: Dark Romance (A Decadence After Dark Epilogue) (Book 3) - Kindle edition"
+  },
+  {
+    "rank": 8,
+    "item_name": "Lord Of The Sea"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Lord's Captive: Border Series Book 2"
+  },
+  {
+    "rank": 10,
+    "item_name": "Accidental Daddy: A Billionaire's Baby Romance"
+  },
+  {
+    "rank": 11,
+    "item_name": "Deviant (Blood &amp; Roses) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Fighting Attraction (Redemption)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Filthy Bastard (Grim Bastards MC) (Volume 2)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Wicked Designs (League of Rogues)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Breaking Braydon"
+  },
+  {
+    "rank": 16,
+    "item_name": "Alpha"
+  },
+  {
+    "rank": 17,
+    "item_name": "A Viking for the Viscountess (A Most Peculiar Season) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Captured by the Pirate Laird (Highland Force) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Tru Blue"
+  },
+  {
+    "rank": 20,
+    "item_name": "Date The Billionaire"
+  },
+  {
+    "rank": 21,
+    "item_name": "Forget Me Not"
+  },
+  {
+    "rank": 22,
+    "item_name": "Heaven Sent (Heaven's Rejects MC) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Dare to Love"
+  },
+  {
+    "rank": 24,
+    "item_name": "Anaconda"
+  },
+  {
+    "rank": 25,
+    "item_name": "Cold Hearted"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Intern, Vol. 1 (The Intern Serials) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Highland Solution (Duncurra) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Baby Fever (A Real Man) (Volume 3)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Into the Heat"
+  },
+  {
+    "rank": 30,
+    "item_name": "My Clarity"
+  },
+  {
+    "rank": 31,
+    "item_name": "My Salvation (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "After We Fall"
+  },
+  {
+    "rank": 33,
+    "item_name": "Dirty Dom: A Bad Boy Mafia Romance"
+  },
+  {
+    "rank": 34,
+    "item_name": "Dangerous Kiss (Dangerous Noise) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Stepbrother Charming: A Billionaire Bad Boy Romance"
+  },
+  {
+    "rank": 36,
+    "item_name": "Top Bottom Switch"
+  },
+  {
+    "rank": 37,
+    "item_name": "Going Down Easy (Billionaire Bad Boys) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Outlaw's Bride: Grizzlies MC Romance (Outlaw Love)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Highland Wolf Pact: A Scottish Werewolf Shifter Romance"
+  },
+  {
+    "rank": 40,
+    "item_name": "Lord of War: Black Angel (de Russe Legacy) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "SEAL's Touch: A Dirty Bad Boy Romance (Small Town SEALs)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Ink Inspired (Montgomery Ink)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Mick CAOS MC"
+  },
+  {
+    "rank": 44,
+    "item_name": "Love Hurts (Caged Love Series) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Two Wrongs (Trouble by Numbers) (Volume 2)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Fix Me Not (The Fix Series) (Volume 2)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Caged"
+  },
+  {
+    "rank": 48,
+    "item_name": "Withering Hope"
+  },
+  {
+    "rank": 49,
+    "item_name": "Sweet as Sin (Bad Habit)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Come (The Fight Club) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

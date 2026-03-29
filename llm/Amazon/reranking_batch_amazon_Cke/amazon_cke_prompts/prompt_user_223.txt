@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Stranded (Alaskan Courage, Book 3)"
+  },
+  {
+    "item_name": "Love's Awakening: A Novel (The Ballantyne Legacy) (Volume 2)"
+  },
+  {
+    "item_name": "The Reason"
+  },
+  {
+    "item_name": "The Courier of Caswell Hall (American Tapestries series) (American Tapestry)"
+  },
+  {
+    "item_name": "Dark Biology"
+  },
+  {
+    "item_name": "In Broken Places"
+  },
+  {
+    "item_name": "Perfectly Matched: A Novel (The Blue Willow Brides) (Volume 3)"
+  },
+  {
+    "item_name": "Rebel Queen: A Novel"
+  },
+  {
+    "item_name": "The Tapestry: A Novel (Joanna Stafford series)"
+  },
+  {
+    "item_name": "The Chosen One"
+  },
+  {
+    "item_name": "The Crown (Joanna Stafford series)"
+  },
+  {
+    "item_name": "Hugh and Bess"
+  },
+  {
+    "item_name": "Mistress of Rome (Empress of Rome)"
+  },
+  {
+    "item_name": "The Auschwitz Escape"
+  },
+  {
+    "item_name": "With No Regrets"
+  },
+  {
+    "item_name": "The Queen's Fool"
+  },
+  {
+    "item_name": "Chivalrous (Valiant Hearts)"
+  },
+  {
+    "item_name": "Risen: The Novelization of the Major Motion Picture"
+  },
+  {
+    "item_name": "The Madwoman Upstairs: A Novel"
+  },
+  {
+    "item_name": "River Road: A Novel"
+  },
+  {
+    "item_name": "The Midnight Watch: A Novel of the Titanic and the Californian"
+  },
+  {
+    "item_name": "You Make Me (Blurred Lines)"
+  },
+  {
+    "item_name": "Three Sisters, Three Queens"
+  },
+  {
+    "item_name": "A Night to Forget (Emma's Story) (Volume 1)"
+  },
+  {
+    "item_name": "The Day to Remember (Emma's Story) (Volume 2)"
+  },
+  {
+    "item_name": "Catching the Wind"
+  },
+  {
+    "item_name": "Famous in Love"
+  },
+  {
+    "item_name": "The Delusion"
+  },
+  {
+    "item_name": "Bread of Angels"
+  },
+  {
+    "item_name": "Shadows of Hope"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5665,
+    "item_name": "Finding Stefanie (Noble Legacy Series #3)"
+  },
+  {
+    "rank": 2,
+    "item_id": 6089,
+    "item_name": "Green (The Circle, Book 0: The Beginning and the End)"
+  },
+  {
+    "rank": 3,
+    "item_id": 4691,
+    "item_name": "The Rose Conspiracy"
+  },
+  {
+    "rank": 4,
+    "item_id": 5666,
+    "item_name": "She Always Wore Red (The Fairlawn Series #2)"
+  },
+  {
+    "rank": 5,
+    "item_id": 4688,
+    "item_name": "Daniel's Den (The Dakota Diaries)"
+  },
+  {
+    "rank": 6,
+    "item_id": 6042,
+    "item_name": "Faking Grace"
+  },
+  {
+    "rank": 7,
+    "item_id": 6227,
+    "item_name": "A Shadow of Treason (Chronicles of the Spanish Civil War, Book 2)"
+  },
+  {
+    "rank": 8,
+    "item_id": 6015,
+    "item_name": "A Clearing in the Wild (Change and Cherish Historical Series #1)"
+  },
+  {
+    "rank": 9,
+    "item_id": 6082,
+    "item_name": "Miss Invisible"
+  },
+  {
+    "rank": 10,
+    "item_id": 5670,
+    "item_name": "Reclaiming Nick (Noble Legacy Series #1)"
+  },
+  {
+    "rank": 11,
+    "item_id": 4705,
+    "item_name": "redeeming Love"
+  },
+  {
+    "rank": 12,
+    "item_id": 4972,
+    "item_name": "Full Disclosure"
+  },
+  {
+    "rank": 13,
+    "item_id": 6121,
+    "item_name": "What Matters Most (Diary of a Teenage Girl)"
+  },
+  {
+    "rank": 14,
+    "item_id": 6119,
+    "item_name": "Fatal Deduction"
+  },
+  {
+    "rank": 15,
+    "item_id": 1485,
+    "item_name": "The Winnowing Season: Book Two in the Amish Vines and Orchards Series"
+  },
+  {
+    "rank": 16,
+    "item_id": 5667,
+    "item_name": "Doesn't She Look Natural (The Fairlawn Series #1)"
+  },
+  {
+    "rank": 17,
+    "item_id": 6113,
+    "item_name": "This Side of Heaven"
+  },
+  {
+    "rank": 18,
+    "item_id": 1566,
+    "item_name": "Amber Morn (Kanner Lake Series #4)"
+  },
+  {
+    "rank": 19,
+    "item_id": 1570,
+    "item_name": "The Jesus Storybook Bible: Every Story Whispers His Name"
+  },
+  {
+    "rank": 20,
+    "item_id": 4974,
+    "item_name": "Summer of Light: A Novel"
+  },
+  {
+    "rank": 21,
+    "item_id": 5209,
+    "item_name": "Dying to Read: A Novel (The Cate Kinkaid Files-Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_id": 6011,
+    "item_name": "Becoming Me (Diary of a Teenage Girl: Caitlin, Book 1)"
+  },
+  {
+    "rank": 23,
+    "item_id": 6088,
+    "item_name": "Where Do I Go? (Yada Yada House of Hope Series, Book 1)"
+  },
+  {
+    "rank": 24,
+    "item_id": 2619,
+    "item_name": "The Rescue (Random House Large Print)"
+  },
+  {
+    "rank": 25,
+    "item_id": 2448,
+    "item_name": "Bayou Justice (Bayou Series, Book 1) (Steeple Hill Love Inspired Suspense #74)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

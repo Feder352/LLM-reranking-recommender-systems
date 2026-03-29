@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Mistletoe Memories: Four Generations Transform a House Into a Home for Christmas (Romancing America)"
+  },
+  {
+    "item_name": "The Outlaw's Redemption (Charity House)"
+  },
+  {
+    "item_name": "Charity House Courtship"
+  },
+  {
+    "item_name": "Deadly Intent (Deadly Intent Series #1) (Steeple Hill Love Inspired Suspense #157)"
+  },
+  {
+    "item_name": "Finally a Bride (Charity House)"
+  },
+  {
+    "item_name": "Memory of Murder (Love Inspired Suspense)"
+  },
+  {
+    "item_name": "Diamond in the Rough (Charm and Deceit)"
+  },
+  {
+    "item_name": "High-Stakes Inheritance (Love Inspired Suspense)"
+  },
+  {
+    "item_name": "The Nanny's New Family (Caring Canines)"
+  },
+  {
+    "item_name": "Her Montana Cowboy (Big Sky Centennial)"
+  },
+  {
+    "item_name": "A Biltmore Christmas (Romancing America)"
+  },
+  {
+    "item_name": "Prelude"
+  },
+  {
+    "item_name": "The Cowboy's Homecoming (Refuge Ranch)"
+  },
+  {
+    "item_name": "Awakening"
+  },
+  {
+    "item_name": "Second Opinion (Healing Touch Series #1)"
+  },
+  {
+    "item_name": "Zero Visibility (Love Inspired Suspense)"
+  },
+  {
+    "item_name": "FROM A DISTANCE, A Novel"
+  },
+  {
+    "item_name": "Beyond This Moment (Timber Ridge Reflections, Book 2)"
+  },
+  {
+    "item_name": "The Inheritance (Women of Faith Fiction)"
+  },
+  {
+    "item_name": "Beyond the Storm: Quilts of Love Series"
+  },
+  {
+    "item_name": "Lone Star Protector (Texas K-9 Unit)"
+  },
+  {
+    "item_name": "A Wild Goose Chase Christmas: Quilts of Love Series"
+  },
+  {
+    "item_name": "Lily (Song of the River, No. 1)"
+  },
+  {
+    "item_name": "Hazardous Duty (Squeaky Clean Mysteries, No. 1)"
+  },
+  {
+    "item_name": "Suspicious Minds (Squeaky Clean Series, Book 2)"
+  },
+  {
+    "item_name": "The Inconvenient Marriage of Charlotte Beck: A Novel"
+  },
+  {
+    "item_name": "An Alaskan Wedding (Alaskan Grooms)"
+  },
+  {
+    "item_name": "The Deepest Waters"
+  },
+  {
+    "item_name": "A Healing Heart: Quilts of Love Series"
+  },
+  {
+    "item_name": "Paper Roses"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5210,
+    "item_name": "Stallions at Burnt Rock"
+  },
+  {
+    "rank": 2,
+    "item_id": 4179,
+    "item_name": "Simple Jess"
+  },
+  {
+    "rank": 3,
+    "item_id": 3894,
+    "item_name": "A Perfect Gentleman"
+  },
+  {
+    "rank": 4,
+    "item_id": 3585,
+    "item_name": "The Devil's Web (The Web Trilogy)"
+  },
+  {
+    "rank": 5,
+    "item_id": 427,
+    "item_name": "Duchess By Night (Desperate Duchesses)"
+  },
+  {
+    "rank": 6,
+    "item_id": 3871,
+    "item_name": "Merely Magic"
+  },
+  {
+    "rank": 7,
+    "item_id": 2287,
+    "item_name": "Lord of Fire: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_id": 298,
+    "item_name": "What a Lady Wants (Last Man Standing, Book 2)"
+  },
+  {
+    "rank": 9,
+    "item_id": 3588,
+    "item_name": "A Precious Jewel"
+  },
+  {
+    "rank": 10,
+    "item_id": 6043,
+    "item_name": "Perfecting Kate"
+  },
+  {
+    "rank": 11,
+    "item_id": 2793,
+    "item_name": "Lady Sophia's Lover (Bow Street, Book 2)"
+  },
+  {
+    "rank": 12,
+    "item_id": 3851,
+    "item_name": "Three Lords for Lady Anne (Signet Regency Romance)"
+  },
+  {
+    "rank": 13,
+    "item_id": 3852,
+    "item_name": "Summer Campaign (Signet Regency Romance)"
+  },
+  {
+    "rank": 14,
+    "item_id": 1703,
+    "item_name": "In Another Man's Bed: A Novel (Invincible Women Series)"
+  },
+  {
+    "rank": 15,
+    "item_id": 3582,
+    "item_name": "The Secret Pearl: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_id": 250,
+    "item_name": "Pleasure for Pleasure (Essex Sisters, book 4)"
+  },
+  {
+    "rank": 17,
+    "item_id": 3719,
+    "item_name": "Gideon's Gift (The Red Gloves Collection #1)"
+  },
+  {
+    "rank": 18,
+    "item_id": 2261,
+    "item_name": "The Seduction"
+  },
+  {
+    "rank": 19,
+    "item_id": 389,
+    "item_name": "Not Another New Year's"
+  },
+  {
+    "rank": 20,
+    "item_id": 57,
+    "item_name": "The Lady Chosen (Bastion Club)"
+  },
+  {
+    "rank": 21,
+    "item_id": 3359,
+    "item_name": "Miss Fortune (Lear Family Trilogy, Book 3)"
+  },
+  {
+    "rank": 22,
+    "item_id": 5696,
+    "item_name": "First You Run (The Bullet Catchers, Book 4)"
+  },
+  {
+    "rank": 23,
+    "item_id": 5147,
+    "item_name": "Ice Blue (The Ice Series)"
+  },
+  {
+    "rank": 24,
+    "item_id": 2522,
+    "item_name": "Dying To Play (Signature Spotlight)"
+  },
+  {
+    "rank": 25,
+    "item_id": 210,
+    "item_name": "Much Ado About You (Essex Sisters, book 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "How to Think: A Survival Guide for a World at Odds"
+  },
+  {
+    "item_name": "Unveiling Grace: The Story of How We Found Our Way out of the Mormon Church"
+  },
+  {
+    "item_name": "The Way of the Dragon or the Way of the Lamb: Searching for Jesus Path of Power in a Church that Has Abandoned It"
+  },
+  {
+    "item_name": "The Art of Work: A Proven Path to Discovering What You Were Meant to Do"
+  },
+  {
+    "item_name": "The Wisdom of God: Letting His Truth and Goodness Direct Your Steps"
+  },
+  {
+    "item_name": "The More of Less"
+  },
+  {
+    "item_name": "Diary of a Jackwagon"
+  },
+  {
+    "item_name": "Life Is Better at the Beach: Inspirational Rules for Living Each Day Like You're at the Beach"
+  },
+  {
+    "item_name": "The ReWired Brain: Free Yourself of Negative Behaviors and Release Your Best Self"
+  },
+  {
+    "item_name": "The Temple and the Tabernacle: A Study of God's Dwelling Places from Genesis to Revelation"
+  },
+  {
+    "item_name": "A Day at the Beach: Devotions to Help You Relax, Reflect, and Renew"
+  },
+  {
+    "item_name": "Honestly: Getting Real about Jesus and Our Messy Lives"
+  },
+  {
+    "item_name": "Sacred Mundane: How to Find Freedom, Purpose, and Joy"
+  },
+  {
+    "item_name": "Gospel Questions, Gospel Answers"
+  },
+  {
+    "item_name": "CSB Apologetics Study Bible, Hardcover"
+  },
+  {
+    "item_name": "Blessed Are the Misfits: Great News for Believers who are Introverts, Spiritual Strugglers, or Just Feel Like They're Missing Something"
+  },
+  {
+    "item_name": "The Memo: Five Rules for Your Economic Liberation"
+  },
+  {
+    "item_name": "Get Out of That Pit: Straight Talk about God's Deliverance"
+  },
+  {
+    "item_name": "How Not to Get Rich: The Financial Misadventures of Mark Twain"
+  },
+  {
+    "item_name": "When Did Everybody Else Get So Old?: Indignities, Compromises, and the Unexpected Grace of Midlife"
+  },
+  {
+    "item_name": "Reading People: How Seeing the World through the Lens of Personality Changes Everything"
+  },
+  {
+    "item_name": "The Remarkable Ordinary: How to Stop, Look, and Listen to Life"
+  },
+  {
+    "item_name": "A Crazy, Holy Grace: The Healing Power of Pain and Memory"
+  },
+  {
+    "item_name": "The Sacred Slow: A Holy Departure From Fast Faith"
+  },
+  {
+    "item_name": "Everywhere You Go Theres a Zacchaeus Up a Tree: Small-Town Faith and Words of Wisdom from Roger Campbells Newspaper Columns"
+  },
+  {
+    "item_name": "The Gospel according to God: Rediscovering the Most Remarkable Chapter in the Old Testament"
+  },
+  {
+    "item_name": "Sacred Rest: Recover Your Life, Renew Your Energy, Restore Your Sanity"
+  },
+  {
+    "item_name": "Nourish: Discover God's Perfectly Balanced Plan for Your Body and Soul"
+  },
+  {
+    "item_name": "Unimaginable: What Our World Would Be Like Without Christianity"
+  },
+  {
+    "item_name": "The CEO Next Door: The 4 Behaviors that Transform Ordinary People into World-Class Leaders"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 37321,
+    "item_name": "A Commentary on the Psalms: 90-150 (Kregel Exegetical Library)"
+  },
+  {
+    "rank": 2,
+    "item_id": 37679,
+    "item_name": "The Weight of Mercy: A Novice Pastor on the City Streets"
+  },
+  {
+    "rank": 3,
+    "item_id": 37640,
+    "item_name": "Empty Promises: The Truth About You, Your Desires, and the Lies You're Believing"
+  },
+  {
+    "rank": 4,
+    "item_id": 31436,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 5,
+    "item_id": 33276,
+    "item_name": "Understanding World Religions in 15 Minutes a Day"
+  },
+  {
+    "rank": 6,
+    "item_id": 63524,
+    "item_name": "Pujols: More Than the Game"
+  },
+  {
+    "rank": 7,
+    "item_id": 46914,
+    "item_name": "Lit!: A Christian Guide to Reading Books"
+  },
+  {
+    "rank": 8,
+    "item_id": 11533,
+    "item_name": "Insourcing: Bringing Discipleship Back to the Local Church (Leadership Network Innovation Series)"
+  },
+  {
+    "rank": 9,
+    "item_id": 63562,
+    "item_name": "No He Can't: How Barack Obama Is Dismantling Hope and Change"
+  },
+  {
+    "rank": 10,
+    "item_id": 33571,
+    "item_name": "What Every Christian Needs to Know About the Qur'an"
+  },
+  {
+    "rank": 11,
+    "item_id": 63545,
+    "item_name": "One Big Thing: Discovering What You Were Born to Do"
+  },
+  {
+    "rank": 12,
+    "item_id": 63530,
+    "item_name": "Father Hunger: Why God Calls Men to Love and Lead Their Families"
+  },
+  {
+    "rank": 13,
+    "item_id": 46887,
+    "item_name": "The Beginning and End of Wisdom: Preaching Christ from the First and Last Chapters of Proverbs, Ecclesiastes, and Job"
+  },
+  {
+    "rank": 14,
+    "item_id": 6834,
+    "item_name": "The Imitation of Christ (Penguin Classics)"
+  },
+  {
+    "rank": 15,
+    "item_id": 69429,
+    "item_name": "Return of the Kosher Pig"
+  },
+  {
+    "rank": 16,
+    "item_id": 37616,
+    "item_name": "By Faith, Not by Sight: The Inspirational Story of a Blind Prodigy, a Life-Threating Illness, &amp; an Unexpected Gift"
+  },
+  {
+    "rank": 17,
+    "item_id": 63923,
+    "item_name": "Dug Down Deep: Building Your Life on Truths That Last"
+  },
+  {
+    "rank": 18,
+    "item_id": 37650,
+    "item_name": "The 5 Money Personalities: Speaking the Same Love and Money Language"
+  },
+  {
+    "rank": 19,
+    "item_id": 35045,
+    "item_name": "The Hole in Our Gospel: What Does God Expect of Us?"
+  },
+  {
+    "rank": 20,
+    "item_id": 63953,
+    "item_name": "Man Alive: Transforming Your Seven Primal Needs into a Powerful Spiritual Life"
+  },
+  {
+    "rank": 21,
+    "item_id": 35026,
+    "item_name": "Pursuing Justice (International Edition): The Call to Live and Die for Bigger Things"
+  },
+  {
+    "rank": 22,
+    "item_id": 33349,
+    "item_name": "Sharing Christ With the Dying: Bringing Hope to Those Near the End of Life"
+  },
+  {
+    "rank": 23,
+    "item_id": 63971,
+    "item_name": "Greater: Dream Bigger. Start Smaller. Ignite God's Vision for Your Life."
+  },
+  {
+    "rank": 24,
+    "item_id": 43783,
+    "item_name": "Culture of Corruption: Obama and His Team of Tax Cheats, Crooks, and Cronies"
+  },
+  {
+    "rank": 25,
+    "item_id": 63937,
+    "item_name": "Humble Orthodoxy: Holding the Truth High Without Putting People Down"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

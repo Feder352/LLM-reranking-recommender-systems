@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Good Soldier: A Tale of Passion (Classic, 20th-Century, Penguin)"
+  },
+  {
+    "item_name": "The Good Soldier; a Tale of Passion"
+  },
+  {
+    "item_name": "John F. Kennedy"
+  },
+  {
+    "item_name": "Khrushchev: The Man and His Era"
+  },
+  {
+    "item_name": "Koba the Dread"
+  },
+  {
+    "item_name": "Speak, Memory: An Autobiography Revisited (The Penguin Vladimir Nabokov Hardback Collection)"
+  },
+  {
+    "item_name": "Rasputin: Faith, Power, and the Twilight of the Romanovs"
+  },
+  {
+    "item_name": "Modern Classics Handful Of Dust Centenary Editions (Penguin Modern Classics)"
+  },
+  {
+    "item_name": "Notes from Underground (Vintage Classics)"
+  },
+  {
+    "item_name": "The Man without a Face: The Unlikely Rise of Vladimir Putin"
+  },
+  {
+    "item_name": "BIRDSONG"
+  },
+  {
+    "item_name": "The Case of Comrade Tulayev (New York Review Books Classics)"
+  },
+  {
+    "item_name": "Mornings on Horseback: The Story of an Extraordinary Family, a Vanished Way of Life, and the Unique Child Who Became Theodore Roosevelt"
+  },
+  {
+    "item_name": "The Persian Expedition (Penguin Classics)"
+  },
+  {
+    "item_name": "The Chosen: And Related Readings (Literature Connections)"
+  },
+  {
+    "item_name": "Chosen, The by Chaim potok (1967) Hardcover"
+  },
+  {
+    "item_name": "The Go-Between (Penguin Classics)"
+  },
+  {
+    "item_name": "The Witches: Salem, 1692"
+  },
+  {
+    "item_name": "Founding Faith: How Our Founding Fathers Forged a Radical New Approach to Religious Liberty"
+  },
+  {
+    "item_name": "Washington's Circle: The Creation of the President"
+  },
+  {
+    "item_name": "A gentleman in Moscow"
+  },
+  {
+    "item_name": "Lenin on the Train"
+  },
+  {
+    "item_name": "Paris 1919: Six Months That Changed the World"
+  },
+  {
+    "item_name": "Hue 1968: A Turning Point of the American War in Vietnam"
+  },
+  {
+    "item_name": "The Loved One"
+  },
+  {
+    "item_name": "The Taming of the Shrew (Shakespeare, Pelican)"
+  },
+  {
+    "item_name": "The Oresteia: Agamemnon; The Libation Bearers; The Eumenides"
+  },
+  {
+    "item_name": "The Four: The Hidden DNA of Amazon, Apple, Facebook, and Google"
+  },
+  {
+    "item_name": "Hard Times"
+  },
+  {
+    "item_name": "The Churchill Factor: How One Man Made History"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 2,
+    "item_id": 6324,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 3,
+    "item_id": 6330,
+    "item_name": "Ulysses"
+  },
+  {
+    "rank": 4,
+    "item_id": 6409,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 5,
+    "item_id": 7105,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 6,
+    "item_id": 9712,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 7,
+    "item_id": 584,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 8,
+    "item_id": 73171,
+    "item_name": "Balthazar [Paperback] [Jan 01, 2008] Lawrence Durrell"
+  },
+  {
+    "rank": 9,
+    "item_id": 74096,
+    "item_name": "The red and the black,"
+  },
+  {
+    "rank": 10,
+    "item_id": 6855,
+    "item_name": "The Red and the Black (Penguin Classics)"
+  },
+  {
+    "rank": 11,
+    "item_id": 6329,
+    "item_name": "Heart of Darkness (Modern Classics)"
+  },
+  {
+    "rank": 12,
+    "item_id": 6490,
+    "item_name": "Nostromo: A Tale of the Seaboard (Classic, 20th-Century, Penguin)"
+  },
+  {
+    "rank": 13,
+    "item_id": 6920,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 14,
+    "item_id": 1096,
+    "item_name": "The Bridge of San Luis Rey (Perennial Classics)"
+  },
+  {
+    "rank": 15,
+    "item_id": 915,
+    "item_name": "A Farewell to Arms (A Scribner Classic)"
+  },
+  {
+    "rank": 16,
+    "item_id": 6455,
+    "item_name": "The Alexandria Quartet"
+  },
+  {
+    "rank": 17,
+    "item_id": 8943,
+    "item_name": "Homage to Catalonia"
+  },
+  {
+    "rank": 18,
+    "item_id": 5507,
+    "item_name": "Lolita: A Screenplay"
+  },
+  {
+    "rank": 19,
+    "item_id": 8711,
+    "item_name": "All the King's Men"
+  },
+  {
+    "rank": 20,
+    "item_id": 6869,
+    "item_name": "Utopia (Penguin Classics)"
+  },
+  {
+    "rank": 21,
+    "item_id": 6465,
+    "item_name": "Cannery Row"
+  },
+  {
+    "rank": 22,
+    "item_id": 7,
+    "item_name": "For Whom the Bell Tolls"
+  },
+  {
+    "rank": 23,
+    "item_id": 229,
+    "item_name": "Doctor Zhivago"
+  },
+  {
+    "rank": 24,
+    "item_id": 6334,
+    "item_name": "Invisible Man"
+  },
+  {
+    "rank": 25,
+    "item_id": 1936,
+    "item_name": "On The Road CD Unabridged"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Faculty, The"
+  },
+  {
+    "item_name": "Escape from the Planet of the Apes"
+  },
+  {
+    "item_name": "Armageddon"
+  },
+  {
+    "item_name": "2010"
+  },
+  {
+    "item_name": "Honey, I Shrunk the Kids"
+  },
+  {
+    "item_name": "Lost World: Jurassic Park, The"
+  },
+  {
+    "item_name": "Stargate"
+  },
+  {
+    "item_name": "Demolition Man"
+  },
+  {
+    "item_name": "Running Man, The"
+  },
+  {
+    "item_name": "Star Trek: The Motion Picture"
+  },
+  {
+    "item_name": "Black Hole, The"
+  },
+  {
+    "item_name": "Return from Witch Mountain"
+  },
+  {
+    "item_name": "Superman II"
+  },
+  {
+    "item_name": "Back to the Future Part III"
+  },
+  {
+    "item_name": "Battle for the Planet of the Apes"
+  },
+  {
+    "item_name": "Virtuosity"
+  },
+  {
+    "item_name": "Transformers: The Movie, The"
+  },
+  {
+    "item_name": "King Kong vs. Godzilla (Kingukongu tai Gojira)"
+  },
+  {
+    "item_name": "Lawnmower Man, The"
+  },
+  {
+    "item_name": "Star Trek V: The Final Frontier"
+  },
+  {
+    "item_name": "Alien³"
+  },
+  {
+    "item_name": "Barbarella"
+  },
+  {
+    "item_name": "Escape from L.A."
+  },
+  {
+    "item_name": "Honey, I Blew Up the Kid"
+  },
+  {
+    "item_name": "Superman III"
+  },
+  {
+    "item_name": "Soldier"
+  },
+  {
+    "item_name": "Johnny Mnemonic"
+  },
+  {
+    "item_name": "Net, The"
+  },
+  {
+    "item_name": "Cat from Outer Space, The"
+  },
+  {
+    "item_name": "Junior"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 555,
+    "item_name": "Alien³"
+  },
+  {
+    "rank": 2,
+    "item_id": 564,
+    "item_name": "Lost in Space"
+  },
+  {
+    "rank": 3,
+    "item_id": 108,
+    "item_name": "Demolition Man"
+  },
+  {
+    "rank": 4,
+    "item_id": 953,
+    "item_name": "Sphere"
+  },
+  {
+    "rank": 5,
+    "item_id": 1257,
+    "item_name": "Species"
+  },
+  {
+    "rank": 6,
+    "item_id": 1718,
+    "item_name": "Event Horizon"
+  },
+  {
+    "rank": 7,
+    "item_id": 1248,
+    "item_name": "Universal Soldier"
+  },
+  {
+    "rank": 8,
+    "item_id": 1712,
+    "item_name": "Island of Dr. Moreau, The"
+  },
+  {
+    "rank": 9,
+    "item_id": 114,
+    "item_name": "Jurassic Park"
+  },
+  {
+    "rank": 10,
+    "item_id": 1062,
+    "item_name": "Godzilla"
+  },
+  {
+    "rank": 11,
+    "item_id": 1240,
+    "item_name": "Superman III"
+  },
+  {
+    "rank": 12,
+    "item_id": 1659,
+    "item_name": "Mimic"
+  },
+  {
+    "rank": 13,
+    "item_id": 1717,
+    "item_name": "Fly II, The"
+  },
+  {
+    "rank": 14,
+    "item_id": 1056,
+    "item_name": "Highlander III: The Sorcerer"
+  },
+  {
+    "rank": 15,
+    "item_id": 682,
+    "item_name": "Coneheads"
+  },
+  {
+    "rank": 16,
+    "item_id": 1094,
+    "item_name": "Howard the Duck"
+  },
+  {
+    "rank": 17,
+    "item_id": 603,
+    "item_name": "Rocky Horror Picture Show, The"
+  },
+  {
+    "rank": 18,
+    "item_id": 1009,
+    "item_name": "Night of the Comet"
+  },
+  {
+    "rank": 19,
+    "item_id": 642,
+    "item_name": "Star Trek: The Wrath of Khan"
+  },
+  {
+    "rank": 20,
+    "item_id": 1028,
+    "item_name": "Barb Wire"
+  },
+  {
+    "rank": 21,
+    "item_id": 2159,
+    "item_name": "Virus"
+  },
+  {
+    "rank": 22,
+    "item_id": 933,
+    "item_name": "Superman IV: The Quest for Peace"
+  },
+  {
+    "rank": 23,
+    "item_id": 747,
+    "item_name": "Planet of the Apes"
+  },
+  {
+    "rank": 24,
+    "item_id": 98,
+    "item_name": "Terminator 2: Judgment Day"
+  },
+  {
+    "rank": 25,
+    "item_id": 61,
+    "item_name": "Star Wars: Episode I - The Phantom Menace"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

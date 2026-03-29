@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Celebrating a Christ-Centered Easter: Seven Traditions to Lead Us Closer to the Savior"
+  },
+  {
+    "item_name": "How to Catch a Prince (Royal Wedding Series)"
+  },
+  {
+    "item_name": "Grace of Gratitude Journal"
+  },
+  {
+    "item_name": "A Heart Revealed (Proper Romance)"
+  },
+  {
+    "item_name": "God, Me, and Sweet Iced Tea: Experiencing God in the Midst of Everyday Moments"
+  },
+  {
+    "item_name": "To Ride a White Horse: An Irish historical love story"
+  },
+  {
+    "item_name": "Ryder"
+  },
+  {
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "item_name": "When the Moon Is Low: A Novel"
+  },
+  {
+    "item_name": "Maggie's Turn"
+  },
+  {
+    "item_name": "In Firefly Valley: A Novel (Texas Crossroads)"
+  },
+  {
+    "item_name": "The Secrets of Midwives: A Novel"
+  },
+  {
+    "item_name": "Annie's Stories (Ellis Island)"
+  },
+  {
+    "item_name": "The Race for Paris: A Novel"
+  },
+  {
+    "item_name": "Five Days in Skye: A Novel (The MacDonald Family Trilogy)"
+  },
+  {
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "item_name": "Promises To Keep: Love In Provence ~ Book Two (Volume 2)"
+  },
+  {
+    "item_name": "The Promise of Provence: A Novel"
+  },
+  {
+    "item_name": "Plain Fame: The Plain Fame Trilogy"
+  },
+  {
+    "item_name": "Plain Change: The Plain Fame Trilogy"
+  },
+  {
+    "item_name": "Secrets of a Charmed Life"
+  },
+  {
+    "item_name": "Plain Again (The Plain Fame Trilogy) (Volume 3)"
+  },
+  {
+    "item_name": "Plain Return (The Plain Fame)"
+  },
+  {
+    "item_name": "The Photograph"
+  },
+  {
+    "item_name": "A Fall of Marigolds"
+  },
+  {
+    "item_name": "On Lone Star Trail: A Novel (Texas Crossroads)"
+  },
+  {
+    "item_name": "The Last Neanderthal: The Rise, Success, and Mysterious Extinction of Our Closest Human Relatives"
+  },
+  {
+    "item_name": "The Bookshop on the Corner: A Novel"
+  },
+  {
+    "item_name": "An Extraordinary Union (The Loyal League)"
+  },
+  {
+    "item_name": "The Life She Was Given"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Tutor's Daughter"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Heiress of Winterwood (Whispers On The Moors)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Christmas Cat"
+  },
+  {
+    "rank": 4,
+    "item_name": "Code Blue (Prescription for Trouble, Book 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Deeply Devoted: A Novel (The Blue Willow Brides) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Chasing Mona Lisa: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "Over the Edge (The Kincaid Brides) (Volume 3)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Christmas at Harmony Hill: A Shaker Story"
+  },
+  {
+    "rank": 9,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 10,
+    "item_name": "Heiress (Daughters of Fortune)"
+  },
+  {
+    "rank": 11,
+    "item_name": "False Witness"
+  },
+  {
+    "rank": 12,
+    "item_name": "One Perfect Spring: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Sound of Sleigh Bells: A Romance from the Heart of Amish Country (Apple Ridge)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Fair Play: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "5 Days to a Clutter-Free House: Quick, Easy Ways to Clear Up Your Space"
+  },
+  {
+    "rank": 16,
+    "item_name": "Plain Perfect (Daughters of the Promise, Book 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Short-Straw Bride"
+  },
+  {
+    "rank": 18,
+    "item_name": "Love Finds You in Mackinac Island, Michigan"
+  },
+  {
+    "rank": 19,
+    "item_name": "Rachel: A Novel (Wives of the Patriarchs) (Volume 3)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Another Way Home: A Chicory Inn Novel - Book 3"
+  },
+  {
+    "rank": 21,
+    "item_name": "Queen of the Waves"
+  },
+  {
+    "rank": 22,
+    "item_name": "Tidewater Inn (Hope Beach)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Smitten"
+  },
+  {
+    "rank": 24,
+    "item_name": "Playing the Part"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Apothecary's Daughter"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "redeeming Love"
+  },
+  {
+    "rank": 28,
+    "item_name": "Shadows of the Past: A Novel (Logan Point) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "It Happened at the Fair: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Dead Reckoning: Memories of the 1971 Bangladesh War (Columbia/Hurst)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Accused (Pacific Coast Justice)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Song of My Heart"
+  },
+  {
+    "rank": 33,
+    "item_name": "Immanuel's Veins"
+  },
+  {
+    "rank": 34,
+    "item_name": "A Brush with Love: A January Wedding Story (A Year of Weddings Novella)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Courting Cate (The Courtships of Lancaster County) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "In Every Heartbeat"
+  },
+  {
+    "rank": 37,
+    "item_name": "Orphan Train: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Two Tickets to the Christmas Ball: A Novella"
+  },
+  {
+    "rank": 39,
+    "item_name": "Save the Date"
+  },
+  {
+    "rank": 40,
+    "item_name": "Sarah's Garden (A Patch of Heaven Novel)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Promise Box (Seven Brides for Seven Bachelors)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Lightkeeper's Daughter (Mercy Falls Series #1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Girl in the Gatehouse"
+  },
+  {
+    "rank": 44,
+    "item_name": "Treasuring Emma (A Middlefield Family Novel)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Stealing the Preacher"
+  },
+  {
+    "rank": 46,
+    "item_name": "Small Town Girl: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "To Whisper Her Name (A Belle Meade Plantation Novel)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Stone of Destiny: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Moonlight Masquerade: A Regency Romance"
+  },
+  {
+    "rank": 50,
+    "item_name": "Christmas Roses"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

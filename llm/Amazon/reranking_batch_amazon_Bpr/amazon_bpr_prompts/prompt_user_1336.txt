@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Lord of Mountains (A Novel of the Change)"
+  },
+  {
+    "item_name": "Midst Toil and Tribulation (Safehold)"
+  },
+  {
+    "item_name": "Xcode 4 Unleashed (2nd Edition)"
+  },
+  {
+    "item_name": "A Wanted Man: A Jack Reacher Novel"
+  },
+  {
+    "item_name": "Rising Sun"
+  },
+  {
+    "item_name": "Slow Apocalypse"
+  },
+  {
+    "item_name": "How Firm a Foundation"
+  },
+  {
+    "item_name": "The Gods of Guilt (A Lincoln Lawyer Novel)"
+  },
+  {
+    "item_name": "1920: America's Great War"
+  },
+  {
+    "item_name": "Like a Mighty Army: A Novel in the Safehold Series"
+  },
+  {
+    "item_name": "In the Courts of the Crimson Kings"
+  },
+  {
+    "item_name": "Water For Elephants"
+  },
+  {
+    "item_name": "The Burning Room (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Coming Home (An Alex Benedict Novel)"
+  },
+  {
+    "item_name": "The Chaplain's War"
+  },
+  {
+    "item_name": "Twelve Days (A John Wells Novel)"
+  },
+  {
+    "item_name": "Castaway Planet (Boundary)"
+  },
+  {
+    "item_name": "A Long Time Until Now (Temporal Displacement)"
+  },
+  {
+    "item_name": "The Wright Brothers (Thorndike Press Large Print Popular and Narrative Nonfiction Series)"
+  },
+  {
+    "item_name": "Make Me: A Jack Reacher Novel"
+  },
+  {
+    "item_name": "Hell's Foundations Quiver: A Novel in the Safehold Series"
+  },
+  {
+    "item_name": "Swiped: How to Protect Yourself in a World Full of Scammers, Phishers, and Identity Thieves"
+  },
+  {
+    "item_name": "At the Sign of Triumph: A Novel in the Safehold Series"
+  },
+  {
+    "item_name": "The Wrong Side of Goodbye (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "The One Man"
+  },
+  {
+    "item_name": "Castaway Odyssey (Boundary)"
+  },
+  {
+    "item_name": "The Whistler"
+  },
+  {
+    "item_name": "Heartbreak Hotel: An Alex Delaware Novel"
+  },
+  {
+    "item_name": "Heartbreak Hotel"
+  },
+  {
+    "item_name": "Two Kinds of Truth (A Harry Bosch Novel)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Ghost Brigades"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Android's Dream"
+  },
+  {
+    "rank": 3,
+    "item_name": "Hominids (Neanderthal Parallax)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Teutoburg Forest AD 9: The destruction of Varus and his legions (Campaign)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Spook Country"
+  },
+  {
+    "rank": 6,
+    "item_name": "Friday"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Road of Danger (RCN)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Victory of Reason"
+  },
+  {
+    "rank": 9,
+    "item_name": "All Hell Let Loose: The World at War 1939-1945"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Curse of Chalion (Chalion series)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Old Man's War"
+  },
+  {
+    "rank": 12,
+    "item_name": "Legacies (Corean Chronicles, Book 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Avenger"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Venus Throw:  A Novel of Ancient Rome"
+  },
+  {
+    "rank": 15,
+    "item_name": "To Honor You Call Us (Man of War)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Money, Money, Money"
+  },
+  {
+    "rank": 17,
+    "item_name": "Shattered Sword: The Untold Story of the Battle of Midway"
+  },
+  {
+    "rank": 18,
+    "item_name": "Godless: The Church of Liberalism"
+  },
+  {
+    "rank": 19,
+    "item_name": "State of Fear"
+  },
+  {
+    "rank": 20,
+    "item_name": "Ashes of the Elements (Hawkenlye Mystery Trilogy)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Lost Light"
+  },
+  {
+    "rank": 22,
+    "item_name": "Dauntless (The Lost Fleet, Book 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Death Match"
+  },
+  {
+    "rank": 24,
+    "item_name": "Spade &amp; Archer: The Prequel to Dashiell Hammett's The Maltese Falcon"
+  },
+  {
+    "rank": 25,
+    "item_name": "I, Sniper (Bob Lee Swagger Novels)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Physics of the Impossible: A Scientific Exploration into the World of Phasers, Force Fields, Teleportation, and Time Travel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Gettysburg: A Novel of the Civil War (The Gettysburg Trilogy)"
+  },
+  {
+    "rank": 28,
+    "item_name": "March of the Penguins: Companion to the Major Motion Picture"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Forge of God"
+  },
+  {
+    "rank": 30,
+    "item_name": "Hidden Empire (The Saga of Seven Suns)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Commodore"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Saboteurs"
+  },
+  {
+    "rank": 33,
+    "item_name": "SPQR XII: Oracle of the Dead (The SPQR Roman Mysteries)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Jackdaws"
+  },
+  {
+    "rank": 35,
+    "item_name": "At All Costs (Honor Harrington #11)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Watchman"
+  },
+  {
+    "rank": 38,
+    "item_name": "Krakatoa: The Day the World Exploded: August 27, 1883"
+  },
+  {
+    "rank": 39,
+    "item_name": "Deep Space: Star Carrier: Book Four (Star Carrier Series)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Schott's Original Miscellany"
+  },
+  {
+    "rank": 41,
+    "item_name": "GUNS, GERMS AND STEEL - A Short History of Everybody for the Last 13,000 Years"
+  },
+  {
+    "rank": 42,
+    "item_name": "Halting State (A Halting State Novel)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Against the Grain: How Agriculture Has Hijacked Civilization"
+  },
+  {
+    "rank": 44,
+    "item_name": "Time to Hunt"
+  },
+  {
+    "rank": 45,
+    "item_name": "Stranger in a Strange Land"
+  },
+  {
+    "rank": 46,
+    "item_name": "For the Win"
+  },
+  {
+    "rank": 47,
+    "item_name": "Cauldron of Ghosts (Crown of Slaves)"
+  },
+  {
+    "rank": 48,
+    "item_name": "King David's Spaceship"
+  },
+  {
+    "rank": 49,
+    "item_name": "Moment of Battle: The Twenty Clashes That Changed the World"
+  },
+  {
+    "rank": 50,
+    "item_name": "Altered Carbon (Takeshi Kovacs)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

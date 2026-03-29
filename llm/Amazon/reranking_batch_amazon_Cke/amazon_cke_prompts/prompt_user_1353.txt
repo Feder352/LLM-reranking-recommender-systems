@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Destination Casablanca: Exile, Espionage, and the Battle for North Africa in World War II"
+  },
+  {
+    "item_name": "The Flight 981 Disaster: Tragedy, Treachery, and the Pursuit of Truth (Air Disasters)"
+  },
+  {
+    "item_name": "Will Robots Take Your Job?: A Plea for Consensus (New Human Frontiers)"
+  },
+  {
+    "item_name": "Chasing Phil: The Adventures of Two Undercover Agents with the World's Most Charming Con Man"
+  },
+  {
+    "item_name": "Best American Sports Writing 2017 (The Best American Series )"
+  },
+  {
+    "item_name": "The Year of the Pitcher: Bob Gibson, Denny McLain, and the End of Baseballs Golden Age"
+  },
+  {
+    "item_name": "The Storm Before the Storm: The Beginning of the End of the Roman Republic"
+  },
+  {
+    "item_name": "Teacher Inspiration Planner"
+  },
+  {
+    "item_name": "A Secret Sisterhood: The Literary Friendships of Jane Austen, Charlotte Bront&euml;, George Eliot, and Virginia Woolf"
+  },
+  {
+    "item_name": "Beau Death (A Detective Peter Diamond Mystery)"
+  },
+  {
+    "item_name": "Gold!: Madness, Murder, and Mayhem in the Colorado Rockies"
+  },
+  {
+    "item_name": "Alive in Shape and Color: 17 Paintings by Great Artists and the Stories They Inspired"
+  },
+  {
+    "item_name": "Improv Nation: How We Made a Great American Art"
+  },
+  {
+    "item_name": "The New Negro: The Life of Alain Locke"
+  },
+  {
+    "item_name": "Auntie Poldi and the Sicilian Lions (An Auntie Poldi Adventure)"
+  },
+  {
+    "item_name": "Elastic: Flexible Thinking in a Time of Change"
+  },
+  {
+    "item_name": "A Season in the Sun: The Rise of Mickey Mantle"
+  },
+  {
+    "item_name": "Can't Help Myself: Lessons &amp; Confessions from a Modern Advice Columnist"
+  },
+  {
+    "item_name": "Futureface: A Family Mystery, an Epic Quest, and the Secret to Belonging"
+  },
+  {
+    "item_name": "Absolute Power: How the Pope Became the Most Influential Man in the World"
+  },
+  {
+    "item_name": "Great American Outpost: Dreamers, Mavericks, and the Making of an Oil Frontier"
+  },
+  {
+    "item_name": "My Father's Wake: How the Irish Teach Us to Live, Love, and Die"
+  },
+  {
+    "item_name": "The Girl: Marilyn Monroe, The Seven Year Itch, and the Birth of an Unlikely Feminist"
+  },
+  {
+    "item_name": "Atticus Finch: The Biography"
+  },
+  {
+    "item_name": "The Heritage: Black Athletes, a Divided America, and the Politics of Patriotism"
+  },
+  {
+    "item_name": "Fight Like a Girl: The Truth Behind How Female Marines Are Trained"
+  },
+  {
+    "item_name": "Figures in a Landscape: People and Places"
+  },
+  {
+    "item_name": "The Dark Angel: The Sunday Times Bestseller (The Dr Ruth Galloway Mysteries)"
+  },
+  {
+    "item_name": "Manfried the Man: A Graphic Novel"
+  },
+  {
+    "item_name": "McMafia: A Journey Through the Global Criminal Underworld"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1439,
+    "item_name": "In the President's Secret Service: Behind the Scenes with Agents in the Line of Fire and the Presidents They Protect"
+  },
+  {
+    "rank": 2,
+    "item_id": 5289,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 3,
+    "item_id": 1494,
+    "item_name": "Fearless: The Undaunted Courage and Ultimate Sacrifice of Navy SEAL Team SIX Operator Adam Brown"
+  },
+  {
+    "rank": 4,
+    "item_id": 5368,
+    "item_name": "Blood on the Moon: The Assassination of Abraham Lincoln"
+  },
+  {
+    "rank": 5,
+    "item_id": 5988,
+    "item_name": "To Sleep with the Angels: The Story of a Fire"
+  },
+  {
+    "rank": 6,
+    "item_id": 396,
+    "item_name": "Amazing Grace: William Wilberforce and the Heroic Campaign to End Slavery"
+  },
+  {
+    "rank": 7,
+    "item_id": 3742,
+    "item_name": "Hitch-22: A Memoir"
+  },
+  {
+    "rank": 8,
+    "item_id": 5559,
+    "item_name": "My Story"
+  },
+  {
+    "rank": 9,
+    "item_id": 3025,
+    "item_name": "The Zookeeper's Wife: A War Story"
+  },
+  {
+    "rank": 10,
+    "item_id": 6130,
+    "item_name": "The Searchers: The Making of an American Legend"
+  },
+  {
+    "rank": 11,
+    "item_id": 4142,
+    "item_name": "Cat Sense: How the New Feline Science Can Make You a Better Friend to Your Pet"
+  },
+  {
+    "rank": 12,
+    "item_id": 517,
+    "item_name": "Dear Cary: My Life with Cary Grant"
+  },
+  {
+    "rank": 13,
+    "item_id": 5829,
+    "item_name": "Ava Gardner: The Secret Conversations"
+  },
+  {
+    "rank": 14,
+    "item_id": 2898,
+    "item_name": "Out of Order: Stories from the History of the Supreme Court"
+  },
+  {
+    "rank": 15,
+    "item_id": 1431,
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "rank": 16,
+    "item_id": 5376,
+    "item_name": "Lady Fiasco (Zebra Regency Romance)"
+  },
+  {
+    "rank": 17,
+    "item_id": 5982,
+    "item_name": "If You Lived Here, I'd Know Your Name: News from Small-Town Alaska"
+  },
+  {
+    "rank": 18,
+    "item_id": 1531,
+    "item_name": "Destiny of the Republic: A Tale of Madness, Medicine and the Murder of a President"
+  },
+  {
+    "rank": 19,
+    "item_id": 2899,
+    "item_name": "So Far from God"
+  },
+  {
+    "rank": 20,
+    "item_id": 5671,
+    "item_name": "The Devil in Pew Number Seven"
+  },
+  {
+    "rank": 21,
+    "item_id": 1271,
+    "item_name": "Jonathan Edwards: A Life"
+  },
+  {
+    "rank": 22,
+    "item_id": 1994,
+    "item_name": "The Goldfinch: A Novel (Pulitzer Prize for Fiction)"
+  },
+  {
+    "rank": 23,
+    "item_id": 5304,
+    "item_name": "My Lunches with Orson: Conversations between Henry Jaglom and Orson Welles"
+  },
+  {
+    "rank": 24,
+    "item_id": 2040,
+    "item_name": "Grant Takes Command: 1863 - 1865"
+  },
+  {
+    "rank": 25,
+    "item_id": 1468,
+    "item_name": "Revolutionary Summer: The Birth of American Independence"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

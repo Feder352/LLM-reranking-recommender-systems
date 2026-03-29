@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Harper and the Night Forest"
+  },
+  {
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "item_name": "5 Steps to a 5: AP Biology 2018"
+  },
+  {
+    "item_name": "5 Steps to a 5: AP Spanish Language and Culture with MP3 Disk 2018"
+  },
+  {
+    "item_name": "GED Test Prep 2018: 2 Practice Tests + Proven Strategies (Kaplan Test Prep)"
+  },
+  {
+    "item_name": "The Beautiful Lost"
+  },
+  {
+    "item_name": "The Storm Before the Storm: The Beginning of the End of the Roman Republic"
+  },
+  {
+    "item_name": "Hue 1968: A Turning Point of the American War in Vietnam"
+  },
+  {
+    "item_name": "Unbelievable: My Front-Row Seat to the Craziest Campaign in American History"
+  },
+  {
+    "item_name": "The Kite Runner"
+  },
+  {
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "item_name": "Ghost Wars: The Secret History of the CIA, Afghanistan, and Bin Laden, from the Soviet Invasion to September 10, 2001"
+  },
+  {
+    "item_name": "Ghosts"
+  },
+  {
+    "item_name": "Ghosts"
+  },
+  {
+    "item_name": "How Democracies Die"
+  },
+  {
+    "item_name": "Blue Is the Warmest Color"
+  },
+  {
+    "item_name": "Roller Girl"
+  },
+  {
+    "item_name": "Collusion: Secret Meetings, Dirty Money, and How Russia Helped Donald Trump Win"
+  },
+  {
+    "item_name": "Drift: The Unmooring of American Military Power"
+  },
+  {
+    "item_name": "What They Didn't Teach You in Art School: How to survive as an artist in the real world"
+  },
+  {
+    "item_name": "Battle Angel Alita Mars Chronicle 1"
+  },
+  {
+    "item_name": "All Waiting Is Long"
+  },
+  {
+    "item_name": "El Deafo (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "Darth Vader and Son"
+  },
+  {
+    "item_name": "It's Even Worse Than You Think: What the Trump Administration Is Doing to America"
+  },
+  {
+    "item_name": "Vader's Little Princess"
+  },
+  {
+    "item_name": "Yuge!: 30 Years of Doonesbury on Trump"
+  },
+  {
+    "item_name": "Wonder Woman: Warbringer (DC Icons Series)"
+  },
+  {
+    "item_name": "Step-by-Step Problem Solving, Grade 5 (Singapore Math)"
+  },
+  {
+    "item_name": "Singapore Math Practice, Level 5A, Grade 6"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Against the Country"
+  },
+  {
+    "rank": 2,
+    "item_name": "Battleship: A Daring Heiress, a Teenage Jockey, and America's Horse"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "rank": 4,
+    "item_name": "Dirt"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Wild Ones"
+  },
+  {
+    "rank": 6,
+    "item_name": "Fire in the Ashes: Twenty-Five Years Among the Poorest Children in America"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Dalai Lama's Cat"
+  },
+  {
+    "rank": 8,
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The People of Forever Are Not Afraid: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Where I Belong"
+  },
+  {
+    "rank": 11,
+    "item_name": "Playing House: Notes of a Reluctant Mother"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Oregon Trail: A New American Journey"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Edge (A Peak Marcello Adventure)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Francis Miracle: Inside the Transformation of the Pope and the Church"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Burn Pits: The Poisoning of America's Soldiers"
+  },
+  {
+    "rank": 16,
+    "item_name": "Mosquitoland"
+  },
+  {
+    "rank": 17,
+    "item_name": "Little Demon in the City of Light: A True Story of Murder in Belle poque Paris"
+  },
+  {
+    "rank": 18,
+    "item_name": "Brave Genius: A Scientist, a Philosopher, and Their Daring Adventures from the French Resistance to the Nobel Prize"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Predator Paradox: Ending the War with Wolves, Bears, Cougars, and Coyotes"
+  },
+  {
+    "rank": 20,
+    "item_name": "Mindwise: How We Understand What Others Think, Believe, Feel, and Want"
+  },
+  {
+    "rank": 21,
+    "item_name": "Vivian Apple Needs a Miracle"
+  },
+  {
+    "rank": 22,
+    "item_name": "Odessa Again"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Bohemians: Mark Twain and the San Francisco Writers Who Reinvented American Literature"
+  },
+  {
+    "rank": 24,
+    "item_name": "Seattle City of Literature: Reflections from a Community of Writers"
+  },
+  {
+    "rank": 25,
+    "item_name": "Black Flags: The Rise of ISIS"
+  },
+  {
+    "rank": 26,
+    "item_name": "Chasing Chaos: My Decade In and Out of Humanitarian Aid"
+  },
+  {
+    "rank": 27,
+    "item_name": "Poisoned: How a Crime-Busting Prosecutor Turned His Medical Mystery into a Crusade for Environmental Victims"
+  },
+  {
+    "rank": 28,
+    "item_name": "Bitter Remains: A Custody Battle, A Gruesome Crime, and the Mother Who Paid the Ultimate Price"
+  },
+  {
+    "rank": 29,
+    "item_name": "When the Facts Change: Essays, 1995-2010"
+  },
+  {
+    "rank": 30,
+    "item_name": "Reply to a Letter from Helga"
+  },
+  {
+    "rank": 31,
+    "item_name": "Children of the Stone: The Power of Music in a Hard Land"
+  },
+  {
+    "rank": 32,
+    "item_name": "The True Source of Healing: How the Ancient Tibetan Practice of Soul Retrieval Can Transform and Enrich Your Life"
+  },
+  {
+    "rank": 33,
+    "item_name": "Penelope Fitzgerald: A Life"
+  },
+  {
+    "rank": 34,
+    "item_name": "Muse: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Hyacinth Girls: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Poser: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Good Girl: A Memoir"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Making of Home: The 500-Year Story of How Our Houses Became Our Homes"
+  },
+  {
+    "rank": 39,
+    "item_name": "Cut Me Loose: Sin and Salvation After My Ultra-Orthodox Girlhood"
+  },
+  {
+    "rank": 40,
+    "item_name": "Space Case (Moon Base Alpha)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Enchanted August: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "I Left It on the Mountain: A Memoir"
+  },
+  {
+    "rank": 43,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 44,
+    "item_name": "Lusitania: Triumph, Tragedy, and the End of the Edwardian Age"
+  },
+  {
+    "rank": 45,
+    "item_name": "Cuckoo Feathers (Simply Sarah)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Braving It: A Father, a Daughter, and an Unforgettable Journey into the Alaskan Wild"
+  },
+  {
+    "rank": 47,
+    "item_name": "Crow"
+  },
+  {
+    "rank": 48,
+    "item_name": "Stringer: A Reporter's Journey in the Congo"
+  },
+  {
+    "rank": 49,
+    "item_name": "Five Star Billionaire: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Fire and Ice: Soot, Solidarity, and Survival on the Roof of the World"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Selected Religious Poems of Solomon ibn Gabirol (JPS Library of Jewish Classics)"
+  },
+  {
+    "item_name": "Memories, Dreams, Reflections (Flamingo)"
+  },
+  {
+    "item_name": "Liberal Fascism: The Secret History of the Left from Mussolini to the Politics of Meaning"
+  },
+  {
+    "item_name": "They Must Be Stopped: Why We Must Defeat Radical Islam and How We Can Do It"
+  },
+  {
+    "item_name": "Liberal Fascism: The Secret History of the Left from Mussolini to the Politics of Meaning"
+  },
+  {
+    "item_name": "The Road to Serfdom: Fiftieth Anniversary Edition"
+  },
+  {
+    "item_name": "Faithfull: An Autobiography"
+  },
+  {
+    "item_name": "Muhammad: Prophet for Our Time"
+  },
+  {
+    "item_name": "Edinburgh and Dore Lectures on Mental Science"
+  },
+  {
+    "item_name": "The Creative Process in the Individual"
+  },
+  {
+    "item_name": "Philosophy: Who Needs It"
+  },
+  {
+    "item_name": "Philosophy: Who Needs It"
+  },
+  {
+    "item_name": "The True Believer: Thoughts on the Nature of Mass Movements (Perennial Classics)"
+  },
+  {
+    "item_name": "The Power of Your Subconcious Mind"
+  },
+  {
+    "item_name": "From Time Immemorial: The Origins of the Arab-Jewish Conflict over Palestine"
+  },
+  {
+    "item_name": "Reflections on the Revolution In Europe: Immigration, Islam and the West"
+  },
+  {
+    "item_name": "The Hidden Book in the Bible"
+  },
+  {
+    "item_name": "The Gnostic Gospels"
+  },
+  {
+    "item_name": "The Gnostic Gospels"
+  },
+  {
+    "item_name": "Salvation on Sand Mountain: Snake-Handling and Redemption in Southern Appalachia"
+  },
+  {
+    "item_name": "Symbolism: Its Meaning and Effect (New Edition) (Barbour-Page Lectures, University of Virginia, 1927)"
+  },
+  {
+    "item_name": "Symbolism: Its Meaning and Effect (New Edition) (Barbour-Page Lectures, University of Virginia, 1927)"
+  },
+  {
+    "item_name": "Tenured Radicals: How Politics Has Corrupted Higher Education"
+  },
+  {
+    "item_name": "The Varieties of Religious Experience: A Study in Human Nature (Penguin American Library)"
+  },
+  {
+    "item_name": "The World Turned Upside Down: The Global Battle over God, Truth, and Power"
+  },
+  {
+    "item_name": "Nomad: From Islam to America: A Personal Journey Through the Clash of Civilizations"
+  },
+  {
+    "item_name": "The Prophets (Perennial Classics)"
+  },
+  {
+    "item_name": "Memories, Dreams, Reflections (Flamingo)"
+  },
+  {
+    "item_name": "Faithfull: An Autobiography"
+  },
+  {
+    "item_name": "Forged: Writing in the Name of God--Why the Bible's Authors Are Not Who We Think They Are"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 2,
+    "item_name": "Why Evolution Is True"
+  },
+  {
+    "rank": 3,
+    "item_name": "Race Matters"
+  },
+  {
+    "rank": 4,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Cosmic Landscape: String Theory and the Illusion of Intelligent Design"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 7,
+    "item_name": "Eichmann in Jerusalem, A Report on the Banality of Evil"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Grand Jihad: How Islam and the Left Sabotage America"
+  },
+  {
+    "rank": 9,
+    "item_name": "Do As I Say (Not As I Do): Profiles in Liberal Hypocrisy"
+  },
+  {
+    "rank": 10,
+    "item_name": "Against Interpretation: And Other Essays"
+  },
+  {
+    "rank": 11,
+    "item_name": "The End of Oil: On the Edge of a Perilous New World"
+  },
+  {
+    "rank": 12,
+    "item_name": "Wittgenstein's Poker: The Story of a Ten-Minute Argument Between Two Great Philosophers"
+  },
+  {
+    "rank": 13,
+    "item_name": "Rare Earth: Why Complex Life is Uncommon in the Universe"
+  },
+  {
+    "rank": 14,
+    "item_name": "Victory of Reason"
+  },
+  {
+    "rank": 15,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 16,
+    "item_name": "Six Days of War: June 1967 and the Making of the Modern Middle East"
+  },
+  {
+    "rank": 17,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 18,
+    "item_name": "Rush Limbaugh Is a Big Fat Idiot : And Other Observations"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Universe from Nothing: Why There Is Something Rather than Nothing"
+  },
+  {
+    "rank": 20,
+    "item_name": "A New Kind of Science"
+  },
+  {
+    "rank": 21,
+    "item_name": "Atlas Shrugged"
+  },
+  {
+    "rank": 22,
+    "item_name": "Fabric Of Reality (Penguin Science)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Age of Turbulence: Adventures in a New World"
+  },
+  {
+    "rank": 24,
+    "item_name": "The 48 Laws of Power"
+  },
+  {
+    "rank": 25,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 26,
+    "item_name": "History of the Peloponnesian War"
+  },
+  {
+    "rank": 27,
+    "item_name": "Being A Dad: The Stuff No One Told Me"
+  },
+  {
+    "rank": 28,
+    "item_name": "Ex-Friends: Falling Out with Allen Ginsberg, Lionel and Diana Trilling, Lillian Hellman, Hannah Arendt and Norman Mailer"
+  },
+  {
+    "rank": 29,
+    "item_name": "Christless Christianity: The Alternative Gospel of the American Church"
+  },
+  {
+    "rank": 30,
+    "item_name": "Strange Victory: Hitler's Conquest of France"
+  },
+  {
+    "rank": 31,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 32,
+    "item_name": "Big Coal: The Dirty Secret Behind America's Energy Future"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Bell Curve: Intelligence and Class Structure in American Life"
+  },
+  {
+    "rank": 34,
+    "item_name": "Jihad Incorporated: A Guide to Militant Islam in the Us"
+  },
+  {
+    "rank": 35,
+    "item_name": "Darwinism and its Discontents"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Professors:  The 101 Most Dangerous Academics in America"
+  },
+  {
+    "rank": 37,
+    "item_name": "Evolution vs. Creationism: An Introduction"
+  },
+  {
+    "rank": 38,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 39,
+    "item_name": "Bobos in Paradise: The New Upper Class and How They Got There"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Open Society and its Enemies: Hegel and Marx (Routledge Classics) (Vol 2)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Countdown to Crisis: The Coming Nuclear Showdown with Iran"
+  },
+  {
+    "rank": 42,
+    "item_name": "At Any Cost: How Al Gore Tried to Steal the Election"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Death of Feminism: What's Next in the Struggle for Women's Freedom"
+  },
+  {
+    "rank": 44,
+    "item_name": "Useful Idiots: How Liberals Got It Wrong in the Cold War and Still Blame America First"
+  },
+  {
+    "rank": 45,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 46,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 47,
+    "item_name": "Winning the Future: A 21st Century Contract with America"
+  },
+  {
+    "rank": 48,
+    "item_name": "Red Star Rogue: The Untold Story of a Soviet Submarine's Nuclear Strike Attempt on the U.S."
+  },
+  {
+    "rank": 49,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 50,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

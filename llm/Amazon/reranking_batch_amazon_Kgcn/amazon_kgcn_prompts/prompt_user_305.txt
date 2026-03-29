@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Coming Apart: The State of White America, 1960-2010"
+  },
+  {
+    "item_name": "No Matter What...They'll Call This Book Racist: How our Fear of Talking Honestly About Race Hurts Us All"
+  },
+  {
+    "item_name": "The Tyranny of Cliches: How Liberals Cheat in the War of Ideas"
+  },
+  {
+    "item_name": "The Amateur: Barack Obama in the White House"
+  },
+  {
+    "item_name": "Wheat Belly: The Effortless Health and Weight-Loss Solution - No Exercise, No Calorie Counting, No Denial"
+  },
+  {
+    "item_name": "The Second World War"
+  },
+  {
+    "item_name": "Blacklisted by History: The Untold Story of Senator Joe McCarthy and His Fight Against America's Enemies"
+  },
+  {
+    "item_name": "The Real Crash"
+  },
+  {
+    "item_name": "The Higher Education Bubble (Encounter Broadside)"
+  },
+  {
+    "item_name": "Obama's America: Unmaking the American Dream"
+  },
+  {
+    "item_name": "The Short Stories: The First Forty-nine Stories with a Brief Preface by the Author"
+  },
+  {
+    "item_name": "Iron Curtain: The Crushing of Eastern Europe, 1944-1956"
+  },
+  {
+    "item_name": "Life at the Bottom: The Worldview that Makes the Underclass"
+  },
+  {
+    "item_name": "Former People. The Destruction of the Russian Aristocracy"
+  },
+  {
+    "item_name": "Ivan's War: Life and Death in the Red Army, 1939-1945"
+  },
+  {
+    "item_name": "The K-12 Implosion (Encounter Broadside)"
+  },
+  {
+    "item_name": "Ship It Holla Ballas!: How a Bunch of 19-Year-Old College Dropouts Used the Internet to Become Poker's Loudest, Craziest, and Richest Crew"
+  },
+  {
+    "item_name": "Fooled By Randomness: The Hidden Role of Chance in Life and in the Markets"
+  },
+  {
+    "item_name": "Rush Limbaugh: An Army of One"
+  },
+  {
+    "item_name": "Special Tasks"
+  },
+  {
+    "item_name": "Men on Strike: Why Men Are Boycotting Marriage, Fatherhood, and the American Dream - and Why It Matters"
+  },
+  {
+    "item_name": "The Days of the French Revolution"
+  },
+  {
+    "item_name": "Hitler's Most Controversial General"
+  },
+  {
+    "item_name": "Moscow, 1937"
+  },
+  {
+    "item_name": "The Outsider: A Memoir"
+  },
+  {
+    "item_name": "Open: An Autobiography"
+  },
+  {
+    "item_name": "The Liberty Amendments: Restoring the American Republic"
+  },
+  {
+    "item_name": "The Noble Hustle: Poker, Beef Jerky and Death"
+  },
+  {
+    "item_name": "The Devils Pleasure Palace: The Cult of Critical Theory and the Subversion of the West"
+  },
+  {
+    "item_name": "Everybody Lies: Big Data, New Data, and What the Internet Can Tell Us About Who We Really Are"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 2,
+    "item_id": 3005,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 3,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 4,
+    "item_id": 4441,
+    "item_name": "How the Scots Invented the Modern World: The True Story of How Western Europe's Poorest Nation Created Our World and Everything in It"
+  },
+  {
+    "rank": 5,
+    "item_id": 859,
+    "item_name": "The Black Swan: The Impact of the Highly Improbable"
+  },
+  {
+    "rank": 6,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 7,
+    "item_id": 882,
+    "item_name": "Getting Things Done: The Art of Stress-Free Productivity"
+  },
+  {
+    "rank": 8,
+    "item_id": 5272,
+    "item_name": "Freethinkers: A History of American Secularism"
+  },
+  {
+    "rank": 9,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 10,
+    "item_id": 1122,
+    "item_name": "Drive: The Surprising Truth About What Motivates Us"
+  },
+  {
+    "rank": 11,
+    "item_id": 811,
+    "item_name": "Black Hawk Down: A Story of Modern War"
+  },
+  {
+    "rank": 12,
+    "item_id": 2914,
+    "item_name": "Papal Sin: Structures of Deceit"
+  },
+  {
+    "rank": 13,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 14,
+    "item_id": 2907,
+    "item_name": "Case Closed: Lee Harvey Oswald and the Assassination of JFK"
+  },
+  {
+    "rank": 15,
+    "item_id": 51,
+    "item_name": "The Bell Curve: Intelligence and Class Structure in American Life"
+  },
+  {
+    "rank": 16,
+    "item_id": 1097,
+    "item_name": "The World Until Yesterday: What Can We Learn from Traditional Societies?"
+  },
+  {
+    "rank": 17,
+    "item_id": 2945,
+    "item_name": "Factory Girls: From Village to City in a Changing China"
+  },
+  {
+    "rank": 18,
+    "item_id": 1297,
+    "item_name": "American Creation: Triumphs and Tragedies at the Founding of the Republic"
+  },
+  {
+    "rank": 19,
+    "item_id": 512,
+    "item_name": "Pinheads and Patriots: Where You Stand in the Age of Obama"
+  },
+  {
+    "rank": 20,
+    "item_id": 1061,
+    "item_name": "The Gamble: General Petraeus and the American Military Adventure in Iraq"
+  },
+  {
+    "rank": 21,
+    "item_id": 1503,
+    "item_name": "War of the Worldviews: Science Vs. Spirituality"
+  },
+  {
+    "rank": 22,
+    "item_id": 1372,
+    "item_name": "Imperial Life in The Emerald City: Inside Iraq's Green Zone"
+  },
+  {
+    "rank": 23,
+    "item_id": 136,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 24,
+    "item_id": 4595,
+    "item_name": "The Crisis of Islam: Holy War and Unholy Terror"
+  },
+  {
+    "rank": 25,
+    "item_id": 4522,
+    "item_name": "Truman"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

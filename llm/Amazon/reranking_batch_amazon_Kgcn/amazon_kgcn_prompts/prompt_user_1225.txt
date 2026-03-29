@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Gray Rhino: How to Recognize and Act on the Obvious Dangers We Ignore"
+  },
+  {
+    "item_name": "The Art of Authenticity: Tools to Become an Authentic Leader and Your Best Self"
+  },
+  {
+    "item_name": "No Fears, No Excuses: What You Need to Do to Have a Great Career"
+  },
+  {
+    "item_name": "Winning the Brain Game: Fixing the 7 Fatal Flaws of Thinking"
+  },
+  {
+    "item_name": "Ego Is the Enemy"
+  },
+  {
+    "item_name": "Write Your Tale Off!"
+  },
+  {
+    "item_name": "The 100-Year Life: Living and Working in an Age of Longevity"
+  },
+  {
+    "item_name": "Emotional Agility"
+  },
+  {
+    "item_name": "Mad Enchantment: Claude Monet and the Painting of the Water Lilies"
+  },
+  {
+    "item_name": "Draw to Win: A Crash Course on How to Lead, Sell, and Innovate With Your Visual Mind"
+  },
+  {
+    "item_name": "Pre-Suasion: A Revolutionary Way to Influence and Persuade"
+  },
+  {
+    "item_name": "Worthy: Boost Your Self-Worth to Grow Your Net Worth"
+  },
+  {
+    "item_name": "Meditation: A Simple Eight-Point Program for Translating Spiritual Ideals into Daily Life"
+  },
+  {
+    "item_name": "The Power of Meaning: Crafting a Life That Matters"
+  },
+  {
+    "item_name": "The Light and Fast Organisation"
+  },
+  {
+    "item_name": "Building the Internet of Things: Implement New Business Models, Disrupt Competitors, Transform Your Industry"
+  },
+  {
+    "item_name": "Reach: A New Strategy to Help You Step Outside Your Comfort Zone, Rise to the Challenge and Build Confidence"
+  },
+  {
+    "item_name": "Accelerating Performance: How Organizations Can Mobilize, Execute, and Transform with Agility"
+  },
+  {
+    "item_name": "There Are No Overachievers: Seizing Your Windows of Opportunity to Do More Than You Thought Possible"
+  },
+  {
+    "item_name": "Born to Win Find Your Success Code"
+  },
+  {
+    "item_name": "Gender, Politics, News: A Game of Three Sides"
+  },
+  {
+    "item_name": "The Innovation Revolution: Discover the Genius Hiding in Plain Sight"
+  },
+  {
+    "item_name": "The Memo: Five Rules for Your Economic Liberation"
+  },
+  {
+    "item_name": "You, Disrupted: Seizing the Life You Want by Shaking, Breaking, and Challenging Everything"
+  },
+  {
+    "item_name": "Reach Out: The Simple Strategy You Need to Expand Your Network and Increase Your Influence"
+  },
+  {
+    "item_name": "KJV, The King James Study Bible, Bonded Leather, Burgundy, Red Letter, Full-Color Edition"
+  },
+  {
+    "item_name": "The Culture Code: The Secrets of Highly Successful Groups"
+  },
+  {
+    "item_name": "Willpower Doesn't Work: Discover the Hidden Keys to Success"
+  },
+  {
+    "item_name": "Elastic: Flexible Thinking in a Time of Change"
+  },
+  {
+    "item_name": "Mistakes Were Made (But Not by Me): Why We Justify Foolish Beliefs, Bad Decisions, and Hurtful Acts"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1559,
+    "item_name": "The Case for a Creator"
+  },
+  {
+    "rank": 2,
+    "item_id": 5230,
+    "item_name": "Over Time: My Life as a Sportswriter"
+  },
+  {
+    "rank": 3,
+    "item_id": 5803,
+    "item_name": "Salinger"
+  },
+  {
+    "rank": 4,
+    "item_id": 6053,
+    "item_name": "The Prosecution of George W. Bush for Murder"
+  },
+  {
+    "rank": 5,
+    "item_id": 1238,
+    "item_name": "The Overflowing Brain: Information Overload and the Limits of Working Memory"
+  },
+  {
+    "rank": 6,
+    "item_id": 859,
+    "item_name": "The Black Swan: The Impact of the Highly Improbable"
+  },
+  {
+    "rank": 7,
+    "item_id": 584,
+    "item_name": "Stasiland: Stories from Behind the Berlin Wall"
+  },
+  {
+    "rank": 8,
+    "item_id": 1007,
+    "item_name": "The Wal-Mart Effect: How the World's Most Powerful Company Really Works--and HowIt's Transforming the  American Economy"
+  },
+  {
+    "rank": 9,
+    "item_id": 745,
+    "item_name": "Rebound: A Proven Plan for Starting Over After Job Loss"
+  },
+  {
+    "rank": 10,
+    "item_id": 4735,
+    "item_name": "Authentic Happiness: Using the New Positive Psychology to Realize Your Potential for Lasting Fulfillment"
+  },
+  {
+    "rank": 11,
+    "item_id": 6002,
+    "item_name": "Perfect Madness: Motherhood in the Age of Anxiety"
+  },
+  {
+    "rank": 12,
+    "item_id": 5214,
+    "item_name": "The Great Emergence: How Christianity Is Changing and Why (Emergent Village Resources for Communities of Faith)"
+  },
+  {
+    "rank": 13,
+    "item_id": 68,
+    "item_name": "The Paradox of Choice: Why More Is Less"
+  },
+  {
+    "rank": 14,
+    "item_id": 1235,
+    "item_name": "The Accidental Guerrilla: Fighting Small Wars in the Midst of a Big One"
+  },
+  {
+    "rank": 15,
+    "item_id": 1232,
+    "item_name": "Goddess of the Market: Ayn Rand and the American Right"
+  },
+  {
+    "rank": 16,
+    "item_id": 2937,
+    "item_name": "Seminary Boy: A Memoir"
+  },
+  {
+    "rank": 17,
+    "item_id": 1375,
+    "item_name": "The Case Against Homework: How Homework Is Hurting Our Children and What We Can Do About It"
+  },
+  {
+    "rank": 18,
+    "item_id": 4861,
+    "item_name": "God's Undertaker: Has Science Buried God?"
+  },
+  {
+    "rank": 19,
+    "item_id": 983,
+    "item_name": "The Journey of Crazy Horse: A Lakota History"
+  },
+  {
+    "rank": 20,
+    "item_id": 1040,
+    "item_name": "The Assault on Reason: Our Information Ecosystem, from the Age of Print to the Age of Trump"
+  },
+  {
+    "rank": 21,
+    "item_id": 3742,
+    "item_name": "Hitch-22: A Memoir"
+  },
+  {
+    "rank": 22,
+    "item_id": 5797,
+    "item_name": "The Roots of Obama's Rage"
+  },
+  {
+    "rank": 23,
+    "item_id": 3066,
+    "item_name": "End This Depression Now!"
+  },
+  {
+    "rank": 24,
+    "item_id": 2624,
+    "item_name": "Culture Warrior (Random House Large Print)"
+  },
+  {
+    "rank": 25,
+    "item_id": 6079,
+    "item_name": "Now They Call Me Infidel: Why I Renounced Jihad for America, Israel, and the War on Terror"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

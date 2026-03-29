@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "52 Small Changes: One Year to a Happier, Healthier You"
+  },
+  {
+    "item_name": "The Garner Files: A Memoir (Thorndike Press Large Print Biography Series)"
+  },
+  {
+    "item_name": "Sonoma Rose (Elm Creek Quilts)"
+  },
+  {
+    "item_name": "The Great Northern Express: A Writer's Journey Home"
+  },
+  {
+    "item_name": "Blues Highway Blues (A Crossroads Thriller)"
+  },
+  {
+    "item_name": "Take A Shot!: A Remarkable Story of Perseverance, Friendship, and a Really Crazy Adventure"
+  },
+  {
+    "item_name": "Buffalo Bill's Dead Now (A Wind River Mystery)"
+  },
+  {
+    "item_name": "Christmas at Eagle Pond"
+  },
+  {
+    "item_name": "From Germany to Germany: Diary 1990"
+  },
+  {
+    "item_name": "The Little Bookstore of Big Stone Gap: A Memoir of Friendship, Community, and the Uncommon Pleasure of a Good Book"
+  },
+  {
+    "item_name": "Good Prose: The Art of Nonfiction"
+  },
+  {
+    "item_name": "A Friendly Game of Murder: An Algonquin Round Table Mystery"
+  },
+  {
+    "item_name": "Kinsey and Me: Stories"
+  },
+  {
+    "item_name": "You Might As Well Die: An Algonquin Round Table Mystery"
+  },
+  {
+    "item_name": "Margaret Fuller: A New American Life"
+  },
+  {
+    "item_name": "The Union Street Bakery (A Union Street Bakery Novel)"
+  },
+  {
+    "item_name": "Minnesota Recreation Atlas (National Geographic Recreation Atlas)"
+  },
+  {
+    "item_name": "Blind Curves: &nbsp;One Woman's Unusual Journey to Reinvent Herself and Answer: What Now?"
+  },
+  {
+    "item_name": "Let It Be"
+  },
+  {
+    "item_name": "Custer's Last Battle: Red Hawk's Account of the Battle of the Little Bighorn"
+  },
+  {
+    "item_name": "W is for Wasted"
+  },
+  {
+    "item_name": "Give Yourself a Raise: how to have more money, less stress, financial freedom"
+  },
+  {
+    "item_name": "The Spymistress: A Novel"
+  },
+  {
+    "item_name": "Out on a Limb: What Black Bears Have Taught Me about Intelligence and Intuition"
+  },
+  {
+    "item_name": "The Homing Instinct: Meaning and Mystery in Animal Migration"
+  },
+  {
+    "item_name": "The Gifted: How to Live the Life of Your Dreams"
+  },
+  {
+    "item_name": "Some Luck (The Last Hundred Years Trilogy: A Family Saga)"
+  },
+  {
+    "item_name": "Death at Chinatown (Emily Cabot Mysteries) (Volume 5)"
+  },
+  {
+    "item_name": "The Happiness of Pursuit: Finding the Quest That Will Bring Purpose to Your Life"
+  },
+  {
+    "item_name": "Thoreau in Phantom Bog (A Henry David Thoreau Mystery)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 713,
+    "item_name": "Cutting for Stone: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_id": 2049,
+    "item_name": "The Lincoln Lawyer (Large Print)"
+  },
+  {
+    "rank": 3,
+    "item_id": 2619,
+    "item_name": "The Rescue (Random House Large Print)"
+  },
+  {
+    "rank": 4,
+    "item_id": 699,
+    "item_name": "Atonement"
+  },
+  {
+    "rank": 5,
+    "item_id": 1490,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_id": 1342,
+    "item_name": "The Miracle at Speedy Motors (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "rank": 7,
+    "item_id": 2221,
+    "item_name": "The Accidental Tourist: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_id": 916,
+    "item_name": "Year of Wonders: A Novel of the Plague"
+  },
+  {
+    "rank": 9,
+    "item_id": 895,
+    "item_name": "The Secret Life of Bees"
+  },
+  {
+    "rank": 10,
+    "item_id": 1116,
+    "item_name": "The Pillars of the Earth"
+  },
+  {
+    "rank": 11,
+    "item_id": 4286,
+    "item_name": "American Wife"
+  },
+  {
+    "rank": 12,
+    "item_id": 1946,
+    "item_name": "A Wedding in December: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_id": 221,
+    "item_name": "Shakespeare: The World as Stage (Eminent Lives)"
+  },
+  {
+    "rank": 14,
+    "item_id": 694,
+    "item_name": "House of Sand and Fog (Oprah's Book Club)"
+  },
+  {
+    "rank": 15,
+    "item_id": 15,
+    "item_name": "The Namesake"
+  },
+  {
+    "rank": 16,
+    "item_id": 2253,
+    "item_name": "Saving Fish from Drowning"
+  },
+  {
+    "rank": 17,
+    "item_id": 1125,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 18,
+    "item_id": 1295,
+    "item_name": "Whitethorn Woods"
+  },
+  {
+    "rank": 19,
+    "item_id": 3113,
+    "item_name": "Interpreter of Maladies"
+  },
+  {
+    "rank": 20,
+    "item_id": 954,
+    "item_name": "Fall of Giants (The Century Trilogy)"
+  },
+  {
+    "rank": 21,
+    "item_id": 105,
+    "item_name": "Moment of Truth"
+  },
+  {
+    "rank": 22,
+    "item_id": 4642,
+    "item_name": "City of Dreams: A Novel of Nieuw Amsterdam and Early Manhattan"
+  },
+  {
+    "rank": 23,
+    "item_id": 697,
+    "item_name": "The Last Juror"
+  },
+  {
+    "rank": 24,
+    "item_id": 1730,
+    "item_name": "Heartsick (Archie Sheridan &amp; Gretchen Lowell)"
+  },
+  {
+    "rank": 25,
+    "item_id": 4622,
+    "item_name": "The Christmas Box"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

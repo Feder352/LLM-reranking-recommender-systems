@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Apple Pie With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 3)"
+  },
+  {
+    "item_name": "The Ghost King: A Thrilling Dystopian Fantasy (Red Death)"
+  },
+  {
+    "item_name": "In a Time of Torment"
+  },
+  {
+    "item_name": "My Not So Perfect Life: A Novel"
+  },
+  {
+    "item_name": "Holidays Can Be Murder: A Charlie Parker Christmas Mystery"
+  },
+  {
+    "item_name": "The Couple Next Door"
+  },
+  {
+    "item_name": "The couple next door."
+  },
+  {
+    "item_name": "Tarte Tatin Murder: A Seagrass Sweets Cozy Mystery (Book 2) (Seagrass Sweets Cozy Mystery Series) (Volume 2)"
+  },
+  {
+    "item_name": "Silent Fear (A novel inspired by true crimes)"
+  },
+  {
+    "item_name": "Dead in the Water (Welcome Back to Scumble River)"
+  },
+  {
+    "item_name": "The Long Way Home"
+  },
+  {
+    "item_name": "Hardheaded (Deep in the Heart)"
+  },
+  {
+    "item_name": "Murder at Dolphin Bay (Sand and Sea Hawaiian Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "The Car Bomb (The detroit im dyin Trilogy, Book 1)"
+  },
+  {
+    "item_name": "Murder in the Mountains: A Rocky Mountain Cozy Mystery (Rocky Mountain Cozy Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "Dark Matter"
+  },
+  {
+    "item_name": "Sweet Tomorrows: A Rose Harbor Novel"
+  },
+  {
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "item_name": "Focus on Love"
+  },
+  {
+    "item_name": "Lemon Bars With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 4)"
+  },
+  {
+    "item_name": "Better Off Wed: An Annabelle Archer Mystery"
+  },
+  {
+    "item_name": "Southern Fried Sushi: A Novel"
+  },
+  {
+    "item_name": "Softhearted (Deep in the Heart)"
+  },
+  {
+    "item_name": "The Widow of Rose Hill"
+  },
+  {
+    "item_name": "Big Sick Heart: A Detectives Seagate and Miner Mystery"
+  },
+  {
+    "item_name": "Zero Day: A Novel (The Hatching Series)"
+  },
+  {
+    "item_name": "Love and Other Words"
+  },
+  {
+    "item_name": "Chopped: A Diana Hunter Mystery (Diana Hunter Mystery Series) (Volume 4)"
+  },
+  {
+    "item_name": "Stolen: A Diana Hunter Mystery (Diana Hunter Mystery Series) (Volume 3)"
+  },
+  {
+    "item_name": "The Spring Cleaning Murders - An Ellie Haskell Mystery (Signed Copy)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Fixin' To Die (A Kenni Lowry Mystery) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Romeow and Juliet (Whales and Tails Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 4,
+    "item_name": "A Muddied Murder (A Greenhouse Mystery) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Elusive (On The Run International Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Deep End (The Country Club Murders) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Desperate Housedogs: Pampered Pets Mystery Series, Book 1"
+  },
+  {
+    "rank": 8,
+    "item_name": "Dead Wrong (Blackmoore Sisters Cozy Mystery Series) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Double Knot (A Davis Way Crime Caper) (Volume 5)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Chocolate With A Side Of Murder (Daley Buzz Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Chef Maurice and a Spot of Truffle (Chef Maurice Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 13,
+    "item_name": "When the Grits Hit the Fan (A Country Store Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Story to Kill (A Cat Latimer Mystery)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Playing With Poison (Cue Ball Mysteries)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Vengeance is Mine: A Benjamin Tucker Mystery (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Smugglers &amp; Scones (Moorehaven Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "A Dead Husband (Jessica HuntingtonDesert Cities Mystery) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Limoncello Yellow (Franki Amato Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Thread and Gone (A Mainely Needlepoint Mystery)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Southern Fried (A Kenni Lowry Mystery) (Volume 2)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Bearly Departed (A Teddy Bear Mystery)"
+  },
+  {
+    "rank": 23,
+    "item_name": "That Darkness (A Gardiner and Renner Novel)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Amber Project (The Variant Saga) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Clammed Up (A Maine Clambake Mystery)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Drape Expectations (A Caprice De Luca Mystery)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Egg Drop Dead (A Cackleberry Club Mystery)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Still Life in Brunswick Stew (A Cherry Tucker Mystery) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "What She Left Behind"
+  },
+  {
+    "rank": 30,
+    "item_name": "Pane and Suffering (A Webb's Glass Shop Mystery)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Louisiana Longshot: A Miss Fortune Mystery (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Gone but Knot Forgotten (A Quilting Mystery)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Saving Grace (What Doesn't Kill You, #1): A Katie Romantic Mystery"
+  },
+  {
+    "rank": 34,
+    "item_name": "Dead Line (A Cal Murphy Thriller) (Volume 2)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Lowcountry Boneyard (A Liz Talbot Mystery) (Volume 3)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Spare Change: Family Saga (A Wyattsville Novel Book 1) (Series name Family Saga)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Final Sentence (A Cookbook Nook Mystery)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Shades of Murder: A Mac Faraday Mystery"
+  },
+  {
+    "rank": 39,
+    "item_name": "Passing through Perfect: Family Saga (A Wyattsville Novel Book 3) (Series name Family Saga) (Volume 3)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Other Girl: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "No Honor Among Thieves: An Ali Reynolds Novella (Ali Reynolds / Joanna Brady)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Misadventures of the Laundry Hag: Skeletons in the Closet (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Death by Coffee (A Bookstore Cafe Mystery)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Bless Her Dead Little Heart (A Southern Ladies Mystery)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Plantation Shudders: A Cajun Country Mystery"
+  },
+  {
+    "rank": 46,
+    "item_name": "Musseled Out (A Maine Clambake Mystery)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Pumpkins in Paradise: A Tj Jensen Paradise Lake Mystery (Tj Jensen Paradise Lake Mystery Book 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "All-Butter ShortDead (Prequel: Oxford Tearoom Mysteries ~ Book 0)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Blood Orchids"
+  },
+  {
+    "rank": 50,
+    "item_name": "Paint the Town Dead (A Silver Six Mystery)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

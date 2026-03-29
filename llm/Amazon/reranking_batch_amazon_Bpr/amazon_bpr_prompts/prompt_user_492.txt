@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Pinocchio: The Origin Story"
+  },
+  {
+    "item_name": "The Chalk Man"
+  },
+  {
+    "item_name": "The English Wife: A Novel"
+  },
+  {
+    "item_name": "I Am, I Am, I Am: Seventeen Brushes with Death"
+  },
+  {
+    "item_name": "The Firemaker (Murder in China)"
+  },
+  {
+    "item_name": "Auntie Poldi and the Sicilian Lions (An Auntie Poldi Adventure)"
+  },
+  {
+    "item_name": "Lie With Me: the gripping Richard &amp; Judy bestseller - a perfect summer read [Paperback] [Dec 28, 2016] Sabine Durrant"
+  },
+  {
+    "item_name": "The Reading Group"
+  },
+  {
+    "item_name": "H Is For Hawk (Vintage Books)"
+  },
+  {
+    "item_name": "Lola Is Missing: A totally gripping crime thriller (Detective Rachel Prince) (Volume 1)"
+  },
+  {
+    "item_name": "The Perfect Mother: A Novel"
+  },
+  {
+    "item_name": "The Great Alone: A Novel"
+  },
+  {
+    "item_name": "The Grave's a Fine and Private Place: A Flavia de Luce Novel"
+  },
+  {
+    "item_name": "Poison: A Novel (Dismas Hardy)"
+  },
+  {
+    "item_name": "Women in Sunlight: A Novel"
+  },
+  {
+    "item_name": "The Darkling Bride: A Novel"
+  },
+  {
+    "item_name": "Closer Than You Know: A Novel"
+  },
+  {
+    "item_name": "The Family Next Door: A Novel"
+  },
+  {
+    "item_name": "The Dark Angel: The Sunday Times Bestseller (The Dr Ruth Galloway Mysteries)"
+  },
+  {
+    "item_name": "No Safe Place: A gripping thriller with a shocking twist (Detective Lottie Parker) (Volume 4)"
+  },
+  {
+    "item_name": "Eleanor Oliphant is Completely Fine: Debut Sunday Times Bestseller and Costa First Novel Book Award Winner 2017"
+  },
+  {
+    "item_name": "DK Readers L1: LEGO Women of NASA: Space Heroes (DK Readers Level 1)"
+  },
+  {
+    "item_name": "The Romanov Empress: A Novel of Tsarina Maria Feodorovna"
+  },
+  {
+    "item_name": "The Gingerbread Man (Brighter Child Keepsake Stories)"
+  },
+  {
+    "item_name": "Murder on the Left Bank (An Aime Leduc Investigation)"
+  },
+  {
+    "item_name": "Love and Ruin: A Novel"
+  },
+  {
+    "item_name": "A Gathering of Secrets: A Kate Burkholder Novel"
+  },
+  {
+    "item_name": "Us Against You: A Novel (Beartown)"
+  },
+  {
+    "item_name": "Clock Dance: A novel"
+  },
+  {
+    "item_name": "Believe Me: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Light Between Oceans: The heartbreaking Richard and Judy bestseller"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Water's Edge"
+  },
+  {
+    "rank": 5,
+    "item_name": "Case Histories: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Chilbury Ladies' Choir"
+  },
+  {
+    "rank": 7,
+    "item_name": "Rules of Magic"
+  },
+  {
+    "rank": 8,
+    "item_name": "Six Years"
+  },
+  {
+    "rank": 9,
+    "item_name": "Glass Houses (Chief Inspector Gamache)"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Man Called Ove (Thorndike Press Large Print Core Series)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Yard"
+  },
+  {
+    "rank": 12,
+    "item_name": "Like This, For Ever"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Zig Zag Girl (Magic Men Mysteries)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Missing You"
+  },
+  {
+    "rank": 15,
+    "item_name": "Summer House with Swimming Pool: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "Where Monsters Dwell (Odd Singsaker)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Dry Bones: A Longmire Mystery"
+  },
+  {
+    "rank": 18,
+    "item_name": "The chaperone."
+  },
+  {
+    "rank": 19,
+    "item_name": "A Bitter Truth (Bess Crawford Mysteries)"
+  },
+  {
+    "rank": 20,
+    "item_name": "An Impartial Witness: A Bess Crawford Mystery (Bess Crawford Mysteries)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Black Country: Scotland Yard Murder Squad Book 2"
+  },
+  {
+    "rank": 22,
+    "item_name": "Fool Me Once"
+  },
+  {
+    "rank": 23,
+    "item_name": "Before the Fall: The year's best suspense novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Like This, For Ever"
+  },
+  {
+    "rank": 25,
+    "item_name": "When Breath Becomes Air"
+  },
+  {
+    "rank": 26,
+    "item_name": "A Dying Fall (Ruth Galloway Mystery) (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Fixer"
+  },
+  {
+    "rank": 28,
+    "item_name": "Magpie Murders: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Invention of Wings"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Boy in the Suitcase (A Nina Borg Novel)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Fallout: A V.I. Warshawski Novel (V.I. Warshawski Novels)"
+  },
+  {
+    "rank": 32,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Ice Beneath Her: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Drop (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Circling the Sun: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Garden of Lamentations: A Novel (Duncan Kincaid/Gemma James Novels)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Keeper of Lost Causes"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Lake House: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "As Night Falls: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 42,
+    "item_name": "Home (Myron Bolitar, No. 11)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Nature of the Beast (Chief Inspector Gamache)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Bone Tree (Penn Cage)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Burning Room (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Column of Fire (Kingsbridge)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Die Again: A Rizzoli &amp; Isles Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Missing, Presumed: A Novel (Manon Bradshaw)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Dark Lake (Gemma Woodstock)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

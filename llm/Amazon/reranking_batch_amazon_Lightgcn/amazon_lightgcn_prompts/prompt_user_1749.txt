@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Case of Syrah, Syrah: A Sonoma Wine Country Mystery"
+  },
+  {
+    "item_name": "Stowed Away (A Maine Clambake Mystery)"
+  },
+  {
+    "item_name": "Splintered Silence (A Bone Gap Travellers Novel)"
+  },
+  {
+    "item_name": "A Devious Death (A Lady and Lady's Maid Mystery)"
+  },
+  {
+    "item_name": "Twelve Angry Librarians (Cat in the Stacks Mystery)"
+  },
+  {
+    "item_name": "Many a Twist: A County Cork Mystery (County Cork Mysteries)"
+  },
+  {
+    "item_name": "A Treacherous Curse (A Veronica Speedwell Mystery)"
+  },
+  {
+    "item_name": "Murder Borrowed, Murder Blue (A Wedding Planner Mystery)"
+  },
+  {
+    "item_name": "Lies That Comfort and Betray (Gilded Age Mystery)"
+  },
+  {
+    "item_name": "Class Reunions Are Murder (A Poppy McAllister Mystery)"
+  },
+  {
+    "item_name": "Biscuits and Slashed Browns (A Country Store Mystery)"
+  },
+  {
+    "item_name": "Pekoe Most Poison (A Tea Shop Mystery)"
+  },
+  {
+    "item_name": "The Fast and the Furriest (Second Chance Cat Mystery)"
+  },
+  {
+    "item_name": "A Grave Issue: A Funeral Parlor Mystery"
+  },
+  {
+    "item_name": "Color Me Murder (Pen &amp; Ink)"
+  },
+  {
+    "item_name": "Marinating in Murder (A Dinner Club Mystery)"
+  },
+  {
+    "item_name": "The Darling Dahlias and the Unlucky Clover"
+  },
+  {
+    "item_name": "Killing in C Sharp (A Gethsemane Brown Mystery) (Volume 3)"
+  },
+  {
+    "item_name": "Dead Cold Brew (A Coffeehouse Mystery)"
+  },
+  {
+    "item_name": "Murder at Half Moon Gate (A Wrexford &amp; Sloane Mystery)"
+  },
+  {
+    "item_name": "A Riesling to Die"
+  },
+  {
+    "item_name": "Wedding Cake Crumble (Cupcake Bakery Mystery)"
+  },
+  {
+    "item_name": "Lost Books and Old Bones: A Scottish Bookshop Mystery"
+  },
+  {
+    "item_name": "A Dying Note (Silver Rush Mysteries)"
+  },
+  {
+    "item_name": "The Shadow of Death: A Sister Agatha and Father Selwyn Mystery (Sister Agatha and Father Selwyn Mysteries)"
+  },
+  {
+    "item_name": "Read Herring Hunt (Mystery Bookshop Mysteries)"
+  },
+  {
+    "item_name": "Murder in the Locked Library (A Book Retreat Mystery)"
+  },
+  {
+    "item_name": "Only Skein Deep (A Knitting Mystery)"
+  },
+  {
+    "item_name": "Flowers and Foul Play: A Magic Garden Mystery"
+  },
+  {
+    "item_name": "The Diva Cooks up a Storm (Domestic Diva)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 22299,
+    "item_name": "Taken In (Southern Sewing Circle Mystery)"
+  },
+  {
+    "rank": 2,
+    "item_id": 22687,
+    "item_name": "Claws for Concern (Cat in the Stacks Mystery)"
+  },
+  {
+    "rank": 3,
+    "item_id": 22951,
+    "item_name": "Hark the Herald Angels Slay (A Year-Round Christmas Mystery)"
+  },
+  {
+    "rank": 4,
+    "item_id": 22216,
+    "item_name": "Words with Fiends (A Black Cat Bookshop Mystery)"
+  },
+  {
+    "rank": 5,
+    "item_id": 22233,
+    "item_name": "The Skeleton Takes a Bow (A Family Skeleton Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_id": 22831,
+    "item_name": "A Turn for the Bad (A County Cork Mystery)"
+  },
+  {
+    "rank": 7,
+    "item_id": 21964,
+    "item_name": "A Killer Plot (A Books by the Bay Mystery)"
+  },
+  {
+    "rank": 8,
+    "item_id": 21795,
+    "item_name": "Chapter &amp; Hearse (A Booktown Mystery)"
+  },
+  {
+    "rank": 9,
+    "item_id": 22746,
+    "item_name": "Murder Ties the Knot (Haunted Souvenir Shop)"
+  },
+  {
+    "rank": 10,
+    "item_id": 22693,
+    "item_name": "Suspendered Sentence (An Amish Mystery)"
+  },
+  {
+    "rank": 11,
+    "item_id": 22123,
+    "item_name": "Every Trick in the Book (A Novel Idea Mystery)"
+  },
+  {
+    "rank": 12,
+    "item_id": 24917,
+    "item_name": "Board Stiff (Dead-End Job Mystery)"
+  },
+  {
+    "rank": 13,
+    "item_id": 25575,
+    "item_name": "Shot in the Dark (A Coffeehouse Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_id": 22582,
+    "item_name": "Frosty the Dead Man (A Snow Globe Shop Mystery)"
+  },
+  {
+    "rank": 15,
+    "item_id": 22740,
+    "item_name": "Assault and Beret (A Hat Shop Mystery)"
+  },
+  {
+    "rank": 16,
+    "item_id": 22240,
+    "item_name": "Wedding Duress (Southern Sewing Circle Mystery)"
+  },
+  {
+    "rank": 17,
+    "item_id": 22186,
+    "item_name": "An Early Wake (A County Cork Mystery)"
+  },
+  {
+    "rank": 18,
+    "item_id": 24670,
+    "item_name": "Pumped for Murder: A Dead-End Job Mystery"
+  },
+  {
+    "rank": 19,
+    "item_id": 22124,
+    "item_name": "Mrs. Jeffries Turns the Tide (A Victorian Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_id": 25368,
+    "item_name": "The Readaholics and the Gothic Gala (A Book Club Mystery)"
+  },
+  {
+    "rank": 21,
+    "item_id": 41918,
+    "item_name": "Telling Tails (Second Chance Cat Mystery)"
+  },
+  {
+    "rank": 22,
+    "item_id": 24816,
+    "item_name": "The Cat, the Lady and the Liar: A Cats in Trouble Mystery"
+  },
+  {
+    "rank": 23,
+    "item_id": 22789,
+    "item_name": "Toasting Up Trouble (A Dinner Club Mystery)"
+  },
+  {
+    "rank": 24,
+    "item_id": 22878,
+    "item_name": "Egg Drop Dead (A Cackleberry Club Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_id": 22467,
+    "item_name": "A Shattering Crime (A Stained-Glass Mystery)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

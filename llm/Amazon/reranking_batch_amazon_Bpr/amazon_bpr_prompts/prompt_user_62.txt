@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Hard Call: Great Decisions and the Extraordinary People Who Made Them"
+  },
+  {
+    "item_name": "Five Easy Theses: Commonsense Solutions to Americas Greatest Economic Challenges"
+  },
+  {
+    "item_name": "A National Party No More: The Conscience of a Conservative Democrat"
+  },
+  {
+    "item_name": "As a Driven Leaf"
+  },
+  {
+    "item_name": "As a Driven Leaf"
+  },
+  {
+    "item_name": "As a Driven Leaf"
+  },
+  {
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "item_name": "Ultimate Punishment: A Lawyer's Reflections on Dealing with the Death Penalty"
+  },
+  {
+    "item_name": "Five Chiefs: A Supreme Court Memoir"
+  },
+  {
+    "item_name": "On the Brink: Inside the Race to Stop the Collapse of the Global Financial System"
+  },
+  {
+    "item_name": "The Brethren: Inside the Supreme Court"
+  },
+  {
+    "item_name": "The Rehnquist Choice: The Untold Story of the Nixon Appointment That Redefined the Supreme Court"
+  },
+  {
+    "item_name": "Good to Great CD: Why Some Companies Make the Leap.And Others Don't"
+  },
+  {
+    "item_name": "Man Alive: Transforming Your Seven Primal Needs into a Powerful Spiritual Life"
+  },
+  {
+    "item_name": "Ego Is the Enemy"
+  },
+  {
+    "item_name": "The Jungle Book (Collins Classics)"
+  },
+  {
+    "item_name": "The Benedict Option: A Strategy for Christians in a Post-Christian Nation"
+  },
+  {
+    "item_name": "Bastiat's The Law (Occasional Paper, 123)"
+  },
+  {
+    "item_name": "Total Money Makeover"
+  },
+  {
+    "item_name": "The Jungle (The Penguin American Library)"
+  },
+  {
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "item_name": "Never Binge Again(tm): Reprogram Yourself to Think Like a Permanently Thin Person. Stop Overeating and Binge Eating and Stick to the Food Plan of Your Choice!"
+  },
+  {
+    "item_name": "Ivanhoe (Penguin Classics)"
+  },
+  {
+    "item_name": "The Essential Tozer Collection: The Pursuit of God, The Purpose of Man, and The Crucified Life"
+  },
+  {
+    "item_name": "The Pursuit of God: AW Tozer, Christian classics: The Pursuit of God"
+  },
+  {
+    "item_name": "Esoteric Christianity or the Lesser Mysteries"
+  },
+  {
+    "item_name": "The Last of the Mohicans (Leatherstocking Tale)"
+  },
+  {
+    "item_name": "Meditations (Penguin Classics)"
+  },
+  {
+    "item_name": "Fear: Trump in the White House"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 3,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 4,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 5,
+    "item_name": "Emotional Intelligence: Why It Can Matter More than IQ"
+  },
+  {
+    "rank": 6,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 7,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 8,
+    "item_name": "7 Habits Of Highly Effective People"
+  },
+  {
+    "rank": 9,
+    "item_name": "What Jesus Meant"
+  },
+  {
+    "rank": 10,
+    "item_name": "Common Sense"
+  },
+  {
+    "rank": 11,
+    "item_name": "It's Not about the Bike: My Journey Back to Life"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Fortune at the Bottom of the Pyramid: Eradicating Poverty Through Profits"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Seat of the Soul"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Basque History of the World: The Story of a Nation"
+  },
+  {
+    "rank": 15,
+    "item_name": "7 Habits of Highly Effective People"
+  },
+  {
+    "rank": 16,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 17,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 18,
+    "item_name": "John Adams"
+  },
+  {
+    "rank": 19,
+    "item_name": "Getting To Yes - Negotiating Agreement Without Giving In"
+  },
+  {
+    "rank": 20,
+    "item_name": "How to Win Friends and Influence People"
+  },
+  {
+    "rank": 21,
+    "item_name": "Our Endangered Values: America's Moral Crisis"
+  },
+  {
+    "rank": 22,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Stumbling on Happiness"
+  },
+  {
+    "rank": 24,
+    "item_name": "Power of Positive Thinking for Young People"
+  },
+  {
+    "rank": 25,
+    "item_name": "Ultimate Leadership: Winning Execution Strategies for Your Situation"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 27,
+    "item_name": "Magic of Believing"
+  },
+  {
+    "rank": 28,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 29,
+    "item_name": "March of the Penguins: Companion to the Major Motion Picture"
+  },
+  {
+    "rank": 30,
+    "item_name": "Where the Right Went Wrong: How Neoconservatives Subverted the Reagan Revolution and Hijacked the Bush Presidency"
+  },
+  {
+    "rank": 31,
+    "item_name": "Liberal Fascism: The Secret History of the Left from Mussolini to the Politics of Meaning"
+  },
+  {
+    "rank": 32,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Undercover Economist: Exposing Why the Rich Are Rich, the Poor Are Poor--and Why You Can Never Buy a Decent Used Car!"
+  },
+  {
+    "rank": 34,
+    "item_name": "Winning: The Ultimate Business How-To Book"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Case for Christ:  A Journalist's Personal Investigation of the Evidence for Jesus"
+  },
+  {
+    "rank": 36,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 37,
+    "item_name": "Gangs of New York"
+  },
+  {
+    "rank": 38,
+    "item_name": "Rich Dad Poor Dad (What the Rich Teach Their Kids About Money - That the Poor and Middle Class Do Not!)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Prince (Classics)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 42,
+    "item_name": "Bobos in Paradise: The New Upper Class and How They Got There"
+  },
+  {
+    "rank": 43,
+    "item_name": "No Apology: The Case for American Greatness"
+  },
+  {
+    "rank": 44,
+    "item_name": "The grapes of wrath (Penguin modern classics)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Prayer of Jabez: Breaking Through To The Blessed Life"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Bell Curve: Intelligence and Class Structure in American Life"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Cambridge Encyclopedia of the English Language"
+  },
+  {
+    "rank": 48,
+    "item_name": "Hatchepsut: The Female Pharaoh"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 50,
+    "item_name": "In Defense of Food: An Eater's Manifesto"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

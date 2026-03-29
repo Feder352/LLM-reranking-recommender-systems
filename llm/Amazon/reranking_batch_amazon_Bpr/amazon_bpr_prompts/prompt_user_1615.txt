@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dirty English"
+  },
+  {
+    "item_name": "Second Chance Draft: A Second Chance Sports Romance (Pass To Win)"
+  },
+  {
+    "item_name": "The Traitor's Bride: A science fiction romance (Keepers of Xereill)"
+  },
+  {
+    "item_name": "Soul Shift (The Charming Shifter Mysteries) (Volume 4)"
+  },
+  {
+    "item_name": "Urban Extinction: A New Adult Urban Fantasy (Shadow Eradicators) (Volume 1)"
+  },
+  {
+    "item_name": "Beg Me"
+  },
+  {
+    "item_name": "Getting Over Brett (Love in the Pacific Northwest) (Volume 3)"
+  },
+  {
+    "item_name": "Lord of Temptation (Rogues to Riches) (Volume 4)"
+  },
+  {
+    "item_name": "The Sacrifice (The Soul Summoner) (Volume 5)"
+  },
+  {
+    "item_name": "Pretend You're Mine"
+  },
+  {
+    "item_name": "Housekeeping"
+  },
+  {
+    "item_name": "Rescued by the Alpha"
+  },
+  {
+    "item_name": "Prophecy of Three: Book One of the Starseed Trilogy (Volume 1)"
+  },
+  {
+    "item_name": "Shark: A Billionaire Romance Novel"
+  },
+  {
+    "item_name": "Dragon Slayers (Slayers &amp; Protectors) (Volume 1)"
+  },
+  {
+    "item_name": "Eden Wakes (Eden Factions)"
+  },
+  {
+    "item_name": "Hard Pack: A Billionaire Romance (Ridden Hard) (Volume 2)"
+  },
+  {
+    "item_name": "The Angel Trials (Dark World: The Angel Trials) (Volume 1)"
+  },
+  {
+    "item_name": "Of Beasts and Beauties: Five Full-Length Novels Retelling Beauty &amp; the Beast (Enclave Boxed Set) (Volume 1)"
+  },
+  {
+    "item_name": "An American Cinderella"
+  },
+  {
+    "item_name": "Empath's Curse (The Angel Crusades)"
+  },
+  {
+    "item_name": "Unraveled (Jersey Girls)"
+  },
+  {
+    "item_name": "Flipped (Better With Prosecco)"
+  },
+  {
+    "item_name": "Alton's Secret Baby (The Promise They Made) (Volume 2)"
+  },
+  {
+    "item_name": "The Secret Arrangement"
+  },
+  {
+    "item_name": "Lord of Secrets (Rogues to Riches) (Volume 5)"
+  },
+  {
+    "item_name": "The Way to Her Heart: The Complete Series"
+  },
+  {
+    "item_name": "The Book of Secrets (The Last Oracle) (Volume 1)"
+  },
+  {
+    "item_name": "Drenched with a Duke (Ravishing Regencies) (Volume 2)"
+  },
+  {
+    "item_name": "The Empathic Detective"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Kissing booth"
+  },
+  {
+    "rank": 2,
+    "item_name": "Beta's Second Chance (Rocky Mountain Shifters) (Volume 4)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Blood Bound (The Gallows Novels) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Ranger Trent (Shifter Nation: Werebears Of Acadia) (Volume 2)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Trapped in the Cabin"
+  },
+  {
+    "rank": 6,
+    "item_name": "Saved by Alpha Bear"
+  },
+  {
+    "rank": 7,
+    "item_name": "Darkroom"
+  },
+  {
+    "rank": 8,
+    "item_name": "Forbidden: A Student Teacher Romance"
+  },
+  {
+    "rank": 9,
+    "item_name": "Smoulder (Dragonsworn) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The CEO &amp; I"
+  },
+  {
+    "rank": 11,
+    "item_name": "Steal Me"
+  },
+  {
+    "rank": 12,
+    "item_name": "Storm Shift (The Charming Shifter Mysteries)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Gypsy Hunted"
+  },
+  {
+    "rank": 14,
+    "item_name": "Renegade Ridge: A Bad Boy Action Adventure Romance (Renegade Ridge Series)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Hot Seal Next Door: A Bad Boy Second Chance Romance"
+  },
+  {
+    "rank": 16,
+    "item_name": "Kerr: Paranormal Sci-Fi Alien Romance (lien Mates)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Dragon's Secret Bride (Dragon Secrets) (Volume 2)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Her Dragon Professor"
+  },
+  {
+    "rank": 19,
+    "item_name": "SEAL's Touch: A Dirty Bad Boy Romance (Small Town SEALs)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Destiny Of The Dragon Prince"
+  },
+  {
+    "rank": 21,
+    "item_name": "Hostage for the Sheikh: A Royal Billionaire Romance Novel (Curves for Sheikhs Series) (Volume 3)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Bear Shifter's Virgin (Fated Bears) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Midnight Conquest: Book 1 of the Bonded By Blood Vampire Chronicles"
+  },
+  {
+    "rank": 24,
+    "item_name": "Shopping for a Billionaire 1"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Reader (The Immortal Series) (Volume 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Exposed: A Bad Boy Contemporary Romance"
+  },
+  {
+    "rank": 27,
+    "item_name": "Professor with Benefits"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Play (Brit Boys Sports Romance) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Dragon King's Prisoner: A Paranormal Romance (Separated by Time) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Lord's Captive: Border Series Book 2"
+  },
+  {
+    "rank": 31,
+    "item_name": "Two Wrongs (Trouble by Numbers) (Volume 2)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Duke of New York: A Contemporary Bad Boy Royal Romance"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Dragon's Secret Baby (Dragon Secrets) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Sailor Ray and the Darkest Night: A Supernatural Urban Fantasy Thriller (The Pact Book 1) - Kindle edition"
+  },
+  {
+    "rank": 35,
+    "item_name": "Marked By Fire (Dragons Of The Darkblood Secret Society) (Volume 2)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Alien Zookeeper's Abduction: A Sci-Fi Alien Abduction Romance"
+  },
+  {
+    "rank": 37,
+    "item_name": "Tornado: A Paranormal Romance (Savage Brotherhood MC) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Dragon's Secret Queen (Dragon Secrets) (Volume 5)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Tempted By Fire (Dragons Of The Darkblood Secret Society) (Volume 4)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Mountain Lumberjack"
+  },
+  {
+    "rank": 41,
+    "item_name": "Beta's Destiny"
+  },
+  {
+    "rank": 42,
+    "item_name": "Ride: The Awakening (Puca Mates) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Mastering the Marchioness: A BDSM Historical Romance (Cavern of Pleasures) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "A Secret Baby for the Vampire"
+  },
+  {
+    "rank": 45,
+    "item_name": "Untitled Beauty (Somewhere-in-Between) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Bonded to the Alpha Wolf"
+  },
+  {
+    "rank": 47,
+    "item_name": "Captain Hotness"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Vampire's Curse (Things In The Night)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Dirty Blood"
+  },
+  {
+    "rank": 50,
+    "item_name": "All Tied Up For New Year's (Restrained) (Volume 3)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

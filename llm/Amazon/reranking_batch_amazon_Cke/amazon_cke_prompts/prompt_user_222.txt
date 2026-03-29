@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dust: A Richard Jury Mystery"
+  },
+  {
+    "item_name": "Arms of Nemesis:   A Novel of Ancient Rome"
+  },
+  {
+    "item_name": "Withering Heights (Ellie Haskell Mysteries, No. 12)"
+  },
+  {
+    "item_name": "Murder Unleashed (Dead-End Job Mysteries, Book 5)"
+  },
+  {
+    "item_name": "Heartsick (Archie Sheridan &amp; Gretchen Lowell)"
+  },
+  {
+    "item_name": "The Alehouse Murders (Templar Knight Mysteries, No. 1)"
+  },
+  {
+    "item_name": "Confessions of a Jane Austen Addict"
+  },
+  {
+    "item_name": "If His Kiss Is Wicked"
+  },
+  {
+    "item_name": "Kissing Christmas Goodbye (Agatha Raisin Mysteries, No. 18)"
+  },
+  {
+    "item_name": "The Bloody Tower (Daisy Dalrymple Mysteries, No. 16)"
+  },
+  {
+    "item_name": "A Christmas Beginning: A Novel (The Christmas Stories)"
+  },
+  {
+    "item_name": "Lord Deverill's Secret"
+  },
+  {
+    "item_name": "The Seduction of the Crimson Rose"
+  },
+  {
+    "item_name": "Death of a Gentle Lady (Hamish Macbeth Mysteries, No. 24)"
+  },
+  {
+    "item_name": "The Bridal Quest (Harlequin Feature Author: The Matchmaker)"
+  },
+  {
+    "item_name": "A Flaw in the Blood: A Novel"
+  },
+  {
+    "item_name": "An Affair Before Christmas (Desperate Duchesses, Bk 2)"
+  },
+  {
+    "item_name": "Friend of the Devil (Inspector Banks Novels)"
+  },
+  {
+    "item_name": "Buckingham Palace Gardens"
+  },
+  {
+    "item_name": "Goodbye, Ms. Chips (Ellie Haskell Mysteries, No. 13)"
+  },
+  {
+    "item_name": "Simply Perfect"
+  },
+  {
+    "item_name": "Days of Atonement: A Mystery (Hanno Stiffeniis Mysteries)"
+  },
+  {
+    "item_name": "The Girl of His Dreams"
+  },
+  {
+    "item_name": "The Triumph of Caesar: A Novel of Ancient Rome (Novels of Ancient Rome)"
+  },
+  {
+    "item_name": "Duke Most Wanted (Heiress Brides)"
+  },
+  {
+    "item_name": "The Lost Duke of Wyndham (Two Dukes of Wyndham, Book 1)"
+  },
+  {
+    "item_name": "Murder on Bank Street (Gaslight Mystery)"
+  },
+  {
+    "item_name": "The Enchantress of Florence"
+  },
+  {
+    "item_name": "Mind's Eye: An Inspector Van Vetteren Mystery (1) (Inspector Van Veeteren Series)"
+  },
+  {
+    "item_name": "The Ideal Wife"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5148,
+    "item_name": "Silent in the Sanctuary: A Lady Julia Grey Mystery"
+  },
+  {
+    "rank": 2,
+    "item_id": 3313,
+    "item_name": "The Bishop's Tale (Sister Frevisse Medieval Mysteries)"
+  },
+  {
+    "rank": 3,
+    "item_id": 3318,
+    "item_name": "The Outlaw's Tale"
+  },
+  {
+    "rank": 4,
+    "item_id": 1584,
+    "item_name": "Murder on the Flying Scotsman (Daisy Dalrymple Mysteries, No. 4)"
+  },
+  {
+    "rank": 5,
+    "item_id": 1785,
+    "item_name": "Among the Mad (Maisie Dobbs)"
+  },
+  {
+    "rank": 6,
+    "item_id": 5144,
+    "item_name": "Silent in the Grave"
+  },
+  {
+    "rank": 7,
+    "item_id": 5558,
+    "item_name": "The Late Scholar"
+  },
+  {
+    "rank": 8,
+    "item_id": 171,
+    "item_name": "Scandal in Spring (The Wallflowers, Book 4)"
+  },
+  {
+    "rank": 9,
+    "item_id": 3332,
+    "item_name": "The Maiden's Tale (Sister Frevisse Medieval Mysteries)"
+  },
+  {
+    "rank": 10,
+    "item_id": 1589,
+    "item_name": "A Plague on Both Your Houses"
+  },
+  {
+    "rank": 11,
+    "item_id": 485,
+    "item_name": "The Mapping of Love and Death (Maisie Dobbs, Book 7)"
+  },
+  {
+    "rank": 12,
+    "item_id": 3825,
+    "item_name": "The Unexpected Mrs. Pollifax"
+  },
+  {
+    "rank": 13,
+    "item_id": 2951,
+    "item_name": "Three Bags Full: A Sheep Detective Story"
+  },
+  {
+    "rank": 14,
+    "item_id": 688,
+    "item_name": "The Nonesuch"
+  },
+  {
+    "rank": 15,
+    "item_id": 4903,
+    "item_name": "Death at Wentwater Court (Daisy Dalrymple Mysteries, No. 1)"
+  },
+  {
+    "rank": 16,
+    "item_id": 335,
+    "item_name": "Cotillion (Harper Monogram Regency)"
+  },
+  {
+    "rank": 17,
+    "item_id": 3328,
+    "item_name": "Thyme of Death (China Bayles 1)"
+  },
+  {
+    "rank": 18,
+    "item_id": 2384,
+    "item_name": "The Prime Minister's Secret Agent (Maggie Hope)"
+  },
+  {
+    "rank": 19,
+    "item_id": 804,
+    "item_name": "Cut to the Quick (Crime, Penguin)"
+  },
+  {
+    "rank": 20,
+    "item_id": 2197,
+    "item_name": "Half Moon Street (Charlotte &amp; Thomas Pitt Novels)"
+  },
+  {
+    "rank": 21,
+    "item_id": 1723,
+    "item_name": "Pushing Up Daisies: A Dirty Business Mystery"
+  },
+  {
+    "rank": 22,
+    "item_id": 1616,
+    "item_name": "To the Nines: Stephanie Plum Novels"
+  },
+  {
+    "rank": 23,
+    "item_id": 1039,
+    "item_name": "Another Man's Moccasins: A Longmire Mystery"
+  },
+  {
+    "rank": 24,
+    "item_id": 1118,
+    "item_name": "Interred with Their Bones"
+  },
+  {
+    "rank": 25,
+    "item_id": 3340,
+    "item_name": "Indigo Dying (China Bayles Mystery)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

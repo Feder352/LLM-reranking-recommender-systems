@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Unremembered Girl: A Novel"
+  },
+  {
+    "item_name": "Sense of Touch: Love and Duty at Anne of Brittany's Court"
+  },
+  {
+    "item_name": "Challenge To Honor (The Masters at Arms)"
+  },
+  {
+    "item_name": "By Grace Possessed (The Three Graces)"
+  },
+  {
+    "item_name": "By His Majesty's Grace (The Three Graces)"
+  },
+  {
+    "item_name": "Midnight Waltz"
+  },
+  {
+    "item_name": "DAUGHTER OF FORTUNE"
+  },
+  {
+    "item_name": "Portrait in Sepia: A Novel"
+  },
+  {
+    "item_name": "Island Beneath the Sea: A Novel"
+  },
+  {
+    "item_name": "The Black Count: Glory, Revolution, Betrayal, and the Real Count of Monte Cristo"
+  },
+  {
+    "item_name": "The Lady's Protector (Highland Bodyguards, Book 1) (Volume 1)"
+  },
+  {
+    "item_name": "Claimed by the Bounty Hunter (Highland Bodyguards, Book 4) (Volume 4)"
+  },
+  {
+    "item_name": "As Good as True"
+  },
+  {
+    "item_name": "The Red Hill (Thomas Berrington Historical Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Native Son (Abridged)"
+  },
+  {
+    "item_name": "The Lion's Courtship (Anna Kronberg Thrillers)"
+  },
+  {
+    "item_name": "Winter's Heat"
+  },
+  {
+    "item_name": "Summer's Storm"
+  },
+  {
+    "item_name": "Spring's Fury (Topaz Historical Romances)"
+  },
+  {
+    "item_name": "Autumn's Flame"
+  },
+  {
+    "item_name": "White Rose, Black Forest"
+  },
+  {
+    "item_name": "A Love for all Seasons"
+  },
+  {
+    "item_name": "The Cold Light of Dawn (The King's Greatest Enemy)"
+  },
+  {
+    "item_name": "Finding Rebecca"
+  },
+  {
+    "item_name": "The Tuscan Child"
+  },
+  {
+    "item_name": "Season of the Raven: A Servant of the Crown Mystery (Volume 1)"
+  },
+  {
+    "item_name": "Quest of Honor (Searching Hearts) (Volume 1)"
+  },
+  {
+    "item_name": "An American Princess: The Many Lives of Allene Tew"
+  },
+  {
+    "item_name": "The Merchant's Pearl (The Merchant's Pearl Saga) (Volume 1)"
+  },
+  {
+    "item_name": "The Scoundrel's Honor (Sinful Brides)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Inconvenient Duchess"
+  },
+  {
+    "rank": 2,
+    "item_name": "Sweet Enemy: A Veiled Seduction Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Forever His (Stolen Brides Series) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "For Love of the Duke (Heart of a Duke) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Tess and the Highlander"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Border Bride (Highland Fling Romance)"
+  },
+  {
+    "rank": 7,
+    "item_name": "My Fierce Highlander"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Forgotten Queen"
+  },
+  {
+    "rank": 9,
+    "item_name": "Sweet Release"
+  },
+  {
+    "rank": 10,
+    "item_name": "Heiress Without A Cause: Muses of Mayfair #1"
+  },
+  {
+    "rank": 11,
+    "item_name": "Captured by the Highlander (The Highlander Series)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Dark One: Dark Knight (The De Russe Legacy) (Volume 5)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Caversham's Bride (The Caversham Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Warrior's Maiden (The Warriors Series)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Isle of Lies"
+  },
+  {
+    "rank": 16,
+    "item_name": "Dark Desires (Zebra Debut)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Caelen's Wife (The Clan McDunnah Series)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Rliksen"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Loyal Heart (The Noble Hearts) (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Captured by a Laird (The Douglas Legacy)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Color of a Memory (The Color of Heaven Series) (Volume 5)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Never Too Late"
+  },
+  {
+    "rank": 23,
+    "item_name": "Douglas: Lord of Heartache (Lonely Lords)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Romancing Olive"
+  },
+  {
+    "rank": 25,
+    "item_name": "Rania Ropes a Rancher: A Historical Western Romance (Brides with Grit) (Volume 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Sweet Bea"
+  },
+  {
+    "rank": 27,
+    "item_name": "Nellie (The Brides of San Francisco) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Wicked Wedding of Miss Ellie Vyne"
+  },
+  {
+    "rank": 29,
+    "item_name": "I Married the Duke: The Prince Catchers"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Dangerous Madness"
+  },
+  {
+    "rank": 31,
+    "item_name": "Penelope ( A Madcap Regency Romance ) (The Fairweather Sisters) (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "A Whisper of Rosemary"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Night Before Christmas"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Promise"
+  },
+  {
+    "rank": 35,
+    "item_name": "Chills (Distinguished Rogues) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Devil of Kilmartin (Highland Fling Romance)"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Wedding in Springtime (Marriage Mart)"
+  },
+  {
+    "rank": 38,
+    "item_name": "What Happens in Scotland (Second Sons)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Captain's Bluestocking Mistress (Dukes of War) (Volume 3)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Where the Wind Blows (Leisure Historical Romance)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Laiden's Daughter (The Clan MacDougall) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Bridegroom Wore Plaid (MacGregor Series)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Shattered Dreams"
+  },
+  {
+    "rank": 44,
+    "item_name": "Insight"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Crimson Frost"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Irish Devil (Irish Eyes Romance)"
+  },
+  {
+    "rank": 47,
+    "item_name": "She Tempts the Duke (Lost Lords of Pembrook)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Highlander's Dangerous Temptation (The MacLerie Clan)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Danger's Kiss"
+  },
+  {
+    "rank": 50,
+    "item_name": "I Adored a Lord: The Prince Catchers"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dead Poets Society"
+  },
+  {
+    "item_name": "Living Out Loud"
+  },
+  {
+    "item_name": "Die Hard"
+  },
+  {
+    "item_name": "On Golden Pond"
+  },
+  {
+    "item_name": "Bull Durham"
+  },
+  {
+    "item_name": "Terminator, The"
+  },
+  {
+    "item_name": "Big"
+  },
+  {
+    "item_name": "Crimes and Misdemeanors"
+  },
+  {
+    "item_name": "Clockwatchers"
+  },
+  {
+    "item_name": "Close Encounters of the Third Kind"
+  },
+  {
+    "item_name": "Sleeper"
+  },
+  {
+    "item_name": "Character (Karakter)"
+  },
+  {
+    "item_name": "Firm, The"
+  },
+  {
+    "item_name": "About Adam"
+  },
+  {
+    "item_name": "Broadcast News"
+  },
+  {
+    "item_name": "Priest"
+  },
+  {
+    "item_name": "Abyss, The"
+  },
+  {
+    "item_name": "Babe"
+  },
+  {
+    "item_name": "Casablanca"
+  },
+  {
+    "item_name": "Dangerous Liaisons"
+  },
+  {
+    "item_name": "Good Will Hunting"
+  },
+  {
+    "item_name": "High Fidelity"
+  },
+  {
+    "item_name": "Insider, The"
+  },
+  {
+    "item_name": "Moonstruck"
+  },
+  {
+    "item_name": "Parenthood"
+  },
+  {
+    "item_name": "Places in the Heart"
+  },
+  {
+    "item_name": "Sabrina"
+  },
+  {
+    "item_name": "Sense and Sensibility"
+  },
+  {
+    "item_name": "Titus"
+  },
+  {
+    "item_name": "Run Lola Run (Lola rennt)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 435,
+    "item_name": "Elizabeth"
+  },
+  {
+    "rank": 2,
+    "item_id": 412,
+    "item_name": "Emma"
+  },
+  {
+    "rank": 3,
+    "item_id": 444,
+    "item_name": "Cider House Rules, The"
+  },
+  {
+    "rank": 4,
+    "item_id": 453,
+    "item_name": "Postino, Il (The Postman)"
+  },
+  {
+    "rank": 5,
+    "item_id": 907,
+    "item_name": "Civil Action, A"
+  },
+  {
+    "rank": 6,
+    "item_id": 220,
+    "item_name": "Gods and Monsters"
+  },
+  {
+    "rank": 7,
+    "item_id": 110,
+    "item_name": "Like Water for Chocolate (Como agua para chocolate)"
+  },
+  {
+    "rank": 8,
+    "item_id": 344,
+    "item_name": "Afterglow"
+  },
+  {
+    "rank": 9,
+    "item_id": 728,
+    "item_name": "Sleepless in Seattle"
+  },
+  {
+    "rank": 10,
+    "item_id": 400,
+    "item_name": "My Best Friend's Wedding"
+  },
+  {
+    "rank": 11,
+    "item_id": 1105,
+    "item_name": "Crying Game, The"
+  },
+  {
+    "rank": 12,
+    "item_id": 1384,
+    "item_name": "Addicted to Love"
+  },
+  {
+    "rank": 13,
+    "item_id": 76,
+    "item_name": "Fisher King, The"
+  },
+  {
+    "rank": 14,
+    "item_id": 266,
+    "item_name": "All About My Mother (Todo Sobre Mi Madre)"
+  },
+  {
+    "rank": 15,
+    "item_id": 2151,
+    "item_name": "Restoration"
+  },
+  {
+    "rank": 16,
+    "item_id": 1305,
+    "item_name": "Blue Sky"
+  },
+  {
+    "rank": 17,
+    "item_id": 1364,
+    "item_name": "Random Hearts"
+  },
+  {
+    "rank": 18,
+    "item_id": 916,
+    "item_name": "Primal Fear"
+  },
+  {
+    "rank": 19,
+    "item_id": 470,
+    "item_name": "Chasing Amy"
+  },
+  {
+    "rank": 20,
+    "item_id": 2517,
+    "item_name": "Walk on the Moon, A"
+  },
+  {
+    "rank": 21,
+    "item_id": 880,
+    "item_name": "Never Been Kissed"
+  },
+  {
+    "rank": 22,
+    "item_id": 818,
+    "item_name": "Mumford"
+  },
+  {
+    "rank": 23,
+    "item_id": 1643,
+    "item_name": "Winslow Boy, The"
+  },
+  {
+    "rank": 24,
+    "item_id": 474,
+    "item_name": "Midnight in the Garden of Good and Evil"
+  },
+  {
+    "rank": 25,
+    "item_id": 345,
+    "item_name": "Little Voice"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

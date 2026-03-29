@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Forbidden Promises (The O'Malleys)"
+  },
+  {
+    "item_name": "Phoebe Pope and the Year of Four"
+  },
+  {
+    "item_name": "Roar: A Stormheart Novel"
+  },
+  {
+    "item_name": "One of Us Is Lying"
+  },
+  {
+    "item_name": "Dating-ish (Knitting in the City) (Volume 6)"
+  },
+  {
+    "item_name": "Finding You (Destination Love)"
+  },
+  {
+    "item_name": "Talk British to Me (Wherever You Go)"
+  },
+  {
+    "item_name": "The Right Ranger"
+  },
+  {
+    "item_name": "The Perfectly Imperfect Match"
+  },
+  {
+    "item_name": "Checkmate: This is Dangerous (Checkmate Duet Series) (Volume 5)"
+  },
+  {
+    "item_name": "The Summer Before Forever"
+  },
+  {
+    "item_name": "Artificial Sweethearts"
+  },
+  {
+    "item_name": "The Alchemists of Loom (The Loom Saga)"
+  },
+  {
+    "item_name": "Why I Loathe Sterling Lane"
+  },
+  {
+    "item_name": "Alex, Approximately"
+  },
+  {
+    "item_name": "Beard in Mind (Winston Brothers) (Volume 4)"
+  },
+  {
+    "item_name": "Most Valuable Playboy"
+  },
+  {
+    "item_name": "Body Parts"
+  },
+  {
+    "item_name": "Mask of Shadows"
+  },
+  {
+    "item_name": "Otherworld (Last Reality)"
+  },
+  {
+    "item_name": "Without Merit"
+  },
+  {
+    "item_name": "The Chosen Knights (Secret Knights Book 1)"
+  },
+  {
+    "item_name": "Rise (Coven of Fire) (Volume 1)"
+  },
+  {
+    "item_name": "Awkward: A sexy romantic comedy!"
+  },
+  {
+    "item_name": "Batman: Nightwalker (DC Icons Series)"
+  },
+  {
+    "item_name": "The Upside to Being Single"
+  },
+  {
+    "item_name": "Dear Dwayne, With Love"
+  },
+  {
+    "item_name": "Love Between Enemies (Grad Night) (Volume 2)"
+  },
+  {
+    "item_name": "Tap That"
+  },
+  {
+    "item_name": "The Varlet and the Voyeur (Rugby) (Volume 4)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Nowhere but Here (Thunder Road)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Making Faces"
+  },
+  {
+    "rank": 3,
+    "item_name": "Temptation"
+  },
+  {
+    "rank": 4,
+    "item_name": "Catching Jordan (Hundred Oaks)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Selection. by Kiera Cass"
+  },
+  {
+    "rank": 6,
+    "item_name": "Beautiful Disaster"
+  },
+  {
+    "rank": 7,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 8,
+    "item_name": "Maybe Someday"
+  },
+  {
+    "rank": 9,
+    "item_name": "Hopeless"
+  },
+  {
+    "rank": 10,
+    "item_name": "Under the Never Sky"
+  },
+  {
+    "rank": 11,
+    "item_name": "Cross My Heart and Hope to Spy (Gallagher Girls)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The DUFF: (Designated Ugly Fat Friend)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Sweet Evil"
+  },
+  {
+    "rank": 14,
+    "item_name": "Vampire Academy: Spirit Bound (book 5)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Anya and the Shy Guy (Backstage Pass) (Volume 4)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Heir of Fireno. 3 (Throne of Glass)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The One (The Selection)"
+  },
+  {
+    "rank": 18,
+    "item_name": "White Hot Kiss (The Dark Elements)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Pretty Dead Girls"
+  },
+  {
+    "rank": 20,
+    "item_name": "Branded (A Sinner Series) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Walk the Edge (Thunder Road)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Salt"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Fiery Heart: A Bloodlines Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Book of Ivy (Entangled Teen)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Wait for You (Wait for You Saga)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Ugly Love: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Found: Book 3 of the Crescent Chronicles"
+  },
+  {
+    "rank": 28,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Score (Off-Campus) (Volume 3)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Breaking the Ice (Juniper Falls)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Crave (The Clann)"
+  },
+  {
+    "rank": 32,
+    "item_name": "A is for Abstinence"
+  },
+  {
+    "rank": 33,
+    "item_name": "My Life Next Door"
+  },
+  {
+    "rank": 34,
+    "item_name": "Confess: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Play With Me (Grover Beach Team)"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Court of Thorns and Roses"
+  },
+  {
+    "rank": 37,
+    "item_name": "Every Last Word"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Distance Between Us"
+  },
+  {
+    "rank": 39,
+    "item_name": "Hourglass"
+  },
+  {
+    "rank": 40,
+    "item_name": "You Were Here"
+  },
+  {
+    "rank": 41,
+    "item_name": "Faking Perfect"
+  },
+  {
+    "rank": 42,
+    "item_name": "More Than Music (Chasing The Dream) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Ones Who Got Away"
+  },
+  {
+    "rank": 44,
+    "item_name": "On the Fence"
+  },
+  {
+    "rank": 45,
+    "item_name": "Whatever Life Throws at You (Entangled Teen)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Haven"
+  },
+  {
+    "rank": 47,
+    "item_name": "Ten Tiny Breaths"
+  },
+  {
+    "rank": 48,
+    "item_name": "From This Moment On (Sullivans)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Covenant: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "White Witch: The Coven Series (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

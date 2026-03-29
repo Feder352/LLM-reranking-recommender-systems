@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Scroll: A Novel"
+  },
+  {
+    "item_name": "Run to Ground (Rocky Mountain K9 Unit)"
+  },
+  {
+    "item_name": "Grounded Hearts"
+  },
+  {
+    "item_name": "Dark Horse (Whitehorse, Montana: The McGraw Kidnapping)"
+  },
+  {
+    "item_name": "Crown of Souls (The Tox Files)"
+  },
+  {
+    "item_name": "AFTERLIFE"
+  },
+  {
+    "item_name": "Rule of Law"
+  },
+  {
+    "item_name": "A Time to Stand"
+  },
+  {
+    "item_name": "The Tracker (Sam Callahan)"
+  },
+  {
+    "item_name": "Shadow Shepherd (Sam Callahan)"
+  },
+  {
+    "item_name": "Remington 1894"
+  },
+  {
+    "item_name": "Sky Zone: A Novel (The Crittendon Files)"
+  },
+  {
+    "item_name": "A Tangled Mercy: A Novel"
+  },
+  {
+    "item_name": "Too Far Down (The Cimarron Legacy)"
+  },
+  {
+    "item_name": "Vanishing Point: A Nikki Boyd Novel"
+  },
+  {
+    "item_name": "Dangerous Illusions (Code of Honor)"
+  },
+  {
+    "item_name": "Dead Ringer (Whitehorse, Montana: The McGraw Kidnapping)"
+  },
+  {
+    "item_name": "When I'm Gone: A Novel"
+  },
+  {
+    "item_name": "Troubled Waters (Montana Rescue)"
+  },
+  {
+    "item_name": "Don't Tell a Soul: A gripping crime thriller that will have you hooked (Detectives Kane and Alton)"
+  },
+  {
+    "item_name": "Under a Tell-Tale Sky: Disruption - Book 1 (Volume 1)"
+  },
+  {
+    "item_name": "Out of the Ashes (The Heart of Alaska)"
+  },
+  {
+    "item_name": "Kill Shot: A Novel (White Knights)"
+  },
+  {
+    "item_name": "High Treason (FBI Task Force)"
+  },
+  {
+    "item_name": "Lost Dog (A Gideon and Sirius Novel)"
+  },
+  {
+    "item_name": "Cold Truth: (Cold Harbor Book 2)"
+  },
+  {
+    "item_name": "Bring Me Flowers: A gripping serial killer thriller with a shocking twist (Detectives Kane and Alton) (Volume 2)"
+  },
+  {
+    "item_name": "In Places Hidden (Golden Gate Secrets)"
+  },
+  {
+    "item_name": "Cold Case: (Cold Harbor Book 4)"
+  },
+  {
+    "item_name": "Cowboy Bold (Longhorn Canyon)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "No One to Trust: A Novel (Hidden Identity) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "When a Secret Kills: A Novel (Deadly Reunions)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Christmas Cat"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Dance: A Novel (The Restoration Series)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Always Watching (Elite Guardians)"
+  },
+  {
+    "rank": 6,
+    "item_name": "One Perfect Spring: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "Fatal Judgment (Guardians of Justice, Book 1) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Deadly Encounter (FBI Task Force)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Miracle in a Dry Season"
+  },
+  {
+    "rank": 10,
+    "item_name": "Inescapable (Road to Kingdom) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Deadly Echoes (Finding Sanctuary) (Volume 2)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Chance of Loving You: Romance Collection (Thorndike Press Large Print Christian Fiction)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Code Blue (Prescription for Trouble, Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Justice Delayed"
+  },
+  {
+    "rank": 15,
+    "item_name": "Scraps of Evidence: Quilts of Love Series"
+  },
+  {
+    "rank": 16,
+    "item_name": "Remembering Dresden (Jack Turner Suspense Series) (Volume 2)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Rescuing Finley (A Forever Home Novel) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Every Bride Needs a Groom: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Too Close to Home (Women of Justice Series #1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Ties That Bind: A Madison Knight Novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "Wild Montana Skies (Montana Rescue)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Submerged (Alaskan Courage) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Accused (Pacific Coast Justice)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Deadlock (FBI: Houston)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Through Waters Deep (Waves of Freedom)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Deceived: A Novel (Private Justice) (Volume 3)"
+  },
+  {
+    "rank": 27,
+    "item_name": "If I Run (If I Run Series)"
+  },
+  {
+    "rank": 28,
+    "item_name": "False Witness"
+  },
+  {
+    "rank": 29,
+    "item_name": "Paradise Valley (The Daughters of Caleb Bender)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Still Life (Chesapeake Valor)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Beyond All Dreams"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Governess of Highland Hall: A Novel (Edwardian Brides)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Winter in Full Bloom"
+  },
+  {
+    "rank": 35,
+    "item_name": "At Bluebonnet Lake: A Novel (Texas Crossroads) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Saving Hope: The Men of the Texas Rangers - Book 1"
+  },
+  {
+    "rank": 37,
+    "item_name": "Kissed by a Cowboy (A Four of Hearts Ranch Romance)"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Matter of Trust (A Mia Quinn Mystery)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Jennifer: An O'Malley Love Story"
+  },
+  {
+    "rank": 40,
+    "item_name": "Redeeming Grace: When a killer moves into the White House no one is safe  Not even the dead."
+  },
+  {
+    "rank": 41,
+    "item_name": "Sea Rose Lane: A Hope Harbor Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "No Place to Hide: A Novel (Hidden Identity)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Raspberries and Vinegar (A Farm Fresh Romance)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Drawing Fire (Cold Case Justice)"
+  },
+  {
+    "rank": 45,
+    "item_name": "A Most Inconvenient Marriage"
+  },
+  {
+    "rank": 46,
+    "item_name": "Weaver's Needle"
+  },
+  {
+    "rank": 47,
+    "item_name": "Claiming Mariah"
+  },
+  {
+    "rank": 48,
+    "item_name": "Remembering Christmas: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Face of the Earth: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Wildwood Creek: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

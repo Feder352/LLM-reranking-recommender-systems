@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Case for Christ:  A Journalist's Personal Investigation of the Evidence for Jesus"
+  },
+  {
+    "item_name": "Suicide of a Superpower: Will America Survive to 2025?"
+  },
+  {
+    "item_name": "Why Men Hate Going to Church"
+  },
+  {
+    "item_name": "The Grace Effect: How the Power of One Life Can Reverse the Corruption of Unbelief"
+  },
+  {
+    "item_name": "Nearing Home: Life, Faith, and Finishing Well"
+  },
+  {
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "item_name": "Healing Is a Choice: 10 Decisions That Will Transform Your Life And 10 Lies That Can Prevent You from Making Them"
+  },
+  {
+    "item_name": "Healing Is a Choice: 10 Decisions That Will Transform Your Life And 10 Lies That Can Prevent You from Making Them"
+  },
+  {
+    "item_name": "Where the Conflict Really Lies: Science, Religion, and Naturalism"
+  },
+  {
+    "item_name": "The Coming Revolution: Signs from America's Past That Signal Our Nation's Future"
+  },
+  {
+    "item_name": "Then Sings My Soul: 150 of the World's Greatest Hymn Stories"
+  },
+  {
+    "item_name": "By Faith, Not by Sight: The Inspirational Story of a Blind Prodigy, a Life-Threating Illness, &amp; an Unexpected Gift"
+  },
+  {
+    "item_name": "1000 Days: The Ministry of Christ"
+  },
+  {
+    "item_name": "A Shot of Faith (to the Head): Be a Confident Believer in an Age of Cranky Atheists"
+  },
+  {
+    "item_name": "Empty Promises: The Truth About You, Your Desires, and the Lies You're Believing"
+  },
+  {
+    "item_name": "Father Hunger: Why God Calls Men to Love and Lead Their Families"
+  },
+  {
+    "item_name": "Father Hunger: Why God Calls Men to Love and Lead Their Families"
+  },
+  {
+    "item_name": "Godforsaken: Bad Things Happen. Is there a God who cares? Yes. Heres proof."
+  },
+  {
+    "item_name": "Surfing for God: Discovering the Divine Desire Beneath Sexual Struggle"
+  },
+  {
+    "item_name": "DREAMS AND VISIONS: Is Jesus Awakening the Muslim World?"
+  },
+  {
+    "item_name": "God or Godless?: One Atheist. One Christian. Twenty Controversial Questions."
+  },
+  {
+    "item_name": "Rapture's Rain"
+  },
+  {
+    "item_name": "Killing Jesus: The Hidden Drama Behind the World's Most Famous Execution"
+  },
+  {
+    "item_name": "Killing Jesus (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "item_name": "Zealot: The Life and Times of Jesus of Nazareth"
+  },
+  {
+    "item_name": "What Every Christian Needs to Know About the Qur'an"
+  },
+  {
+    "item_name": "Lying"
+  },
+  {
+    "item_name": "How Jesus Became God: The Exaltation of a Jewish Preacher from Galilee"
+  },
+  {
+    "item_name": "It IS About Islam: Exposing the Truth About ISIS, Al Qaeda, Iran, and the Caliphate (The Control Series)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Prayer of Jabez: Breaking Through To The Blessed Life"
+  },
+  {
+    "rank": 2,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 3,
+    "item_name": "Decision Points"
+  },
+  {
+    "rank": 4,
+    "item_name": "90 Minutes in Heaven"
+  },
+  {
+    "rank": 5,
+    "item_name": "A Grief Observed"
+  },
+  {
+    "rank": 6,
+    "item_name": "Lit!: A Christian Guide to Reading Books"
+  },
+  {
+    "rank": 7,
+    "item_name": "A Million Miles in a Thousand Years: What I Learned While Editing My Life"
+  },
+  {
+    "rank": 8,
+    "item_name": "23 Minutes In Hell: One Man's Story About What He Saw, Heard, and Felt in that Place of Torment"
+  },
+  {
+    "rank": 9,
+    "item_name": "Purpose-driven Life [Paperback]  by Warren        , Rick"
+  },
+  {
+    "rank": 10,
+    "item_name": "Do As I Say (Not As I Do): Profiles in Liberal Hypocrisy"
+  },
+  {
+    "rank": 11,
+    "item_name": "Slave: The Hidden Truth About Your Identity in Christ"
+  },
+  {
+    "rank": 12,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Purpose Driven Life"
+  },
+  {
+    "rank": 14,
+    "item_name": "Unhinged: Exposing Liberals Gone Wild"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Cost of Discipleship (SCM Classics)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Malcolm Gladwell: David and Goliath : Underdogs, Misfits, and the Art of Battling Giants (Large Print Hardcover); 2013 Edition"
+  },
+  {
+    "rank": 17,
+    "item_name": "Real Marriage: The Truth About Sex, Friendship, &amp; Life Together"
+  },
+  {
+    "rank": 18,
+    "item_name": "Soulprint: Discovering Your Divine Destiny"
+  },
+  {
+    "rank": 19,
+    "item_name": "Crucifying Morality: The Gospel of the Beatitudes"
+  },
+  {
+    "rank": 20,
+    "item_name": "Love Wins: A Book About Heaven, Hell, and the Fate of Every Person Who Ever Lived"
+  },
+  {
+    "rank": 21,
+    "item_name": "Christianity In Crisis: 21st Century"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Problem of Pain"
+  },
+  {
+    "rank": 23,
+    "item_name": "Fearless: Imagine Your Life Without Fear"
+  },
+  {
+    "rank": 24,
+    "item_name": "Godless: The Church of Liberalism"
+  },
+  {
+    "rank": 25,
+    "item_name": "Chasing Francis: A Pilgrim&rsquo;s Tale"
+  },
+  {
+    "rank": 26,
+    "item_name": "One Month to Live: Thirty Days to a No-Regrets Life"
+  },
+  {
+    "rank": 27,
+    "item_name": "Unplanned: The Dramatic True Story of a Former Planned Parenthood Leader's Eye-Opening Journey across the Life Line"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Imitation of Christ (Penguin Classics)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Assassins"
+  },
+  {
+    "rank": 30,
+    "item_name": "Doing Virtuous Business: The Remarkable Success of Spiritual Enterprise"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Ragamuffin Gospel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Myths, Lies and Downright Stupidity: Get Out the Shovel - Why Everything You Know is Wrong"
+  },
+  {
+    "rank": 33,
+    "item_name": "Unveiling Grace: The Story of How We Found Our Way out of the Mormon Church"
+  },
+  {
+    "rank": 34,
+    "item_name": "Surprised by Hope: Rethinking Heaven, the Resurrection, and the Mission of the Church"
+  },
+  {
+    "rank": 35,
+    "item_name": "Coming Apart: The State of White America, 1960-2010"
+  },
+  {
+    "rank": 36,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 37,
+    "item_name": "Angels: The Strange and Mysterious Truth"
+  },
+  {
+    "rank": 38,
+    "item_name": "Enemies of the Heart: Breaking Free from the Four Emotions That Control You"
+  },
+  {
+    "rank": 39,
+    "item_name": "David and Goliath: Art of Battling Giants (A)"
+  },
+  {
+    "rank": 40,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Language of God: A Scientist Presents Evidence for Belief"
+  },
+  {
+    "rank": 42,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 43,
+    "item_name": "The 5 Money Personalities: Speaking the Same Love and Money Language"
+  },
+  {
+    "rank": 44,
+    "item_name": "Neptune's Inferno: The U.S. Navy at Guadalcanal"
+  },
+  {
+    "rank": 45,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 46,
+    "item_name": "Darwin's Doubt: The Explosive Origin of Animal Life and the Case for Intelligent Design"
+  },
+  {
+    "rank": 47,
+    "item_name": "These High, Green Hills (The Mitford Years)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Cold-Case Christianity: A Homicide Detective Investigates the Claims of the Gospels"
+  },
+  {
+    "rank": 49,
+    "item_name": "When Helping Hurts: How to Alleviate Poverty Without Hurting the Poor . . . and Yourself"
+  },
+  {
+    "rank": 50,
+    "item_name": "Crazies to the Left of Me, Wimps to the Right: How One Side Lost Its Mind and the Other Lost Its Nerve"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

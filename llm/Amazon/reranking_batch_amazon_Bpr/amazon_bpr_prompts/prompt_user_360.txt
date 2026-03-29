@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Muffy &amp; Valor: A True Story"
+  },
+  {
+    "item_name": "Writing for Bliss: A Seven-Step Plan for Telling Your Story and Transforming Your Life"
+  },
+  {
+    "item_name": "Leftover"
+  },
+  {
+    "item_name": "Beside the Music"
+  },
+  {
+    "item_name": "Serenity Avenged (The Shelby Alexander Thriller Series)"
+  },
+  {
+    "item_name": "An American Cage"
+  },
+  {
+    "item_name": "An Unexpected Afterlife (The Dry Bones Society) (Volume 1)"
+  },
+  {
+    "item_name": "Down to No Good (Charlie Miner)"
+  },
+  {
+    "item_name": "The Fatness"
+  },
+  {
+    "item_name": "Wild Side: A Nate Temple Supernatural Thriller Book 7 (Temple Chronicles)"
+  },
+  {
+    "item_name": "Searching for Gatsby: A Ronnie Lake Murder Mystery (A woman private investigator crime series) (Volume 3)"
+  },
+  {
+    "item_name": "Vice City"
+  },
+  {
+    "item_name": "Along Came a Spider"
+  },
+  {
+    "item_name": "Kiss The Girls"
+  },
+  {
+    "item_name": "Kiss the Girls"
+  },
+  {
+    "item_name": "Don't Ever Look Behind Door 32"
+  },
+  {
+    "item_name": "Jack And Jill"
+  },
+  {
+    "item_name": "If I Understood You, Would I Have This Look on My Face?: My Adventures in the Art and Science of Relating and Communicating"
+  },
+  {
+    "item_name": "Cat and Mouse (Alex Cross Novels)"
+  },
+  {
+    "item_name": "Pop Goes the Weasel (Alex Cross)"
+  },
+  {
+    "item_name": "16th Seduction (Women's Murder Club)"
+  },
+  {
+    "item_name": "Roses Are Red (Alex Cross)"
+  },
+  {
+    "item_name": "Violets Are Blue ~ Detective Alex Cross Series"
+  },
+  {
+    "item_name": "Mary, Mary"
+  },
+  {
+    "item_name": "Survivor (Sweet Home Dixie) (Volume 2)"
+  },
+  {
+    "item_name": "The Big Bad Wolf -- 2004 publication"
+  },
+  {
+    "item_name": "London Bridges"
+  },
+  {
+    "item_name": "Cross (Alex Cross)"
+  },
+  {
+    "item_name": "Great Cape of Colors - Capa de colores: (English-Spanish with pronunciation guide) (Careers for Kids) (English and Spanish Edition)"
+  },
+  {
+    "item_name": "South of Main Street"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Monsterland"
+  },
+  {
+    "rank": 2,
+    "item_name": "STATELINE: A Dan Reno Novel (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Witnesses (BookShots)"
+  },
+  {
+    "rank": 4,
+    "item_name": "NYPD Red 2"
+  },
+  {
+    "rank": 5,
+    "item_name": "Dead Wrong (Blackmoore Sisters Cozy Mystery Series) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Ribbons of Death"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Hanging Tree: A Novella"
+  },
+  {
+    "rank": 8,
+    "item_name": "LOVE SAYINGS: wit &amp; wisdom of romance, courtship and marriage."
+  },
+  {
+    "rank": 9,
+    "item_name": "Vengeance is Mine: A Benjamin Tucker Mystery (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Flip (A Haunting On Long Island Series)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The After House (A Haunting on Long Island Series)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Threshing Circle"
+  },
+  {
+    "rank": 13,
+    "item_name": "Lady Justice and the Conspiracy (Volume 21)"
+  },
+  {
+    "rank": 14,
+    "item_name": "THE WITCH'S BIG NIGHT"
+  },
+  {
+    "rank": 15,
+    "item_name": "Harry Lane is innocent eBook"
+  },
+  {
+    "rank": 16,
+    "item_name": "CXVI The Beginning of the End (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Killer Cupcakes: A Lexy Baker Bakery Cozy Mystery (Lexy Baker Bakery Cozy Mysteries)"
+  },
+  {
+    "rank": 18,
+    "item_name": "One, Two ... He is Coming for you: Rebekka Franck #1"
+  },
+  {
+    "rank": 19,
+    "item_name": "This Doesn't Happen In The Movies (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "True Crime: Homicide &amp; True Crime Stories of 2016 (Annual True Crime Anthology)) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Adventures of Froblicious the Frog (Let's Learn While Playing) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "True Crime Stories: 12 Shocking True Crime Murder Cases (True Crime Anthology) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Turn of the Screw and Other Stories (Penguin modern classics)"
+  },
+  {
+    "rank": 24,
+    "item_name": "If You Were Me and Lived in...Brazil: A Child's Introduction to Cultures Around the World (Volume 17)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Haunted on Bourbon Street"
+  },
+  {
+    "rank": 27,
+    "item_name": "Murder at the Cooking School (Cedar Bay Cozy Mysteries)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Captain No Beard: An Imaginary Tale of a Pirate's Life"
+  },
+  {
+    "rank": 29,
+    "item_name": "Murder in Palm Beach: The Homicide That Never Died"
+  },
+  {
+    "rank": 30,
+    "item_name": "Devil's Lake"
+  },
+  {
+    "rank": 31,
+    "item_name": "Dying for the Highlife: A Dan Reno Novel (Volume 2)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Desecration (London Crime Thrillers) (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Trespassers: a novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "A Witness Above (Frank Palvicek Mysteries)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Girl in Black Pajamas (Murder Mystery)"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Flag for the Flying Dragon: A Captain No Beard Story (Volume 9)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Alien Species Intervention"
+  },
+  {
+    "rank": 38,
+    "item_name": "Greylock"
+  },
+  {
+    "rank": 39,
+    "item_name": "Murder at the Big T Lodge (Liz Lucas Cozy Mystery)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "rank": 41,
+    "item_name": "True Crime Stories Volume 5: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Rover and the Dog Hotel: Bedtime Stories Book For Children's Age 3-10. (Ebook About a dog) (Good night &amp; Bedtime Children's Story Ebook Collection)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Patchwork Man (Patchwork People) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Naturalist"
+  },
+  {
+    "rank": 45,
+    "item_name": "Desert Son"
+  },
+  {
+    "rank": 46,
+    "item_name": "Children From Dark Houses: (An Atticus &amp; Rosemary Mystery Crime Thriller Series , Book 1)) (A Private Investigator Mystery Crime Thriller Series) (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Fribbet the Frog and the Tadpoles: A Captain No Beard Story (Volume 8)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Night Walk Men"
+  },
+  {
+    "rank": 49,
+    "item_name": "Wired"
+  },
+  {
+    "rank": 50,
+    "item_name": "Cosega Search (The Cosega Sequence) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

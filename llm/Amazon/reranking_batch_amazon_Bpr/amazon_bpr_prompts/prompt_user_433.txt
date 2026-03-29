@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "First Grave on the Right (Charley Davidson Series)"
+  },
+  {
+    "item_name": "The Medical Examiner: A Women's Murder Club Story (BookShots)"
+  },
+  {
+    "item_name": "Red Sister (Book of the Ancestor)"
+  },
+  {
+    "item_name": "Real Tigers (Slough House)"
+  },
+  {
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "item_name": "The Sellout: A Novel"
+  },
+  {
+    "item_name": "A Very Coco Christmas: A Delicious Prequella to the Coco Pinchard Series"
+  },
+  {
+    "item_name": "When: The Scientific Secrets of Perfect Timing (Random House Large Print)"
+  },
+  {
+    "item_name": "The Girl in the Ice: A gripping serial killer thriller (Detective Erika Foster crime thriller novel) (Volume 1)"
+  },
+  {
+    "item_name": "The Rules of Love &amp; Grammar"
+  },
+  {
+    "item_name": "The End of the World Running Club"
+  },
+  {
+    "item_name": "Year One (Chronicles of The One)"
+  },
+  {
+    "item_name": "To Cross a Line"
+  },
+  {
+    "item_name": "The Tattooist of Auschwitz: the heart-breaking and unforgettable international bestseller"
+  },
+  {
+    "item_name": "Terms &amp; Conditions: A Novel"
+  },
+  {
+    "item_name": "The People vs. Alex Cross"
+  },
+  {
+    "item_name": "Happiness for Humans"
+  },
+  {
+    "item_name": "The Beatrice Letters (A Series of Unfortunate Events)"
+  },
+  {
+    "item_name": "Tricky Twenty-Two: A Stephanie Plum Novel"
+  },
+  {
+    "item_name": "Hitman Anders And The Meaning Of It All (Fourth Estate)"
+  },
+  {
+    "item_name": "Hitman Anders and the Meaning of It All"
+  },
+  {
+    "item_name": "Maus: My Father Bleeds History Pt. 1: A Survivor's Tale (Penguin Graphic Fiction)"
+  },
+  {
+    "item_name": "Books />"
+  },
+  {
+    "item_name": "The Deal of a Lifetime"
+  },
+  {
+    "item_name": "Census"
+  },
+  {
+    "item_name": "The Night Stalker (Detective Erika Foster) (Volume 2)"
+  },
+  {
+    "item_name": "London Rules: Jackson Lamb Thriller 5"
+  },
+  {
+    "item_name": "American by Day"
+  },
+  {
+    "item_name": "All the Beautiful Lies: A Novel"
+  },
+  {
+    "item_name": "The Kiss Quotient"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 2,
+    "item_name": "Gone Girl"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Rosie Project"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Girl with the Dragon Tattoo"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 6,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Cuckoo's Calling (Cormoran Strike)"
+  },
+  {
+    "rank": 8,
+    "item_name": "After You: A Novel (Me Before You Trilogy)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Dark Places"
+  },
+  {
+    "rank": 10,
+    "item_name": "Career of Evil (A Cormoran Strike Novel)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Into the Water: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "Room"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Girls: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Sharp Objects"
+  },
+  {
+    "rank": 15,
+    "item_name": "Mr. Penumbra's 24-Hour Bookstore: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "Ten Big Ones (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Revival (Thorndike Press Large Pring Basic)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Every Note Played"
+  },
+  {
+    "rank": 20,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 21,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Six Years"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Night Circus (Vintage Magic)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Silent Corner: A Novel of Suspense (Jane Hawk)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Eleven on Top"
+  },
+  {
+    "rank": 26,
+    "item_name": "Moon Over Soho (Rivers of London)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 28,
+    "item_name": "Let's Pretend This Never Happened: (A Mostly True Memoir)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 30,
+    "item_name": "Friend Request: The most addictive psychological thriller you'll read this year"
+  },
+  {
+    "rank": 31,
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Grave Peril (The Dresden Files, Book 3)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Turbo Twenty-Three: A Stephanie Plum Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Ink and Bone"
+  },
+  {
+    "rank": 35,
+    "item_name": "Fool Me Once"
+  },
+  {
+    "rank": 36,
+    "item_name": "Where'd You Go, Bernadette"
+  },
+  {
+    "rank": 37,
+    "item_name": "Mystic River"
+  },
+  {
+    "rank": 38,
+    "item_name": "Sarah's Key"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Hunger Games (Book 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Heart-Shaped Box"
+  },
+  {
+    "rank": 42,
+    "item_name": "The couple next door."
+  },
+  {
+    "rank": 43,
+    "item_name": "The Guernsey Literary and Potato Peel Pie Society"
+  },
+  {
+    "rank": 44,
+    "item_name": "Dark Matter"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Burning Room (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Let Me Go"
+  },
+  {
+    "rank": 47,
+    "item_name": "Find Her (A D.D. Warren and Flora Dane Novel)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Girl in the Spider's Web: A Lisbeth Salander novel, continuing Stieg Larsson's Millennium Series"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Collected Works of A. J. Fikry"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Silkworm (A Cormoran Strike Novel)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

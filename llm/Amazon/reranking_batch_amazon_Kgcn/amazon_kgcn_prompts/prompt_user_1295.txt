@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Road Less Travelled: A New Psychology of Love, Traditional Values and Spiritual Growth"
+  },
+  {
+    "item_name": "The Happiness Advantage: The Seven Principles of Positive Psychology That Fuel Success and Performance at Work"
+  },
+  {
+    "item_name": "Conversations With God : An Uncommon Dialogue (Bk. 1)"
+  },
+  {
+    "item_name": "As a Man Thinketh (Family Inspirational Library)"
+  },
+  {
+    "item_name": "The Celestine Prophecy: An Adventure"
+  },
+  {
+    "item_name": "Sacred Contracts: Awakening Your Divine Potential"
+  },
+  {
+    "item_name": "The Heart of the Soul: Emotional Awareness"
+  },
+  {
+    "item_name": "Wherever You Go, There You Are: Mindfulness Meditation in Everyday Life"
+  },
+  {
+    "item_name": "Born to Win Find Your Success Code"
+  },
+  {
+    "item_name": "What I Know For Sure"
+  },
+  {
+    "item_name": "The Power of Intention"
+  },
+  {
+    "item_name": "The Road Less Traveled, 25th Anniversary Edition : A New Psychology of Love, Traditional Values, and Spiritual Growth"
+  },
+  {
+    "item_name": "The Four Agreements: A Practical Guide to Personal Freedom (A Toltec Wisdom Book)"
+  },
+  {
+    "item_name": "Daring Greatly: How the Courage to Be Vulnerable Transforms the Way We Live, Love, Parent, and Lead"
+  },
+  {
+    "item_name": "All Is Well: Heal Your Body with Medicine, Affirmations, and Intuition"
+  },
+  {
+    "item_name": "Eleven Minutes"
+  },
+  {
+    "item_name": "Illusions : The Adventures of a Reluctant Messiah"
+  },
+  {
+    "item_name": "A New Earth"
+  },
+  {
+    "item_name": "You Can  Heal Your Life (Unabridged)"
+  },
+  {
+    "item_name": "The Sermon on the Mount: The Key to Success in Life"
+  },
+  {
+    "item_name": "Lessons in Truth"
+  },
+  {
+    "item_name": "Lessons in Truth (Unity Classic Library) eBook"
+  },
+  {
+    "item_name": "How to Use the Science of Mind"
+  },
+  {
+    "item_name": "The Sermon on the Mount: The Key to Success in Life"
+  },
+  {
+    "item_name": "The Power of Your Subconcious Mind"
+  },
+  {
+    "item_name": "The Power of Your Subconcious Mind"
+  },
+  {
+    "item_name": "The Game of Life and How to Play It (Dover Empower Your Life)"
+  },
+  {
+    "item_name": "Inspiration: Your Ultimate Calling"
+  },
+  {
+    "item_name": "Law of Attraction: The Science of Attracting More of What You Want and Less of What You Don't"
+  },
+  {
+    "item_name": "How The Secret Changed My Life: Real People. Real Stories"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 6002,
+    "item_name": "Perfect Madness: Motherhood in the Age of Anxiety"
+  },
+  {
+    "rank": 2,
+    "item_id": 5214,
+    "item_name": "The Great Emergence: How Christianity Is Changing and Why (Emergent Village Resources for Communities of Faith)"
+  },
+  {
+    "rank": 3,
+    "item_id": 743,
+    "item_name": "Success Built to Last: Creating a Life that Matters"
+  },
+  {
+    "rank": 4,
+    "item_id": 6050,
+    "item_name": "Meatball Sundae: Is Your Marketing out of Sync?"
+  },
+  {
+    "rank": 5,
+    "item_id": 6049,
+    "item_name": "The Ultimate Question: Driving Good Profits and True Growth"
+  },
+  {
+    "rank": 6,
+    "item_id": 5338,
+    "item_name": "Enrique's Journey: The Story of a Boy's Dangerous Odyssey to Reunite with His Mother"
+  },
+  {
+    "rank": 7,
+    "item_id": 5583,
+    "item_name": "Right Turns: Unconventional Lessons from a Controversial Life"
+  },
+  {
+    "rank": 8,
+    "item_id": 4673,
+    "item_name": "The Myth of the Rational Voter: Why Democracies Choose Bad Policies"
+  },
+  {
+    "rank": 9,
+    "item_id": 745,
+    "item_name": "Rebound: A Proven Plan for Starting Over After Job Loss"
+  },
+  {
+    "rank": 10,
+    "item_id": 4148,
+    "item_name": "Crash Proof: How to Profit From the Coming Economic Collapse"
+  },
+  {
+    "rank": 11,
+    "item_id": 983,
+    "item_name": "The Journey of Crazy Horse: A Lakota History"
+  },
+  {
+    "rank": 12,
+    "item_id": 1009,
+    "item_name": "Don't Make a Black Woman Take Off Her Earrings"
+  },
+  {
+    "rank": 13,
+    "item_id": 6014,
+    "item_name": "Beyond the Core: Expand Your Market Without Abandoning Your Roots"
+  },
+  {
+    "rank": 14,
+    "item_id": 4288,
+    "item_name": "The Highly Sensitive Person: How to Thrive When the World Overwhelms You"
+  },
+  {
+    "rank": 15,
+    "item_id": 4861,
+    "item_name": "God's Undertaker: Has Science Buried God?"
+  },
+  {
+    "rank": 16,
+    "item_id": 1494,
+    "item_name": "Fearless: The Undaunted Courage and Ultimate Sacrifice of Navy SEAL Team SIX Operator Adam Brown"
+  },
+  {
+    "rank": 17,
+    "item_id": 5433,
+    "item_name": "The Mis-Education of the Negro"
+  },
+  {
+    "rank": 18,
+    "item_id": 5086,
+    "item_name": "Royal Babylon: The Alarming History of European Royalty"
+  },
+  {
+    "rank": 19,
+    "item_id": 124,
+    "item_name": "The Case Against Hillary Clinton"
+  },
+  {
+    "rank": 20,
+    "item_id": 1127,
+    "item_name": "People Are Idiots and I Can Prove It!: The 10 Ways You Are Sabotaging Yourself and How You Can Overcome Them"
+  },
+  {
+    "rank": 21,
+    "item_id": 2631,
+    "item_name": "King of the World: Muhammad Ali  and the Rise of an American Hero"
+  },
+  {
+    "rank": 22,
+    "item_id": 5387,
+    "item_name": "The Heavenly Man: The Remarkable True Story of Chinese Christian Brother Yun"
+  },
+  {
+    "rank": 23,
+    "item_id": 3030,
+    "item_name": "The Elephant and the Dragon: The Rise of India and China and What It Means for All of Us"
+  },
+  {
+    "rank": 24,
+    "item_id": 321,
+    "item_name": "Taken for a Ride: How Daimler-Benz Drove Off With Chrysler"
+  },
+  {
+    "rank": 25,
+    "item_id": 837,
+    "item_name": "How the Other Half Lives: Studies Among the Tenements of New York"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

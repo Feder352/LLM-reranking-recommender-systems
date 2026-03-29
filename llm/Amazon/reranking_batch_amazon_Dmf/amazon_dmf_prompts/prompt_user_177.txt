@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Cake Thief"
+  },
+  {
+    "item_name": "The Fattening of America: How The Economy Makes Us Fat, If It Matters, and What To Do About It"
+  },
+  {
+    "item_name": "The Complete Far Side: 1980-1994"
+  },
+  {
+    "item_name": "The Gatherer"
+  },
+  {
+    "item_name": "The Painter from Shanghai: A Novel"
+  },
+  {
+    "item_name": "Sweet Georgia Brown"
+  },
+  {
+    "item_name": "A Walk for Sunshine: A 2,160 Mile Expedition for Charity on the Appalachian Trail"
+  },
+  {
+    "item_name": "The Last Days of Krypton"
+  },
+  {
+    "item_name": "Fixer"
+  },
+  {
+    "item_name": "Paul of Dune"
+  },
+  {
+    "item_name": "Passover by Design: Picture-perfect Kosher by Design recipes for the holiday (Kosher by Design)"
+  },
+  {
+    "item_name": "Colonel Trash Truck"
+  },
+  {
+    "item_name": "Positively Fifth Street: Murderers, Cheetahs, and Binion's World Series of Poker"
+  },
+  {
+    "item_name": "Secrets: You Tell Me Yours and I'll Tell You Mine Maybe"
+  },
+  {
+    "item_name": "The Sun and the Moon (The Brian D. McClure Children's Book Collection)"
+  },
+  {
+    "item_name": "RANGO (RENTAL READY)"
+  },
+  {
+    "item_name": "My Best Friend Abe Lincoln: A Tale of Two Boys From Indiana"
+  },
+  {
+    "item_name": "Steve Jobs: A Biography"
+  },
+  {
+    "item_name": "Fitness for Geeks: Real Science, Great Nutrition, and Good Health"
+  },
+  {
+    "item_name": "The Last Lecture"
+  },
+  {
+    "item_name": "The Four Agreements: A Practical Guide to Personal Freedom (A Toltec Wisdom Book)"
+  },
+  {
+    "item_name": "When Things Fall Apart"
+  },
+  {
+    "item_name": "Here If You Need Me: A True Story"
+  },
+  {
+    "item_name": "Salt Sugar Fat: How the Food Giants Hooked Us"
+  },
+  {
+    "item_name": "The Secret World of Oil"
+  },
+  {
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "item_name": "Ricky Ricotta's Mighty Robot (Astro-Activity Book O'Fun) by Pilkey, Dav (unknown Edition) [Paperback(2006)]"
+  },
+  {
+    "item_name": "Ricky Ricotta's Mighty Robot Book Set (7 Volumes)"
+  },
+  {
+    "item_name": "Ready Player One"
+  },
+  {
+    "item_name": "Mr. Penumbra's 24-Hour Bookstore: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 37,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 2,
+    "item_id": 235,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 3,
+    "item_id": 565,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 4,
+    "item_id": 27953,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 5,
+    "item_id": 74439,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 6,
+    "item_id": 74663,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 7,
+    "item_id": 74802,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 8,
+    "item_id": 74858,
+    "item_name": "The Old Man and the Sea"
+  },
+  {
+    "rank": 9,
+    "item_id": 74923,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 10,
+    "item_id": 75586,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 11,
+    "item_id": 16,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 12,
+    "item_id": 6680,
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "rank": 13,
+    "item_id": 76371,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 14,
+    "item_id": 75993,
+    "item_name": "Further Chronicles of Avonlea - Kindle edition"
+  },
+  {
+    "rank": 15,
+    "item_id": 6920,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 16,
+    "item_id": 74719,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 17,
+    "item_id": 47924,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 18,
+    "item_id": 9641,
+    "item_name": "The Illustrated Hitch-hiker's Guide to the Galaxy"
+  },
+  {
+    "rank": 19,
+    "item_id": 664,
+    "item_name": "Pride &amp; Prejudice (Collins Classics)"
+  },
+  {
+    "rank": 20,
+    "item_id": 7105,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 21,
+    "item_id": 100,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 22,
+    "item_id": 6785,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 23,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 24,
+    "item_id": 74744,
+    "item_name": "Dune"
+  },
+  {
+    "rank": 25,
+    "item_id": 584,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

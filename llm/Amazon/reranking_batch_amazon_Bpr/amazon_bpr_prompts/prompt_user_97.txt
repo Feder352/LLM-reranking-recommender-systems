@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Merry and Bright: A Novel"
+  },
+  {
+    "item_name": "Not a Creature Was Purring (A Paws &amp; Claws Mystery)"
+  },
+  {
+    "item_name": "Canal Days Calamity (A Dog Days Mystery)"
+  },
+  {
+    "item_name": "Body on the Bayou: A Cajun Country Mystery"
+  },
+  {
+    "item_name": "The Battle of the Labyrinth (Percy Jackson and the Olympians, Book 4)"
+  },
+  {
+    "item_name": "Thread the Halls (A Mainely Needlepoint Mystery)"
+  },
+  {
+    "item_name": "The Last Olympian (Percy Jackson and the Olympians, Book 5)"
+  },
+  {
+    "item_name": "Eaves of Destruction (A Fixer-Upper Mystery)"
+  },
+  {
+    "item_name": "This is Our Story"
+  },
+  {
+    "item_name": "Carbs &amp; Cadavers (Supper Club Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "Of Murder and Men (A Cat Latimer Mystery)"
+  },
+  {
+    "item_name": "Ditched 4 Murder (Sophie Kimball Mystery)"
+  },
+  {
+    "item_name": "The Chalk Man"
+  },
+  {
+    "item_name": "The Cuckoo's Calling (Cormoran Strike)"
+  },
+  {
+    "item_name": "The Silence of the Flans (An Emergency Dessert Squad Mystery)"
+  },
+  {
+    "item_name": "What the Dead Leave Behind (Gilded Age Mystery)"
+  },
+  {
+    "item_name": "To Helvetica and Back (A Dangerous Type Mystery)"
+  },
+  {
+    "item_name": "Survival of the Fritters (A Deputy Donut Mystery)"
+  },
+  {
+    "item_name": "Lamentation (The Jay Porter Series)"
+  },
+  {
+    "item_name": "The Plot Is Murder (Mystery Bookshop)"
+  },
+  {
+    "item_name": "Chili Con Corpses (The Supper Club Mysteries)"
+  },
+  {
+    "item_name": "Dial Meow for Murder (Lucky Paws Petsitting Mystery)"
+  },
+  {
+    "item_name": "Treasure in Paradise (A Tj Jensen Mystery) (Volume 7)"
+  },
+  {
+    "item_name": "Elementary, She Read: A Sherlock Holmes Bookshop Mystery"
+  },
+  {
+    "item_name": "Lies That Comfort and Betray (Gilded Age Mystery)"
+  },
+  {
+    "item_name": "The Hunger:Deeply disturbing, hard to put down - Stephen King"
+  },
+  {
+    "item_name": "Body on Baker Street: A Sherlock Holmes Bookshop Mystery"
+  },
+  {
+    "item_name": "Deja Moo (A Perfectly Proper Paranormal Museum Mystery)"
+  },
+  {
+    "item_name": "Murder at Half Moon Gate (A Wrexford &amp; Sloane Mystery)"
+  },
+  {
+    "item_name": "The Wicked Deep"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Ink and Bone (The Great Library)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Dancing Master"
+  },
+  {
+    "rank": 3,
+    "item_name": "Three Sisters (Emily Castles Mysteries)"
+  },
+  {
+    "rank": 4,
+    "item_name": "A Study In Scarlet Women (The Lady Sherlock Series)"
+  },
+  {
+    "rank": 5,
+    "item_name": "A Curious Beginning (A Veronica Speedwell Mystery)"
+  },
+  {
+    "rank": 6,
+    "item_name": "It Takes a Witch: A Wishcraft Mystery"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Selection. by Kiera Cass"
+  },
+  {
+    "rank": 8,
+    "item_name": "Etiquette &amp; Espionage: Finishing School, Book 1"
+  },
+  {
+    "rank": 9,
+    "item_name": "Cress"
+  },
+  {
+    "rank": 10,
+    "item_name": "Candy Corn Murder (A Lucy Stone Mystery)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 12,
+    "item_name": "When"
+  },
+  {
+    "rank": 13,
+    "item_name": "Karma's a Killer (A Downward Dog Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Delirium (Delirium Trilogy)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Once Upon a Prince (Royal Wedding Series)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Iron Queen (Iron Fey)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Etiquette &amp; Espionage (Finishing School)"
+  },
+  {
+    "rank": 18,
+    "item_name": "A Deadly Grind (A Vintage Kitchen Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Murder, Simply Stitched (Amish Quilt Shop Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Before I Fall Enhanced Edition"
+  },
+  {
+    "rank": 21,
+    "item_name": "Scarlet (Lunar Chronicles, Book 2)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Job (Fox and O'Hare)"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Goodbye Witch (Wishcraft Mystery)"
+  },
+  {
+    "rank": 24,
+    "item_name": "A Muddied Murder (A Greenhouse Mystery) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "An Appetite for Murder: A Key West Food Critic Mystery"
+  },
+  {
+    "rank": 26,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 27,
+    "item_name": "Town in a Blueberry Jam: A Candy Holliday Murder Mystery"
+  },
+  {
+    "rank": 28,
+    "item_name": "Killer Jam (Dewberry Farm Mysteries)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Cinder"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 31,
+    "item_name": "Truly, Madly: A Lucy Valentine Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Grave Mercy: His Fair Assassin, Book I"
+  },
+  {
+    "rank": 33,
+    "item_name": "Personal Demons (Personal Demons, Book 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Murder Simply Brewed (An Amish Village Mystery)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Firelight"
+  },
+  {
+    "rank": 36,
+    "item_name": "Seraphina"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Naturals"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Collector of Dying Breaths: A Novel of Suspense"
+  },
+  {
+    "rank": 40,
+    "item_name": "Friendship Bread: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "Final Sentence (A Cookbook Nook Mystery)"
+  },
+  {
+    "rank": 42,
+    "item_name": "A Treacherous Curse (A Veronica Speedwell Mystery)"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Potion to Die For: A Magic Potion Mystery"
+  },
+  {
+    "rank": 44,
+    "item_name": "Christmas at Harmony Hill: A Shaker Story"
+  },
+  {
+    "rank": 45,
+    "item_name": "Andi Unexpected (An Andi Boggs Novel)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Golden Braid"
+  },
+  {
+    "rank": 47,
+    "item_name": "Plantation Shudders: A Cajun Country Mystery"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Bone Witch"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Vault of Dreamers (The Vault of Dreamers Trilogy)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Game: The Sequel to I Hunt Killers"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

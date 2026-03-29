@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Touched (Sense Thieves)"
+  },
+  {
+    "item_name": "At Every Turn"
+  },
+  {
+    "item_name": "Hating Heidi Foster"
+  },
+  {
+    "item_name": "Whispers at Moonrise (A Shadow Falls Novel)"
+  },
+  {
+    "item_name": "The Lies That Bind (The Liar Society)"
+  },
+  {
+    "item_name": "Underside of Joy"
+  },
+  {
+    "item_name": "Everbound (Everneath)"
+  },
+  {
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "item_name": "The Dead and Buried"
+  },
+  {
+    "item_name": "Innocent Darkness (Turtleback School &amp; Library Binding Edition) (Aether Chronicles)"
+  },
+  {
+    "item_name": "Shades of Gray"
+  },
+  {
+    "item_name": "Chasers (Alone #1)"
+  },
+  {
+    "item_name": "When Hope Blossoms"
+  },
+  {
+    "item_name": "The Tutor's Daughter"
+  },
+  {
+    "item_name": "Lesson: A Novel (Stoney Ridge Seasons)"
+  },
+  {
+    "item_name": "You Got to Be Kidding! A Radical Satire of The Bible"
+  },
+  {
+    "item_name": "Divine Fury: An Enzo Lee Mystery Thriller"
+  },
+  {
+    "item_name": "Lullaby (A Watersong Novel)"
+  },
+  {
+    "item_name": "Midnight City: A Conquered Earth Novel (The Conquered Earth Series)"
+  },
+  {
+    "item_name": "Crimson Wind (Horngate Witches)"
+  },
+  {
+    "item_name": "Bitter Night: A Horngate Witches Book"
+  },
+  {
+    "item_name": "Vicious Circle (Persephone Alcmedi, Book 1)"
+  },
+  {
+    "item_name": "Lust for Life"
+  },
+  {
+    "item_name": "Fatherless: A Novel"
+  },
+  {
+    "item_name": "Into the Dark"
+  },
+  {
+    "item_name": "Love Finds You in Glacier Bay, Alaska"
+  },
+  {
+    "item_name": "Ashen Winter (Ashfall Trilogy)"
+  },
+  {
+    "item_name": "Untimed"
+  },
+  {
+    "item_name": "The Runner (Michael Knight Series, Book 1)"
+  },
+  {
+    "item_name": "Wicked Circle (Persephone Alcmedi)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2869,
+    "item_name": "I've Got Your Number: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_id": 5933,
+    "item_name": "A Different Blue"
+  },
+  {
+    "rank": 3,
+    "item_id": 2892,
+    "item_name": "Wedding Night: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_id": 5656,
+    "item_name": "Throne of Glass"
+  },
+  {
+    "rank": 5,
+    "item_id": 5911,
+    "item_name": "Barely Breathing: The Breathing Series (Volume 2)"
+  },
+  {
+    "rank": 6,
+    "item_id": 4450,
+    "item_name": "Reason to Breathe: The Breathing Series (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_id": 5818,
+    "item_name": "Between the Lines"
+  },
+  {
+    "rank": 8,
+    "item_id": 2032,
+    "item_name": "I Hunt Killers"
+  },
+  {
+    "rank": 9,
+    "item_id": 2495,
+    "item_name": "The Best Man (The Blue Heron Series)"
+  },
+  {
+    "rank": 10,
+    "item_id": 5611,
+    "item_name": "Sneak (Swipe Series)"
+  },
+  {
+    "rank": 11,
+    "item_id": 5520,
+    "item_name": "Jane's Melody"
+  },
+  {
+    "rank": 12,
+    "item_id": 2429,
+    "item_name": "White Hot Kiss (The Dark Elements)"
+  },
+  {
+    "rank": 13,
+    "item_id": 5123,
+    "item_name": "Can't Help Falling in Love (The Sullivans)"
+  },
+  {
+    "rank": 14,
+    "item_id": 3245,
+    "item_name": "The Husband's Secret"
+  },
+  {
+    "rank": 15,
+    "item_id": 2511,
+    "item_name": "Dash of Peril (Love Undercover)"
+  },
+  {
+    "rank": 16,
+    "item_id": 5893,
+    "item_name": "This Girl: A Novel (Slammed)"
+  },
+  {
+    "rank": 17,
+    "item_id": 651,
+    "item_name": "Dorothy Must Die"
+  },
+  {
+    "rank": 18,
+    "item_id": 3778,
+    "item_name": "Simply Irresistible (Lucky Harbor)"
+  },
+  {
+    "rank": 19,
+    "item_id": 627,
+    "item_name": "Big Girl Panties: A Novel"
+  },
+  {
+    "rank": 20,
+    "item_id": 5878,
+    "item_name": "The Secret of Ella and Micha"
+  },
+  {
+    "rank": 21,
+    "item_id": 4437,
+    "item_name": "Still Alice"
+  },
+  {
+    "rank": 22,
+    "item_id": 646,
+    "item_name": "Forgiving Lies: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_id": 4846,
+    "item_name": "City of Bones (The Mortal Instruments)"
+  },
+  {
+    "rank": 24,
+    "item_id": 2410,
+    "item_name": "Love a Little Sideways (The Kowalskis)"
+  },
+  {
+    "rank": 25,
+    "item_id": 638,
+    "item_name": "The Perfume Collector: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

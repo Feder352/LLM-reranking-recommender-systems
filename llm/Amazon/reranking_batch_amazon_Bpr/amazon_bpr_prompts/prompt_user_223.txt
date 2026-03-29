@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Moses: When Harriet Tubman Led Her People to Freedom (Caldecott Honor Book)"
+  },
+  {
+    "item_name": "Zero the Hero"
+  },
+  {
+    "item_name": "Duck! Rabbit!"
+  },
+  {
+    "item_name": "Locomotive (Caldecott Medal Book)"
+  },
+  {
+    "item_name": "The 12 Days of Christmas"
+  },
+  {
+    "item_name": "A Sheetcake Named Desire (A Piece of Cake Mystery)"
+  },
+  {
+    "item_name": "His Pregnant Texas Sweetheart (Peach Leaf, Texas)"
+  },
+  {
+    "item_name": "16 Lighthouse Road (Cedar Cove, Book 1)"
+  },
+  {
+    "item_name": "Cake on a Hot Tin Roof (A Piece of Cake Mystery)"
+  },
+  {
+    "item_name": "RUBY (Dakotah Treasures"
+  },
+  {
+    "item_name": "A Batter of Life and Death: A Bakeshop Mystery"
+  },
+  {
+    "item_name": "Death of a Dishonorable Gentleman: A Mystery (Lady Montfort Mystery Series)"
+  },
+  {
+    "item_name": "Stirring the Plot (A Cookbook Nook Mystery)"
+  },
+  {
+    "item_name": "The Diva Cooks a Goose (A Domestic Diva Mystery)"
+  },
+  {
+    "item_name": "A Virgin River Christmas (A Virgin River Novel)"
+  },
+  {
+    "item_name": "The House on Primrose Pond"
+  },
+  {
+    "item_name": "The Fate of Mercy Alban"
+  },
+  {
+    "item_name": "Orange Moon: A Fiction Novel"
+  },
+  {
+    "item_name": "Down From the Mountain"
+  },
+  {
+    "item_name": "Twist of Faith (Ava Saunders)"
+  },
+  {
+    "item_name": "Max and the Gatekeeper"
+  },
+  {
+    "item_name": "Climbing with Abraham: 30 Devotionals to Help You Grow Your Faith, Build Your Life, and Discover Gods Calling (Testament Heroes) (Volume 1)"
+  },
+  {
+    "item_name": "Witch Is When It All Began (A Witch P.I. Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "52 Steps to Murder (Dekker Cozy Mystery Series) (Volume 1)"
+  },
+  {
+    "item_name": "A Gift of Ghosts (Tassamara)"
+  },
+  {
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "item_name": "A Spirited Tail (Mystic Notch Cozy Mystery Series) (Volume 2)"
+  },
+  {
+    "item_name": "A Mew To A Kill (Mystic Notch Cozy Mystery Series) (Volume 3)"
+  },
+  {
+    "item_name": "Paws and Effect (Mystic Notch Cozy Mystery Series) (Volume 4)"
+  },
+  {
+    "item_name": "Probable Paws (Mystic Notch Cozy Mystery Series) (Volume 5)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Night Before Christmas: A Bedtime Shadow Book (Activity Books) (Shadow Book Series) by Clement Clarke Moore(August 1, 2006) Spiral-bound"
+  },
+  {
+    "rank": 2,
+    "item_name": "Knuffle Bunny"
+  },
+  {
+    "rank": 3,
+    "item_name": "Don't Let The Pigeon Drive The Bus!"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Jungle Book (Collins Classics)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "rank": 6,
+    "item_name": "A Day with Moo: A Best Friend Book (The Adventures of Midge and Moo) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Rainbow Fish --2000 publication."
+  },
+  {
+    "rank": 8,
+    "item_name": "We're Going on a Bear Hunt"
+  },
+  {
+    "rank": 9,
+    "item_name": "Bear Feels Sick"
+  },
+  {
+    "rank": 10,
+    "item_name": "Better Homes and Gardens New Cook Book"
+  },
+  {
+    "rank": 11,
+    "item_name": "Owl Babies"
+  },
+  {
+    "rank": 12,
+    "item_name": "Peter Pan: The Original Story"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Pigeon Wants a Puppy!"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Spider and the Fly"
+  },
+  {
+    "rank": 15,
+    "item_name": "Don't Juggle Bees! And Other Useless Advice For Silly Children"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Tea Party in the Woods"
+  },
+  {
+    "rank": 17,
+    "item_name": "If You Have a Hat"
+  },
+  {
+    "rank": 18,
+    "item_name": "Picture of Grace"
+  },
+  {
+    "rank": 19,
+    "item_name": "I Will Never Not Ever Eat a Tomato (Charlie and Lola)"
+  },
+  {
+    "rank": 20,
+    "item_name": "I Want a Dog: My Opinion Essay (Read and Write)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Kissing Hand"
+  },
+  {
+    "rank": 22,
+    "item_name": "Where the Wild Things Are"
+  },
+  {
+    "rank": 23,
+    "item_name": "Millions of Cats (Gift Edition) (Picture Puffin Books)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Goodnight Moon Board Book &amp; Baby Socks"
+  },
+  {
+    "rank": 25,
+    "item_name": "Hop on Pop Classics HB"
+  },
+  {
+    "rank": 26,
+    "item_name": "Stranger in the Woods: A Photographic Fantasy (Nature)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Little Old Lady Who Was Not Afraid of Anything Book and CD (Share a Story)"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Camping Spree With Mr. Magee"
+  },
+  {
+    "rank": 29,
+    "item_name": "If You Were Me and Lived on...Mars (A Child's Introduction to Cultures Around the World) (Volume 23)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Kneading to Die (A Pawsitively Organic Mystery)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Book With No Pictures"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Most Magnificent Thing"
+  },
+  {
+    "rank": 33,
+    "item_name": "I Will Surprise My Friend! (An Elephant and Piggie Book)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Should I Share My Ice Cream? (An Elephant and Piggie Book)"
+  },
+  {
+    "rank": 35,
+    "item_name": "There Is a Bird on Your Head!"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Runaway Bunny"
+  },
+  {
+    "rank": 38,
+    "item_name": "Blueberries for Sal"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Snowman's Revenge"
+  },
+  {
+    "rank": 40,
+    "item_name": "Joseph Had a Little Overcoat"
+  },
+  {
+    "rank": 41,
+    "item_name": "Kell, the Alien (Aliens, Inc Series) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Z Is for Moose (Booklist Editor's Choice. Books for Youth (Awards))"
+  },
+  {
+    "rank": 43,
+    "item_name": "Harry The Happy Mouse: Teaching children to be kind to each other."
+  },
+  {
+    "rank": 44,
+    "item_name": "The True Story of the Three Little Pigs"
+  },
+  {
+    "rank": 45,
+    "item_name": "Elephants Cannot Dance! (An Elephant and Piggie Book)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Christmas Bus"
+  },
+  {
+    "rank": 47,
+    "item_name": "Duck in the Fridge (A Duck in the Fridge Book)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Pollyanna"
+  },
+  {
+    "rank": 49,
+    "item_name": "I Really Like Slop! (An Elephant and Piggie Book)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Mike Mulligan and His Steam Shovel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Judge Dredd: The Complete Case Files 07"
+  },
+  {
+    "item_name": "Pathfinder Roleplaying Game: Beginner Box"
+  },
+  {
+    "item_name": "Queen Emeraldas 1"
+  },
+  {
+    "item_name": "Superman: American Alien"
+  },
+  {
+    "item_name": "Wonder Woman: The True Amazon"
+  },
+  {
+    "item_name": "365 Things to Do with LEGO Bricks: Lego Fun Every Day of the Year"
+  },
+  {
+    "item_name": "Moebius Library: The World of Edena"
+  },
+  {
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "item_name": "Sharks! (Animal Planet Chapter Books #1) (Volume 1) (Animal Planet Chapter Books (Volume 1))"
+  },
+  {
+    "item_name": "Dr. Jekyll and Mr. Hyde and Other Stories"
+  },
+  {
+    "item_name": "DC Universe: Rebirth Deluxe Edition"
+  },
+  {
+    "item_name": "Dinosaurs! (Animal Planet Chapter Books #2) (Volume 2) (Animal Planet Chapter Books (Volume 2))"
+  },
+  {
+    "item_name": "Attack on Titan Anthology"
+  },
+  {
+    "item_name": "Green Arrow Vol. 1: The Death and Life Of Oliver Queen (Rebirth)"
+  },
+  {
+    "item_name": "JSA: The Golden Age (JSA (Justice Society of America) (Graphic Novels))"
+  },
+  {
+    "item_name": "Doom Patrol Vol. 1: Brick by Brick (Young Animal)"
+  },
+  {
+    "item_name": "Wonder Woman Vol. 1: The Lies (Rebirth) (Wonder Woman DC Universe Rebirth)"
+  },
+  {
+    "item_name": "Cave Carson Has a Cybernetic Eye Vol. 1: Going Underground (Young Animal)"
+  },
+  {
+    "item_name": "Mother Panic Vol. 1: A Work in Progress (Young Animal)"
+  },
+  {
+    "item_name": "Shade the Changing Girl Vol. 1: Earth Girl Made Easy (Young Animal)"
+  },
+  {
+    "item_name": "New Super-Man Vol. 1: Made In China (Rebirth)"
+  },
+  {
+    "item_name": "Appleseed Alpha"
+  },
+  {
+    "item_name": "Garbage Night"
+  },
+  {
+    "item_name": "Hilda and the Black Hound: Book 4 (Hildafolk)"
+  },
+  {
+    "item_name": "Waltz of the Snowflakes"
+  },
+  {
+    "item_name": "Batman/The Flash: The Button Deluxe Edition"
+  },
+  {
+    "item_name": "Tom Swift and the Cosmic Astronauts (Tom Swift Jr. Adventures, 16)"
+  },
+  {
+    "item_name": "Tom Swift in the Race to the Moon (The New Tom Swift Jr. Adventures, Series No. 12)"
+  },
+  {
+    "item_name": "Green Lantern: Earth One Vol. 1"
+  },
+  {
+    "item_name": "Dark Nights: Metal: Deluxe Edition"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The New Avengers, Vol. 3: Secrets And Lies"
+  },
+  {
+    "rank": 2,
+    "item_name": "Spider-Man Noir"
+  },
+  {
+    "rank": 3,
+    "item_name": "Batman: Hush - Volume One"
+  },
+  {
+    "rank": 4,
+    "item_name": "Marvel 1602"
+  },
+  {
+    "rank": 5,
+    "item_name": "Transmetropolitan, Vol. 1: Back on the Street"
+  },
+  {
+    "rank": 6,
+    "item_name": "From Hell: Being a Melodrama in Sixteen Parts, Vol. 3"
+  },
+  {
+    "rank": 7,
+    "item_name": "Daytripper"
+  },
+  {
+    "rank": 8,
+    "item_name": "Secret Invasion: The Infiltration"
+  },
+  {
+    "rank": 9,
+    "item_name": "A Dame to Kill for (Sin City)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Batman/Superman/Wonder Woman - Trinity"
+  },
+  {
+    "rank": 11,
+    "item_name": "Sin City: Hell and Back (Book 7)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Batman: No Man's Land"
+  },
+  {
+    "rank": 13,
+    "item_name": "Superman &amp; Batman: Generations, An Imaginary Tale (Elseworlds)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Black Panther: A Nation Under Our Feet Book 1"
+  },
+  {
+    "rank": 15,
+    "item_name": "Batman: The Dark Knight Strikes Again"
+  },
+  {
+    "rank": 16,
+    "item_name": "Fables, Vol. 11: War and Pieces"
+  },
+  {
+    "rank": 17,
+    "item_name": "Letter to a Christian Nation"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "rank": 19,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 20,
+    "item_name": "Lady in the Water"
+  },
+  {
+    "rank": 21,
+    "item_name": "Ultimate Comics Spider-Man Vol. 1: The World According to Peter Parker"
+  },
+  {
+    "rank": 22,
+    "item_name": "Punisher MAX Vol. 1: In the Beginning"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 24,
+    "item_name": "Marvel Boy"
+  },
+  {
+    "rank": 25,
+    "item_name": "Iron Man: Extremis"
+  },
+  {
+    "rank": 26,
+    "item_name": "The GUNS OF AUGUST"
+  },
+  {
+    "rank": 27,
+    "item_name": "Batman: The Killing Joke"
+  },
+  {
+    "rank": 28,
+    "item_name": "Batman: R.I.P."
+  },
+  {
+    "rank": 29,
+    "item_name": "VALIS (Valis Trilogy)"
+  },
+  {
+    "rank": 30,
+    "item_name": "World War Hulk - Warbound"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Rocketeer: The Complete Deluxe Edition"
+  },
+  {
+    "rank": 32,
+    "item_name": "Sandman Preludes &amp; Nocturnes"
+  },
+  {
+    "rank": 33,
+    "item_name": "Fantastic Four: The Masters of Doom"
+  },
+  {
+    "rank": 34,
+    "item_name": "Uncanny X-Men - The New Age Vol. 1: The End of History"
+  },
+  {
+    "rank": 35,
+    "item_name": "Sin City Volume 4: That Yellow Bastard"
+  },
+  {
+    "rank": 36,
+    "item_name": "Astonishing X-Men, Vol. 4: Unstoppable"
+  },
+  {
+    "rank": 37,
+    "item_name": "Ultimate Spider-Man Vol. 1: Power and Responsibility"
+  },
+  {
+    "rank": 38,
+    "item_name": "Do Androids Dream of Electric Sheep? (Oxford Bookworms Library)"
+  },
+  {
+    "rank": 39,
+    "item_name": "DAREDEVIL: YELLOW"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Cleanest Race: How North Koreans See Themselves and Why It Matters"
+  },
+  {
+    "rank": 41,
+    "item_name": "Archer &amp; Armstrong Volume 1: The Michelangelo Code"
+  },
+  {
+    "rank": 42,
+    "item_name": "All-New X-Men, Vol. 2: Here to Stay"
+  },
+  {
+    "rank": 43,
+    "item_name": "Transmetropolitan VOL 02: Lust for Life (Transmetropolitan (Graphic Novels))"
+  },
+  {
+    "rank": 44,
+    "item_name": "Vision Vol. 2: Little Better Than a Beast"
+  },
+  {
+    "rank": 45,
+    "item_name": "Nemesis : The Battle for Japan, 1944-45"
+  },
+  {
+    "rank": 46,
+    "item_name": "Kurt Busiek's Astro City: The Tarnished Angel"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Savage Sword of Conan, Vol. 1 (v. 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Ball Peen Hammer"
+  },
+  {
+    "rank": 49,
+    "item_name": "Danse Macabre"
+  },
+  {
+    "rank": 50,
+    "item_name": "Deadpool Kills the Marvel Universe"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

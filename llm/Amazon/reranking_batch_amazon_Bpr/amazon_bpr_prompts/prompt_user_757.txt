@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Inhuman"
+  },
+  {
+    "item_name": "The Color of Heaven"
+  },
+  {
+    "item_name": "A Study in Darkness: Book Two in The Baskerville Affair"
+  },
+  {
+    "item_name": "Taste of Darkness (The Healer Series)"
+  },
+  {
+    "item_name": "Diamonds &amp; Deceit (At Somerton)"
+  },
+  {
+    "item_name": "These Broken Stars"
+  },
+  {
+    "item_name": "Once We Were"
+  },
+  {
+    "item_name": "The Essence: A Pledge Novel (The Pledge Trilogy)"
+  },
+  {
+    "item_name": "The Redhead Plays Her Hand (The Redhead Series)"
+  },
+  {
+    "item_name": "A Breath of Frost (The Lovegrove Legacy)"
+  },
+  {
+    "item_name": "Daughters of the Nile (Cleopatra's Daughter Trilogy)"
+  },
+  {
+    "item_name": "Awakening (Chrysalis)"
+  },
+  {
+    "item_name": "Pawn (The Blackcoat Rebellion)"
+  },
+  {
+    "item_name": "Defy (Defy, Book 1)"
+  },
+  {
+    "item_name": "Queen Elizabeth's Daughter: A Novel of Elizabeth I"
+  },
+  {
+    "item_name": "And We Stay"
+  },
+  {
+    "item_name": "Into the Still Blue (Under the Never Sky Trilogy)"
+  },
+  {
+    "item_name": "No Good Duke Goes Unpunished: The Third Rule of Scoundrels (Rules of Scoundrels)"
+  },
+  {
+    "item_name": "The Offering: A Pledge Novel (The Pledge Trilogy)"
+  },
+  {
+    "item_name": "Chantress"
+  },
+  {
+    "item_name": "Elizabeth of York"
+  },
+  {
+    "item_name": "Somewhere to Dream (The MacDonnell Series)"
+  },
+  {
+    "item_name": "The Boleyn Deceit: A Novel (The Boleyn Trilogy)"
+  },
+  {
+    "item_name": "A Study in Ashes: Book Three in The Baskerville Affair"
+  },
+  {
+    "item_name": "All That Glows"
+  },
+  {
+    "item_name": "Blood Between Queens (Thornleigh Saga)"
+  },
+  {
+    "item_name": "The Tudor Vendetta: A Novel (The Elizabeth I Spymaster Chronicles)"
+  },
+  {
+    "item_name": "The Tudor Secret: A Novel (The Elizabeth I Spymaster Chronicles)"
+  },
+  {
+    "item_name": "The Tudor Conspiracy: A Novel (The Elizabeth I Spymaster Chronicles)"
+  },
+  {
+    "item_name": "Of Metal and Wishes"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Ruby Red (The Ruby Red Trilogy)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Clockwork Angel"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Abandon"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Iron King"
+  },
+  {
+    "rank": 6,
+    "item_name": "City of Glass (The Mortal Instruments)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Fateful"
+  },
+  {
+    "rank": 8,
+    "item_name": "Scarlet (Lunar Chronicles, Book 2)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Fathomless (Fairy Tale Retelling)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Crown of Embers (Girl of Fire and Thorns)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Maze Runner. Correr o Morir / Maze Runner, Run or die (Spanish Edition)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Winner's Curse (The Winner's Trilogy)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Cinder"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Iron Daughter"
+  },
+  {
+    "rank": 15,
+    "item_name": "Etiquette &amp; Espionage: Finishing School, Book 1"
+  },
+  {
+    "rank": 16,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Eve"
+  },
+  {
+    "rank": 18,
+    "item_name": "Personal Demons (Personal Demons, Book 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Body Finder"
+  },
+  {
+    "rank": 20,
+    "item_name": "Sisters Red (Fairy Tale Retelling)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Diviners"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Iron Witch (The Iron Witch Series)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Before I Fall Enhanced Edition"
+  },
+  {
+    "rank": 24,
+    "item_name": "Prodigy"
+  },
+  {
+    "rank": 25,
+    "item_name": "Sweet Venom"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Raven Boys"
+  },
+  {
+    "rank": 27,
+    "item_name": "City of Bones (The Mortal Instruments)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Eternal Ones"
+  },
+  {
+    "rank": 29,
+    "item_name": "Days of Blood &amp; Starlight"
+  },
+  {
+    "rank": 30,
+    "item_name": "Matched"
+  },
+  {
+    "rank": 31,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Black Heart (The Curse Workers)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Ascend (A Trylle Novel)"
+  },
+  {
+    "rank": 34,
+    "item_name": "This World We Live In (Life As We Knew It)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Entwined"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Healers Apprentice"
+  },
+  {
+    "rank": 37,
+    "item_name": "Fangirl"
+  },
+  {
+    "rank": 38,
+    "item_name": "Austenland: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Dreams of Gods &amp; Monsters (Daughter of Smoke &amp; Bone)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Arson: Book One in The Arson Trilogy"
+  },
+  {
+    "rank": 42,
+    "item_name": "Shadow and Bone (Grisha Trilogy)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Enclave (The Razorland Trilogy)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Struck"
+  },
+  {
+    "rank": 45,
+    "item_name": "Kat, Incorrigible"
+  },
+  {
+    "rank": 46,
+    "item_name": "Hex Hall (A Hex Hall Novel)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Bumped"
+  },
+  {
+    "rank": 48,
+    "item_name": "Leviathan"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Time-Traveling Fashionista On Board the Titanic"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Hunt (The Hunt Trilogy)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

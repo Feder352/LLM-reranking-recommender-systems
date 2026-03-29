@@ -1,0 +1,242 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Mansfield Park"
+  },
+  {
+    "item_name": "Fatal Attraction"
+  },
+  {
+    "item_name": "Return of Martin Guerre, The (Retour de Martin Guerre, Le)"
+  },
+  {
+    "item_name": "Insider, The"
+  },
+  {
+    "item_name": "Limey, The"
+  },
+  {
+    "item_name": "Liberty Heights"
+  },
+  {
+    "item_name": "Boys Don't Cry"
+  },
+  {
+    "item_name": "Big Carnival, The"
+  },
+  {
+    "item_name": "Blowup"
+  },
+  {
+    "item_name": "Conversation, The"
+  },
+  {
+    "item_name": "One False Move"
+  },
+  {
+    "item_name": "Paper Chase, The"
+  },
+  {
+    "item_name": "King of Masks, The (Bian Lian)"
+  },
+  {
+    "item_name": "Straight Story, The"
+  },
+  {
+    "item_name": "Ponette"
+  },
+  {
+    "item_name": "Dry Cleaning (Nettoyage à sec)"
+  },
+  {
+    "item_name": "Suddenly, Last Summer"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2057,
+    "item_name": "Pawnbroker, The"
+  },
+  {
+    "rank": 2,
+    "item_id": 279,
+    "item_name": "Tender Mercies"
+  },
+  {
+    "rank": 3,
+    "item_id": 2038,
+    "item_name": "Breaker Morant"
+  },
+  {
+    "rank": 4,
+    "item_id": 1922,
+    "item_name": "Angela's Ashes"
+  },
+  {
+    "rank": 5,
+    "item_id": 1629,
+    "item_name": "American Gigolo"
+  },
+  {
+    "rank": 6,
+    "item_id": 2613,
+    "item_name": "Fanny and Alexander"
+  },
+  {
+    "rank": 7,
+    "item_id": 1303,
+    "item_name": "Frances"
+  },
+  {
+    "rank": 8,
+    "item_id": 3279,
+    "item_name": "Last September, The"
+  },
+  {
+    "rank": 9,
+    "item_id": 2909,
+    "item_name": "Jupiter's Wife"
+  },
+  {
+    "rank": 10,
+    "item_id": 2042,
+    "item_name": "Bread and Chocolate (Pane e cioccolata)"
+  },
+  {
+    "rank": 11,
+    "item_id": 1539,
+    "item_name": "Unbearable Lightness of Being, The"
+  },
+  {
+    "rank": 12,
+    "item_id": 2036,
+    "item_name": "Blow-Out (La Grande Bouffe)"
+  },
+  {
+    "rank": 13,
+    "item_id": 3350,
+    "item_name": "Plenty"
+  },
+  {
+    "rank": 14,
+    "item_id": 2470,
+    "item_name": "Children of Heaven, The (Bacheha-Ye Aseman)"
+  },
+  {
+    "rank": 15,
+    "item_id": 2401,
+    "item_name": "Cry in the Dark, A"
+  },
+  {
+    "rank": 16,
+    "item_id": 2551,
+    "item_name": "42 Up"
+  },
+  {
+    "rank": 17,
+    "item_id": 866,
+    "item_name": "Children of Paradise (Les enfants du paradis)"
+  },
+  {
+    "rank": 18,
+    "item_id": 2238,
+    "item_name": "Dear Diary (Caro Diario)"
+  },
+  {
+    "rank": 19,
+    "item_id": 939,
+    "item_name": "I Saw What You Did"
+  },
+  {
+    "rank": 20,
+    "item_id": 411,
+    "item_name": "Room with a View, A"
+  },
+  {
+    "rank": 21,
+    "item_id": 2858,
+    "item_name": "Desert Bloom"
+  },
+  {
+    "rank": 22,
+    "item_id": 1938,
+    "item_name": "Red Firecracker, Green Firecracker"
+  },
+  {
+    "rank": 23,
+    "item_id": 1624,
+    "item_name": "Klute"
+  },
+  {
+    "rank": 24,
+    "item_id": 1897,
+    "item_name": "Raise the Red Lantern"
+  },
+  {
+    "rank": 25,
+    "item_id": 2061,
+    "item_name": "Trip to Bountiful, The"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

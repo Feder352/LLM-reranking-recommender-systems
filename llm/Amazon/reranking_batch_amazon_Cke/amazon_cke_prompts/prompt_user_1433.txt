@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Hamilton Affair: The Epic Love Story of Alexander Hamilton and Eliza Schuyler"
+  },
+  {
+    "item_name": "Slender Reeds: Jochebed's Hope"
+  },
+  {
+    "item_name": "The New England Orchard Cookbook: Harvesting Dishes &amp; Desserts from the Region's Bounty"
+  },
+  {
+    "item_name": "From a Paris Balcony"
+  },
+  {
+    "item_name": "The Second Mrs. Hockaday: A Novel"
+  },
+  {
+    "item_name": "The Silent Songbird"
+  },
+  {
+    "item_name": "The Fire by Night: A Novel"
+  },
+  {
+    "item_name": "Imagine Heaven: Near-Death Experiences, God's Promises, and the Exhilarating Future That Awaits You"
+  },
+  {
+    "item_name": "The President's Kitchen Cabinet: The Story of the African Americans Who Have Fed Our First Families, from the Washingtons to the Obamas"
+  },
+  {
+    "item_name": "The Idea of You"
+  },
+  {
+    "item_name": "100% Real: 100 Insanely Good Recipes for Clean Food Made Fresh"
+  },
+  {
+    "item_name": "Food52 Mighty Salads: 60 New Ways to Turn Salad into Dinner (Food52 Works)"
+  },
+  {
+    "item_name": "Call the Nurse: True Stories of a Country Nurse on a Scottish Isle"
+  },
+  {
+    "item_name": "The Drowning King (A Fall of Egypt Novel)"
+  },
+  {
+    "item_name": "Eight Is Enough"
+  },
+  {
+    "item_name": "The Unquiet Grave: A Novel"
+  },
+  {
+    "item_name": "Sally's Cookie Addiction: Irresistible Cookies, Cookie Bars, Shortbread, and More from the Creator of Sally's Baking Addiction"
+  },
+  {
+    "item_name": "The World of Laura Ingalls Wilder: The Frontier Landscapes that Inspired the Little House Books"
+  },
+  {
+    "item_name": "The Indigo Girl: A Novel"
+  },
+  {
+    "item_name": "Texas Slow Cooker: 125 Recipes for the Lone Star State's Very Best Dishes, All Slow-Cooked to Perfection"
+  },
+  {
+    "item_name": "I Will Find You: Solving Killer Cases from My Life Fighting Crime (Homicide Hunter)"
+  },
+  {
+    "item_name": "The Pioneer Woman Cooks: Come and Get It!: Simple, Scrumptious Recipes for Crazy Busy Lives"
+  },
+  {
+    "item_name": "Sweet Revenge: Passive-Aggressive Desserts for Your Exes &amp; Enemies"
+  },
+  {
+    "item_name": "Just Between Us: A Novel"
+  },
+  {
+    "item_name": "The Girls in the Picture: A Novel"
+  },
+  {
+    "item_name": "Carnegie's Maid: A Novel"
+  },
+  {
+    "item_name": "Amish Cooking Class Cookbook: Over 200 Practical Recipes for Use in Any Kitchen"
+  },
+  {
+    "item_name": "I Was Anastasia: A Novel"
+  },
+  {
+    "item_name": "Mistress of Rome (Empress of Rome)"
+  },
+  {
+    "item_name": "The Romanov Empress: A Novel of Tsarina Maria Feodorovna"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2453,
+    "item_name": "Enchanted: Erotic Bedtime Stories For Women (Erotic Fiction)"
+  },
+  {
+    "rank": 2,
+    "item_id": 600,
+    "item_name": "Under a Vampire Moon: An Argeneau Novel (Argeneau Vampire)"
+  },
+  {
+    "rank": 3,
+    "item_id": 426,
+    "item_name": "Very Valentine: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_id": 2847,
+    "item_name": "Shopaholic Ties the Knot (Shopaholic, No 3)"
+  },
+  {
+    "rank": 5,
+    "item_id": 5640,
+    "item_name": "Mr. Darcy Takes a Wife: Pride and Prejudice Continues"
+  },
+  {
+    "rank": 6,
+    "item_id": 2430,
+    "item_name": "Carrie Pilby: A hilarious and charming story"
+  },
+  {
+    "rank": 7,
+    "item_id": 2868,
+    "item_name": "Mini Shopaholic (Shopaholic, Book 6)"
+  },
+  {
+    "rank": 8,
+    "item_id": 4338,
+    "item_name": "Garden Spells: A Novel (Waverly Family)"
+  },
+  {
+    "rank": 9,
+    "item_id": 4541,
+    "item_name": "Something Wonderful"
+  },
+  {
+    "rank": 10,
+    "item_id": 3799,
+    "item_name": "Sweet as Sugar, Hot as Spice (Warner Forever)"
+  },
+  {
+    "rank": 11,
+    "item_id": 3955,
+    "item_name": "Carpe Corpus"
+  },
+  {
+    "rank": 12,
+    "item_id": 1643,
+    "item_name": "Bet Me"
+  },
+  {
+    "rank": 13,
+    "item_id": 244,
+    "item_name": "I'm In No Mood For Love (Writer Friends)"
+  },
+  {
+    "rank": 14,
+    "item_id": 4400,
+    "item_name": "Summer of Roses: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_id": 152,
+    "item_name": "Sin and Sensibility (The Griffin Family)"
+  },
+  {
+    "rank": 16,
+    "item_id": 3899,
+    "item_name": "Step-Ball-Change"
+  },
+  {
+    "rank": 17,
+    "item_id": 4483,
+    "item_name": "Illyria"
+  },
+  {
+    "rank": 18,
+    "item_id": 3835,
+    "item_name": "An Angel for the Earl (A Regency Romance)"
+  },
+  {
+    "rank": 19,
+    "item_id": 3987,
+    "item_name": "Feast of Fools (Morganville Vampires, Book 4)"
+  },
+  {
+    "rank": 20,
+    "item_id": 81,
+    "item_name": "Bell, Book, and Scandal (Jane Jeffry Mysteries)"
+  },
+  {
+    "rank": 21,
+    "item_id": 2770,
+    "item_name": "How to Marry a Marquis (Avon Romantic Treasure)"
+  },
+  {
+    "rank": 22,
+    "item_id": 4286,
+    "item_name": "American Wife"
+  },
+  {
+    "rank": 23,
+    "item_id": 2735,
+    "item_name": "Flowers from the Storm"
+  },
+  {
+    "rank": 24,
+    "item_id": 2432,
+    "item_name": "Having Her Boss's Baby (Positively Pregnant)"
+  },
+  {
+    "rank": 25,
+    "item_id": 5426,
+    "item_name": "Lothaire (Immortals After Dark)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

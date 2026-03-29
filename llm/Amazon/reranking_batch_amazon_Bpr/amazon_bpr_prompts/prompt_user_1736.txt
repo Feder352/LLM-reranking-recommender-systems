@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Peep Show"
+  },
+  {
+    "item_name": "Signed"
+  },
+  {
+    "item_name": "Seized by Love at Seaside (Sweet with Heat: Seaside Summers) (Volume 7)"
+  },
+  {
+    "item_name": "Follow Me Back (Fight for Me) (Volume 2)"
+  },
+  {
+    "item_name": "The Baby Maker"
+  },
+  {
+    "item_name": "Chased"
+  },
+  {
+    "item_name": "Derailed"
+  },
+  {
+    "item_name": "Fix My Fall (The Fix Series) (Volume 3)"
+  },
+  {
+    "item_name": "Reckless"
+  },
+  {
+    "item_name": "Driving Whiskey Wild"
+  },
+  {
+    "item_name": "Release: Symbols of Love"
+  },
+  {
+    "item_name": "Secret Lucidity"
+  },
+  {
+    "item_name": "Waterfall Effect"
+  },
+  {
+    "item_name": "Baby Daddy"
+  },
+  {
+    "item_name": "Love Broken"
+  },
+  {
+    "item_name": "Heart Stronger"
+  },
+  {
+    "item_name": "Only You"
+  },
+  {
+    "item_name": "To the Fall"
+  },
+  {
+    "item_name": "The Scars I Bare (By The Bay) (Volume 2)"
+  },
+  {
+    "item_name": "What He Doesn't Know (What He Doesn't Know Duet) (Volume 1)"
+  },
+  {
+    "item_name": "Whiskey &amp; You (The Kings of Texas Billionaires)"
+  },
+  {
+    "item_name": "Come A Little Closer"
+  },
+  {
+    "item_name": "Worth Every Risk"
+  },
+  {
+    "item_name": "Bourbon &amp; Bonfires"
+  },
+  {
+    "item_name": "Cheeky Royal (Royals Undercover) (Volume 1)"
+  },
+  {
+    "item_name": "Triple Daddies"
+  },
+  {
+    "item_name": "Holding Onto Forever (The Beaumont Series - Next Generation) (Volume 1)"
+  },
+  {
+    "item_name": "I Dare You"
+  },
+  {
+    "item_name": "Cheat Codes"
+  },
+  {
+    "item_name": "Wanting Mr. Cane (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Neighbors (A Twin Estates Novel) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Long Shot (Hoops)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Cold Hearted"
+  },
+  {
+    "rank": 4,
+    "item_name": "Dirty Headlines"
+  },
+  {
+    "rank": 5,
+    "item_name": "Hitched: Imperfect Love Volume 2"
+  },
+  {
+    "rank": 6,
+    "item_name": "Illicit: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "King of Code"
+  },
+  {
+    "rank": 8,
+    "item_name": "xo, Zach"
+  },
+  {
+    "rank": 9,
+    "item_name": "Wide Open Spaces"
+  },
+  {
+    "rank": 10,
+    "item_name": "Dirty Filthy Rich Men"
+  },
+  {
+    "rank": 11,
+    "item_name": "Trigger: A Circle of Justice Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "Flesh Into Fire (Original Sin) (Volume 3)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Under the Stars (Bright Lights) (Volume 2)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Silent Waters (The Element)"
+  },
+  {
+    "rank": 15,
+    "item_name": "27 Lies: Luke's story (The Truth About Love) (Volume 2)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Keeping Her Wet: Novella"
+  },
+  {
+    "rank": 17,
+    "item_name": "Stud: A Smart, Sexy Romantic Comedy"
+  },
+  {
+    "rank": 18,
+    "item_name": "Six Feet Under (Mad Love Duet) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Cole"
+  },
+  {
+    "rank": 20,
+    "item_name": "Scandalous (Sinners of Saint) (Volume 4)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Wait With Me"
+  },
+  {
+    "rank": 22,
+    "item_name": "Catching Fireflies"
+  },
+  {
+    "rank": 23,
+    "item_name": "Trigger (Devil's Reach) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Combust (The Everyday Heroes) (Volume 2)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Perfect Love Story"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Outliers: The Outskirts Duet, Book 2"
+  },
+  {
+    "rank": 27,
+    "item_name": "Fix Me Not (The Fix Series) (Volume 2)"
+  },
+  {
+    "rank": 28,
+    "item_name": "High-Sided: An Armed &amp; Dangerous Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Living Out Loud (The Austens)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Darkest Temptation (The Dark Ones Saga)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Charming Hannah (The Big Sky Series) (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Edge of Us"
+  },
+  {
+    "rank": 33,
+    "item_name": "Lost In Between (Finding Me) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Crown of Lies (Truth and Lies Duet)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Knotted (Trails of Sin) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Delicate Scars"
+  },
+  {
+    "rank": 37,
+    "item_name": "Full Contact"
+  },
+  {
+    "rank": 38,
+    "item_name": "Torn Between Two (The Torn Duet) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The End Zone"
+  },
+  {
+    "rank": 40,
+    "item_name": "Forever Pucked: The Pucked Series, Book 4"
+  },
+  {
+    "rank": 41,
+    "item_name": "Unraveled"
+  },
+  {
+    "rank": 42,
+    "item_name": "Until Sage (Until Him) (Volume 2)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Detour"
+  },
+  {
+    "rank": 44,
+    "item_name": "Three Blind Dates"
+  },
+  {
+    "rank": 45,
+    "item_name": "Tempting Perfection (Timeless Love Series) (Volume 3)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Lead Me Home (Fight for Me) (Volume 3)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Stay: A Bleeding Stars Stand-Alone Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Flame (Satan&#39;s Savages MC Series Book 2) - Kindle edition"
+  },
+  {
+    "rank": 49,
+    "item_name": "Jaded Hearts"
+  },
+  {
+    "rank": 50,
+    "item_name": "Mr. Fiance"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

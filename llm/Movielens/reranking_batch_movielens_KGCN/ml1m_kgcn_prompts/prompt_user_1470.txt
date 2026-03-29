@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Amistad"
+  },
+  {
+    "item_name": "Babe"
+  },
+  {
+    "item_name": "Misérables, Les"
+  },
+  {
+    "item_name": "Cocoon"
+  },
+  {
+    "item_name": "Frankenstein"
+  },
+  {
+    "item_name": "Miracle on 34th Street"
+  },
+  {
+    "item_name": "King Kong"
+  },
+  {
+    "item_name": "Krippendorf's Tribe"
+  },
+  {
+    "item_name": "Thin Red Line, The"
+  },
+  {
+    "item_name": "Romancing the Stone"
+  },
+  {
+    "item_name": "Run Silent, Run Deep"
+  },
+  {
+    "item_name": "Demolition Man"
+  },
+  {
+    "item_name": "Field of Dreams"
+  },
+  {
+    "item_name": "Beverly Hills Ninja"
+  },
+  {
+    "item_name": "Enemy of the State"
+  },
+  {
+    "item_name": "Nutty Professor, The"
+  },
+  {
+    "item_name": "Committed"
+  },
+  {
+    "item_name": "X-Men"
+  },
+  {
+    "item_name": "Mission: Impossible 2"
+  },
+  {
+    "item_name": "Reindeer Games"
+  },
+  {
+    "item_name": "Gone in 60 Seconds"
+  },
+  {
+    "item_name": "Gladiator"
+  },
+  {
+    "item_name": "Lord of the Flies"
+  },
+  {
+    "item_name": "Primal Fear"
+  },
+  {
+    "item_name": "Raiders of the Lost Ark"
+  },
+  {
+    "item_name": "Gremlins"
+  },
+  {
+    "item_name": "For Whom the Bell Tolls"
+  },
+  {
+    "item_name": "It Could Happen to You"
+  },
+  {
+    "item_name": "From Russia with Love"
+  },
+  {
+    "item_name": "Contact"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1156,
+    "item_name": "Me, Myself and Irene"
+  },
+  {
+    "rank": 2,
+    "item_id": 836,
+    "item_name": "Scary Movie"
+  },
+  {
+    "rank": 3,
+    "item_id": 1882,
+    "item_name": "Road Trip"
+  },
+  {
+    "rank": 4,
+    "item_id": 522,
+    "item_name": "Whole Nine Yards, The"
+  },
+  {
+    "rank": 5,
+    "item_id": 114,
+    "item_name": "Jurassic Park"
+  },
+  {
+    "rank": 6,
+    "item_id": 2313,
+    "item_name": "Next Friday"
+  },
+  {
+    "rank": 7,
+    "item_id": 871,
+    "item_name": "What Lies Beneath"
+  },
+  {
+    "rank": 8,
+    "item_id": 1874,
+    "item_name": "Replacements, The"
+  },
+  {
+    "rank": 9,
+    "item_id": 505,
+    "item_name": "Life Is Beautiful (La Vita è bella)"
+  },
+  {
+    "rank": 10,
+    "item_id": 1066,
+    "item_name": "Bird on a Wire"
+  },
+  {
+    "rank": 11,
+    "item_id": 1331,
+    "item_name": "Grumpier Old Men"
+  },
+  {
+    "rank": 12,
+    "item_id": 715,
+    "item_name": "12 Angry Men"
+  },
+  {
+    "rank": 13,
+    "item_id": 524,
+    "item_name": "Magnolia"
+  },
+  {
+    "rank": 14,
+    "item_id": 1543,
+    "item_name": "Aces: Iron Eagle III"
+  },
+  {
+    "rank": 15,
+    "item_id": 929,
+    "item_name": "Mod Squad, The"
+  },
+  {
+    "rank": 16,
+    "item_id": 1922,
+    "item_name": "Angela's Ashes"
+  },
+  {
+    "rank": 17,
+    "item_id": 1380,
+    "item_name": "City Slickers II: The Legend of Curly's Gold"
+  },
+  {
+    "rank": 18,
+    "item_id": 525,
+    "item_name": "Searching for Bobby Fischer"
+  },
+  {
+    "rank": 19,
+    "item_id": 435,
+    "item_name": "Elizabeth"
+  },
+  {
+    "rank": 20,
+    "item_id": 1158,
+    "item_name": "Next Best Thing, The"
+  },
+  {
+    "rank": 21,
+    "item_id": 928,
+    "item_name": "Wild Wild West"
+  },
+  {
+    "rank": 22,
+    "item_id": 542,
+    "item_name": "Trainspotting"
+  },
+  {
+    "rank": 23,
+    "item_id": 1924,
+    "item_name": "What Planet Are You From?"
+  },
+  {
+    "rank": 24,
+    "item_id": 168,
+    "item_name": "Shawshank Redemption, The"
+  },
+  {
+    "rank": 25,
+    "item_id": 1638,
+    "item_name": "Saving Grace"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

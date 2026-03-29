@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Hell on Wheels (Black Knights Inc.)"
+  },
+  {
+    "item_name": "One Step Closer: A Stepbrother Stand Alone Romance"
+  },
+  {
+    "item_name": "Flawless Surrender (Volume 2)"
+  },
+  {
+    "item_name": "Rex: A Stepbrother Romance"
+  },
+  {
+    "item_name": "Forget Me Not"
+  },
+  {
+    "item_name": "Under the Orange Moon"
+  },
+  {
+    "item_name": "She Asked for It"
+  },
+  {
+    "item_name": "Healed by Love (The Bradens at Peaceful Harbor, Book 1) (Love in Bloom)"
+  },
+  {
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "item_name": "Alpha's Challenge: An MC Werewolf Romance (Bad Boy Alphas) (Volume 4)"
+  },
+  {
+    "item_name": "Alpha's Obsession: An MC Werewolf Romance (Bad Boy Alphas) (Volume 5)"
+  },
+  {
+    "item_name": "Breaking the Storm (Credence Curse)"
+  },
+  {
+    "item_name": "Wheels Up (Out of Uniform)"
+  },
+  {
+    "item_name": "Coveted by the Bear"
+  },
+  {
+    "item_name": "A Knight's Persuasion"
+  },
+  {
+    "item_name": "Forbidden Hunger (Lee County Wolves) (Volume 1)"
+  },
+  {
+    "item_name": "Fighting Dirty (Blind Jacks MC)"
+  },
+  {
+    "item_name": "Man Enough: A Single Dad Romance"
+  },
+  {
+    "item_name": "Too Far Gone (Adirondack Pack) (Volume 1)"
+  },
+  {
+    "item_name": "Room Service"
+  },
+  {
+    "item_name": "Fault Lines (Adirondack Pack) (Volume 2)"
+  },
+  {
+    "item_name": "Vespertine"
+  },
+  {
+    "item_name": "Wanted By The Devil"
+  },
+  {
+    "item_name": "Licks"
+  },
+  {
+    "item_name": "To Save A Mate: Somewhere, TX Volume 1 (VonBrandt Family)"
+  },
+  {
+    "item_name": "He's Back: A Second Chance Romance"
+  },
+  {
+    "item_name": "Possessive"
+  },
+  {
+    "item_name": "Strong Silent Type (Rough Riders)"
+  },
+  {
+    "item_name": "Merciless"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Twice the Growl (BBW Paranormal Shape Shifter Romance): A BBW in need of a date + Two hot Alphas looking for a mate = The hottest triad ever. (Paranormal Dating Agency) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Rock Hard (Rock Kiss)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Tempted by Fire: Dragons of Bloodfire"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Werewolf Cowboy (Moonbound) (Volume 1)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Hot and Badgered (The Honey Badger Chronicles)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Wolf's Heart: A Wolf Pack Motorcycle Club Book (Breed MC) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Hell on Wheels (Black Knights Inc.)"
+  },
+  {
+    "rank": 8,
+    "item_name": "True (New Species) (Volume 11)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Heart of the Hunter"
+  },
+  {
+    "rank": 10,
+    "item_name": "Loaded: An Enemies-to-Lovers Romance"
+  },
+  {
+    "rank": 11,
+    "item_name": "How We Fall"
+  },
+  {
+    "rank": 12,
+    "item_name": "Ink Inspired (Montgomery Ink)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Witch Who Cried Wolf: New Adult Paranormal Romance (Cry Wolf)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Under Her Skin"
+  },
+  {
+    "rank": 15,
+    "item_name": "Fury of Seduction (Dragonfury Series)"
+  },
+  {
+    "rank": 16,
+    "item_name": "His Bedpost Queen (Queen Quartette)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Wolf's Mate: A Paranormal Shifter Romance (Shifter Rogues)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Desired by Alpha Bear"
+  },
+  {
+    "rank": 19,
+    "item_name": "Tempting Rever"
+  },
+  {
+    "rank": 20,
+    "item_name": "Prick: A Stepbrother Romance"
+  },
+  {
+    "rank": 21,
+    "item_name": "Brukr (Scifi Alien Weredragon Romance) (Dragons of Preor) (Volume 8)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Wicked Billionaire: A Billionaire SEAL Romance (The Tate Brothers)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Saved by Alpha Bear"
+  },
+  {
+    "rank": 24,
+    "item_name": "Lover Avenged (Black Dagger Brotherhood, Book 7)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Midnight Conquest: Book 1 of the Bonded By Blood Vampire Chronicles"
+  },
+  {
+    "rank": 26,
+    "item_name": "Beyond Shame: Beyond, Book One"
+  },
+  {
+    "rank": 27,
+    "item_name": "I Dream of Dragons (Boston Dragons)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Claiming His Fate (Feral Breed Motorcycle Club) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Reign: A Royal Military Romance"
+  },
+  {
+    "rank": 30,
+    "item_name": "Blind Attraction (Reckless Beat) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Scaling Her Dragon (Paranormal Dating Agency) (Volume 8)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Claiming His Mate (A Werewolf Romance)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Awakened by Fire: Dragons of Bloodfire 2"
+  },
+  {
+    "rank": 34,
+    "item_name": "Heart of a Dragon (Fallen Immortals 2) - Paranormal Fairytale Romance (Volume 2)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Laird Wolf (Takhini Shifters) (Volume 2)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Smoulder (Dragonsworn) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Muffin Top"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Shadows (Black Dagger Brotherhood)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Baby, I'm Howling For You (Alphaville)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Hearts in Darkness"
+  },
+  {
+    "rank": 41,
+    "item_name": "Darkness Awakened (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "My Protector (Bewitched and Bewildered) (Volume 2)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Alien General's Chosen (Brion Brides)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Wrath (New Species)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Kidnapping Casey (Zorn Warriors) (Volume 2)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Warrior Prince: Dragon Lords Book Four"
+  },
+  {
+    "rank": 47,
+    "item_name": "Highland Wolf Pact: A Scottish Werewolf Shifter Romance"
+  },
+  {
+    "rank": 48,
+    "item_name": "Highland Wolf Clan, Book 1, The Reluctant Alpha (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Fury of Desire (Dragonfury)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Kane (Alexander Shifter Brothers) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

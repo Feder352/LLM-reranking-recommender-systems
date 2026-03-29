@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Summer of Love"
+  },
+  {
+    "item_name": "Dying in the Wool (A Kate Shackleton Mystery)"
+  },
+  {
+    "item_name": "A Summer at Sea"
+  },
+  {
+    "item_name": "A Medal for Murder (A Kate Shackleton Mystery)"
+  },
+  {
+    "item_name": "Grace to the Finish (A Manor House Mystery)"
+  },
+  {
+    "item_name": "In the Market for Murder (A Lady Hardcastle Mystery)"
+  },
+  {
+    "item_name": "Death Around the Bend (A Lady Hardcastle Mystery)"
+  },
+  {
+    "item_name": "The Lady Travelers Guide to Scoundrels and Other Gentlemen: A Historical Romance Novel (Lady Travelers Society)"
+  },
+  {
+    "item_name": "Small Admissions: A Novel"
+  },
+  {
+    "item_name": "GOLDEN HILL"
+  },
+  {
+    "item_name": "Painting the Moon (Chilton Crosse) (Volume 1)"
+  },
+  {
+    "item_name": "The Saturday Evening Girls Club: A Novel"
+  },
+  {
+    "item_name": "A Vintage Wedding"
+  },
+  {
+    "item_name": "On Her Majesty's Frightfully Secret Service (A Royal Spyness Mystery)"
+  },
+  {
+    "item_name": "The Bachelor Girl's Guide to Murder (Herringford and Watts Mysteries)"
+  },
+  {
+    "item_name": "P.S. from Paris (US edition)"
+  },
+  {
+    "item_name": "Crimes Against a Book Club"
+  },
+  {
+    "item_name": "The Cafe by the Sea: A Novel"
+  },
+  {
+    "item_name": "An Unmarked Grave (Bess Crawford Mysteries)"
+  },
+  {
+    "item_name": "The Designer"
+  },
+  {
+    "item_name": "The Essence of Malice (Amory Ames)"
+  },
+  {
+    "item_name": "The Secret History of the Pink Carnation"
+  },
+  {
+    "item_name": "The Secret History of the Pink Carnation"
+  },
+  {
+    "item_name": "One Sip at a Time: Learning to Live in Provence"
+  },
+  {
+    "item_name": "A Question of Honor"
+  },
+  {
+    "item_name": "An Unwilling Accomplice: A Bess Crawford Mystery (Bess Crawford Mysteries)"
+  },
+  {
+    "item_name": "This Side of Murder (A Verity Kent Mystery)"
+  },
+  {
+    "item_name": "The Royal Treatment: A Crown Jewels Romantic Comedy, Book 1"
+  },
+  {
+    "item_name": "Just Follow The Money (Hetta Coffey Series)"
+  },
+  {
+    "item_name": "Death at Wentwater Court (Daisy Dalrymple Mysteries, No. 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Still Life with Murder (Gilded Age Mysteries, No. 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Louisiana Longshot: A Miss Fortune Mystery (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Hanover Square Affair"
+  },
+  {
+    "rank": 4,
+    "item_name": "Trouble in Mudbug"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Deep End (The Country Club Murders) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Victoria"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Murder at Sissingham Hall (An Angela Marchmont Mystery Book 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Crossing Places (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Silent in the Grave"
+  },
+  {
+    "rank": 11,
+    "item_name": "The American Heiress"
+  },
+  {
+    "rank": 12,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 13,
+    "item_name": "Better Off Without Him"
+  },
+  {
+    "rank": 14,
+    "item_name": "James the Connoisseur Cat"
+  },
+  {
+    "rank": 15,
+    "item_name": "X (A Kinsey Millhone Novel)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Kill the Competition"
+  },
+  {
+    "rank": 17,
+    "item_name": "Lady Fortescue Steps Out (The Poor Relation)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Cocaine Blues (Phryne Fisher Mysteries)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Boy in the Suitcase (A Nina Borg Novel)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Cancelled"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Lake House: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Absolute Liability: A Southern Fraud Thriller"
+  },
+  {
+    "rank": 24,
+    "item_name": "Lowcountry Boneyard (A Liz Talbot Mystery) (Volume 3)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Dark Enquiry (A Lady Julia Grey Mystery)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Collected Works of A. J. Fikry"
+  },
+  {
+    "rank": 28,
+    "item_name": "Carrots (Shelby Nichols Adventures)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Painted Girls: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Lake House: The House of Riverton 05"
+  },
+  {
+    "rank": 31,
+    "item_name": "Plantation Shudders: A Cajun Country Mystery"
+  },
+  {
+    "rank": 32,
+    "item_name": "Blood and Circuses (Miss Fisher's Murder Mysteries)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Viscount's Christmas Temptation (Dukes of War) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Housewife Assassin's Handbook (The Housewife Assassin Series) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Color of Heaven"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Late Scholar"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Share in Death (Duncan Kincaid/Gemma James Novels)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Forgotten Garden"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Janus Stone (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Water's Edge"
+  },
+  {
+    "rank": 42,
+    "item_name": "Crazy Little Thing (A Bell Harbor Novel)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Whose Body? (Lord Peter Wimsey Mysteries)"
+  },
+  {
+    "rank": 44,
+    "item_name": "A Bitter Truth (Bess Crawford Mysteries)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Rebellion of Jane Clarke: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Death Comes to Pemberley"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Sound of Glass"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Dying Fall (Ruth Galloway Mystery) (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Death By Cashmere: A Seaside Knitters Mystery"
+  },
+  {
+    "rank": 50,
+    "item_name": "Longbourn"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

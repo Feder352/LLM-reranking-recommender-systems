@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Day of Battle"
+  },
+  {
+    "item_name": "Thermopylae 480 BC: Last stand of the 300 (Campaign)"
+  },
+  {
+    "item_name": "Rising '44: The Battle for Warsaw"
+  },
+  {
+    "item_name": "Shattered Sword: The Untold Story of the Battle of Midway"
+  },
+  {
+    "item_name": "Russia's War: A History of the Soviet Effort: 1941-1945"
+  },
+  {
+    "item_name": "Leningrad: State of Siege"
+  },
+  {
+    "item_name": "Philippi 42 BC: The death of the Roman Republic (Campaign)"
+  },
+  {
+    "item_name": "The Russian Civil War 1918&ndash;22 (Essential Histories)"
+  },
+  {
+    "item_name": "How Rome Fell: Death of a Superpower"
+  },
+  {
+    "item_name": "The White War: Life and Death on the Italian Front 1915-1919"
+  },
+  {
+    "item_name": "Ireland 164952: Cromwells Protestant Crusade (Campaign)"
+  },
+  {
+    "item_name": "M1 Abrams vs T-72 Ural: Operation Desert Storm 1991 (Duel)"
+  },
+  {
+    "item_name": "The Coral Sea 1942: The first carrier battle (Campaign)"
+  },
+  {
+    "item_name": "Warsaw 1920: Lenin&rsquo;s Failed Conquest of Europe"
+  },
+  {
+    "item_name": "Stalin: The Court of the Red Tsar"
+  },
+  {
+    "item_name": "Teutoburg Forest AD 9: The destruction of Varus and his legions (Campaign)"
+  },
+  {
+    "item_name": "A Distant Mirror: the Calamitous 14th Century"
+  },
+  {
+    "item_name": "All Hell Let Loose: The World at War 1939-1945"
+  },
+  {
+    "item_name": "Manzikert 1071: The breaking of Byzantium (Campaign)"
+  },
+  {
+    "item_name": "Crimea: The Last Crusade"
+  },
+  {
+    "item_name": "Pylos and Sphacteria 425 BC: Sparta's island of disaster (Campaign)"
+  },
+  {
+    "item_name": "Operation Market-Garden 1944 (1): The American Airborne Missions (Campaign)"
+  },
+  {
+    "item_name": "The Wages of Destruction: The Making and Breaking of the Nazi Economy"
+  },
+  {
+    "item_name": "Hundred Days: The Campaign That Ended World War I"
+  },
+  {
+    "item_name": "Waterloo 1815 (3): Mont St Jean and Wavre (Campaign)"
+  },
+  {
+    "item_name": "Waterloo 1815 (3): Mont St Jean and Wavre (Campaign)"
+  },
+  {
+    "item_name": "Caesar"
+  },
+  {
+    "item_name": "Finest Years: Churchill as Warlord 1940-45"
+  },
+  {
+    "item_name": "Inside the Third Reich"
+  },
+  {
+    "item_name": "Battleground Prussia: The Assault on Germany's Eastern Front 1944-45 (General Military)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 6607,
+    "item_name": "The Northern Crusades: Second Edition"
+  },
+  {
+    "rank": 2,
+    "item_id": 6532,
+    "item_name": "Guadalcanal: The Definitive Account of the Landmark Battle"
+  },
+  {
+    "rank": 3,
+    "item_id": 77698,
+    "item_name": "Challenge of the Left Opposition 1926-1927 (English and Russian Edition)"
+  },
+  {
+    "rank": 4,
+    "item_id": 43637,
+    "item_name": "Young Stalin"
+  },
+  {
+    "rank": 5,
+    "item_id": 68291,
+    "item_name": "Behind Soviet Lines: Hitlers Brandenburgers capture the Maikop Oilfields 1942 (Raid)"
+  },
+  {
+    "rank": 6,
+    "item_id": 25835,
+    "item_name": "Ring of Steel: Germany and Austria-Hungary in World War I"
+  },
+  {
+    "rank": 7,
+    "item_id": 9185,
+    "item_name": "Castles of Steel : Britain, Germany and the Winning of the Great War at Sea"
+  },
+  {
+    "rank": 8,
+    "item_id": 5651,
+    "item_name": "Day of Deceit : The Truth About FDR and Pearl Harbor"
+  },
+  {
+    "rank": 9,
+    "item_id": 32745,
+    "item_name": "Lost Victories: The War Memoirs of Hitler's Most Brilliant General"
+  },
+  {
+    "rank": 10,
+    "item_id": 75564,
+    "item_name": "Stilwell and the American Experience in China"
+  },
+  {
+    "rank": 11,
+    "item_id": 29799,
+    "item_name": "The Thirty Years War: Europe's Tragedy"
+  },
+  {
+    "rank": 12,
+    "item_id": 9026,
+    "item_name": "What Hath God Wrought: The Transformation of America, 1815-1848 (The Oxford History of the United States, Vol. 5)"
+  },
+  {
+    "rank": 13,
+    "item_id": 25044,
+    "item_name": "The Dead and Those About to Die: D-Day: The Big Red One at Omaha Beach"
+  },
+  {
+    "rank": 14,
+    "item_id": 28803,
+    "item_name": "Eisenhower: Soldier And President (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 15,
+    "item_id": 8143,
+    "item_name": "The End: The Defiance and Destruction of Hitler's Germany, 1944-1945"
+  },
+  {
+    "rank": 16,
+    "item_id": 2075,
+    "item_name": "Washington's Secret War: The Hidden History of Valley Forge"
+  },
+  {
+    "rank": 17,
+    "item_id": 29723,
+    "item_name": "General James Longstreet: The Confederacy's Most Controversial Soldier : A Biography"
+  },
+  {
+    "rank": 18,
+    "item_id": 19191,
+    "item_name": "So Far from God"
+  },
+  {
+    "rank": 19,
+    "item_id": 7062,
+    "item_name": "D-Day [Sound Recording]: The Battle for Normandy"
+  },
+  {
+    "rank": 20,
+    "item_id": 45460,
+    "item_name": "The Spartacus War"
+  },
+  {
+    "rank": 21,
+    "item_id": 18166,
+    "item_name": "Armageddon: The Battle for Germany, 1944-1945"
+  },
+  {
+    "rank": 22,
+    "item_id": 30037,
+    "item_name": "Ratification: The People Debate the Constitution, 1787-1788"
+  },
+  {
+    "rank": 23,
+    "item_id": 2123,
+    "item_name": "Grant and Sherman: The Friendship that Won the Civil War"
+  },
+  {
+    "rank": 24,
+    "item_id": 9235,
+    "item_name": "The Beginnings of Western Science: The European Scientific Tradition in Philosophical, Religious, and Institutional Context, 600 B.C. to A.D. 1450"
+  },
+  {
+    "rank": 25,
+    "item_id": 13776,
+    "item_name": "Grant Takes Command: 1863 - 1865"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dragonwatch: A Fablehaven Adventure"
+  },
+  {
+    "item_name": "Unexpected Love: A Marriage of Convenience Anthology"
+  },
+  {
+    "item_name": "A Case in Any Case (Detective Gordon)"
+  },
+  {
+    "item_name": "Bruno: Some of the More Interesting Days in My Life So Far"
+  },
+  {
+    "item_name": "Deadly Inheritance"
+  },
+  {
+    "item_name": "The Vicar's Daughter (Proper Romance)"
+  },
+  {
+    "item_name": "Defiance"
+  },
+  {
+    "item_name": "Brightwood"
+  },
+  {
+    "item_name": "Wrong for You"
+  },
+  {
+    "item_name": "Belly Up (FunJungle)"
+  },
+  {
+    "item_name": "Poached (FunJungle)"
+  },
+  {
+    "item_name": "Thick as Thieves (Queen's Thief)"
+  },
+  {
+    "item_name": "The Song of Copper Creek"
+  },
+  {
+    "item_name": "Searching for Irene"
+  },
+  {
+    "item_name": "The Secret of the India Orchid (Proper Romance)"
+  },
+  {
+    "item_name": "Duck, Duck, Porcupine! (A Duck, Duck, Porcupine Book)"
+  },
+  {
+    "item_name": "Real Friends"
+  },
+  {
+    "item_name": "Miss Leslie's Secret"
+  },
+  {
+    "item_name": "The Nameless City: The Stone Heart"
+  },
+  {
+    "item_name": "The Border"
+  },
+  {
+    "item_name": "Creepy Pair of Underwear!"
+  },
+  {
+    "item_name": "The Gentleman's Deception"
+  },
+  {
+    "item_name": "Santa Calls"
+  },
+  {
+    "item_name": "The Wolf, the Duck, and the Mouse"
+  },
+  {
+    "item_name": "We're Going on a Bear Hunt"
+  },
+  {
+    "item_name": "Don't Forget Dexter! (Dexter T. Rexter)"
+  },
+  {
+    "item_name": "Rapunzel"
+  },
+  {
+    "item_name": "Baby Monkey, Private Eye"
+  },
+  {
+    "item_name": "The Traitor's Game (The Traitor's Game, Book One)"
+  },
+  {
+    "item_name": "A Night Divided (Scholastic Gold)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 49285,
+    "item_name": "The Dreamosphere"
+  },
+  {
+    "rank": 2,
+    "item_id": 62826,
+    "item_name": "Pillage"
+  },
+  {
+    "rank": 3,
+    "item_id": 43577,
+    "item_name": "Mother Bruce"
+  },
+  {
+    "rank": 4,
+    "item_id": 49289,
+    "item_name": "Mormon Origami"
+  },
+  {
+    "rank": 5,
+    "item_id": 49277,
+    "item_name": "The Emerald Ring (Cleopatra's Legacy)"
+  },
+  {
+    "rank": 6,
+    "item_id": 39750,
+    "item_name": "Fetch"
+  },
+  {
+    "rank": 7,
+    "item_id": 59392,
+    "item_name": "To Win a Lady's Heart"
+  },
+  {
+    "rank": 8,
+    "item_id": 29190,
+    "item_name": "Dragon Defender (Dragon Defense League) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_id": 33062,
+    "item_name": "The Smallest Gift of Christmas"
+  },
+  {
+    "rank": 10,
+    "item_id": 77857,
+    "item_name": "Motherhood Matters: Joyful Reminders of the Divinity, Reality, and Rewards of Motherhood"
+  },
+  {
+    "rank": 11,
+    "item_id": 77642,
+    "item_name": "Sticks 'n Stones 'n Dinosaur Bones: Being a Whimsical Take on a (pre)Historical Event (Unhinged History)"
+  },
+  {
+    "rank": 12,
+    "item_id": 33086,
+    "item_name": "The Princess in Black"
+  },
+  {
+    "rank": 13,
+    "item_id": 78129,
+    "item_name": "Podium Finish eBook"
+  },
+  {
+    "rank": 14,
+    "item_id": 71898,
+    "item_name": "Summer House Party (Timeless Regency Collection) (Volume 4)"
+  },
+  {
+    "rank": 15,
+    "item_id": 52441,
+    "item_name": "I Really Like Slop! (An Elephant and Piggie Book)"
+  },
+  {
+    "rank": 16,
+    "item_id": 32339,
+    "item_name": "Princess Academy"
+  },
+  {
+    "rank": 17,
+    "item_id": 66202,
+    "item_name": "Playing for Keeps"
+  },
+  {
+    "rank": 18,
+    "item_id": 740,
+    "item_name": "The Day The Crayons Quit"
+  },
+  {
+    "rank": 19,
+    "item_id": 70572,
+    "item_name": "Loving Helen (A Hearthfire Romance) (Volume 2)"
+  },
+  {
+    "rank": 20,
+    "item_id": 70525,
+    "item_name": "Marrying Christopher (A Hearthfire Romance)"
+  },
+  {
+    "rank": 21,
+    "item_id": 64650,
+    "item_name": "Fortune Cookie (Culinary Mystery)"
+  },
+  {
+    "rank": 22,
+    "item_id": 13596,
+    "item_name": "Clara Lee and the Apple Pie Dream"
+  },
+  {
+    "rank": 23,
+    "item_id": 77859,
+    "item_name": "Choir of Angels"
+  },
+  {
+    "rank": 24,
+    "item_id": 62255,
+    "item_name": "Lester's Dreadful Sweaters"
+  },
+  {
+    "rank": 25,
+    "item_id": 66886,
+    "item_name": "My Fair Gentleman (Proper Romance) (A Proper Romance)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Alexandria Affair (Captain Lacey Regency Mysteries) (Volume 11)"
+  },
+  {
+    "item_name": "A Mystery at Carlton House (Captain Lacey Regency Mysteries) (Volume 12)"
+  },
+  {
+    "item_name": "A Covent Garden Mystery (Mystery of Regency England)"
+  },
+  {
+    "item_name": "Highland Spring (Seasons of Fortitude Series) (Volume 1)"
+  },
+  {
+    "item_name": "Mischief in Maggody: An Ozarks Murder Mystery"
+  },
+  {
+    "item_name": "The Marriage  Mart"
+  },
+  {
+    "item_name": "Darcy's Ultimatum: A Pride &amp; Prejudice Variation (The Cousins) (Volume 1)"
+  },
+  {
+    "item_name": "Mr. Darcy to the Rescue: A Pride and Prejudice Variation"
+  },
+  {
+    "item_name": "True Crime Stories: 12 Shocking True Crime Murder Cases (True Crime Anthology) (Volume 1)"
+  },
+  {
+    "item_name": "A Cereal Killer (A Sibyl Potts Cozy Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Hearts Across Time (The Knights of Berwyck, A Quest Through Time Novel) (Volume 1)"
+  },
+  {
+    "item_name": "The Duke She Wished For (Happily Ever After) (Volume 1)"
+  },
+  {
+    "item_name": "Caught By The Scot: Made To Marry 1"
+  },
+  {
+    "item_name": "Double Sin and Other Stories"
+  },
+  {
+    "item_name": "True Crime Stories Volume 8: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "item_name": "DI Will Jackman 1: Before It's Too Late: Shocking. Page-Turning. Crime Thriller with DI Will Jackman (The DI Will Jackman series)"
+  },
+  {
+    "item_name": "The Bride Wore Blue (The Brides of Bath)"
+  },
+  {
+    "item_name": "His Good Opinion: A Mr. Darcy Novel"
+  },
+  {
+    "item_name": "The Toolbox Killers: A Deadly Rape, Torture &amp; Murder Duo (The Serial Killer Books) (Volume 3)"
+  },
+  {
+    "item_name": "The Best Part of Love"
+  },
+  {
+    "item_name": "Mr. Darcy's Forbidden Love"
+  },
+  {
+    "item_name": "The Last Thing She Ever Did"
+  },
+  {
+    "item_name": "Tangled in Time (The MacCarthy Sisters)"
+  },
+  {
+    "item_name": "True Crime Stories Volume 9: 12 Shocking True Crime Murder Cases (True Crime Anthology)"
+  },
+  {
+    "item_name": "A Devil in Scotland: A No Ordinary Hero Novel"
+  },
+  {
+    "item_name": "The Girl Next Door"
+  },
+  {
+    "item_name": "G-Man (Bob Lee Swagger)"
+  },
+  {
+    "item_name": "Sick Girl"
+  },
+  {
+    "item_name": "Viking Thunder"
+  },
+  {
+    "item_name": "Falling for Mr. Darcy"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 37213,
+    "item_name": "AN Undeniable Rogue: The Rogue's Club (Zebra Ballad Romance)"
+  },
+  {
+    "rank": 2,
+    "item_id": 24021,
+    "item_name": "The Rogue"
+  },
+  {
+    "rank": 3,
+    "item_id": 37226,
+    "item_name": "Lady Fiasco (Zebra Regency Romance)"
+  },
+  {
+    "rank": 4,
+    "item_id": 24454,
+    "item_name": "Tempting Juliana (Signet Eclipse)"
+  },
+  {
+    "rank": 5,
+    "item_id": 21429,
+    "item_name": "The Hanover Square Affair"
+  },
+  {
+    "rank": 6,
+    "item_id": 26264,
+    "item_name": "My Champion (Knights of de Ware)"
+  },
+  {
+    "rank": 7,
+    "item_id": 23144,
+    "item_name": "The Pride of Lions"
+  },
+  {
+    "rank": 8,
+    "item_id": 24385,
+    "item_name": "Highland Treasure: The Dreamer"
+  },
+  {
+    "rank": 9,
+    "item_id": 64916,
+    "item_name": "Whisper of Magic: Unexpected Magic Book Two (Volume 2)"
+  },
+  {
+    "rank": 10,
+    "item_id": 56530,
+    "item_name": "Virtuous Scoundrel (The Regency Romp Trilogy)"
+  },
+  {
+    "rank": 11,
+    "item_id": 71939,
+    "item_name": "The Winter Duchess (A Duchess for All Seasons)"
+  },
+  {
+    "rank": 12,
+    "item_id": 24381,
+    "item_name": "Thunder and Roses (Signet Historical Romance)"
+  },
+  {
+    "rank": 13,
+    "item_id": 24341,
+    "item_name": "Amethyst"
+  },
+  {
+    "rank": 14,
+    "item_id": 28883,
+    "item_name": "A Whisper of Rosemary"
+  },
+  {
+    "rank": 15,
+    "item_id": 39562,
+    "item_name": "The MacKinnon's Bride (The Highland Brides) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_id": 75306,
+    "item_name": "Beyond the Cliffs of Kerry (Bold Women of the 18th Century Series, Book 1)"
+  },
+  {
+    "rank": 17,
+    "item_id": 76344,
+    "item_name": "Dangerous Secrets"
+  },
+  {
+    "rank": 18,
+    "item_id": 71221,
+    "item_name": "Ian's Rose: Book One of The Mackintoshes and McLarens (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_id": 47892,
+    "item_name": "Maids of Misfortune: A Victorian San Francisco Mystery"
+  },
+  {
+    "rank": 20,
+    "item_id": 8795,
+    "item_name": "Queen Victoria (H B J MODERN CLASSIC)"
+  },
+  {
+    "rank": 21,
+    "item_id": 39362,
+    "item_name": "Salt Bride: A Georgian Historical Romance"
+  },
+  {
+    "rank": 22,
+    "item_id": 69911,
+    "item_name": "Miss Amelia Lands a Duke: The Caversham Chronicles - The Prequel Novella"
+  },
+  {
+    "rank": 23,
+    "item_id": 40116,
+    "item_name": "The Lanvin Murders"
+  },
+  {
+    "rank": 24,
+    "item_id": 11780,
+    "item_name": "Lady Fortescue Steps Out (The Poor Relation)"
+  },
+  {
+    "rank": 25,
+    "item_id": 16669,
+    "item_name": "The Inconvenient Duchess"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

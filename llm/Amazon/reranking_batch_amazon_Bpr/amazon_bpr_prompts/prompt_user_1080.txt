@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Death Becomes Her (The Kurtherian Gambit) (Volume 1)"
+  },
+  {
+    "item_name": "Cold Welcome: Vatta's Peace: Book 1"
+  },
+  {
+    "item_name": "Winter Tide (The Innsmouth Legacy)"
+  },
+  {
+    "item_name": "Waking Gods: Themis Files Book 2"
+  },
+  {
+    "item_name": "Borderline (The Arcadia Project)"
+  },
+  {
+    "item_name": "Prophets of the Ghost Ants"
+  },
+  {
+    "item_name": "Vanguard (Genesis Fleet, The)"
+  },
+  {
+    "item_name": "Perilous Waif (Alice Long)"
+  },
+  {
+    "item_name": "The Dispatcher"
+  },
+  {
+    "item_name": "Moonbreaker (Secret Histories)"
+  },
+  {
+    "item_name": "Down Among the Sticks and Bones (Wayward Children)"
+  },
+  {
+    "item_name": "Grave Ransom (An Alex Craft Novel)"
+  },
+  {
+    "item_name": "Bannerless (The Bannerless Saga)"
+  },
+  {
+    "item_name": "River of Teeth"
+  },
+  {
+    "item_name": "The Tethered Mage (Swords and Fire)"
+  },
+  {
+    "item_name": "The Hunt (A Devil's Isle Novel)"
+  },
+  {
+    "item_name": "The Brightest Fell (October Daye)"
+  },
+  {
+    "item_name": "An Alchemy of Masques and Mirrors: Book One in the Risen Kingdoms"
+  },
+  {
+    "item_name": "AFTERLIFE"
+  },
+  {
+    "item_name": "Artemis"
+  },
+  {
+    "item_name": "Strange Music: A Pip &amp; Flinx Adventure (Adventures of Pip &amp; Flinx)"
+  },
+  {
+    "item_name": "The Beautiful Ones: A Novel"
+  },
+  {
+    "item_name": "The Genius Plague"
+  },
+  {
+    "item_name": "A Spoonful of Magic"
+  },
+  {
+    "item_name": "The Girl in the Tower: A Novel (Winternight Trilogy)"
+  },
+  {
+    "item_name": "The Nine (Thieves of Fate)"
+  },
+  {
+    "item_name": "The Golden Gate"
+  },
+  {
+    "item_name": "Into the Fire: Vatta's Peace: Book 2"
+  },
+  {
+    "item_name": "The Philosopher's Flight: A Novel (The Philosophers Series)"
+  },
+  {
+    "item_name": "Tricks for Free (InCryptid)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Vision in Silver (A Novel of the Others)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Cast in Flame (Chronicles of Elantra)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Dark Side of the Road, The: A country house murder mystery with a supernatural twist (An Ishmael Jones Mystery)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Hounded (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Horrorstor: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "A Study in Ashes: Book Three in The Baskerville Affair"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Abyss Beyond Dreams: A Novel of the Commonwealth (Commonwealth: Chronicle of the Fallers)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Lost Fleet: Beyond the Frontier: Leviathan"
+  },
+  {
+    "rank": 9,
+    "item_name": "Cold Days: A Dresden Files Novel (The Dresden Files)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Invisible Library (The Invisible Library Novel)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Sorcerer to the Crown (A Sorcerer to the Crown Novel)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Seeker"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Darwin Elevator (Dire Earth Cycle)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Cinder Spires: the Aeronaut's Windlass"
+  },
+  {
+    "rank": 16,
+    "item_name": "Marked In Flesh (A Novel of the Others)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Fated (Alex Verus 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Devil's Detective: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Eleventh Grave in Moonlight (Charley Davidson)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Magic Binds (Kate Daniels)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Wildefire"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Shadow Revolution: Crown &amp; Key"
+  },
+  {
+    "rank": 23,
+    "item_name": "Sweep In Peace (Innkeeper Chronicles) (Volume 2)"
+  },
+  {
+    "rank": 24,
+    "item_name": "White Witch, Black Curse"
+  },
+  {
+    "rank": 25,
+    "item_name": "He Drank, and Saw the Spider: An Eddie Lacrosse Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "Magic Stars (Grey Wolf) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Undead Pool"
+  },
+  {
+    "rank": 28,
+    "item_name": "Royal Street (Sentinels of New Orleans)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Knight's Shadow (The Greatcoats)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Missing"
+  },
+  {
+    "rank": 31,
+    "item_name": "Dead Spots (Scarlett Bernard)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Strange Magic: A Yancy Lazarus Novel (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Broken Soul (Jane Yellowrock)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Steelheart (The Reckoners)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Firebrand (Rebel Angel Series)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Moon Called"
+  },
+  {
+    "rank": 37,
+    "item_name": "Venom and Vanilla (The Venom Trilogy)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Saga, Vol. 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Heaven's Queen (Paradox Book 3)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Written in Red (A Novel of the Others)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Into the Woods: Tales from the Hollows and Beyond (A Hollows Novella)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Fire Touched: Mercy Thompson Book 9"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Emperor's Blades: Chronicle of the Unhewn Throne, Book I"
+  },
+  {
+    "rank": 44,
+    "item_name": "Parasite"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Iron Queen (Iron Fey)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Grave Memory (Alex Craft)"
+  },
+  {
+    "rank": 47,
+    "item_name": "All Our Wrong Todays: A BBC Radio 2 Book Club Choice 2017"
+  },
+  {
+    "rank": 48,
+    "item_name": "Half a King (Shattered Sea)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Captured"
+  },
+  {
+    "rank": 50,
+    "item_name": "Trapped (Iron Druid Chronicles)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

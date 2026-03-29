@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Sea-Wolf eBook"
+  },
+  {
+    "item_name": "1948: Harry Truman's Improbable Victory and the Year that Transformed America"
+  },
+  {
+    "item_name": "Dallas 1963"
+  },
+  {
+    "item_name": "With the Old Breed: The World War Two Pacific Classic"
+  },
+  {
+    "item_name": "The Liberator: One World War II Soldier's 500-Day Odyssey from the Beaches of Sicily to the Gates of Dachau"
+  },
+  {
+    "item_name": "Let's Roll!: Ordinary People, Extraordinary Courage"
+  },
+  {
+    "item_name": "Detroit: An American Autopsy"
+  },
+  {
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "item_name": "Rise of ISIS: A Threat We Can't Ignore"
+  },
+  {
+    "item_name": "The Last Lecture"
+  },
+  {
+    "item_name": "The Error World: An Affair With Stamps"
+  },
+  {
+    "item_name": "The Emperors: How Europe's Rulers Were Destroyed by the First World War"
+  },
+  {
+    "item_name": "The Kennedy Detail: JFK's Secret Service Agents Break Their Silence"
+  },
+  {
+    "item_name": "Killing The Rising Sun: How America Vanquished World War II Japan (Wheeler Publishing Large Print Book Series)"
+  },
+  {
+    "item_name": "Trump Revealed"
+  },
+  {
+    "item_name": "1812: The War That Forged a Nation"
+  },
+  {
+    "item_name": "Killing Patton: The Strange Death of World War II's Most Audacious General (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "item_name": "Ghost Soldiers: The Forgotten Epic Story of World War II's Most Dramatic Mission"
+  },
+  {
+    "item_name": "Leningrad: State of Siege"
+  },
+  {
+    "item_name": "Tears in the Darkness: The Story of the Bataan Death March and Its Aftermath"
+  },
+  {
+    "item_name": "The Happiness Advantage: The Seven Principles of Positive Psychology That Fuel Success and Performance at Work"
+  },
+  {
+    "item_name": "Charlatan: America's Most Dangerous Huckster, the Man Who Pursued Him, and the Age of Flimflam"
+  },
+  {
+    "item_name": "The Revenant: The Bestselling Book That Inspired the Award-Winnning Movie"
+  },
+  {
+    "item_name": "Skyjack: The Hunt for D. B. Cooper"
+  },
+  {
+    "item_name": "American Warlord: A True Story"
+  },
+  {
+    "item_name": "Thomas Jefferson and the Tripoli Pirates: The Forgotten War That Changed American History"
+  },
+  {
+    "item_name": "Cry, the Beloved Country"
+  },
+  {
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "item_name": "The Wizard of Lies"
+  },
+  {
+    "item_name": "Lost Moon: The Perilous Voyage of Apollo 13"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 4624,
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "rank": 2,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 3,
+    "item_id": 996,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 4,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 5,
+    "item_id": 68,
+    "item_name": "The Paradox of Choice: Why More Is Less"
+  },
+  {
+    "rank": 6,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 7,
+    "item_id": 2588,
+    "item_name": "Founding Brothers: The Revolutionary Generation"
+  },
+  {
+    "rank": 8,
+    "item_id": 4522,
+    "item_name": "Truman"
+  },
+  {
+    "rank": 9,
+    "item_id": 676,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 10,
+    "item_id": 1297,
+    "item_name": "American Creation: Triumphs and Tragedies at the Founding of the Republic"
+  },
+  {
+    "rank": 11,
+    "item_id": 5272,
+    "item_name": "Freethinkers: A History of American Secularism"
+  },
+  {
+    "rank": 12,
+    "item_id": 3005,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 13,
+    "item_id": 859,
+    "item_name": "The Black Swan: The Impact of the Highly Improbable"
+  },
+  {
+    "rank": 14,
+    "item_id": 1372,
+    "item_name": "Imperial Life in The Emerald City: Inside Iraq's Green Zone"
+  },
+  {
+    "rank": 15,
+    "item_id": 1040,
+    "item_name": "The Assault on Reason: Our Information Ecosystem, from the Age of Print to the Age of Trump"
+  },
+  {
+    "rank": 16,
+    "item_id": 4564,
+    "item_name": "Lincoln at Gettysburg: The Words That Re-Made America"
+  },
+  {
+    "rank": 17,
+    "item_id": 18,
+    "item_name": "From Beirut to Jerusalem"
+  },
+  {
+    "rank": 18,
+    "item_id": 757,
+    "item_name": "Amusing Ourselves to Death: Public Discourse in the Age of Show Business"
+  },
+  {
+    "rank": 19,
+    "item_id": 674,
+    "item_name": "The Plague"
+  },
+  {
+    "rank": 20,
+    "item_id": 1559,
+    "item_name": "The Case for a Creator"
+  },
+  {
+    "rank": 21,
+    "item_id": 1007,
+    "item_name": "The Wal-Mart Effect: How the World's Most Powerful Company Really Works--and HowIt's Transforming the  American Economy"
+  },
+  {
+    "rank": 22,
+    "item_id": 1415,
+    "item_name": "Dreams from My Father: A Story of Race and Inheritance"
+  },
+  {
+    "rank": 23,
+    "item_id": 1698,
+    "item_name": "The World Without Us"
+  },
+  {
+    "rank": 24,
+    "item_id": 1382,
+    "item_name": "If Democrats Had Any Brains, They'd Be Republicans"
+  },
+  {
+    "rank": 25,
+    "item_id": 1097,
+    "item_name": "The World Until Yesterday: What Can We Learn from Traditional Societies?"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,254 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Taste of Home Recipes Across America: 735 of the Best Recipes from Across the Nation"
+  },
+  {
+    "item_name": "The Odyssey of Homer"
+  },
+  {
+    "item_name": "The Holy Bible from the ancient Eastern text : George M. Lamsa's translations from the Aramaic of the Peshitta"
+  },
+  {
+    "item_name": "The Sonnets and A Lover's Complaint (Penguin Classics)"
+  },
+  {
+    "item_name": "100 Easy Camping Recipes"
+  },
+  {
+    "item_name": "Simple Sourdough: How to Bake the Best Bread in the World"
+  },
+  {
+    "item_name": "Kindle Buffet: Find and download the best free books, magazines and newspapers for your Kindle, iPhone, iPad or Android"
+  },
+  {
+    "item_name": "Edgar Allan Poe Complete Stories and Poems"
+  },
+  {
+    "item_name": "Seasonings - The Ultimate  Guide"
+  },
+  {
+    "item_name": "The Lodge Cast Iron Cookbook: A Treasury of Timeless, Delicious Recipes"
+  },
+  {
+    "item_name": "365 Slow Cooker Suppers"
+  },
+  {
+    "item_name": "The Bread Lover's Bread Machine Cookbook: A Master Baker's 300 Favorite Recipes for Perfect-Every-Time Bread-From Every Kind of Machine"
+  },
+  {
+    "item_name": "Top Secret Recipes Unlocked: All New Home Clones of America's Favorite Brand-Name Foods"
+  },
+  {
+    "item_name": "1,001 Best Slow-Cooker Recipes: The Only Slow-Cooker Cookbook You'll Ever Need"
+  },
+  {
+    "item_name": "Camping Recipes: Foil Packet Cooking"
+  },
+  {
+    "item_name": "How to Draw Cool Stuff: A Drawing Guide for Teachers and Students"
+  },
+  {
+    "item_name": "Slow Cooker: Slow Cookers Recipes Ultimate Guide. Enjoy The Top Rated, Tasty &amp; Mouthwatering Recipes. ( Slow Cooker Recipes, Crock-pot Recipes, Slow Cooker Cookbook, Slow Cooker Food ) - Kindle edition"
+  },
+  {
+    "item_name": "5 Ingredient Cookbook: Easy Recipes in 5 or Less Ingredients (Quick and Easy Cooking Series)"
+  },
+  {
+    "item_name": "The Tater Tot Casserole Cookbook: Over 45 Yummy Recipes!"
+  },
+  {
+    "item_name": "How to Draw Cool Stuff: Shading, Textures and Optical Illusions"
+  },
+  {
+    "item_name": "The Cornbread Bible: A Recipe Storybook"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 66469,
+    "item_name": "The 12 Days of Christmas"
+  },
+  {
+    "rank": 2,
+    "item_id": 642,
+    "item_name": "The Jungle Book (Collins Classics)"
+  },
+  {
+    "rank": 3,
+    "item_id": 53744,
+    "item_name": "25 Days of Christmas Treats: Delicious, no-fail recipes to please even the pickiest eater!"
+  },
+  {
+    "rank": 4,
+    "item_id": 6719,
+    "item_name": "Walden and Civil Disobedience (Penguin American Library)"
+  },
+  {
+    "rank": 5,
+    "item_id": 30338,
+    "item_name": "THE LITTLE LEPRECHAUN WHO LOVED YELLOW!"
+  },
+  {
+    "rank": 6,
+    "item_id": 55220,
+    "item_name": "Zoo Day (Day Series by T.M. Kaht)"
+  },
+  {
+    "rank": 7,
+    "item_id": 76140,
+    "item_name": "Crazy, Wonderful Science (A Mia Book)"
+  },
+  {
+    "rank": 8,
+    "item_id": 49871,
+    "item_name": "30 Delicious Refrigerator Cake Recipes"
+  },
+  {
+    "rank": 9,
+    "item_id": 584,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 10,
+    "item_id": 71932,
+    "item_name": "Today I'm a Monster"
+  },
+  {
+    "rank": 11,
+    "item_id": 53788,
+    "item_name": "Terry Treetop and the lost egg: the lost egg (Bedtime story)"
+  },
+  {
+    "rank": 12,
+    "item_id": 51811,
+    "item_name": "Orangey the Goldfish (Book 1)"
+  },
+  {
+    "rank": 13,
+    "item_id": 74799,
+    "item_name": "Victorian Family and Furnishings"
+  },
+  {
+    "rank": 14,
+    "item_id": 58848,
+    "item_name": "The Tater Tot Casserole Cookbook: Over 45 Yummy Recipes!"
+  },
+  {
+    "rank": 15,
+    "item_id": 76130,
+    "item_name": "Sweet Dreams, Little Pup (A Little Pup Book) - Kindle edition"
+  },
+  {
+    "rank": 16,
+    "item_id": 30606,
+    "item_name": "WHAT'S FOR THANKSGIVING DINNER?"
+  },
+  {
+    "rank": 17,
+    "item_id": 74663,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 18,
+    "item_id": 10719,
+    "item_name": "The Wisdom of Insecurity: A Message for an Age of Anxiety"
+  },
+  {
+    "rank": 19,
+    "item_id": 6893,
+    "item_name": "Corduroy"
+  },
+  {
+    "rank": 20,
+    "item_id": 47893,
+    "item_name": "Foreclosed: A Mitzy Neuhaus Mystery"
+  },
+  {
+    "rank": 21,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 22,
+    "item_id": 74802,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 23,
+    "item_id": 6920,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 24,
+    "item_id": 40532,
+    "item_name": "Lettuce!"
+  },
+  {
+    "rank": 25,
+    "item_id": 25985,
+    "item_name": "Better Homes and Gardens New Cook Book"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

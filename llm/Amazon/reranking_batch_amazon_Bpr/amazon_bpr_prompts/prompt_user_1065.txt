@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Welcome Murder"
+  },
+  {
+    "item_name": "Retrograde"
+  },
+  {
+    "item_name": "Best American Sports Writing 2017 (The Best American Series )"
+  },
+  {
+    "item_name": "Bryant &amp; May: Wild Chamber: A Peculiar Crimes Unit Mystery"
+  },
+  {
+    "item_name": "How Not to Get Rich: The Financial Misadventures of Mark Twain"
+  },
+  {
+    "item_name": "The Disappearance of Adle Bedeau: An Inspector Gorski Investigation"
+  },
+  {
+    "item_name": "Hellbent: An Orphan X Novel"
+  },
+  {
+    "item_name": "Written in Blood (A Detective Preach Everson Novel)"
+  },
+  {
+    "item_name": "The Night Market"
+  },
+  {
+    "item_name": "The Perpetual Summer: A Chuck Restic Mystery (Chuck Restic Mysteries)"
+  },
+  {
+    "item_name": "Lullaby Road: A Novel"
+  },
+  {
+    "item_name": "From Away"
+  },
+  {
+    "item_name": "Death by Chocolate Cherry Cheesecake (A Death by Chocolate Mystery)"
+  },
+  {
+    "item_name": "Need to Know (Sisterhood)"
+  },
+  {
+    "item_name": "Death by His Grace (A Darko Dawson Mystery)"
+  },
+  {
+    "item_name": "Death Comes in through the Kitchen"
+  },
+  {
+    "item_name": "Rattle (The Collector Series)"
+  },
+  {
+    "item_name": "The Echo Killing: A Mystery (A Harper McClain Mystery)"
+  },
+  {
+    "item_name": "Macbeth"
+  },
+  {
+    "item_name": "A Year in the Garden: 365 Inspirational Gardens and Gardening Tips"
+  },
+  {
+    "item_name": "The Widows of Malabar Hill (A Mystery of 1920s India)"
+  },
+  {
+    "item_name": "The Honorable Traitors (A Thomas Laker Thriller)"
+  },
+  {
+    "item_name": "Holmes Entangled"
+  },
+  {
+    "item_name": "Light It Up (A Peter Ash Novel)"
+  },
+  {
+    "item_name": "World History: From the Ancient World to the Information Age"
+  },
+  {
+    "item_name": "The Common Core Mathematics Companion: The Standards Decoded, High School: What They Say, What They Mean, How to Teach Them (Corwin Mathematics Series)"
+  },
+  {
+    "item_name": "The Black Painting: A Novel"
+  },
+  {
+    "item_name": "Side Life"
+  },
+  {
+    "item_name": "Murder on the Left Bank (An Aime Leduc Investigation)"
+  },
+  {
+    "item_name": "The Wild Dead (The Bannerless Saga)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Boyfriend"
+  },
+  {
+    "rank": 3,
+    "item_name": "Alive in Shape and Color: 17 Paintings by Great Artists and the Stories They Inspired"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Murder That Never Was: A Forensic Instincts Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "China Rich Girlfriend: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Fixer"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Red Bandanna: A Life. A Choice. A Legacy."
+  },
+  {
+    "rank": 8,
+    "item_name": "The Wrong Girl (Jane Ryland)"
+  },
+  {
+    "rank": 9,
+    "item_name": "White Houses: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Antagonist"
+  },
+  {
+    "rank": 11,
+    "item_name": "The God's Eye View"
+  },
+  {
+    "rank": 12,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Storm King: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Plaster City (Jimmy Veeder Fiasco)"
+  },
+  {
+    "rank": 15,
+    "item_name": "See Also Murder: A Marjorie Trumaine Mystery (Marjorie Trumaine Mysteries)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Ten Lords A-Leaping: A Father Christmas Mystery"
+  },
+  {
+    "rank": 17,
+    "item_name": "Finches of Mars"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Corpse Reader"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Swollen Red Sun"
+  },
+  {
+    "rank": 20,
+    "item_name": "Mad Richard"
+  },
+  {
+    "rank": 21,
+    "item_name": "Integrity at Stake: Safeguarding Your Church from Financial Fraud"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Girl With Nine Wigs: A Memoir"
+  },
+  {
+    "rank": 23,
+    "item_name": "Cookie's Case (The Tug Wyler Mysteries)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Wolf Winter"
+  },
+  {
+    "rank": 25,
+    "item_name": "Prayers For People Who Say They Can't Pray"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Ghost Fields (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 27,
+    "item_name": "First Strike: A Thriller (A Dewey Andreas Novel)"
+  },
+  {
+    "rank": 28,
+    "item_name": "All the Old Knives: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Daredevils: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Eternal Nazi: From Mauthausen to Cairo, the Relentless Pursuit of SS Doctor Aribert Heim"
+  },
+  {
+    "rank": 31,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 32,
+    "item_name": "A Long Time Dead: A Mike Hammer Casebook"
+  },
+  {
+    "rank": 33,
+    "item_name": "Sometimes the Wolf: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Close Enough for the Angels"
+  },
+  {
+    "rank": 35,
+    "item_name": "Crude Carrier (The Touchstone Agency Mysteries)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Dry Bones: A Longmire Mystery"
+  },
+  {
+    "rank": 37,
+    "item_name": "Don't Lose Her (The Max Freeman Mysteries)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Rogue Heroes: The History of the SAS, Britain's Secret Special Forces Unit That Sabotaged the Nazis and Changed the Nature of War"
+  },
+  {
+    "rank": 39,
+    "item_name": "Death Ex Machina (An Athenian Mystery)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Prince Charles: The Passions and Paradoxes of an Improbable Life"
+  },
+  {
+    "rank": 41,
+    "item_name": "Bertrand Court"
+  },
+  {
+    "rank": 42,
+    "item_name": "A Thousand Miles to Freedom: My Escape from North Korea"
+  },
+  {
+    "rank": 43,
+    "item_name": "Shylock is My Name"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Color Master"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Auctioneer: Adventures in the Art Trade"
+  },
+  {
+    "rank": 46,
+    "item_name": "But Enough About Me: A Memoir"
+  },
+  {
+    "rank": 47,
+    "item_name": "We Could Be Beautiful"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Saint Closes the Case"
+  },
+  {
+    "rank": 49,
+    "item_name": "The New York Times Disunion: A History of the Civil War"
+  },
+  {
+    "rank": 50,
+    "item_name": "Twenty-one Days: A Daniel Pitt Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

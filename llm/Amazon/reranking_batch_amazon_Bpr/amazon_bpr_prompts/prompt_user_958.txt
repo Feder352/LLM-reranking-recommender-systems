@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Captain's Bluestocking Mistress (Dukes of War) (Volume 3)"
+  },
+  {
+    "item_name": "Diamonds and Dust (Lonesome Point, Texas) (Volume 3)"
+  },
+  {
+    "item_name": "The Bachelor Contract (The Bachelors of Arizona)"
+  },
+  {
+    "item_name": "Undercover Attraction (The O'Malleys series)"
+  },
+  {
+    "item_name": "The Mirror Sisters: A Novel (The Mirror Sisters Series)"
+  },
+  {
+    "item_name": "One Wish (Thunder Point)"
+  },
+  {
+    "item_name": "Beg (Los Angeles Nights)"
+  },
+  {
+    "item_name": "Meant for You (Montgomery Brothers)"
+  },
+  {
+    "item_name": "Stay with Me / More of Me (Montgomery Brothers)"
+  },
+  {
+    "item_name": "Return to You (Montgomery Brothers)"
+  },
+  {
+    "item_name": "Cover Him With Darkness: A Romance (The Watchers)"
+  },
+  {
+    "item_name": "Bringing Home the Bad Boy (Second Chance)"
+  },
+  {
+    "item_name": "Fearless (The Black Brothers Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "A Home for Hannah (Amish of Pontotoc)"
+  },
+  {
+    "item_name": "Scandalously Yours (The Hellions of High Street)"
+  },
+  {
+    "item_name": "Best Man for the Bridesmaid (The DeFiore Brothers)"
+  },
+  {
+    "item_name": "The Playboy of Rome (The DeFiore Brothers)"
+  },
+  {
+    "item_name": "One True Heart (Harmony)"
+  },
+  {
+    "item_name": "Kings Series: Mated To The Werewolf King"
+  },
+  {
+    "item_name": "A Season of You: A Cloud Bay Christmas Novel"
+  },
+  {
+    "item_name": "The Christmas Cowboy Hero (Heart of Texas)"
+  },
+  {
+    "item_name": "The Second Sister"
+  },
+  {
+    "item_name": "The Cowboy's Little Surprise (The Hitching Post Hotel)"
+  },
+  {
+    "item_name": "The Rules of Rebellion"
+  },
+  {
+    "item_name": "A Wedding At Two Love Lane"
+  },
+  {
+    "item_name": "Mornings on Main: A Small-Town Texas Novel"
+  },
+  {
+    "item_name": "Until There Was Us (Montgomery Brothers)"
+  },
+  {
+    "item_name": "Caught Up in a Cowboy (Cowboys of Creedence)"
+  },
+  {
+    "item_name": "No Cowboy Required (The Biggest Love Story) (Volume 1)"
+  },
+  {
+    "item_name": "Stand &amp; Deliver (Men of Haven)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Firelight (Darkest London)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Secret Sisters"
+  },
+  {
+    "rank": 3,
+    "item_name": "Nine Rules to Break When Romancing a Rake (Love By Numbers)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Wild Man Creek (A Virgin River Novel)"
+  },
+  {
+    "rank": 5,
+    "item_name": "What Happens in Scotland (Second Sons)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Best Man (The Blue Heron Series)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Take Me Tonight (The Bullet Catchers, Book 3)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Simply Irresistible (Lucky Harbor)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Nine Rules to Break When Romancing a Rake: Number 1 in series (Love by Numbers)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Love and Other Scandals"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Night Like This"
+  },
+  {
+    "rank": 12,
+    "item_name": "Waiting On You (The Blue Heron Series)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Three Little Words (Fool's Gold, Book 13)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Troublemaker Next Door (The McCauley Brothers)"
+  },
+  {
+    "rank": 15,
+    "item_name": "On the Island"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Line Between Here and Gone (Forensic Instincts)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Hidden Summit (A Virgin River Novel)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Seven Years To Sin"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Lawman's Christmas: A McKettricks of Texas Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "What We Find (Sullivan's Crossing)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Bared to You"
+  },
+  {
+    "rank": 22,
+    "item_name": "Romancing the Duke: Castles Ever After"
+  },
+  {
+    "rank": 23,
+    "item_name": "Three Weeks With Lady X (Desperate Duchesses)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Wanted: Undead or Alive (Love at Stake)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Diary of an Accidental Wallflower: The Seduction Diaries"
+  },
+  {
+    "rank": 26,
+    "item_name": "She Tempts the Duke (Lost Lords of Pembrook)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Against the Storm (The Raines of Wind Canyon)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Christmas Eve at Friday Harbor: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Chance of a Lifetime (Harmony, Book 5)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Three Sisters"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Hero (Thunder Point)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Wicked Intentions (Maiden Lane)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Homecoming (Thunder Point)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Newcomer (Thunder Point)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Incubus"
+  },
+  {
+    "rank": 36,
+    "item_name": "Can't Help Falling in Love (The Sullivans)"
+  },
+  {
+    "rank": 37,
+    "item_name": "There's Something About Ari (Bluewater Bay)"
+  },
+  {
+    "rank": 38,
+    "item_name": "All He Ever Desired (The Kowalskis)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Slow Hand (Hot Cowboy Nights)"
+  },
+  {
+    "rank": 40,
+    "item_name": "To the Moon and Back"
+  },
+  {
+    "rank": 41,
+    "item_name": "Be Mine Forever (A St. Helena Vineyard Novel)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Always On My Mind (The Sullivans)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Marriage Season (The Brides of Bliss County)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Ashes of Midnight (The Midnight Breed, Book 6)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Love Drunk Cowboy (Spikes &amp; Spurs)"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Passion for Him (Georgian, Book 3)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Liar"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Witness"
+  },
+  {
+    "rank": 49,
+    "item_name": "Carolina Home (A Dare Island Novel)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Hard As You Can: A Hard Ink Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Possessive"
+  },
+  {
+    "item_name": "To the Fall"
+  },
+  {
+    "item_name": "Switch Hitter: a Jock Hard novella"
+  },
+  {
+    "item_name": "Crowd Pleaser"
+  },
+  {
+    "item_name": "Playing His Way (The Players Club) (Volume 4)"
+  },
+  {
+    "item_name": "Three to Ride (Nights in Bliss, Colorado) (Volume 1)"
+  },
+  {
+    "item_name": "Escort"
+  },
+  {
+    "item_name": "The World's Worst Boyfriend (Bad Boyfriend)"
+  },
+  {
+    "item_name": "The Choice (Doms of Her Life) (Volume 1)"
+  },
+  {
+    "item_name": "Nailed Down (Volume 1)"
+  },
+  {
+    "item_name": "Angels Fall (Original Sin) (Volume 2)"
+  },
+  {
+    "item_name": "Murder Notes (Lilah Love)"
+  },
+  {
+    "item_name": "Justify Me: A Stark International/Masters and Mercenaries Crossover"
+  },
+  {
+    "item_name": "This Time Around (Love In The Heartland) (Volume 1)"
+  },
+  {
+    "item_name": "Close Cover: A Masters and Mercenaries Novel"
+  },
+  {
+    "item_name": "Kingston (Four Fathers) (Volume 2)"
+  },
+  {
+    "item_name": "Flesh Into Fire (Original Sin) (Volume 3)"
+  },
+  {
+    "item_name": "Her Guardian Angel: A Demonica Underworld/Masters and Mercenaries Novella"
+  },
+  {
+    "item_name": "Fallen Ink (Montgomery Ink: Colorado Springs) (Volume 1)"
+  },
+  {
+    "item_name": "The Traitor's Bride: A science fiction romance (Keepers of Xereill)"
+  },
+  {
+    "item_name": "Jock Row (Jock Hard) (Volume 1)"
+  },
+  {
+    "item_name": "Bro Code"
+  },
+  {
+    "item_name": "My One Regret"
+  },
+  {
+    "item_name": "Rome's Chance: A Reapers MC Novella"
+  },
+  {
+    "item_name": "Merciless"
+  },
+  {
+    "item_name": "Dirty Rich Cinderella Story (Lori &amp; Cole) (Volume 1)"
+  },
+  {
+    "item_name": "King of Diamonds: A Dark Mafia Romance (Vegas Underground)"
+  },
+  {
+    "item_name": "Relentless (Somerton Security)"
+  },
+  {
+    "item_name": "Whiskey Reveals (Whiskey and Lies) (Volume 2)"
+  },
+  {
+    "item_name": "Play Dirty (Jordan's Game) (Volume 4)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "How We Fall"
+  },
+  {
+    "rank": 2,
+    "item_name": "Trigger: A Circle of Justice Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Fix Me Not (The Fix Series) (Volume 2)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Our Unscripted Story"
+  },
+  {
+    "rank": 5,
+    "item_name": "Misadventures of a Backup Bride (Misadventures Book 2)"
+  },
+  {
+    "rank": 6,
+    "item_name": "What He Doesn't Know (What He Doesn't Know Duet) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Full Contact"
+  },
+  {
+    "rank": 8,
+    "item_name": "Rock Solid"
+  },
+  {
+    "rank": 9,
+    "item_name": "Bound by Family: Ravage MC Bound Series (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Cruel Kind of Beautiful (Sex, Love, and Rock and Roll series) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Big Shot: A Second Chance Standalone Romance"
+  },
+  {
+    "rank": 12,
+    "item_name": "Cold Hearted"
+  },
+  {
+    "rank": 13,
+    "item_name": "High-Sided: An Armed &amp; Dangerous Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Damage Control: A Dirty Money Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "Savage (The Kingwood Duet)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Absolution of Aidan (The Syndicate Series) (Volume 3)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Tied Down (Nailed Down) (Volume 2)"
+  },
+  {
+    "rank": 18,
+    "item_name": "SEAL's Touch: A Dirty Bad Boy Romance (Small Town SEALs)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Shattered (Steel Brothers Saga Book 7)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Hot As Puck"
+  },
+  {
+    "rank": 21,
+    "item_name": "Fervent"
+  },
+  {
+    "rank": 22,
+    "item_name": "Dirty Filthy Rich Men"
+  },
+  {
+    "rank": 23,
+    "item_name": "Havoc (Moonshine Task Force) (Volume 3)"
+  },
+  {
+    "rank": 24,
+    "item_name": "King of Code"
+  },
+  {
+    "rank": 25,
+    "item_name": "Jaded Hearts"
+  },
+  {
+    "rank": 26,
+    "item_name": "Mr. Fiance"
+  },
+  {
+    "rank": 27,
+    "item_name": "Long Shot (Hoops)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Breathe (Rosewood Bay) (Volume 2)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Trigger (Devil's Reach) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Wicked Bride Games"
+  },
+  {
+    "rank": 31,
+    "item_name": "Knotted (Trails of Sin) (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Mend"
+  },
+  {
+    "rank": 33,
+    "item_name": "27 Lies: Luke's story (The Truth About Love) (Volume 2)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Filthy Rich (Blackstone Dynasty)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Bad Deeds: A Dirty Money Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Aim: A Circle of Justice Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "Wide Open Spaces"
+  },
+  {
+    "rank": 38,
+    "item_name": "Misadventures of a Good Wife (Misadventures Book 6)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Road to You"
+  },
+  {
+    "rank": 40,
+    "item_name": "The End Zone"
+  },
+  {
+    "rank": 41,
+    "item_name": "Whispered Prayers of a Girl"
+  },
+  {
+    "rank": 42,
+    "item_name": "Cole"
+  },
+  {
+    "rank": 43,
+    "item_name": "Road to Nowhere"
+  },
+  {
+    "rank": 44,
+    "item_name": "Detour"
+  },
+  {
+    "rank": 45,
+    "item_name": "Until Sage (Until Him) (Volume 2)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Wright Mistake"
+  },
+  {
+    "rank": 47,
+    "item_name": "Wicked Revenge: A Wicked Angels MC Novel (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Stud: A Smart, Sexy Romantic Comedy"
+  },
+  {
+    "rank": 49,
+    "item_name": "Irresistibly Undeniable"
+  },
+  {
+    "rank": 50,
+    "item_name": "Caged"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

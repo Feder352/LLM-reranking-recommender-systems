@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "52 Small Changes: One Year to a Happier, Healthier You"
+  },
+  {
+    "item_name": "The Garner Files: A Memoir (Thorndike Press Large Print Biography Series)"
+  },
+  {
+    "item_name": "Sonoma Rose (Elm Creek Quilts)"
+  },
+  {
+    "item_name": "The Great Northern Express: A Writer's Journey Home"
+  },
+  {
+    "item_name": "Blues Highway Blues (A Crossroads Thriller)"
+  },
+  {
+    "item_name": "Take A Shot!: A Remarkable Story of Perseverance, Friendship, and a Really Crazy Adventure"
+  },
+  {
+    "item_name": "Buffalo Bill's Dead Now (A Wind River Mystery)"
+  },
+  {
+    "item_name": "Christmas at Eagle Pond"
+  },
+  {
+    "item_name": "From Germany to Germany: Diary 1990"
+  },
+  {
+    "item_name": "The Little Bookstore of Big Stone Gap: A Memoir of Friendship, Community, and the Uncommon Pleasure of a Good Book"
+  },
+  {
+    "item_name": "Good Prose: The Art of Nonfiction"
+  },
+  {
+    "item_name": "A Friendly Game of Murder: An Algonquin Round Table Mystery"
+  },
+  {
+    "item_name": "Kinsey and Me: Stories"
+  },
+  {
+    "item_name": "You Might As Well Die: An Algonquin Round Table Mystery"
+  },
+  {
+    "item_name": "Margaret Fuller: A New American Life"
+  },
+  {
+    "item_name": "The Union Street Bakery (A Union Street Bakery Novel)"
+  },
+  {
+    "item_name": "Minnesota Recreation Atlas (National Geographic Recreation Atlas)"
+  },
+  {
+    "item_name": "Blind Curves: &nbsp;One Woman's Unusual Journey to Reinvent Herself and Answer: What Now?"
+  },
+  {
+    "item_name": "Let It Be"
+  },
+  {
+    "item_name": "Custer's Last Battle: Red Hawk's Account of the Battle of the Little Bighorn"
+  },
+  {
+    "item_name": "W is for Wasted"
+  },
+  {
+    "item_name": "Give Yourself a Raise: how to have more money, less stress, financial freedom"
+  },
+  {
+    "item_name": "The Spymistress: A Novel"
+  },
+  {
+    "item_name": "Out on a Limb: What Black Bears Have Taught Me about Intelligence and Intuition"
+  },
+  {
+    "item_name": "The Homing Instinct: Meaning and Mystery in Animal Migration"
+  },
+  {
+    "item_name": "The Gifted: How to Live the Life of Your Dreams"
+  },
+  {
+    "item_name": "Some Luck (The Last Hundred Years Trilogy: A Family Saga)"
+  },
+  {
+    "item_name": "Death at Chinatown (Emily Cabot Mysteries) (Volume 5)"
+  },
+  {
+    "item_name": "The Happiness of Pursuit: Finding the Quest That Will Bring Purpose to Your Life"
+  },
+  {
+    "item_name": "Thoreau in Phantom Bog (A Henry David Thoreau Mystery)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 10167,
+    "item_name": "The Saturday Big Tent Wedding Party (No. 1 Ladies' Detective Agency Series)"
+  },
+  {
+    "rank": 2,
+    "item_id": 66469,
+    "item_name": "The 12 Days of Christmas"
+  },
+  {
+    "rank": 3,
+    "item_id": 14345,
+    "item_name": "Ben and Me"
+  },
+  {
+    "rank": 4,
+    "item_id": 25779,
+    "item_name": "The Wedding Quilt: An Elm Creek Quilts Novel"
+  },
+  {
+    "rank": 5,
+    "item_id": 9295,
+    "item_name": "U is for Undertow (A Kinsey Millhone Mystery, Book 21)"
+  },
+  {
+    "rank": 6,
+    "item_id": 45104,
+    "item_name": "The Giving Quilt (Elm Creek Quilts: Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 7,
+    "item_id": 9900,
+    "item_name": "A Week in Winter"
+  },
+  {
+    "rank": 8,
+    "item_id": 8808,
+    "item_name": "Stellaluna"
+  },
+  {
+    "rank": 9,
+    "item_id": 31819,
+    "item_name": "The Christmas Quilt (Elm Creek Quilts Series #8)"
+  },
+  {
+    "rank": 10,
+    "item_id": 20526,
+    "item_name": "Winter Study (Anna Pigeon)"
+  },
+  {
+    "rank": 11,
+    "item_id": 35268,
+    "item_name": "All Fishermen Are Liars: True Tales from the Dry Dock Bar"
+  },
+  {
+    "rank": 12,
+    "item_id": 23777,
+    "item_name": "Why? Because We Still Like You: An Oral History of the Mickey Mouse Club(R)"
+  },
+  {
+    "rank": 13,
+    "item_id": 25947,
+    "item_name": "Gilded: How Newport Became America's Richest Resort"
+  },
+  {
+    "rank": 14,
+    "item_id": 21964,
+    "item_name": "A Killer Plot (A Books by the Bay Mystery)"
+  },
+  {
+    "rank": 15,
+    "item_id": 62363,
+    "item_name": "Enslaved by Ducks"
+  },
+  {
+    "rank": 16,
+    "item_id": 45471,
+    "item_name": "The Winding Ways Quilt (Elm Creek Quilts Series #12)"
+  },
+  {
+    "rank": 17,
+    "item_id": 25985,
+    "item_name": "Better Homes and Gardens New Cook Book"
+  },
+  {
+    "rank": 18,
+    "item_id": 15530,
+    "item_name": "A Mighty Long Way: My Journey to Justice at Little Rock Central High School"
+  },
+  {
+    "rank": 19,
+    "item_id": 22028,
+    "item_name": "Sentenced to Death (A Booktown Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_id": 62492,
+    "item_name": "Book Lust: Recommended Reading for Every Mood, Moment, and Reason"
+  },
+  {
+    "rank": 21,
+    "item_id": 1707,
+    "item_name": "Alexander and the Terrible, Horrible, No Good, Very Bad Day Low Price"
+  },
+  {
+    "rank": 22,
+    "item_id": 18235,
+    "item_name": "Gift from the Sea: 50th Anniversary Edition (Random House Large Print Biography)"
+  },
+  {
+    "rank": 23,
+    "item_id": 11380,
+    "item_name": "A Plain and Simple Christmas: A Novella"
+  },
+  {
+    "rank": 24,
+    "item_id": 38509,
+    "item_name": "The Snowman's Revenge"
+  },
+  {
+    "rank": 25,
+    "item_id": 1364,
+    "item_name": "Murder Boogies with Elvis"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

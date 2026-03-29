@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Last Necromancer (The Ministry of Curiosities) (Volume 1)"
+  },
+  {
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "item_name": "Mortom"
+  },
+  {
+    "item_name": "The Eyes of Darkness"
+  },
+  {
+    "item_name": "False Memory: A Novel"
+  },
+  {
+    "item_name": "Night in the Lonesome October"
+  },
+  {
+    "item_name": "By the Light of the Moon"
+  },
+  {
+    "item_name": "One Door Away From Heaven"
+  },
+  {
+    "item_name": "Alien Species Intervention"
+  },
+  {
+    "item_name": "Silent Child"
+  },
+  {
+    "item_name": "The Broken Ones"
+  },
+  {
+    "item_name": "Saving April"
+  },
+  {
+    "item_name": "Dark Rivers of the Heart"
+  },
+  {
+    "item_name": "Hold Tight: A Suspense Thriller"
+  },
+  {
+    "item_name": "The Innocent"
+  },
+  {
+    "item_name": "The Cutting Edge"
+  },
+  {
+    "item_name": "Treasure, Darkly"
+  },
+  {
+    "item_name": "Missing You"
+  },
+  {
+    "item_name": "The Whispering Room: A Jane Hawk Novel"
+  },
+  {
+    "item_name": "Maelyn (The Nine Princesses Novellas): The Nine Princesses Series (Volume 1)"
+  },
+  {
+    "item_name": "Marking Time: The Immortal Descendants: Book 1"
+  },
+  {
+    "item_name": "Tempting Fate (The Immortal Descendants) (Volume 2)"
+  },
+  {
+    "item_name": "Lies: The stunning new psychological thriller you won't be able to put down!"
+  },
+  {
+    "item_name": "Witch Is When It All Began (A Witch P.I. Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "The Cleansing"
+  },
+  {
+    "item_name": "A Quest of Heroes: Book #1 in the Sorcerer's Ring"
+  },
+  {
+    "item_name": "Killing Instinct (Michael Sykora Suspense Novels Book 3) eBook"
+  },
+  {
+    "item_name": "A Fate of Dragons (Book #3 in the Sorcerer's Ring)"
+  },
+  {
+    "item_name": "Avant Nation"
+  },
+  {
+    "item_name": "The Stranger"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "This Doesn't Happen In The Movies (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ravage"
+  },
+  {
+    "rank": 3,
+    "item_name": "Vengeance is Mine: A Benjamin Tucker Mystery (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Wanted: A Leopold Blake Thriller (Leopold Blake Series)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Devil's Grin - A Crime Novel featuring Anna Kronberg and Sherlock Holmes"
+  },
+  {
+    "rank": 6,
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "rank": 7,
+    "item_name": "STATELINE: A Dan Reno Novel (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Bubba and the 12 Deadly Days of Christmas: A Bubba Mystery"
+  },
+  {
+    "rank": 9,
+    "item_name": "No Such Thing As Werewolves"
+  },
+  {
+    "rank": 10,
+    "item_name": "White Jade: The Project: Book One"
+  },
+  {
+    "rank": 11,
+    "item_name": "Deadly Stillwater"
+  },
+  {
+    "rank": 12,
+    "item_name": "Blood Orchids"
+  },
+  {
+    "rank": 13,
+    "item_name": "Jet"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Missing"
+  },
+  {
+    "rank": 15,
+    "item_name": "Just Add Salt (Hetta Coffey Series) (Volume 2)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Twisted Vine a Lei Crime Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Jakarta Pandemic"
+  },
+  {
+    "rank": 18,
+    "item_name": "Night of the Assassin: Assassin series prequel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Devil's Lake"
+  },
+  {
+    "rank": 20,
+    "item_name": "Louisiana Longshot: A Miss Fortune Mystery (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Burning Man (A Gideon and Sirius Novel)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Naturalist"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Taste of Fear"
+  },
+  {
+    "rank": 24,
+    "item_name": "Maids of Misfortune: A Victorian San Francisco Mystery"
+  },
+  {
+    "rank": 25,
+    "item_name": "Wired"
+  },
+  {
+    "rank": 26,
+    "item_name": "Dark Space"
+  },
+  {
+    "rank": 27,
+    "item_name": "Dawn Girl"
+  },
+  {
+    "rank": 28,
+    "item_name": "Ties That Bind: A Madison Knight Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Memory House: Memory House Collection (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Gone - Kindle edition"
+  },
+  {
+    "rank": 31,
+    "item_name": "Killer Twist: A Ghostwriter Mystery (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Skeletal (A Christchurch Crime Thriller)"
+  },
+  {
+    "rank": 33,
+    "item_name": "3 a.m. (Henry Bins) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Taboo: CSI Reilly Steel #1 (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Frozen Past"
+  },
+  {
+    "rank": 36,
+    "item_name": "Fat Vampire (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Grave Man - A Sam Prichard Novel (The Sam Prichard Series) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Cosega Search (The Cosega Sequence) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Yesterday's Gone: Season One (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Free Falling"
+  },
+  {
+    "rank": 41,
+    "item_name": "Black: Black Series (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Come Monday (Book 1)(The Jake Sullivan Series)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Hunger Games (Book 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Play Dead"
+  },
+  {
+    "rank": 45,
+    "item_name": "Tutti Frutti"
+  },
+  {
+    "rank": 46,
+    "item_name": "Maggie for Hire: Book One:  Maggie MacKay Magical Tracker Series"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Dead Red Alibi: #4 in the Dead Red Mystery Series (Volume 4)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Foreclosed: A Mitzy Neuhaus Mystery"
+  },
+  {
+    "rank": 49,
+    "item_name": "CXVI The Beginning of the End (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Sea Sick"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

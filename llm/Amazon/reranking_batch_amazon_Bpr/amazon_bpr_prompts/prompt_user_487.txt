@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Careless People: Murder, Mayhem, and the Invention of The Great Gatsby"
+  },
+  {
+    "item_name": "Andy and Don: The Making of a Friendship and a Classic American TV Show"
+  },
+  {
+    "item_name": "The Earth Is Weeping: The Epic Story of the Indian Wars for the American West"
+  },
+  {
+    "item_name": "Defying the Nazis: The Sharps' War"
+  },
+  {
+    "item_name": "The Family Romanov: Murder, Rebellion, and the Fall of Imperial Russia (Orbis Pictus Award for Outstanding Nonfiction for Children (Awards))"
+  },
+  {
+    "item_name": "Wilson"
+  },
+  {
+    "item_name": "The Tunnels: Escapes Under the Berlin Wall and the Historic Films the JFK White House Tried to Kill (Random House Large Print)"
+  },
+  {
+    "item_name": "Four Sisters: The Lost Lives of the Romanov Grand Duchesses"
+  },
+  {
+    "item_name": "The Baseball Whisperer: A Small-Town Coach Who Shaped Big League Dreams"
+  },
+  {
+    "item_name": "Arnie: The Life of Arnold Palmer"
+  },
+  {
+    "item_name": "One Minute to Midnight: Kennedy, Khrushchev, and Castro on the Brink of Nuclear War"
+  },
+  {
+    "item_name": "The Kennedy Detail: JFK's Secret Service Agents Break Their Silence"
+  },
+  {
+    "item_name": "Any Day Now (Sullivan's Crossing)"
+  },
+  {
+    "item_name": "The Men Who United the States: America's Explorers, Inventors, Eccentrics, and Mavericks, and the Creation of One Nation, Indivisible"
+  },
+  {
+    "item_name": "One Man Against the World: The Tragedy of Richard Nixon"
+  },
+  {
+    "item_name": "Nicholas and Alexandra: The Classic Account of the Fall of the Romanov Dynasty"
+  },
+  {
+    "item_name": "My Fellow Soldiers: General John Pershing and the Americans Who Helped Win the Great War"
+  },
+  {
+    "item_name": "Atlantic: A Vast Ocean of a Million Stories"
+  },
+  {
+    "item_name": "Any Dream Will Do: A Novel"
+  },
+  {
+    "item_name": "Fairytale: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "Renegade: Martin Luther, The Graphic Biography"
+  },
+  {
+    "item_name": "A Force So Swift: Mao, Truman, and the Birth of Modern China, 1949"
+  },
+  {
+    "item_name": "Pride &amp; Prejudice (Collins Classics)"
+  },
+  {
+    "item_name": "Last Hope Island: Britain, Occupied Europe, and the Brotherhood That Helped Turn the Tide of War"
+  },
+  {
+    "item_name": "The Immortal Irishman: The Irish Revolutionary Who Became an American Hero"
+  },
+  {
+    "item_name": "Alexander Hamilton"
+  },
+  {
+    "item_name": "Moses [Large Print]: In the Footsteps of the Reluctant Prophet (Moses Series)"
+  },
+  {
+    "item_name": "The Making of the President 1964"
+  },
+  {
+    "item_name": "A Season in the Sun: The Rise of Mickey Mantle"
+  },
+  {
+    "item_name": "Unwrapping the Names of Jesus: An Advent Devotional"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "1777: Tipping Point at Saratoga"
+  },
+  {
+    "rank": 2,
+    "item_name": "Bird Dream: Adventures at the Extremes of Human Flight"
+  },
+  {
+    "rank": 3,
+    "item_name": "All the Shah's Men: An American Coup and the Roots of Middle East Terror"
+  },
+  {
+    "rank": 4,
+    "item_name": "How I Helped O. J. Get Away With Murder: The Shocking Inside Story of Violence, Loyalty, Regret, and Remorse"
+  },
+  {
+    "rank": 5,
+    "item_name": "7 Habits of Highly Effective People"
+  },
+  {
+    "rank": 6,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Small Data: The Tiny Clues That Uncover Huge Trends"
+  },
+  {
+    "rank": 8,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 9,
+    "item_name": "Decision Points"
+  },
+  {
+    "rank": 10,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 11,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 12,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Heart of Everything That Is: The Untold Story of Red Cloud, An American Legend"
+  },
+  {
+    "rank": 14,
+    "item_name": "7 Habits Of Highly Effective People"
+  },
+  {
+    "rank": 15,
+    "item_name": "Last Hope Island: Britain, Occupied Europe, and the Brotherhood That Helped Turn the Tide of War"
+  },
+  {
+    "rank": 16,
+    "item_name": "Palestine: Peace Not Apartheid"
+  },
+  {
+    "rank": 17,
+    "item_name": "Why Nations Fail: The Origins of Power, Prosperity, and Poverty"
+  },
+  {
+    "rank": 18,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 19,
+    "item_name": "Mr Lincoln's Army"
+  },
+  {
+    "rank": 20,
+    "item_name": "What Color Is Your Parachute 2015: A Practical Manual For Job-Hunters And Career-Changers (Turtleback School &amp; Library Binding Edition) (What Color Is Your Parachute? (Paperback))"
+  },
+  {
+    "rank": 21,
+    "item_name": "Into the Wild"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Godly Hero: The Life of William Jennings Bryan"
+  },
+  {
+    "rank": 24,
+    "item_name": "FOUNDATION- PB"
+  },
+  {
+    "rank": 25,
+    "item_name": "At the Existentialist Caf: Freedom, Being, and Apricot Cocktails"
+  },
+  {
+    "rank": 26,
+    "item_name": "Justice: What's the Right Thing to Do?"
+  },
+  {
+    "rank": 27,
+    "item_name": "Animal Wise: How We Know Animals Think and Feel"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Price of Inequality: How Today's Divided Society Endangers Our Future"
+  },
+  {
+    "rank": 29,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 30,
+    "item_name": "Victoria: A Life"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 32,
+    "item_name": "James Madison (The American Presidents Series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Born on Third Base: A One Percenter Makes the Case for Tackling Inequality, Bringing Wealth Home, and Committing to the Common Good"
+  },
+  {
+    "rank": 34,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 35,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 36,
+    "item_name": "Game Change: Obama and the Clintons, McCain and Palin, and the Race of a Lifetime"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Great Divorce"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Confession"
+  },
+  {
+    "rank": 39,
+    "item_name": "The God Delusion"
+  },
+  {
+    "rank": 40,
+    "item_name": "A Country of Vast Designs: James K. Polk, The Mexican War, and the Conquest of the American Continent"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Illustrated A Brief History of Time and The Universe in a Nutshell"
+  },
+  {
+    "rank": 42,
+    "item_name": "Occupy World Street: A Global Roadmap for Radical Economic and Political Reform"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Sea-Wolf eBook"
+  },
+  {
+    "rank": 44,
+    "item_name": "Cannery Row"
+  },
+  {
+    "rank": 45,
+    "item_name": "Duty"
+  },
+  {
+    "rank": 46,
+    "item_name": "A night to remember"
+  },
+  {
+    "rank": 47,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Universe from Nothing: Why There Is Something Rather than Nothing"
+  },
+  {
+    "rank": 49,
+    "item_name": "A Short History of Nearly Everything: Special Illustrated Edition"
+  },
+  {
+    "rank": 50,
+    "item_name": "One Child: The Story of China's Most Radical Experiment"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

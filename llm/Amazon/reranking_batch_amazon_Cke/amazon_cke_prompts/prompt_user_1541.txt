@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Billionaire's Secret (Betting On You Series: Book One) (Volume 1)"
+  },
+  {
+    "item_name": "Frontier Gift of Love (American Wilderness Series Romance) (Volume 5)"
+  },
+  {
+    "item_name": "The Marriage  Mart"
+  },
+  {
+    "item_name": "For Love of the Duke (Heart of a Duke) (Volume 1)"
+  },
+  {
+    "item_name": "A Christmas Code (The Code Breakers Series)"
+  },
+  {
+    "item_name": "Finding Hope (Love's Compass) (Volume 2)"
+  },
+  {
+    "item_name": "Love's New Beginning: An American Historical Romance (Wilderness Hearts Historical Romances) (Volume 1)"
+  },
+  {
+    "item_name": "The Wicked Wyckerly: The Rebellious Sons"
+  },
+  {
+    "item_name": "Island Refuge (Wildflower B&amp;B Romance) (Volume 1)"
+  },
+  {
+    "item_name": "Strike a Match (No Match for Love) (Volume 1)"
+  },
+  {
+    "item_name": "Fifth Generation Cowboy: An Inspirational Western Romance (Three Rivers Ranch Romance) (Volume 4)"
+  },
+  {
+    "item_name": "Don't Leave Me"
+  },
+  {
+    "item_name": "Not Perfect: A Novel"
+  },
+  {
+    "item_name": "Remember to Forget: A Clayburn Novel"
+  },
+  {
+    "item_name": "Chain of Mercy (Coming Home) (Volume 1)"
+  },
+  {
+    "item_name": "The Wonder of You: Book 8 Return To Redemption Series and Book 2 of The Love of You (The Return To Redemption) (Volume 8)"
+  },
+  {
+    "item_name": "The Wonder of You: Book 8 Return To Redemption Series and Book 2 of The Love of You (The Return To Redemption) (Volume 8)"
+  },
+  {
+    "item_name": "The Smuggler's Gambit (Adam Fletcher Adventure Series) (Volume 1)"
+  },
+  {
+    "item_name": "Wonderful"
+  },
+  {
+    "item_name": "Digging In: A Novel"
+  },
+  {
+    "item_name": "Aunt Bessie Assumes: An Isle of Man Cozy Mystery (Volume 1)"
+  },
+  {
+    "item_name": "An American Princess: The Many Lives of Allene Tew"
+  },
+  {
+    "item_name": "Tomorrow's Lullaby (Chasing Tomorrow)"
+  },
+  {
+    "item_name": "Brownies &amp; Betrayal (Sweet Bites Mysteries, Book 1) - Kindle edition"
+  },
+  {
+    "item_name": "Bed and Breakfast and Murder (Fiona Fleming Cozy Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "On the Loose (A Katie Parker Production) (Volume 2)"
+  },
+  {
+    "item_name": "Match Me if You Can (No Match for Love)"
+  },
+  {
+    "item_name": "Sailing out of Darkness (Carolina Coast Stories)"
+  },
+  {
+    "item_name": "Murder, Curlers, and Cream: A Valentine Beaumont Mystery (The Murder, Curlers Series) (Volume 1)"
+  },
+  {
+    "item_name": "Fallen Out: A Jesse McDermitt Novel (Caribbean Adventure Series) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 2413,
+    "item_name": "Hired By The Cowboy"
+  },
+  {
+    "rank": 2,
+    "item_id": 2444,
+    "item_name": "Brands Who Came for Christmas (The Oklahoma All-Girl Brands) (Silhouette Intimate Moments, 1039)"
+  },
+  {
+    "rank": 3,
+    "item_id": 365,
+    "item_name": "The Bride Wore Spurs"
+  },
+  {
+    "rank": 4,
+    "item_id": 3338,
+    "item_name": "Barely A Bride (Berkley Sensation)"
+  },
+  {
+    "rank": 5,
+    "item_id": 5917,
+    "item_name": "Bedding the Billionaire (Book 3) (Legacy Collection) (Volume 3)"
+  },
+  {
+    "rank": 6,
+    "item_id": 5098,
+    "item_name": "Sunrise Point (Virgin River)"
+  },
+  {
+    "rank": 7,
+    "item_id": 2460,
+    "item_name": "SEAL It with a Kiss: In Uniform (Harlequin Superromance, No. 833)"
+  },
+  {
+    "rank": 8,
+    "item_id": 5514,
+    "item_name": "The Butterfly Garden"
+  },
+  {
+    "rank": 9,
+    "item_id": 2426,
+    "item_name": "Cowboy Is A Daddy"
+  },
+  {
+    "rank": 10,
+    "item_id": 3870,
+    "item_name": "The Defiant Governess (Signet Regency Romance)"
+  },
+  {
+    "rank": 11,
+    "item_id": 5113,
+    "item_name": "A Virgin River Christmas (A Virgin River Novel)"
+  },
+  {
+    "rank": 12,
+    "item_id": 2525,
+    "item_name": "A Very Special Delivery (Love Inspired #349)"
+  },
+  {
+    "rank": 13,
+    "item_id": 5880,
+    "item_name": "Wife by Wednesday (Weekday Brides)"
+  },
+  {
+    "rank": 14,
+    "item_id": 3872,
+    "item_name": "Amethyst"
+  },
+  {
+    "rank": 15,
+    "item_id": 3560,
+    "item_name": "Across a Moonlit Sea"
+  },
+  {
+    "rank": 16,
+    "item_id": 5594,
+    "item_name": "When the Soul Mends (Sisters of the Quilt, Book 3)"
+  },
+  {
+    "rank": 17,
+    "item_id": 5974,
+    "item_name": "Golden Chances (Homespun)"
+  },
+  {
+    "rank": 18,
+    "item_id": 2397,
+    "item_name": "The Recruit: A Highland Guard Novel"
+  },
+  {
+    "rank": 19,
+    "item_id": 176,
+    "item_name": "The Devil in Winter (The Wallflowers, Book 3)"
+  },
+  {
+    "rank": 20,
+    "item_id": 4008,
+    "item_name": "Spring's Fury (Topaz Historical Romances)"
+  },
+  {
+    "rank": 21,
+    "item_id": 4001,
+    "item_name": "Winter's Heat"
+  },
+  {
+    "rank": 22,
+    "item_id": 3911,
+    "item_name": "Tempting Juliana (Signet Eclipse)"
+  },
+  {
+    "rank": 23,
+    "item_id": 2247,
+    "item_name": "Sinfully Sexy"
+  },
+  {
+    "rank": 24,
+    "item_id": 4455,
+    "item_name": "Time for Love (The McCarthys of Gansett Island) (Volume 9)"
+  },
+  {
+    "rank": 25,
+    "item_id": 2437,
+    "item_name": "Dancing In The Moonlight (The Cowboys of Cold Creek)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

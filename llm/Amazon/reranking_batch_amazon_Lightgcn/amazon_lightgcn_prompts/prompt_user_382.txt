@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Blue Money"
+  },
+  {
+    "item_name": "In the Midnight Hour: The Life &amp; Soul of Wilson Pickett"
+  },
+  {
+    "item_name": "The Unwomanly Face of War [Jul 25, 2017] Alexievich, Svetlana; Pevear, Richard and Volokhonsky, Larissa"
+  },
+  {
+    "item_name": "The Girl in the Show: Three Generations of Comedy, Culture, and Feminism"
+  },
+  {
+    "item_name": "The Visit: A Tragi-Comedy"
+  },
+  {
+    "item_name": "The Great Quake: How the Biggest Earthquake in North America Changed Our Understanding of the  Planet"
+  },
+  {
+    "item_name": "THE BARRENS (OTTO PENZLER BOOKS)"
+  },
+  {
+    "item_name": "Valerie's Home Cooking: More than 100 Delicious Recipes to Share with Friends and Family"
+  },
+  {
+    "item_name": "What I Found in a Thousand Towns: A Traveling Musician's Guide to Rebuilding America's CommunitiesOne Coffee Shop, Dog Run, and Open-Mike Night at a Time"
+  },
+  {
+    "item_name": "The Ken Commandments: My Search for God in Hollywood"
+  },
+  {
+    "item_name": "Miss D and Me: Life with the Invincible Bette Davis"
+  },
+  {
+    "item_name": "The Bayou Strangler: Louisianas Most Gruesome Serial Killer"
+  },
+  {
+    "item_name": "Ivy and the Lonely Raincloud"
+  },
+  {
+    "item_name": "The Charterhouse of Parma (Penguin Classics)"
+  },
+  {
+    "item_name": "Heroes of Black History (A TIME for Kids Book): Biographies of Four Great Americans (America Handbooks, a TIME for Kids Series)"
+  },
+  {
+    "item_name": "Untitled Personal Essays (Thorndike Press Large Print Popular and Narrative Nonfiction)"
+  },
+  {
+    "item_name": "The Kardashians: An American Drama"
+  },
+  {
+    "item_name": "Troublemaker: Surviving Hollywood and Scientology"
+  },
+  {
+    "item_name": "Malala's Magic Pencil"
+  },
+  {
+    "item_name": "The Accidental President: Harry S. Truman and the Four Months That Changed the World"
+  },
+  {
+    "item_name": "I Can't Breathe: A Killing on Bay Street"
+  },
+  {
+    "item_name": "I Will Find You: Solving Killer Cases from My Life Fighting Crime (Homicide Hunter)"
+  },
+  {
+    "item_name": "Freeda the Cheetah"
+  },
+  {
+    "item_name": "Journey: An Illustrated History of Travel"
+  },
+  {
+    "item_name": "Fodor's Boston (Full-color Travel Guide)"
+  },
+  {
+    "item_name": "Olive Kitteridge"
+  },
+  {
+    "item_name": "tapestry"
+  },
+  {
+    "item_name": "Talking to Girls About Duran Duran: One Young Man's Quest for True Love and a Cooler Haircut"
+  },
+  {
+    "item_name": "Fire and Fury: Inside the Trump White House"
+  },
+  {
+    "item_name": "A Year in the Merde"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 584,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 2,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 3,
+    "item_id": 74719,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 4,
+    "item_id": 24309,
+    "item_name": "Small Sacrifices: A True Story of Passion and Murder"
+  },
+  {
+    "rank": 5,
+    "item_id": 47545,
+    "item_name": "The True Blue Scouts of Sugar Man Swamp"
+  },
+  {
+    "rank": 6,
+    "item_id": 206,
+    "item_name": "Brave New World"
+  },
+  {
+    "rank": 7,
+    "item_id": 15005,
+    "item_name": "The Case of the Long-Legged Models"
+  },
+  {
+    "rank": 8,
+    "item_id": 67947,
+    "item_name": "Big Book of HOW Revised and Updated (A TIME for Kids Book): 1,001 Facts Kids Want to Know (TIME for Kids Big Books)"
+  },
+  {
+    "rank": 9,
+    "item_id": 63153,
+    "item_name": "Embattled Rebel: Jefferson Davis as Commander in Chief"
+  },
+  {
+    "rank": 10,
+    "item_id": 6815,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 11,
+    "item_id": 10501,
+    "item_name": "I Am Nujood, Age 10 and Divorced"
+  },
+  {
+    "rank": 12,
+    "item_id": 45684,
+    "item_name": "A Thousand Lives: The Untold Story of Hope, Deception, and Survival at Jonestown"
+  },
+  {
+    "rank": 13,
+    "item_id": 75893,
+    "item_name": "Brooklyn Zoo: The Education of a Psychotherapist - Kindle edition"
+  },
+  {
+    "rank": 14,
+    "item_id": 13316,
+    "item_name": "Abandoned Prayers: The Incredible True Story of Murder, Obsession and Amish Secrets (St. Martin's True Crime Library)"
+  },
+  {
+    "rank": 15,
+    "item_id": 27408,
+    "item_name": "Slacker"
+  },
+  {
+    "rank": 16,
+    "item_id": 44363,
+    "item_name": "The Dalai Lama's Cat"
+  },
+  {
+    "rank": 17,
+    "item_id": 49493,
+    "item_name": "The Animal Book: A Visual Encyclopedia of Life on Earth"
+  },
+  {
+    "rank": 18,
+    "item_id": 32913,
+    "item_name": "Michelle Obama: First Mom"
+  },
+  {
+    "rank": 19,
+    "item_id": 32941,
+    "item_name": "The Great Cheese Conspiracy"
+  },
+  {
+    "rank": 20,
+    "item_id": 73132,
+    "item_name": "The Kite Runner (Chinese Edition)"
+  },
+  {
+    "rank": 21,
+    "item_id": 1936,
+    "item_name": "On The Road CD Unabridged"
+  },
+  {
+    "rank": 22,
+    "item_id": 8532,
+    "item_name": "Mosquitoland"
+  },
+  {
+    "rank": 23,
+    "item_id": 52246,
+    "item_name": "Spectrum Critical Thinking for Math, Grade 3"
+  },
+  {
+    "rank": 24,
+    "item_id": 37080,
+    "item_name": "A Century of Wisdom: Lessons from the Life of Alice Herz-Sommer, the World's Oldest Living Holocaust Survivor"
+  },
+  {
+    "rank": 25,
+    "item_id": 27415,
+    "item_name": "Save Me a Seat"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

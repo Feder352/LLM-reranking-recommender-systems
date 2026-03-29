@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Wilder Life: My Adventures in the Lost World of Little House on the Prairie"
+  },
+  {
+    "item_name": "The Key on the Quilt (The Quilt Chronicles)"
+  },
+  {
+    "item_name": "The Seventh Most Important Thing"
+  },
+  {
+    "item_name": "Everything I Never Told You"
+  },
+  {
+    "item_name": "A Season for Tending: Book One in the Amish Vines and Orchards Series"
+  },
+  {
+    "item_name": "Murder Simply Brewed (An Amish Village Mystery)"
+  },
+  {
+    "item_name": "All-of-a-Kind Family"
+  },
+  {
+    "item_name": "Fever 1793"
+  },
+  {
+    "item_name": "Spark Joy: An Illustrated Master Class on the Art of Organizing and Tidying Up (The Life Changing Magic of Tidying Up)"
+  },
+  {
+    "item_name": "Off Balance: A Memoir"
+  },
+  {
+    "item_name": "The Geek's Guide to Unrequited Love"
+  },
+  {
+    "item_name": "The Winnowing Season: Book Two in the Amish Vines and Orchards Series"
+  },
+  {
+    "item_name": "Notes from the Hyena's Belly: An Ethiopian Boyhood"
+  },
+  {
+    "item_name": "War Child: A Child Soldier's Story"
+  },
+  {
+    "item_name": "Hero (The Woodcutter Sisters)"
+  },
+  {
+    "item_name": "The Vine Basket"
+  },
+  {
+    "item_name": "Trail of Broken Wings"
+  },
+  {
+    "item_name": "What Katy Did (Puffin Classics)"
+  },
+  {
+    "item_name": "Crenshaw"
+  },
+  {
+    "item_name": "Eight Twenty Eight: When Love Didn't Give Up"
+  },
+  {
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "item_name": "The Horse and His Boy (The Chronicles of Narnia)"
+  },
+  {
+    "item_name": "Prodigy"
+  },
+  {
+    "item_name": "Strawberry Girl 60th Anniversary Edition (Trophy Newbery)"
+  },
+  {
+    "item_name": "Sadako and the Thousand Paper Cranes (Puffin Modern Classics)"
+  },
+  {
+    "item_name": "For Every Season: Book Three in the Amish Vines and Orchards Series"
+  },
+  {
+    "item_name": "Seasons of Tomorrow: Book Four in the Amish Vines and Orchards Series"
+  },
+  {
+    "item_name": "Love Letters from God: Bible Stories"
+  },
+  {
+    "item_name": "Courage to Soar: A Body in Motion, A Life in Balance"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 3,
+    "item_name": "Speak"
+  },
+  {
+    "rank": 4,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Healers Apprentice"
+  },
+  {
+    "rank": 6,
+    "item_name": "The False Prince (The Ascendance Trilogy, Book 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 8,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 9,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 10,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 12,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 13,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Wonder"
+  },
+  {
+    "rank": 15,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 17,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Lying Game"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Heiress of Winterwood (Whispers On The Moors)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Wither (Chemical Garden)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Princess Academy"
+  },
+  {
+    "rank": 22,
+    "item_name": "Charlie and the Chocolate Factory"
+  },
+  {
+    "rank": 23,
+    "item_name": "Mockingjay: The Hunger Games"
+  },
+  {
+    "rank": 24,
+    "item_name": "Nancy Drew 40: the Moonstone Castle Mystery"
+  },
+  {
+    "rank": 25,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Selection. by Kiera Cass"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Giver (Collins Modern Classics)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Anna and the French Kiss"
+  },
+  {
+    "rank": 29,
+    "item_name": "Austenland: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Howl's Moving Castle"
+  },
+  {
+    "rank": 31,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "She Said Yes: The Unlikely Martyrdom of Cassie Bernall"
+  },
+  {
+    "rank": 34,
+    "item_name": "So You Want to Be a Wizard"
+  },
+  {
+    "rank": 35,
+    "item_name": "Maze Runner. Correr o Morir / Maze Runner, Run or die (Spanish Edition)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Dancing Master"
+  },
+  {
+    "rank": 38,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Apothecary's Daughter"
+  },
+  {
+    "rank": 40,
+    "item_name": "Wonder"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Perks Of Being A Wallflower (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 42,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Five People You Meet in Heaven (Random House Large Print)"
+  },
+  {
+    "rank": 44,
+    "item_name": "redeeming Love"
+  },
+  {
+    "rank": 45,
+    "item_name": "Night"
+  },
+  {
+    "rank": 46,
+    "item_name": "Lady of Milkweed Manor"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Miserable Mill (A Series of Unfortunate Events, Book 4)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 49,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 50,
+    "item_name": "Pillage"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

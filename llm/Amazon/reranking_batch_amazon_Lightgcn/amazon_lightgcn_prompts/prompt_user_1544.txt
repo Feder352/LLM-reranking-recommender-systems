@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Cowboy Up: Coming Home Book 3"
+  },
+  {
+    "item_name": "Wicked Choice (The Wicked Horse Vegas) (Volume 4)"
+  },
+  {
+    "item_name": "It Ain't Me, Babe"
+  },
+  {
+    "item_name": "STEEL: Night Rebels Motorcycle Club Romance (Night Rebels MC Romance) (Volume 1)"
+  },
+  {
+    "item_name": "MUERTO: Night Rebels Motorcycle Club (Night Rebels MC Romance) (Volume 2)"
+  },
+  {
+    "item_name": "Mend"
+  },
+  {
+    "item_name": "DIABLO: Night Rebels Motorcycle Club (Night Rebels MC Romance) (Volume 3)"
+  },
+  {
+    "item_name": "Marked for Death (Blind Jacks MC) (Volume 1)"
+  },
+  {
+    "item_name": "Heart Recaptured (Hades Hangmen) (Volume 2)"
+  },
+  {
+    "item_name": "Fighting Dirty (Blind Jacks MC)"
+  },
+  {
+    "item_name": "PACO: Night Rebels Motorcycle Club (Night Rebels MC Romance) (Volume 5)"
+  },
+  {
+    "item_name": "Bad Dad"
+  },
+  {
+    "item_name": "Rough Ride: A Chaos Novella"
+  },
+  {
+    "item_name": "GOLDIE: Night Rebels Motorcycle Club (Night Rebels MC Romance) (Volume 4)"
+  },
+  {
+    "item_name": "The Final Fight (The Fighting Series) (Volume 8)"
+  },
+  {
+    "item_name": "Until Harmony: Until Her/ Until Him book 6"
+  },
+  {
+    "item_name": "Taking It Slow (Doing Bad Things) (Volume 3)"
+  },
+  {
+    "item_name": "Nailed Down (Volume 1)"
+  },
+  {
+    "item_name": "Making Sense"
+  },
+  {
+    "item_name": "Ride Dirty: A Raven Riders Novella"
+  },
+  {
+    "item_name": "Bound by Desire (Ravage MC Bound Series Book Two) (Volume 2)"
+  },
+  {
+    "item_name": "Devil's Game (Reapers Motorcycle Club)"
+  },
+  {
+    "item_name": "Lover Revealed (Black Dagger Brotherhood, Book 4)"
+  },
+  {
+    "item_name": "King's Wrath (Sydney Storm MC) (Volume 5)"
+  },
+  {
+    "item_name": "This Is The Route Of Twisted Pain (Neither This, Nor That) (Volume 1)"
+  },
+  {
+    "item_name": "Guilty Sin (AFLA Investigations) (Volume 4)"
+  },
+  {
+    "item_name": "Fighting for Everything (Warrior Fight Club)"
+  },
+  {
+    "item_name": "Tied Down (Nailed Down) (Volume 2)"
+  },
+  {
+    "item_name": "Atticus: A Womans Journey with the Worlds Worst Behaved Dog"
+  },
+  {
+    "item_name": "Unconscious Hearts"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 54957,
+    "item_name": "Hook Me (Men of Inked) (Volume 2)"
+  },
+  {
+    "rank": 2,
+    "item_id": 58207,
+    "item_name": "Morrison (Caldwell Brothers)"
+  },
+  {
+    "rank": 3,
+    "item_id": 59246,
+    "item_name": "The Absolution of Aidan (The Syndicate Series) (Volume 3)"
+  },
+  {
+    "rank": 4,
+    "item_id": 56814,
+    "item_name": "Consume Me (Ravage MC#3) (Volume 3)"
+  },
+  {
+    "rank": 5,
+    "item_id": 75096,
+    "item_name": "Jack &amp; Coke (The Uncertain Saints MC) (Volume 2)"
+  },
+  {
+    "rank": 6,
+    "item_id": 58542,
+    "item_name": "Coup De Grace (Code 11- KPD SWAT) (Volume 7)"
+  },
+  {
+    "rank": 7,
+    "item_id": 67647,
+    "item_name": "Cole"
+  },
+  {
+    "rank": 8,
+    "item_id": 58911,
+    "item_name": "Talon (Ashes &amp; Embers) (Volume 4)"
+  },
+  {
+    "rank": 9,
+    "item_id": 75138,
+    "item_name": "The Beard Made Me Do It (The Dixie Wardens Rejects) (Volume 5)"
+  },
+  {
+    "rank": 10,
+    "item_id": 74331,
+    "item_name": "Tackled: A Sports Romance"
+  },
+  {
+    "rank": 11,
+    "item_id": 60052,
+    "item_name": "Pay For Play (Alphachat.com) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_id": 74211,
+    "item_name": "Rage: A Fire and Steel Motorcycle Romance (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_id": 58165,
+    "item_name": "Lukas (Ashes &amp; Embers) (Volume 3)"
+  },
+  {
+    "rank": 14,
+    "item_id": 62179,
+    "item_name": "Wallflowers: Double Trouble"
+  },
+  {
+    "rank": 15,
+    "item_id": 73648,
+    "item_name": "Ryker (Kings of Korruption MC) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_id": 56922,
+    "item_name": "Lights To My Siren (The Heroes of The Dixie Wardens MC) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_id": 59299,
+    "item_name": "Distraction: Underground kings"
+  },
+  {
+    "rank": 18,
+    "item_id": 76066,
+    "item_name": "In The Red: Nomad Bikers (Devil's Due MC) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_id": 74504,
+    "item_name": "Controlled Burn (The Kilgore Fire Series) (Volume 4)"
+  },
+  {
+    "rank": 20,
+    "item_id": 58821,
+    "item_name": "Mechanic"
+  },
+  {
+    "rank": 21,
+    "item_id": 43232,
+    "item_name": "Rocco: A Mafia Romance (Ruin &amp; Revenge)"
+  },
+  {
+    "rank": 22,
+    "item_id": 59255,
+    "item_name": "Six"
+  },
+  {
+    "rank": 23,
+    "item_id": 53780,
+    "item_name": "Push the Envelope (Blythe College) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_id": 57198,
+    "item_name": "Vandal (Ashes &amp; Embers) (Volume 2)"
+  },
+  {
+    "rank": 25,
+    "item_id": 70047,
+    "item_name": "A Million Tiny Pieces"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

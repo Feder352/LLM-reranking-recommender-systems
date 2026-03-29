@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Hunter"
+  },
+  {
+    "item_name": "Ghostly Echoes: A Jackaby Novel"
+  },
+  {
+    "item_name": "Cozy Classics: The Nutcracker"
+  },
+  {
+    "item_name": "The Wish Tree"
+  },
+  {
+    "item_name": "Strange Practice (A Dr. Greta Helsing Novel)"
+  },
+  {
+    "item_name": "Cozy Classics: Les Misrables"
+  },
+  {
+    "item_name": "Me and Marvin Gardens"
+  },
+  {
+    "item_name": "The Evaporation of Sofi Snow"
+  },
+  {
+    "item_name": "Rants from the Hill: On Packrats, Bobcats, Wildfires, Curmudgeons, a Drunken Mary Kay Lady, and Other Encounters with the Wild in the High Desert"
+  },
+  {
+    "item_name": "Lopez Lomong: We're all destined to use our talent to change people's lives (What Really Matters)"
+  },
+  {
+    "item_name": "The 5,000 Friends of Veronica Veetch"
+  },
+  {
+    "item_name": "The Adventures of John Blake: Mystery of the Ghost Ship"
+  },
+  {
+    "item_name": "This Is What a Librarian Looks Like: A Celebration of Libraries, Communities, and Access to Information"
+  },
+  {
+    "item_name": "Warcross"
+  },
+  {
+    "item_name": "Inferior: How Science Got Women Wrong-and the New Research That's Rewriting the Story"
+  },
+  {
+    "item_name": "The Disappearances"
+  },
+  {
+    "item_name": "Overboard! (Survivor Diaries)"
+  },
+  {
+    "item_name": "Restart"
+  },
+  {
+    "item_name": "Thick as Thieves (Queen's Thief)"
+  },
+  {
+    "item_name": "Leeroy and Popo (Nobrow Serial Box)"
+  },
+  {
+    "item_name": "Victoria &amp; Abdul (Movie Tie-in): The True Story of the Queen's Closest Confidant"
+  },
+  {
+    "item_name": "The Wolf: A True Story of Survival and Obsession in the West"
+  },
+  {
+    "item_name": "Empire Made: My Search for an Outlaw Uncle Who Vanished in British India"
+  },
+  {
+    "item_name": "Snow &amp; Rose"
+  },
+  {
+    "item_name": "The Fearless Benjamin Lay: The Quaker Dwarf Who Became the First Revolutionary Abolitionist"
+  },
+  {
+    "item_name": "Into the Drowning Deep"
+  },
+  {
+    "item_name": "Appleseed Alpha"
+  },
+  {
+    "item_name": "Bunny Slopes"
+  },
+  {
+    "item_name": "KJV, The King James Study Bible, Bonded Leather, Burgundy, Red Letter, Full-Color Edition"
+  },
+  {
+    "item_name": "Fodor's London 25 Best (Full-color Travel Guide)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Son of Neptune (Heroes of Olympus Book 2)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Hero (The Woodcutter Sisters)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Scarecrow Princess"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "rank": 5,
+    "item_name": "Numbers: Book 1"
+  },
+  {
+    "rank": 6,
+    "item_name": "Battleship: A Daring Heiress, a Teenage Jockey, and America's Horse"
+  },
+  {
+    "rank": 7,
+    "item_name": "Chasing Secrets"
+  },
+  {
+    "rank": 8,
+    "item_name": "Seven Wonders Book 1: The Colossus Rises"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Fire Wish (Jinni Wars)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Eternity Cure (Blood of Eden)"
+  },
+  {
+    "rank": 11,
+    "item_name": "This One Summer"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Golem and the Jinni: A Novel (P.S.)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Scarlett Epstein Hates It Here"
+  },
+  {
+    "rank": 14,
+    "item_name": "The True Blue Scouts of Sugar Man Swamp"
+  },
+  {
+    "rank": 15,
+    "item_name": "Born of Illusion"
+  },
+  {
+    "rank": 16,
+    "item_name": "Railhead"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Voyage of Lucy P. Simmons"
+  },
+  {
+    "rank": 18,
+    "item_name": "No One Else Can Have You (Kippy Bushman)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Where I Belong"
+  },
+  {
+    "rank": 20,
+    "item_name": "Dorothy Must Die"
+  },
+  {
+    "rank": 21,
+    "item_name": "Stick Dog Wants a Hot Dog"
+  },
+  {
+    "rank": 22,
+    "item_name": "Crewel: A Novel (Crewel World)"
+  },
+  {
+    "rank": 23,
+    "item_name": "His Majesty's Dragon (Temeraire, Book 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Book of the Dead (TombQuest, Book 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "An Inheritance of Ashes"
+  },
+  {
+    "rank": 26,
+    "item_name": "Space Case (Moon Base Alpha)"
+  },
+  {
+    "rank": 27,
+    "item_name": "A Tale Dark and Grimm"
+  },
+  {
+    "rank": 28,
+    "item_name": "Marked"
+  },
+  {
+    "rank": 29,
+    "item_name": "Double Digit (A Girl Named Digit)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Planet Tad"
+  },
+  {
+    "rank": 31,
+    "item_name": "Sway: A Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Fat Vampire: A Never Coming of Age Story"
+  },
+  {
+    "rank": 33,
+    "item_name": "A Wounded Name"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Wild Ones"
+  },
+  {
+    "rank": 35,
+    "item_name": "Megaskull (Nobrow Serial Box)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Hero's Guide to Saving Your Kingdom"
+  },
+  {
+    "rank": 38,
+    "item_name": "Dr. Bird's Advice for Sad Poets"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Inquisitor's Apprentice"
+  },
+  {
+    "rank": 40,
+    "item_name": "Coraline"
+  },
+  {
+    "rank": 41,
+    "item_name": "Wolf Hollow"
+  },
+  {
+    "rank": 42,
+    "item_name": "A Girl Named Digit"
+  },
+  {
+    "rank": 43,
+    "item_name": "I Am Princess X"
+  },
+  {
+    "rank": 44,
+    "item_name": "Greenglass House"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Strange and Beautiful Sorrows of Ava Lavender"
+  },
+  {
+    "rank": 46,
+    "item_name": "Wolf by Wolf"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Feast for Crows (Song of Ice and Fire)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Accidental Highwayman: Being the Tale of Kit Bristol, His Horse Midnight, a Mysterious Princess, and Sundry Magical Persons Besides"
+  },
+  {
+    "rank": 49,
+    "item_name": "Feral"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Real Boy"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

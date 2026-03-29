@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Woman In The Dark: A Novel of Dangerous Romance"
+  },
+  {
+    "item_name": "Hooking Up"
+  },
+  {
+    "item_name": "Trotsky: Downfall of a Revolutionary"
+  },
+  {
+    "item_name": "Trotsky: A Biography"
+  },
+  {
+    "item_name": "Freedom from Fear: The American People in Depression and War, 1929-1945 (Oxford History of the United States)"
+  },
+  {
+    "item_name": "Harvard Yard"
+  },
+  {
+    "item_name": "Team of Rivals: The Political Genius of Abraham Lincoln"
+  },
+  {
+    "item_name": "Anti-Intellectualism in American Life"
+  },
+  {
+    "item_name": "L.A. Confidential"
+  },
+  {
+    "item_name": "The Lincoln Lawyer (Large Print)"
+  },
+  {
+    "item_name": "The Postman Always Rings Twice, Double Indemnity, Mildred Pierce, and Selected Stories (Everyman's Library Classics)"
+  },
+  {
+    "item_name": "Exile and the Kingdom"
+  },
+  {
+    "item_name": "The Wretched of the Earth"
+  },
+  {
+    "item_name": "Pillar of Fire: America in the King Years 1963-65"
+  },
+  {
+    "item_name": "The Novels of Dashiell Hammett"
+  },
+  {
+    "item_name": "Franny and Zooey"
+  },
+  {
+    "item_name": "Poodle Springs"
+  },
+  {
+    "item_name": "Dark Victory (Wisconsin / Warner Bros. Screenplays Series)"
+  },
+  {
+    "item_name": "Moonlight Mile"
+  },
+  {
+    "item_name": "Given Day Unabridged CD, The"
+  },
+  {
+    "item_name": "The Hunter and Other Stories"
+  },
+  {
+    "item_name": "Sixkill (Spenser Mystery)"
+  },
+  {
+    "item_name": "High Profile (A Jesse Stone Novel)"
+  },
+  {
+    "item_name": "Back Story (Spenser Mystery)"
+  },
+  {
+    "item_name": "Stardust"
+  },
+  {
+    "item_name": "Potshot"
+  },
+  {
+    "item_name": "The Manchurian Candidate"
+  },
+  {
+    "item_name": "Casino"
+  },
+  {
+    "item_name": "Inherit the Wind: The Powerful Drama of the Greatest Courtroom Clash of the Century"
+  },
+  {
+    "item_name": "Charade (Essence Bestselling Author)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1096,
+    "item_name": "The Bridge of San Luis Rey (Perennial Classics)"
+  },
+  {
+    "rank": 2,
+    "item_id": 7085,
+    "item_name": "Modern Classics Scoop Centennial Edition (Penguin Modern Classics)"
+  },
+  {
+    "rank": 3,
+    "item_id": 6330,
+    "item_name": "Ulysses"
+  },
+  {
+    "rank": 4,
+    "item_id": 6329,
+    "item_name": "Heart of Darkness (Modern Classics)"
+  },
+  {
+    "rank": 5,
+    "item_id": 6496,
+    "item_name": "The Fixer (Penguin Twentieth-Century Classics)"
+  },
+  {
+    "rank": 6,
+    "item_id": 73171,
+    "item_name": "Balthazar [Paperback] [Jan 01, 2008] Lawrence Durrell"
+  },
+  {
+    "rank": 7,
+    "item_id": 6855,
+    "item_name": "The Red and the Black (Penguin Classics)"
+  },
+  {
+    "rank": 8,
+    "item_id": 6490,
+    "item_name": "Nostromo: A Tale of the Seaboard (Classic, 20th-Century, Penguin)"
+  },
+  {
+    "rank": 9,
+    "item_id": 74096,
+    "item_name": "The red and the black,"
+  },
+  {
+    "rank": 10,
+    "item_id": 6798,
+    "item_name": "Billy Budd and Other Stories (Penguin Classics)"
+  },
+  {
+    "rank": 11,
+    "item_id": 5873,
+    "item_name": "Brighton Rock"
+  },
+  {
+    "rank": 12,
+    "item_id": 9712,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 13,
+    "item_id": 29909,
+    "item_name": "Notes from Underground (Vintage Classics)"
+  },
+  {
+    "rank": 14,
+    "item_id": 37,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 15,
+    "item_id": 6719,
+    "item_name": "Walden and Civil Disobedience (Penguin American Library)"
+  },
+  {
+    "rank": 16,
+    "item_id": 6455,
+    "item_name": "The Alexandria Quartet"
+  },
+  {
+    "rank": 17,
+    "item_id": 5718,
+    "item_name": "Power and the Glory"
+  },
+  {
+    "rank": 18,
+    "item_id": 6413,
+    "item_name": "Libra"
+  },
+  {
+    "rank": 19,
+    "item_id": 7113,
+    "item_name": "Modern Classics Handful Of Dust Centenary Editions (Penguin Modern Classics)"
+  },
+  {
+    "rank": 20,
+    "item_id": 47,
+    "item_name": "Love's Labour's Lost: Performed by Derek Jacobi, Geraldine McEwan &amp; Cast"
+  },
+  {
+    "rank": 21,
+    "item_id": 5549,
+    "item_name": "Fathers and Sons"
+  },
+  {
+    "rank": 22,
+    "item_id": 76088,
+    "item_name": "Great Expectations By Charles Dickens - The Franklin Library (Hardcover - 1979)"
+  },
+  {
+    "rank": 23,
+    "item_id": 6334,
+    "item_name": "Invisible Man"
+  },
+  {
+    "rank": 24,
+    "item_id": 130,
+    "item_name": "Lord Jim (New School Classics)"
+  },
+  {
+    "rank": 25,
+    "item_id": 5844,
+    "item_name": "The Quiet American"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

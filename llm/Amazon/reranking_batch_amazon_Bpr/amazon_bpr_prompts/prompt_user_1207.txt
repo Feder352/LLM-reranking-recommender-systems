@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "It Happens All the Time: A Novel"
+  },
+  {
+    "item_name": "Waking with Enemies (Gideon Series)"
+  },
+  {
+    "item_name": "Sleeping with Strangers (Gideon Series)"
+  },
+  {
+    "item_name": "Dying for Revenge (Gideon Series)"
+  },
+  {
+    "item_name": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI"
+  },
+  {
+    "item_name": "The Rooster Bar"
+  },
+  {
+    "item_name": "The Wide Circumference of Love: A Novel"
+  },
+  {
+    "item_name": "So You Call Yourself A Man (The Church Series)"
+  },
+  {
+    "item_name": "Camino Island: A Novel"
+  },
+  {
+    "item_name": "The Two-Family House: A Novel"
+  },
+  {
+    "item_name": "I Can't Make This Up: Life Lessons"
+  },
+  {
+    "item_name": "Broken Heart (The Reed Family) (Volume 1)"
+  },
+  {
+    "item_name": "Everybody Lies: Big Data, New Data, and What the Internet Can Tell Us About Who We Really Are"
+  },
+  {
+    "item_name": "An American Family: A Memoir of Hope and Sacrifice"
+  },
+  {
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "item_name": "Convicted: A Crooked Cop, an Innocent Man, and an Unlikely Journey of Forgiveness and Friendship"
+  },
+  {
+    "item_name": "Higher Is Waiting"
+  },
+  {
+    "item_name": "We Are Never Meeting in Real Life.: Essays"
+  },
+  {
+    "item_name": "The Tragedy of Brady Sims (Vintage Contemporaries)"
+  },
+  {
+    "item_name": "I Can't Breathe: A Killing on Bay Street"
+  },
+  {
+    "item_name": "The Forbidden Man (Edge of Scandal)"
+  },
+  {
+    "item_name": "The Book of Harlan"
+  },
+  {
+    "item_name": "The Bittersweet Bride (Advertisements for Love) (Volume 1)"
+  },
+  {
+    "item_name": "We Were Eight Years in Power: An American Tragedy"
+  },
+  {
+    "item_name": "Our Kind of People: Inside America's Black Upper Class"
+  },
+  {
+    "item_name": "An American Marriage: A Novel"
+  },
+  {
+    "item_name": "Blessed Life: My Surprising Journey of Joy, Tears, and Tales from Harlem to Hollywood"
+  },
+  {
+    "item_name": "Murder with Fried Chicken and Waffles (A Mahalia Watkins Mystery)"
+  },
+  {
+    "item_name": "Abuse of Discretion (Dre Thomas Series)"
+  },
+  {
+    "item_name": "I Have Lost My Way"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Husband's Secret"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Help"
+  },
+  {
+    "rank": 4,
+    "item_name": "Buying Time (Dre Thomas Series)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Orphan Train: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Missing Pieces"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Passion Of Mary Margaret"
+  },
+  {
+    "rank": 8,
+    "item_name": "Maine"
+  },
+  {
+    "rank": 9,
+    "item_name": "What She Knew: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Among the Ten Thousand Things: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 12,
+    "item_name": "Still Alice"
+  },
+  {
+    "rank": 13,
+    "item_name": "Room"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Good Excuse To Be Bad"
+  },
+  {
+    "rank": 15,
+    "item_name": "Major Pettigrew's Last Stand: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 17,
+    "item_name": "Unravelling Oliver"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Wedding Dress"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Sugarless Plum: A Ballerina's Triumph over Diabetes"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Light Between Oceans: The heartbreaking Richard and Judy bestseller"
+  },
+  {
+    "rank": 21,
+    "item_name": "Diary of a Stalker (Urban Renaissance)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Hurricane Sisters: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 24,
+    "item_name": "Serving Crazy with Curry (Ballantine Reader's Circle)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Sugar: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 27,
+    "item_name": "Wench: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "Don't You Cry"
+  },
+  {
+    "rank": 29,
+    "item_name": "Battle Hymn of the Tiger Mother"
+  },
+  {
+    "rank": 30,
+    "item_name": "Gossip: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "Have a Little Faith: A True Story"
+  },
+  {
+    "rank": 32,
+    "item_name": "Murder, Mayhem &amp; a Fine Man: An Amanda Bell Brown Mystery"
+  },
+  {
+    "rank": 33,
+    "item_name": "HILLBILLY ELEGY- PB"
+  },
+  {
+    "rank": 34,
+    "item_name": "Everything She Forgot: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Betrayal (Urban Books)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Mennonite in a Little Black Dress: A Memoir of Going Home"
+  },
+  {
+    "rank": 37,
+    "item_name": "Woman No. 17: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Is This Tomorrow: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "Save Me: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "Bittersweet: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "A Fall of Marigolds"
+  },
+  {
+    "rank": 43,
+    "item_name": "Oogy: The Dog Only a Family Could Love"
+  },
+  {
+    "rank": 44,
+    "item_name": "Blue Jeans and Coffee Beans"
+  },
+  {
+    "rank": 45,
+    "item_name": "And the Dark Sacred Night: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Redbird Christmas"
+  },
+  {
+    "rank": 47,
+    "item_name": "Don't Go"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Denim Blue Sea"
+  },
+  {
+    "rank": 49,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 50,
+    "item_name": "Camilla's Roses"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

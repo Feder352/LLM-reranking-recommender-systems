@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Ryder (Slater Brothers) (Volume 4)"
+  },
+  {
+    "item_name": "Bronagh (Slater Brothers)"
+  },
+  {
+    "item_name": "Kiss an Angel"
+  },
+  {
+    "item_name": "I Like Big Dragons and I Cannot Lie (I Like Big Dragons Series) (Volume 1)"
+  },
+  {
+    "item_name": "Easy (Burnout) (Volume 4)"
+  },
+  {
+    "item_name": "Easy: Burnout, Book 4"
+  },
+  {
+    "item_name": "Until the Sun Falls from the Sky (The Three Series) (Volume 1)"
+  },
+  {
+    "item_name": "Controlled Burn (The Kilgore Fire Series) (Volume 4)"
+  },
+  {
+    "item_name": "In Deep: Love Struck (Los Banditos MC) (Volume 1)"
+  },
+  {
+    "item_name": "Dragons Need Love, Too (I Love Big Dragons Series) (Volume 2)"
+  },
+  {
+    "item_name": "Smokey: Satan's Fury MC (Volume 5)"
+  },
+  {
+    "item_name": "Adam (Kings of Guardian) (Volume 3)"
+  },
+  {
+    "item_name": "Twisted Palace: A Novel (The Royals)"
+  },
+  {
+    "item_name": "Pucked Under (The Pucked Series)"
+  },
+  {
+    "item_name": "Until Ashlyn: Until Her"
+  },
+  {
+    "item_name": "An Unplanned Lesson"
+  },
+  {
+    "item_name": "A Veil of Vines"
+  },
+  {
+    "item_name": "Preppy: The Life and Death of Samuel Clearwater, Part One (King Series)"
+  },
+  {
+    "item_name": "Preppy: The Life and Death of Samuel Clearwater, Part Two (King Series)"
+  },
+  {
+    "item_name": "His Alone: A Full-Length Novel (For Her)"
+  },
+  {
+    "item_name": "Trouble In Loveland"
+  },
+  {
+    "item_name": "Gansett Island Episodes: Season 1, Episode 1 (Gansett Island Series)"
+  },
+  {
+    "item_name": "Oh, My Dragon (I Like Big Dragons) (Volume 3)"
+  },
+  {
+    "item_name": "Preppy: The Life and Death of Samuel Clearwater, Part Three (King Series)"
+  },
+  {
+    "item_name": "Damnable Grace (Hades Hangmen) (Volume 5)"
+  },
+  {
+    "item_name": "Tangled: A Dark Protectors Novella"
+  },
+  {
+    "item_name": "Until Sage (Until Him) (Volume 2)"
+  },
+  {
+    "item_name": "Rough &amp; Rich (Notorious Devils) (Volume 6)"
+  },
+  {
+    "item_name": "Running Into Love (Fluke My Life)"
+  },
+  {
+    "item_name": "Stolen Fate"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Until November (Until Series) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Pulse: Book Two in the Collide Series"
+  },
+  {
+    "rank": 3,
+    "item_name": "Wild Man (Dream Man)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Make It A Double (The Last Call Series) (Volume 2)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Beloved (The Belonging Series) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Axel (Corps Security) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Collide: Book One in the Collide Series"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Pact"
+  },
+  {
+    "rank": 9,
+    "item_name": "Inevitable"
+  },
+  {
+    "rank": 10,
+    "item_name": "Perfection: A Neighbor From Hell Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Million Tiny Pieces"
+  },
+  {
+    "rank": 12,
+    "item_name": "After We Fall"
+  },
+  {
+    "rank": 13,
+    "item_name": "Cooper (Corps Security)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Dare to Love"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "rank": 16,
+    "item_name": "Stepbrother Dearest"
+  },
+  {
+    "rank": 17,
+    "item_name": "Crashed (The Driven Trilogy)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Doctor's Secret Bride (Billionaire Brides of Granite Falls) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Hell's Knights (The MC Sinners Series)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Broken Justice (The Justice Brothers) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "NIKOLAI (Her Russian Protector 4): Her Russian Protector 4"
+  },
+  {
+    "rank": 22,
+    "item_name": "Caught Up In Us (Caught Up In Love)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Neanderthal Seeks Human: A Smart Romance (Knitting in the City) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Kaleb: An Alluring Indulgence Novel (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Fighting to Forgive (The Fighting Series) (Volume 2)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Debt Inheritance (Indebted) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Capture (Seaside Pictures) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Rock the Heart (Black Falcon)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Rhett"
+  },
+  {
+    "rank": 30,
+    "item_name": "Wrong"
+  },
+  {
+    "rank": 31,
+    "item_name": "Angel's Halo (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Love Bats Last (The Tavonesi Series - Heart of the Game) (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Her Dakota Man (Dakota Hearts)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Wicked Fall (Wicked Horse) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Will (The Magdalene Series) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Fueled (The Driven Trilogy)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Come Away With Me: Book One in the With Me In Seattle Series (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Bet"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Cornerstone (The Walsh Series) (Volume 4)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Changing His Game"
+  },
+  {
+    "rank": 41,
+    "item_name": "When You're Ready (Ready Series) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Forever You"
+  },
+  {
+    "rank": 43,
+    "item_name": "Fighting for Flight (The Fighting Series)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Lady Luck (Colorado Mountain)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Throttled (Men of Inked)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Heir in Exile (The Royals) (Volume 3)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Damaged (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Dirty Angels"
+  },
+  {
+    "rank": 49,
+    "item_name": "Not Quite Mine"
+  },
+  {
+    "rank": 50,
+    "item_name": "Trust (Temptation Series) (Volume 3)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

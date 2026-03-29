@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Lead with Humility: 12 Leadership Lessons from Pope Francis"
+  },
+  {
+    "item_name": "The Longest Ride"
+  },
+  {
+    "item_name": "Death of a King: The Real Story of Dr. Martin Luther King Jr.'s Final Year"
+  },
+  {
+    "item_name": "Stupidparty Math v. Myth: Unmasking the Destructive Forces Eroding American Democracy (Stupidpartyland)"
+  },
+  {
+    "item_name": "Michael Jordan: The Life"
+  },
+  {
+    "item_name": "How Google Works"
+  },
+  {
+    "item_name": "Own Your Future: How to Think Like an Entrepreneur and Thrive in an Unpredictable Economy"
+  },
+  {
+    "item_name": "Win Friends and Customers: Relationship and Business Success from Empathic Acknowledging"
+  },
+  {
+    "item_name": "Grit in Your Craw: The 8 Strengths You Need to Succeed in Business and in Life"
+  },
+  {
+    "item_name": "The Burning Room (A Harry Bosch Novel)"
+  },
+  {
+    "item_name": "Suspicion"
+  },
+  {
+    "item_name": "Where You Go Is Not Who You'll Be: An Antidote to the College Admissions Mania"
+  },
+  {
+    "item_name": "The Creative Process Diet"
+  },
+  {
+    "item_name": "Hidden Strengths: Unleashing the Crucial Leadership Skills You Already Have"
+  },
+  {
+    "item_name": "Hope to Die (Matthew Scudder Mysteries)"
+  },
+  {
+    "item_name": "I'd Like to Apologize to Every Teacher I Ever Had: My Year as a Rookie Teacher at Northeast High"
+  },
+  {
+    "item_name": "The Land of Steady Habits"
+  },
+  {
+    "item_name": "My Song: A Memoir"
+  },
+  {
+    "item_name": "The Breaks of the Game"
+  },
+  {
+    "item_name": "Deep Work: Rules for Focused Success in a Distracted World [Paperback] [Jan 01, 2016] Newport, Cal"
+  },
+  {
+    "item_name": "Too Soon Old, Too Late Smart: Thirty True Things You Need to Know Now"
+  },
+  {
+    "item_name": "I Have A Voice"
+  },
+  {
+    "item_name": "Crucible - Play In Four Acts"
+  },
+  {
+    "item_name": "Talking to Crazy: How to Deal with the Irrational and Impossible People in Your Life"
+  },
+  {
+    "item_name": "How Do I Keep My Employees Motivated?"
+  },
+  {
+    "item_name": "The Chameleon: Life-Changing Wisdom for Anyone Who has a Personality or Knows Someone Who Does"
+  },
+  {
+    "item_name": "The Matchmaker"
+  },
+  {
+    "item_name": "Sacking the Quarterback (BookShots Flames)"
+  },
+  {
+    "item_name": "Little Black Dress (BookShots)"
+  },
+  {
+    "item_name": "Declutter Your Mind: How to Stop Worrying, Relieve Anxiety, and Eliminate Negative Thinking"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Buyology: Truth and Lies About Why We Buy"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 5,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Blink - The Power Of Thinking Without Thinking"
+  },
+  {
+    "rank": 8,
+    "item_name": "Who Moved My Cheese?: An A-Mazing Way to Deal with Change in Your Work and in Your Life"
+  },
+  {
+    "rank": 9,
+    "item_name": "The World Is Flat [Updated and Expanded]: A Brief History of the Twenty-first Century"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Prayer of Jabez: Breaking Through To The Blessed Life"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Signal and the Noise: The Art and Science of Prediction"
+  },
+  {
+    "rank": 12,
+    "item_name": "Rework: Change The Way You Work Forever"
+  },
+  {
+    "rank": 13,
+    "item_name": "Our Endangered Values: America's Moral Crisis"
+  },
+  {
+    "rank": 14,
+    "item_name": "Confidence: How Winning Streaks and Losing Streaks Begin and End"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Columbus Affair: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Made to Stick: Why Some Ideas Take Hold and Others Come Unstuck"
+  },
+  {
+    "rank": 17,
+    "item_name": "Theodore Rex"
+  },
+  {
+    "rank": 18,
+    "item_name": "Summer in Tuscany: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Malcolm Gladwell: David and Goliath : Underdogs, Misfits, and the Art of Battling Giants (Large Print Hardcover); 2013 Edition"
+  },
+  {
+    "rank": 20,
+    "item_name": "Dispatches from the Edge: A Memoir of War, Disasters, and Survival"
+  },
+  {
+    "rank": 21,
+    "item_name": "Flags of Our Fathers: Heroes of Iwo Jima"
+  },
+  {
+    "rank": 22,
+    "item_name": "Wooden on Leadership: How to Create a Winning Organization"
+  },
+  {
+    "rank": 23,
+    "item_name": "My Sister's Keeper"
+  },
+  {
+    "rank": 24,
+    "item_name": "Trump - The Art Of The Deal"
+  },
+  {
+    "rank": 25,
+    "item_name": "Outliers, The Story of Success"
+  },
+  {
+    "rank": 26,
+    "item_name": "State of Fear"
+  },
+  {
+    "rank": 27,
+    "item_name": "Einstein: His Life and Universe"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Rescue (Random House Large Print)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Brethren"
+  },
+  {
+    "rank": 31,
+    "item_name": "Competing in a Flat World: Building Enterprises for a Borderless World"
+  },
+  {
+    "rank": 32,
+    "item_name": "Ultimate Leadership: Winning Execution Strategies for Your Situation"
+  },
+  {
+    "rank": 33,
+    "item_name": "Stumbling on Happiness"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Canon: A Whirligig Tour of the Beautiful Basics of Science"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Chamber: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 37,
+    "item_name": "Quiet Strength: The Principles, Practices, and Priorities of a Winning Life"
+  },
+  {
+    "rank": 38,
+    "item_name": "Godless: The Church of Liberalism"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Enemy (Jack Reacher, No. 8)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Predictably Irrational: The Hidden Forces That Shape Our Decisions"
+  },
+  {
+    "rank": 41,
+    "item_name": "To Sell is Human: The Surprising Truth About Persuading, Convincing, and Influencing Others"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Case for Christ:  A Journalist's Personal Investigation of the Evidence for Jesus"
+  },
+  {
+    "rank": 43,
+    "item_name": "7 Habits Of Highly Effective People"
+  },
+  {
+    "rank": 44,
+    "item_name": "Bobos in Paradise: The New Upper Class and How They Got There"
+  },
+  {
+    "rank": 45,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Wright Brothers (Thorndike Press Large Print Popular and Narrative Nonfiction Series)"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Sense of Urgency"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Appeal"
+  },
+  {
+    "rank": 49,
+    "item_name": "Courage and Consequence: My Life as a Conservative in the Fight"
+  },
+  {
+    "rank": 50,
+    "item_name": "Fooled By Randomness: The Hidden Role of Chance in Life and in the Markets"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

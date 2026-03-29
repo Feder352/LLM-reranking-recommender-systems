@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "How to Catch a Wild Viscount"
+  },
+  {
+    "item_name": "Saga Volume 7"
+  },
+  {
+    "item_name": "Through a Dark Mist"
+  },
+  {
+    "item_name": "The Longing (Grayson Brothers series) (Volume 2)"
+  },
+  {
+    "item_name": "Bitch Planet Volume 2: President Bitch"
+  },
+  {
+    "item_name": "Lady Killer"
+  },
+  {
+    "item_name": "Feed (Newsflesh, Book 1)"
+  },
+  {
+    "item_name": "The Only Best Place: A Novel"
+  },
+  {
+    "item_name": "Black Panther: A Nation Under Our Feet Book 1"
+  },
+  {
+    "item_name": "Monstress Volume 2: The Blood"
+  },
+  {
+    "item_name": "The Red: An Erotic Fantasy"
+  },
+  {
+    "item_name": "The Complete Peanuts 1963-1964"
+  },
+  {
+    "item_name": "The Outsider (Ash Rashid Series)"
+  },
+  {
+    "item_name": "Stealing Jake"
+  },
+  {
+    "item_name": "Palm South University: Season 1 Box Set (Volume 1)"
+  },
+  {
+    "item_name": "Owned by the Hitman"
+  },
+  {
+    "item_name": "Norse Mythology CD"
+  },
+  {
+    "item_name": "Accidental Abduction (Alien Abduction)"
+  },
+  {
+    "item_name": "Are We Smart Enough to Know How Smart Animals Are?"
+  },
+  {
+    "item_name": "Protecting Elliot: A Protectors Novella (The Protectors)"
+  },
+  {
+    "item_name": "White Bread: A Social History of the Store-Bought Loaf"
+  },
+  {
+    "item_name": "Strange Neighbors"
+  },
+  {
+    "item_name": "Food52 Vegan: 60 Vegetable-Driven Recipes for Any Kitchen (Food52 Works)"
+  },
+  {
+    "item_name": "Hamilton's Battalion: A Trio of Romances"
+  },
+  {
+    "item_name": "The Kindly Ones"
+  },
+  {
+    "item_name": "Neverwhere: A Novel"
+  },
+  {
+    "item_name": "Accounting for Love: A Western Romance Novel (Long Valley) (Volume 1)"
+  },
+  {
+    "item_name": "Legacy"
+  },
+  {
+    "item_name": "An Ace and A Pair: A Dead Cold Mystery (Volume 1)"
+  },
+  {
+    "item_name": "Jane Doe: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 2,
+    "item_name": "North and South"
+  },
+  {
+    "rank": 3,
+    "item_name": "Cross Stitch"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Casual Vacancy"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Hobbit"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Handmaid's Tale (Contemporary Classics)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Drums of Autumn"
+  },
+  {
+    "rank": 9,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Wuthering Heights (Penguin Classics)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Dr. Jekyll and Mr. Hyde and Other Stories"
+  },
+  {
+    "rank": 12,
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 14,
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "rank": 15,
+    "item_name": "Gone Girl"
+  },
+  {
+    "rank": 16,
+    "item_name": "One Hundred Years of Solitude"
+  },
+  {
+    "rank": 17,
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Northern Lights: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Anne Of Green Gables"
+  },
+  {
+    "rank": 20,
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader 1984"
+  },
+  {
+    "rank": 21,
+    "item_name": "Maggie for Hire: Book One:  Maggie MacKay Magical Tracker Series"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Da Vinci Code (Robert Langdon)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Fault in Our Stars"
+  },
+  {
+    "rank": 25,
+    "item_name": "Hobbit"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Prince (Classics)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Dead Witch Walking"
+  },
+  {
+    "rank": 28,
+    "item_name": "Twenty-Eight and a Half Wishes (A Rose Gardner Mystery)"
+  },
+  {
+    "rank": 29,
+    "item_name": "One for the Money (Stephanie Plum, No. 1) (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Along Came a Spider"
+  },
+  {
+    "rank": 32,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 33,
+    "item_name": "Solomon vs. Lord"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Shining"
+  },
+  {
+    "rank": 35,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Hidden Fire: Elemental Mysteries Book 1"
+  },
+  {
+    "rank": 37,
+    "item_name": "Fahrenheit 451"
+  },
+  {
+    "rank": 38,
+    "item_name": "22/11/63"
+  },
+  {
+    "rank": 39,
+    "item_name": "A Heartless Design (Secrets of the Zodiac) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 41,
+    "item_name": "Abba Gold: Greatest Hits"
+  },
+  {
+    "rank": 42,
+    "item_name": "Love's Labour's Lost: Performed by Derek Jacobi, Geraldine McEwan &amp; Cast"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Scarlet Letter: A Romance (The Penguin American Library)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Father Found (The Daddy School, Book 1) (Harlequin Superromance, No 763)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 46,
+    "item_name": "Harry Potter and the Cursed Child, parts one and two. [Based on the original new story by J.J. Rowling, John Tiffany &amp; Jack Thorne]. First produced by ... End production, special rehearsal edition."
+  },
+  {
+    "rank": 47,
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "rank": 48,
+    "item_name": "Lady Danger"
+  },
+  {
+    "rank": 49,
+    "item_name": "Deadly Stillwater"
+  },
+  {
+    "rank": 50,
+    "item_name": "Naked in Death"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

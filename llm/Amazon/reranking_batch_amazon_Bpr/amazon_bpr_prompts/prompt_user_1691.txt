@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dracones: Awakening (Volume 1)"
+  },
+  {
+    "item_name": "Soul-Mate (Immortal Love) (Volume 1)"
+  },
+  {
+    "item_name": "Loved by the Dragon Collection (Dawn of the Dragons)"
+  },
+  {
+    "item_name": "The Azure Kingdom (The Iridescent Realm) (Volume 1)"
+  },
+  {
+    "item_name": "Snow Blood: Season 1: Episodes 1 - 6 (Volume 1)"
+  },
+  {
+    "item_name": "Mine to Protect"
+  },
+  {
+    "item_name": "Rescued by the Alpha"
+  },
+  {
+    "item_name": "Alpha's Second Chance (Werebears Of The Everglades)"
+  },
+  {
+    "item_name": "Grave Stones (The Bloodstone Trilogy) (Volume 1)"
+  },
+  {
+    "item_name": "Shark: A Billionaire Romance Novel"
+  },
+  {
+    "item_name": "The Duke of New York: A Contemporary Bad Boy Royal Romance"
+  },
+  {
+    "item_name": "Highlander's Desire (The Matheson Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "Urban Extinction: A New Adult Urban Fantasy (Shadow Eradicators) (Volume 1)"
+  },
+  {
+    "item_name": "Dragon Unbroken: A Reverse Harem Dragon Fantasy Romance (Spellbound Souls) (Volume 2)"
+  },
+  {
+    "item_name": "The Legend of the Bloodstone"
+  },
+  {
+    "item_name": "Marti Talbott's Highlander Series 1 (Anna, Rachel &amp; Charlet)"
+  },
+  {
+    "item_name": "Jett's Wild Wolf, Mystic Wolves 3"
+  },
+  {
+    "item_name": "Dark Sight: A Dark Sight Novel (Volume 1)"
+  },
+  {
+    "item_name": "Holden's Mate (Daddy Dragon Guardians)"
+  },
+  {
+    "item_name": "The Human: A SciFi Alien Romance (Betania Breed) (Volume 3)"
+  },
+  {
+    "item_name": "Bunny And The Bear"
+  },
+  {
+    "item_name": "The Dragon King's Prisoner: A Paranormal Romance (Separated by Time) (Volume 1)"
+  },
+  {
+    "item_name": "Billionaire Matchmaker"
+  },
+  {
+    "item_name": "The Human: A SciFi Alien Romance (Betania Breed) (Volume 3)"
+  },
+  {
+    "item_name": "Grizzly Cove, Volumes 1-3 (Tales of the Were)"
+  },
+  {
+    "item_name": "Lie to Me: A Bad Boy's Accidental Marriage Romance"
+  },
+  {
+    "item_name": "Accidentally Royal"
+  },
+  {
+    "item_name": "Fated Attraction (Werebears Of The Everglades)"
+  },
+  {
+    "item_name": "The Dragon Warrior's Baby: A Paranormal Romance (Separated by Time) (Volume 2)"
+  },
+  {
+    "item_name": "Beau's Mate (Daddy Dragon Guardians)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Kissing booth"
+  },
+  {
+    "rank": 2,
+    "item_name": "Twin Wolf Trouble (Shifter Squad Six Book 2) - Kindle edition"
+  },
+  {
+    "rank": 3,
+    "item_name": "Fault Lines (Adirondack Pack) (Volume 2)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Shifters in the Spring: Sixteen New Paranormal Romances of Secret Babies, Frisky Shifters, and Fertile Surprises"
+  },
+  {
+    "rank": 5,
+    "item_name": "Magic Fire (Shifting Magic) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Descended from Dragons: an Urban Fantasy Novel (Moonlight Dragon) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Bewitched by the Alpha: Bite of the Moon"
+  },
+  {
+    "rank": 8,
+    "item_name": "Cats Got Your Tongue (Shifter Squad Six Book 4) - Kindle edition"
+  },
+  {
+    "rank": 9,
+    "item_name": "Blood Magic: A SoulTracker Novel (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Chasing Victory (The Winters Sisters) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Mastering the Marchioness: A BDSM Historical Romance (Cavern of Pleasures) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Lure of the Tiger (Aloha Shifters - Jewels of the Heart) (Volume 4)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Last Immortal Dragon"
+  },
+  {
+    "rank": 14,
+    "item_name": "Renegade Ridge: A Bad Boy Action Adventure Romance (Renegade Ridge Series)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Bloodrunner Dragon (Harper's Mountains) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Justice Calling (The Twenty-Sided Sorceress) (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "SEAL's Touch: A Dirty Bad Boy Romance (Small Town SEALs)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Gray Back Broken Bear (Gray Back Bears) (Volume 4)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Bare Knuckle Luke: BBW Paranormal Romance Bear Shifters (Ultimate Shifting Championship Book 5) - Kindle edition"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Warrior Prince: Dragon Lords Book Four"
+  },
+  {
+    "rank": 21,
+    "item_name": "Shifty Magic (Shifty Magic Series)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Axman Werebear (Saw Bears) (Volume 5)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Shopping for a Billionaire 1"
+  },
+  {
+    "rank": 24,
+    "item_name": "Three Brothers: A MFMM Menage Romance"
+  },
+  {
+    "rank": 25,
+    "item_name": "Heartblaze 2: Vampire Rising (Emma's Saga) (Volume 2)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Hostage for the Sheikh: A Royal Billionaire Romance Novel (Curves for Sheikhs Series) (Volume 3)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Mason James (Heartbreakers &amp; Heroes) (Volume 2)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Bear the Fire: BBW Interracial Firefighter Mail-Order Bride Werebear Romance (Firebear Brides Book 4) - Kindle edition"
+  },
+  {
+    "rank": 29,
+    "item_name": "Magic Burn (Shifting Magic) (Volume 2)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Wolf's Heart: A Wolf Pack Motorcycle Club Book (Breed MC) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Coveted by the Bear"
+  },
+  {
+    "rank": 32,
+    "item_name": "Accounting for Love: A Western Romance Novel (Long Valley) (Volume 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Right to Bear Arms (Wild Operatives) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Tailing Her (Quick &amp; Furry) (Volume 2)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Trapped in the Cabin"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Queen's Training (The Queen of Oran) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Bear the Heat (Fire Bears) (Volume 3)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Blood and Magic: Historical Paranormal Romance--With a Steampunk Edge (Coven Enforcers) (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Alpha's Darkling Bride"
+  },
+  {
+    "rank": 40,
+    "item_name": "Rebel Dragon (Aloha Shifters: Pearls of Desire) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Sapphire Dragon (Awakened Dragons) (Volume 3)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The CEO &amp; I"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Werewolf Cowboy (Moonbound) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Play (Brit Boys Sports Romance) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Viper (Vampires of Hollywood) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Lion's Shared Bride"
+  },
+  {
+    "rank": 47,
+    "item_name": "Sailor Ray and the Darkest Night: A Supernatural Urban Fantasy Thriller (The Pact Book 1) - Kindle edition"
+  },
+  {
+    "rank": 48,
+    "item_name": "Stolen from the Hitman"
+  },
+  {
+    "rank": 49,
+    "item_name": "A Shift in the Water (Elemental Shifter) (Volume 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Vampires Spell (Taken By The Night)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

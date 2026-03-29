@@ -1,0 +1,399 @@
+% --- Package necessari ---
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+
+
+
+\begin{figure}[H]
+\centering
+\resizebox{1.1\textwidth}{!}{%
+\begin{tikzpicture}[x=1cm, y=1cm]
+
+% --- Definizione colori ---
+\definecolor{upbg}{RGB}{232,248,242}
+\definecolor{downbg}{RGB}{252,232,232}
+\definecolor{upline}{RGB}{29,158,117}
+\definecolor{downline}{RGB}{162,45,45}
+\definecolor{mystbg}{RGB}{225,245,238}
+\definecolor{mystfg}{RGB}{8,80,65}
+\definecolor{fantbg}{RGB}{238,237,254}
+\definecolor{fantfg}{RGB}{60,52,137}
+\definecolor{scifibg}{RGB}{230,241,251}
+\definecolor{scififg}{RGB}{12,68,124}
+\definecolor{comicbg}{RGB}{250,238,218}
+\definecolor{comicfg}{RGB}{99,56,6}
+\definecolor{nonficbg}{RGB}{250,236,231}
+\definecolor{nonficfg}{RGB}{113,43,19}
+\definecolor{thrillbg}{RGB}{241,239,232}
+\definecolor{thrillfg}{RGB}{68,68,65}
+
+% --- Stili badge ---
+\tikzset{
+  bdg/.style={rounded corners=1.5pt, inner sep=1.5pt,
+              font=\tiny, draw, line width=0.3pt},
+  myst/.style ={bdg, fill=mystbg,   draw=mystfg,   text=mystfg},
+  fant/.style ={bdg, fill=fantbg,   draw=fantfg,   text=fantfg},
+  scifi/.style={bdg, fill=scifibg,  draw=scififg,  text=scififg},
+  comic/.style={bdg, fill=comicbg,  draw=comicfg,  text=comicfg},
+  nonfic/.style={bdg, fill=nonficbg, draw=nonficfg, text=nonficfg},
+  thrill/.style={bdg, fill=thrillbg, draw=thrillfg, text=thrillfg},
+}
+
+% ==============================================================
+% INTESTAZIONI COLONNE
+% y_center riga i = 0.3 - i*0.6
+% ==============================================================
+\node[font=\small\bfseries] at (3.6,  0.50) {Baseline (LightGCN)};
+\node[font=\small\bfseries] at (12.4, 0.50) {Re-rank (Gemini)};
+\node[font=\tiny, text=gray] at (3.6,  0.22) {ordinamento retrieval};
+\node[font=\tiny, text=gray] at (12.4, 0.22) {riordinato per creativit\`a};
+\draw[gray!30, line width=0.3pt] (-0.1,0.07) -- (7.25,0.07);
+\draw[gray!30, line width=0.3pt] (8.75,0.07) -- (16.1,0.07);
+
+% ==============================================================
+% LINEE DI COLLEGAMENTO  (disegnate per prime, sotto il testo)
+% y_L = 0.3 - baseline_rank * 0.6
+% y_R = 0.3 - rerank_rank  * 0.6
+% spessore: |delta|>15 -> 1.6pt | >9 -> 1.3pt | >3 -> 0.9pt | else -> 0.5pt
+% ==============================================================
+
+% Black Earth   b=20 -> r=1   delta=+19  VERDE SPESSO
+\draw[upline,   line width=1.6pt, opacity=0.85] (7.25,-11.7) -- (8.75,-0.3);
+% Stalin        b=23 -> r=2   delta=+21  VERDE SPESSO
+\draw[upline,   line width=1.6pt, opacity=0.85] (7.25,-13.5) -- (8.75,-0.9);
+% Conquerors    b=12 -> r=3   delta=+9   VERDE
+\draw[upline,   line width=1.3pt, opacity=0.80] (7.25, -6.9) -- (8.75,-1.5);
+% Battlefield   b=4  -> r=4   delta=0    GRIGIO
+\draw[gray!35,  line width=0.5pt, opacity=0.6]  (7.25, -2.1) -- (8.75,-2.1);
+% Shakespeare   b=21 -> r=5   delta=+16  VERDE SPESSO
+\draw[upline,   line width=1.6pt, opacity=0.85] (7.25,-12.3) -- (8.75,-2.7);
+% Wolfhound     b=10 -> r=6   delta=+4   VERDE
+\draw[upline,   line width=0.9pt, opacity=0.70] (7.25, -5.7) -- (8.75,-3.3);
+% Wrong Todays  b=13 -> r=7   delta=+6   VERDE
+\draw[upline,   line width=0.9pt, opacity=0.70] (7.25, -7.5) -- (8.75,-3.9);
+% Last Bookaneer b=5 -> r=8   delta=-3   GRIGIO
+\draw[gray!35,  line width=0.5pt, opacity=0.6]  (7.25, -2.7) -- (8.75,-4.5);
+% Zero Day      b=15 -> r=9   delta=+6   VERDE
+\draw[upline,   line width=0.9pt, opacity=0.70] (7.25, -8.7) -- (8.75,-5.1);
+% Gilded Cage   b=17 -> r=10  delta=+7   VERDE
+\draw[upline,   line width=0.9pt, opacity=0.70] (7.25, -9.9) -- (8.75,-5.7);
+% Wraithborn    b=1  -> r=11  delta=-10  ROSSO
+\draw[downline, line width=1.3pt, opacity=0.80] (7.25, -0.3) -- (8.75,-6.3);
+% Low Vol       b=3  -> r=12  delta=-9   ROSSO
+\draw[downline, line width=1.3pt, opacity=0.80] (7.25, -1.5) -- (8.75,-6.9);
+% Shiro         b=18 -> r=13  delta=+5   VERDE
+\draw[upline,   line width=0.9pt, opacity=0.70] (7.25,-10.5) -- (8.75,-7.5);
+% Girl Tower    b=8  -> r=14  delta=-6   ROSSO
+\draw[downline, line width=0.9pt, opacity=0.75] (7.25, -4.5) -- (8.75,-8.1);
+% Revival       b=14 -> r=15  delta=-1   GRIGIO
+\draw[gray!35,  line width=0.5pt, opacity=0.6]  (7.25, -8.1) -- (8.75,-8.7);
+% Chronicle     b=19 -> r=16  delta=+3   GRIGIO
+\draw[gray!35,  line width=0.5pt, opacity=0.6]  (7.25,-11.1) -- (8.75,-9.3);
+% Fade Out      b=11 -> r=17  delta=-6   ROSSO
+\draw[downline, line width=0.9pt, opacity=0.75] (7.25, -6.3) -- (8.75,-9.9);
+% Batman        b=9  -> r=18  delta=-9   ROSSO
+\draw[downline, line width=1.3pt, opacity=0.80] (7.25, -5.1) -- (8.75,-10.5);
+% Injustice     b=22 -> r=19  delta=+3   GRIGIO
+\draw[gray!35,  line width=0.5pt, opacity=0.6]  (7.25,-12.9) -- (8.75,-11.1);
+% 7th Woman     b=24 -> r=20  delta=+4   VERDE
+\draw[upline,   line width=0.9pt, opacity=0.70] (7.25,-14.1) -- (8.75,-11.7);
+% Dangerous     b=7  -> r=21  delta=-14  ROSSO SPESSO
+\draw[downline, line width=1.6pt, opacity=0.85] (7.25, -3.9) -- (8.75,-12.3);
+% Moonbreaker   b=25 -> r=22  delta=+3   GRIGIO
+\draw[gray!35,  line width=0.5pt, opacity=0.6]  (7.25,-14.7) -- (8.75,-12.9);
+% Art Blood     b=16 -> r=23  delta=-7   ROSSO
+\draw[downline, line width=0.9pt, opacity=0.75] (7.25, -9.3) -- (8.75,-13.5);
+% Murder        b=2  -> r=24  delta=-22  ROSSO SPESSO
+\draw[downline, line width=1.6pt, opacity=0.85] (7.25, -0.9) -- (8.75,-14.1);
+% Brightest Fell b=6 -> r=25  delta=-19  ROSSO SPESSO
+\draw[downline, line width=1.6pt, opacity=0.85] (7.25, -3.3) -- (8.75,-14.7);
+
+% ==============================================================
+% SFONDI COLONNA SINISTRA
+% riga i: y_center = 0.3 - i*0.6
+% rect: (-0.1, y-0.27) -- (7.2, y+0.27)
+% ==============================================================
+\fill[downbg](-0.1,-0.57) rectangle(7.2,-0.03); % 1  Wraithborn   -10
+\fill[downbg](-0.1,-1.17) rectangle(7.2,-0.63); % 2  Murder       -22
+\fill[downbg](-0.1,-1.77) rectangle(7.2,-1.23); % 3  Low Vol       -9
+%                                                 % 4  Battlefield    0
+%                                                 % 5  Last Bookaneer -3
+\fill[downbg](-0.1,-3.57) rectangle(7.2,-3.03); % 6  Brightest Fell-19
+\fill[downbg](-0.1,-4.17) rectangle(7.2,-3.63); % 7  Dangerous    -14
+\fill[downbg](-0.1,-4.77) rectangle(7.2,-4.23); % 8  Girl Tower    -6
+\fill[downbg](-0.1,-5.37) rectangle(7.2,-4.83); % 9  Batman        -9
+\fill[upbg]  (-0.1,-5.97) rectangle(7.2,-5.43); % 10 Wolfhound     +4
+\fill[downbg](-0.1,-6.57) rectangle(7.2,-6.03); % 11 Fade Out      -6
+\fill[upbg]  (-0.1,-7.17) rectangle(7.2,-6.63); % 12 Conquerors    +9
+\fill[upbg]  (-0.1,-7.77) rectangle(7.2,-7.23); % 13 Wrong Todays  +6
+%                                                 % 14 Revival       -1
+\fill[upbg]  (-0.1,-8.97) rectangle(7.2,-8.43); % 15 Zero Day      +6
+\fill[downbg](-0.1,-9.57) rectangle(7.2,-9.03); % 16 Art Blood     -7
+\fill[upbg]  (-0.1,-10.17)rectangle(7.2,-9.63); % 17 Gilded Cage   +7
+\fill[upbg]  (-0.1,-10.77)rectangle(7.2,-10.23);% 18 Shiro         +5
+%                                                 % 19 Chronicle     +3
+\fill[upbg]  (-0.1,-11.97)rectangle(7.2,-11.43);% 20 Black Earth  +19
+\fill[upbg]  (-0.1,-12.57)rectangle(7.2,-12.03);% 21 Shakespeare  +16
+%                                                 % 22 Injustice     +3
+\fill[upbg]  (-0.1,-13.77)rectangle(7.2,-13.23);% 23 Stalin       +21
+\fill[upbg]  (-0.1,-14.37)rectangle(7.2,-13.83);% 24 7th Woman     +4
+%                                                 % 25 Moonbreaker   +3
+
+% ==============================================================
+% SFONDI COLONNA DESTRA
+% rect: (8.8, y-0.27) -- (16.1, y+0.27)
+% ==============================================================
+\fill[upbg]  (8.8,-0.57) rectangle(16.1,-0.03); % r1  Black Earth  +19
+\fill[upbg]  (8.8,-1.17) rectangle(16.1,-0.63); % r2  Stalin       +21
+\fill[upbg]  (8.8,-1.77) rectangle(16.1,-1.23); % r3  Conquerors    +9
+%                                                  % r4  Battlefield    0
+\fill[upbg]  (8.8,-2.97) rectangle(16.1,-2.43); % r5  Shakespeare  +16
+\fill[upbg]  (8.8,-3.57) rectangle(16.1,-3.03); % r6  Wolfhound     +4
+\fill[upbg]  (8.8,-4.17) rectangle(16.1,-3.63); % r7  Wrong Todays  +6
+%                                                  % r8  Last Bookaneer-3
+\fill[upbg]  (8.8,-5.37) rectangle(16.1,-4.83); % r9  Zero Day      +6
+\fill[upbg]  (8.8,-5.97) rectangle(16.1,-5.43); % r10 Gilded Cage   +7
+\fill[downbg](8.8,-6.57) rectangle(16.1,-6.03); % r11 Wraithborn   -10
+\fill[downbg](8.8,-7.17) rectangle(16.1,-6.63); % r12 Low Vol        -9
+\fill[upbg]  (8.8,-7.77) rectangle(16.1,-7.23); % r13 Shiro         +5
+\fill[downbg](8.8,-8.37) rectangle(16.1,-7.83); % r14 Girl Tower    -6
+%                                                  % r15 Revival       -1
+%                                                  % r16 Chronicle     +3
+\fill[downbg](8.8,-10.17)rectangle(16.1,-9.63); % r17 Fade Out      -6
+\fill[downbg](8.8,-10.77)rectangle(16.1,-10.23);% r18 Batman         -9
+%                                                  % r19 Injustice     +3
+\fill[upbg]  (8.8,-11.97)rectangle(16.1,-11.43);% r20 7th Woman      +4
+\fill[downbg](8.8,-12.57)rectangle(16.1,-12.03);% r21 Dangerous     -14
+%                                                  % r22 Moonbreaker   +3
+\fill[downbg](8.8,-13.77)rectangle(16.1,-13.23);% r23 Art Blood      -7
+\fill[downbg](8.8,-14.37)rectangle(16.1,-13.83);% r24 Murder        -22
+\fill[downbg](8.8,-14.97)rectangle(16.1,-14.43);% r25 Brightest Fell-19
+
+% ==============================================================
+% TESTO COLONNA SINISTRA
+% rank: x=0.38 (anchor=east)  titolo: x=0.52 (anchor=west)  badge: x=6.85
+% ==============================================================
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-0.3){1};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-0.3){Wraithborn (Benitez Ed.)};
+\node[comic]at(6.85,-0.3){Graphic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-0.9){2};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-0.9){Murder Mysteries};
+\node[myst]at(6.85,-0.9){Mystery};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-1.5){3};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-1.5){Low, Vol.\ 1: Delirium of Hope};
+\node[comic]at(6.85,-1.5){Graphic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-2.1){4};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-2.1){Battlefield Earth};
+\node[scifi]at(6.85,-2.1){Sci-fi};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-2.7){5};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-2.7){The Last Bookaneer};
+\node[thrill]at(6.85,-2.7){Thriller};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-3.3){6};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-3.3){The Brightest Fell~$\star$};
+\node[fant]at(6.85,-3.3){Fantasy};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-3.9){7};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-3.9){Dangerous Minds};
+\node[myst]at(6.85,-3.9){Mystery};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-4.5){8};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-4.5){The Girl in the Tower};
+\node[fant]at(6.85,-4.5){Fantasy};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-5.1){9};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-5.1){All Star Batman Vol.\ 3};
+\node[comic]at(6.85,-5.1){Graphic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-5.7){10};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-5.7){Wolfhound Century};
+\node[fant]at(6.85,-5.7){Fantasy};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-6.3){11};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-6.3){The Fade Out, Vol.\ 1};
+\node[comic]at(6.85,-6.3){Graphic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-6.9){12};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-6.9){Conquerors};
+\node[nonfic]at(6.85,-6.9){Non-fic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-7.5){13};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-7.5){All Our Wrong Todays};
+\node[scifi]at(6.85,-7.5){Sci-fi};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-8.1){14};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-8.1){Revival, Vol.\ 1};
+\node[comic]at(6.85,-8.1){Graphic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-8.7){15};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-8.7){Zero Day: A Novel};
+\node[thrill]at(6.85,-8.7){Thriller};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-9.3){16};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-9.3){Art in the Blood (Holmes)};
+\node[myst]at(6.85,-9.3){Mystery};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-9.9){17};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-9.9){Gilded Cage};
+\node[fant]at(6.85,-9.9){Fantasy};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-10.5){18};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-10.5){The Shiro Project};
+\node[thrill]at(6.85,-10.5){Thriller};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-11.1){19};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-11.1){The Chronicle of Secret Riven};
+\node[fant]at(6.85,-11.1){Fantasy};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-11.7){20};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-11.7){Black Earth: The Holocaust};
+\node[nonfic]at(6.85,-11.7){Non-fic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-12.3){21};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-12.3){W.\ Shakespeare's Star Wars};
+\node[scifi]at(6.85,-12.3){Sci-fi};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-12.9){22};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-12.9){Injustice: Gods Among Us Vol.2};
+\node[comic]at(6.85,-12.9){Graphic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-13.5){23};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-13.5){Stalin: New Biography};
+\node[nonfic]at(6.85,-13.5){Non-fic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-14.1){24};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-14.1){The 7th Woman (Paris Homicide)};
+\node[myst]at(6.85,-14.1){Mystery};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(0.38,-14.7){25};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(0.52,-14.7){Moonbreaker};
+\node[fant]at(6.85,-14.7){Fantasy};
+
+% ==============================================================
+% TESTO COLONNA DESTRA
+% rank: x=9.38 (anchor=east)  titolo: x=9.52 (anchor=west)  badge: x=15.85
+% ==============================================================
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-0.3){1};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-0.3){Black Earth: The Holocaust};
+\node[nonfic]at(15.85,-0.3){Non-fic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-0.9){2};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-0.9){Stalin: New Biography};
+\node[nonfic]at(15.85,-0.9){Non-fic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-1.5){3};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-1.5){Conquerors};
+\node[nonfic]at(15.85,-1.5){Non-fic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-2.1){4};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-2.1){Battlefield Earth};
+\node[scifi]at(15.85,-2.1){Sci-fi};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-2.7){5};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-2.7){W.\ Shakespeare's Star Wars};
+\node[scifi]at(15.85,-2.7){Sci-fi};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-3.3){6};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-3.3){Wolfhound Century};
+\node[fant]at(15.85,-3.3){Fantasy};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-3.9){7};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-3.9){All Our Wrong Todays};
+\node[scifi]at(15.85,-3.9){Sci-fi};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-4.5){8};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-4.5){The Last Bookaneer};
+\node[thrill]at(15.85,-4.5){Thriller};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-5.1){9};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-5.1){Zero Day: A Novel};
+\node[thrill]at(15.85,-5.1){Thriller};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-5.7){10};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-5.7){Gilded Cage};
+\node[fant]at(15.85,-5.7){Fantasy};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-6.3){11};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-6.3){Wraithborn (Benitez Ed.)};
+\node[comic]at(15.85,-6.3){Graphic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-6.9){12};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-6.9){Low, Vol.\ 1: Delirium of Hope};
+\node[comic]at(15.85,-6.9){Graphic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-7.5){13};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-7.5){The Shiro Project};
+\node[thrill]at(15.85,-7.5){Thriller};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-8.1){14};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-8.1){The Girl in the Tower};
+\node[fant]at(15.85,-8.1){Fantasy};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-8.7){15};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-8.7){Revival, Vol.\ 1};
+\node[comic]at(15.85,-8.7){Graphic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-9.3){16};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-9.3){The Chronicle of Secret Riven};
+\node[fant]at(15.85,-9.3){Fantasy};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-9.9){17};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-9.9){The Fade Out, Vol.\ 1};
+\node[comic]at(15.85,-9.9){Graphic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-10.5){18};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-10.5){All Star Batman Vol.\ 3};
+\node[comic]at(15.85,-10.5){Graphic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-11.1){19};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-11.1){Injustice: Gods Among Us Vol.2};
+\node[comic]at(15.85,-11.1){Graphic};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-11.7){20};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-11.7){The 7th Woman (Paris Homicide)};
+\node[myst]at(15.85,-11.7){Mystery};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-12.3){21};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-12.3){Dangerous Minds};
+\node[myst]at(15.85,-12.3){Mystery};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-12.9){22};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-12.9){Moonbreaker};
+\node[fant]at(15.85,-12.9){Fantasy};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-13.5){23};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-13.5){Art in the Blood (Holmes)};
+\node[myst]at(15.85,-13.5){Mystery};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-14.1){24};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-14.1){Murder Mysteries};
+\node[myst]at(15.85,-14.1){Mystery};
+
+\node[anchor=east,font=\scriptsize\bfseries,text=gray!80!black]at(9.38,-14.7){25};
+\node[anchor=west,font=\tiny,text width=5.65cm]at(9.52,-14.7){The Brightest Fell~$\star$};
+\node[fant]at(15.85,-14.7){Fantasy};
+
+% ==============================================================
+% LEGENDA
+% ==============================================================
+\fill[upbg]  (0.0,-15.6) rectangle (0.55,-15.25);
+\node[anchor=west,font=\tiny]at(0.65,-15.42){item salito (pi\`u creativo)};
+\fill[downbg](5.0,-15.6) rectangle (5.55,-15.25);
+\node[anchor=west,font=\tiny]at(5.65,-15.42){item sceso (pi\`u prevedibile)};
+\draw[upline,  line width=1.4pt](10.0,-15.42)--(10.7,-15.42);
+\node[anchor=west,font=\tiny]at(10.8,-15.42){linea verde = salita};
+\draw[downline,line width=1.4pt](13.5,-15.42)--(14.2,-15.42);
+\node[anchor=west,font=\tiny]at(14.3,-15.42){linea rossa = discesa};
+\node[font=\tiny,text=gray!70!black]at(8.0,-15.9){$\star$ = gi\`a presente nello storico utente};
+
+\end{tikzpicture}%
+}
+\label{fig:reranking_esempio}
+\end{figure}
+

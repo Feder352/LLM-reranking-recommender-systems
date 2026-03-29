@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Back to the Future"
+  },
+  {
+    "item_name": "Heathers"
+  },
+  {
+    "item_name": "Fast Times at Ridgemont High"
+  },
+  {
+    "item_name": "Desert Bloom"
+  },
+  {
+    "item_name": "Say Anything..."
+  },
+  {
+    "item_name": "Tex"
+  },
+  {
+    "item_name": "Pee-wee's Big Adventure"
+  },
+  {
+    "item_name": "Flamingo Kid, The"
+  },
+  {
+    "item_name": "Romancing the Stone"
+  },
+  {
+    "item_name": "Star Wars: Episode VI - Return of the Jedi"
+  },
+  {
+    "item_name": "Goonies, The"
+  },
+  {
+    "item_name": "Great Muppet Caper, The"
+  },
+  {
+    "item_name": "Parenthood"
+  },
+  {
+    "item_name": "Some Kind of Wonderful"
+  },
+  {
+    "item_name": "Lucas"
+  },
+  {
+    "item_name": "Bamba, La"
+  },
+  {
+    "item_name": "Fatal Attraction"
+  },
+  {
+    "item_name": "Muppets Take Manhattan, The"
+  },
+  {
+    "item_name": "Peggy Sue Got Married"
+  },
+  {
+    "item_name": "U2: Rattle and Hum"
+  },
+  {
+    "item_name": "Little Shop of Horrors"
+  },
+  {
+    "item_name": "Mommie Dearest"
+  },
+  {
+    "item_name": "'burbs, The"
+  },
+  {
+    "item_name": "Flashdance"
+  },
+  {
+    "item_name": "Spaceballs"
+  },
+  {
+    "item_name": "Children of the Corn"
+  },
+  {
+    "item_name": "Blame It on Rio"
+  },
+  {
+    "item_name": "Blue Lagoon, The"
+  },
+  {
+    "item_name": "Light of Day"
+  },
+  {
+    "item_name": "Howard the Duck"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 38,
+    "item_name": "Cinderella"
+  },
+  {
+    "rank": 2,
+    "item_id": 681,
+    "item_name": "Alice in Wonderland"
+  },
+  {
+    "rank": 3,
+    "item_id": 1299,
+    "item_name": "Sixteen Candles"
+  },
+  {
+    "rank": 4,
+    "item_id": 208,
+    "item_name": "Little Mermaid, The"
+  },
+  {
+    "rank": 5,
+    "item_id": 419,
+    "item_name": "Dirty Dancing"
+  },
+  {
+    "rank": 6,
+    "item_id": 596,
+    "item_name": "Jungle Book, The"
+  },
+  {
+    "rank": 7,
+    "item_id": 1037,
+    "item_name": "Pretty in Pink"
+  },
+  {
+    "rank": 8,
+    "item_id": 201,
+    "item_name": "Crocodile Dundee"
+  },
+  {
+    "rank": 9,
+    "item_id": 603,
+    "item_name": "Rocky Horror Picture Show, The"
+  },
+  {
+    "rank": 10,
+    "item_id": 1178,
+    "item_name": "Nightmare on Elm Street, A"
+  },
+  {
+    "rank": 11,
+    "item_id": 1345,
+    "item_name": "Pink Floyd - The Wall"
+  },
+  {
+    "rank": 12,
+    "item_id": 726,
+    "item_name": "Private Benjamin"
+  },
+  {
+    "rank": 13,
+    "item_id": 1114,
+    "item_name": "Shining, The"
+  },
+  {
+    "rank": 14,
+    "item_id": 85,
+    "item_name": "Stand by Me"
+  },
+  {
+    "rank": 15,
+    "item_id": 47,
+    "item_name": "Dumbo"
+  },
+  {
+    "rank": 16,
+    "item_id": 204,
+    "item_name": "Blazing Saddles"
+  },
+  {
+    "rank": 17,
+    "item_id": 577,
+    "item_name": "Adventures in Babysitting"
+  },
+  {
+    "rank": 18,
+    "item_id": 632,
+    "item_name": "Sleeping Beauty"
+  },
+  {
+    "rank": 19,
+    "item_id": 1175,
+    "item_name": "Weird Science"
+  },
+  {
+    "rank": 20,
+    "item_id": 10,
+    "item_name": "Wizard of Oz, The"
+  },
+  {
+    "rank": 21,
+    "item_id": 2317,
+    "item_name": "Tommy"
+  },
+  {
+    "rank": 22,
+    "item_id": 622,
+    "item_name": "NeverEnding Story, The"
+  },
+  {
+    "rank": 23,
+    "item_id": 199,
+    "item_name": "Caddyshack"
+  },
+  {
+    "rank": 24,
+    "item_id": 679,
+    "item_name": "Bedknobs and Broomsticks"
+  },
+  {
+    "rank": 25,
+    "item_id": 609,
+    "item_name": "Fantasia"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

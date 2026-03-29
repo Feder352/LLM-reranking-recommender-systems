@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Iron King"
+  },
+  {
+    "item_name": "Shade"
+  },
+  {
+    "item_name": "The Iron Daughter"
+  },
+  {
+    "item_name": "The Reason (Ghost Huntress, Book 3) (The Ghost Huntress)"
+  },
+  {
+    "item_name": "Intertwined (An Intertwined Novel)"
+  },
+  {
+    "item_name": "Unraveled (An Intertwined Novel)"
+  },
+  {
+    "item_name": "Unearthly"
+  },
+  {
+    "item_name": "How to Wed a Baron (The Daughtry Family)"
+  },
+  {
+    "item_name": "She Can Run"
+  },
+  {
+    "item_name": "Nightshifted"
+  },
+  {
+    "item_name": "Grave Memory (Alex Craft)"
+  },
+  {
+    "item_name": "Goblin Quest"
+  },
+  {
+    "item_name": "Goblin War (Goblin Series)"
+  },
+  {
+    "item_name": "Goblin Hero (Goblin Series)"
+  },
+  {
+    "item_name": "Willow Springs: A Destiny Novel (Destiny series)"
+  },
+  {
+    "item_name": "Deadly Identity (Jackson Hole, Wyoming)"
+  },
+  {
+    "item_name": "When Blood Calls: A Shadow Keepers Novel"
+  },
+  {
+    "item_name": "Mistress by Midnight (Scandalous Women of the Ton)"
+  },
+  {
+    "item_name": "Critical Conversations For Dummies"
+  },
+  {
+    "item_name": "The Deepest Dark"
+  },
+  {
+    "item_name": "The Bride Ship (Frontier Bachelors)"
+  },
+  {
+    "item_name": "Snowman's Story"
+  },
+  {
+    "item_name": "Christmas in Lucky Harbor: Simply Irresistible/The Sweetest Thing (Lucky Harbor Novel)"
+  },
+  {
+    "item_name": "A Dragon's Guide to the Care and Feeding of Humans"
+  },
+  {
+    "item_name": "The Secrets of Sir Richard Kenworthy"
+  },
+  {
+    "item_name": "Instinct: Chronicles of Nick"
+  },
+  {
+    "item_name": "The Rogue: A Devil's Duke Novel"
+  },
+  {
+    "item_name": "You'll Never Know, Dear: A Novel of Suspense"
+  },
+  {
+    "item_name": "Mail-Order Marriage Promise (Frontier Bachelors)"
+  },
+  {
+    "item_name": "His Frontier Christmas Family (Frontier Bachelors)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Ghost Walk"
+  },
+  {
+    "rank": 2,
+    "item_name": "Immortals: The Crossing"
+  },
+  {
+    "rank": 3,
+    "item_name": "A Knight in Shining Armor"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Turning"
+  },
+  {
+    "rank": 5,
+    "item_name": "Surrender My Love (Haardrad Family)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Out of Time"
+  },
+  {
+    "rank": 7,
+    "item_name": "Tall, Dark &amp; Hungry (Argeneau Vampire)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Undead and Unappreciated"
+  },
+  {
+    "rank": 9,
+    "item_name": "His Dark Kiss"
+  },
+  {
+    "rank": 10,
+    "item_name": "Really Something (Zebra Contemporary Romance)"
+  },
+  {
+    "rank": 11,
+    "item_name": "A Killing Tide"
+  },
+  {
+    "rank": 12,
+    "item_name": "Blame It On The Blackout (Harlequin Desire)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Silver Master (Ghost Hunters, Book 4)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Guardian of Honor (The Summoning, Book 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Dream Man"
+  },
+  {
+    "rank": 16,
+    "item_name": "Undead and Unwed (Queen Betsy, Book 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Undead and Unemployed (Queen Betsy, Book 2)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Awaken Me Darkly (Alien Huntress, Book 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Midnight Rain"
+  },
+  {
+    "rank": 20,
+    "item_name": "Moon's Fury (Tales of the Sazi, Book 5)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Magic Study (Study Series)"
+  },
+  {
+    "rank": 22,
+    "item_name": "She's No Faerie Princess (The Others, Book 10)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Men of the Otherworld"
+  },
+  {
+    "rank": 24,
+    "item_name": "Warlord (Chronicles of the Warlands, Book 3)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Paid Companion (Quick, Amanda)"
+  },
+  {
+    "rank": 26,
+    "item_name": "If Angels Burn: A Novel of the Darkyn"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Summit (English Edition)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Undead and Unreturnable (Queen Besty, Book 4)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Bait"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Warrior (Brotherhood of the Sword, Book 3)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Dragon Wytch"
+  },
+  {
+    "rank": 32,
+    "item_name": "See Jane Score"
+  },
+  {
+    "rank": 33,
+    "item_name": "Body Check (New York Blades)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Raine: The Lords of Satyr"
+  },
+  {
+    "rank": 35,
+    "item_name": "Swept Away (Avon Red)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Harvard's Education (Tall, Dark &amp; Dangerous, Book 5)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Cover of Night: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Kingdom of Dreams"
+  },
+  {
+    "rank": 39,
+    "item_name": "Master of Wolves (Mageverse, Book 5)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Dark Symphony (The Carpathians (Dark) Series, Book 9)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Midnight Awakening (The Midnight Breed, Book 3)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Dagger-Star (Epic of Palins, Book 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Dead and Loving It (Undead)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Daisy's Back in Town"
+  },
+  {
+    "rank": 45,
+    "item_name": "Love Is Blind (Leisure Historical Romance)"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Kiss to Remember (Once Upon a Time)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Love Only Once: A Malory Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Touched by Darkness (Sentinel, Book 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Welcome to Temptation"
+  },
+  {
+    "rank": 50,
+    "item_name": "Dead Right (The Stillwater Trilogy, Book 3)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

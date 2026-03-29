@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Wedding At Two Love Lane"
+  },
+  {
+    "item_name": "Every Dog Has His Day (A Bluff Point Romance)"
+  },
+  {
+    "item_name": "Dog Collar Crime: Misadventures of a Frustrated Mob Princess (A Lucie Rizzo Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Plantation Shudders: A Cajun Country Mystery"
+  },
+  {
+    "item_name": "A Devil in Scotland: A No Ordinary Hero Novel"
+  },
+  {
+    "item_name": "Dangerous Witness (Redemption Harbor Series) (Volume 3)"
+  },
+  {
+    "item_name": "Wallflower Most Wanted: A Studies in Scandal Novel"
+  },
+  {
+    "item_name": "Murder on the Rocks (A Red Carpet Catering Mystery) (Volume 5)"
+  },
+  {
+    "item_name": "Devil in Tartan (The Highland Grooms)"
+  },
+  {
+    "item_name": "Pressing the Issue (A Cookbook Nook Mystery) (Volume 6)"
+  },
+  {
+    "item_name": "The Phantom of Oz (An Ivy Meadows Mystery) (Volume 5)"
+  },
+  {
+    "item_name": "The Cat of the Baskervilles: A Sherlock Holmes Bookshop Mystery"
+  },
+  {
+    "item_name": "Darkest Night: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "item_name": "Collision Point: A Brute Force Novel"
+  },
+  {
+    "item_name": "Marrying the Wedding Crasher (A Harmony Valley Novel)"
+  },
+  {
+    "item_name": "The Pajama Frame (A Madison Night Mystery) (Volume 5)"
+  },
+  {
+    "item_name": "Cold Blooded Brew: A Cozy Mystery (A Killer Coffee Mystery Series Book Four)"
+  },
+  {
+    "item_name": "Take a Chance on Me"
+  },
+  {
+    "item_name": "Six Feet Under (A Kenni Lowry Mystery) (Volume 4)"
+  },
+  {
+    "item_name": "Guardian of Darkness (Darkness Series) (Volume 7)"
+  },
+  {
+    "item_name": "The Escape Artist"
+  },
+  {
+    "item_name": "Deadly Secret: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "item_name": "Punk Rock Cowgirl"
+  },
+  {
+    "item_name": "X Marks the Spot"
+  },
+  {
+    "item_name": "Softhearted (Deep in the Heart)"
+  },
+  {
+    "item_name": "Death al Fresco: A Sally Solari Mystery"
+  },
+  {
+    "item_name": "An American Princess: The Many Lives of Allene Tew"
+  },
+  {
+    "item_name": "A Charming Corpse: :A Cozy Paranormal Mystery (A Magical Cures Mystery Series book 11)"
+  },
+  {
+    "item_name": "Bad Neighbors: An Agnes and Effie Mystery"
+  },
+  {
+    "item_name": "Broken Promise: A Romantic Thriller (Sons of Broad)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 43365,
+    "item_name": "The Christmas Cowboy Hero (Heart of Texas)"
+  },
+  {
+    "rank": 2,
+    "item_id": 9579,
+    "item_name": "Secrets at Maple Syrup Farm"
+  },
+  {
+    "rank": 3,
+    "item_id": 51051,
+    "item_name": "A Matter of Grave Concern"
+  },
+  {
+    "rank": 4,
+    "item_id": 43135,
+    "item_name": "My One True Highlander: A No Ordinary Hero Novel"
+  },
+  {
+    "rank": 5,
+    "item_id": 69919,
+    "item_name": "Light My Fire (Rock Royalty) (Volume 1)"
+  },
+  {
+    "rank": 6,
+    "item_id": 43355,
+    "item_name": "Rugged Texas Cowboy: Two Stories in One: Cowboy and the Captive, Cowboy and the Thief"
+  },
+  {
+    "rank": 7,
+    "item_id": 56464,
+    "item_name": "Montana Cherries (The Wildes of Birch Bay)"
+  },
+  {
+    "rank": 8,
+    "item_id": 44887,
+    "item_name": "Kilts and Daggers (Highland Spies Series)"
+  },
+  {
+    "rank": 9,
+    "item_id": 43309,
+    "item_name": "The Scot Beds His Wife (Victorian Rebels)"
+  },
+  {
+    "rank": 10,
+    "item_id": 70031,
+    "item_name": "The Viscount's Christmas Temptation (Dukes of War) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_id": 53215,
+    "item_name": "Devil and the Deep (The Deep Six)"
+  },
+  {
+    "rank": 12,
+    "item_id": 67415,
+    "item_name": "Ax To Grind (A Kenni Lowry Mystery) (Volume 3)"
+  },
+  {
+    "rank": 13,
+    "item_id": 43325,
+    "item_name": "When the Stars Come Out: A Cottonbloom Novel"
+  },
+  {
+    "rank": 14,
+    "item_id": 43228,
+    "item_name": "A Wedding At Two Love Lane"
+  },
+  {
+    "rank": 15,
+    "item_id": 42902,
+    "item_name": "The Irresistible Rogue (Playful Brides)"
+  },
+  {
+    "rank": 16,
+    "item_id": 46219,
+    "item_name": "Into the Firestorm (BOSS, Inc.)"
+  },
+  {
+    "rank": 17,
+    "item_id": 54795,
+    "item_name": "Homicide in High Heels (High Heels Mysteries) (Volume 8)"
+  },
+  {
+    "rank": 18,
+    "item_id": 46316,
+    "item_name": "Kill Without Shame (Ares Security)"
+  },
+  {
+    "rank": 19,
+    "item_id": 36350,
+    "item_name": "Shameless: A Bitter Creek Novel"
+  },
+  {
+    "rank": 20,
+    "item_id": 59777,
+    "item_name": "Southern Spirits (Southern Ghost Hunter Mysteries)"
+  },
+  {
+    "rank": 21,
+    "item_id": 43336,
+    "item_name": "A Season of You: A Cloud Bay Christmas Novel"
+  },
+  {
+    "rank": 22,
+    "item_id": 55754,
+    "item_name": "Chasing the Dollar (Miranda Vaughn Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_id": 43304,
+    "item_name": "Leave The Night On: A Cottonbloom Novel"
+  },
+  {
+    "rank": 24,
+    "item_id": 40323,
+    "item_name": "Barefoot with a Bodyguard (The Barefoot Bay Series)"
+  },
+  {
+    "rank": 25,
+    "item_id": 32578,
+    "item_name": "Murder on the Rocks (Mack's Bar Mysteries)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

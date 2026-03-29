@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Paleo Chef: Quick, Flavorful Paleo Meals for Eating Well"
+  },
+  {
+    "item_name": "Food52 Genius Recipes: 100 Recipes That Will Change the Way You Cook"
+  },
+  {
+    "item_name": "Seven Spoons: My Favorite Recipes for Any and Every Day"
+  },
+  {
+    "item_name": "The Shirtmaking Workbook: Pattern, Design, and Construction Resources - More than 100 Pattern Downloads for Collars, Cuffs &amp; Plackets"
+  },
+  {
+    "item_name": "A Modern Way to Eat: 200+ Satisfying Vegetarian Recipes (That Will Make You Feel Amazing)"
+  },
+  {
+    "item_name": "The Ultimate Disney Party Book: 8 Fantastic Disney Themes"
+  },
+  {
+    "item_name": "Disney Frozen Hairstyles: Inspired by Anna and Elsa"
+  },
+  {
+    "item_name": "Disney Princess Hairstyles"
+  },
+  {
+    "item_name": "Paper Jewelry: 55 Projects for Reusing Paper"
+  },
+  {
+    "item_name": "The Time Garden: A Magical Journey and Coloring Book (Time Adult Coloring Books)"
+  },
+  {
+    "item_name": "Charlie and the Chocolate Factory"
+  },
+  {
+    "item_name": "The Super Awesome Coloring Book: 50 Super Awesome Designs for the Modern Coloring Enthusiast"
+  },
+  {
+    "item_name": "Tropical World: A Coloring Book Adventure (A Millie Marotta Adult Coloring Book)"
+  },
+  {
+    "item_name": "Food52 Baking: 60 Sensational Treats You Can Pull Off in a Snap (Food52 Works)"
+  },
+  {
+    "item_name": "Robo-Sauce"
+  },
+  {
+    "item_name": "Food52 Vegan: 60 Vegetable-Driven Recipes for Any Kitchen (Food52 Works)"
+  },
+  {
+    "item_name": "The Time Garden: A Magical Journey and Coloring Book (Time Adult Coloring Books)"
+  },
+  {
+    "item_name": "Trim Healthy Mama Cookbook: Eat Up and Slim Down with More Than 350 Healthy Recipes"
+  },
+  {
+    "item_name": "Baking with Cookie Molds: Secrets and Recipes for Making Amazing Handcrafted Cookies for Your Christmas, Holiday, Wedding, Tea, Party, Swap, Exchange, or Everyday Treat"
+  },
+  {
+    "item_name": "Cats in Paris: A Magical Coloring Book"
+  },
+  {
+    "item_name": "Little Felted Dogs: Easy Projects for Making Adorable Needle Felted Pups"
+  },
+  {
+    "item_name": "The Bee-Friendly Garden: Design an Abundant, Flower-Filled Yard that Nurtures Bees and Supports Biodiversity"
+  },
+  {
+    "item_name": "Make Way for Ducklings (Picture Puffin)"
+  },
+  {
+    "item_name": "Hamster Princess: Harriet the Invincible"
+  },
+  {
+    "item_name": "The Quilt Design Coloring Workbook: 91 Modern Art&ndash;Inspired Designs and Exercises"
+  },
+  {
+    "item_name": "Geeky LEGO Crafts: 21 Fun and Quirky Projects"
+  },
+  {
+    "item_name": "101 One-Dish Dinners: Hearty Recipes for the Dutch Oven, Skillet &amp; Casserole Pan"
+  },
+  {
+    "item_name": "The Night Voyage: A Magical Adventure and Coloring Book (Time Adult Coloring Books)"
+  },
+  {
+    "item_name": "The Art of Stone Painting: 30 Designs to Spark Your Creativity"
+  },
+  {
+    "item_name": "The Art of Leather Burning: Step-by-Step Pyrography Techniques"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 33616,
+    "item_name": "Paper Jewelry: 55 Projects for Reusing Paper"
+  },
+  {
+    "rank": 2,
+    "item_id": 62293,
+    "item_name": "Texas Slow Cooker: 125 Recipes for the Lone Star State's Very Best Dishes, All Slow-Cooked to Perfection"
+  },
+  {
+    "rank": 3,
+    "item_id": 66732,
+    "item_name": "Make Ahead Bread: 100 Recipes for Melt-in-Your-Mouth Fresh Bread Every Day"
+  },
+  {
+    "rank": 4,
+    "item_id": 26877,
+    "item_name": "Lint Boy"
+  },
+  {
+    "rank": 5,
+    "item_id": 65869,
+    "item_name": "My First Book of Hockey: A Rookie Book"
+  },
+  {
+    "rank": 6,
+    "item_id": 34735,
+    "item_name": "150 Best Spiralizer Recipes"
+  },
+  {
+    "rank": 7,
+    "item_id": 46732,
+    "item_name": "A Stitch in Crime: Quilts of Love Series"
+  },
+  {
+    "rank": 8,
+    "item_id": 64265,
+    "item_name": "The World of Laura Ingalls Wilder: The Frontier Landscapes that Inspired the Little House Books"
+  },
+  {
+    "rank": 9,
+    "item_id": 69666,
+    "item_name": "Don't Dangle Your Participle"
+  },
+  {
+    "rank": 10,
+    "item_id": 65015,
+    "item_name": "Cable Left, Cable Right: 94 Knitted Cables"
+  },
+  {
+    "rank": 11,
+    "item_id": 76233,
+    "item_name": "Ricky Ricotta's Mighty Robot (Astro-Activity Book O'Fun) by Pilkey, Dav (unknown Edition) [Paperback(2006)]"
+  },
+  {
+    "rank": 12,
+    "item_id": 21078,
+    "item_name": "Wonderland: A Coloring Book Inspired by Alice's Adventures"
+  },
+  {
+    "rank": 13,
+    "item_id": 46245,
+    "item_name": "Promise Lodge"
+  },
+  {
+    "rank": 14,
+    "item_id": 68634,
+    "item_name": "Bead &amp; Wire Fashion Jewelry: A Collection of Stunning Statement Pieces to Make"
+  },
+  {
+    "rank": 15,
+    "item_id": 65269,
+    "item_name": "The Blessing (The Amish Cooking Class)"
+  },
+  {
+    "rank": 16,
+    "item_id": 65127,
+    "item_name": "Pure Soapmaking: How to Create Nourishing, Natural Skin Care Soaps"
+  },
+  {
+    "rank": 17,
+    "item_id": 46311,
+    "item_name": "Rachel's Dream (Hope Chest of Dreams)"
+  },
+  {
+    "rank": 18,
+    "item_id": 27373,
+    "item_name": "Pip Bartlett's Guide to Magical Creatures"
+  },
+  {
+    "rank": 19,
+    "item_id": 11709,
+    "item_name": "London Art Chase (Faithgirlz / Glimmer Girls)"
+  },
+  {
+    "rank": 20,
+    "item_id": 64496,
+    "item_name": "The Pizza Bible: The World's Favorite Pizza Styles, from Neapolitan, Deep-Dish, Wood-Fired, Sicilian, Calzones and Focaccia to New York, New Haven, Detroit, and more"
+  },
+  {
+    "rank": 21,
+    "item_id": 21107,
+    "item_name": "The Comic Book Story of Video Games: The Incredible History of the Electronic Gaming Revolution"
+  },
+  {
+    "rank": 22,
+    "item_id": 46199,
+    "item_name": "Weddings at Promise Lodge"
+  },
+  {
+    "rank": 23,
+    "item_id": 67313,
+    "item_name": "The Farmers' Market Mishap: A Sequel to The Lopsided Christmas Cake"
+  },
+  {
+    "rank": 24,
+    "item_id": 54409,
+    "item_name": "A Mother's Love"
+  },
+  {
+    "rank": 25,
+    "item_id": 34175,
+    "item_name": "John Shaw's Guide to Digital Nature Photography"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Beyond Dead"
+  },
+  {
+    "item_name": "Reverie"
+  },
+  {
+    "item_name": "The Time Travel Trailer"
+  },
+  {
+    "item_name": "Midnight Marriage: A Georgian Historical Romance"
+  },
+  {
+    "item_name": "A Song for Bellafortuna: An Inspirational Italian Historical Fiction Novel"
+  },
+  {
+    "item_name": "The Particular Charm of Miss Jane Austen"
+  },
+  {
+    "item_name": "Days of Sun and Glory: The King's Greatest Enemy #2"
+  },
+  {
+    "item_name": "The Post-it Note Affair: A Romance Novelette of Love Lost and Found"
+  },
+  {
+    "item_name": "Smoke Screen (The Darcy Lynch Series) (Volume 2)"
+  },
+  {
+    "item_name": "Toru: Wayfarer Returns (Sakura Steam)"
+  },
+  {
+    "item_name": "There Is A Reaper: Losing a Child to Cancer"
+  },
+  {
+    "item_name": "Madame Presidentess"
+  },
+  {
+    "item_name": "Deadly Engagement: A Georgian Historical Mystery (Alec Halsey Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "The Second Wife"
+  },
+  {
+    "item_name": "Nazi Saboteurs on the Bayou"
+  },
+  {
+    "item_name": "Paper Love (A Chicago Christmas)"
+  },
+  {
+    "item_name": "Curse Breaker: A New Red-Line Saga Begins (Volume 4)"
+  },
+  {
+    "item_name": "Mask Of Duplicity (The Jacobite Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "The Dragons of Alsace Farm"
+  },
+  {
+    "item_name": "The Curse of Arundel Hall (The Yellow Cottage Vintage Mysteries) (Volume 2)"
+  },
+  {
+    "item_name": "Under the Approaching Dark: The King's Greatest Enemy"
+  },
+  {
+    "item_name": "A Campy Christmas: A Frannie Shoemaker Campground Adventure (Frannie Shoemaker Campground Mysteries) (Volume 6)"
+  },
+  {
+    "item_name": "My Snowman, Paul (Volume 1)"
+  },
+  {
+    "item_name": "Oh Susannah: It's in the Bag (An Oh Susannah Story)"
+  },
+  {
+    "item_name": "The Last Train (Detective Hiroshi) (Volume 1)"
+  },
+  {
+    "item_name": "Living in Italy: the Real Deal - Hilarious Expat Adventures"
+  },
+  {
+    "item_name": "The Rise of the Dawnstar (Avalonia Chronicles)"
+  },
+  {
+    "item_name": "Shot Down: The True Story of Pilot Howard Snyder and the Crew of the B-17 Susan Ruth"
+  },
+  {
+    "item_name": "Quantum Space (Quantum Series)"
+  },
+  {
+    "item_name": "1066: What Fates Impose"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "This Doesn't Happen In The Movies (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ashes (Ashes #1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Witchblood (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Rose Hill: Rose Hill Mystery Series"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Fear of Things to Come: The Samantha Clark Mystery Series (Volume 2)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Chasing Rabbits (The Underground) (Volume 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Wind Catcher (Chosen)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Blackout"
+  },
+  {
+    "rank": 9,
+    "item_name": "A View to Die For (Books To Die For) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "No Such Thing As Werewolves"
+  },
+  {
+    "rank": 11,
+    "item_name": "Amanda's Eyes: An A. J. Gregson Novel (A. J. Gregson Series) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Death in Duck (A Reverend Lindsay Harding Mystery) (Volume 2)"
+  },
+  {
+    "rank": 13,
+    "item_name": "To Catch A Bad Guy (Book One): Janet Maple Series (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "A Dead Red Alibi: #4 in the Dead Red Mystery Series (Volume 4)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Wired"
+  },
+  {
+    "rank": 16,
+    "item_name": "Resthaven"
+  },
+  {
+    "rank": 17,
+    "item_name": "Gingerbread Man: A Marlow and Sage Mystery (A Nursery Rhyme Mystery) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Debt Of Fear"
+  },
+  {
+    "rank": 19,
+    "item_name": "Dead Running"
+  },
+  {
+    "rank": 20,
+    "item_name": "Loose Ends (California Corwin P.I. Mystery) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Alien Species Intervention"
+  },
+  {
+    "rank": 22,
+    "item_name": "Immurement: A Young Adult Science Fiction Dystopian Novel (The Undergrounders Series Book One)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Mind If I Come In (A Kat Parker Novel Book 1) - Kindle edition"
+  },
+  {
+    "rank": 24,
+    "item_name": "True Crime Stories: A Prequel: 4 Shocking True Crime Cases"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Lonely Mile"
+  },
+  {
+    "rank": 26,
+    "item_name": "Death By Bourbon (Josiah Reynolds Mystery 4)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Sanctuary"
+  },
+  {
+    "rank": 28,
+    "item_name": "Back Story (The Reed Ferguson Mystery Series) (Volume 10)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Inverted Pyramid (An Alex Vane Media Thriller, Book) (Volume 2)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Hazardous Duty (Squeaky Clean Mysteries, No. 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Itsy Bitsy Spider: Emma Frost #1"
+  },
+  {
+    "rank": 32,
+    "item_name": "City of Gold (Matthew Connor Adventure Series)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Baby Please Don't Go: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Evidence of Trust (Colorado Trust Series) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Cruel Justice (Justice Series) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Dark Sky (The Misadventures of Max Bowman) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Louisiana Bigshot: A Talba Wallis Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Eleven"
+  },
+  {
+    "rank": 39,
+    "item_name": "Beyond"
+  },
+  {
+    "rank": 40,
+    "item_name": "Dead Line (A Cal Murphy Thriller) (Volume 2)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Monsterland (Monsterland Series) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Last Necromancer (The Ministry of Curiosities) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Slumber (Beauty Never Dies) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Skeletal (A Christchurch Crime Thriller)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Serenity (The Shelby Alexander Thriller Series) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Hollywood Games: A Hollywood Alphabet Series Thriller - Kindle edition"
+  },
+  {
+    "rank": 47,
+    "item_name": "Murder in Palm Beach: The Homicide That Never Died"
+  },
+  {
+    "rank": 48,
+    "item_name": "Qualify"
+  },
+  {
+    "rank": 49,
+    "item_name": "A Killing Truth: A Leine Basso Thriller (Volume 0)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Banished Threads (Volume 3)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

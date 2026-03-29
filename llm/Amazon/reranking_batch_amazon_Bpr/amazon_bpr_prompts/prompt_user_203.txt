@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Of Human Bondage (International Collectors Library)"
+  },
+  {
+    "item_name": "Of Human Bondage, Twentieth Century Classics"
+  },
+  {
+    "item_name": "Almayer's Folly: A Story of an Eastern River (The World's Classics)"
+  },
+  {
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader Narrative of the Life of Frederick Douglas"
+  },
+  {
+    "item_name": "Holt McDougal Library, High School with Connections: Individual Reader Narrative of the Life of Frederick Douglas"
+  },
+  {
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "item_name": "Life on the Mississippi (Penguin Classics)"
+  },
+  {
+    "item_name": "Roughing It (The Penguin American Library)"
+  },
+  {
+    "item_name": "Mark Twain (Masters Library)"
+  },
+  {
+    "item_name": "Night"
+  },
+  {
+    "item_name": "Emerson's Essays"
+  },
+  {
+    "item_name": "Babbitt"
+  },
+  {
+    "item_name": "Babbitt"
+  },
+  {
+    "item_name": "Arrowsmith"
+  },
+  {
+    "item_name": "Arrowsmith"
+  },
+  {
+    "item_name": "Thomas Hardy"
+  },
+  {
+    "item_name": "The Poker Bride: The First Chinese in the Wild West"
+  },
+  {
+    "item_name": "Doctor Zhivago"
+  },
+  {
+    "item_name": "The First Circle (English and Russian Edition)"
+  },
+  {
+    "item_name": "The Nominal Theory of Good Art"
+  },
+  {
+    "item_name": "The Wings of the Dove (Penguin Classics)"
+  },
+  {
+    "item_name": "The Wings of the Dove (Penguin Classics)"
+  },
+  {
+    "item_name": "Treasure Island (Penguin Classics)"
+  },
+  {
+    "item_name": "All My Sons (Penguin Classics)"
+  },
+  {
+    "item_name": "Mark Twain : Mississippi Writings : Tom Sawyer, Life on the Mississippi, Huckleberry Finn, Pudd'nhead Wilson (Library of America)"
+  },
+  {
+    "item_name": "The War Prayer"
+  },
+  {
+    "item_name": "The War Prayer"
+  },
+  {
+    "item_name": "America the Beautiful"
+  },
+  {
+    "item_name": "Notes from Underground; the Double (Penguin Classics)"
+  },
+  {
+    "item_name": "Ninety-Three"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Dune (Penguin Galaxy)"
+  },
+  {
+    "rank": 2,
+    "item_name": "A Connecticut Yankee in King Arthur's Court (Penguin Classics)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Tempest"
+  },
+  {
+    "rank": 4,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 5,
+    "item_name": "Frankenstein (Collins Classics)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Dune"
+  },
+  {
+    "rank": 7,
+    "item_name": "Of Mice and Men"
+  },
+  {
+    "rank": 8,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 9,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Old Man and the Sea"
+  },
+  {
+    "rank": 11,
+    "item_name": "Othello: Complete &amp; Unabridged"
+  },
+  {
+    "rank": 12,
+    "item_name": "Elric Of Melnibone: Book One of the Elric Saga"
+  },
+  {
+    "rank": 13,
+    "item_name": "To Your Scattered Bodies Go (Riverworld Saga, Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Alexandria Quartet"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Dharma Bums"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Amazing Adventures of Kavalier &amp; Clay"
+  },
+  {
+    "rank": 18,
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Lord of the Flies"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Journey to the Centre of the Earth"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Mysterious Island (Signet Classics)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Underworld"
+  },
+  {
+    "rank": 25,
+    "item_name": "The League of Extraordinary Gentlemen - Volume 2"
+  },
+  {
+    "rank": 26,
+    "item_name": "The naked and the dead"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Winnie-the-Pooh"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Color of Magic: A Discworld Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Princess of Mars (Penguin Classics)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Dune Messiah"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Long Goodbye"
+  },
+  {
+    "rank": 32,
+    "item_name": "Lord of the Flies"
+  },
+  {
+    "rank": 33,
+    "item_name": "The House of Mirth (Vintage Classics)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Ender's Game (The Ender Quintet)"
+  },
+  {
+    "rank": 35,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 36,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Black Cauldron (Pyrdain Chronicles)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Silas Marner: (RED edition) (Penguin Classics: Red)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Dracula (Collins Drama)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Green Mars (Voyager Classics)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Maltese Falcon (Picador Books)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The ADVENTURES OF PINOCCHIO (DELUXE EDITION)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Utopia (Penguin Classics)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Little Sister"
+  },
+  {
+    "rank": 46,
+    "item_name": "One, Two, Buckle My Shoe"
+  },
+  {
+    "rank": 47,
+    "item_name": "Dreamcatcher"
+  },
+  {
+    "rank": 48,
+    "item_name": "Tortilla Flat"
+  },
+  {
+    "rank": 49,
+    "item_name": "Steppenwolf: A Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "For Whom the Bell Tolls"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

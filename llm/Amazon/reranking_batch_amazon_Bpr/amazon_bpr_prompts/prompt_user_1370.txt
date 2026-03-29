@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "See Also Murder: A Marjorie Trumaine Mystery (Marjorie Trumaine Mysteries)"
+  },
+  {
+    "item_name": "Stone Cold Dead: An Ellie Stone Mystery (Ellie Stone Mysteries)"
+  },
+  {
+    "item_name": "Year of Yes: How to Dance It Out, Stand In the Sun and Be Your Own Person"
+  },
+  {
+    "item_name": "The Reluctant Matador (Hugo Martson)"
+  },
+  {
+    "item_name": "Little Pretty Things"
+  },
+  {
+    "item_name": "The Bomb Maker's Son: A Parker Stern Novel"
+  },
+  {
+    "item_name": "Idyll Threats: A Thomas Lynch Novel"
+  },
+  {
+    "item_name": "Hollow Man"
+  },
+  {
+    "item_name": "I'll Never Let You Go (Morgans of Nashville)"
+  },
+  {
+    "item_name": "The Secret Life of Anna Blanc (An Anna Blanc Mystery)"
+  },
+  {
+    "item_name": "The Puffin of Death (Gunn Zoo Series)"
+  },
+  {
+    "item_name": "Yappy Hour: A Mystery (Roundup Crew Series)"
+  },
+  {
+    "item_name": "Dead to the Last Drop (A Coffeehouse Mystery)"
+  },
+  {
+    "item_name": "Treachery in Bordeaux (Winemaker Detective)"
+  },
+  {
+    "item_name": "Brooklyn Secrets: An Erica Donato Mystery (Erica Donato Mysteries)"
+  },
+  {
+    "item_name": "Winemaker Detective Mysteries: An Omnibus"
+  },
+  {
+    "item_name": "The Dogs of Littlefield"
+  },
+  {
+    "item_name": "A Thousand Falling Crows"
+  },
+  {
+    "item_name": "The Necessary Murder of Nonie Blake: A Samuel Craddock Mystery (Samuel Craddock Mysteries)"
+  },
+  {
+    "item_name": "Kill and Run (A Thorny Rose Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Karma's a Killer (A Downward Dog Mystery)"
+  },
+  {
+    "item_name": "Cancelled Vows (A Mac Faraday Mystery) (Volume 11)"
+  },
+  {
+    "item_name": "The Fine Art of Murder: A Katherine Sullivan Mystery  (Katherine Sullivan Series, Book 1)"
+  },
+  {
+    "item_name": "Isolation: A Faye Longchamp Mystery (Faye Longchamp Series)"
+  },
+  {
+    "item_name": "Dying for a Taste: A Sally Solari Mystery"
+  },
+  {
+    "item_name": "Rain Dogs: A Detective Sean Duffy Novel"
+  },
+  {
+    "item_name": "Deadly Dunes (A Mac Mcclellan Mystery)"
+  },
+  {
+    "item_name": "When Bunnies Go Bad (Pru Marlowe Pet Noir)"
+  },
+  {
+    "item_name": "Vulnerable (Morgans of Nashville)"
+  },
+  {
+    "item_name": "The Shark (Forgotten Files)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Murder That Never Was: A Forensic Instincts Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Firefly Beach"
+  },
+  {
+    "rank": 3,
+    "item_name": "Fantasy in Death"
+  },
+  {
+    "rank": 4,
+    "item_name": "Endangered (A Joe Pickett Novel)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Save Me: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Remains of Innocence: A Brady Novel of Suspense (Joanna Brady Mysteries)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Fuzzy Navel (Jacqueline Jack Daniels Mysteries)"
+  },
+  {
+    "rank": 8,
+    "item_name": "To Have and to Kill (Piper Donovan/Wedding Cake Mysteries)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Mystery: An Alex Delaware Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Stay Close"
+  },
+  {
+    "rank": 11,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Vengeance is Mine: A Benjamin Tucker Mystery (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "14th Deadly Sin (Women's Murder Club)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Plantation Shudders: A Cajun Country Mystery"
+  },
+  {
+    "rank": 16,
+    "item_name": "Ruin Falls: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Destroyer Angel: An Anna Pigeon Novel (Anna Pigeon Mysteries)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Crossing Places (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Dead by Midnight (Death on Demand)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Supreme Justice (Reeder and Rogers Thriller)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Old Blue Line: A Joanna Brady Novella"
+  },
+  {
+    "rank": 22,
+    "item_name": "Sink or Swim"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Room Full of Bones (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Gone but Knot Forgotten (A Quilting Mystery)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Cover of Snow: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "That Darkness (A Gardiner and Renner Novel)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Guidebook to Murder"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Informationist: A Thriller"
+  },
+  {
+    "rank": 29,
+    "item_name": "Playing With Poison (Cue Ball Mysteries)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 31,
+    "item_name": "Escape Clause (A Virgil Flowers Novel)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Performance Anomalies"
+  },
+  {
+    "rank": 33,
+    "item_name": "Ive Got You Under My Skin (Thorndike Press Large Print Basic Series)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Chalk Girl (A Mallory Novel)"
+  },
+  {
+    "rank": 35,
+    "item_name": "A Trip to the Hardware Store &amp; Other Calamities (Quirky Essays for Quirky People) (Volume 2)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Speak of the Devil: A Novel (Anna Curtis Series)"
+  },
+  {
+    "rank": 37,
+    "item_name": "One Book in the Grave: A Bibliophile Mystery"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Janus Stone (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Missing You"
+  },
+  {
+    "rank": 40,
+    "item_name": "Maids of Misfortune: A Victorian San Francisco Mystery"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Heist: A Novel (Fox and O'Hare)"
+  },
+  {
+    "rank": 42,
+    "item_name": "In the Dark (Jonathan Stride)"
+  },
+  {
+    "rank": 43,
+    "item_name": "THE HIGHWAY: A Novel"
+  },
+  {
+    "rank": 44,
+    "item_name": "Breaking Silence (Kate Burkholder series)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Hard Truth: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Bones of the Lost"
+  },
+  {
+    "rank": 47,
+    "item_name": "There Was an Old Woman: A Novel of Suspense"
+  },
+  {
+    "rank": 48,
+    "item_name": "Deadly Advice (An Advice Column Mystery)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Mum's the Word (Flower Shop Mysteries, No. 1)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Ghost at Work (Bailey Ruth Mysteries, No. 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

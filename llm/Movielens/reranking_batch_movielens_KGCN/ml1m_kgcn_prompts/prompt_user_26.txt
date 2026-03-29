@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Hoosiers"
+  },
+  {
+    "item_name": "Children of a Lesser God"
+  },
+  {
+    "item_name": "Natural, The"
+  },
+  {
+    "item_name": "Broadcast News"
+  },
+  {
+    "item_name": "Fatal Attraction"
+  },
+  {
+    "item_name": "Red Dawn"
+  },
+  {
+    "item_name": "Flamingo Kid, The"
+  },
+  {
+    "item_name": "Breathless"
+  },
+  {
+    "item_name": "Rocky IV"
+  },
+  {
+    "item_name": "Way We Were, The"
+  },
+  {
+    "item_name": "Mr. Wonderful"
+  },
+  {
+    "item_name": "Singles"
+  },
+  {
+    "item_name": "Last Picture Show, The"
+  },
+  {
+    "item_name": "Rocky II"
+  },
+  {
+    "item_name": "Logan's Run"
+  },
+  {
+    "item_name": "North Dallas Forty"
+  },
+  {
+    "item_name": "Bonnie and Clyde"
+  },
+  {
+    "item_name": "Breakfast at Tiffany's"
+  },
+  {
+    "item_name": "Grifters, The"
+  },
+  {
+    "item_name": "Strange Days"
+  },
+  {
+    "item_name": "Deep Impact"
+  },
+  {
+    "item_name": "Casino"
+  },
+  {
+    "item_name": "Honeymoon in Vegas"
+  },
+  {
+    "item_name": "To Die For"
+  },
+  {
+    "item_name": "Flatliners"
+  },
+  {
+    "item_name": "One Fine Day"
+  },
+  {
+    "item_name": "It Could Happen to You"
+  },
+  {
+    "item_name": "Fools Rush In"
+  },
+  {
+    "item_name": "About Last Night..."
+  },
+  {
+    "item_name": "As Good As It Gets"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 172,
+    "item_name": "Forrest Gump"
+  },
+  {
+    "rank": 2,
+    "item_id": 124,
+    "item_name": "Dances with Wolves"
+  },
+  {
+    "rank": 3,
+    "item_id": 1675,
+    "item_name": "Mirror Has Two Faces, The"
+  },
+  {
+    "rank": 4,
+    "item_id": 1193,
+    "item_name": "Notting Hill"
+  },
+  {
+    "rank": 5,
+    "item_id": 1588,
+    "item_name": "City of Angels"
+  },
+  {
+    "rank": 6,
+    "item_id": 481,
+    "item_name": "Bridges of Madison County, The"
+  },
+  {
+    "rank": 7,
+    "item_id": 92,
+    "item_name": "Bodyguard, The"
+  },
+  {
+    "rank": 8,
+    "item_id": 1306,
+    "item_name": "Risky Business"
+  },
+  {
+    "rank": 9,
+    "item_id": 382,
+    "item_name": "Four Weddings and a Funeral"
+  },
+  {
+    "rank": 10,
+    "item_id": 424,
+    "item_name": "Splash"
+  },
+  {
+    "rank": 11,
+    "item_id": 1770,
+    "item_name": "Only You"
+  },
+  {
+    "rank": 12,
+    "item_id": 870,
+    "item_name": "Birdcage, The"
+  },
+  {
+    "rank": 13,
+    "item_id": 484,
+    "item_name": "Scent of a Woman"
+  },
+  {
+    "rank": 14,
+    "item_id": 1338,
+    "item_name": "St. Elmo's Fire"
+  },
+  {
+    "rank": 15,
+    "item_id": 514,
+    "item_name": "Mask, The"
+  },
+  {
+    "rank": 16,
+    "item_id": 1743,
+    "item_name": "Boys on the Side"
+  },
+  {
+    "rank": 17,
+    "item_id": 399,
+    "item_name": "Arthur"
+  },
+  {
+    "rank": 18,
+    "item_id": 1331,
+    "item_name": "Grumpier Old Men"
+  },
+  {
+    "rank": 19,
+    "item_id": 152,
+    "item_name": "Fugitive, The"
+  },
+  {
+    "rank": 20,
+    "item_id": 674,
+    "item_name": "Jewel of the Nile, The"
+  },
+  {
+    "rank": 21,
+    "item_id": 428,
+    "item_name": "Witness"
+  },
+  {
+    "rank": 22,
+    "item_id": 190,
+    "item_name": "Men in Black"
+  },
+  {
+    "rank": 23,
+    "item_id": 1380,
+    "item_name": "City Slickers II: The Legend of Curly's Gold"
+  },
+  {
+    "rank": 24,
+    "item_id": 381,
+    "item_name": "Babe"
+  },
+  {
+    "rank": 25,
+    "item_id": 710,
+    "item_name": "Lethal Weapon"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

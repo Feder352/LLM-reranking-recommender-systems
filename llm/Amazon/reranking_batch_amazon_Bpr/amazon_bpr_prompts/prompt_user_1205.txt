@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Best Worst Mistake: A Brightwater Novel"
+  },
+  {
+    "item_name": "Mail Order Bride: Westward Dance: A Clean Historical Mail Order Bride Romance Novel (Montana Mail Order Brides) (Volume 2)"
+  },
+  {
+    "item_name": "Mail Order Bride: Westward Bound: A Clean Historical Mail Order Bride Romance (Montana Mail Order Brides) (Volume 3)"
+  },
+  {
+    "item_name": "I'll Take Forever"
+  },
+  {
+    "item_name": "Emma's Dream (Morgan's Run Romances) (Volume 1)"
+  },
+  {
+    "item_name": "Before That Night (Unfinished Love) (Volume 1)"
+  },
+  {
+    "item_name": "Aligned: Volume 1"
+  },
+  {
+    "item_name": "Find You in Paris (The Darcy Brothers)"
+  },
+  {
+    "item_name": "Tailored for Trouble: A Romantic Comedy (Happy Pants)"
+  },
+  {
+    "item_name": "Eat, Pray, Die (An Eat, Pray, Die Humorous Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "Finding Love in Forgotten Cove (Island County) (Volume 1)"
+  },
+  {
+    "item_name": "Long Time Gone CD (J. P. Beaumont Novel)"
+  },
+  {
+    "item_name": "The Promise"
+  },
+  {
+    "item_name": "Lost-and-Found Groom (Place Called Home)"
+  },
+  {
+    "item_name": "A Winter Wedding (Whiskey Creek)"
+  },
+  {
+    "item_name": "Discovering You (Whiskey Creek)"
+  },
+  {
+    "item_name": "If I Were Beautiful: A modern Cinderella love triangle with an alpha male bad boy and an alpha male billionaire (If I Were...) (Volume 1)"
+  },
+  {
+    "item_name": "Cold Peril: Military Romantic Suspense (Stealth Security)"
+  },
+  {
+    "item_name": "The Secret Sister (Fairham Island)"
+  },
+  {
+    "item_name": "One Step Away"
+  },
+  {
+    "item_name": "A Cowboy's Strength (McGavin Brothers)"
+  },
+  {
+    "item_name": "A Time to Give (Silhouette Superromance)"
+  },
+  {
+    "item_name": "Finding Our Forever (Silver Springs)"
+  },
+  {
+    "item_name": "Shadows in the Curtain"
+  },
+  {
+    "item_name": "Storm (Western Hearts Series) (Volume 2)"
+  },
+  {
+    "item_name": "Smart Tass (OHellNo) (Volume 1)"
+  },
+  {
+    "item_name": "House Without Lies (Lily's House) (Volume 1)"
+  },
+  {
+    "item_name": "Love's Prophet (The First Street Church Romances) (Volume 3)"
+  },
+  {
+    "item_name": "Peace Cottage"
+  },
+  {
+    "item_name": "That Man Next Door (Sweet Darlings Inc.) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Neanderthal Seeks Human: A Smart Romance (Knitting in the City) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Up to the Challenge (An Anchor Island Novel)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Kill the Competition"
+  },
+  {
+    "rank": 4,
+    "item_name": "Not Quite Mine"
+  },
+  {
+    "rank": 5,
+    "item_name": "Father Found (The Daddy School, Book 1) (Harlequin Superromance, No 763)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Look of Love (The Sullivans)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Kidnapped: A Romantic Suspense Novel (Edgars Family)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Christmas at Copper Mountain (Taming of the Sheenans) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Fatal Affair: Book One of the Fatal Series: One Night with You"
+  },
+  {
+    "rank": 11,
+    "item_name": "When Lightning Strikes (Whiskey Creek)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Protecting Caroline (SEAL of Protection) (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Player (Wedding Pact)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Navy SEAL's E-Mail Order Bride (Heroes of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Seduced by Sunday (Weekday Brides)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Nora Roberts Land (Dare Valley)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Brands Who Came for Christmas (The Oklahoma All-Girl Brands) (Silhouette Intimate Moments, 1039)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Whiskey Rebellion: An Addison Holmes Mystery"
+  },
+  {
+    "rank": 19,
+    "item_name": "Protecting Fiona (SEAL of Protection) (Volume 3)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Against The Wall"
+  },
+  {
+    "rank": 21,
+    "item_name": "Hot Pursuit: A Hostile Operations Team Novel (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "First Do No Evil (Blood Secrets)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Reaper's Property (Ellora's Cave Moderne)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Dangerous Waters (The Barkley Sound Series)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Secrets on the Sand (The Barefoot Bay Series)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Unexpected Gifts: Castle Mountain Lodge Series"
+  },
+  {
+    "rank": 27,
+    "item_name": "Trouble in Mudbug"
+  },
+  {
+    "rank": 28,
+    "item_name": "Wife by Wednesday (Weekday Brides)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Everything We Keep: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Cowgirl Ropes a Billionaire (Cowboys of Chance Creek) (Volume 4)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Tycoon's Revenge: Baby for the Billionaire"
+  },
+  {
+    "rank": 32,
+    "item_name": "Dare to Love"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Cowboy Inherits a Bride (Cowboys of Chance Creek)"
+  },
+  {
+    "rank": 34,
+    "item_name": "No Turning Back"
+  },
+  {
+    "rank": 35,
+    "item_name": "Waking Up Married (Mills &amp; Boon Hardback Romance)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Wrong Number, Right Guy (The Bourbon Street Boys)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Billionaire's Marriage Proposal: Billionaire Bachelors (Volume 4)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Can't Help Falling in Love (The Sullivans)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Game of Love (Love in Bloom: The Remingtons, Book 1) (Volume 10)"
+  },
+  {
+    "rank": 40,
+    "item_name": "When You're Ready (Ready Series) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Finding Pride"
+  },
+  {
+    "rank": 42,
+    "item_name": "Jagged (Colorado Mountain)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Lucky Like Us: Book Two: The Hunted Series"
+  },
+  {
+    "rank": 44,
+    "item_name": "Maid for Love (Gansett Island)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Deathscape (Broslin Creek) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Saving Grace: Book 2 in the Serve and Protect Series (Volume 2)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Deathwatch: Broslin Creek"
+  },
+  {
+    "rank": 48,
+    "item_name": "Alone (A Bone Secrets Novel)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Honeymoon for One"
+  },
+  {
+    "rank": 50,
+    "item_name": "A Real Cowboy Never Says No (Wyoming Rebels) (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

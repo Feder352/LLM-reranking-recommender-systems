@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Feel Me Fall"
+  },
+  {
+    "item_name": "Child's Play (The Elle Harrison Series)"
+  },
+  {
+    "item_name": "Child&#39;s Play (The Elle Harrison Series Book 3) eBook"
+  },
+  {
+    "item_name": "Dead Lines: A Novel of Life . . . After Death"
+  },
+  {
+    "item_name": "A Girl Named Calamity (Alyria) (Volume 1)"
+  },
+  {
+    "item_name": "Mission: Improper (London Steampunk: The Blue Blood Conspiracy) (Volume 1)"
+  },
+  {
+    "item_name": "Russian Roulette (Helena Hawthorn Series) (Volume 1)"
+  },
+  {
+    "item_name": "Grave Mistake (Codex Blair) (Volume 1)"
+  },
+  {
+    "item_name": "Bound By Shadows (McAllister Justice Series) (Volume 2)"
+  },
+  {
+    "item_name": "Damned if I Do (The Harker Trilogy Book One) (Volume 1)"
+  },
+  {
+    "item_name": "Skeleton's Key (Delta Crossroads) (Volume 2)"
+  },
+  {
+    "item_name": "Wake the Hollow"
+  },
+  {
+    "item_name": "Cold Blood: A gripping serial killer thriller that will take your breath away (Detective Erika Foster) (Volume 5)"
+  },
+  {
+    "item_name": "The Frozen Woman"
+  },
+  {
+    "item_name": "I Wish"
+  },
+  {
+    "item_name": "Diary of Anna the Girl Witch 1: Foundling Witch (Volume 1)"
+  },
+  {
+    "item_name": "How to Save an Undead Life (The Beginner's Guide to Necromancy) (Volume 1)"
+  },
+  {
+    "item_name": "Hiding: A gripping psychological thriller with chilling twists, from a unique voice"
+  },
+  {
+    "item_name": "Heart-Shaped Box"
+  },
+  {
+    "item_name": "We Own the Sky (The Muse Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "A Life No Less Than Perfect (Life &amp; Love Duet)"
+  },
+  {
+    "item_name": "Dead Dreams: A Young Adult Psychological Thriller (Dream Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Book of Secrets (The Last Oracle) (Volume 1)"
+  },
+  {
+    "item_name": "Kiss Me Like You Mean It: A Novel"
+  },
+  {
+    "item_name": "Ride the Storm (Cassie Palmer)"
+  },
+  {
+    "item_name": "The Forgotten Ones: A Novel"
+  },
+  {
+    "item_name": "The Sacrifice (The Soul Summoner) (Volume 5)"
+  },
+  {
+    "item_name": "The Visitor: A psychological thriller with a breathtaking twist"
+  },
+  {
+    "item_name": "Dead Girls"
+  },
+  {
+    "item_name": "The Coroner: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Mortom"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Devil's Work"
+  },
+  {
+    "rank": 3,
+    "item_name": "Bully Boy Blue: A dark psychological suspense novella"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Bone Witch"
+  },
+  {
+    "rank": 5,
+    "item_name": "Eleventh Grave in Moonlight (Charley Davidson)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Crane"
+  },
+  {
+    "rank": 7,
+    "item_name": "Monsterland"
+  },
+  {
+    "rank": 8,
+    "item_name": "Venom and Vanilla (The Venom Trilogy)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Seeing Evil"
+  },
+  {
+    "rank": 10,
+    "item_name": "Treasure, Darkly"
+  },
+  {
+    "rank": 11,
+    "item_name": "Wind Catcher (Chosen)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Schwarzschild Radius"
+  },
+  {
+    "rank": 13,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Empty Shell"
+  },
+  {
+    "rank": 15,
+    "item_name": "After The Ending (The Ending Series) (Volume 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Time of Death: Induction (Volume 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Artificial Absolutes (Jane Colt)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Anything for Her"
+  },
+  {
+    "rank": 19,
+    "item_name": "Skeletal (A Christchurch Crime Thriller)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Dark Side of the Road, The: A country house murder mystery with a supernatural twist (An Ishmael Jones Mystery)"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Never Hero (Chronicles of Jonathan Tibbs) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Wrathbone and Other Stories"
+  },
+  {
+    "rank": 23,
+    "item_name": "Gypsy Hunted"
+  },
+  {
+    "rank": 24,
+    "item_name": "Bitter Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Devil's Daughter: Lucinda's Pawnshop, Book One"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Commons: Book 1: The Journeyman (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Skitter: A Novel (The Hatching Series)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Runes"
+  },
+  {
+    "rank": 29,
+    "item_name": "Yeager's Law (An Abel Yeager Novel) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "My Soul Immortal (Fated Eternals) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Ghost Hand"
+  },
+  {
+    "rank": 32,
+    "item_name": "Jubilee's Journey: Family Saga (A Wyattsville Novel Book 2) (Series name Family Saga) (Volume 2)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Girls Next Door: A gripping, edge-of-your-seat crime thriller (Detective Eden Berrisford crime thriller series) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Seven-X"
+  },
+  {
+    "rank": 35,
+    "item_name": "Doll House"
+  },
+  {
+    "rank": 36,
+    "item_name": "Crossing In Time (Between Two Evils)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Monsterland (Monsterland Series) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Butterfly Garden (The Collector)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Sailor Ray and the Darkest Night: A Supernatural Urban Fantasy Thriller (The Pact Book 1) - Kindle edition"
+  },
+  {
+    "rank": 40,
+    "item_name": "Inquisitor (Witch &amp; Wolf) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Halfway Dead (Halfway Witchy) (Volume 1)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Method 15/33"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Devil&#39;s Prayer eBook"
+  },
+  {
+    "rank": 44,
+    "item_name": "Midnight Burning (Norse Chronicles)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Chase the Dark (Steel &amp; Stone) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Devil Will Come"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Lucky Ones"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Merciful Death (Mercy Kilpatrick)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Clearing of Travis Coble eBook"
+  },
+  {
+    "rank": 50,
+    "item_name": "White Raven: Raven Series, book 1 (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

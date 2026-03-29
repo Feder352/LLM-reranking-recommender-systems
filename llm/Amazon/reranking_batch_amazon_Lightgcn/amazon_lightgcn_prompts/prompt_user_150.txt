@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Yummy Stories: Fruits, Vegetables and Healthy Eating Habits (Read aloud; Volume: 1)"
+  },
+  {
+    "item_name": "The Tiger Rising"
+  },
+  {
+    "item_name": "The Tiger Rising"
+  },
+  {
+    "item_name": "Kids:Whats Book - 2: Kids book, Moral stories, Bedtime Stories, Children&#39;s Books, Early Reader - Kindle edition"
+  },
+  {
+    "item_name": "Hug Machine"
+  },
+  {
+    "item_name": "The Farmer and the Clown (Ala Notable Children's Books. Younger Readers (Awards))"
+  },
+  {
+    "item_name": "A Flag for the Flying Dragon: A Captain No Beard Story (Volume 9)"
+  },
+  {
+    "item_name": "Shh! We Have a Plan (Irma S and James H Black Honor for Excellence in Children's Literature (Awards))"
+  },
+  {
+    "item_name": "The Paperbag Princess (Picture Hippo)"
+  },
+  {
+    "item_name": "Hoot Owl, Master of Disguise"
+  },
+  {
+    "item_name": "Granny of the Pacifiers: how to discourage toddlers from pacifiers"
+  },
+  {
+    "item_name": "One Big Pair of Underwear"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...China: A Child's Introduction to Cultures Around the World (Volume 15)"
+  },
+  {
+    "item_name": "Queen of the Falls"
+  },
+  {
+    "item_name": "Owl Babies"
+  },
+  {
+    "item_name": "The Smallest Gift of Christmas"
+  },
+  {
+    "item_name": "Journey to Star Wars: The Force Awakens The Weapon of a Jedi: A Luke Skywalker Adventure"
+  },
+  {
+    "item_name": "Yard Sale"
+  },
+  {
+    "item_name": "Mesmerized: How Ben Franklin Solved a Mystery that Baffled All of France"
+  },
+  {
+    "item_name": "Star Wars: Journey to Star Wars: The Force Awakens: Shattered Empire (Star Wars (Marvel))"
+  },
+  {
+    "item_name": "Breaking Cat News: Cats Reporting on the News that Matters to Cats"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Renaissance Italy: An Introduction to Civilizations Throughout Time (Volume 7)"
+  },
+  {
+    "item_name": "Library of Souls: The Third Novel of Miss Peregrine's Peculiar Children (Miss Peregrine's Home for Peculiar Children series, Book 3)"
+  },
+  {
+    "item_name": "Country Store"
+  },
+  {
+    "item_name": "Return (Aaron Becker's Wordless Trilogy)"
+  },
+  {
+    "item_name": "Guess How Much I Love You"
+  },
+  {
+    "item_name": "The Wolf, the Duck, and the Mouse"
+  },
+  {
+    "item_name": "Cave Kiddos: A Sunny Day"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Italy: A Child's Introduction to Cultures Around the World (Volume 21)"
+  },
+  {
+    "item_name": "Unicorn on a Roll (Phoebe and Her Unicorn Series Book 2): Another Phoebe and Her Unicorn Adventure"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 16,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 2,
+    "item_id": 7156,
+    "item_name": "Dog Days (Diary of a Wimpy Kid)"
+  },
+  {
+    "rank": 3,
+    "item_id": 76442,
+    "item_name": "Night"
+  },
+  {
+    "rank": 4,
+    "item_id": 6920,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 5,
+    "item_id": 989,
+    "item_name": "Animal Farm with Connections (HRW Library Study Guides)"
+  },
+  {
+    "rank": 6,
+    "item_id": 36069,
+    "item_name": "The 5 Love Languages Military Edition: The Secret to Love That Lasts"
+  },
+  {
+    "rank": 7,
+    "item_id": 1125,
+    "item_name": "Goodnight Moon Board Book &amp; Baby Socks"
+  },
+  {
+    "rank": 8,
+    "item_id": 322,
+    "item_name": "Charlie and the Chocolate Factory"
+  },
+  {
+    "rank": 9,
+    "item_id": 6815,
+    "item_name": "The Hunting of the Snark : An Agony in Eight Fits (Penguin Classics)"
+  },
+  {
+    "rank": 10,
+    "item_id": 73460,
+    "item_name": "On Writing: A Memoir of the Craft"
+  },
+  {
+    "rank": 11,
+    "item_id": 1707,
+    "item_name": "Alexander and the Terrible, Horrible, No Good, Very Bad Day Low Price"
+  },
+  {
+    "rank": 12,
+    "item_id": 74819,
+    "item_name": "Books />"
+  },
+  {
+    "rank": 13,
+    "item_id": 9766,
+    "item_name": "The Miraculous Journey of Edward Tulane"
+  },
+  {
+    "rank": 14,
+    "item_id": 6277,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 15,
+    "item_id": 73162,
+    "item_name": "Where the Wild Things Are"
+  },
+  {
+    "rank": 16,
+    "item_id": 946,
+    "item_name": "The ADVENTURES OF PINOCCHIO (DELUXE EDITION)"
+  },
+  {
+    "rank": 17,
+    "item_id": 37462,
+    "item_name": "Little Miss Scary (Mr. Men and Little Miss)"
+  },
+  {
+    "rank": 18,
+    "item_id": 68637,
+    "item_name": "The Four Agreements: A Practical Guide to Personal Freedom (A Toltec Wisdom Book)"
+  },
+  {
+    "rank": 19,
+    "item_id": 58,
+    "item_name": "The Sas Survival Handbook"
+  },
+  {
+    "rank": 20,
+    "item_id": 2,
+    "item_name": "The Little Engine That Could"
+  },
+  {
+    "rank": 21,
+    "item_id": 14756,
+    "item_name": "On Writing"
+  },
+  {
+    "rank": 22,
+    "item_id": 12944,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 23,
+    "item_id": 35177,
+    "item_name": "The Prayer of Jabez: Breaking Through To The Blessed Life"
+  },
+  {
+    "rank": 24,
+    "item_id": 18373,
+    "item_name": "Phantom Tollbooth"
+  },
+  {
+    "rank": 25,
+    "item_id": 14204,
+    "item_name": "The Last Lecture"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Star Trek: The City on the Edge of Forever"
+  },
+  {
+    "item_name": "In Search of Lost Dragons"
+  },
+  {
+    "item_name": "Star Wars: Heir to the Jedi"
+  },
+  {
+    "item_name": "The Death of Caesar: The Story of History's Most Famous Assassination"
+  },
+  {
+    "item_name": "To the Stars: The Autobiography of George Takei, Star Trek's Mr. Sulu"
+  },
+  {
+    "item_name": "Hyperion (Hyperion Cantos)"
+  },
+  {
+    "item_name": "The book of lost tales, part II"
+  },
+  {
+    "item_name": "Unfinished Tales of Numenor and Middle-Earth"
+  },
+  {
+    "item_name": "The Casual Vacancy"
+  },
+  {
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "item_name": "Star Wars: Lords of the Sith"
+  },
+  {
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "item_name": "Harry Potter and the Chamber of Secrets, Book 2"
+  },
+  {
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "item_name": "Harry Potter And The Order Of The Phoenix"
+  },
+  {
+    "item_name": "Harry Potter and the Half-Blood Prince (Book 6)"
+  },
+  {
+    "item_name": "LYNDON JOHNSON &amp; THE AMERICAN DREAM"
+  },
+  {
+    "item_name": "Dynasty: The Rise and Fall of the House of Caesar"
+  },
+  {
+    "item_name": "Crouching Tiger: What China's Militarism Means for the World"
+  },
+  {
+    "item_name": "Pawn's Gambit: And Other Stratagems"
+  },
+  {
+    "item_name": "Frederick the Great: King of Prussia"
+  },
+  {
+    "item_name": "The Hunt: The Outcome Is Never Certain"
+  },
+  {
+    "item_name": "Star Trek: Starfleet Academy"
+  },
+  {
+    "item_name": "Batman/Teenage Mutant Ninja Turtles Vol. 1"
+  },
+  {
+    "item_name": "The Plague of War: Athens, Sparta, and the Struggle for Ancient Greece (Ancient Warfare and Civilization)"
+  },
+  {
+    "item_name": "The Comic Book Story of Video Games: The Incredible History of the Electronic Gaming Revolution"
+  },
+  {
+    "item_name": "The Storm Before the Storm: The Beginning of the End of the Roman Republic"
+  },
+  {
+    "item_name": "Beyond the Castle: A Guide to Discovering Your Happily Ever After"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 2,
+    "item_id": 41,
+    "item_name": "Open: An Autobiography"
+  },
+  {
+    "rank": 3,
+    "item_id": 2669,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 4,
+    "item_id": 2073,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 5,
+    "item_id": 2005,
+    "item_name": "The Evolution of God (Back Bay Readers' Pick)"
+  },
+  {
+    "rank": 6,
+    "item_id": 1843,
+    "item_name": "Nickel and Dimed: On (Not) Getting By in America"
+  },
+  {
+    "rank": 7,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 8,
+    "item_id": 136,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 9,
+    "item_id": 5301,
+    "item_name": "The Sixth Extinction: An Unnatural History"
+  },
+  {
+    "rank": 10,
+    "item_id": 1097,
+    "item_name": "The World Until Yesterday: What Can We Learn from Traditional Societies?"
+  },
+  {
+    "rank": 11,
+    "item_id": 685,
+    "item_name": "Salt: A World History"
+  },
+  {
+    "rank": 12,
+    "item_id": 1129,
+    "item_name": "This Is Your Brain on Music: The Science of a Human Obsession"
+  },
+  {
+    "rank": 13,
+    "item_id": 1476,
+    "item_name": "Going Clear: Scientology, Hollywood, and the Prison of Belief"
+  },
+  {
+    "rank": 14,
+    "item_id": 811,
+    "item_name": "Black Hawk Down: A Story of Modern War"
+  },
+  {
+    "rank": 15,
+    "item_id": 6099,
+    "item_name": "Andre the Giant: Life and Legend"
+  },
+  {
+    "rank": 16,
+    "item_id": 6027,
+    "item_name": "The Dumbest Generation: How the Digital Age Stupefies Young Americans and Jeopardizes Our Future (Or, Don't Trust Anyone Under 30)"
+  },
+  {
+    "rank": 17,
+    "item_id": 1449,
+    "item_name": "The Harlem Hellfighters"
+  },
+  {
+    "rank": 18,
+    "item_id": 4304,
+    "item_name": "The Death and Life of Superman:  A Novel"
+  },
+  {
+    "rank": 19,
+    "item_id": 3039,
+    "item_name": "The Post-American World"
+  },
+  {
+    "rank": 20,
+    "item_id": 451,
+    "item_name": "The Way of the World: A Story of Truth and Hope in an Age of Extremism"
+  },
+  {
+    "rank": 21,
+    "item_id": 5711,
+    "item_name": "Champlain's Dream"
+  },
+  {
+    "rank": 22,
+    "item_id": 4259,
+    "item_name": "Genesis"
+  },
+  {
+    "rank": 23,
+    "item_id": 237,
+    "item_name": "100 People Who Are Screwing Up America (And Al Franken Is #37)"
+  },
+  {
+    "rank": 24,
+    "item_id": 884,
+    "item_name": "Killing Pablo: The Hunt for the World's Greatest Outlaw"
+  },
+  {
+    "rank": 25,
+    "item_id": 1380,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

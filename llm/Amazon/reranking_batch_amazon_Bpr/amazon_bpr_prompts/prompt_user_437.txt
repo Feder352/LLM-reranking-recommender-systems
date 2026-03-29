@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Stiff Competition (A Mattie Winston Mystery)"
+  },
+  {
+    "item_name": "Murder with a Twist (Mack's Bar Mysteries)"
+  },
+  {
+    "item_name": "Body in the Woods (A Reverend Annabelle Dixon Cozy Mystery) (Volume 3)"
+  },
+  {
+    "item_name": "Cinderella Undone"
+  },
+  {
+    "item_name": "Shots in the Dark (Mack's Bar Mysteries)"
+  },
+  {
+    "item_name": "Her Big Fat Fake Billionaire Boyfriend (Billionaire Series) (Volume 1)"
+  },
+  {
+    "item_name": "A Toast to Murder (Mack's Bar Mysteries)"
+  },
+  {
+    "item_name": "Booked For Murder: An Oceanside Mystery"
+  },
+  {
+    "item_name": "Calamity Town"
+  },
+  {
+    "item_name": "Trophy Husband"
+  },
+  {
+    "item_name": "Killer Party"
+  },
+  {
+    "item_name": "Forget Me Knot (A Quilting Mystery)"
+  },
+  {
+    "item_name": "Sunday the Rabbi Stayed Home"
+  },
+  {
+    "item_name": "High Strung (Glass Bead Mystery Series) (Volume 1)"
+  },
+  {
+    "item_name": "Vampire Girl (Volume 1)"
+  },
+  {
+    "item_name": "The Last Single Girl (Brew Ha Ha) (Volume 1)"
+  },
+  {
+    "item_name": "Vegas Love"
+  },
+  {
+    "item_name": "Accidentally Married"
+  },
+  {
+    "item_name": "Scheduled to Death"
+  },
+  {
+    "item_name": "The Withdrawing Room (Sarah Kelling and Max Bittersohn Mysteries)"
+  },
+  {
+    "item_name": "Palace Guard (Sarah Kelling and Max Bittersohn Mysteries)"
+  },
+  {
+    "item_name": "Tough Cookie"
+  },
+  {
+    "item_name": "Picture Miss Seeton"
+  },
+  {
+    "item_name": "Of Murder and Men (A Cat Latimer Mystery)"
+  },
+  {
+    "item_name": "Odds on Miss Seeton"
+  },
+  {
+    "item_name": "Miss Seeton Sings"
+  },
+  {
+    "item_name": "Witch Miss Seeton"
+  },
+  {
+    "item_name": "Stilettos &amp; Scoundrels"
+  },
+  {
+    "item_name": "Resurrection Man"
+  },
+  {
+    "item_name": "Seeing Double (A Heartbreaker Novel)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "A Dead Husband (Jessica HuntingtonDesert Cities Mystery) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Eat, Pray, Die (An Eat, Pray, Die Humorous Mystery) (Volume 1)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Spell Found (Blackmoore Sisters Cozy Mystery Series) (Volume 7)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Jet"
+  },
+  {
+    "rank": 5,
+    "item_name": "Southern Spirits (Southern Ghost Hunter Mysteries)"
+  },
+  {
+    "rank": 6,
+    "item_name": "'Scuse Me While I Kill This Guy"
+  },
+  {
+    "rank": 7,
+    "item_name": "Black Diamond Death"
+  },
+  {
+    "rank": 8,
+    "item_name": "Bed &amp; Breakfast Bedlam (Logan Dickerson Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "A View to Die For (Books To Die For) (Volume 1)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Sweet Masterpiece: The First Samantha Sweet Mystery"
+  },
+  {
+    "rank": 11,
+    "item_name": "Chef Maurice and a Spot of Truffle (Chef Maurice Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Unbreakable Bond"
+  },
+  {
+    "rank": 13,
+    "item_name": "Maids of Misfortune: A Victorian San Francisco Mystery"
+  },
+  {
+    "rank": 14,
+    "item_name": "Dirty Little Secrets: A J.J. Graves Mystery"
+  },
+  {
+    "rank": 15,
+    "item_name": "Nora Roberts Land (Dare Valley)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Motherhood is Murder (A Maternal Instincts Mystery)"
+  },
+  {
+    "rank": 17,
+    "item_name": "A Shot in the Bark: A Dog Park Mystery (Lia Anderson Dog Park Mysteries)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Wicked Days (An Ivy Morgan Mystery) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "This Doesn't Happen In The Movies (Volume 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Thirty and a Half Excuses: Rose Gardner Mystery (Volume 3)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Loose Screw: Dusty Deals Mystery Mystery Series: Book 1 (Dusty Deals Mystery Series) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "All-Butter ShortDead (Prequel: Oxford Tearoom Mysteries ~ Book 0)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Elusive (On The Run International Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Profiler's Daughter: A Sky Stone Thriller (Sky Stone Thriller Series) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Hell on Heels: Book Three The Hot Damned Series (Volume 3)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Loose Ends: A Mary O'Reilly Paranormal Mystery - Book One (Mary O'reilly Paranormal Mysteries)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Lost Cause (A Daisy Dunlop Mystery) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Lady of the Lake (The Frannie Shoemaker Campground Mysteries) (Volume 4)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Death of a Crafty Knitter (Stormy Day Mystery) (Volume 2)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Chosen for Power (Women of Power Series) (Volume 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Somebody Tell Aunt Tillie She's Dead (Toad Witch Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Kill the Competition"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Vampire's Mail Order Bride (Nocturne Falls) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Dog Collar Crime: Misadventures of a Frustrated Mob Princess (A Lucie Rizzo Mystery) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Spirits, Stilettos, and a Silver Bustier (Pyper Rayne) (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Last Dance (A Sharyn Howard Mystery)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Deep End (The Country Club Murders) (Volume 1)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Once Haunted, Twice Shy (Peyton Clark)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Romeow and Juliet (Whales and Tails Cozy Mystery) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Lacey Luzzi: Sprinkled: A humorous cozy mystery! (Lacey Luzzi Mafia Mysteries)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Let Us Prey (Gotcha Detective Agency)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Justice Calling (The Twenty-Sided Sorceress) (Volume 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Irreparable Harm (Sasha McCandless Legal Thriller) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Ready To Were: Shift Happens Series Book One (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "I Bring the Fire: Part I : Wolves (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Forever Road (Peri Jean Mace) (Volume 1)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Drape Expectations (A Caprice De Luca Mystery)"
+  },
+  {
+    "rank": 48,
+    "item_name": "In a Small Town"
+  },
+  {
+    "rank": 49,
+    "item_name": "Broken Ferns"
+  },
+  {
+    "rank": 50,
+    "item_name": "Killer Twist: A Ghostwriter Mystery (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Night Fairy"
+  },
+  {
+    "item_name": "Tuesdays at the Castle"
+  },
+  {
+    "item_name": "Mockingjay: The Hunger Games"
+  },
+  {
+    "item_name": "Desires of the Dead (Body Finder)"
+  },
+  {
+    "item_name": "The Real Boy"
+  },
+  {
+    "item_name": "I AM SLEEPLESS: Sim 299 (Volume 1)"
+  },
+  {
+    "item_name": "Oh Susannah: It's in the Bag (An Oh Susannah Story)"
+  },
+  {
+    "item_name": "If You Were Me and Lived in...Cuba: If You Were Me and Lived in... (A Child's Introduction to Cultures Around the World) (Volume 22)"
+  },
+  {
+    "item_name": "Oh Susannah: Things That Go Bump: An Oh Susannah Story (Volume 2)"
+  },
+  {
+    "item_name": "Monsterland (Monsterland Series) (Volume 1)"
+  },
+  {
+    "item_name": "High Child"
+  },
+  {
+    "item_name": "The Strange Ways of Providence In My Life (An Amazing WW2 Survival Story (A Jewish Girl's Holocaust Book Memoir))"
+  },
+  {
+    "item_name": "The Pillow Parade: Children's Bedtime Book"
+  },
+  {
+    "item_name": "Brightley &amp; Glow - Kindle edition"
+  },
+  {
+    "item_name": "When I Imagine eBook"
+  },
+  {
+    "item_name": "Giggly Bear's Fun Trip in the Yellow Bus (Let's Learn while Playing) (Volume 3)"
+  },
+  {
+    "item_name": "Harry The Happy Mouse: Teaching children to be kind to each other."
+  },
+  {
+    "item_name": "Children Book : The Magical Zoo #1 (Illustrated childrens books &amp; Great bedtime stories) - Kindle edition"
+  },
+  {
+    "item_name": "The Meaning of Christmas: A Children's Picture book on the Significance of Christmas symbols"
+  },
+  {
+    "item_name": "The Deep and Snowy Wood"
+  },
+  {
+    "item_name": "Pink Tears: Best Children's Book Award (Ages 3-9)"
+  },
+  {
+    "item_name": "Giant and Tiny: a Book of Opposites (Bedtime Toddler Story Book)"
+  },
+  {
+    "item_name": "Charm: An Amazing Story of a Little Black Cat"
+  },
+  {
+    "item_name": "Dr. Dee Dee Dynamo's Saturn Surprise"
+  },
+  {
+    "item_name": "I Love You!"
+  },
+  {
+    "item_name": "The Adventures of Froblicious the Frog (Let's Learn While Playing) (Volume 1)"
+  },
+  {
+    "item_name": "Dinosaur Adventure: A Field Trip to Remember (Let's Learn While Playing)"
+  },
+  {
+    "item_name": "Abuse of Discretion (Dre Thomas Series)"
+  },
+  {
+    "item_name": "The Broken Girls"
+  },
+  {
+    "item_name": "Swimming Between Worlds"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 52077,
+    "item_name": "The Treasure of Snake Island: A Captain No Beard Story (Volume 5)"
+  },
+  {
+    "rank": 2,
+    "item_id": 53089,
+    "item_name": "The Hanging Tree: A Novella"
+  },
+  {
+    "rank": 3,
+    "item_id": 53007,
+    "item_name": "The Crew Goes Coconuts!: A Captain No Beard Story (Volume 6)"
+  },
+  {
+    "rank": 4,
+    "item_id": 55844,
+    "item_name": "Yummy Stories: Fruits, Vegetables and Healthy Eating Habits (Read aloud; Volume: 1)"
+  },
+  {
+    "rank": 5,
+    "item_id": 59154,
+    "item_name": "If You Were Me and Lived in... Elizabethan England: An Introduction to Civilizations Throughout Time (Volume 8)"
+  },
+  {
+    "rank": 6,
+    "item_id": 40638,
+    "item_name": "Talon, Come Fly with Me (Tylon)"
+  },
+  {
+    "rank": 7,
+    "item_id": 51931,
+    "item_name": "Brood X: A Firsthand Account of the Great Cicada Invasion"
+  },
+  {
+    "rank": 8,
+    "item_id": 52420,
+    "item_name": "Stillwell: A Haunting on Long Island (A Haunting on Long Island Series)"
+  },
+  {
+    "rank": 9,
+    "item_id": 53680,
+    "item_name": "If you were me and lived in... Russia: A Child's Introduction to Cultures Around the World (Volume 9)"
+  },
+  {
+    "rank": 10,
+    "item_id": 51971,
+    "item_name": "If You Were Me and Lived in ...Norway: A Child's Introduction to Cultures Around the World"
+  },
+  {
+    "rank": 11,
+    "item_id": 49569,
+    "item_name": "Pibbin the Small: A Tale of Friendship Bog"
+  },
+  {
+    "rank": 12,
+    "item_id": 38509,
+    "item_name": "The Snowman's Revenge"
+  },
+  {
+    "rank": 13,
+    "item_id": 70108,
+    "item_name": "When I Grow Up I Want To Be...in the U.S. Army!: Jake Learns about the U.S. Army."
+  },
+  {
+    "rank": 14,
+    "item_id": 53925,
+    "item_name": "Whaley's Big Adventure: Presented by Carole P. Roman"
+  },
+  {
+    "rank": 15,
+    "item_id": 70118,
+    "item_name": "When I Grow Up I Want To Be...a Teacher!: Carlee Learns a Surprising Lesson!"
+  },
+  {
+    "rank": 16,
+    "item_id": 39400,
+    "item_name": "Talon, on the Wing"
+  },
+  {
+    "rank": 17,
+    "item_id": 57885,
+    "item_name": "It's Time To Eat: A Children's Picture Book for Early/Beginner Readers"
+  },
+  {
+    "rank": 18,
+    "item_id": 58733,
+    "item_name": "The History Major: A Novella"
+  },
+  {
+    "rank": 19,
+    "item_id": 71877,
+    "item_name": "Bulwark"
+  },
+  {
+    "rank": 20,
+    "item_id": 69781,
+    "item_name": "In the Hall of the Mountain King"
+  },
+  {
+    "rank": 21,
+    "item_id": 31000,
+    "item_name": "My Grandma's a Ninja"
+  },
+  {
+    "rank": 22,
+    "item_id": 52723,
+    "item_name": "If you were me and lived in... Australia: A Child's Introduction to Cultures around the World (Volume 8)"
+  },
+  {
+    "rank": 23,
+    "item_id": 39344,
+    "item_name": "Fabulous Faces: From Motivation to Transformation Through Facial Plastic Surgery"
+  },
+  {
+    "rank": 24,
+    "item_id": 75514,
+    "item_name": "Globaloonies 1: The Big Red Button (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_id": 57286,
+    "item_name": "The Deep and Snowy Wood"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

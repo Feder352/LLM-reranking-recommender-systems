@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Heartbeats (Berkley Sensation)"
+  },
+  {
+    "item_name": "The Texan's Reward (Berkley Historical Romance)"
+  },
+  {
+    "item_name": "Chill Factor (Weather Warden, Book 3)"
+  },
+  {
+    "item_name": "Mortal Danger (The World of the Lupi, Book 2)"
+  },
+  {
+    "item_name": "Wedding Survivor (Thrillseekers Anonymous, Book 1)"
+  },
+  {
+    "item_name": "Dance Upon the Air (Three Sisters)"
+  },
+  {
+    "item_name": "Dying in Style (Josie Marcus, Mystery Shopper, Book 1)"
+  },
+  {
+    "item_name": "Just Perfect (Perfect Trilogy, Book 2)"
+  },
+  {
+    "item_name": "Black Wind: A Dirk Pitt Novel (Dirk Pitt Adventure)"
+  },
+  {
+    "item_name": "Hot Blooded"
+  },
+  {
+    "item_name": "Too Wilde to Tame"
+  },
+  {
+    "item_name": "Mercenaries"
+  },
+  {
+    "item_name": "Don't Say A Word"
+  },
+  {
+    "item_name": "The Irish Devil (Irish Eyes Romance)"
+  },
+  {
+    "item_name": "Beyond the Pale (The Darkwing Chronicles, Book 1) (Bk. 1)"
+  },
+  {
+    "item_name": "Lady Silence (Signet Regency Romance)"
+  },
+  {
+    "item_name": "Three Bedrooms, One Corpse (Aurora Teagarden Mysteries, Book 3)"
+  },
+  {
+    "item_name": "Heart Choice (Celta's HeartMates, Book 4)"
+  },
+  {
+    "item_name": "Public Secrets"
+  },
+  {
+    "item_name": "Seeing Red (Signet Eclipse)"
+  },
+  {
+    "item_name": "Fire Me Up (Aisling Grey, Guardian, Book 2)"
+  },
+  {
+    "item_name": "What Dreams May Come"
+  },
+  {
+    "item_name": "Carved in Stone (Les Gargouillen, Book 1)"
+  },
+  {
+    "item_name": "Homeport"
+  },
+  {
+    "item_name": "The Color of Light"
+  },
+  {
+    "item_name": "Oceans of Fire (Drake Sisters, Book 3)"
+  },
+  {
+    "item_name": "Captivated by his Kiss"
+  },
+  {
+    "item_name": "The Demon-Haunted World: Science as a Candle in the Dark"
+  },
+  {
+    "item_name": "The Wealth of Nations: Books 1-3 (Penguin Classics) (Bks.1-3)"
+  },
+  {
+    "item_name": "House of Whispers: (Ellie Jordan, Ghost Trapper Book 5) (Volume 5)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 1702,
+    "item_name": "Dark Side of the Moon (Dark-Hunter, Book 10)"
+  },
+  {
+    "rank": 2,
+    "item_id": 260,
+    "item_name": "For a Few Demons More (The Hollows, Book 5)"
+  },
+  {
+    "rank": 3,
+    "item_id": 4821,
+    "item_name": "The Twilight Before Christmas (Drake Sisters, Book 2)"
+  },
+  {
+    "rank": 4,
+    "item_id": 3345,
+    "item_name": "The Laughing Corpse (Anita Blake Vampire Hunter)"
+  },
+  {
+    "rank": 5,
+    "item_id": 1552,
+    "item_name": "A Clash of Kings: A Song of Ice and Fire: Book Two"
+  },
+  {
+    "rank": 6,
+    "item_id": 4209,
+    "item_name": "Deadly Game (GhostWalkers, Book 5)"
+  },
+  {
+    "rank": 7,
+    "item_id": 259,
+    "item_name": "A Fistful of Charms (The Hollows, Book 4)"
+  },
+  {
+    "rank": 8,
+    "item_id": 243,
+    "item_name": "Sex, Lies, and Online Dating (Writer Friends)"
+  },
+  {
+    "rank": 9,
+    "item_id": 2395,
+    "item_name": "Shattered (Iron Druid Chronicles)"
+  },
+  {
+    "rank": 10,
+    "item_id": 4345,
+    "item_name": "Fevre Dream: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_id": 3433,
+    "item_name": "Undead and Unworthy (Queen Betsy, Book 7)"
+  },
+  {
+    "rank": 12,
+    "item_id": 277,
+    "item_name": "The Nymphos of Rocky Flats"
+  },
+  {
+    "rank": 13,
+    "item_id": 5315,
+    "item_name": "Dancing with Werewolves: Delilah Street, Paranormal Investigator"
+  },
+  {
+    "rank": 14,
+    "item_id": 2411,
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "rank": 15,
+    "item_id": 552,
+    "item_name": "Dark Destiny (Dark Series)"
+  },
+  {
+    "rank": 16,
+    "item_id": 4204,
+    "item_name": "Predatory Game (GhostWalkers, Book 6)"
+  },
+  {
+    "rank": 17,
+    "item_id": 5676,
+    "item_name": "A Hunger Like No Other (Immortals After Dark, Book 1)"
+  },
+  {
+    "rank": 18,
+    "item_id": 312,
+    "item_name": "The Scent of Shadows (Sign of the Zodiac, Book 1)"
+  },
+  {
+    "rank": 19,
+    "item_id": 3361,
+    "item_name": "Master of the Moon (Mageverse, Book 3)"
+  },
+  {
+    "rank": 20,
+    "item_id": 3515,
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  },
+  {
+    "rank": 21,
+    "item_id": 3399,
+    "item_name": "Goddess of Love (Goddess Summoning #5)"
+  },
+  {
+    "rank": 22,
+    "item_id": 2213,
+    "item_name": "Seduced by Moonlight (Meredith Gentry, Book 3)"
+  },
+  {
+    "rank": 23,
+    "item_id": 4368,
+    "item_name": "Hidden Warrior (Tamir Trilogy, Book 2)"
+  },
+  {
+    "rank": 24,
+    "item_id": 3574,
+    "item_name": "Beyond the Highland Mist (Highlander, Book 1)"
+  },
+  {
+    "rank": 25,
+    "item_id": 3662,
+    "item_name": "Grimspace (Sirantha Jax, Book 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

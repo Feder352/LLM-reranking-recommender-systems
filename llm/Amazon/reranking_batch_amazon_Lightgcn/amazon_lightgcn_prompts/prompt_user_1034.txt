@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "How We Work: Live Your Purpose, Reclaim Your Sanity, and Embrace the Daily Grind"
+  },
+  {
+    "item_name": "Victorians Undone: Tales of the Flesh in the Age of Decorum"
+  },
+  {
+    "item_name": "Little Boy Brown"
+  },
+  {
+    "item_name": "Aging Thoughtfully: Conversations about Retirement, Romance, Wrinkles, and Regret"
+  },
+  {
+    "item_name": "The Girl Who Drew Butterflies: How Maria Merian's Art Changed Science"
+  },
+  {
+    "item_name": "Daughters of the Storm"
+  },
+  {
+    "item_name": "How I Killed Pluto and Why It Had It Coming"
+  },
+  {
+    "item_name": "My Father's Wake: How the Irish Teach Us to Live, Love, and Die"
+  },
+  {
+    "item_name": "The Big Picture: The Fight for the Future of Movies"
+  },
+  {
+    "item_name": "Work: The Last 1,000 Years"
+  },
+  {
+    "item_name": "Willpower Doesn't Work: Discover the Hidden Keys to Success"
+  },
+  {
+    "item_name": "Harper and the Night Forest"
+  },
+  {
+    "item_name": "Holmes Entangled"
+  },
+  {
+    "item_name": "The Truth About Animals: Stoned Sloths, Lovelorn Hippos, and Other Tales from the Wild Side of Wildlife"
+  },
+  {
+    "item_name": "The New Policeman (New Policeman Trilogy)"
+  },
+  {
+    "item_name": "Harry: Life, Loss, and Love"
+  },
+  {
+    "item_name": "Marley Dias Gets It Done: And So Can You!"
+  },
+  {
+    "item_name": "American by Day"
+  },
+  {
+    "item_name": "Futureface: A Family Mystery, an Epic Quest, and the Secret to Belonging"
+  },
+  {
+    "item_name": "The Bengal Identity (A Cat Groomer Mystery)"
+  },
+  {
+    "item_name": "Colorama: From Fuchsia to Midnight Blue"
+  },
+  {
+    "item_name": "Nonprofit Meetings, Minutes &amp; Records: How to Run Your Nonprofit Corporation So You Don't Run Into Trouble"
+  },
+  {
+    "item_name": "The Mastery of You: A Journey Toward the Understanding of Self"
+  },
+  {
+    "item_name": "Go Ask Fannie"
+  },
+  {
+    "item_name": "Ecstasy: A Novel"
+  },
+  {
+    "item_name": "In the Enemy's House: The Secret Saga of the FBI Agent and the Code Breaker Who Caught the Russian Spies"
+  },
+  {
+    "item_name": "Into the Storm: Two Ships, a Deadly Hurricane, and an Epic Battle for Survival"
+  },
+  {
+    "item_name": "A Brotherhood of Spies: The U-2 and the CIA's Secret War"
+  },
+  {
+    "item_name": "Tango Lessons: A Memoir"
+  },
+  {
+    "item_name": "Police Exams Prep 2018-2019: 4 Practice Tests + Proven Strategies (Kaplan Test Prep)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 43420,
+    "item_name": "Reach Out: The Simple Strategy You Need to Expand Your Network and Increase Your Influence"
+  },
+  {
+    "rank": 2,
+    "item_id": 63763,
+    "item_name": "Dynamic Communication: 27 Strategies to Grow, Lead, and Manage Your Business"
+  },
+  {
+    "rank": 3,
+    "item_id": 62396,
+    "item_name": "National Geographic/Trails Illustrated - Delaware Water Gap Map"
+  },
+  {
+    "rank": 4,
+    "item_id": 3192,
+    "item_name": "The Taste of Tomorrow: Dispatches from the Future of Food"
+  },
+  {
+    "rank": 5,
+    "item_id": 15758,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 6,
+    "item_id": 27102,
+    "item_name": "Under New Management: How Leading Organizations Are Upending Business as Usual"
+  },
+  {
+    "rank": 7,
+    "item_id": 8439,
+    "item_name": "Eyes Wide Open: Overcoming Obstacles and Recognizing Opportunities in a World That Can't See Clearly"
+  },
+  {
+    "rank": 8,
+    "item_id": 77619,
+    "item_name": "Cotton (Resources)"
+  },
+  {
+    "rank": 9,
+    "item_id": 68115,
+    "item_name": "A Fork In The Road: Tales of Food, Pleasure and Discovery On The Road (Lonely Planet Travel Literature)"
+  },
+  {
+    "rank": 10,
+    "item_id": 48289,
+    "item_name": "Eat Pretty: Nutrition for Beauty, Inside and Out"
+  },
+  {
+    "rank": 11,
+    "item_id": 7840,
+    "item_name": "Can I Go Now?: The Life of Sue Mengers, Hollywood's First Superagent"
+  },
+  {
+    "rank": 12,
+    "item_id": 67226,
+    "item_name": "Skewed: A Critical Thinker's Guide to Media Bias"
+  },
+  {
+    "rank": 13,
+    "item_id": 26940,
+    "item_name": "Inventology: How We Dream Up Things That Change the World"
+  },
+  {
+    "rank": 14,
+    "item_id": 42922,
+    "item_name": "Alibaba's World: How a Remarkable Chinese Company is Changing the Face of Global Business"
+  },
+  {
+    "rank": 15,
+    "item_id": 25903,
+    "item_name": "The Pentagon's Wars: The Military's Undeclared War Against America's Presidents"
+  },
+  {
+    "rank": 16,
+    "item_id": 67175,
+    "item_name": "Getting Beyond Better: How Social Entrepreneurship Works"
+  },
+  {
+    "rank": 17,
+    "item_id": 64593,
+    "item_name": "Positive Intelligence: Why Only 20% of Teams and Individuals Achieve Their True Potential AND HOW YOU CAN ACHIEVE YOURS"
+  },
+  {
+    "rank": 18,
+    "item_id": 26719,
+    "item_name": "Who Gets What  and Why: The New Economics of Matchmaking and Market Design"
+  },
+  {
+    "rank": 19,
+    "item_id": 59148,
+    "item_name": "The Memo: Five Rules for Your Economic Liberation"
+  },
+  {
+    "rank": 20,
+    "item_id": 5546,
+    "item_name": "Play the Part: Master Body Signals to Connect and Communicate for Business Success"
+  },
+  {
+    "rank": 21,
+    "item_id": 26409,
+    "item_name": "Economism: Bad Economics and the Rise of Inequality"
+  },
+  {
+    "rank": 22,
+    "item_id": 65287,
+    "item_name": "The Philadelphia Chromosome: A Mutant Gene and the Quest to Cure Cancer at the Genetic Level"
+  },
+  {
+    "rank": 23,
+    "item_id": 10851,
+    "item_name": "Social: Why Our Brains Are Wired to Connect"
+  },
+  {
+    "rank": 24,
+    "item_id": 43151,
+    "item_name": "Modern Monopolies: What It Takes to Dominate the 21st Century Economy"
+  },
+  {
+    "rank": 25,
+    "item_id": 41507,
+    "item_name": "Crushing It in Apartments and Commercial Real Estate: How a Small Investor Can Make It Big"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

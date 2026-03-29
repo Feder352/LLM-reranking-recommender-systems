@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Until You're Mine (Fighting for Her) (Volume 1)"
+  },
+  {
+    "item_name": "Indecent Exposure: The Academy"
+  },
+  {
+    "item_name": "Thanks Fur Last Night"
+  },
+  {
+    "item_name": "Her Passionate Hero (Black Dawn) (Volume 3)"
+  },
+  {
+    "item_name": "A Shameless Little Con (Volume 1)"
+  },
+  {
+    "item_name": "Seized by Love at Seaside (Sweet with Heat: Seaside Summers) (Volume 7)"
+  },
+  {
+    "item_name": "King (Sinister Knights 2)"
+  },
+  {
+    "item_name": "Bound in Ashes (Drachen Mates) (Volume 4)"
+  },
+  {
+    "item_name": "Playing House (Sydney Smoke Rugby Series) (Volume 5)"
+  },
+  {
+    "item_name": "The Test"
+  },
+  {
+    "item_name": "Winter Igniting (Scorpius Syndrome) (Volume 5)"
+  },
+  {
+    "item_name": "Kansas City Cop (The Precinct)"
+  },
+  {
+    "item_name": "Straight Up Irish (Murphy Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "The Longest Silence (Shades of Death)"
+  },
+  {
+    "item_name": "Defending Justice (The Justice Team Series) (Volume 6)"
+  },
+  {
+    "item_name": "Army Ranger with Benefits (At-Ease Ranch) (Volume 4)"
+  },
+  {
+    "item_name": "Brazilian Fantasy (Dossier) (Volume 5)"
+  },
+  {
+    "item_name": "Dark Justice: Hunt (Volume 2)"
+  },
+  {
+    "item_name": "Caught Up (Roughneck Romance) (Volume 1)"
+  },
+  {
+    "item_name": "Slater's Revenge (Shades of Leverage) (Volume 1)"
+  },
+  {
+    "item_name": "Just One Spark... (Modern Romance Series Extra)"
+  },
+  {
+    "item_name": "Back in the Rancher's Arms"
+  },
+  {
+    "item_name": "Too Hard to Resist (Wherever You Go) (Volume 3)"
+  },
+  {
+    "item_name": "Fortuity (Volume 1)"
+  },
+  {
+    "item_name": "Rebel Dragon (Aloha Shifters: Pearls of Desire) (Volume 1)"
+  },
+  {
+    "item_name": "Sheltered"
+  },
+  {
+    "item_name": "Fighting for Everything (Warrior Fight Club)"
+  },
+  {
+    "item_name": "The Surviving Girls (Hidden Sins)"
+  },
+  {
+    "item_name": "Montana SEAL Undercover Daddy (Brotherhood Protectors) (Volume 9)"
+  },
+  {
+    "item_name": "Bitten Under Fire (Bravo Team WOLF) (Volume 2)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "A Millionaire at Midnight"
+  },
+  {
+    "rank": 2,
+    "item_name": "Claiming Alexis (Ace Security)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Bachelor's Promise"
+  },
+  {
+    "rank": 4,
+    "item_name": "Deadly Fallout (Red Stone Security Series) (Volume 10)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Act of Submission"
+  },
+  {
+    "rank": 6,
+    "item_name": "Driven to Temptation"
+  },
+  {
+    "rank": 7,
+    "item_name": "Fire Away (Somewhere, TX) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Tucked Away (Hearts of Montana) (Volume 1)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Legend: A Sons of Texas Novel (The Sons of Texas)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Final Siege (Love Over Duty)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Nanny Arrangement"
+  },
+  {
+    "rank": 12,
+    "item_name": "Crossing Promises (Cross Creek)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Crossing Hearts (Cross Creek)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Royally Ruined (Bad Boy Royals)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The First Kiss of Spring: An Eternity Springs Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "Dirty Little Lies: A Men of Summer Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "His Family of Convenience"
+  },
+  {
+    "rank": 18,
+    "item_name": "Broken Honor (Hornet)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Savage Rising (Redemption Harbor Series) (Volume 2)"
+  },
+  {
+    "rank": 20,
+    "item_name": "X-Ops Exposed"
+  },
+  {
+    "rank": 21,
+    "item_name": "Turn Me Loose (Alpha Ops)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Darkest Night: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Love in a Snow Storm (Pine Harbour) (Volume 2)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Dangerous Billionaire: A Billionaire Navy SEAL Romance (The Tate Brothers)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Brazilian Revenge"
+  },
+  {
+    "rank": 26,
+    "item_name": "Tailored for Trouble: A Romantic Comedy (Happy Pants)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Tangled Up (Taking Chances)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Call to Honor: An Anthology (A Team Poseidon Novel)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Give it Up"
+  },
+  {
+    "rank": 30,
+    "item_name": "Falling for Her Enemy"
+  },
+  {
+    "rank": 31,
+    "item_name": "Rugged Texas Cowboy: Two Stories in One: Cowboy and the Captive, Cowboy and the Thief"
+  },
+  {
+    "rank": 32,
+    "item_name": "Rescuing Emily: Delta Force Heroes, Book 2"
+  },
+  {
+    "rank": 33,
+    "item_name": "Only You at Christmas (Christmas Town) (Volume 3)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Skin Deep (Station Seventeen) (Volume 1)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Rocco: A Mafia Romance (Ruin &amp; Revenge)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Romancing the Ranger"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Real Thing (Sugar Lake)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Deadly Odds"
+  },
+  {
+    "rank": 39,
+    "item_name": "Bad Boys After Dark: Mick (Bad Billionaires After Dark) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Under Your Skin (A For Your Love Novel)"
+  },
+  {
+    "rank": 41,
+    "item_name": "A SEAL's Secret (Uniformly Hot!)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Fighting for Control (Against the Cage)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Dangerous Protector (Red Stone Security Series) (Volume 14)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Winning the Billionaire (Seattle Bachelors)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Millionaire Makeover"
+  },
+  {
+    "rank": 46,
+    "item_name": "Call to Engage: A Romance Novel (A Team Poseidon Novel)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Blood Flame (The Flame Series) (Volume 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Wicked Billionaire: A Billionaire SEAL Romance (The Tate Brothers)"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Millionaire's Gamble"
+  },
+  {
+    "rank": 50,
+    "item_name": "Wilde At Heart"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

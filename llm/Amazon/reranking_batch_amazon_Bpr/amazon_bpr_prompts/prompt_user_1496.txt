@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Wait With Me"
+  },
+  {
+    "item_name": "One More Time (Volume 1)"
+  },
+  {
+    "item_name": "Switch Hitter: a Jock Hard novella"
+  },
+  {
+    "item_name": "Flash Point (Kilgore Fire) (Volume 2)"
+  },
+  {
+    "item_name": "Wanderlust"
+  },
+  {
+    "item_name": "Where I End (Arrow Falls)"
+  },
+  {
+    "item_name": "Oxygen Deprived (The Kiglore Fire Series) (Volume 3)"
+  },
+  {
+    "item_name": "Kinda Don't Care (The Simple Man Series) (Volume 1)"
+  },
+  {
+    "item_name": "Controlled Burn (The Kilgore Fire Series) (Volume 4)"
+  },
+  {
+    "item_name": "Oceanside (Rock Stars, Surf and Second Chances) (Volume 3)"
+  },
+  {
+    "item_name": "Chaser: A Dive Bar Novel"
+  },
+  {
+    "item_name": "Fortuity (Volume 1)"
+  },
+  {
+    "item_name": "Golden Trail (The 'Burg Series) (Volume 3)"
+  },
+  {
+    "item_name": "Weather the Storm"
+  },
+  {
+    "item_name": "Vodka On The Rocks (The Uncertain Saints MC`) (Volume 3)"
+  },
+  {
+    "item_name": "Maybe Don't Wanna (The Simple Man Series) (Volume 2)"
+  },
+  {
+    "item_name": "An Imperfect Heart"
+  },
+  {
+    "item_name": "Road to Grace (Dogs of Fire) (Volume 8)"
+  },
+  {
+    "item_name": "Bad Apple (The Uncertain Saints MC) (Volume 4)"
+  },
+  {
+    "item_name": "All of You (Rebel Desire) (Volume 3)"
+  },
+  {
+    "item_name": "Dirty Mother (The Uncertain Saints MC) (Volume 5)"
+  },
+  {
+    "item_name": "Rusty Nail (The Uncertain Saints MC) (Volume 6)"
+  },
+  {
+    "item_name": "Tiger Striped: Shifters Unbound"
+  },
+  {
+    "item_name": "Donut Be Easy: A Standalone Romantic Comedy"
+  },
+  {
+    "item_name": "Knocked Down"
+  },
+  {
+    "item_name": "Unconscious Hearts"
+  },
+  {
+    "item_name": "Beard Up (The Dixie Warden Rejects MC) (Volume 6)"
+  },
+  {
+    "item_name": "Shelter for Blythe (Badge of Honor: Texas Heroes) (Volume 11)"
+  },
+  {
+    "item_name": "Ranieri Andretti: A Second-Chance Mafia Romance Novella (The Five Syndicates)"
+  },
+  {
+    "item_name": "Ranieri Andretti: A Second-Chance Mafia Romance Novella (The Five Syndicates)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Pucked"
+  },
+  {
+    "rank": 2,
+    "item_name": "After We Fall"
+  },
+  {
+    "rank": 3,
+    "item_name": "Pulse: Book Two in the Collide Series"
+  },
+  {
+    "rank": 4,
+    "item_name": "Raw"
+  },
+  {
+    "rank": 5,
+    "item_name": "Undeniable"
+  },
+  {
+    "rank": 6,
+    "item_name": "Until Sage (Until Him) (Volume 2)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Axel (Corps Security) (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Stepbrother Dearest"
+  },
+  {
+    "rank": 9,
+    "item_name": "Egomaniac (Tight Spaces)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Hetch (Men Of S.W.A.T.) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Playboy Pilot"
+  },
+  {
+    "rank": 12,
+    "item_name": "Cole"
+  },
+  {
+    "rank": 13,
+    "item_name": "Deviant (Blood &amp; Roses) (Volume 1)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Fueled (The Driven Trilogy)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Cocky Bastard"
+  },
+  {
+    "rank": 16,
+    "item_name": "Rock the Heart (Black Falcon)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Driven ((The Driven Trilogy))"
+  },
+  {
+    "rank": 18,
+    "item_name": "Manwhore"
+  },
+  {
+    "rank": 19,
+    "item_name": "Bossman"
+  },
+  {
+    "rank": 20,
+    "item_name": "Crashed (The Driven Trilogy)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Combust (The Everyday Heroes) (Volume 2)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Resist Me (Men of Inked) (Volume 3)"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Million Tiny Pieces"
+  },
+  {
+    "rank": 24,
+    "item_name": "Finding Eden (A Sign of Love)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Filthy English: (Stand-alone British Romance) (British Bad Boys)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Sinful Intent (ALFA PI) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Without Me: Men of Inked, Book 5 by Chelle Bliss (2015-04-07)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Make It A Double (The Last Call Series) (Volume 2)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Revved"
+  },
+  {
+    "rank": 30,
+    "item_name": "Cooper (Corps Security)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Sway (Landry Family Series) (Volume 1)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Dirty (Raw Family) (Volume 2)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Without Me (Men of Inked) (Volume 5)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Mine (The REAL series)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Drunk Dial"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Baller"
+  },
+  {
+    "rank": 37,
+    "item_name": "Fighting to Breathe"
+  },
+  {
+    "rank": 38,
+    "item_name": "Trust (Temptation Series) (Volume 3)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Dirty Billionaire (The Dirty Billionaire Trilogy) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Revive (Storm MC #3) (Volume 3)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Reaper's Property (Ellora's Cave Moderne)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Stay: A Bleeding Stars Stand-Alone Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Try (Temptation Series)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Worth the Fight"
+  },
+  {
+    "rank": 45,
+    "item_name": "Debt Inheritance (Indebted) (Volume 1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Fall Up"
+  },
+  {
+    "rank": 47,
+    "item_name": "Dirty English"
+  },
+  {
+    "rank": 48,
+    "item_name": "Drunk on You (Hope Town) (Volume 4)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Jaded Hearts"
+  },
+  {
+    "rank": 50,
+    "item_name": "Black Lies"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

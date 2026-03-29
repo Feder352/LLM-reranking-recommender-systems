@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Booked (The Crossover Series)"
+  },
+  {
+    "item_name": "Maestra"
+  },
+  {
+    "item_name": "Street Magicks"
+  },
+  {
+    "item_name": "Maestra [Paperback] L S Hilton"
+  },
+  {
+    "item_name": "I Hate Fairyland Volume 1: Madly Ever After"
+  },
+  {
+    "item_name": "Paper Girls Volume 1"
+  },
+  {
+    "item_name": "The Sunlight Pilgrims"
+  },
+  {
+    "item_name": "Never Missing, Never Found"
+  },
+  {
+    "item_name": "Pierced by the Sun"
+  },
+  {
+    "item_name": "Those Across the River"
+  },
+  {
+    "item_name": "Labyrinth Lost (Brooklyn Brujas)"
+  },
+  {
+    "item_name": "Monstress Volume 1: Awakening"
+  },
+  {
+    "item_name": "Disappearance at Devil's Rock: A Novel"
+  },
+  {
+    "item_name": "The Cyber Effect: A Pioneering Cyberpsychologist Explains How Human Behavior Changes Online"
+  },
+  {
+    "item_name": "Sweetness and Lightning 1"
+  },
+  {
+    "item_name": "Little Heaven: A Novel"
+  },
+  {
+    "item_name": "Truth or Beard (Winston Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "HEX"
+  },
+  {
+    "item_name": "Who You Think I Am"
+  },
+  {
+    "item_name": "Positively Pippa (The Ghost Falls Series)"
+  },
+  {
+    "item_name": "Paperbacks from Hell: The Twisted History of '70s and '80s Horror Fiction"
+  },
+  {
+    "item_name": "Shade the Changing Girl Vol. 1: Earth Girl Made Easy (Young Animal)"
+  },
+  {
+    "item_name": "Furiously Happy: A Funny Book About Horrible Things"
+  },
+  {
+    "item_name": "The Black Painting: A Novel"
+  },
+  {
+    "item_name": "The Ghost of Gaudi"
+  },
+  {
+    "item_name": "Gnomon: A novel"
+  },
+  {
+    "item_name": "Dragon Age: Knight Errant"
+  },
+  {
+    "item_name": "Places in the Darkness"
+  },
+  {
+    "item_name": "Manfried the Man: A Graphic Novel"
+  },
+  {
+    "item_name": "Do This for Me: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 10049,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 2,
+    "item_id": 23322,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 3,
+    "item_id": 2777,
+    "item_name": "Lies (Gone)"
+  },
+  {
+    "rank": 4,
+    "item_id": 23360,
+    "item_name": "Dead And Gone: A Sookie Stackhouse Novel (Sookie Stackhouse/True Blood)"
+  },
+  {
+    "rank": 5,
+    "item_id": 23385,
+    "item_name": "Dead in the Family (Sookie Stackhouse/True Blood, Book 10)"
+  },
+  {
+    "rank": 6,
+    "item_id": 22436,
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  },
+  {
+    "rank": 7,
+    "item_id": 16279,
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "rank": 8,
+    "item_id": 13452,
+    "item_name": "The Host"
+  },
+  {
+    "rank": 9,
+    "item_id": 25184,
+    "item_name": "Grave Peril (The Dresden Files, Book 3)"
+  },
+  {
+    "rank": 10,
+    "item_id": 603,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 11,
+    "item_id": 13446,
+    "item_name": "Eclipse (Twilight Sagas)"
+  },
+  {
+    "rank": 12,
+    "item_id": 74741,
+    "item_name": "ITEM_B0010SKUG0"
+  },
+  {
+    "rank": 13,
+    "item_id": 12252,
+    "item_name": "Marked (House of Night, Book 1)"
+  },
+  {
+    "rank": 14,
+    "item_id": 21520,
+    "item_name": "Grave Sight (Harper Connelly Mysteries, Book 1)"
+  },
+  {
+    "rank": 15,
+    "item_id": 76853,
+    "item_name": "[ Lies BY Grant, Michael ( Author ) ] { Paperback } 2014"
+  },
+  {
+    "rank": 16,
+    "item_id": 21619,
+    "item_name": "Undead and Uneasy (Queen Betsy, Book 6)"
+  },
+  {
+    "rank": 17,
+    "item_id": 77133,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 18,
+    "item_id": 2985,
+    "item_name": "Dark Time: Mortal Path Book One (Mortal Path Series)"
+  },
+  {
+    "rank": 19,
+    "item_id": 23281,
+    "item_name": "Club Dead (Sookie Stackhouse/True Blood, Book 3)"
+  },
+  {
+    "rank": 20,
+    "item_id": 75884,
+    "item_name": "Guilty Pleasures by Laurell K. Hamilton Unabridged CD Audiobook (Anita Blake Vampire Hunter Novel)"
+  },
+  {
+    "rank": 21,
+    "item_id": 23497,
+    "item_name": "Kitty and the Dead Man's Hand (Kitty Norville)"
+  },
+  {
+    "rank": 22,
+    "item_id": 45827,
+    "item_name": "The Monstrumologist"
+  },
+  {
+    "rank": 23,
+    "item_id": 16215,
+    "item_name": "Fool Moon"
+  },
+  {
+    "rank": 24,
+    "item_id": 75677,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse) By Charlaine Harris"
+  },
+  {
+    "rank": 25,
+    "item_id": 27185,
+    "item_name": "Numbers: Book 1"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

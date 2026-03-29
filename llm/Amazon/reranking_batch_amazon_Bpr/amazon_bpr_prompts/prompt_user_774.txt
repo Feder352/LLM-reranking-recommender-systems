@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Broken Beautiful Hearts"
+  },
+  {
+    "item_name": "Baby on the Bad Boy's Doorstep (Shadow Creek, Montana) (Volume 4)"
+  },
+  {
+    "item_name": "The Penthouse Pact (Bachelor Pact) (Volume 1)"
+  },
+  {
+    "item_name": "Straight Up Irish (Murphy Brothers) (Volume 1)"
+  },
+  {
+    "item_name": "Taken by the CEO"
+  },
+  {
+    "item_name": "Girl Unmoored"
+  },
+  {
+    "item_name": "The Millionaire's Gamble"
+  },
+  {
+    "item_name": "The Big Bad Wolf"
+  },
+  {
+    "item_name": "The Wicked Deep"
+  },
+  {
+    "item_name": "The Beauty That Remains"
+  },
+  {
+    "item_name": "The Final Six"
+  },
+  {
+    "item_name": "The Family Next Door: A Novel"
+  },
+  {
+    "item_name": "Sometimes I Lie: A psychological thriller with a killer twist you'll never forget"
+  },
+  {
+    "item_name": "Trespassing: A Novel"
+  },
+  {
+    "item_name": "I Have Lost My Way"
+  },
+  {
+    "item_name": "Not That I Could Tell: A Novel"
+  },
+  {
+    "item_name": "Emergency Contact"
+  },
+  {
+    "item_name": "Next Year in Havana"
+  },
+  {
+    "item_name": "The Broken Girls"
+  },
+  {
+    "item_name": "The Window"
+  },
+  {
+    "item_name": "The Rules of Rebellion"
+  },
+  {
+    "item_name": "Breaking the Ice (Juniper Falls)"
+  },
+  {
+    "item_name": "Zombie Abbey"
+  },
+  {
+    "item_name": "Isle of Blood and Stone (Tower of Winds)"
+  },
+  {
+    "item_name": "The Summer of Broken Things"
+  },
+  {
+    "item_name": "Love and Other Words"
+  },
+  {
+    "item_name": "The Good Luck Sister: A Wildstone Novella"
+  },
+  {
+    "item_name": "Love Beyond Opposites (Grad Night) (Volume 3)"
+  },
+  {
+    "item_name": "Don't Believe It"
+  },
+  {
+    "item_name": "The Kiss Quotient"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Cross My Heart and Hope to Spy (Gallagher Girls)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Catching Jordan (Hundred Oaks)"
+  },
+  {
+    "rank": 3,
+    "item_name": "City of Glass (The Mortal Instruments)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Heist Society (A Heist Society Novel)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Goddess Interrupted"
+  },
+  {
+    "rank": 6,
+    "item_name": "Free to Fall"
+  },
+  {
+    "rank": 7,
+    "item_name": "Hourglass"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Girl Who Was on Fire: Your Favorite Authors on Suzanne Collins Hunger Games Trilogy"
+  },
+  {
+    "rank": 9,
+    "item_name": "Illusions of Fate"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Time-Traveling Fashionista On Board the Titanic"
+  },
+  {
+    "rank": 11,
+    "item_name": "The DUFF: (Designated Ugly Fat Friend)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Silence"
+  },
+  {
+    "rank": 13,
+    "item_name": "Ruby Red (The Ruby Red Trilogy)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Once in a Full Moon"
+  },
+  {
+    "rank": 15,
+    "item_name": "Black Box"
+  },
+  {
+    "rank": 16,
+    "item_name": "Nowhere but Here (Thunder Road)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Under the Never Sky"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Juliet Spell"
+  },
+  {
+    "rank": 19,
+    "item_name": "Taste Test"
+  },
+  {
+    "rank": 20,
+    "item_name": "Bunheads"
+  },
+  {
+    "rank": 21,
+    "item_name": "Arson: Book One in The Arson Trilogy"
+  },
+  {
+    "rank": 22,
+    "item_name": "Forgotten"
+  },
+  {
+    "rank": 23,
+    "item_name": "Fathomless (Fairy Tale Retelling)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Blue Bloods (Blue Bloods, Book 1)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Life After Juliet"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Forsaken"
+  },
+  {
+    "rank": 27,
+    "item_name": "Cursed"
+  },
+  {
+    "rank": 28,
+    "item_name": "She's So Dead to Us (The He's So/She's So Trilogy)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Vampire Academy: Spirit Bound (book 5)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Spoiled"
+  },
+  {
+    "rank": 31,
+    "item_name": "Once (Eve)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Edge of Falling"
+  },
+  {
+    "rank": 33,
+    "item_name": "Nobody but Us"
+  },
+  {
+    "rank": 34,
+    "item_name": "Every Last Word"
+  },
+  {
+    "rank": 35,
+    "item_name": "Gone (Wake)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Dangerous Neighbors"
+  },
+  {
+    "rank": 37,
+    "item_name": "A Need So Beautiful"
+  },
+  {
+    "rank": 38,
+    "item_name": "Afterlife (Evernight)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Blaze (or Love in the Time of Supervillains)"
+  },
+  {
+    "rank": 40,
+    "item_name": "On the Fence"
+  },
+  {
+    "rank": 41,
+    "item_name": "Broken Beautiful Hearts"
+  },
+  {
+    "rank": 42,
+    "item_name": "Abandon"
+  },
+  {
+    "rank": 43,
+    "item_name": "Vampire Kisses"
+  },
+  {
+    "rank": 44,
+    "item_name": "A Midsummer's Nightmare"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Selection. by Kiera Cass"
+  },
+  {
+    "rank": 46,
+    "item_name": "Stolen Away"
+  },
+  {
+    "rank": 47,
+    "item_name": "Clean"
+  },
+  {
+    "rank": 48,
+    "item_name": "Personal Demons (Personal Demons, Book 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Dark Flame: A Novel (The Immortals)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Bright Young Things"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Eighth Grave After Dark"
+  },
+  {
+    "item_name": "Murder for Christmas (Mordecai Tremaine Mystery)"
+  },
+  {
+    "item_name": "The Dirt on Ninth Grave (Charley Davidson)"
+  },
+  {
+    "item_name": "The Curse of Tenth Grave (Charley Davidson)"
+  },
+  {
+    "item_name": "Rugged Texas Cowboy: Two Stories in One: Cowboy and the Captive, Cowboy and the Thief"
+  },
+  {
+    "item_name": "Operation Hail Storm"
+  },
+  {
+    "item_name": "Eleventh Grave in Moonlight (Charley Davidson)"
+  },
+  {
+    "item_name": "Murder on the Sugarland Express (Southern Ghost Hunter)"
+  },
+  {
+    "item_name": "The Trouble With Twelfth Grave (Charley Davidson)"
+  },
+  {
+    "item_name": "Mooseletoe"
+  },
+  {
+    "item_name": "Dead as a Doornail (Southern Vampire Mysteries, Book 5)"
+  },
+  {
+    "item_name": "When the Stars Come Out: A Cottonbloom Novel"
+  },
+  {
+    "item_name": "Mephisto Waltz: A Max Liebermann Mystery (Max Lieberman Mysteries)"
+  },
+  {
+    "item_name": "Collision Point: A Brute Force Novel"
+  },
+  {
+    "item_name": "Close to the Edge: An Unbroken Heroes Novel"
+  },
+  {
+    "item_name": "Hot Blooded: A Dragon Romance (Dark Kings)"
+  },
+  {
+    "item_name": "Pure Healing (Pure/ Dark Ones)"
+  },
+  {
+    "item_name": "Darkest Flame: A Dragon Romance (Dark Kings)"
+  },
+  {
+    "item_name": "With One Shot: Family Murder and a Search for Justice"
+  },
+  {
+    "item_name": "Eight Simple Rules for Dating a Dragon: A Novel of the Embraced"
+  },
+  {
+    "item_name": "Murder with a Cherry on Top (A Lickety Splits Mystery)"
+  },
+  {
+    "item_name": "Fire Rising: A Dragon Romance (Dark Kings)"
+  },
+  {
+    "item_name": "Green Kills (The Technothriller &amp; Crime series)"
+  },
+  {
+    "item_name": "Burning Desire: A Dragon Romance (Dark Kings)"
+  },
+  {
+    "item_name": "The Sixth Day (A Brit in the FBI)"
+  },
+  {
+    "item_name": "Deadly Secrets: An absolutely gripping crime thriller (Detective Erika Foster) (Volume 6)"
+  },
+  {
+    "item_name": "What to Expect When Your Demon Slayer is Expecting (Biker Witches Mystery) (Volume 8)"
+  },
+  {
+    "item_name": "The High Tide Club: A Novel"
+  },
+  {
+    "item_name": "The Real Deal: A Novel"
+  },
+  {
+    "item_name": "International Guy: Paris, New York, Copenhagen (International Guy Volumes)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "A Merciful Death (Mercy Kilpatrick)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Two Nights: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Wicked Charms: A Lizzy and Diesel Novel (Lizzy &amp; Diesel)"
+  },
+  {
+    "rank": 4,
+    "item_name": "All the Little Liars (Aurora Teagarden Mysteries)"
+  },
+  {
+    "rank": 5,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Fatal Affair: Book One of the Fatal Series: One Night with You"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Butterfly Garden (The Collector)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Scam: A Fox and O'Hare Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 10,
+    "item_name": "IQ (An IQ Novel)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Secrets in Death: An Eve Dallas Novel (In Death, Book 45)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Missing You"
+  },
+  {
+    "rank": 13,
+    "item_name": "All-Butter ShortDead (Prequel: Oxford Tearoom Mysteries ~ Book 0)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Chasing Victory (The Winters Sisters) (Volume 1)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Night Broken: A Mercy Thompson Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "Huntress Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Cold Burn of Magic (Black Blade)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Dead Heat: An Alpha and Omega novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Curious Minds: A Knight and Moon Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Chase (An Isaac Bell Adventure)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Extreme Prey (A Prey Novel)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Dollmaker (Forgotten Files)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Trouble in Mudbug"
+  },
+  {
+    "rank": 24,
+    "item_name": "Memory Man (Amos Decker series)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Obsession"
+  },
+  {
+    "rank": 26,
+    "item_name": "Bitter Bite (Elemental Assassin)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Blonde Hair, Blue Eyes"
+  },
+  {
+    "rank": 28,
+    "item_name": "Witch Hunt: An Urban Fantasy Mystery (Preternatural Affairs) (Volume 1)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Gathering Prey (A Prey Novel)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Eeny Meeny (A Helen Grace Thriller)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Killer Jam (Dewberry Farm Mysteries)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Boundary Born (Boundary Magic)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Blood Orchids"
+  },
+  {
+    "rank": 34,
+    "item_name": "Tricky Twenty-Two: A Stephanie Plum Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Louisiana Longshot: A Miss Fortune Mystery (Volume 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Body Reader (Detective Jude Fontaine Mysteries)"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Short Drop (Gibson Vaughn)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Spirits, Stilettos, and a Silver Bustier (Pyper Rayne) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Forever Road (Peri Jean Mace) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Brotherhood in Death: 42"
+  },
+  {
+    "rank": 42,
+    "item_name": "Better Homes and Hauntings"
+  },
+  {
+    "rank": 43,
+    "item_name": "I'm Dreaming of an Undead Christmas (Half-Moon Hollow)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Unleashed: A Sydney Rye Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "Exhume (Dr. Schwartzman)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Cop Town: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Delusion in Death"
+  },
+  {
+    "rank": 48,
+    "item_name": "Hanover House"
+  },
+  {
+    "rank": 49,
+    "item_name": "Mother's Day Out: A Margie Peterson Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Picture Miss Seeton"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

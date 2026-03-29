@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Tricked (Iron Druid Chronicles)"
+  },
+  {
+    "item_name": "Trapped (Iron Druid Chronicles)"
+  },
+  {
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "item_name": "Black Widow Forever Red (A Marvel YA Novel)"
+  },
+  {
+    "item_name": "Hollow City"
+  },
+  {
+    "item_name": "Library of Souls: The Third Novel of Miss Peregrine's Peculiar Children (Miss Peregrine's Home for Peculiar Children series, Book 3)"
+  },
+  {
+    "item_name": "Apprentice in Death: 43"
+  },
+  {
+    "item_name": "Green Arrow Vol. 1: The Death and Life Of Oliver Queen (Rebirth)"
+  },
+  {
+    "item_name": "Echoes in Death: An Eve Dallas Novel (In Death, Book 44)"
+  },
+  {
+    "item_name": "Norse Mythology CD"
+  },
+  {
+    "item_name": "Batman Vol. 1: I Am Gotham (Rebirth)"
+  },
+  {
+    "item_name": "Silence Fallen (A Mercy Thompson Novel)"
+  },
+  {
+    "item_name": "Broken Sword"
+  },
+  {
+    "item_name": "Stories of Your Life and Others"
+  },
+  {
+    "item_name": "Wonder Woman: Warbringer (DC Icons Series)"
+  },
+  {
+    "item_name": "Runemarks"
+  },
+  {
+    "item_name": "The Magic Misfits"
+  },
+  {
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "item_name": "The Northern Lights: A Novel"
+  },
+  {
+    "item_name": "The Amber Spyglass"
+  },
+  {
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "item_name": "The Subtle Knife (His Dark Materials, Book 2)"
+  },
+  {
+    "item_name": "The Amber Spyglass"
+  },
+  {
+    "item_name": "His Dark Materials: The Golden Compass / The Subtle Knife / The Amber Spyglass"
+  },
+  {
+    "item_name": "Indigo: A Novel"
+  },
+  {
+    "item_name": "Lyra's Oxford"
+  },
+  {
+    "item_name": "Secrets in Death: An Eve Dallas Novel (In Death, Book 45)"
+  },
+  {
+    "item_name": "Binti"
+  },
+  {
+    "item_name": "The Three-Body Problem (Remembrance of Earth's Past)"
+  },
+  {
+    "item_name": "Dark in Death: An Eve Dallas Novel (In Death, Book 46)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Magic Bites: A Special Edition of the First Kate Daniels Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 3,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse/True Blood, Book 2)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Iron Kissed (Mercy Thompson, Book 3)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Magic Bleeds (Kate Daniels)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Enslave Me Sweetly (Alien Huntress, Book 2)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Magic Burns (Kate Daniels)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Magic Study (Study Series)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Storm Front (Dresden Files (Unnumbered Paperback))"
+  },
+  {
+    "rank": 10,
+    "item_name": "Grave Peril (The Dresden Files, Book 3)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse) By Charlaine Harris"
+  },
+  {
+    "rank": 12,
+    "item_name": "Shiver"
+  },
+  {
+    "rank": 13,
+    "item_name": "Saga, Vol. 2"
+  },
+  {
+    "rank": 14,
+    "item_name": "Rosemary and Rue (October Daye)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Long Way Home (Buffy the Vampire Slayer, Season 8, Vol. 1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Lies (Gone)"
+  },
+  {
+    "rank": 17,
+    "item_name": "White Witch, Black Curse"
+  },
+  {
+    "rank": 18,
+    "item_name": "Harry Potter and the Prisoner of Azkaban"
+  },
+  {
+    "rank": 19,
+    "item_name": "Club Dead (Sookie Stackhouse/True Blood, Book 3)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Iron Kissed (Mercy Thompson, Book 3)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Ready Player One"
+  },
+  {
+    "rank": 22,
+    "item_name": "Percy Jackson and the Sea of Monsters (Book 2)"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Perfect Blood"
+  },
+  {
+    "rank": 24,
+    "item_name": "Magic Strikes (Kate Daniels)"
+  },
+  {
+    "rank": 25,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 26,
+    "item_name": "Saga, Vol. 1 (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Harry Potter and the Chamber of Secrets"
+  },
+  {
+    "rank": 28,
+    "item_name": "Harry Potter And The Goblet Of Fire"
+  },
+  {
+    "rank": 29,
+    "item_name": "Eldest (Inheritance, Book 2)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Boneshaker"
+  },
+  {
+    "rank": 31,
+    "item_name": "Lover Avenged (Black Dagger Brotherhood, Book 7)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Vision in Silver (A Novel of the Others)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Angels' Blood (Guild Hunter, Book 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "My Soul to Save (Soul Screamers Book 2)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Summer Knight (Dresden Files)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Touched by an Alien (Alien Novels)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Dark Lover (Black Dagger Brotherhood, Book 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Lover Eternal (Black Dagger Brotherhood, Book 2)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Undead Pool"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Final Empire: Mistborn Book One"
+  },
+  {
+    "rank": 42,
+    "item_name": "Mort"
+  },
+  {
+    "rank": 43,
+    "item_name": "Changeless (The Parasol Protectorate)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Cry Wolf (Alpha and Omega)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Spell For Chameleon (The Magic of Xanth, Volume One)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Princess Bride (Fox): S. Morgenstern's Classic Tale of True Love and High Adventure"
+  },
+  {
+    "rank": 48,
+    "item_name": "You Slay Me (Aisling Grey, Guardian, Book 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Hyperion (Hyperion Cantos)"
+  },
+  {
+    "rank": 50,
+    "item_name": "EVER AFTER PB"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

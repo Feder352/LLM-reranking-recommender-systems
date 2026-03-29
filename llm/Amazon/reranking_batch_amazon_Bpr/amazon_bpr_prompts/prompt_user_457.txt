@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Independent People"
+  },
+  {
+    "item_name": "Brief Interviews with Hideous Men"
+  },
+  {
+    "item_name": "How Proust Can Change Your Life"
+  },
+  {
+    "item_name": "The Circle"
+  },
+  {
+    "item_name": "Ragtime"
+  },
+  {
+    "item_name": "October: The Story of the Russian Revolution"
+  },
+  {
+    "item_name": "The Heart's Invisible Furies"
+  },
+  {
+    "item_name": "At the Existentialist Caf: Freedom, Being, and Apricot Cocktails"
+  },
+  {
+    "item_name": "Why Buddhism is True: The Science and Philosophy of Meditation and Enlightenment"
+  },
+  {
+    "item_name": "Solar Bones"
+  },
+  {
+    "item_name": "Tao: The Watercourse Way"
+  },
+  {
+    "item_name": "The Way of Zen"
+  },
+  {
+    "item_name": "The Inheritors"
+  },
+  {
+    "item_name": "The Telling"
+  },
+  {
+    "item_name": "The Big Picture: On the Origins of Life, Meaning, and the Universe Itself"
+  },
+  {
+    "item_name": "Dunbar: William Shakespeare's King Lear Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "item_name": "Bad Religion: How We Became a Nation of Heretics"
+  },
+  {
+    "item_name": "Going Clear: Scientology, Hollywood, and the Prison of Belief"
+  },
+  {
+    "item_name": "Lionel Asbo: State of England (Vintage International)"
+  },
+  {
+    "item_name": "When the English Fall: A Novel"
+  },
+  {
+    "item_name": "Mao II: A Novel"
+  },
+  {
+    "item_name": "I Am Charlotte Simmons"
+  },
+  {
+    "item_name": "Fools, Frauds and Firebrands: Thinkers of the New Left"
+  },
+  {
+    "item_name": "Your Band Sucks: What I Saw at Indie Rock's Failed Revolution (But Can No Longer Hear)"
+  },
+  {
+    "item_name": "History of Wolves: A Novel"
+  },
+  {
+    "item_name": "Nearer, My God: An Autobiography of Faith"
+  },
+  {
+    "item_name": "The Road to Jonestown: Jim Jones and Peoples Temple"
+  },
+  {
+    "item_name": "In God's Name"
+  },
+  {
+    "item_name": "God's Undertaker: Has Science Buried God?"
+  },
+  {
+    "item_name": "Enlightenment Now: The Case for Reason, Science, Humanism, and Progress [Paperback] [Feb 12, 2018] Steven Pinker"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Shock Doctrine: The Rise of Disaster Capitalism"
+  },
+  {
+    "rank": 2,
+    "item_name": "Exit Ghost"
+  },
+  {
+    "rank": 3,
+    "item_name": "Memories of My Melancholy Whores. Gabriel Garca Mrquez"
+  },
+  {
+    "rank": 4,
+    "item_name": "Darkness Visible"
+  },
+  {
+    "rank": 5,
+    "item_name": "Power and the Glory"
+  },
+  {
+    "rank": 6,
+    "item_name": "Justice: What's the Right Thing to Do?"
+  },
+  {
+    "rank": 7,
+    "item_name": "Fiasco: The American Military Adventure in Iraq"
+  },
+  {
+    "rank": 8,
+    "item_name": "Brighton Rock"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Corrections"
+  },
+  {
+    "rank": 10,
+    "item_name": "An Open Book"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Nine: Inside the Secret World of the Supreme Court"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 13,
+    "item_name": "Disgrace: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Age of Reagan: A History, 1974-2008"
+  },
+  {
+    "rank": 15,
+    "item_name": "White Teeth"
+  },
+  {
+    "rank": 16,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Dean's December"
+  },
+  {
+    "rank": 18,
+    "item_name": "Appointment in Samarra (Vintage Classics)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Castle (Oxford World's Classics)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Just How Stupid Are We?: Facing the Truth About the American Voter"
+  },
+  {
+    "rank": 21,
+    "item_name": "The Things They Carried (Contemporary American Fiction)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Three-Arched Bridge"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Alexandria Quartet"
+  },
+  {
+    "rank": 24,
+    "item_name": "American Theocracy: The Peril and Politics of Radical Religion, Oil, and Borrowed Money in the 21st Century"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 26,
+    "item_name": "Night: With Connected Readings"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Emigrants"
+  },
+  {
+    "rank": 28,
+    "item_name": "Pity the Billionaire: The Hard-Times Swindle and the Unlikely Comeback of the Right"
+  },
+  {
+    "rank": 29,
+    "item_name": "The White Tiger: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "Foe"
+  },
+  {
+    "rank": 31,
+    "item_name": "Jazz: A History of America's Music"
+  },
+  {
+    "rank": 32,
+    "item_name": "Moonwalking with Einstein: The Art and Science of Remembering Everything"
+  },
+  {
+    "rank": 33,
+    "item_name": "Visitation (New Directions Paperbook)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Dark Money: The Hidden History of the Billionaires Behind the Rise of the Radical Right"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Lost"
+  },
+  {
+    "rank": 36,
+    "item_name": "Thinking, Fast and Slow"
+  },
+  {
+    "rank": 37,
+    "item_name": "Elizabeth Costello: Fiction"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Amazing Adventures of Kavalier &amp; Clay"
+  },
+  {
+    "rank": 39,
+    "item_name": "A Godly Hero: The Life of William Jennings Bryan"
+  },
+  {
+    "rank": 40,
+    "item_name": "Distant Star"
+  },
+  {
+    "rank": 41,
+    "item_name": "Tree of Smoke"
+  },
+  {
+    "rank": 42,
+    "item_name": "A Problem from Hell : America and the Age of Genocide"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 44,
+    "item_name": "Collected Stories"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Castle (Modern Library, 388.1)"
+  },
+  {
+    "rank": 46,
+    "item_name": "King Leopold's Ghost: A Story of Greed, Terror, and Heroism in Colonial Africa"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Streetcar Named Desire CD"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Glass Menagerie (Modern Classics (Penguin))"
+  },
+  {
+    "rank": 49,
+    "item_name": "Hellhound on His Trail: The Electrifying Account of the Largest Manhunt in American History"
+  },
+  {
+    "rank": 50,
+    "item_name": "Darkness at Noon"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

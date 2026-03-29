@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Sacred Search: What If It's Not about Who You Marry, But Why?"
+  },
+  {
+    "item_name": "Naked Statistics: Stripping the Dread from the Data"
+  },
+  {
+    "item_name": "Disney U: How Disney University Develops the World's Most Engaged, Loyal, and Customer-Centric Employees"
+  },
+  {
+    "item_name": "Decisive: How to Make Better Choices in Life and Work"
+  },
+  {
+    "item_name": "Insourcing: Bringing Discipleship Back to the Local Church (Leadership Network Innovation Series)"
+  },
+  {
+    "item_name": "The I of Leadership: Strategies for Seeing, Being and Doing"
+  },
+  {
+    "item_name": "The Spiritual Danger of Doing Good"
+  },
+  {
+    "item_name": "The Firm: The Story of McKinsey and Its Secret Influence on American Business"
+  },
+  {
+    "item_name": "Innovation's Dirty Little Secret: Why Serial Innovators Succeed Where Others Fail (Leadership Network Innovation Series)"
+  },
+  {
+    "item_name": "How to Be Rich: It's Not What You Have. It's What You Do With What You Have."
+  },
+  {
+    "item_name": "Leaders Eat Last: Why Some Teams Pull Together and Others Don't"
+  },
+  {
+    "item_name": "Big Data at Work: Dispelling the Myths, Uncovering the Opportunities"
+  },
+  {
+    "item_name": "I Like Giving: The Transforming Power of a Generous Life"
+  },
+  {
+    "item_name": "What's Best Next: How the Gospel Transforms the Way You Get Things Done"
+  },
+  {
+    "item_name": "It's Not the How or the What but the Who: Succeed by Surrounding Yourself with the Best"
+  },
+  {
+    "item_name": "How Do I Keep My Employees Motivated?"
+  },
+  {
+    "item_name": "Billy Graham: Leading with Love: 5 Timeless Principles for Effective Leaders"
+  },
+  {
+    "item_name": "Own Your Future: How to Think Like an Entrepreneur and Thrive in an Unpredictable Economy"
+  },
+  {
+    "item_name": "Lead with Humility: 12 Leadership Lessons from Pope Francis"
+  },
+  {
+    "item_name": "Prayer"
+  },
+  {
+    "item_name": "Renegade Gospel: The Rebel Jesus (Renegade Gospel series)"
+  },
+  {
+    "item_name": "Digital Disruption: Unleashing the Next Wave of Innovation"
+  },
+  {
+    "item_name": "Confronting Capitalism: Real Solutions for a Troubled Economic System"
+  },
+  {
+    "item_name": "Return on Character: The Real Reason Leaders and Their Companies Win"
+  },
+  {
+    "item_name": "HBR's 10 Must Reads 2015: The Definitive Management Ideas of the Year from Harvard Business Review (with bonus McKinsey AwardWinning article The Focused Leader) (HBR's 10 Must Reads)"
+  },
+  {
+    "item_name": "Content Inc.: How Entrepreneurs Use Content to Build Massive Audiences and Create Radically  Successful Businesses"
+  },
+  {
+    "item_name": "The Entitlement Cure: Finding Success in Doing Hard Things the Right Way"
+  },
+  {
+    "item_name": "Concrete Economics: The Hamilton Approach to Economic Growth and Policy"
+  },
+  {
+    "item_name": "Integrity at Stake: Safeguarding Your Church from Financial Fraud"
+  },
+  {
+    "item_name": "Competing Against Luck: The Story of Innovation and Customer Choice"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 5613,
+    "item_name": "Think and Grow Rich"
+  },
+  {
+    "rank": 2,
+    "item_id": 38280,
+    "item_name": "The 1% Solution for Work and Life: How to Make Your Next 30 Days the Best Ever"
+  },
+  {
+    "rank": 3,
+    "item_id": 63545,
+    "item_name": "One Big Thing: Discovering What You Were Born to Do"
+  },
+  {
+    "rank": 4,
+    "item_id": 9375,
+    "item_name": "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time"
+  },
+  {
+    "rank": 5,
+    "item_id": 37596,
+    "item_name": "Fearless: Imagine Your Life Without Fear"
+  },
+  {
+    "rank": 6,
+    "item_id": 10496,
+    "item_name": "The Happiness Advantage: The Seven Principles of Positive Psychology That Fuel Success and Performance at Work"
+  },
+  {
+    "rank": 7,
+    "item_id": 67175,
+    "item_name": "Getting Beyond Better: How Social Entrepreneurship Works"
+  },
+  {
+    "rank": 8,
+    "item_id": 6956,
+    "item_name": "Purple Cow: Transform Your Business by Being Remarkable"
+  },
+  {
+    "rank": 9,
+    "item_id": 62285,
+    "item_name": "1,000 Dollars and an Idea: Entrepreneur to Billionaire"
+  },
+  {
+    "rank": 10,
+    "item_id": 6067,
+    "item_name": "The Talent Code: Greatness Isn't Born. It's Grown."
+  },
+  {
+    "rank": 11,
+    "item_id": 43799,
+    "item_name": "Meltdown: A Free-Market Look at Why the Stock Market Collapsed, the Economy Tanked, and Government Bailouts Will Make Things Worse"
+  },
+  {
+    "rank": 12,
+    "item_id": 29693,
+    "item_name": "The Magic of Thinking Big"
+  },
+  {
+    "rank": 13,
+    "item_id": 38463,
+    "item_name": "The Skinny on Success: Why not you?"
+  },
+  {
+    "rank": 14,
+    "item_id": 66815,
+    "item_name": "It Starts With Food: Discover the Whole30 and Change Your Life in Unexpected Ways"
+  },
+  {
+    "rank": 15,
+    "item_id": 6219,
+    "item_name": "Little Green Book of Getting Your Way: How to Speak, Write, Present, Persuade, Influence, and Sell Your Point of View to Others"
+  },
+  {
+    "rank": 16,
+    "item_id": 48940,
+    "item_name": "How Successful People Think: Change Your Thinking, Change Your Life"
+  },
+  {
+    "rank": 17,
+    "item_id": 37599,
+    "item_name": "The Principle of the Path: How to Get from Where You Are to Where You Want to Be"
+  },
+  {
+    "rank": 18,
+    "item_id": 77823,
+    "item_name": "Stop Spending, Start Managing: Strategies to Transform Wasteful Habits"
+  },
+  {
+    "rank": 19,
+    "item_id": 23735,
+    "item_name": "Thinking for a Change: 11 Ways Highly Successful People Approach Life and Work"
+  },
+  {
+    "rank": 20,
+    "item_id": 46570,
+    "item_name": "A Whole New Mind: Why Right-Brainers Will Rule the Future"
+  },
+  {
+    "rank": 21,
+    "item_id": 38183,
+    "item_name": "Get Slightly Famous: Become a Celebrity in Your Field and Attract More Business with Less Effort"
+  },
+  {
+    "rank": 22,
+    "item_id": 7284,
+    "item_name": "David and Goliath: Art of Battling Giants (A)"
+  },
+  {
+    "rank": 23,
+    "item_id": 11222,
+    "item_name": "The Purpose Driven Life"
+  },
+  {
+    "rank": 24,
+    "item_id": 28839,
+    "item_name": "Why Are We So Clueless about the Stock Market?: Learn how to invest your money, how to pick stocks, and how to make money in the stock market"
+  },
+  {
+    "rank": 25,
+    "item_id": 15372,
+    "item_name": "Mindset: The New Psychology of Success"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

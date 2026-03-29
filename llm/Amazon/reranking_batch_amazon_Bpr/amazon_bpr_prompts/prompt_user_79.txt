@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "An Echo of Murder: A William Monk Novel"
+  },
+  {
+    "item_name": "Saints of the Shadow Bible (A Rebus Novel)"
+  },
+  {
+    "item_name": "Old Bones: A British Police Procedural (A Bill Slider Mystery)"
+  },
+  {
+    "item_name": "The Secrets of Mary Bowser"
+  },
+  {
+    "item_name": "My Name Is Lucy Barton: A Novel"
+  },
+  {
+    "item_name": "A Christmas Return: A Novel"
+  },
+  {
+    "item_name": "The Usual Santas: A Collection of Soho Crime Christmas Capers"
+  },
+  {
+    "item_name": "Mrs. Jeffries Rights a Wrong (A Victorian Mystery)"
+  },
+  {
+    "item_name": "The Midnight Line: A Jack Reacher Novel"
+  },
+  {
+    "item_name": "Hidden Depths"
+  },
+  {
+    "item_name": "Mrs. Jeffries and the Three Wise Women (A Victorian Mystery)"
+  },
+  {
+    "item_name": "Midnight at the Bright Ideas Bookstore: A Novel"
+  },
+  {
+    "item_name": "He Said/She Said: A Novel"
+  },
+  {
+    "item_name": "What the Dead Leave Behind (Gilded Age Mystery)"
+  },
+  {
+    "item_name": "The Invention of Wings"
+  },
+  {
+    "item_name": "The Mermaids Singing"
+  },
+  {
+    "item_name": "Grist Mill Road"
+  },
+  {
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "item_name": "Love and Other Consolation Prizes: A Novel"
+  },
+  {
+    "item_name": "A Cold Day in Hell (A Cold Case Investigation)"
+  },
+  {
+    "item_name": "The Atomic City Girls: A Novel"
+  },
+  {
+    "item_name": "Death of an Honest Man (A Hamish Macbeth Mystery)"
+  },
+  {
+    "item_name": "The Secrets She Keeps: A Novel"
+  },
+  {
+    "item_name": "Britt-marie Was Here (Thorndike Core)"
+  },
+  {
+    "item_name": "Grief Cottage (Thorndike Press Large Print Basic)"
+  },
+  {
+    "item_name": "Midnight in the Garden of Good and Evil (AUDIO CD)"
+  },
+  {
+    "item_name": "Midnight in the Garden of Good and Evil"
+  },
+  {
+    "item_name": "The Punishment She Deserves: A Lynley Novel"
+  },
+  {
+    "item_name": "The Broken Girls"
+  },
+  {
+    "item_name": "Louisiana Longshot: A Miss Fortune Mystery (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Sure of You"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Murder of Roger Ackroyd (Poirot)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Clouds of Witness"
+  },
+  {
+    "rank": 4,
+    "item_name": "Mystery Mile: A Campion Mystery"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Concrete Blonde (Harry Bosch)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Murder on the Ballarat Train"
+  },
+  {
+    "rank": 7,
+    "item_name": "Whose Body? (Lord Peter Wimsey Mysteries)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Crossing Places (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Death of a Cozy Writer (A St. Just Mystery)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Black Dudley Murder"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Bloody Tower (Daisy Dalrymple Mysteries, No. 16)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Fourth Bear: A Nursery Crime (Jack Spratt Investigates)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Dead Man's Chest (Miss Fisher's Murder Mysteries)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Her Royal Spyness"
+  },
+  {
+    "rank": 15,
+    "item_name": "Murder, With Peacocks (Meg Langslow Mysteries)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Locked Rooms: A novel of suspense featuring Mary Russell and Sherlock Holmes"
+  },
+  {
+    "rank": 17,
+    "item_name": "One Good Turn"
+  },
+  {
+    "rank": 18,
+    "item_name": "Aunt Dimity and the Duke (Aunt Dimity Mystery)"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Lesson in Secrets: A Maisie Dobbs Novel"
+  },
+  {
+    "rank": 20,
+    "item_name": "Whispers Under Ground (Rivers of London Book 3) eBook"
+  },
+  {
+    "rank": 21,
+    "item_name": "A Week in Winter"
+  },
+  {
+    "rank": 22,
+    "item_name": "Fall of a Philanderer (Daisy Dalrymple Mysteries, No. 14)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Tilt-a-Whirl"
+  },
+  {
+    "rank": 24,
+    "item_name": "Detective Inspector Huss"
+  },
+  {
+    "rank": 25,
+    "item_name": "Track of the Cat (Anna Pigeon)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Ten Big Ones (Stephanie Plum Novels)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Talented MR Ripley"
+  },
+  {
+    "rank": 28,
+    "item_name": "Hercule Poirot's Christmas (Agatha Christie Collection)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Cater Street Hangman: The First Charlotte and Thomas Pitt Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Dying Fall (Ruth Galloway Mystery) (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Deja Dead"
+  },
+  {
+    "rank": 32,
+    "item_name": "A Long Shadow: An Inspector Ian Rutledge Mystery (Inspector Ian Rutledge Mysteries)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Thief of Time, A  Low Price"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Late Scholar"
+  },
+  {
+    "rank": 35,
+    "item_name": "Death at La Fenice: A Novel of Suspense"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Twelve Clues of Christmas: A Royal Spyness Mystery"
+  },
+  {
+    "rank": 37,
+    "item_name": "Nights of Rain and Stars"
+  },
+  {
+    "rank": 38,
+    "item_name": "Case Histories: A Novel"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Nursing Home Murder (Roderick Alleyn)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Blood and Circuses (Miss Fisher's Murder Mysteries)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Victoria's Daughters"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Green Mill Murder (Phryne Fisher Mystery)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Fifth Witness (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Big Nap (Mommy-Track Mystery)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Thereby Hangs a Tail: A Chet and Bernie Mystery (The Chet and Bernie Mystery Series)"
+  },
+  {
+    "rank": 46,
+    "item_name": "A Deeper Sleep (Kate Shugak Mysteries, No. 15)"
+  },
+  {
+    "rank": 47,
+    "item_name": "A Rule Against Murder: A Chief Inspector Gamache Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Murder on the Orient Express (Hercule Poirot)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Death at Victoria Dock (Phryne Fisher)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Oxford Bookworms Library: Level 4: A Morbid Taste for Bones1400 Headwords"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

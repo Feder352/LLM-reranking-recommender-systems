@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Earth, the City, and the Hidden Narrative of Race"
+  },
+  {
+    "item_name": "The Sky Is Yours: A Novel"
+  },
+  {
+    "item_name": "The War on Kids: How American Juvenile Justice Lost Its Way"
+  },
+  {
+    "item_name": "The Feminist Revolution: The Struggle for Women's Liberation"
+  },
+  {
+    "item_name": "A False Report: A True Story of Rape in America"
+  },
+  {
+    "item_name": "Americanized: Rebel Without a Green Card"
+  },
+  {
+    "item_name": "I'm Still Here: Black Dignity in a World Made for Whiteness"
+  },
+  {
+    "item_name": "If Apples Had Teeth"
+  },
+  {
+    "item_name": "Bring Out the Dog: Stories"
+  },
+  {
+    "item_name": "A Season in the Sun: The Rise of Mickey Mantle"
+  },
+  {
+    "item_name": "Patriot Number One: American Dreams in Chinatown"
+  },
+  {
+    "item_name": "Waco: A Survivor's Story"
+  },
+  {
+    "item_name": "The Girl: Marilyn Monroe, The Seven Year Itch, and the Birth of an Unlikely Feminist"
+  },
+  {
+    "item_name": "Absolute Power: How the Pope Became the Most Influential Man in the World"
+  },
+  {
+    "item_name": "Odd Girl Out (Signature)"
+  },
+  {
+    "item_name": "Blood Letters: The Untold Story of Lin Zhao, a Martyr in Mao's China"
+  },
+  {
+    "item_name": "Down the River unto the Sea"
+  },
+  {
+    "item_name": "Time Bomb"
+  },
+  {
+    "item_name": "Great American Outpost: Dreamers, Mavericks, and the Making of an Oil Frontier"
+  },
+  {
+    "item_name": "The War on Neighborhoods: Policing, Prison, and Punishment in a Divided City"
+  },
+  {
+    "item_name": "The Pope Who Would Be King: The Exile of Pius IX and the Emergence of Modern Europe"
+  },
+  {
+    "item_name": "You Think It, I'll Say It: Stories"
+  },
+  {
+    "item_name": "The Indian World of George Washington: The First President, the First Americans, and the Birth of the Nation"
+  },
+  {
+    "item_name": "The Darkening Age: The Christian Destruction of the Classical World"
+  },
+  {
+    "item_name": "Ohio"
+  },
+  {
+    "item_name": "Rough Animals: An American Western Thriller"
+  },
+  {
+    "item_name": "The Heritage: Black Athletes, a Divided America, and the Politics of Patriotism"
+  },
+  {
+    "item_name": "From the Corner of the Oval: A Memoir"
+  },
+  {
+    "item_name": "What the Eyes Don't See: A Story of Crisis, Resistance, and Hope in an American City"
+  },
+  {
+    "item_name": "Founding Martyr: The Life and Death of Dr. Joseph Warren, the American Revolution's Lost Hero"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Mystic River"
+  },
+  {
+    "rank": 2,
+    "item_name": "Billy Lynn's Long Halftime Walk"
+  },
+  {
+    "rank": 3,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 4,
+    "item_name": "NOS4A2: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Last Coyote (Harry Bosch)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Night Film [Paperback] [Jan 01, 2013] Pessl, Marisha"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Reversal (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 9,
+    "item_name": "Seveneves"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Book of the Dead"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Black Echo (Harry Bosch)"
+  },
+  {
+    "rank": 12,
+    "item_name": "At Home: A Short History of Private Life (Random House Large Print)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Jonathan Strange and Mr. Norrell"
+  },
+  {
+    "rank": 14,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 15,
+    "item_name": "Lost Light"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Strain (The Strain Trilogy)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Twelve Days (A John Wells Novel)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Art of Fielding: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Shadow of the Wind"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Lost Symbol (Dan Brown)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Darkly Dreaming Dexter"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Antagonist"
+  },
+  {
+    "rank": 24,
+    "item_name": "Dark Matter"
+  },
+  {
+    "rank": 25,
+    "item_name": "City of Secrets: A Novel - Kindle edition"
+  },
+  {
+    "rank": 26,
+    "item_name": "A Death In Vienna (Silva, Daniel)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Amber Spyglass"
+  },
+  {
+    "rank": 29,
+    "item_name": "Among Others"
+  },
+  {
+    "rank": 30,
+    "item_name": "Evil at Heart (Archie Sheridan &amp; Gretchen Lowell)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Rosie Project"
+  },
+  {
+    "rank": 32,
+    "item_name": "Old Man's War"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Oregon Trail: A New American Journey"
+  },
+  {
+    "rank": 34,
+    "item_name": "Hollywood Moon: A Novel (Hollywood Station)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Gunslinger (The Dark Tower, Book 1)"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Making of Home: The 500-Year Story of How Our Houses Became Our Homes"
+  },
+  {
+    "rank": 37,
+    "item_name": "John Dies at the End"
+  },
+  {
+    "rank": 38,
+    "item_name": "Under the Dome"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Vatican Prophecies: Investigating Supernatural Signs, Apparitions, and Miracles in the Modern Age"
+  },
+  {
+    "rank": 40,
+    "item_name": "Timeline"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Border"
+  },
+  {
+    "rank": 42,
+    "item_name": "Ruins of War: A Mason Collins Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "The God's Eye View"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Last Days of Jack Sparks"
+  },
+  {
+    "rank": 45,
+    "item_name": "Wish You Were Here"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Road"
+  },
+  {
+    "rank": 47,
+    "item_name": "Never Go Back: A Jack Reacher Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "The Girl With Nine Wigs: A Memoir"
+  },
+  {
+    "rank": 49,
+    "item_name": "Best. State. Ever.: A Florida Man Defends His Homeland"
+  },
+  {
+    "rank": 50,
+    "item_name": "Cold Vengeance"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

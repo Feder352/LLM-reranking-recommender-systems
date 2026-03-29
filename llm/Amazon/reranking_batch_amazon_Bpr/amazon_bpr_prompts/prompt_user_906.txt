@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Vanishing Point: A Nikki Boyd Novel"
+  },
+  {
+    "item_name": "The Music Shop: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "The Music Shop [Jul 10, 2017] Joyce, Rachel"
+  },
+  {
+    "item_name": "Light It Up (A Peter Ash Novel)"
+  },
+  {
+    "item_name": "Down to No Good (Charlie Miner)"
+  },
+  {
+    "item_name": "Lullaby Road: A Novel"
+  },
+  {
+    "item_name": "I Can't Breathe: A Killing on Bay Street"
+  },
+  {
+    "item_name": "The Storm Before the Storm: The Beginning of the End of the Roman Republic"
+  },
+  {
+    "item_name": "Promise Not to Tell"
+  },
+  {
+    "item_name": "The English Wife: A Novel"
+  },
+  {
+    "item_name": "The Chalk Man"
+  },
+  {
+    "item_name": "Hellbent: An Orphan X Novel"
+  },
+  {
+    "item_name": "The Last Suppers"
+  },
+  {
+    "item_name": "False Witness: A Novel (Detective Cooper Devereaux)"
+  },
+  {
+    "item_name": "Splintered Silence (A Bone Gap Travellers Novel)"
+  },
+  {
+    "item_name": "Strangers: A Novel"
+  },
+  {
+    "item_name": "Death by Chocolate Cherry Cheesecake (A Death by Chocolate Mystery)"
+  },
+  {
+    "item_name": "Anatomy of a Scandal: The brilliant, must-read novel of 2018"
+  },
+  {
+    "item_name": "Silent Victim"
+  },
+  {
+    "item_name": "The Burial Society: A Novel"
+  },
+  {
+    "item_name": "The Missing Hours"
+  },
+  {
+    "item_name": "Missing Isaac"
+  },
+  {
+    "item_name": "Trespassing: A Novel"
+  },
+  {
+    "item_name": "The Echo Killing: A Mystery (A Harper McClain Mystery)"
+  },
+  {
+    "item_name": "The Line (Witching Savannah)"
+  },
+  {
+    "item_name": "The Waters &amp; The Wild: A Novel"
+  },
+  {
+    "item_name": "Dangerous Habits (Leah Nash Mysteries) (Volume 1)"
+  },
+  {
+    "item_name": "The Trials of Nina McCall: Sex, Surveillance, and the Decades-Long Government Plan to Imprison &quot;Promiscuous&quot; Women"
+  },
+  {
+    "item_name": "The High Tide Club: A Novel"
+  },
+  {
+    "item_name": "Sold on a Monday: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Cop Town: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Martian"
+  },
+  {
+    "rank": 3,
+    "item_name": "Personal"
+  },
+  {
+    "rank": 4,
+    "item_name": "Finders Keepers: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 6,
+    "item_name": "Heartbreak Hotel: An Alex Delaware Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "Vengeance is Mine: A Benjamin Tucker Mystery (Volume 1)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Before the Fall: The year's best suspense novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "Afraid"
+  },
+  {
+    "rank": 10,
+    "item_name": "Make Me: A Jack Reacher Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "When Breath Becomes Air"
+  },
+  {
+    "rank": 12,
+    "item_name": "Fear Dreams"
+  },
+  {
+    "rank": 13,
+    "item_name": "All Our Wrong Todays: A BBC Radio 2 Book Club Choice 2017"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Dead Key"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Chase (An Isaac Bell Adventure)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The City"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "rank": 19,
+    "item_name": "Fall"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Beauty of the End"
+  },
+  {
+    "rank": 21,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 22,
+    "item_name": "Go Set a Watchman: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Cuban Affair"
+  },
+  {
+    "rank": 24,
+    "item_name": "HILLBILLY ELEGY- PB"
+  },
+  {
+    "rank": 25,
+    "item_name": "Livia Lone (A Livia Lone Novel)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Memory Man (Amos Decker series)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Blood Defense (Samantha Brinkman)"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Fifth Petal"
+  },
+  {
+    "rank": 29,
+    "item_name": "One Second After (A John Matherson Novel)"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Bone Tree (Penn Cage)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Gunmetal Gray (Gray Man)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Season of the Witch"
+  },
+  {
+    "rank": 34,
+    "item_name": "Bitter Moon (The Huntress/FBI Thrillers)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Dry Bones: A Longmire Mystery"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Burning Room (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Girl on the Train"
+  },
+  {
+    "rank": 38,
+    "item_name": "Ashley Bell"
+  },
+  {
+    "rank": 39,
+    "item_name": "Texas Vigilante"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Rooster Bar"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Stranger You Seek: A Novel (Keye Street)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Among the Ten Thousand Things: A Novel"
+  },
+  {
+    "rank": 43,
+    "item_name": "Flesh and Blood CD: A Scarpetta Novel (Kay Scarpetta Series)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Every Dead Thing"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Farm"
+  },
+  {
+    "rank": 46,
+    "item_name": "Cookie's Case (The Tug Wyler Mysteries)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Pretty Girls"
+  },
+  {
+    "rank": 48,
+    "item_name": "Play Dead: A gripping serial killer thriller"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Murder Farm"
+  },
+  {
+    "rank": 50,
+    "item_name": "End of Watch"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

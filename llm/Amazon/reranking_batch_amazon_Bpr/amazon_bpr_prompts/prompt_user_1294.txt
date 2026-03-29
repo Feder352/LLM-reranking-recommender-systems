@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "A Dragonlings' Haunted Halloween"
+  },
+  {
+    "item_name": "A Wrinkle in Time"
+  },
+  {
+    "item_name": "Barefoot Chaos: A Smart Romantic Comedy (Beach Squad series) (Volume 3)"
+  },
+  {
+    "item_name": "For the Love of Luca (Chicago Syndicate) (Volume 8)"
+  },
+  {
+    "item_name": "Notorious Nineteen: A Stephanie Plum Novel"
+  },
+  {
+    "item_name": "Takedown Twenty (Stephanie Plum)"
+  },
+  {
+    "item_name": "Top Secret Twenty-One (Stephanie Plum)"
+  },
+  {
+    "item_name": "Tricky Twenty-Two: A Stephanie Plum Novel"
+  },
+  {
+    "item_name": "Turbo Twenty-Three: A Stephanie Plum Novel"
+  },
+  {
+    "item_name": "Hardcore Twenty-Four: A Stephanie Plum Novel"
+  },
+  {
+    "item_name": "Flipped (Better With Prosecco)"
+  },
+  {
+    "item_name": "Once and Always"
+  },
+  {
+    "item_name": "Romancing the Duke: Castles Ever After"
+  },
+  {
+    "item_name": "King Size"
+  },
+  {
+    "item_name": "Shopping for a Billionaire's Baby (Volume 13)"
+  },
+  {
+    "item_name": "The Designs of Lord Randolph Cavanaugh (The Cavanaughs)"
+  },
+  {
+    "item_name": "And Then She Fell (Cynster Sisters Duo)"
+  },
+  {
+    "item_name": "The Taming of Ryder Cavanaugh (Cynster Sisters Duo)"
+  },
+  {
+    "item_name": "To Taste Temptation (The Legend of the Four Soldiers)"
+  },
+  {
+    "item_name": "To Seduce a Sinner (The Legend of the Four Soldiers)"
+  },
+  {
+    "item_name": "To Beguile a Beast (The Legend of the Four Soldiers)"
+  },
+  {
+    "item_name": "To Desire a Devil (The Legend of the Four Soldiers)"
+  },
+  {
+    "item_name": "Better Off Dead: The Lily Harper Series (Volume 1)"
+  },
+  {
+    "item_name": "Size Matters (A Perfect Fit)"
+  },
+  {
+    "item_name": "Choosing Riley: Sarafin Warriors Book 1 (Volume 1)"
+  },
+  {
+    "item_name": "Cruise (Moonshine Task Force) (Volume 6)"
+  },
+  {
+    "item_name": "Viper's Defiant Mate: Sarafin Warriors Book 2 (Volume 2)"
+  },
+  {
+    "item_name": "On the Plus Side (A Perfect Fit)"
+  },
+  {
+    "item_name": "Darkest Perception: A Dark and Mind-Blowing Steamy Romance"
+  },
+  {
+    "item_name": "Lord of Secrets (Rogues to Riches) (Volume 5)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Lover Avenged (Black Dagger Brotherhood, Book 7)"
+  },
+  {
+    "rank": 2,
+    "item_name": "Licks"
+  },
+  {
+    "rank": 3,
+    "item_name": "Out Of Bounds (Brit Boys Sports Romance) (Volume 3)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Grey: Fifty Shades of Grey as Told by Christian (Fifty Shades of Grey Series)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Date The Billionaire"
+  },
+  {
+    "rank": 6,
+    "item_name": "Savage SEAL's Virgin: A Submissives Secrets Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "Rescue Me: A Bad Boy Romance"
+  },
+  {
+    "rank": 8,
+    "item_name": "Bared to You / Reflected in You / Entwined with You"
+  },
+  {
+    "rank": 9,
+    "item_name": "First Grave on the Right (Charley Davidson Series)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Somebody Tell Aunt Tillie She's Dead (Toad Witch Mysteries) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "F Buddy"
+  },
+  {
+    "rank": 12,
+    "item_name": "American Queen (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Lover Eternal (Black Dagger Brotherhood, Book 2)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Christmas Surprise: A Billionaire Single Daddy Romance"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Royal Treatment: A Crown Jewels Romantic Comedy, Book 1"
+  },
+  {
+    "rank": 16,
+    "item_name": "Broken: A Dark Romance"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Play (Brit Boys Sports Romance) (Volume 1)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Dirty"
+  },
+  {
+    "rank": 19,
+    "item_name": "Sexy Business: Vladimir Kensley"
+  },
+  {
+    "rank": 20,
+    "item_name": "Hot Daddy: A Single Dad Billionaire Romance"
+  },
+  {
+    "rank": 21,
+    "item_name": "Auctioned to the Biker"
+  },
+  {
+    "rank": 22,
+    "item_name": "Boxer Next Door"
+  },
+  {
+    "rank": 23,
+    "item_name": "Big: A Bad Boy Stepbrother Romance"
+  },
+  {
+    "rank": 24,
+    "item_name": "Burn for Me (Hidden Legacy)"
+  },
+  {
+    "rank": 25,
+    "item_name": "Surprise Daddy"
+  },
+  {
+    "rank": 26,
+    "item_name": "Loaded: An Enemies-to-Lovers Romance"
+  },
+  {
+    "rank": 27,
+    "item_name": "Billionaire Daddy &amp; Nanny"
+  },
+  {
+    "rank": 28,
+    "item_name": "Merciless"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Christmas Hims: A Christmas Romance"
+  },
+  {
+    "rank": 30,
+    "item_name": "Promise Me: A Second Chance Romance"
+  },
+  {
+    "rank": 31,
+    "item_name": "Accidental Hero: A Marriage Mistake Romance"
+  },
+  {
+    "rank": 32,
+    "item_name": "Dark Lover (Black Dagger Brotherhood, Book 1)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Grimoire: Lichgates: Book One of the Grimoire Trilogy"
+  },
+  {
+    "rank": 34,
+    "item_name": "Beta's Second Chance (Rocky Mountain Shifters) (Volume 4)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Play Me (Brit Boys Sports Romance) (Volume 4)"
+  },
+  {
+    "rank": 36,
+    "item_name": "A Cruel Kind of Beautiful (Sex, Love, and Rock and Roll series) (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Absinthe"
+  },
+  {
+    "rank": 38,
+    "item_name": "Holiday in Death[HOLIDAY IN DEATH][Prebound]"
+  },
+  {
+    "rank": 39,
+    "item_name": "Blind Attraction (Reckless Beat) (Volume 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "I Flipping Love You"
+  },
+  {
+    "rank": 41,
+    "item_name": "Passion: A Single Dad Small Town Romance"
+  },
+  {
+    "rank": 42,
+    "item_name": "Rockstar Retreat"
+  },
+  {
+    "rank": 43,
+    "item_name": "Beautiful Creatures. by Kami Garcia &amp; Margaret Stohl"
+  },
+  {
+    "rank": 44,
+    "item_name": "Missing From Me (Sixth Street Bands) (Volume 3)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Billionaire's Game"
+  },
+  {
+    "rank": 46,
+    "item_name": "Devour Me"
+  },
+  {
+    "rank": 47,
+    "item_name": "Beautifully Broken: Reckless Bastards MC"
+  },
+  {
+    "rank": 48,
+    "item_name": "Heartstopper"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Perfect Holiday: A Bad Boy New Year Romance"
+  },
+  {
+    "rank": 50,
+    "item_name": "Hearts in Darkness"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

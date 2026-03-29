@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Your Personal Paleo Code: The 3-Step Plan to Lose Weight, Reverse Disease, and Stay Fit and Healthy for Life"
+  },
+  {
+    "item_name": "Word Biblical Commentary: Psalms 1-50"
+  },
+  {
+    "item_name": "Incision Decisions: A Guide to Getting Through Surgery, Recovery, and Your Hospital Stay"
+  },
+  {
+    "item_name": "Reason and Responsibility: Readings in Some Basic Problems of Philosophy, 13th Edition"
+  },
+  {
+    "item_name": "Surgeon's Story: If You Can't Operate in Heels, You Can't Operate!"
+  },
+  {
+    "item_name": "The Smartest Guys in the Room: The Amazing Rise and Scandalous Fall of Enron"
+  },
+  {
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "item_name": "Philosophy of Religion"
+  },
+  {
+    "item_name": "Running the Books: The Adventures of an Accidental Prison Librarian"
+  },
+  {
+    "item_name": "What's Wrong?: Applied Ethicists and Their Critics"
+  },
+  {
+    "item_name": "The Laws of Simplicity (Simplicity: Design, Technology, Business, Life)"
+  },
+  {
+    "item_name": "The New World: A History of the English Speaking Peoples, Volume II (The Classic Collection)"
+  },
+  {
+    "item_name": "The Magic of Thinking Big"
+  },
+  {
+    "item_name": "The Roaring 2000s:  Building the Wealth and Life Style You Desire"
+  },
+  {
+    "item_name": "Commentary on the Gospel of Luke: The English Text"
+  },
+  {
+    "item_name": "First Epistle to the Corinthians (New International Commentary on the New Testament)"
+  },
+  {
+    "item_name": "Epistles of Paul to the Philippians and to Philemon (New International Commentary on the New Testament)"
+  },
+  {
+    "item_name": "The Book of Revelation (The New International Commentary on the New Testament)"
+  },
+  {
+    "item_name": "Reason and Responsibility: Readings in Some Basic Problems of Philosophy, 13th Edition"
+  },
+  {
+    "item_name": "Abortion: A Rational Look at An Emotional Issue"
+  },
+  {
+    "item_name": "The Age of Louis XIV (The Story of Civilization VIII)"
+  },
+  {
+    "item_name": "Falling Into Place: A Memoir of Overcoming"
+  },
+  {
+    "item_name": "There's a Hair in My Dirt!: A Worm's Story"
+  },
+  {
+    "item_name": "Charismatic Chaos"
+  },
+  {
+    "item_name": "Fundamentals of Business Law: Summarized Cases (Cengage Advantage Books)"
+  },
+  {
+    "item_name": "Listening Is an Act of Love: A Celebration of American Life from the StoryCorps Project (Penguin Books for English: Developmental)"
+  },
+  {
+    "item_name": "The Conservative Intellectual Movement in America Since 1945"
+  },
+  {
+    "item_name": "Finnegans Wake: Centennial Edition"
+  },
+  {
+    "item_name": "Consider Ethics: Theory, Readings, and Contemporary Issues (3rd Edition)"
+  },
+  {
+    "item_name": "Philosophy of Religion"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 77673,
+    "item_name": "Epistles of Paul to the Philippians and to Philemon (New International Commentary on the New Testament)"
+  },
+  {
+    "rank": 2,
+    "item_id": 77674,
+    "item_name": "The First and Second Epistles to the Thessalonians (New International Commentary on the New Testament)"
+  },
+  {
+    "rank": 3,
+    "item_id": 78064,
+    "item_name": "First Epistle to the Corinthians (New International Commentary on the New Testament)"
+  },
+  {
+    "rank": 4,
+    "item_id": 77671,
+    "item_name": "Commentary on the Gospel of Luke: The English Text"
+  },
+  {
+    "rank": 5,
+    "item_id": 37964,
+    "item_name": "Commentary on the Old Testament"
+  },
+  {
+    "rank": 6,
+    "item_id": 77388,
+    "item_name": "What's Wrong?: Applied Ethicists and Their Critics"
+  },
+  {
+    "rank": 7,
+    "item_id": 19986,
+    "item_name": "Doing Ethics: Moral Reasoning and Contemporary Issues Custom Third Edition"
+  },
+  {
+    "rank": 8,
+    "item_id": 77672,
+    "item_name": "Theological Dictionary of the New Testament (Volume VI)"
+  },
+  {
+    "rank": 9,
+    "item_id": 74793,
+    "item_name": "World as Will and Representation. Volume 1 Only"
+  },
+  {
+    "rank": 10,
+    "item_id": 26527,
+    "item_name": "Archetypes of Wisdom: An Introduction to Philosophy, Cloth Edition (with CD-ROM and InfoTrac)"
+  },
+  {
+    "rank": 11,
+    "item_id": 914,
+    "item_name": "The Elements of Editing: A Modern Guide for Editors and Journalists (Elements of Series)"
+  },
+  {
+    "rank": 12,
+    "item_id": 26131,
+    "item_name": "Reason and Responsibility: Readings in Some Basic Problems of Philosophy, 13th Edition"
+  },
+  {
+    "rank": 13,
+    "item_id": 26363,
+    "item_name": "Suzanne Somers' Eat Great, Lose Weight"
+  },
+  {
+    "rank": 14,
+    "item_id": 10719,
+    "item_name": "The Wisdom of Insecurity: A Message for an Age of Anxiety"
+  },
+  {
+    "rank": 15,
+    "item_id": 21242,
+    "item_name": "The Open Society and its Enemies: Hegel and Marx (Routledge Classics) (Vol 2)"
+  },
+  {
+    "rank": 16,
+    "item_id": 20162,
+    "item_name": "The History of Sexuality, Vol. 3: The Care of the Self"
+  },
+  {
+    "rank": 17,
+    "item_id": 6766,
+    "item_name": "Autobiography (Penguin Classics)"
+  },
+  {
+    "rank": 18,
+    "item_id": 30139,
+    "item_name": "Sren Kierkegaard: A Biography"
+  },
+  {
+    "rank": 19,
+    "item_id": 35038,
+    "item_name": "Word Biblical Commentary: Psalms 1-50"
+  },
+  {
+    "rank": 20,
+    "item_id": 37886,
+    "item_name": "L'Abri (New Expanded Edition)"
+  },
+  {
+    "rank": 21,
+    "item_id": 35772,
+    "item_name": "My Glimpse of Eternity"
+  },
+  {
+    "rank": 22,
+    "item_id": 29709,
+    "item_name": "The Mind of God: The Scientific Basis for a Rational World"
+  },
+  {
+    "rank": 23,
+    "item_id": 29503,
+    "item_name": "The Age of Louis XIV (The Story of Civilization VIII)"
+  },
+  {
+    "rank": 24,
+    "item_id": 36807,
+    "item_name": "Irreligion: A Mathematician Explains Why the Arguments for God Just Don't Add Up"
+  },
+  {
+    "rank": 25,
+    "item_id": 1450,
+    "item_name": "Every Knee Shall Bow : The Truth &amp; Tragedy of Ruby Ridge &amp; The Randy Weaver Family"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

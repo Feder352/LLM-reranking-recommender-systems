@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Pool"
+  },
+  {
+    "item_name": "The Glass Gauntlet (The Blood Guard)"
+  },
+  {
+    "item_name": "Voyagers: Game of Flames (Book 2)"
+  },
+  {
+    "item_name": "Voyagers: Project Alpha (Book1)"
+  },
+  {
+    "item_name": "Immortal Guardians (Spirit Animals: Fall of the Beasts, Book 1)"
+  },
+  {
+    "item_name": "Who Done It?"
+  },
+  {
+    "item_name": "The Story of Diva and Flea"
+  },
+  {
+    "item_name": "The Letter for the King"
+  },
+  {
+    "item_name": "Thankful"
+  },
+  {
+    "item_name": "Thankful - Kindle edition"
+  },
+  {
+    "item_name": "Goodnight, Manger"
+  },
+  {
+    "item_name": "Treasury of Norse Mythology: Stories of Intrigue, Trickery, Love, and Revenge"
+  },
+  {
+    "item_name": "Sir Princess Petras Mission (The Pen Pieyu Adventures, book 3)"
+  },
+  {
+    "item_name": "The Monster Realm"
+  },
+  {
+    "item_name": "Miist (The Bone Grit Historeum) (Volume 1)"
+  },
+  {
+    "item_name": "The Miraculous Journey of Edward Tulane"
+  },
+  {
+    "item_name": "Mother Bruce"
+  },
+  {
+    "item_name": "Fires of Invention (Mysteries of Cove)"
+  },
+  {
+    "item_name": "The Looney Experiment (Blink)"
+  },
+  {
+    "item_name": "Alcatraz #2: Alcatraz Versus the Scrivener's Bones"
+  },
+  {
+    "item_name": "Busy, Busy!"
+  },
+  {
+    "item_name": "Amanda Lester and the Pink Sugar Conspiracy (Amanda Lester, Detective)"
+  },
+  {
+    "item_name": "Just Like Me"
+  },
+  {
+    "item_name": "Case Closed?: Nine Mysteries Unlocked by Modern Science"
+  },
+  {
+    "item_name": "National Geographic Kids National Parks Guide USA Centennial Edition: The Most Amazing Sights, Scenes, and Cool Activities from Coast to Coast!"
+  },
+  {
+    "item_name": "Flora and the Peacocks (Flora and Her Feathered Friends-books)"
+  },
+  {
+    "item_name": "The First Book of Ore The Foundry's Edge (The Books of Ore)"
+  },
+  {
+    "item_name": "Junior Ranger Activity Book: Puzzles, Games, Facts, and Tons More Fun Inspired by the U.S. National Parks!"
+  },
+  {
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "item_name": "Misfortune Annie and the Locomotive Reaper (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Dragon Defender (Dragon Defense League) (Volume 1)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Secret Horses of Briar Hill"
+  },
+  {
+    "rank": 3,
+    "item_name": "Magelica's Voyage"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Knights Before Christmas"
+  },
+  {
+    "rank": 5,
+    "item_name": "The School Is Alive! (Eerie Elementary #1)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Snatchabook"
+  },
+  {
+    "rank": 7,
+    "item_name": "Brush Your Hair, Medusa! (Mini Myths)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Storybook Knight"
+  },
+  {
+    "rank": 9,
+    "item_name": "How to Babysit a Grandpa (How To...relationships)"
+  },
+  {
+    "rank": 10,
+    "item_name": "If: A Mind-Bending New Way of Looking at Big Ideas and Numbers"
+  },
+  {
+    "rank": 11,
+    "item_name": "Ariel Bradley, Spy for General Washington"
+  },
+  {
+    "rank": 12,
+    "item_name": "Home in the Cave (Arbordale Collection)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Imagination Bigger Together"
+  },
+  {
+    "rank": 14,
+    "item_name": "Argyle Fox"
+  },
+  {
+    "rank": 15,
+    "item_name": "Duck, Duck, Porcupine! (A Duck, Duck, Porcupine Book)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Book With No Pictures"
+  },
+  {
+    "rank": 17,
+    "item_name": "Chalk"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Otter, the Spotted Frog &amp; the Great Flood: A Creek Indian Story"
+  },
+  {
+    "rank": 19,
+    "item_name": "Pillage"
+  },
+  {
+    "rank": 20,
+    "item_name": "Just Fine the Way They Are: From Dirt Roads to Rail Roads to Interstates"
+  },
+  {
+    "rank": 21,
+    "item_name": "Monster on the Hill"
+  },
+  {
+    "rank": 22,
+    "item_name": "Animals: A Visual Encyclopedia (An Animal Planet Book)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Mesmerized: How Ben Franklin Solved a Mystery that Baffled All of France"
+  },
+  {
+    "rank": 24,
+    "item_name": "Lester's Dreadful Sweaters"
+  },
+  {
+    "rank": 25,
+    "item_name": "50 Below Zero"
+  },
+  {
+    "rank": 26,
+    "item_name": "Mister Max: The Book of Lost Things: Mister Max 1"
+  },
+  {
+    "rank": 27,
+    "item_name": "Travels with Gannon and Wyatt: Great Bear Rainforest (Travels With Gannon &amp; Wyatt)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Memoirs of a Goldfish"
+  },
+  {
+    "rank": 29,
+    "item_name": "A Day with Moo: A Best Friend Book (The Adventures of Midge and Moo) (Volume 1)"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Beetle Is Shy (Nature Books)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Wish Tree"
+  },
+  {
+    "rank": 32,
+    "item_name": "Tom Thumb: The Remarkable True Story of a Man in Miniature"
+  },
+  {
+    "rank": 33,
+    "item_name": "Mini Myths: Make a Wish, Midas!"
+  },
+  {
+    "rank": 34,
+    "item_name": "Sam and Dave Dig a Hole (Irma S and James H Black Award for Excellence in Children's Literature (Awards))"
+  },
+  {
+    "rank": 35,
+    "item_name": "On the Blue Comet"
+  },
+  {
+    "rank": 36,
+    "item_name": "Sticks 'n Stones 'n Dinosaur Bones: Being a Whimsical Take on a (pre)Historical Event (Unhinged History)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Hugless Douglas"
+  },
+  {
+    "rank": 38,
+    "item_name": "Serafina and the Black Cloak"
+  },
+  {
+    "rank": 39,
+    "item_name": "Anybody at Home? (Curious George)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Wizard of Dark Street: An Oona Crate Mystery"
+  },
+  {
+    "rank": 41,
+    "item_name": "Magic Tree House Collection Volume 1: Books 1-4: #1 Dinosaurs Before Dark; #2 The Knight at Dawn; #3 Mummies in the Morning; #4 Pirates Past Noon (Magic Tree House (R))"
+  },
+  {
+    "rank": 42,
+    "item_name": "Porcelain Keys"
+  },
+  {
+    "rank": 43,
+    "item_name": "Belle, The Last Mule at Gee's Bend: A Civil Rights Story"
+  },
+  {
+    "rank": 44,
+    "item_name": "Fetch"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Wolf of Tebron (The Gates of Heaven Series)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Uni the Unicorn"
+  },
+  {
+    "rank": 47,
+    "item_name": "Oliver and the Seawigs"
+  },
+  {
+    "rank": 48,
+    "item_name": "Spork"
+  },
+  {
+    "rank": 49,
+    "item_name": "Inhuman"
+  },
+  {
+    "rank": 50,
+    "item_name": "Ricky Ricotta's Mighty Robot (Astro-Activity Book O'Fun) by Pilkey, Dav (unknown Edition) [Paperback(2006)]"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

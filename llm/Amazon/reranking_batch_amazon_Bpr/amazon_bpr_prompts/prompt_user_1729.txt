@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dirty Laundry"
+  },
+  {
+    "item_name": "Boyfrenemy: A Payne Brothers Romance"
+  },
+  {
+    "item_name": "The Power to Break (The Unbreakable Thread) (Volume 1)"
+  },
+  {
+    "item_name": "Where We Began (Where We Began Duet #1)"
+  },
+  {
+    "item_name": "Shared by the Mountain Men"
+  },
+  {
+    "item_name": "Combust (The Everyday Heroes) (Volume 2)"
+  },
+  {
+    "item_name": "Second Chance Draft: A Second Chance Sports Romance (Pass To Win)"
+  },
+  {
+    "item_name": "Where We Ended (Where We Began Duet #2)"
+  },
+  {
+    "item_name": "Man Enough: A Single Dad Romance"
+  },
+  {
+    "item_name": "Lost on the Road to Love"
+  },
+  {
+    "item_name": "With This Man (A This Man Novel)"
+  },
+  {
+    "item_name": "Angels Fall (Original Sin) (Volume 2)"
+  },
+  {
+    "item_name": "Pretend You're Mine"
+  },
+  {
+    "item_name": "One Last Time"
+  },
+  {
+    "item_name": "In Love With Lucy (NSFW) (Volume 1)"
+  },
+  {
+    "item_name": "Beauty and her Billionaire Beast"
+  },
+  {
+    "item_name": "The Pleasure of Panic (Jordan's Game) (Volume 2)"
+  },
+  {
+    "item_name": "Flesh Into Fire (Original Sin) (Volume 3)"
+  },
+  {
+    "item_name": "Dirty Deeds"
+  },
+  {
+    "item_name": "The Invisible Thread (The Unbreakable Thread) (Volume 2)"
+  },
+  {
+    "item_name": "Needing Him (Bishop Brothers) (Volume 2)"
+  },
+  {
+    "item_name": "Blue Sky (Blue Devils)"
+  },
+  {
+    "item_name": "The Mitus Touch: Book One of The Touch Series"
+  },
+  {
+    "item_name": "Scorpio"
+  },
+  {
+    "item_name": "Sheltered"
+  },
+  {
+    "item_name": "The Secret Arrangement"
+  },
+  {
+    "item_name": "Compromising the Billionaire (Scandals of the Bad Boy Billionaires) (Volume 9)"
+  },
+  {
+    "item_name": "Cheat Codes"
+  },
+  {
+    "item_name": "Play Dirty (Jordan's Game) (Volume 4)"
+  },
+  {
+    "item_name": "His Banana"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Cold Hearted"
+  },
+  {
+    "rank": 2,
+    "item_name": "How We Fall"
+  },
+  {
+    "rank": 3,
+    "item_name": "Hostage of the Hitman: A Bad Boy Mafia Romance"
+  },
+  {
+    "rank": 4,
+    "item_name": "Dirty Dom: A Bad Boy Mafia Romance"
+  },
+  {
+    "rank": 5,
+    "item_name": "Corrupted"
+  },
+  {
+    "rank": 6,
+    "item_name": "Released: Devil's Blaze MC Book 3 (Volume 3)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Caged"
+  },
+  {
+    "rank": 8,
+    "item_name": "Forget Me Not"
+  },
+  {
+    "rank": 9,
+    "item_name": "SEAL's Touch: A Dirty Bad Boy Romance (Small Town SEALs)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Pennies (Dollar) (Volume 1)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Knocked Up by the Bad Boy"
+  },
+  {
+    "rank": 12,
+    "item_name": "Accidental Hero: A Marriage Mistake Romance"
+  },
+  {
+    "rank": 13,
+    "item_name": "Filthy Bastard (Grim Bastards MC) (Volume 2)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Cole"
+  },
+  {
+    "rank": 15,
+    "item_name": "Crown of Lies (Truth and Lies Duet)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Big: Satan's Fury MC"
+  },
+  {
+    "rank": 17,
+    "item_name": "Until Sage (Until Him) (Volume 2)"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Bartender (Modern Love) (Volume 1)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Threat: A Blood Riders MC Novel (Book 1)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Two Wrongs (Trouble by Numbers) (Volume 2)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Deviant (Blood &amp; Roses) (Volume 1)"
+  },
+  {
+    "rank": 22,
+    "item_name": "P.S. I Hate You"
+  },
+  {
+    "rank": 23,
+    "item_name": "My One Regret"
+  },
+  {
+    "rank": 24,
+    "item_name": "Unhinged"
+  },
+  {
+    "rank": 25,
+    "item_name": "Your One True Love (The Bennett Family) (Volume 8)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Bad Teacher (Unprofessional Bad Boys)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Under the Stars (Bright Lights) (Volume 2)"
+  },
+  {
+    "rank": 28,
+    "item_name": "27 Lies: Luke's story (The Truth About Love) (Volume 2)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Ruckus (Sinners of Saint)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Scandalous (Sinners of Saint) (Volume 4)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Date The Billionaire"
+  },
+  {
+    "rank": 32,
+    "item_name": "Possession (Steel Brothers Saga Book 3)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Holding Aces (The Kingdom)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Hook Me (Men of Inked) (Volume 2)"
+  },
+  {
+    "rank": 35,
+    "item_name": "After We Fall"
+  },
+  {
+    "rank": 36,
+    "item_name": "Captured: Devil's Blaze MC Book 1 (Volume 1)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Torn: A Dark Bad Boy Romance"
+  },
+  {
+    "rank": 38,
+    "item_name": "My Salvation (Volume 1)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Captive Vow"
+  },
+  {
+    "rank": 40,
+    "item_name": "Grit: A Spartan Riders Novel (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Coach"
+  },
+  {
+    "rank": 42,
+    "item_name": "Cuffed Kiss"
+  },
+  {
+    "rank": 43,
+    "item_name": "Without Me: Men of Inked, Book 5 by Chelle Bliss (2015-04-07)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Boy and His Ribbon (Ribbon Duet) (Volume 1)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Savage (The Kingwood Duet)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Broken: A Dark Romance"
+  },
+  {
+    "rank": 47,
+    "item_name": "Jaded Hearts"
+  },
+  {
+    "rank": 48,
+    "item_name": "Without Me (Men of Inked) (Volume 5)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Nitro's Torment: Sydney Storm MC (Volume 2)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Stepbrother Charming: A Billionaire Bad Boy Romance"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

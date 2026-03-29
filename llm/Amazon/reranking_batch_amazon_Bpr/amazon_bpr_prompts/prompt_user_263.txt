@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Clothing of Books"
+  },
+  {
+    "item_name": "On Turpentine Lane"
+  },
+  {
+    "item_name": "Chandra's Cosmos: Dark Matter, Black Holes, and Other Wonders Revealed by NASA's Premier X-Ray Observatory"
+  },
+  {
+    "item_name": "Elizabeth Bishop: A Miracle for Breakfast"
+  },
+  {
+    "item_name": "Gilded Cage SIGNED / AUTOGRAPHED COPY"
+  },
+  {
+    "item_name": "The Rules Do Not Apply: A Memoir"
+  },
+  {
+    "item_name": "Conviction: A Rebekah Roberts Novel (Rebekah Roberts Novels)"
+  },
+  {
+    "item_name": "The Wanderers"
+  },
+  {
+    "item_name": "The Chalk Pit (Ruth Galloway Mysteries)"
+  },
+  {
+    "item_name": "Miss Treadway &amp; the Field of Stars"
+  },
+  {
+    "item_name": "Defy the Stars"
+  },
+  {
+    "item_name": "Argo Brothers Math Workbook, Grade 7: Common Core Math Multiple Choice, Daily Math Practice Grade 7"
+  },
+  {
+    "item_name": "Spectrum Critical Thinking for Math, Grade 6"
+  },
+  {
+    "item_name": "The Essex Serpent: A Novel"
+  },
+  {
+    "item_name": "Spectrum Critical Thinking for Math, Grade 8"
+  },
+  {
+    "item_name": "Spectrum Critical Thinking for Math, Grade 2"
+  },
+  {
+    "item_name": "The Paris Spy: A Maggie Hope Mystery"
+  },
+  {
+    "item_name": "All Passion Spent (Vintage Classics)"
+  },
+  {
+    "item_name": "All the Crooked Saints"
+  },
+  {
+    "item_name": "Bannerless (The Bannerless Saga)"
+  },
+  {
+    "item_name": "Common Core Math Workbook, Grade 4: Multiple Choice, Daily Math Practice Grade 4"
+  },
+  {
+    "item_name": "The Windfall: A Novel"
+  },
+  {
+    "item_name": "Oriana Fallaci: The Journalist, the Agitator, the Legend"
+  },
+  {
+    "item_name": "The Essence of Malice (Amory Ames)"
+  },
+  {
+    "item_name": "Island of the Blue Foxes: Disaster and Triumph on the World's Greatest Scientific Expedition (A Merloyd Lawrence Book)"
+  },
+  {
+    "item_name": "Dunbar: William Shakespeare's King Lear Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "item_name": "Splintered Silence (A Bone Gap Travellers Novel)"
+  },
+  {
+    "item_name": "Creatures of Will and Temper"
+  },
+  {
+    "item_name": "Tess of the Road"
+  },
+  {
+    "item_name": "The Wild Dead (The Bannerless Saga)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Smoke Gets in Your Eyes: And Other Lessons from the Crematory"
+  },
+  {
+    "rank": 2,
+    "item_name": "Ross Poldark :POLDARK"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Painted Girls: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 5,
+    "item_name": "Railhead"
+  },
+  {
+    "rank": 6,
+    "item_name": "Harry Potter and the Sorcerer's Stone (Book 1)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Where I Belong"
+  },
+  {
+    "rank": 8,
+    "item_name": "The End of Innocence: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "Ten Lords A-Leaping: A Father Christmas Mystery"
+  },
+  {
+    "rank": 10,
+    "item_name": "Jeremy Poldark (The Poldark Saga)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Battleship: A Daring Heiress, a Teenage Jockey, and America's Horse"
+  },
+  {
+    "rank": 12,
+    "item_name": "Born of Illusion"
+  },
+  {
+    "rank": 13,
+    "item_name": "Life After Life: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Chasing Secrets"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Death of Bees: A Novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Dalai Lama's Cat"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Aviator's Wife: A Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "Victoria: The Queen: An Intimate Biography of the Woman who Ruled an Empire"
+  },
+  {
+    "rank": 19,
+    "item_name": "Space Case (Moon Base Alpha)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Grasshopper Jungle"
+  },
+  {
+    "rank": 21,
+    "item_name": "Ballroom: A Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Paying Guests"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Scourge"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 25,
+    "item_name": "From Bruges with Love (The Pieter Van In Mysteries)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Gated"
+  },
+  {
+    "rank": 27,
+    "item_name": "Vengeance Road"
+  },
+  {
+    "rank": 28,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Boy, Snow, Bird"
+  },
+  {
+    "rank": 30,
+    "item_name": "Sway: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "Wicked Autumn: A Max Tudor Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Bitter Greens"
+  },
+  {
+    "rank": 33,
+    "item_name": "The People of Forever Are Not Afraid: A Novel"
+  },
+  {
+    "rank": 34,
+    "item_name": "Dirt"
+  },
+  {
+    "rank": 35,
+    "item_name": "Wolf Hollow"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Unfinished Life of Addison Stone: A Novel"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Unbearable Book Club for Unsinkable Girls"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "rank": 39,
+    "item_name": "Blackbird"
+  },
+  {
+    "rank": 40,
+    "item_name": "Crazy Rich Asians (Crazy Rich Asians Trilogy)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Katherine of Aragon, The True Queen: A Novel (Six Tudor Queens)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Strangler Vine: The Blake and Avery Mystery Series (Book 1)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Readers of Broken Wheel Recommend"
+  },
+  {
+    "rank": 44,
+    "item_name": "Sisi: Empress on Her Own: A Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 46,
+    "item_name": "Sous Chef: 24 Hours on the Line"
+  },
+  {
+    "rank": 47,
+    "item_name": "Pilgrim's Wilderness: A True Story of Faith and Madness on the Alaska Frontier"
+  },
+  {
+    "rank": 48,
+    "item_name": "Etta &amp; Otto &amp; Russell &amp; James Ome"
+  },
+  {
+    "rank": 49,
+    "item_name": "Mrs. Sinclair's Suitcase"
+  },
+  {
+    "rank": 50,
+    "item_name": "No One Else Can Have You (Kippy Bushman)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

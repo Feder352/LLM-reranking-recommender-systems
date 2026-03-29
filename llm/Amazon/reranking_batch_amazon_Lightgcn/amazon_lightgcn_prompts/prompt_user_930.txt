@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Empress Dowager Cixi"
+  },
+  {
+    "item_name": "The Men Who United the States: America's Explorers, Inventors, Eccentrics, and Mavericks, and the Creation of One Nation, Indivisible"
+  },
+  {
+    "item_name": "Hitler's Furies: German Women in the Nazi Killing Fields"
+  },
+  {
+    "item_name": "Fire Base Illingworth: An Epic True Story of Remarkable Courage Against Staggering Odds"
+  },
+  {
+    "item_name": "My Mistake"
+  },
+  {
+    "item_name": "Princesses Behaving Badly: Real Stories from History Without the Fairy-Tale Endings"
+  },
+  {
+    "item_name": "Defiant: The POWs Who Endured Vietnam's Most Infamous Prison, The Women Who Fought for Them, and The One Who Never Returned"
+  },
+  {
+    "item_name": "Fire and Light: How the Enlightenment Transformed Our World"
+  },
+  {
+    "item_name": "Dead Mountain: The Untold True Story of the Dyatlov Pass Incident"
+  },
+  {
+    "item_name": "Medicare For Dummies"
+  },
+  {
+    "item_name": "The Muslims Are Coming!: Islamophobia, Extremism, and the Domestic War on Terror"
+  },
+  {
+    "item_name": "Hell Before Breakfast: America's First War Correspondents Making History and Headlines, from the Battlefields of the Civil War to the Far Reaches of the Ottoman Empire"
+  },
+  {
+    "item_name": "A Sliver of Light: Three Americans Imprisoned in Iran"
+  },
+  {
+    "item_name": "Enduring Courage: Ace Pilot Eddie Rickenbacker and the Dawn of the Age of Speed"
+  },
+  {
+    "item_name": "Will the Middle East Implode?"
+  },
+  {
+    "item_name": "Fitness Weight Training (Fitness Spectrum Series)"
+  },
+  {
+    "item_name": "The Arsenal of Democracy: FDR, Detroit, and an Epic Quest to Arm an America at War"
+  },
+  {
+    "item_name": "The Lion's Gate: On the Front Lines of the Six Day War"
+  },
+  {
+    "item_name": "The Map Thief: The Gripping Story of an Esteemed Rare-map Dealer Who Made Millions Stealing Priceless Maps"
+  },
+  {
+    "item_name": "BUSINESS ADVENTURE"
+  },
+  {
+    "item_name": "BUSINESS ADVENTURE"
+  },
+  {
+    "item_name": "Knife Fights: A Memoir of Modern War in Theory and Practice"
+  },
+  {
+    "item_name": "The Underground Girls of Kabul: In Search of a Hidden Resistance in Afghanistan"
+  },
+  {
+    "item_name": "One Million Steps: A Marine Platoon at War"
+  },
+  {
+    "item_name": "A Cup of Water Under My Bed: A Memoir"
+  },
+  {
+    "item_name": "Marching Home: Union Veterans and Their Unending Civil War"
+  },
+  {
+    "item_name": "Japan 1941: Countdown to Infamy"
+  },
+  {
+    "item_name": "Cathedral of the Wild: An African Journey Home"
+  },
+  {
+    "item_name": "A Path Made Plain: Seasons in Pinecraft - Book 2"
+  },
+  {
+    "item_name": "Legend: A Harrowing Story from the Vietnam War of One Green Beret's Heroic Mission to Rescue a Special Forces Team Caught Behind Enemy Lines"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 63153,
+    "item_name": "Embattled Rebel: Jefferson Davis as Commander in Chief"
+  },
+  {
+    "rank": 2,
+    "item_id": 8335,
+    "item_name": "Embattled Rebel: Jefferson Davis and the Confederate Civil War"
+  },
+  {
+    "rank": 3,
+    "item_id": 10321,
+    "item_name": "Fields of Blood: Religion and the History of Violence"
+  },
+  {
+    "rank": 4,
+    "item_id": 19122,
+    "item_name": "My Promised Land: The Triumph and Tragedy of Israel"
+  },
+  {
+    "rank": 5,
+    "item_id": 37026,
+    "item_name": "The Divide: American Injustice in the Age of the Wealth Gap"
+  },
+  {
+    "rank": 6,
+    "item_id": 41753,
+    "item_name": "Black Earth: The Holocaust as History and Warning"
+  },
+  {
+    "rank": 7,
+    "item_id": 3268,
+    "item_name": "John Quincy Adams: American Visionary"
+  },
+  {
+    "rank": 8,
+    "item_id": 9437,
+    "item_name": "In Wartime: Stories from Ukraine"
+  },
+  {
+    "rank": 9,
+    "item_id": 37103,
+    "item_name": "Last Hope Island: Britain, Occupied Europe, and the Brotherhood That Helped Turn the Tide of War"
+  },
+  {
+    "rank": 10,
+    "item_id": 9831,
+    "item_name": "1493: Uncovering the New World Columbus Created"
+  },
+  {
+    "rank": 11,
+    "item_id": 10495,
+    "item_name": "Lawrence in Arabia: War, Deceit, Imperial Folly and the Making of the Modern Middle East"
+  },
+  {
+    "rank": 12,
+    "item_id": 11224,
+    "item_name": "Thomas Jefferson: The Art of Power (Random House Large Print)"
+  },
+  {
+    "rank": 13,
+    "item_id": 2715,
+    "item_name": "The Art of War: The New Translation (Harper Perennial Modern Classics)"
+  },
+  {
+    "rank": 14,
+    "item_id": 7864,
+    "item_name": "How Music Got Free: A Story of Obsession and Invention"
+  },
+  {
+    "rank": 15,
+    "item_id": 9160,
+    "item_name": "Government against Itself: Public Union Power and Its Consequences"
+  },
+  {
+    "rank": 16,
+    "item_id": 43454,
+    "item_name": "Blitzed"
+  },
+  {
+    "rank": 17,
+    "item_id": 36287,
+    "item_name": "Objective Troy: A Terrorist, a President, and the Rise of the Drone"
+  },
+  {
+    "rank": 18,
+    "item_id": 7010,
+    "item_name": "Savage Continent: Europe in the Aftermath of World War II"
+  },
+  {
+    "rank": 19,
+    "item_id": 19388,
+    "item_name": "Nothing to Envy: Ordinary Lives in North Korea"
+  },
+  {
+    "rank": 20,
+    "item_id": 36582,
+    "item_name": "An Idea Whose Time Has Come: Two Presidents, Two Parties, and the Battle for the Civil Rights Act of 1964"
+  },
+  {
+    "rank": 21,
+    "item_id": 36359,
+    "item_name": "Zealot: The Life and Times of Jesus of Nazareth"
+  },
+  {
+    "rank": 22,
+    "item_id": 12842,
+    "item_name": "The Race Underground: Boston, New York, and the Incredible Rivalry That Built Americas First Subway"
+  },
+  {
+    "rank": 23,
+    "item_id": 8929,
+    "item_name": "The Pawnbroker"
+  },
+  {
+    "rank": 24,
+    "item_id": 62988,
+    "item_name": "The End of Absence: Reclaiming What We've Lost in a World of Constant Connection"
+  },
+  {
+    "rank": 25,
+    "item_id": 26706,
+    "item_name": "One Child: The Story of China's Most Radical Experiment"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

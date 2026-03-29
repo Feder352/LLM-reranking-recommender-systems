@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Ford (7 Brides for 7 Soldiers)"
+  },
+  {
+    "item_name": "Something Borrowed (Brides of Cedar Bend) (Volume 3)"
+  },
+  {
+    "item_name": "Silent Threat (Mission Recovery)"
+  },
+  {
+    "item_name": "Cowboy Stole My Heart: A River Ranch Novel"
+  },
+  {
+    "item_name": "Inferno: Part 1 (The Vault) (Volume 1)"
+  },
+  {
+    "item_name": "Hunt the Dawn (Fatal Dreams)"
+  },
+  {
+    "item_name": "Bad to the Bone (The Dogfather) (Volume 5)"
+  },
+  {
+    "item_name": "Inferno: Part 2 (The Vault) (Volume 2)"
+  },
+  {
+    "item_name": "Chasing Christmas Eve: A Heartbreaker Bay Novel"
+  },
+  {
+    "item_name": "About That Kiss: A Heartbreaker Bay Novel"
+  },
+  {
+    "item_name": "Beauty and Her Boss (Once Upon a Fairytale)"
+  },
+  {
+    "item_name": "Inferno: Part 3 (The Vault) (Volume 3)"
+  },
+  {
+    "item_name": "Crossing Promises (Cross Creek)"
+  },
+  {
+    "item_name": "Kansas City Cop"
+  },
+  {
+    "item_name": "One More Promise (Shaughnessy Brothers: Band on the Run)"
+  },
+  {
+    "item_name": "The Sacrifice (The Soul Summoner) (Volume 5)"
+  },
+  {
+    "item_name": "Diamonds and Dirt Roads (Billionaires in Blue Jeans) (Volume 1)"
+  },
+  {
+    "item_name": "X-Ops Exposed"
+  },
+  {
+    "item_name": "Inferno: Part 4"
+  },
+  {
+    "item_name": "Ruff Around the Edges (The Dogfather) (Volume 6)"
+  },
+  {
+    "item_name": "Save Me (Corrupted Hearts)"
+  },
+  {
+    "item_name": "Lone Witness (Atlanta Justice)"
+  },
+  {
+    "item_name": "Find Me (Corrupted Hearts)"
+  },
+  {
+    "item_name": "Until There Was Us (Montgomery Brothers)"
+  },
+  {
+    "item_name": "I Flipping Love You"
+  },
+  {
+    "item_name": "Threat of Danger (Mission Recovery)"
+  },
+  {
+    "item_name": "Broken Promise: A Romantic Thriller (Sons of Broad)"
+  },
+  {
+    "item_name": "Double Dog Dare (The Dogfather) (Volume 7)"
+  },
+  {
+    "item_name": "Dagger's Edge: A Brute Force Novel"
+  },
+  {
+    "item_name": "Don't Look Back: An Unbroken Heroes Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Three Little Words (Fool's Gold, Book 13)"
+  },
+  {
+    "rank": 2,
+    "item_name": "In a Ranger's Arms"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Secret Sister (Fairham Island)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The First Kiss of Spring: An Eternity Springs Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Need You for Mine (Heroes of St. Helena)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Up to the Challenge (An Anchor Island Novel)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Until We Touch (Fool's Gold,  Book 17)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Not Quite Mine"
+  },
+  {
+    "rank": 9,
+    "item_name": "Just One Kiss (Fool's Gold, Book 11)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Sweet Little Lies: A Heartbreaker Bay Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Navy SEAL's E-Mail Order Bride (Heroes of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 12,
+    "item_name": "All Fired Up (Hot in the Kitchen)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Once a Rancher (The Carsons of Mustang Creek)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Love a Little Sideways (The Kowalskis)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Snowfall on Haven Point"
+  },
+  {
+    "rank": 16,
+    "item_name": "Sinful: A Bitter Creek Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Gimme Some Sugar (A Pine Mountain Novel)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Come Home To Me: A Homefront Novella (Homefront .5)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Christmas Cowboy Hero (Heart of Texas)"
+  },
+  {
+    "rank": 20,
+    "item_name": "One Snowy Night: A Heartbreaker Bay Christmas Novella"
+  },
+  {
+    "rank": 21,
+    "item_name": "Dare to Desire (Dare to Love) (Volume 2)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Good Luck Sister: A Wildstone Novella"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Cowboy's E-Mail Order Bride (Cowboys of Chance Creek) (Volume 1)"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Baby Bombshell"
+  },
+  {
+    "rank": 25,
+    "item_name": "Tailored for Trouble: A Romantic Comedy (Happy Pants)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Fire Away (Somewhere, TX) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Falling for Her Enemy"
+  },
+  {
+    "rank": 28,
+    "item_name": "Christmas at Twilight: A Twilight, Texas Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "At Wolf Ranch: A Montana Men Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Trouble with Mistletoe: A Heartbreaker Bay Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "Blitzing Emily: A Love and Football Novel"
+  },
+  {
+    "rank": 32,
+    "item_name": "Christmas on 4th Street (Fool's Gold, Book 14)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Billionaire Bachelor (Billionaire Bad Boys)"
+  },
+  {
+    "rank": 34,
+    "item_name": "A Girl's Guide to Moving On: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Wild Cowboy Ways (Lucky Penny Ranch)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Die For Me: A Novel of the Valentine Killer"
+  },
+  {
+    "rank": 37,
+    "item_name": "Midnight Ride (Midnight Cowboys)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Turn Up the Heat (Pine Mountain)"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Promise (Thunder Point) (English Edition)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Resurrection (Redemption Harbor Series Book 1) (Volume 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Rugged Texas Cowboy: Two Stories in One: Cowboy and the Captive, Cowboy and the Thief"
+  },
+  {
+    "rank": 42,
+    "item_name": "Into Dust (The Montana Hamiltons)"
+  },
+  {
+    "rank": 43,
+    "item_name": "You and Only You (Blessings, Georgia)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Force of Attraction: A K-9 Rescue Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "Treasured by Thursday (Weekday Brides)"
+  },
+  {
+    "rank": 46,
+    "item_name": "It Must Be Your Love (Seattle Sullivans)"
+  },
+  {
+    "rank": 47,
+    "item_name": "One Touch More (A US Marshals Novel)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Watch Me (Dark Obsession) (Volume 1)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Some Kind of Hero: A Troubleshooters Novel"
+  },
+  {
+    "rank": 50,
+    "item_name": "Marry Me at Christmas (Fool's Gold, Book 21)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

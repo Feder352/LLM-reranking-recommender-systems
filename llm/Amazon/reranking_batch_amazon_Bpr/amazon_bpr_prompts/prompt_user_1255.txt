@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Hello, My Love! (Between Two Worlds) (Volume 1)"
+  },
+  {
+    "item_name": "ICED: A Resort to Murder Mystery"
+  },
+  {
+    "item_name": "Gathering the Threads: A Novel (The Amish of Summer Grove)"
+  },
+  {
+    "item_name": "An Unexpected Afterlife (The Dry Bones Society) (Volume 1)"
+  },
+  {
+    "item_name": "Seeds of Malice (Psychic Visions) (Volume 11)"
+  },
+  {
+    "item_name": "The Supernatural Pet Sitter: The Curse (Volume 2)"
+  },
+  {
+    "item_name": "My Heart Belongs in the Shenandoah Valley: Lily's Dilemma"
+  },
+  {
+    "item_name": "Bringing Maggie Home: A Novel"
+  },
+  {
+    "item_name": "Rule of Law"
+  },
+  {
+    "item_name": "The Proving"
+  },
+  {
+    "item_name": "Hunting The Ultimate Kill: The Horrifying Story of the Speed Freak Killers (The Serial Killer Books) (Volume 2)"
+  },
+  {
+    "item_name": "Dangerous Ends: (Pete Fernandez Book 3)"
+  },
+  {
+    "item_name": "Many Sparrows: A Novel"
+  },
+  {
+    "item_name": "Liar's Winter: An Appalachian Novel"
+  },
+  {
+    "item_name": "Counseling Under the Cross: How Martin Luther Applied the Gospel to Daily Life"
+  },
+  {
+    "item_name": "If We Make It Home: A Novel of Faith and Survival in the Oregon Wilderness"
+  },
+  {
+    "item_name": "Writing for Bliss: A Seven-Step Plan for Telling Your Story and Transforming Your Life"
+  },
+  {
+    "item_name": "King of Hearts: British Historical League of Rogues Romance Book 1 (Volume 1)"
+  },
+  {
+    "item_name": "The Rainbow Bridge: Bridge to Inner Peace and to World Peace"
+  },
+  {
+    "item_name": "A Plain Leaving (The Sisters of Lancaster County)"
+  },
+  {
+    "item_name": "Total Christmas Makeover: 31 Devotions to Celebrate with Purpose"
+  },
+  {
+    "item_name": "The Beloved Christmas Quilt: Three Stories of Family, Romance, and Amish Faith"
+  },
+  {
+    "item_name": "Rescued Hearts"
+  },
+  {
+    "item_name": "Deeds of Darkness (The Chronicles of Hugh de Singleton, Sur)"
+  },
+  {
+    "item_name": "She's Got the Wrong Guy: Why Smart Women Settle"
+  },
+  {
+    "item_name": "365 Classic Bedtime Bible Stories: Inspired by Jesse Lyman Hurlbut's Story of the Bible"
+  },
+  {
+    "item_name": "The Gift: The Amish of Hart County"
+  },
+  {
+    "item_name": "Christy"
+  },
+  {
+    "item_name": "The Engagement Plot"
+  },
+  {
+    "item_name": "Seeds of Hope (Harvest of Hope)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Golden Braid"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Road to Paradise: A Vintage National Parks Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "If You Were Me and Lived on...Mars (A Child's Introduction to Cultures Around the World) (Volume 23)"
+  },
+  {
+    "rank": 4,
+    "item_name": "A Flag for the Flying Dragon: A Captain No Beard Story (Volume 9)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Not by Sight: A Novel (Ozark Mountain Trilogy)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Deceived: A Novel (Private Justice) (Volume 3)"
+  },
+  {
+    "rank": 7,
+    "item_name": "If You Were Me and Lived in... Hungary: A Child's Introduction to Cultures Around the World (Volume 13)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Among the Fair Magnolias: Four Southern Love Stories"
+  },
+  {
+    "rank": 9,
+    "item_name": "Pressed Pennies"
+  },
+  {
+    "rank": 10,
+    "item_name": "If I Run (If I Run Series)"
+  },
+  {
+    "rank": 11,
+    "item_name": "If You Were Me and Lived in...the Ancient Mali Empire: An Introduction to Civilizations Throughout Time (Volume 5)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Dangerous Passage: A Novel (Southern Crimes) (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Stillwell: A Haunting on Long Island (A Haunting on Long Island Series)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Governess of Highland Hall: A Novel (Edwardian Brides)"
+  },
+  {
+    "rank": 15,
+    "item_name": "If You Were Me and Lived in...India: A Child's Introduction to Cultures Around the World (Volume 7)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Can a Princess Be a Firefighter?"
+  },
+  {
+    "rank": 17,
+    "item_name": "Vendetta (The Nikki Boyd Files)"
+  },
+  {
+    "rank": 18,
+    "item_name": "When I Grow Up I Want To Be...a Nurse!: Amber's Accidental Journey"
+  },
+  {
+    "rank": 19,
+    "item_name": "The House that Love Built"
+  },
+  {
+    "rank": 20,
+    "item_name": "Always Watching (Elite Guardians)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Winter in Full Bloom"
+  },
+  {
+    "rank": 22,
+    "item_name": "Children&#39;s Books: Emma Learns to Sprout [short stories for children] - Kindle edition"
+  },
+  {
+    "rank": 23,
+    "item_name": "If You Were Me and Lived in ...Kenya: A Child's Introduction to Cultures around the World (Volume 5)"
+  },
+  {
+    "rank": 24,
+    "item_name": "5 Days to a Clutter-Free House: Quick, Easy Ways to Clear Up Your Space"
+  },
+  {
+    "rank": 25,
+    "item_name": "Gooseberry Island"
+  },
+  {
+    "rank": 26,
+    "item_name": "Submerged (Alaskan Courage) (Volume 1)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Emissary (Legends of the Realm) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Monsterland"
+  },
+  {
+    "rank": 29,
+    "item_name": "If You Were Me and Lived in...Cuba: If You Were Me and Lived in... (A Child's Introduction to Cultures Around the World) (Volume 22)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Glittering Promises: A Novel (Grand Tour Series)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Every Bride Needs a Groom: A Novel (Brides with Style)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Beyond All Dreams"
+  },
+  {
+    "rank": 33,
+    "item_name": "A Place in His Heart: A Novel (The Southold Chronicles) (Volume 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "If You Were Me and Lived in...Brazil: A Child's Introduction to Cultures Around the World (Volume 17)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Rachel: A Novel (Wives of the Patriarchs) (Volume 3)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Twisted Innocence (Moonlighters Series)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Dance: A Novel (The Restoration Series)"
+  },
+  {
+    "rank": 38,
+    "item_name": "A Darkly Hidden Truth (The Monastery Murders)"
+  },
+  {
+    "rank": 39,
+    "item_name": "By the Light of the Silvery Moon"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Inheritance (Secrets of the Shetlands)"
+  },
+  {
+    "rank": 41,
+    "item_name": "If You Were Me and Lived in...Renaissance Italy: An Introduction to Civilizations Throughout Time (Volume 7)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Red Door Inn: A Novel (Prince Edward Island Dreams)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Vanished: A Novel (Private Justice) (Volume 1)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Gather Around the Amish Table: Treasured Recipes and Stories from Plain Communities"
+  },
+  {
+    "rank": 45,
+    "item_name": "Last Chance Hero: A Novel (A Place to Call Home)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Through Waters Deep (Waves of Freedom)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Forsaken Dreams (Escape to Paradise)"
+  },
+  {
+    "rank": 48,
+    "item_name": "One Perfect Spring: A Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "A Sweet Misfortune: A Novel (Virtues and Vices of the Old West)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Gifted: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

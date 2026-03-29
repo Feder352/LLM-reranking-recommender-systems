@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Kinda Don't Care (The Simple Man Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Silver Swan (The Elite Kings Club)"
+  },
+  {
+    "item_name": "Rebel Heir: Book One (The Rush Series) (Volume 1)"
+  },
+  {
+    "item_name": "Misadventures with a Rookie (Misadventures Book 10)"
+  },
+  {
+    "item_name": "Lies and Illusions (Heaven's Rejects MC) (Volume 4)"
+  },
+  {
+    "item_name": "Jag (Diablo's Throne MMA) (Volume 2)"
+  },
+  {
+    "item_name": "Birthday Girl"
+  },
+  {
+    "item_name": "Bloodlines (Sin City Outlaws) (Volume 5)"
+  },
+  {
+    "item_name": "Chaser: A Dive Bar Novel"
+  },
+  {
+    "item_name": "Sergio: a Dark Mafia Romance"
+  },
+  {
+    "item_name": "Unforgivable"
+  },
+  {
+    "item_name": "Laced with Fear (Cash Bar) (Volume 1)"
+  },
+  {
+    "item_name": "I Dare You"
+  },
+  {
+    "item_name": "The Only Thing (The Donnigans)"
+  },
+  {
+    "item_name": "Bro Code"
+  },
+  {
+    "item_name": "Jock Row (Jock Hard) (Volume 1)"
+  },
+  {
+    "item_name": "Cruise (Moonshine Task Force) (Volume 6)"
+  },
+  {
+    "item_name": "I Dare You"
+  },
+  {
+    "item_name": "Perfect Love Story"
+  },
+  {
+    "item_name": "Bane (Sinners of Saint) (Volume 5)"
+  },
+  {
+    "item_name": "Scoring the Quarterback"
+  },
+  {
+    "item_name": "Rebel Heart: Book Two (The Rush Series) (Volume 2)"
+  },
+  {
+    "item_name": "Fighting for Everything (Warrior Fight Club)"
+  },
+  {
+    "item_name": "Dirty Exes (Liars, Inc.)"
+  },
+  {
+    "item_name": "End Game (Bellevue Bullies) (Volume 4)"
+  },
+  {
+    "item_name": "Unconscious Hearts"
+  },
+  {
+    "item_name": "Mister Tonight"
+  },
+  {
+    "item_name": "Senator (Politics of Love)"
+  },
+  {
+    "item_name": "The Doctor (Nashville Neighborhood) (Volume 1)"
+  },
+  {
+    "item_name": "Dirty Headlines"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 62179,
+    "item_name": "Wallflowers: Double Trouble"
+  },
+  {
+    "rank": 2,
+    "item_id": 41250,
+    "item_name": "Toying with Her"
+  },
+  {
+    "rank": 3,
+    "item_id": 71358,
+    "item_name": "Ruthless King (The Anti-Heroes Collection) (Volume 1)"
+  },
+  {
+    "rank": 4,
+    "item_id": 62075,
+    "item_name": "Sin (Vegas Nights #1)"
+  },
+  {
+    "rank": 5,
+    "item_id": 41512,
+    "item_name": "Only You"
+  },
+  {
+    "rank": 6,
+    "item_id": 72628,
+    "item_name": "Team Player: A Sports Romance Anthology"
+  },
+  {
+    "rank": 7,
+    "item_id": 70418,
+    "item_name": "Moonshot"
+  },
+  {
+    "rank": 8,
+    "item_id": 72674,
+    "item_name": "Three Blind Dates"
+  },
+  {
+    "rank": 9,
+    "item_id": 72441,
+    "item_name": "The Thing About Love"
+  },
+  {
+    "rank": 10,
+    "item_id": 75397,
+    "item_name": "Dirty (Raw Family) (Volume 2)"
+  },
+  {
+    "rank": 11,
+    "item_id": 62083,
+    "item_name": "Dirty Little Promise (Forbidden Desires) (Volume 2)"
+  },
+  {
+    "rank": 12,
+    "item_id": 40962,
+    "item_name": "Midnight Blue"
+  },
+  {
+    "rank": 13,
+    "item_id": 61557,
+    "item_name": "Tempt The Boss"
+  },
+  {
+    "rank": 14,
+    "item_id": 60697,
+    "item_name": "Transfer (The Retrieval Duet) (Volume 2)"
+  },
+  {
+    "rank": 15,
+    "item_id": 71757,
+    "item_name": "Stud Finder (1001 Dark Nights)"
+  },
+  {
+    "rank": 16,
+    "item_id": 43064,
+    "item_name": "Hard Rules: A Dirty Money Novel"
+  },
+  {
+    "rank": 17,
+    "item_id": 71140,
+    "item_name": "Dirty Filthy Rich Men"
+  },
+  {
+    "rank": 18,
+    "item_id": 73372,
+    "item_name": "From This Moment"
+  },
+  {
+    "rank": 19,
+    "item_id": 72448,
+    "item_name": "Thrive"
+  },
+  {
+    "rank": 20,
+    "item_id": 72438,
+    "item_name": "Miss Fix-It"
+  },
+  {
+    "rank": 21,
+    "item_id": 75138,
+    "item_name": "The Beard Made Me Do It (The Dixie Wardens Rejects) (Volume 5)"
+  },
+  {
+    "rank": 22,
+    "item_id": 41344,
+    "item_name": "Hero: The Morgan Brothers (The Morgan Bothers) (Volume 1)"
+  },
+  {
+    "rank": 23,
+    "item_id": 61059,
+    "item_name": "Being Brooke"
+  },
+  {
+    "rank": 24,
+    "item_id": 68044,
+    "item_name": "Knotted (Trails of Sin) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_id": 72214,
+    "item_name": "Tease (Temptation Series) (Volume 4)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

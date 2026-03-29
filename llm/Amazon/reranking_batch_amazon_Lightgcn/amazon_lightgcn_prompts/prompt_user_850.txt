@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Coral Reefs: A Journey Through an Aquatic World Full of Wonder"
+  },
+  {
+    "item_name": "Tales from Lovecraft Middle School #2: The Slither Sisters"
+  },
+  {
+    "item_name": "Fancy Nancy: Nancy Clancy Sees the Future"
+  },
+  {
+    "item_name": "The Ocean at the End of the Lane CD: A Novel"
+  },
+  {
+    "item_name": "Crankenstein"
+  },
+  {
+    "item_name": "Mr. Tiger Goes Wild (Boston Globe-Horn Book Awards (Awards))"
+  },
+  {
+    "item_name": "The Three Ninja Pigs"
+  },
+  {
+    "item_name": "Great Cow Race (BONE #2)"
+  },
+  {
+    "item_name": "Llama Llama and the Bully Goat"
+  },
+  {
+    "item_name": "Keys To The Demon Prison (Turtleback School &amp; Library Binding Edition) (Fablehaven)"
+  },
+  {
+    "item_name": "Good News, Bad News"
+  },
+  {
+    "item_name": "Wild Boy: The Real Life of the Savage of Aveyron"
+  },
+  {
+    "item_name": "The Wizard of Oz"
+  },
+  {
+    "item_name": "Robot Dreams"
+  },
+  {
+    "item_name": "Son"
+  },
+  {
+    "item_name": "Artemis Fowl and the Last Guardian"
+  },
+  {
+    "item_name": "The Princess in Black"
+  },
+  {
+    "item_name": "Magic Tree House Collection Volume 1: Books 1-4: #1 Dinosaurs Before Dark; #2 The Knight at Dawn; #3 Mummies in the Morning; #4 Pirates Past Noon (Magic Tree House (R))"
+  },
+  {
+    "item_name": "Magic Tree House Collection Volume 1: Books 1-4: #1 Dinosaurs Before Dark; #2 The Knight at Dawn; #3 Mummies in the Morning; #4 Pirates Past Noon (Magic Tree House (R))"
+  },
+  {
+    "item_name": "Afternoon on the Amazon (Magic Tree House, No. 6)"
+  },
+  {
+    "item_name": "Quest (Aaron Becker's Wordless Trilogy)"
+  },
+  {
+    "item_name": "The Long Haul (Diary of a Wimpy Kid book 9)"
+  },
+  {
+    "item_name": "Knuffle Bunny"
+  },
+  {
+    "item_name": "Nelson Mandela"
+  },
+  {
+    "item_name": "Joan of Arc"
+  },
+  {
+    "item_name": "Look Me in the Eye: My Life with Asperger's"
+  },
+  {
+    "item_name": "The Penderwicks on Gardam Street"
+  },
+  {
+    "item_name": "Uni the Unicorn"
+  },
+  {
+    "item_name": "The Shade of the Moon"
+  },
+  {
+    "item_name": "The Witch of Blackbird Pond (Collins Modern Classics)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 9766,
+    "item_name": "The Miraculous Journey of Edward Tulane"
+  },
+  {
+    "rank": 2,
+    "item_id": 5486,
+    "item_name": "The Midwife's Apprentice"
+  },
+  {
+    "rank": 3,
+    "item_id": 7156,
+    "item_name": "Dog Days (Diary of a Wimpy Kid)"
+  },
+  {
+    "rank": 4,
+    "item_id": 18569,
+    "item_name": "Socks"
+  },
+  {
+    "rank": 5,
+    "item_id": 3297,
+    "item_name": "Perfect Square"
+  },
+  {
+    "rank": 6,
+    "item_id": 18383,
+    "item_name": "Wild About Books"
+  },
+  {
+    "rank": 7,
+    "item_id": 51836,
+    "item_name": "Float"
+  },
+  {
+    "rank": 8,
+    "item_id": 22983,
+    "item_name": "Click, Clack, Moo: Cows That Type"
+  },
+  {
+    "rank": 9,
+    "item_id": 74948,
+    "item_name": "Wonder"
+  },
+  {
+    "rank": 10,
+    "item_id": 16,
+    "item_name": "Magician's Nephew - Folio Society Hardcover"
+  },
+  {
+    "rank": 11,
+    "item_id": 3131,
+    "item_name": "The Incorrigible Children of Ashton Place: Book I: The Mysterious Howling"
+  },
+  {
+    "rank": 12,
+    "item_id": 12337,
+    "item_name": "The Man Who Walked Between the Towers"
+  },
+  {
+    "rank": 13,
+    "item_id": 76860,
+    "item_name": "Matilda (Spanish Edition) (Serie Azul)"
+  },
+  {
+    "rank": 14,
+    "item_id": 18373,
+    "item_name": "Phantom Tollbooth"
+  },
+  {
+    "rank": 15,
+    "item_id": 23160,
+    "item_name": "Shiloh"
+  },
+  {
+    "rank": 16,
+    "item_id": 3455,
+    "item_name": "The One and Only Ivan"
+  },
+  {
+    "rank": 17,
+    "item_id": 23105,
+    "item_name": "The Arrival"
+  },
+  {
+    "rank": 18,
+    "item_id": 28621,
+    "item_name": "Cloudy With a Chance of Meatballs"
+  },
+  {
+    "rank": 19,
+    "item_id": 76907,
+    "item_name": "Ricky Ricotta's Mighty Robot Book Set (7 Volumes)"
+  },
+  {
+    "rank": 20,
+    "item_id": 3383,
+    "item_name": "Inside Out and Back Again"
+  },
+  {
+    "rank": 21,
+    "item_id": 1707,
+    "item_name": "Alexander and the Terrible, Horrible, No Good, Very Bad Day Low Price"
+  },
+  {
+    "rank": 22,
+    "item_id": 36403,
+    "item_name": "In the Small, Small Pond (Caldecott Honor Book)"
+  },
+  {
+    "rank": 23,
+    "item_id": 28797,
+    "item_name": "The View From Saturday (Turtleback School &amp; Library Binding Edition) (Jean Karl Books (Prebound))"
+  },
+  {
+    "rank": 24,
+    "item_id": 63658,
+    "item_name": "And Then It's Spring (Booklist Editor's Choice. Books for Youth (Awards))"
+  },
+  {
+    "rank": 25,
+    "item_id": 740,
+    "item_name": "The Day The Crayons Quit"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

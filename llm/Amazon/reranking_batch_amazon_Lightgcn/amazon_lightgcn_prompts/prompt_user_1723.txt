@@ -1,0 +1,239 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Now You Wanna Come Back"
+  },
+  {
+    "item_name": "Now You Wanna Come Back"
+  },
+  {
+    "item_name": "A Dollar Outta Fifteen Cent 4: Money Makes the World Go 'Round"
+  },
+  {
+    "item_name": "Tears Fall at Night (Praise Him Anyhow) (Volume 1)"
+  },
+  {
+    "item_name": "Sellout"
+  },
+  {
+    "item_name": "My Man's Best Friend"
+  },
+  {
+    "item_name": "Friends &amp; Foes"
+  },
+  {
+    "item_name": "My Woman His Wife"
+  },
+  {
+    "item_name": "My Woman His Wife"
+  },
+  {
+    "item_name": "Sinners &amp; Saints"
+  },
+  {
+    "item_name": "The Secret She Kept"
+  },
+  {
+    "item_name": "White Lines II: Sunny: A Novel"
+  },
+  {
+    "item_name": "The Pastor's Husband"
+  },
+  {
+    "item_name": "The Cartel 6: The Demise"
+  },
+  {
+    "item_name": "A Sinful Calling (A Reverend Curtis Black Novel)"
+  },
+  {
+    "item_name": "My Son's Wife"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 47880,
+    "item_name": "Secret Betrayals"
+  },
+  {
+    "rank": 2,
+    "item_id": 64011,
+    "item_name": "The Retreat"
+  },
+  {
+    "rank": 3,
+    "item_id": 32470,
+    "item_name": "Don't Blame the Devil"
+  },
+  {
+    "rank": 4,
+    "item_id": 64005,
+    "item_name": "Diary of a Stalker (Urban Renaissance)"
+  },
+  {
+    "rank": 5,
+    "item_id": 24559,
+    "item_name": "In Love with a Younger Man"
+  },
+  {
+    "rank": 6,
+    "item_id": 38237,
+    "item_name": "A Dollar Outta Fifteen Cent 4: Money Makes the World Go 'Round"
+  },
+  {
+    "rank": 7,
+    "item_id": 23520,
+    "item_name": "The Bishop's Daughter"
+  },
+  {
+    "rank": 8,
+    "item_id": 31448,
+    "item_name": "Every Women Needs a Wife"
+  },
+  {
+    "rank": 9,
+    "item_id": 38841,
+    "item_name": "Daughter of the Game: The Game Devours Life, Life Devours Love (The Daughter of the Game Series)"
+  },
+  {
+    "rank": 10,
+    "item_id": 64010,
+    "item_name": "Guilty Of Love (Urban Christian)"
+  },
+  {
+    "rank": 11,
+    "item_id": 47350,
+    "item_name": "The Deal, the Dance, and the Devil: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_id": 32531,
+    "item_name": "A Good Excuse To Be Bad"
+  },
+  {
+    "rank": 13,
+    "item_id": 62709,
+    "item_name": "Fixin' Tyrone (Indigo)"
+  },
+  {
+    "rank": 14,
+    "item_id": 38297,
+    "item_name": "Nina's Got A Secret"
+  },
+  {
+    "rank": 15,
+    "item_id": 2833,
+    "item_name": "Up Pops the Devil"
+  },
+  {
+    "rank": 16,
+    "item_id": 39838,
+    "item_name": "Deep Fried Trouble (Eugeena Patterson Mysteries)"
+  },
+  {
+    "rank": 17,
+    "item_id": 32426,
+    "item_name": "The First Lady"
+  },
+  {
+    "rank": 18,
+    "item_id": 64006,
+    "item_name": "Betrayal (Urban Books)"
+  },
+  {
+    "rank": 19,
+    "item_id": 23942,
+    "item_name": "Alibi"
+  },
+  {
+    "rank": 20,
+    "item_id": 24519,
+    "item_name": "Sweet Georgia Brown"
+  },
+  {
+    "rank": 21,
+    "item_id": 17734,
+    "item_name": "The Law Of Desire (Kimani Romance)"
+  },
+  {
+    "rank": 22,
+    "item_id": 50511,
+    "item_name": "Stand Your Ground: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_id": 64012,
+    "item_name": "When Rain Falls (Victory Gospel Series #1)"
+  },
+  {
+    "rank": 24,
+    "item_id": 73530,
+    "item_name": "Broken Heart (The Reed Family) (Volume 1)"
+  },
+  {
+    "rank": 25,
+    "item_id": 12269,
+    "item_name": "In Another Man's Bed: A Novel (Invincible Women Series)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

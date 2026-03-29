@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Girl in the Red Coat"
+  },
+  {
+    "item_name": "Otherworld (Last Reality)"
+  },
+  {
+    "item_name": "The Pillow Parade: Children's Bedtime Book"
+  },
+  {
+    "item_name": "The Land of Stories: The Wishing Spell"
+  },
+  {
+    "item_name": "Extremely Loud &amp; Incredibly Close"
+  },
+  {
+    "item_name": "To Be Where You Are (A Mitford Novel)"
+  },
+  {
+    "item_name": "The Roanoke Girls: A Novel"
+  },
+  {
+    "item_name": "Brooklyn: A Novel"
+  },
+  {
+    "item_name": "The Gene: An Intimate History"
+  },
+  {
+    "item_name": "See Me [Paperback] [Jan 01, 2015] SPARKS NICHOLAS"
+  },
+  {
+    "item_name": "Breaking Cat News: Cats Reporting on the News that Matters to Cats"
+  },
+  {
+    "item_name": "Family Changes: Explaining Divorce to Children"
+  },
+  {
+    "item_name": "A Heretical Divide (Of Hate And Laughter Book 2) eBook"
+  },
+  {
+    "item_name": "Subliminal: How Your Unconscious Mind Rules Your Behavior"
+  },
+  {
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "item_name": "Killer Twist: A Ghostwriter Mystery (Volume 1)"
+  },
+  {
+    "item_name": "Murder in the Pearl District"
+  },
+  {
+    "item_name": "Mindwise: How We Understand What Others Think, Believe, Feel, and Want"
+  },
+  {
+    "item_name": "99 Creative WOWs Words of Wisdom for Business - Motivational Gift Idea for Entrepreneurs, Business Owners, and Creative Thinkers"
+  },
+  {
+    "item_name": "The Alice Network: A Novel"
+  },
+  {
+    "item_name": "About the Night eBook"
+  },
+  {
+    "item_name": "Room"
+  },
+  {
+    "item_name": "Everyone Brave is Forgiven"
+  },
+  {
+    "item_name": "About the Night"
+  },
+  {
+    "item_name": "A Scanner Darkly"
+  },
+  {
+    "item_name": "Jack in the Green (The Hunt for Jack Reacher)"
+  },
+  {
+    "item_name": "FATAL GREED (Greed Series #1) eBook"
+  },
+  {
+    "item_name": "Peaceful Night Poetry: Sleep-inducing Picture Poetry Book for Children Aged 3-103"
+  },
+  {
+    "item_name": "Cedric The Shark Gets Toothache!"
+  },
+  {
+    "item_name": "Magical Bedtime Stories: A Collection of Short Stories &amp; Poems for Children"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Hanging Tree: A Novella"
+  },
+  {
+    "rank": 2,
+    "item_name": "Captain No Beard: An Imaginary Tale of a Pirate's Life"
+  },
+  {
+    "rank": 3,
+    "item_name": "If You Were Me and Lived in ...Kenya: A Child's Introduction to Cultures around the World (Volume 5)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Rockin' Chair"
+  },
+  {
+    "rank": 5,
+    "item_name": "Stillwell: A Haunting on Long Island (A Haunting on Long Island Series)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Captain No Beard and the Aurora Borealis: A Captain No Beard Story (Volume 7)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Oliver Twist (Penguin Clothbound Classics)"
+  },
+  {
+    "rank": 8,
+    "item_name": "A Flag for the Flying Dragon: A Captain No Beard Story (Volume 9)"
+  },
+  {
+    "rank": 9,
+    "item_name": "If You Were Me and Lived in...Italy: A Child's Introduction to Cultures Around the World (Volume 21)"
+  },
+  {
+    "rank": 10,
+    "item_name": "Fribbet the Frog and the Tadpoles: A Captain No Beard Story (Volume 8)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Pressed Pennies"
+  },
+  {
+    "rank": 12,
+    "item_name": "If You Were Me and Lived in...Ancient Greece: An Introduction to Civilizations Throughout Time (Volume 1)"
+  },
+  {
+    "rank": 13,
+    "item_name": "If You Were Me and Lived in...the American West: An Introduction to Civilizations Throughout Time (Volume 10)"
+  },
+  {
+    "rank": 14,
+    "item_name": "If You Were Me and Lived in...Germany: A Child's Introduction to Cultures Around the World (Volume 20)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Rover and the Dog Hotel: Bedtime Stories Book For Children's Age 3-10. (Ebook About a dog) (Good night &amp; Bedtime Children's Story Ebook Collection)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Gone Girl"
+  },
+  {
+    "rank": 17,
+    "item_name": "If You Were Me and Lived in...Colonial America: An Introduction to Civilizations Throughout Time (Volume 9)"
+  },
+  {
+    "rank": 18,
+    "item_name": "If You Were Me and Lived in...India: A Child's Introduction to Cultures Around the World (Volume 7)"
+  },
+  {
+    "rank": 19,
+    "item_name": "The History Major: A Novella"
+  },
+  {
+    "rank": 20,
+    "item_name": "If You Were Me and Lived in...Peru: A Child's Introduction to Cultures Around the World (Volume 12)"
+  },
+  {
+    "rank": 21,
+    "item_name": "If you were me and lived in... Russia: A Child's Introduction to Cultures Around the World (Volume 9)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Treasure of Snake Island: A Captain No Beard Story (Volume 5)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Being a Captain is Hard Work: A Captain No Beard Story (Volume 10)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Hollow City"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Hunger Games (Book 1)"
+  },
+  {
+    "rank": 26,
+    "item_name": "If You Were Me and Lived on...Mars (A Child's Introduction to Cultures Around the World) (Volume 23)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Monsterland (Monsterland Series) (Volume 1)"
+  },
+  {
+    "rank": 28,
+    "item_name": "Maze Runner. Correr o Morir / Maze Runner, Run or die (Spanish Edition)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The True Spirit of Christmas"
+  },
+  {
+    "rank": 30,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 31,
+    "item_name": "If You Were Me and Lived in... Turkey: A Child's Introduction to Culture Around the World (A Child's Introduction to Cultures Around the World) (Volume 6)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Crew Goes Coconuts!: A Captain No Beard Story (Volume 6)"
+  },
+  {
+    "rank": 33,
+    "item_name": "If You Were Me and Lived in...Portugal: A Child's Introduction to Cultures Around the World (Volume 10)"
+  },
+  {
+    "rank": 34,
+    "item_name": "If You Were Me and Lived in... Elizabethan England: An Introduction to Civilizations Throughout Time (Volume 8)"
+  },
+  {
+    "rank": 35,
+    "item_name": "I Want a Dog: My Opinion Essay (Read and Write)"
+  },
+  {
+    "rank": 36,
+    "item_name": "I Want To Do Yoga Too"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Gnomes Of The Night"
+  },
+  {
+    "rank": 38,
+    "item_name": "Six Years"
+  },
+  {
+    "rank": 39,
+    "item_name": "If You Were Me and Lived in...Viking Europe: An Introduction to Civilizations Throughout Time (Volume 3)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Brood X: A Firsthand Account of the Great Cicada Invasion"
+  },
+  {
+    "rank": 41,
+    "item_name": "The BOOK THIEF"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Invisible Man (Classic, 20th-Century, Audio)"
+  },
+  {
+    "rank": 43,
+    "item_name": "One to Ten: Squirrel's Bad Day (Bedtime Dream Collection)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Pepper Parrot's Problem with Patience: A Captain No Beard Story (Volume 2)"
+  },
+  {
+    "rank": 45,
+    "item_name": "If You Were Me and Lived in...Israel: A Child's Introduction to Cultures Around the World (Volume 19)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Greeth"
+  },
+  {
+    "rank": 47,
+    "item_name": "Monsterland"
+  },
+  {
+    "rank": 48,
+    "item_name": "If You Were Me and Lived in...Greece: A Child's Introduction to Cultures Around the World (Volume 11)"
+  },
+  {
+    "rank": 49,
+    "item_name": "If you were me and lived in... France: A Child's Introduction to Cultures Around the World (Volume 2)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Vengeance is Mine: A Benjamin Tucker Mystery (Volume 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

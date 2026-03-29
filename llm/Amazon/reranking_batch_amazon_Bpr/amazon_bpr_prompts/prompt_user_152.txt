@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Surface to Air: A Malko Linge Novel"
+  },
+  {
+    "item_name": "The Buffer Zone Diet: It's Not Just What You Eat, It's When You Eat. Harness Your Hidden Fuel for a Slimmer and Healthier You"
+  },
+  {
+    "item_name": "An Unsettling Crime for Samuel Craddock: A Samuel Craddock Mystery (Samuel Craddock Mysteries)"
+  },
+  {
+    "item_name": "Hunting Hour: A Timber Creek K-9 Mystery"
+  },
+  {
+    "item_name": "Portrait of Vengeance (A Gwen Marcey Novel)"
+  },
+  {
+    "item_name": "Champion of the World"
+  },
+  {
+    "item_name": "Black List (Thorndike Press Large Print Core)"
+  },
+  {
+    "item_name": "Collected Poems"
+  },
+  {
+    "item_name": "The Whispering Room: A Jane Hawk Novel"
+  },
+  {
+    "item_name": "Hockey: Then to WOW! (Sports Illustrated Kids Then to WOW!)"
+  },
+  {
+    "item_name": "First-Time Landlord: Your Guide to Renting out a Single-Family Home (USA Today/Nolo Series)"
+  },
+  {
+    "item_name": "Descent: My Epic Fall from Cycling Superstardom to Doping Dead End"
+  },
+  {
+    "item_name": "House of Spies"
+  },
+  {
+    "item_name": "Vengeance: A Novel"
+  },
+  {
+    "item_name": "Play Big: Lessons in Being Limitless from the First Woman to Coach in the NFL"
+  },
+  {
+    "item_name": "Leadership from the Mission Control Room to the Boardroom: A Guide to Unleashing Team Performance"
+  },
+  {
+    "item_name": "Gratitude in Motion: A True Story of Hope, Determination, and the Everyday Heroes Around Us"
+  },
+  {
+    "item_name": "The Late Show"
+  },
+  {
+    "item_name": "Goal!: I Scored a Goal in a World Cup Final"
+  },
+  {
+    "item_name": "Innocent (Will Robie series)"
+  },
+  {
+    "item_name": "Absolute Power: How the Pope Became the Most Influential Man in the World"
+  },
+  {
+    "item_name": "The Hit (Turtleback School &amp; Library Binding Edition)"
+  },
+  {
+    "item_name": "Blood Letters: The Untold Story of Lin Zhao, a Martyr in Mao's China"
+  },
+  {
+    "item_name": "The Truth About Animals: Stoned Sloths, Lovelorn Hippos, and Other Tales from the Wild Side of Wildlife"
+  },
+  {
+    "item_name": "A Perfect Shot"
+  },
+  {
+    "item_name": "The Target"
+  },
+  {
+    "item_name": "100 Scientists Who Made History (100 in History)"
+  },
+  {
+    "item_name": "The Guilty (Will Robie series)"
+  },
+  {
+    "item_name": "Into the Storm: Two Ships, a Deadly Hurricane, and an Epic Battle for Survival"
+  },
+  {
+    "item_name": "Bloody Sunday: A Thriller (A Dewey Andreas Novel)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back"
+  },
+  {
+    "rank": 2,
+    "item_name": "Killing Patton: The Strange Death of World War II's Most Audacious General (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 3,
+    "item_name": "Decision Points"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Columbus Affair: A Novel (Random House Large Print)"
+  },
+  {
+    "rank": 5,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 6,
+    "item_name": "Dead Wake: The Last Crossing of the Lusitania"
+  },
+  {
+    "rank": 7,
+    "item_name": "Kill Shot (The Mitch Rapp Series)"
+  },
+  {
+    "rank": 8,
+    "item_name": "Five Cities that Ruled the World: How  Jerusalem, Athens, Rome, London, and New York Shaped Global History"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Reaper: Autobiography of One of the Deadliest Special Ops Snipers"
+  },
+  {
+    "rank": 10,
+    "item_name": "[(Chicken Soup for the Cat Lover's Soul: Stories of Feline Affection, Mystery and Charm)] [Author: Jack Canfield] published on (October, 2013)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Integrity at Stake: Safeguarding Your Church from Financial Fraud"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Enemy (Jack Reacher, No. 8)"
+  },
+  {
+    "rank": 13,
+    "item_name": "U is for Undertow (A Kinsey Millhone Mystery, Book 21)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Tunnels: Escapes Under the Berlin Wall and the Historic Films the JFK White House Tried to Kill (Random House Large Print)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Vanished: The Sixty-Year Search for the Missing Men of World War II"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Jungle (The Penguin American Library)"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Lost Symbol (Dan Brown)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 19,
+    "item_name": "At Home: A Short History of Private Life (Random House Large Print)"
+  },
+  {
+    "rank": 20,
+    "item_name": "A Path Made Plain: Seasons in Pinecraft - Book 2"
+  },
+  {
+    "rank": 21,
+    "item_name": "Spycatcher: A Will Cochrane Novel"
+  },
+  {
+    "rank": 22,
+    "item_name": "Into Thin Air: A Personal Account of the Mt. Everest Disaster"
+  },
+  {
+    "rank": 23,
+    "item_name": "A Thousand Lives: The Untold Story of Hope, Deception, and Survival at Jonestown"
+  },
+  {
+    "rank": 24,
+    "item_name": "Under the Dome"
+  },
+  {
+    "rank": 25,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Innocent Man: Murder and Injustice in a Small Town"
+  },
+  {
+    "rank": 27,
+    "item_name": "Home to Paradise: The Coming Home Series  Book 3"
+  },
+  {
+    "rank": 28,
+    "item_name": "A Tale of Two Cities (Collins Classics)"
+  },
+  {
+    "rank": 29,
+    "item_name": "David and Goliath: Art of Battling Giants (A)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Freakonomics: A Rogue Economist Explores the Hidden Side of Everything - by Steven D. Levitt &amp; Stephen J. Dubner"
+  },
+  {
+    "rank": 31,
+    "item_name": "John Bunyan's The Pilgrim's Progress: A Classic Story Wonderfully Told (Listeners Collection of Classic Christian Literature)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Curious Incident of the Dog in the Night-Time"
+  },
+  {
+    "rank": 33,
+    "item_name": "Slave: The Hidden Truth About Your Identity in Christ"
+  },
+  {
+    "rank": 34,
+    "item_name": "Chicken Soup for the Cat Lover's Soul: Stories of Feline Affection, Mystery and Charm (Chicken Soup for the Soul)"
+  },
+  {
+    "rank": 35,
+    "item_name": "Shattered: Inside Hillary Clinton's Doomed Campaign"
+  },
+  {
+    "rank": 36,
+    "item_name": "Godless: The Church of Liberalism"
+  },
+  {
+    "rank": 37,
+    "item_name": "Thomas Jefferson: The Art of Power (Random House Large Print)"
+  },
+  {
+    "rank": 38,
+    "item_name": "Black Beauty (Scholastic Classics)"
+  },
+  {
+    "rank": 39,
+    "item_name": "A Million Miles in a Thousand Years: What I Learned While Editing My Life"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Great Gatsby (Collins Classics)"
+  },
+  {
+    "rank": 41,
+    "item_name": "Hidden Inheritance: Family Secrets, Memory, and Faith"
+  },
+  {
+    "rank": 42,
+    "item_name": "Bad Luck and Trouble (Jack Reacher, No. 11)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The Great Divorce"
+  },
+  {
+    "rank": 44,
+    "item_name": "Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Tipping Point: How Little Things Can Make a Big Difference"
+  },
+  {
+    "rank": 46,
+    "item_name": "On Paper: The Everything of Its Two-Thousand-Year History (ALA Notable Books for Adults)"
+  },
+  {
+    "rank": 47,
+    "item_name": "December 1941: 31 Days That Changed America and Saved the World"
+  },
+  {
+    "rank": 48,
+    "item_name": "Legend: A Harrowing Story from the Vietnam War of One Green Beret's Heroic Mission to Rescue a Special Forces Team Caught Behind Enemy Lines"
+  },
+  {
+    "rank": 49,
+    "item_name": "Benjamin Franklin: An American Life"
+  },
+  {
+    "rank": 50,
+    "item_name": "At the Existentialist Caf: Freedom, Being, and Apricot Cocktails"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

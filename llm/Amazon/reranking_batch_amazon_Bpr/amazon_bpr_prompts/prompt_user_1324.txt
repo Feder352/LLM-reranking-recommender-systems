@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Dead, to Begin With: A Dan Rhodes Mystery (Sheriff Dan Rhodes Mysteries)"
+  },
+  {
+    "item_name": "Exposed: A Rosato &amp; DiNunzio Novel"
+  },
+  {
+    "item_name": "The Forgotten Beasts of Eld"
+  },
+  {
+    "item_name": "The End of the World Running Club"
+  },
+  {
+    "item_name": "Louis L'Amour's Lost Treasures: Volume 1: Unfinished Manuscripts, Mysterious Stories, and Lost Notes from One of the World's Most Popular Novelists"
+  },
+  {
+    "item_name": "Little Boy Lost"
+  },
+  {
+    "item_name": "Artemis"
+  },
+  {
+    "item_name": "A Season to Lie: A Detective Gemma Monroe Mystery (Detective Gemma Monroe Novels)"
+  },
+  {
+    "item_name": "The Cuban Affair"
+  },
+  {
+    "item_name": "Black Dawn"
+  },
+  {
+    "item_name": "Elvis Presley: A Southern Life"
+  },
+  {
+    "item_name": "The Wife Between Us: A Novel"
+  },
+  {
+    "item_name": "Scone Cold Killer"
+  },
+  {
+    "item_name": "SINthetic"
+  },
+  {
+    "item_name": "The King of Bones and Ashes (Witches of New Orleans)"
+  },
+  {
+    "item_name": "The Chalk Man"
+  },
+  {
+    "item_name": "Grist Mill Road"
+  },
+  {
+    "item_name": "Shadow Hunt (Disrupted Magic)"
+  },
+  {
+    "item_name": "Down the River unto the Sea"
+  },
+  {
+    "item_name": "Coffin Scarcely Used"
+  },
+  {
+    "item_name": "Sirens: A Novel (An Aidan Waits Thriller)"
+  },
+  {
+    "item_name": "Vindication (A Matt Royal Mystery)"
+  },
+  {
+    "item_name": "Bump in the Night (Flaxborough Chronicles)"
+  },
+  {
+    "item_name": "Equus (Rhonda Parrish's Magical Menageries) (Volume 5)"
+  },
+  {
+    "item_name": "Road to Paradise"
+  },
+  {
+    "item_name": "Resurrection America"
+  },
+  {
+    "item_name": "The Knowledge: A Richard Jury Mystery"
+  },
+  {
+    "item_name": "So Far Gone, Girl: A Parody of Gone Girl - Kindle edition"
+  },
+  {
+    "item_name": "Something in the Water: A Novel"
+  },
+  {
+    "item_name": "Dead Man Running (An Alex McKnight Thriller)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Cop Town: A Novel"
+  },
+  {
+    "rank": 2,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 3,
+    "item_name": "The City"
+  },
+  {
+    "rank": 4,
+    "item_name": "Northwoods (The Fatal Folklore Trilogy Book 2) eBook"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "rank": 6,
+    "item_name": "Ink and Bone"
+  },
+  {
+    "rank": 7,
+    "item_name": "Broken Promise (Promise Falls Trilogy)"
+  },
+  {
+    "rank": 8,
+    "item_name": "All Our Wrong Todays: A BBC Radio 2 Book Club Choice 2017"
+  },
+  {
+    "rank": 9,
+    "item_name": "Crimson Shore (Agent Pendergast series)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Never-Open Desert Diner"
+  },
+  {
+    "rank": 11,
+    "item_name": "Dead Souls: A gripping serial killer thriller with a shocking twist (Detective Kim Stone Crime Thriller Series) (Volume 6)"
+  },
+  {
+    "rank": 12,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 13,
+    "item_name": "Pop Goes the Weasel (A Helen Grace Thriller)"
+  },
+  {
+    "rank": 14,
+    "item_name": "Fall"
+  },
+  {
+    "rank": 15,
+    "item_name": "Before the Fall: The year's best suspense novel"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Realms of the Dead: Crossfades and Bleedovers - Kindle edition"
+  },
+  {
+    "rank": 17,
+    "item_name": "Heartbreak Hotel: An Alex Delaware Novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Beauty of the End"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Devil&#39;s Prayer eBook"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Girl in the Ice: A gripping serial killer thriller (Detective Erika Foster crime thriller novel) (Volume 1)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Gathering Prey (A Prey Novel)"
+  },
+  {
+    "rank": 22,
+    "item_name": "You Will Pay"
+  },
+  {
+    "rank": 23,
+    "item_name": "The God's Eye View"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Bleiberg Project (Consortium Thriller)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Chase (An Isaac Bell Adventure)"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Last Girl (The Dominion Trilogy)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Ashley Bell"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Mistake: An unputdownable psychological thriller with a brilliant twist"
+  },
+  {
+    "rank": 29,
+    "item_name": "Gunmetal Gray (Gray Man)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Find Her (A D.D. Warren and Flora Dane Novel)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Hanging Judge: A Novel (The Judge Norcross Novels)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Play Dead: A gripping serial killer thriller"
+  },
+  {
+    "rank": 33,
+    "item_name": "Dark Side of the Road, The: A country house murder mystery with a supernatural twist (An Ishmael Jones Mystery)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Whispering Room: A Jane Hawk Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "The One Man"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Obsidian Chamber (Agent Pendergast series)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Fool Me Once"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Murder Farm"
+  },
+  {
+    "rank": 39,
+    "item_name": "No Witness but the Moon (A Jimmy Vega Mystery)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Mystery, Inc. (Bibliomysteries Book 26) eBook"
+  },
+  {
+    "rank": 41,
+    "item_name": "Mrs. John Doe: A Nora Baron Thriller - Kindle edition"
+  },
+  {
+    "rank": 42,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 43,
+    "item_name": "The After House (A Haunting on Long Island Series)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Monsterland"
+  },
+  {
+    "rank": 45,
+    "item_name": "Livia Lone (A Livia Lone Novel)"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Naturalist"
+  },
+  {
+    "rank": 47,
+    "item_name": "Escape from Witchwood Hollow"
+  },
+  {
+    "rank": 48,
+    "item_name": "Afraid"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Devil's Work"
+  },
+  {
+    "rank": 50,
+    "item_name": "Behind Closed Doors: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

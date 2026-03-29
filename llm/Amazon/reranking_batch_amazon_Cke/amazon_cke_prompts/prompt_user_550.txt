@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Moses: When Harriet Tubman Led Her People to Freedom (Caldecott Honor Book)"
+  },
+  {
+    "item_name": "Zero the Hero"
+  },
+  {
+    "item_name": "Duck! Rabbit!"
+  },
+  {
+    "item_name": "Locomotive (Caldecott Medal Book)"
+  },
+  {
+    "item_name": "The 12 Days of Christmas"
+  },
+  {
+    "item_name": "A Sheetcake Named Desire (A Piece of Cake Mystery)"
+  },
+  {
+    "item_name": "His Pregnant Texas Sweetheart (Peach Leaf, Texas)"
+  },
+  {
+    "item_name": "16 Lighthouse Road (Cedar Cove, Book 1)"
+  },
+  {
+    "item_name": "Cake on a Hot Tin Roof (A Piece of Cake Mystery)"
+  },
+  {
+    "item_name": "RUBY (Dakotah Treasures"
+  },
+  {
+    "item_name": "A Batter of Life and Death: A Bakeshop Mystery"
+  },
+  {
+    "item_name": "Death of a Dishonorable Gentleman: A Mystery (Lady Montfort Mystery Series)"
+  },
+  {
+    "item_name": "Stirring the Plot (A Cookbook Nook Mystery)"
+  },
+  {
+    "item_name": "The Diva Cooks a Goose (A Domestic Diva Mystery)"
+  },
+  {
+    "item_name": "A Virgin River Christmas (A Virgin River Novel)"
+  },
+  {
+    "item_name": "The House on Primrose Pond"
+  },
+  {
+    "item_name": "The Fate of Mercy Alban"
+  },
+  {
+    "item_name": "Orange Moon: A Fiction Novel"
+  },
+  {
+    "item_name": "Down From the Mountain"
+  },
+  {
+    "item_name": "Twist of Faith (Ava Saunders)"
+  },
+  {
+    "item_name": "Max and the Gatekeeper"
+  },
+  {
+    "item_name": "Climbing with Abraham: 30 Devotionals to Help You Grow Your Faith, Build Your Life, and Discover Gods Calling (Testament Heroes) (Volume 1)"
+  },
+  {
+    "item_name": "Witch Is When It All Began (A Witch P.I. Mystery) (Volume 1)"
+  },
+  {
+    "item_name": "52 Steps to Murder (Dekker Cozy Mystery Series) (Volume 1)"
+  },
+  {
+    "item_name": "A Gift of Ghosts (Tassamara)"
+  },
+  {
+    "item_name": "Ghostly Paws (Mystic Notch Cozy Mystery Series)"
+  },
+  {
+    "item_name": "A Spirited Tail (Mystic Notch Cozy Mystery Series) (Volume 2)"
+  },
+  {
+    "item_name": "A Mew To A Kill (Mystic Notch Cozy Mystery Series) (Volume 3)"
+  },
+  {
+    "item_name": "Paws and Effect (Mystic Notch Cozy Mystery Series) (Volume 4)"
+  },
+  {
+    "item_name": "Probable Paws (Mystic Notch Cozy Mystery Series) (Volume 5)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 4465,
+    "item_name": "The Three Pigs"
+  },
+  {
+    "rank": 2,
+    "item_id": 4659,
+    "item_name": "Giggle, Giggle, Quack (A Click Clack Book)"
+  },
+  {
+    "rank": 3,
+    "item_id": 841,
+    "item_name": "Blueberries for Sal"
+  },
+  {
+    "rank": 4,
+    "item_id": 115,
+    "item_name": "Jamberry"
+  },
+  {
+    "rank": 5,
+    "item_id": 842,
+    "item_name": "Miss Rumphius"
+  },
+  {
+    "rank": 6,
+    "item_id": 601,
+    "item_name": "Goldilocks and the Three Dinosaurs: As Retold by Mo Willems"
+  },
+  {
+    "rank": 7,
+    "item_id": 4478,
+    "item_name": "Mr. Wuffles! (Caldecott Medal - Honors Winning Title(s))"
+  },
+  {
+    "rank": 8,
+    "item_id": 846,
+    "item_name": "The Stinky Cheese Man and Other Fairly Stupid Tales (Picture Puffin)"
+  },
+  {
+    "rank": 9,
+    "item_id": 5723,
+    "item_name": "Little Mouse's Big Book of Fears (Kate Greenaway Medal)"
+  },
+  {
+    "rank": 10,
+    "item_id": 5755,
+    "item_name": "Elephants Cannot Dance! (An Elephant and Piggie Book)"
+  },
+  {
+    "rank": 11,
+    "item_id": 4467,
+    "item_name": "Flotsam"
+  },
+  {
+    "rank": 12,
+    "item_id": 2057,
+    "item_name": "Mr. Tiger Goes Wild (Boston Globe-Horn Book Awards (Awards))"
+  },
+  {
+    "rank": 13,
+    "item_id": 2562,
+    "item_name": "The Cat Who Walked Across France: A Picture Book"
+  },
+  {
+    "rank": 14,
+    "item_id": 2716,
+    "item_name": "Ramona the Pest"
+  },
+  {
+    "rank": 15,
+    "item_id": 1722,
+    "item_name": "The Gardener"
+  },
+  {
+    "rank": 16,
+    "item_id": 1174,
+    "item_name": "How I Became a Pirate"
+  },
+  {
+    "rank": 17,
+    "item_id": 4657,
+    "item_name": "Dooby Dooby Moo (A Click Clack Book)"
+  },
+  {
+    "rank": 18,
+    "item_id": 1714,
+    "item_name": "My Friend Rabbit: A Picture Book"
+  },
+  {
+    "rank": 19,
+    "item_id": 5193,
+    "item_name": "Leonardo, the Terrible Monster"
+  },
+  {
+    "rank": 20,
+    "item_id": 5184,
+    "item_name": "Martin's Big Words: The Life of Dr. Martin Luther King, Jr."
+  },
+  {
+    "rank": 21,
+    "item_id": 1742,
+    "item_name": "Shrek!"
+  },
+  {
+    "rank": 22,
+    "item_id": 2997,
+    "item_name": "How to Babysit a Grandma (How To...relationships)"
+  },
+  {
+    "rank": 23,
+    "item_id": 4654,
+    "item_name": "Muncha! Muncha! Muncha!"
+  },
+  {
+    "rank": 24,
+    "item_id": 5754,
+    "item_name": "I Love My New Toy! (An Elephant and Piggie Book)"
+  },
+  {
+    "rank": 25,
+    "item_id": 1958,
+    "item_name": "You Read to Me, I'll Read to You: Very Short Stories to Read Together"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

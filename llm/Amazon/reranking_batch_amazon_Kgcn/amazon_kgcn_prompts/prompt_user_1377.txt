@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Perl Cookbook, Second Edition"
+  },
+  {
+    "item_name": "Amazon Hacks: 100 Industrial-Strength Tips &amp; Tools"
+  },
+  {
+    "item_name": "iPod: The Missing Manual"
+  },
+  {
+    "item_name": "Digital Photography Expert Techniques (O'Reilly Digital Studio)"
+  },
+  {
+    "item_name": "Google: The Missing Manual"
+  },
+  {
+    "item_name": "CSS Cookbook"
+  },
+  {
+    "item_name": "America (The Book): A Citizen's Guide to Democracy Inaction"
+  },
+  {
+    "item_name": "The Web Programmer's Desk Reference"
+  },
+  {
+    "item_name": "C++ Without Fear: A Beginner's Guide That Makes You Feel Smart (2nd Edition)"
+  },
+  {
+    "item_name": "Spam Kings: The Real Story behind the High-Rolling Hucksters Pushing Porn, Pills, and %*@)# Enlargements"
+  },
+  {
+    "item_name": "XML in a Nutshell, Third Edition"
+  },
+  {
+    "item_name": "Dune: The Battle of Corrin"
+  },
+  {
+    "item_name": "The Cult of Mac"
+  },
+  {
+    "item_name": "Cube Farm"
+  },
+  {
+    "item_name": "Black Hat: Misfits, Criminals, and Scammers in the Internet Age"
+  },
+  {
+    "item_name": "Degunking Windows: Clean up and speed up your sluggish PC"
+  },
+  {
+    "item_name": "Head First Design Patterns: A Brain-Friendly Guide"
+  },
+  {
+    "item_name": "On Intelligence"
+  },
+  {
+    "item_name": "Knoppix Hacks: 100 Industrial-Strength Tips and Tools"
+  },
+  {
+    "item_name": "Forensic Discovery"
+  },
+  {
+    "item_name": "Carl Melcher Goes to Vietnam"
+  },
+  {
+    "item_name": "iPod: The Missing Manual"
+  },
+  {
+    "item_name": "The Unofficial LEGO Builder's Guide"
+  },
+  {
+    "item_name": "Test Driving Linux: From Windows to Linux in 60 Seconds"
+  },
+  {
+    "item_name": "Wicked Cool Java: Code Bits, Open-Source Libraries, and Project Ideas"
+  },
+  {
+    "item_name": "The Home-Based Bookstore: Start Your Own Business Selling Used Books on Amazon, eBay or Your Own Web Site"
+  },
+  {
+    "item_name": "Our Endangered Values: America's Moral Crisis"
+  },
+  {
+    "item_name": "Head First Html With CSS &amp; XHTML"
+  },
+  {
+    "item_name": "Designing Interfaces"
+  },
+  {
+    "item_name": "Makers: All Kinds of People Making Amazing Things In Garages, Basements, and Backyards."
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 4670,
+    "item_name": "Irrational Exuberance"
+  },
+  {
+    "rank": 2,
+    "item_id": 4136,
+    "item_name": "Economic Facts and Fallacies"
+  },
+  {
+    "rank": 3,
+    "item_id": 419,
+    "item_name": "The Complete TurtleTrader: The Legend, the Lessons, the Results"
+  },
+  {
+    "rank": 4,
+    "item_id": 3111,
+    "item_name": "Unweaving the Rainbow: Science, Delusion and the Appetite for Wonder"
+  },
+  {
+    "rank": 5,
+    "item_id": 2101,
+    "item_name": "Musicophilia: Tales of Music and the Brain"
+  },
+  {
+    "rank": 6,
+    "item_id": 4732,
+    "item_name": "The Geography of Thought: How Asians and Westerners Think Differently...and Why"
+  },
+  {
+    "rank": 7,
+    "item_id": 4628,
+    "item_name": "Bowling Alone: The Collapse and Revival of American Community"
+  },
+  {
+    "rank": 8,
+    "item_id": 1041,
+    "item_name": "Bad Money: The Inexcusable Failure of American Finance: An Update to Bad Money (A Penguin Group eSpecial from Penguin Books)"
+  },
+  {
+    "rank": 9,
+    "item_id": 3760,
+    "item_name": "Righteous Indignation: Excuse Me While I Save the World!"
+  },
+  {
+    "rank": 10,
+    "item_id": 4141,
+    "item_name": "The Theoretical Minimum: What You Need to Know to Start Doing Physics"
+  },
+  {
+    "rank": 11,
+    "item_id": 6036,
+    "item_name": "When Money Dies: The Nightmare of Deficit Spending, Devaluation, and Hyperinflation in Weimar Germany"
+  },
+  {
+    "rank": 12,
+    "item_id": 789,
+    "item_name": "The Portable Nietzsche (Portable Library)"
+  },
+  {
+    "rank": 13,
+    "item_id": 2640,
+    "item_name": "The Great Inflation and Its Aftermath: The Past and Future of American Affluence"
+  },
+  {
+    "rank": 14,
+    "item_id": 2542,
+    "item_name": "The Origins of Political Order: From Prehuman Times to the French Revolution"
+  },
+  {
+    "rank": 15,
+    "item_id": 1061,
+    "item_name": "The Gamble: General Petraeus and the American Military Adventure in Iraq"
+  },
+  {
+    "rank": 16,
+    "item_id": 859,
+    "item_name": "The Black Swan: The Impact of the Highly Improbable"
+  },
+  {
+    "rank": 17,
+    "item_id": 5815,
+    "item_name": "No, They Can't: Why Government Fails-But Individuals Succeed"
+  },
+  {
+    "rank": 18,
+    "item_id": 5314,
+    "item_name": "Irreligion: A Mathematician Explains Why the Arguments for God Just Don't Add Up"
+  },
+  {
+    "rank": 19,
+    "item_id": 706,
+    "item_name": "See No Evil: The True Story of a Ground Soldier in the CIA's War on Terrorism"
+  },
+  {
+    "rank": 20,
+    "item_id": 3089,
+    "item_name": "The Rise and Fall of the Great Powers: Economic Change and Military Conflict from 1500 to 2000"
+  },
+  {
+    "rank": 21,
+    "item_id": 3064,
+    "item_name": "The Tell-Tale Brain: A Neuroscientist's Quest for What Makes Us Human"
+  },
+  {
+    "rank": 22,
+    "item_id": 4157,
+    "item_name": "Common Nonsense: Glenn Beck and the Triumph of Ignorance"
+  },
+  {
+    "rank": 23,
+    "item_id": 5606,
+    "item_name": "Culture of Corruption: Obama and His Team of Tax Cheats, Crooks, and Cronies"
+  },
+  {
+    "rank": 24,
+    "item_id": 1387,
+    "item_name": "13 Bankers: The Wall Street Takeover and the Next Financial Meltdown"
+  },
+  {
+    "rank": 25,
+    "item_id": 2362,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

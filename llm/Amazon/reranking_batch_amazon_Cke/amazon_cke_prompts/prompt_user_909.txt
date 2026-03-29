@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Christmas Secret: Will an 1880 Christmas Eve Wedding Be Cancelled by Revelations in an Old Diary?"
+  },
+  {
+    "item_name": "What God Brings Together: A Christmas Wedding: Novella (Promises from Above)"
+  },
+  {
+    "item_name": "To the Farthest Shores"
+  },
+  {
+    "item_name": "Full Disclosure"
+  },
+  {
+    "item_name": "The Big Red Tractor and the Little Village"
+  },
+  {
+    "item_name": "Francis Chan - Forgotten God Full Set - Forgotten God: Reversing Our Tragic Neglect of the Holy Spirit (Book + Workbook + DVD)"
+  },
+  {
+    "item_name": "Picture Perfect: A Novel (Weddings by Design)"
+  },
+  {
+    "item_name": "Catch of a Lifetime"
+  },
+  {
+    "item_name": "Return to Me (The Restoration Chronicles) (Volume 1)"
+  },
+  {
+    "item_name": "Keepers of the Covenant (The Restoration Chronicles) (Volume 2)"
+  },
+  {
+    "item_name": "The Widow of Rose Hill"
+  },
+  {
+    "item_name": "Focus on Love"
+  },
+  {
+    "item_name": "Valentine Bride: A Sweet Romance Novella (Holiday Brides) (Volume 1)"
+  },
+  {
+    "item_name": "On This Foundation (The Restoration Chronicles)"
+  },
+  {
+    "item_name": "The Feisty One (Billionaire Bride Pact)"
+  },
+  {
+    "item_name": "Jesus in the Present Tense: The I AM Statements of Christ"
+  },
+  {
+    "item_name": "A Tailor-Made Bride"
+  },
+  {
+    "item_name": "Harvest of Gold: (Book 2)"
+  },
+  {
+    "item_name": "White Rose, Black Forest"
+  },
+  {
+    "item_name": "Ain't Misbehavin' (Roaring Twenties Series Book 2)"
+  },
+  {
+    "item_name": "Harvest of Rubies"
+  },
+  {
+    "item_name": "Mac (Sisters by Design) (Volume 1)"
+  },
+  {
+    "item_name": "Full Steam Ahead"
+  },
+  {
+    "item_name": "Return to Walhalla"
+  },
+  {
+    "item_name": "Bread of Angels"
+  },
+  {
+    "item_name": "Charming the Troublemaker (Mitchell's Crossroads) (Volume 2)"
+  },
+  {
+    "item_name": "Kissing Adrien"
+  },
+  {
+    "item_name": "The Innkeeper's Daughter (Bow Street Runners Trilogy)"
+  },
+  {
+    "item_name": "The Texas Brides Collection: 9 Complete Stories"
+  },
+  {
+    "item_name": "More Than Meets the Eye"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 4696,
+    "item_name": "The Littlest Cowboy (The Texas Brand) (Silhouette Intimate Moments, No 716)"
+  },
+  {
+    "rank": 2,
+    "item_id": 5098,
+    "item_name": "Sunrise Point (Virgin River)"
+  },
+  {
+    "rank": 3,
+    "item_id": 2444,
+    "item_name": "Brands Who Came for Christmas (The Oklahoma All-Girl Brands) (Silhouette Intimate Moments, 1039)"
+  },
+  {
+    "rank": 4,
+    "item_id": 5376,
+    "item_name": "Lady Fiasco (Zebra Regency Romance)"
+  },
+  {
+    "rank": 5,
+    "item_id": 4185,
+    "item_name": "Secrets of Midnight (The Man of My Dreams Series Book 1)"
+  },
+  {
+    "rank": 6,
+    "item_id": 2451,
+    "item_name": "Cowboys Don't Cry (Desire Large Print)"
+  },
+  {
+    "rank": 7,
+    "item_id": 5123,
+    "item_name": "Can't Help Falling in Love (The Sullivans)"
+  },
+  {
+    "rank": 8,
+    "item_id": 2525,
+    "item_name": "A Very Special Delivery (Love Inspired #349)"
+  },
+  {
+    "rank": 9,
+    "item_id": 3890,
+    "item_name": "Violet"
+  },
+  {
+    "rank": 10,
+    "item_id": 5594,
+    "item_name": "When the Soul Mends (Sisters of the Quilt, Book 3)"
+  },
+  {
+    "rank": 11,
+    "item_id": 4963,
+    "item_name": "A Hearth in Candlewood (The Candlewood Trilogy, Book 1)"
+  },
+  {
+    "rank": 12,
+    "item_id": 5140,
+    "item_name": "The Wanderer (Thunder Point)"
+  },
+  {
+    "rank": 13,
+    "item_id": 2502,
+    "item_name": "When We Met (Fool's Gold, Book 15)"
+  },
+  {
+    "rank": 14,
+    "item_id": 5925,
+    "item_name": "Dirty Little Secrets: A J.J. Graves Mystery"
+  },
+  {
+    "rank": 15,
+    "item_id": 5649,
+    "item_name": "Born Wild (Black Knights Inc.)"
+  },
+  {
+    "rank": 16,
+    "item_id": 2501,
+    "item_name": "Somebody To Love (Hqn)"
+  },
+  {
+    "rank": 17,
+    "item_id": 3870,
+    "item_name": "The Defiant Governess (Signet Regency Romance)"
+  },
+  {
+    "rank": 18,
+    "item_id": 5209,
+    "item_name": "Dying to Read: A Novel (The Cate Kinkaid Files-Book 1)"
+  },
+  {
+    "rank": 19,
+    "item_id": 2460,
+    "item_name": "SEAL It with a Kiss: In Uniform (Harlequin Superromance, No. 833)"
+  },
+  {
+    "rank": 20,
+    "item_id": 5106,
+    "item_name": "My Kind of Christmas (A Virgin River Novel)"
+  },
+  {
+    "rank": 21,
+    "item_id": 2783,
+    "item_name": "Rogue's Honor (Saints of Seven Dials Series, Book 1)"
+  },
+  {
+    "rank": 22,
+    "item_id": 2397,
+    "item_name": "The Recruit: A Highland Guard Novel"
+  },
+  {
+    "rank": 23,
+    "item_id": 4921,
+    "item_name": "Forget Me Not"
+  },
+  {
+    "rank": 24,
+    "item_id": 176,
+    "item_name": "The Devil in Winter (The Wallflowers, Book 3)"
+  },
+  {
+    "rank": 25,
+    "item_id": 2499,
+    "item_name": "Until We Touch (Fool's Gold,  Book 17)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Magic Burns (Kate Daniels)"
+  },
+  {
+    "item_name": "The Unnatural Inquirer (Nightside, Book 8)"
+  },
+  {
+    "item_name": "Batman: Gothic"
+  },
+  {
+    "item_name": "The Man with the Golden Torc (Secret Histories, Book 1)"
+  },
+  {
+    "item_name": "Again, Dangerous Visions: v. 2 (Pan science fiction)"
+  },
+  {
+    "item_name": "Again, Dangerous Visions: v. 2 (Pan science fiction)"
+  },
+  {
+    "item_name": "The Service of the Sword (Worlds of Honor #4)"
+  },
+  {
+    "item_name": "Little Brother"
+  },
+  {
+    "item_name": "Again, Dangerous Visions: v. 2 (Pan science fiction)"
+  },
+  {
+    "item_name": "Lost Continent"
+  },
+  {
+    "item_name": "Skeleton Crew"
+  },
+  {
+    "item_name": "Nightmares and Dreamscapes"
+  },
+  {
+    "item_name": "Marvel 1602"
+  },
+  {
+    "item_name": "Everything's Eventual : 14 Dark Tales"
+  },
+  {
+    "item_name": "The Mist (Previously Published as a Novella in 'Skeleton Crew')"
+  },
+  {
+    "item_name": "The Etched City"
+  },
+  {
+    "item_name": "Crisscross: A Repairman Jack Novel"
+  },
+  {
+    "item_name": "MasterHarper of Pern (Dragonriders of Pern)"
+  },
+  {
+    "item_name": "The Windup Girl"
+  },
+  {
+    "item_name": "Patient Zero: A Joe Ledger Novel"
+  },
+  {
+    "item_name": "Under the Dome"
+  },
+  {
+    "item_name": "The Postman"
+  },
+  {
+    "item_name": "The Hobbit"
+  },
+  {
+    "item_name": "Hobbit"
+  },
+  {
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "item_name": "The Skull Ring"
+  },
+  {
+    "item_name": "Magic Bleeds (Kate Daniels)"
+  },
+  {
+    "item_name": "scarecrow and the army of thieves. matthew reilly"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Lion, the Witch and the Wardrobe"
+  },
+  {
+    "rank": 2,
+    "item_name": "Daytripper"
+  },
+  {
+    "rank": 3,
+    "item_name": "Confessor: Chainfire Trilogy, Part 3 (Sword Of Truth, Book 11)"
+  },
+  {
+    "rank": 4,
+    "item_name": "Job: A Comedy of Justice"
+  },
+  {
+    "rank": 5,
+    "item_name": "The Sandman Vol. 8: World's End"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Door into Summer"
+  },
+  {
+    "rank": 7,
+    "item_name": "Time for the Stars"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Book of Three (Pyrdain Chronicles)"
+  },
+  {
+    "rank": 9,
+    "item_name": "A Princess of Mars (Penguin Classics)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Chanur Saga"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Left Hand of Darkness (Penguin Galaxy)"
+  },
+  {
+    "rank": 12,
+    "item_name": "Glory Road"
+  },
+  {
+    "rank": 13,
+    "item_name": "Ranma 1/2, Vol. 1"
+  },
+  {
+    "rank": 14,
+    "item_name": "Harbinger (Star Trek Vanguard)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Merchanter's Luck (Alliance-Union Universe)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Rendezvous with Rama"
+  },
+  {
+    "rank": 17,
+    "item_name": "The Curse of Chalion (Chalion series)"
+  },
+  {
+    "rank": 18,
+    "item_name": "Chronicles of Riddick:Pitch Black"
+  },
+  {
+    "rank": 19,
+    "item_name": "Goosebumps"
+  },
+  {
+    "rank": 20,
+    "item_name": "Blood Music"
+  },
+  {
+    "rank": 21,
+    "item_name": "Love Hina, Vol. 4"
+  },
+  {
+    "rank": 22,
+    "item_name": "Fables, Vol. 11: War and Pieces"
+  },
+  {
+    "rank": 23,
+    "item_name": "Mirror Dance"
+  },
+  {
+    "rank": 24,
+    "item_name": "The ADVENTURES OF PINOCCHIO (DELUXE EDITION)"
+  },
+  {
+    "rank": 25,
+    "item_name": "The Northern Lights: A Novel"
+  },
+  {
+    "rank": 26,
+    "item_name": "Dark Lord: The Rise of Darth Vader (Star Wars)"
+  },
+  {
+    "rank": 27,
+    "item_name": "DEATH Deluxe Edition"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Rolling Stones"
+  },
+  {
+    "rank": 29,
+    "item_name": "Swnjo Star by Star (Star Wars)"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Wizard of Earthsea (The Earthsea Cycle)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Life And Times Of Scrooge McDuck"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Complete Sherlock Holmes (Volume One)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Nightfall [Paperback]"
+  },
+  {
+    "rank": 34,
+    "item_name": "Hidden Empire (The Saga of Seven Suns)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Eyes of the Dragon"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Green Mile: Coffey's Hands"
+  },
+  {
+    "rank": 37,
+    "item_name": "Hellboy Volume 1: Seed of Destruction (Hellboy (Pocket eBook))"
+  },
+  {
+    "rank": 38,
+    "item_name": "Journey to the Centre of the Earth"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Thin Man (Penguin Red Classics)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Wizard's First Rule (Sword of Truth, Book 1)"
+  },
+  {
+    "rank": 41,
+    "item_name": "FOREST MAGE: SOLDIER SON TRILOGY BK. 2 (THE SOLDIER SON TRILOGY)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Star Trek: Nemesis (Widescreen) [DVD] (2004) DVD"
+  },
+  {
+    "rank": 43,
+    "item_name": "VALIS (Valis Trilogy)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Years Of Rice And Salt"
+  },
+  {
+    "rank": 45,
+    "item_name": "Black Panther: A Nation Under Our Feet Book 1"
+  },
+  {
+    "rank": 46,
+    "item_name": "Commitment Hour"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Time Traders"
+  },
+  {
+    "rank": 48,
+    "item_name": "Herland: A Lost Feminist Utopian Novel"
+  },
+  {
+    "rank": 49,
+    "item_name": "Harry Potter (4 Volumes set)"
+  },
+  {
+    "rank": 50,
+    "item_name": "The Orphan's Tales: In the Night Garden"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

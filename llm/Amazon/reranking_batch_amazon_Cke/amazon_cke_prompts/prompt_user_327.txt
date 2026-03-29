@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Discover Your True North"
+  },
+  {
+    "item_name": "The 7 Experiment - Bible Study Book: Staging Your Own Mutiny Against Excess"
+  },
+  {
+    "item_name": "Visioneering: God's Blueprint for Developing and Maintaining Personal Vision"
+  },
+  {
+    "item_name": "Hobbit"
+  },
+  {
+    "item_name": "THE LORD OF THE RINGS Trilogy - (The Fellowship of the Ring, The Return of the Ring, The Two Towers) - 3 BOOK SET (MOVIE COVERS)"
+  },
+  {
+    "item_name": "Hobbit and Lord of the Rings Trilogy - Boxed Set of 4 Books"
+  },
+  {
+    "item_name": "Fellowship of the Ring (Lord of the Rings Part 1)"
+  },
+  {
+    "item_name": "The Pigeon Has Feelings, Too! by Willems, Mo (unknown Edition) [Boardbook(2005)]"
+  },
+  {
+    "item_name": "7: An Experimental Mutiny Against Excess (The 7 Experiment) (Volume 1)"
+  },
+  {
+    "item_name": "Spider-Man: The Gauntlet, Vol. 1 - Electro &amp; Sandman"
+  },
+  {
+    "item_name": "Spider-Man: The Gauntlet, Vol. 1 - Electro &amp; Sandman"
+  },
+  {
+    "item_name": "Spider-Island: Warzones!"
+  },
+  {
+    "item_name": "Dante's Divine Comedy: A Graphic Adaptation"
+  },
+  {
+    "item_name": "The Going-To-Bed Book"
+  },
+  {
+    "item_name": "Justification - God's Plan &amp; Paul's Vision"
+  },
+  {
+    "item_name": "The Five Dysfunctions of a Team, (Large Print): A Leadership Fable"
+  },
+  {
+    "item_name": "The Four Loves (The C.)"
+  },
+  {
+    "item_name": "Wonder"
+  },
+  {
+    "item_name": "Black House"
+  },
+  {
+    "item_name": "Everything's Eventual : 14 Dark Tales"
+  },
+  {
+    "item_name": "Chazown: khaw-ZONE - A Different Way to See Your Life (Book &amp; DVD)"
+  },
+  {
+    "item_name": "Wonder"
+  },
+  {
+    "item_name": "Paradise Lost and Paradise Regained (Collins Classics)"
+  },
+  {
+    "item_name": "The Dark Tower: Wolves of the Calla"
+  },
+  {
+    "item_name": "The Dark Tower VI: Song of Susannah"
+  },
+  {
+    "item_name": "The Dispatcher"
+  },
+  {
+    "item_name": "Peter &amp; Max (Fables)"
+  },
+  {
+    "item_name": "The Dark Tower (Turtleback School &amp; Library Binding Edition) (Dark Tower (Pb))"
+  },
+  {
+    "item_name": "Rejection Proof: How I Beat Fear and Became Invincible Through 100 Days of Rejection"
+  },
+  {
+    "item_name": "Doing Good Better: How Effective Altruism Can Help You Make a Difference"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 4304,
+    "item_name": "The Death and Life of Superman:  A Novel"
+  },
+  {
+    "rank": 2,
+    "item_id": 5612,
+    "item_name": "Superman: Birthright"
+  },
+  {
+    "rank": 3,
+    "item_id": 5392,
+    "item_name": "Little Miss Scary (Mr. Men and Little Miss)"
+  },
+  {
+    "rank": 4,
+    "item_id": 4465,
+    "item_name": "The Three Pigs"
+  },
+  {
+    "rank": 5,
+    "item_id": 1380,
+    "item_name": "World War Z: An Oral History of the Zombie War"
+  },
+  {
+    "rank": 6,
+    "item_id": 3535,
+    "item_name": "Click, Clack, Moo: Cows That Type"
+  },
+  {
+    "rank": 7,
+    "item_id": 1868,
+    "item_name": "The Great Hunt (The Wheel of Time, Book 2)"
+  },
+  {
+    "rank": 8,
+    "item_id": 1881,
+    "item_name": "Wizard's First Rule (Sword of Truth, Book 1)"
+  },
+  {
+    "rank": 9,
+    "item_id": 3103,
+    "item_name": "The Polar Express"
+  },
+  {
+    "rank": 10,
+    "item_id": 1862,
+    "item_name": "The Eye of the World (The Wheel of Time, Book 1)"
+  },
+  {
+    "rank": 11,
+    "item_id": 4534,
+    "item_name": "Komarr (Miles Vorkosigan Adventures)"
+  },
+  {
+    "rank": 12,
+    "item_id": 5993,
+    "item_name": "Sin City: Hell and Back (Book 7)"
+  },
+  {
+    "rank": 13,
+    "item_id": 5159,
+    "item_name": "Spider-Man: Kraven's Last Hunt (Marvel Premiere Classic)"
+  },
+  {
+    "rank": 14,
+    "item_id": 2708,
+    "item_name": "Nine Princes In Amber"
+  },
+  {
+    "rank": 15,
+    "item_id": 1577,
+    "item_name": "Battlefield Earth: A Saga of the Year 3000"
+  },
+  {
+    "rank": 16,
+    "item_id": 4345,
+    "item_name": "Fevre Dream: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_id": 3534,
+    "item_name": "Joseph Had a Little Overcoat"
+  },
+  {
+    "rank": 18,
+    "item_id": 5617,
+    "item_name": "DC Universe: The Stories of Alan Moore"
+  },
+  {
+    "rank": 19,
+    "item_id": 6182,
+    "item_name": "Book of My Nights: Poems (American Poets Continuum, 68)"
+  },
+  {
+    "rank": 20,
+    "item_id": 4253,
+    "item_name": "Diary of a Wombat"
+  },
+  {
+    "rank": 21,
+    "item_id": 6126,
+    "item_name": "The Walking Dead, Book 6"
+  },
+  {
+    "rank": 22,
+    "item_id": 1820,
+    "item_name": "Dead of Night: A Zombie Novel (Dead of Night Series)"
+  },
+  {
+    "rank": 23,
+    "item_id": 841,
+    "item_name": "Blueberries for Sal"
+  },
+  {
+    "rank": 24,
+    "item_id": 775,
+    "item_name": "The Mists of Avalon"
+  },
+  {
+    "rank": 25,
+    "item_id": 1865,
+    "item_name": "The Shadow Rising (The Wheel of Time, Book 4)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

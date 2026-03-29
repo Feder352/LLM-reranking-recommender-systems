@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Forbidden Queen"
+  },
+  {
+    "item_name": "Watch the Lady: A Novel"
+  },
+  {
+    "item_name": "How to Be an American Housewife"
+  },
+  {
+    "item_name": "The Thank You Book (An Elephant and Piggie Book)"
+  },
+  {
+    "item_name": "Basket Case (A Silver Six Mystery)"
+  },
+  {
+    "item_name": "Still Alice"
+  },
+  {
+    "item_name": "Mist of Midnight: A Novel (The Daughters of Hampshire)"
+  },
+  {
+    "item_name": "Sisters of Heart and Snow"
+  },
+  {
+    "item_name": "Hands Are Not For Hitting (Turtleback School &amp; Library Binding Edition) (Best Behavior)"
+  },
+  {
+    "item_name": "The Summer Before the War: A Novel (Random House Large Print)"
+  },
+  {
+    "item_name": "The Care and Handling of Roses With Thorns"
+  },
+  {
+    "item_name": "The Calamity Caf (A Down South Caf Mystery)"
+  },
+  {
+    "item_name": "Book, Line, and Sinker (A Library Lover's Mystery)"
+  },
+  {
+    "item_name": "Books Can Be Deceiving (A Library Lover's Mystery)"
+  },
+  {
+    "item_name": "Murder on the Last Frontier (A Charlotte Brody Mystery)"
+  },
+  {
+    "item_name": "Crisis of Character: A White House Secret Service Officer Discloses His Firsthand Experience with Hillary, Bill, and How They Operate"
+  },
+  {
+    "item_name": "As Death Draws Near (A Lady Darby Mystery)"
+  },
+  {
+    "item_name": "A Dark and Stormy Murder (A Writer's Apprentice Mystery)"
+  },
+  {
+    "item_name": "Murder Offstage: A Posie Parker Mystery (The Posie Parker Mystery Series) (Volume 1)"
+  },
+  {
+    "item_name": "The Making of Donald Trump"
+  },
+  {
+    "item_name": "The Clintons' War on Women"
+  },
+  {
+    "item_name": "War Brides"
+  },
+  {
+    "item_name": "Off Kilter (A Scottish Highlands Mystery)"
+  },
+  {
+    "item_name": "The Queen's Accomplice: A Maggie Hope Mystery"
+  },
+  {
+    "item_name": "Cozy Classics: The Nutcracker"
+  },
+  {
+    "item_name": "Cozy Classics: The Adventures of Huckleberry Finn"
+  },
+  {
+    "item_name": "Cozy Classics: Les Misrables"
+  },
+  {
+    "item_name": "A Killer Ball at Honeychurch Hall"
+  },
+  {
+    "item_name": "The Orphan's Tale: A Novel"
+  },
+  {
+    "item_name": "The Orphan&#39;s Tale"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Miss Peregrine's Home for Peculiar Children: The Graphic Novel (Miss Peregrine's Peculiar Children: The Graphic Novel)"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Sweetness at the Bottom of the Pie: A Flavia de Luce Mystery"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Night Before Christmas: A Bedtime Shadow Book (Activity Books) (Shadow Book Series) by Clement Clarke Moore(August 1, 2006) Spiral-bound"
+  },
+  {
+    "rank": 4,
+    "item_name": "Her Royal Spyness"
+  },
+  {
+    "rank": 5,
+    "item_name": "Charlotte's Web (50th Anniversary Retrospective Edition)"
+  },
+  {
+    "rank": 6,
+    "item_name": "The Painted Girls: A Novel"
+  },
+  {
+    "rank": 7,
+    "item_name": "Crocodile on the Sandbank: The Amelia Peabody Series, Book 1"
+  },
+  {
+    "rank": 8,
+    "item_name": "Anne of Green Gables"
+  },
+  {
+    "rank": 9,
+    "item_name": "Nancy Drew 40: the Moonstone Castle Mystery"
+  },
+  {
+    "rank": 10,
+    "item_name": "Crocodile on the Sandbank (Amelia Peabody)"
+  },
+  {
+    "rank": 11,
+    "item_name": "Silent in the Sanctuary: A Lady Julia Grey Mystery"
+  },
+  {
+    "rank": 12,
+    "item_name": "A Dying Fall (Ruth Galloway Mystery) (Ruth Galloway Mysteries)"
+  },
+  {
+    "rank": 13,
+    "item_name": "A Curious Beginning (A Veronica Speedwell Mystery)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Secrets of Wishtide (A Laetitia Rodd Mystery)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Emma (Collins Classics)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Cocaine Blues (Phryne Fisher Mysteries)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Oliver and the Seawigs"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Hired Girl"
+  },
+  {
+    "rank": 19,
+    "item_name": "A Royal Pain (A Royal Spyness Mystery)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Sense and Sensibility (Word Cloud Classics)"
+  },
+  {
+    "rank": 21,
+    "item_name": "We're Going on a Bear Hunt"
+  },
+  {
+    "rank": 22,
+    "item_name": "Ghost at Work (Bailey Ruth Mysteries, No. 1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "Tolstoy and the Purple Chair: My Year of Magical Reading"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Help"
+  },
+  {
+    "rank": 25,
+    "item_name": "Peter Pan: The Original Story"
+  },
+  {
+    "rank": 26,
+    "item_name": "The Weed That Strings the Hangman's Bag: A Flavia de Luce Mystery"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Twelve Clues of Christmas: A Royal Spyness Mystery"
+  },
+  {
+    "rank": 28,
+    "item_name": "Stranger in the Woods: A Photographic Fantasy (Nature)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Empress Dowager Cixi"
+  },
+  {
+    "rank": 30,
+    "item_name": "Whose Body? (Lord Peter Wimsey Mysteries)"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Most Magnificent Thing"
+  },
+  {
+    "rank": 32,
+    "item_name": "Emma (Bantam Classics)"
+  },
+  {
+    "rank": 33,
+    "item_name": "Dreaming Spies: A Novel of Suspense Featuring Mary Russell and Sherlock Holmes"
+  },
+  {
+    "rank": 34,
+    "item_name": "Murder on a Girls' Night Out: A Southern Sisters Mystery"
+  },
+  {
+    "rank": 35,
+    "item_name": "Orphan Train: A Novel"
+  },
+  {
+    "rank": 36,
+    "item_name": "Brush with Death (The Gray Whale Inn Mysteries)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Tower, the Zoo, and the Tortoise"
+  },
+  {
+    "rank": 38,
+    "item_name": "Kneading to Die (A Pawsitively Organic Mystery)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Mumbo Gumbo (Madeline Bean Catering Mysteries #5)"
+  },
+  {
+    "rank": 40,
+    "item_name": "Where the Wild Things Are"
+  },
+  {
+    "rank": 41,
+    "item_name": "Thrice the Brinded Cat Hath Mew'd: A Flavia de Luce Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "Mr. Tiger Goes Wild (Boston Globe-Horn Book Awards (Awards))"
+  },
+  {
+    "rank": 43,
+    "item_name": "One Thousand White Women by Fergus, Jim 1 edition (2007)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Sentenced to Death (A Booktown Mystery)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Silent in the Grave"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Bear and the Nightingale"
+  },
+  {
+    "rank": 47,
+    "item_name": "Still Life with Murder (Gilded Age Mysteries, No. 1)"
+  },
+  {
+    "rank": 48,
+    "item_name": "Bear Feels Sick"
+  },
+  {
+    "rank": 49,
+    "item_name": "Mother Bruce"
+  },
+  {
+    "rank": 50,
+    "item_name": "Still Alice"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

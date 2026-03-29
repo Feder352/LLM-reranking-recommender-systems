@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Spectrum Critical Thinking for Math, Grade 6"
+  },
+  {
+    "item_name": "Spectrum Critical Thinking for Math, Grade 2"
+  },
+  {
+    "item_name": "Spectrum Critical Thinking for Math, Grade 7"
+  },
+  {
+    "item_name": "Stories from the Dirt: Indiscretions of an Adventure Junkie"
+  },
+  {
+    "item_name": "The Innovation Code: The Creative Power of Constructive Conflict"
+  },
+  {
+    "item_name": "Electric October: Seven World Series Games, Six Lives, Five Minutes of Fame That Lasted Forever"
+  },
+  {
+    "item_name": "Supernormal: The Untold Story of Adversity and Resilience"
+  },
+  {
+    "item_name": "Good Things Happen Slowly: A Life In and Out of Jazz"
+  },
+  {
+    "item_name": "Unleashing the Innovators: How Mature Companies Find New Life with Startups"
+  },
+  {
+    "item_name": "Professor Astro Cat's Frontiers of Space"
+  },
+  {
+    "item_name": "SHSAT Specialized High Schools Admissions Test: SHSAT Test Prep - Revising/Editing Practice Questions"
+  },
+  {
+    "item_name": "SHSAT Prep: 158 Revising/Editing Practice Questions | Specialized High School Admissions Test by ArgoPrep"
+  },
+  {
+    "item_name": "Common Core Math Workbook, Grade 4: Multiple Choice, Daily Math Practice Grade 4"
+  },
+  {
+    "item_name": "GRE Prep by Argo Brothers: Practice Tests + Online System + Videos, GRE Test Prep 2018 (100% FREE Access to Our Full Online GRE Course)"
+  },
+  {
+    "item_name": "Spectrum Critical Thinking for Math, Grade 3"
+  },
+  {
+    "item_name": "Tell Me More: Stories About the 12 Hardest Things I'm Learning to Say"
+  },
+  {
+    "item_name": "Kiss Me at the Stroke of Midnight 1"
+  },
+  {
+    "item_name": "Healthy Air Fryer Cookbook: 100 Great Recipes with Fewer Calories and Less Fat"
+  },
+  {
+    "item_name": "Avalanche! (Survivor Diaries)"
+  },
+  {
+    "item_name": "The Menagerie: Animal Portraits to Color"
+  },
+  {
+    "item_name": "Fantastic Cities: A Coloring Book of Amazing Places Real and Imagined"
+  },
+  {
+    "item_name": "What Is Russia Up To in the Middle East?"
+  },
+  {
+    "item_name": "Great American Outpost: Dreamers, Mavericks, and the Making of an Oil Frontier"
+  },
+  {
+    "item_name": "The Mastery of You: A Journey Toward the Understanding of Self"
+  },
+  {
+    "item_name": "Celebrate Learning Motivators Motivational Stickers"
+  },
+  {
+    "item_name": "Celebrate Learning Chart Seals"
+  },
+  {
+    "item_name": "Singapore Math Practice, Level 5A, Grade 6"
+  },
+  {
+    "item_name": "Step-by-Step Problem Solving, Grade 5 (Singapore Math)"
+  },
+  {
+    "item_name": "70 Must-Know Word Problems, Grade 7 (Singapore Math)"
+  },
+  {
+    "item_name": "Police Exams Prep 2018-2019: 4 Practice Tests + Proven Strategies (Kaplan Test Prep)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Bird Dream: Adventures at the Extremes of Human Flight"
+  },
+  {
+    "rank": 2,
+    "item_name": "Good for the Money: My Fight to Pay Back America"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Third Plate: Field Notes on the Future of Food"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Little Book of Talent: 52 Tips for Improving Your Skills"
+  },
+  {
+    "rank": 5,
+    "item_name": "Social: Why Our Brains Are Wired to Connect"
+  },
+  {
+    "rank": 6,
+    "item_name": "The New Depression: The Breakdown of the Paper Money Economy"
+  },
+  {
+    "rank": 7,
+    "item_name": "Rejection Proof: How I Beat Fear and Became Invincible Through 100 Days of Rejection"
+  },
+  {
+    "rank": 8,
+    "item_name": "All Who Go Do Not Return: A Memoir"
+  },
+  {
+    "rank": 9,
+    "item_name": "Leading Business Change For Dummies"
+  },
+  {
+    "rank": 10,
+    "item_name": "Literacy and the Common Core: Recipes for Action (Jossey-Bass Teacher)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Reaper: Autobiography of One of the Deadliest Special Ops Snipers"
+  },
+  {
+    "rank": 12,
+    "item_name": "Chickenizing Farms and Food: How Industrial Meat Production Endangers Workers, Animals, and Consumers"
+  },
+  {
+    "rank": 13,
+    "item_name": "Alibaba's World: How a Remarkable Chinese Company is Changing the Face of Global Business"
+  },
+  {
+    "rank": 14,
+    "item_name": "Economism: Bad Economics and the Rise of Inequality"
+  },
+  {
+    "rank": 15,
+    "item_name": "Blood Brothers: The Fatal Friendship Between Muhammad Ali and Malcolm X"
+  },
+  {
+    "rank": 16,
+    "item_name": "Ronald Reagan"
+  },
+  {
+    "rank": 17,
+    "item_name": "Without You, There Is No Us: Undercover Among the Sons of North Korea's Elite"
+  },
+  {
+    "rank": 18,
+    "item_name": "Walking Home: A Pilgrimage from Humbled to Healed"
+  },
+  {
+    "rank": 19,
+    "item_name": "Victoria: A Life"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Upside of Irrationality: The Unexpected Benefits of Defying Logic"
+  },
+  {
+    "rank": 21,
+    "item_name": "Europe Entrapped"
+  },
+  {
+    "rank": 22,
+    "item_name": "Angela Merkel: A Chancellorship Forged in Crisis"
+  },
+  {
+    "rank": 23,
+    "item_name": "Under New Management: How Leading Organizations Are Upending Business as Usual"
+  },
+  {
+    "rank": 24,
+    "item_name": "Born on Third Base: A One Percenter Makes the Case for Tackling Inequality, Bringing Wealth Home, and Committing to the Common Good"
+  },
+  {
+    "rank": 25,
+    "item_name": "KJV, The King James Study Bible, Bonded Leather, Burgundy, Red Letter, Full-Color Edition"
+  },
+  {
+    "rank": 26,
+    "item_name": "Wired to Care: How Companies Prosper When They Create Widespread Empathy"
+  },
+  {
+    "rank": 27,
+    "item_name": "Mindwise: How We Understand What Others Think, Believe, Feel, and Want"
+  },
+  {
+    "rank": 28,
+    "item_name": "Born Entrepreneurs, Born Leaders: How Your Genes Affect Your Work Life"
+  },
+  {
+    "rank": 29,
+    "item_name": "Forgiveness: 21 Days to Forgive Everyone for Everything"
+  },
+  {
+    "rank": 30,
+    "item_name": "The Defender: How the Legendary Black Newspaper Changed America"
+  },
+  {
+    "rank": 31,
+    "item_name": "One Simple Idea: How Positive Thinking Reshaped Modern Life"
+  },
+  {
+    "rank": 32,
+    "item_name": "Manolito Four-Eyes: The 2nd Volume of the Great Encyclopedia of My Life"
+  },
+  {
+    "rank": 33,
+    "item_name": "Lonely Planet USA (Travel Guide)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Arab of the Future 2: A Childhood in the Middle East, 1984-1985: A Graphic Memoir"
+  },
+  {
+    "rank": 35,
+    "item_name": "Close Enough for the Angels"
+  },
+  {
+    "rank": 36,
+    "item_name": "Law of the Jungle: The $19 Billion Legal Battle Over Oil in the Rain Forest and the Lawyer Who'd Stop at Nothing to Win"
+  },
+  {
+    "rank": 37,
+    "item_name": "Reach: A New Strategy to Help You Step Outside Your Comfort Zone, Rise to the Challenge and Build Confidence"
+  },
+  {
+    "rank": 38,
+    "item_name": "Syria Burning: A Short History of a Catastrophe"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Wild Ones"
+  },
+  {
+    "rank": 40,
+    "item_name": "Everything Is Obvious: How Common Sense Fails Us"
+  },
+  {
+    "rank": 41,
+    "item_name": "A Wretched and Precarious Situation: In Search of the Last Arctic Frontier"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Race Underground: Boston, New York, and the Incredible Rivalry That Built Americas First Subway"
+  },
+  {
+    "rank": 43,
+    "item_name": "Most Dangerous: Daniel Ellsberg and the Secret History of the Vietnam War (Bccb Blue Ribbon Nonfiction Book Award (Awards))"
+  },
+  {
+    "rank": 44,
+    "item_name": "Ultimate Leadership: Winning Execution Strategies for Your Situation"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Gray Rhino: How to Recognize and Act on the Obvious Dangers We Ignore"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Sonic Boom: How Sound Transforms the Way We Think, Feel, and Buy"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Georgetown Set: Friends and Rivals in Cold War Washington"
+  },
+  {
+    "rank": 48,
+    "item_name": "Braving It: A Father, a Daughter, and an Unforgettable Journey into the Alaskan Wild"
+  },
+  {
+    "rank": 49,
+    "item_name": "The Victory Lab: The Secret Science of Winning Campaigns"
+  },
+  {
+    "rank": 50,
+    "item_name": "I Left It on the Mountain: A Memoir"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

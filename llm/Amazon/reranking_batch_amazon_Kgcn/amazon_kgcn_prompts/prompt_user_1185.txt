@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Science of the Magical: From the Holy Grail to Love Potions to Superpowers"
+  },
+  {
+    "item_name": "Unstoppable: Harnessing Science to Change the World"
+  },
+  {
+    "item_name": "The Witches: Salem, 1692"
+  },
+  {
+    "item_name": "Haunted Ontario 4: Encounters with Ghostly Shadows, Apparitions, and Spirits"
+  },
+  {
+    "item_name": "The Measure of All Things: The Seven-Year Odyssey and Hidden Error That Transformed the World"
+  },
+  {
+    "item_name": "The Measure of All Things: The Seven-Year Odyssey and Hidden Error that Transformed the World"
+  },
+  {
+    "item_name": "Jesus Before the Gospels: How the Earliest Christians Remembered, Changed, and Invented Their Stories of the Savior"
+  },
+  {
+    "item_name": "Strange Medicine: A Shocking History of Real Medical Practices Through the Ages"
+  },
+  {
+    "item_name": "Forensics: What Bugs, Burns, Prints, DNA and More Tell Us About Crime"
+  },
+  {
+    "item_name": "A Good Month for Murder: The Inside Story of a Homicide Squad"
+  },
+  {
+    "item_name": "The Winter Fortress: The Epic Mission to Sabotage Hitlers Atomic Bomb"
+  },
+  {
+    "item_name": "A is for Arsenic: The Poisons of Agatha Christie (Bloomsbury Sigma)"
+  },
+  {
+    "item_name": "Storm in a Teacup: The Physics of Everyday Life"
+  },
+  {
+    "item_name": "Churchill's Ministry of Ungentlemanly Warfare: The Mavericks Who Plotted Hitler's Defeat"
+  },
+  {
+    "item_name": "Get Well Soon: History's Worst Plagues and the Heroes Who Fought Them"
+  },
+  {
+    "item_name": "It Ended Badly: Thirteen of the Worst Breakups in History"
+  },
+  {
+    "item_name": "Hidden Figures: The American Dream and the Untold Story of the Black Women Mathematicians Who Helped Win the Space Race"
+  },
+  {
+    "item_name": "Mrs. Sherlock Holmes: The True Story of New York City's Greatest Female Detective and the 1917 Missing Girl Case That Captivated a Nation"
+  },
+  {
+    "item_name": "The Radium Girls"
+  },
+  {
+    "item_name": "The Physics of Everyday Things: The Extraordinary Science Behind an Ordinary Day"
+  },
+  {
+    "item_name": "Pandora's Lab: Seven Stories of Science Gone Wrong"
+  },
+  {
+    "item_name": "Caesar's Last Breath: Decoding the Secrets of the Air Around Us"
+  },
+  {
+    "item_name": "The Great Quake: How the Biggest Earthquake in North America Changed Our Understanding of the  Planet"
+  },
+  {
+    "item_name": "Silent Witnesses: The Often Gruesome but Always Fascinating History of Forensic Science"
+  },
+  {
+    "item_name": "The Butchering Art: Joseph Lister's Quest to Transform the Grisly World of Victorian Medicine"
+  },
+  {
+    "item_name": "Quackery: A Brief History of the Worst Ways to Cure Everything"
+  },
+  {
+    "item_name": "I Will Find You: Solving Killer Cases from My Life Fighting Crime (Homicide Hunter)"
+  },
+  {
+    "item_name": "Morgue: A Life in Death"
+  },
+  {
+    "item_name": "Unnatural Death : Confessions of a Medical Examiner"
+  },
+  {
+    "item_name": "The Education of a Coroner: Lessons in Investigating Death"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 3005,
+    "item_name": "The End of Faith: Religion, Terror, and the Future of Reason"
+  },
+  {
+    "rank": 2,
+    "item_id": 1004,
+    "item_name": "Collapse"
+  },
+  {
+    "rank": 3,
+    "item_id": 2914,
+    "item_name": "Papal Sin: Structures of Deceit"
+  },
+  {
+    "rank": 4,
+    "item_id": 2067,
+    "item_name": "The Gift of Fear : Survival Signals That Protect Us from Violence"
+  },
+  {
+    "rank": 5,
+    "item_id": 811,
+    "item_name": "Black Hawk Down: A Story of Modern War"
+  },
+  {
+    "rank": 6,
+    "item_id": 2952,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 7,
+    "item_id": 5272,
+    "item_name": "Freethinkers: A History of American Secularism"
+  },
+  {
+    "rank": 8,
+    "item_id": 5330,
+    "item_name": "Blinded by the Right: The Conscience of an Ex-Conservative"
+  },
+  {
+    "rank": 9,
+    "item_id": 1476,
+    "item_name": "Going Clear: Scientology, Hollywood, and the Prison of Belief"
+  },
+  {
+    "rank": 10,
+    "item_id": 136,
+    "item_name": "What Went Wrong?: The Clash Between Islam and Modernity in the Middle East"
+  },
+  {
+    "rank": 11,
+    "item_id": 1097,
+    "item_name": "The World Until Yesterday: What Can We Learn from Traditional Societies?"
+  },
+  {
+    "rank": 12,
+    "item_id": 1122,
+    "item_name": "Drive: The Surprising Truth About What Motivates Us"
+  },
+  {
+    "rank": 13,
+    "item_id": 168,
+    "item_name": "God's Politics: Why the Right Gets It Wrong and the Left Doesn't Get It"
+  },
+  {
+    "rank": 14,
+    "item_id": 5201,
+    "item_name": "The Coldest Winter: America and the Korean War"
+  },
+  {
+    "rank": 15,
+    "item_id": 2590,
+    "item_name": "The Working Poor: Invisible in America"
+  },
+  {
+    "rank": 16,
+    "item_id": 1503,
+    "item_name": "War of the Worldviews: Science Vs. Spirituality"
+  },
+  {
+    "rank": 17,
+    "item_id": 4472,
+    "item_name": "The Trouble With Physics: The Rise of String Theory, the Fall of a Science, And What Comes Next"
+  },
+  {
+    "rank": 18,
+    "item_id": 4531,
+    "item_name": "Lincoln"
+  },
+  {
+    "rank": 19,
+    "item_id": 4140,
+    "item_name": "The Pleasure of Finding Things Out: The Best Short Works of Richard P. Feynman (Helix Books)"
+  },
+  {
+    "rank": 20,
+    "item_id": 237,
+    "item_name": "100 People Who Are Screwing Up America (And Al Franken Is #37)"
+  },
+  {
+    "rank": 21,
+    "item_id": 1104,
+    "item_name": "Escape from Camp 14: One Man's Remarkable Odyssey from North Korea to Freedom in the West"
+  },
+  {
+    "rank": 22,
+    "item_id": 4441,
+    "item_name": "How the Scots Invented the Modern World: The True Story of How Western Europe's Poorest Nation Created Our World and Everything in It"
+  },
+  {
+    "rank": 23,
+    "item_id": 1372,
+    "item_name": "Imperial Life in The Emerald City: Inside Iraq's Green Zone"
+  },
+  {
+    "rank": 24,
+    "item_id": 3174,
+    "item_name": "The Pentagon's New Map: War and Peace in the Twenty-First Century"
+  },
+  {
+    "rank": 25,
+    "item_id": 4731,
+    "item_name": "Waiting for Snow in Havana: Confessions of a Cuban Boy"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

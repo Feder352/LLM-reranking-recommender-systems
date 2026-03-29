@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Just Grace Gets Crafty (The Just Grace Series)"
+  },
+  {
+    "item_name": "Louise Loves Art"
+  },
+  {
+    "item_name": "The Sentinels of Andersonville"
+  },
+  {
+    "item_name": "The Case of the Stolen Sixpence: The Mysteries of Maisie Hitchins Book 1"
+  },
+  {
+    "item_name": "We Are the Goldens"
+  },
+  {
+    "item_name": "The Glow of the Spotlight: My Journey with Rebecca (American Girl: Beforever)"
+  },
+  {
+    "item_name": "The Lilac Tunnel: My Journey with Samantha (American Girl: Beforever)"
+  },
+  {
+    "item_name": "Little Elliot, Big City"
+  },
+  {
+    "item_name": "A Brighter Tomorrow: My Journey with Julie (American Girl Beforever Journey)"
+  },
+  {
+    "item_name": "Grace (American Girl: Girl of the Year)"
+  },
+  {
+    "item_name": "Glamourpuss"
+  },
+  {
+    "item_name": "The Friendship Riddle"
+  },
+  {
+    "item_name": "Big News! (Emma is on the Air #1)"
+  },
+  {
+    "item_name": "Spectrum Algebra"
+  },
+  {
+    "item_name": "The Wild Ones"
+  },
+  {
+    "item_name": "Sparkling Jewel: A Branches Book (Silver Pony Ranch #1)"
+  },
+  {
+    "item_name": "Upside-Down Magic (Upside-Down Magic #1)"
+  },
+  {
+    "item_name": "Saving Wonder"
+  },
+  {
+    "item_name": "Audacity Jones to the Rescue (Audacity Jones #1)"
+  },
+  {
+    "item_name": "Super Happy Magic Forest"
+  },
+  {
+    "item_name": "The Care &amp; Keeping of Us: A Sharing Collection for Girls &amp; Their Moms"
+  },
+  {
+    "item_name": "The Greatest Adventure Adult Coloring Book - Features 50 Original Hand Drawn Designs Printed on Artist Quality Paper, Hardback Covers, Spiral Binding, Perforated Pages, Bonus Blotter"
+  },
+  {
+    "item_name": "American Girl: Ultimate Visual Guide: A Celebration of the American Girl Story"
+  },
+  {
+    "item_name": "Isabella for Real"
+  },
+  {
+    "item_name": "Otherwise Known as Possum"
+  },
+  {
+    "item_name": "A Rambler Steals Home"
+  },
+  {
+    "item_name": "The Secret of Nightingale Wood"
+  },
+  {
+    "item_name": "Teacher Inspiration Planner"
+  },
+  {
+    "item_name": "How to Make a Wish"
+  },
+  {
+    "item_name": "Ten: A Soccer Story"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Chalk"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Nocturnals: The Mysterious Abductions"
+  },
+  {
+    "rank": 3,
+    "item_name": "Anybody at Home? (Curious George)"
+  },
+  {
+    "rank": 4,
+    "item_name": "The Word for Yes"
+  },
+  {
+    "rank": 5,
+    "item_name": "Chasing Secrets"
+  },
+  {
+    "rank": 6,
+    "item_name": "The True Blue Scouts of Sugar Man Swamp"
+  },
+  {
+    "rank": 7,
+    "item_name": "Planet Tad"
+  },
+  {
+    "rank": 8,
+    "item_name": "Fire in the Ashes: Twenty-Five Years Among the Poorest Children in America"
+  },
+  {
+    "rank": 9,
+    "item_name": "Tom Thumb: The Remarkable True Story of a Man in Miniature"
+  },
+  {
+    "rank": 10,
+    "item_name": "Duck on a Tractor"
+  },
+  {
+    "rank": 11,
+    "item_name": "GMAT Advanced Quant: 250+ Practice Problems &amp; Bonus Online Resources (Manhattan Prep GMAT Strategy Guides)"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Fire Wish (Jinni Wars)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Dr. Bird's Advice for Sad Poets"
+  },
+  {
+    "rank": 14,
+    "item_name": "Knuffle Bunny"
+  },
+  {
+    "rank": 15,
+    "item_name": "Meet the Bigfeet (The Yeti Files #1)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Voyage of Lucy P. Simmons"
+  },
+  {
+    "rank": 17,
+    "item_name": "A Mango-Shaped Space"
+  },
+  {
+    "rank": 18,
+    "item_name": "Ricky Ricotta's Mighty Robot Book Set (7 Volumes)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Rejection Proof: How I Beat Fear and Became Invincible Through 100 Days of Rejection"
+  },
+  {
+    "rank": 20,
+    "item_name": "Pool"
+  },
+  {
+    "rank": 21,
+    "item_name": "Hero (The Woodcutter Sisters)"
+  },
+  {
+    "rank": 22,
+    "item_name": "Rise of the Earth Dragon: A Branches Book (Dragon Masters #1)"
+  },
+  {
+    "rank": 23,
+    "item_name": "How to Babysit a Grandpa (How To...relationships)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Refugee"
+  },
+  {
+    "rank": 25,
+    "item_name": "In the Land of Believers: An Outsider's Extraordinary Journey into the Heart of the Evangelical Church"
+  },
+  {
+    "rank": 26,
+    "item_name": "Railhead"
+  },
+  {
+    "rank": 27,
+    "item_name": "Ghost Hawk"
+  },
+  {
+    "rank": 28,
+    "item_name": "An Apple Pie for Dinner"
+  },
+  {
+    "rank": 29,
+    "item_name": "Double Digit (A Girl Named Digit)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Slacker"
+  },
+  {
+    "rank": 31,
+    "item_name": "Ricky Ricotta's Mighty Robot (Astro-Activity Book O'Fun) by Pilkey, Dav (unknown Edition) [Paperback(2006)]"
+  },
+  {
+    "rank": 32,
+    "item_name": "Mother Bruce"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Twelve Days of Dash &amp; Lily (Dash &amp; Lily Series)"
+  },
+  {
+    "rank": 34,
+    "item_name": "The Scarecrow Princess"
+  },
+  {
+    "rank": 35,
+    "item_name": "Seven Miles to Freedom: The Robert Smalls Story"
+  },
+  {
+    "rank": 36,
+    "item_name": "Megaskull (Nobrow Serial Box)"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Adventures of a South Pole Pig: A novel of snow and courage"
+  },
+  {
+    "rank": 38,
+    "item_name": "Dave the Potter: Artist, Poet, Slave"
+  },
+  {
+    "rank": 39,
+    "item_name": "Sister Bear: A Norse Tale"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Journey"
+  },
+  {
+    "rank": 41,
+    "item_name": "Seven Wonders Book 1: The Colossus Rises"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Scourge"
+  },
+  {
+    "rank": 43,
+    "item_name": "Skateboard Party: The Carver Chronicles, Book Two"
+  },
+  {
+    "rank": 44,
+    "item_name": "Battleship: A Daring Heiress, a Teenage Jockey, and America's Horse"
+  },
+  {
+    "rank": 45,
+    "item_name": "I'm Just No Good at Rhyming: And Other Nonsense for Mischievous Kids and Immature Grown-Ups"
+  },
+  {
+    "rank": 46,
+    "item_name": "Duck in the Fridge (A Duck in the Fridge Book)"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Perfect Place"
+  },
+  {
+    "rank": 48,
+    "item_name": "Captain Underpants and the Invasion of the Incredibly Naughty Cafeteria Ladies from Outer Space (Captain Underpants #3): (And the Subsequent Assault of the Equally Evil Lunchroom Zombie Nerds)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Alienation (A C.H.A.O.S. Novel)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Blizzard"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

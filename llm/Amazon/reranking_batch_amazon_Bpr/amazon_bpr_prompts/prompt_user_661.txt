@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Little Pretty Things"
+  },
+  {
+    "item_name": "Nothing Short of Dying: A Clyde Barr Novel"
+  },
+  {
+    "item_name": "The Second Life of Nick Mason (A Nick Mason Novel)"
+  },
+  {
+    "item_name": "Our Souls at Night (Vintage Contemporaries)"
+  },
+  {
+    "item_name": "Blood on the Tracks (Sydney Rose Parnell)"
+  },
+  {
+    "item_name": "Forensics: What Bugs, Burns, Prints, DNA and More Tell Us About Crime"
+  },
+  {
+    "item_name": "A Manual for Cleaning Women: Selected Stories"
+  },
+  {
+    "item_name": "The Long and Faraway Gone: A Novel"
+  },
+  {
+    "item_name": "The North Water: A Novel"
+  },
+  {
+    "item_name": "The Anonymous Source (An Alex Vane Media Thriller) (Volume 1)"
+  },
+  {
+    "item_name": "Born a Crime"
+  },
+  {
+    "item_name": "Where It Hurts (A Gus Murphy Novel)"
+  },
+  {
+    "item_name": "Rain Dogs: A Detective Sean Duffy Novel"
+  },
+  {
+    "item_name": "Come Twilight (Long Beach Homicide)"
+  },
+  {
+    "item_name": "Under the Harrow: A Novel"
+  },
+  {
+    "item_name": "The Big Exit"
+  },
+  {
+    "item_name": "Nutshell: A Novel"
+  },
+  {
+    "item_name": "The Lost City of the Monkey God: A True Story"
+  },
+  {
+    "item_name": "Pirate Hunters: Treasure, Obsession, and the Search for a Legendary Pirate Ship"
+  },
+  {
+    "item_name": "The Jealous Kind"
+  },
+  {
+    "item_name": "Crow Fair (Vintage Contemporaries)"
+  },
+  {
+    "item_name": "Field Notes From a Catastrophe - Man, Nature, and Climate Change"
+  },
+  {
+    "item_name": "The Sixth Extinction: An Unnatural History"
+  },
+  {
+    "item_name": "Manhattan Beach: A Novel"
+  },
+  {
+    "item_name": "Mister Tender's Girl: A Novel"
+  },
+  {
+    "item_name": "Dodgers: A Novel"
+  },
+  {
+    "item_name": "Dead Stop (Sydney Rose Parnell)"
+  },
+  {
+    "item_name": "The Accidental Life: An Editor's Notes on Writing and Writers"
+  },
+  {
+    "item_name": "The Wolf: A True Story of Survival and Obsession in the West"
+  },
+  {
+    "item_name": "The Bomb Maker"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 2,
+    "item_name": "The Art of Fielding: A Novel"
+  },
+  {
+    "rank": 3,
+    "item_name": "Where the Red Fern Grows"
+  },
+  {
+    "rank": 4,
+    "item_name": "Mystic River"
+  },
+  {
+    "rank": 5,
+    "item_name": "Shutter Island"
+  },
+  {
+    "rank": 6,
+    "item_name": "At Home: A Short History of Private Life (Random House Large Print)"
+  },
+  {
+    "rank": 7,
+    "item_name": "The Bridge of Sighs: A Novel"
+  },
+  {
+    "rank": 8,
+    "item_name": "Case Histories: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "Brooklyn: A Novel"
+  },
+  {
+    "rank": 10,
+    "item_name": "Rain Gods: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Sense of an Ending"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Fifth Witness (A Lincoln Lawyer Novel)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Fourth of July Creek: A Novel"
+  },
+  {
+    "rank": 14,
+    "item_name": "Live by Night: (Coughlin, Book 2) (Joe Coughlin Series)"
+  },
+  {
+    "rank": 15,
+    "item_name": "11/22/63 (Thorndike Press Large Print Core)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Caribou Island: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Station Eleven"
+  },
+  {
+    "rank": 18,
+    "item_name": "Shadow of the Wind"
+  },
+  {
+    "rank": 19,
+    "item_name": "Roadside Crosses: Kathryn Dance Book 2 (Kathryn Dance thrillers)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Narrow Road to the Deep North: A novel"
+  },
+  {
+    "rank": 21,
+    "item_name": "Benediction (Vintage Contemporaries)"
+  },
+  {
+    "rank": 22,
+    "item_name": "A Horse Walks into a Bar: A novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "PEOPLE OF THE BOOK"
+  },
+  {
+    "rank": 24,
+    "item_name": "The Big Short: Inside the Doomsday Machine"
+  },
+  {
+    "rank": 25,
+    "item_name": "Playing for Pizza"
+  },
+  {
+    "rank": 26,
+    "item_name": "All the Light We Cannot See"
+  },
+  {
+    "rank": 27,
+    "item_name": "Americanah"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Things They Carried (Contemporary American Fiction)"
+  },
+  {
+    "rank": 29,
+    "item_name": "22/11/63"
+  },
+  {
+    "rank": 30,
+    "item_name": "The No. 1 Ladies' Detective Agency (Movie Tie-in Edition): A No. 1 Ladies' Detective Agency Novel (1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Billy Lynn's Long Halftime Walk"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Goldfinch: A Novel (Pulitzer Prize for Fiction)"
+  },
+  {
+    "rank": 33,
+    "item_name": "The Drop (A Harry Bosch Novel)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Rules of Civility: A Novel"
+  },
+  {
+    "rank": 35,
+    "item_name": "Wild Fire"
+  },
+  {
+    "rank": 36,
+    "item_name": "The Rosie Project"
+  },
+  {
+    "rank": 37,
+    "item_name": "Olive Kitteridge"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Lake Shore Limited"
+  },
+  {
+    "rank": 39,
+    "item_name": "Spies of the Balkans: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Road"
+  },
+  {
+    "rank": 42,
+    "item_name": "Fall of Giants (The Century Trilogy)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Await Your Reply: A Novel (Random House Reader's Circle)"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Reader (Movie Tie-in Edition) (Vintage International)"
+  },
+  {
+    "rank": 45,
+    "item_name": "Azincourt"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+  },
+  {
+    "rank": 47,
+    "item_name": "Lost Light"
+  },
+  {
+    "rank": 48,
+    "item_name": "Child 44 (The Child 44 Trilogy)"
+  },
+  {
+    "rank": 49,
+    "item_name": "S is for Silence"
+  },
+  {
+    "rank": 50,
+    "item_name": "Hypnotist"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Tortured for Christ"
+  },
+  {
+    "item_name": "The Interior Castle: Teresa of Avila (Fount Classics Series)"
+  },
+  {
+    "item_name": "Car Guys vs. Bean Counters: The Battle for the Soul of American Business"
+  },
+  {
+    "item_name": "Courage and Consequence: My Life as a Conservative in the Fight"
+  },
+  {
+    "item_name": "Bastiat's The Law (Occasional Paper, 123)"
+  },
+  {
+    "item_name": "Courage and Consequence: My Life as a Conservative in the Fight"
+  },
+  {
+    "item_name": "The Hawk and the Dove: Paul Nitze, George Kennan, and the History of the Cold War"
+  },
+  {
+    "item_name": "Rush Limbaugh: An Army of One"
+  },
+  {
+    "item_name": "New Deal or Raw Deal?: How FDR's Economic Legacy Has Damaged America"
+  },
+  {
+    "item_name": "Conquering Fear: Living Boldly in an Uncertain World"
+  },
+  {
+    "item_name": "My Sisters the Saints: A Spiritual Memoir"
+  },
+  {
+    "item_name": "Never Again: Securing America and Restoring Justice"
+  },
+  {
+    "item_name": "Never Again: Securing America and Restoring Justice"
+  },
+  {
+    "item_name": "No He Can't: How Barack Obama Is Dismantling Hope and Change"
+  },
+  {
+    "item_name": "The Big Fight: My Life In and Out of the Ring"
+  },
+  {
+    "item_name": "Jacked: The Outlaw Story of Grand Theft Auto"
+  },
+  {
+    "item_name": "Jacked: The Outlaw Story of Grand Theft Auto"
+  },
+  {
+    "item_name": "Jacked: The Outlaw Story of Grand Theft Auto"
+  },
+  {
+    "item_name": "Jacked: The Outlaw Story of Grand Theft Auto"
+  },
+  {
+    "item_name": "Medjugorje: The Message"
+  },
+  {
+    "item_name": "Here's Johnny!: My Memories of Johnny Carson, the Tonight Show, and 46 Years of Friendship"
+  },
+  {
+    "item_name": "Charlemagne: The Great Adventure"
+  },
+  {
+    "item_name": "Charlemagne: The Great Adventure"
+  },
+  {
+    "item_name": "Charlemagne: The Great Adventure"
+  },
+  {
+    "item_name": "Charlemagne: The Great Adventure"
+  },
+  {
+    "item_name": "Charlemagne: The Great Adventure"
+  },
+  {
+    "item_name": "Joan of Arc: Her Story"
+  },
+  {
+    "item_name": "Joan of Arc: Her Story"
+  },
+  {
+    "item_name": "Joan of Arc: Her Story"
+  },
+  {
+    "item_name": "Joan of Arc: Her Story"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 35157,
+    "item_name": "The Politically Incorrect Guide to American History"
+  },
+  {
+    "rank": 2,
+    "item_id": 23761,
+    "item_name": "End The Fed"
+  },
+  {
+    "rank": 3,
+    "item_id": 6746,
+    "item_name": "Up from Slavery: An Autobiography (Penguin Classics)"
+  },
+  {
+    "rank": 4,
+    "item_id": 26018,
+    "item_name": "Jacked: The Outlaw Story of Grand Theft Auto"
+  },
+  {
+    "rank": 5,
+    "item_id": 11233,
+    "item_name": "The Case for Christ:  A Journalist's Personal Investigation of the Evidence for Jesus"
+  },
+  {
+    "rank": 6,
+    "item_id": 1428,
+    "item_name": "Slouching Towards Gomorrah"
+  },
+  {
+    "rank": 7,
+    "item_id": 5566,
+    "item_name": "My Life"
+  },
+  {
+    "rank": 8,
+    "item_id": 29986,
+    "item_name": "Radical Son: A Journey Through Our Times from Left to Right"
+  },
+  {
+    "rank": 9,
+    "item_id": 19320,
+    "item_name": "Do As I Say (Not As I Do): Profiles in Liberal Hypocrisy"
+  },
+  {
+    "rank": 10,
+    "item_id": 19373,
+    "item_name": "While Europe Slept: How Radical Islam is Destroying the West from Within"
+  },
+  {
+    "rank": 11,
+    "item_id": 37928,
+    "item_name": "Hell to Pay: The Unfolding Story of Hillary Rodham Clinton"
+  },
+  {
+    "rank": 12,
+    "item_id": 12235,
+    "item_name": "Because They Hate: A Survivor of Islamic Terror Warns America"
+  },
+  {
+    "rank": 13,
+    "item_id": 45892,
+    "item_name": "The Truth about Hillary (Clinton): What She Knew, When She Knew It, and How Far She'll Go to Become President"
+  },
+  {
+    "rank": 14,
+    "item_id": 1180,
+    "item_name": "A History of the Jews"
+  },
+  {
+    "rank": 15,
+    "item_id": 9758,
+    "item_name": "The Audacity of Hope: Thoughts on Reclaiming the American Dream"
+  },
+  {
+    "rank": 16,
+    "item_id": 29342,
+    "item_name": "Big Coal: The Dirty Secret Behind America's Energy Future"
+  },
+  {
+    "rank": 17,
+    "item_id": 35135,
+    "item_name": "The Truth About Muhammad: Founder of the World's Most Intolerant Religion"
+  },
+  {
+    "rank": 18,
+    "item_id": 45250,
+    "item_name": "What's So Great about Christianity"
+  },
+  {
+    "rank": 19,
+    "item_id": 63114,
+    "item_name": "Londonistan"
+  },
+  {
+    "rank": 20,
+    "item_id": 10302,
+    "item_name": "The Devil's Delusion: Atheism and Its Scientific Pretensions"
+  },
+  {
+    "rank": 21,
+    "item_id": 37926,
+    "item_name": "Winning the Future: A 21st Century Contract with America"
+  },
+  {
+    "rank": 22,
+    "item_id": 37440,
+    "item_name": "The Great Heresies"
+  },
+  {
+    "rank": 23,
+    "item_id": 63706,
+    "item_name": "After America: Get Ready for Armageddon"
+  },
+  {
+    "rank": 24,
+    "item_id": 35137,
+    "item_name": "America Alone: The End of the World As We Know It"
+  },
+  {
+    "rank": 25,
+    "item_id": 31322,
+    "item_name": "Godless: The Church of Liberalism"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

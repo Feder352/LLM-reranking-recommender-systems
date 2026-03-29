@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Lies That Comfort and Betray (Gilded Age Mystery)"
+  },
+  {
+    "item_name": "Souvenir: A Novel"
+  },
+  {
+    "item_name": "Crooked Man"
+  },
+  {
+    "item_name": "The Darling Dahlias and the Unlucky Clover"
+  },
+  {
+    "item_name": "Orange Moon: A Fiction Novel"
+  },
+  {
+    "item_name": "Alternate Side: A Novel"
+  },
+  {
+    "item_name": "Gods of Howl Mountain: A Novel"
+  },
+  {
+    "item_name": "Every Note Played"
+  },
+  {
+    "item_name": "I Was Anastasia: A Novel"
+  },
+  {
+    "item_name": "Not That I Could Tell: A Novel"
+  },
+  {
+    "item_name": "The Room on Rue Amlie"
+  },
+  {
+    "item_name": "Murder Notes (Lilah Love)"
+  },
+  {
+    "item_name": "LOW LAKE a gripping crime mystery full of dark secrets"
+  },
+  {
+    "item_name": "Women in Sunlight: A Novel"
+  },
+  {
+    "item_name": "The Forgotten Ones: A Novel"
+  },
+  {
+    "item_name": "Portrait of a Murderer: A Christmas Crime Story (British Library Crime Classics)"
+  },
+  {
+    "item_name": "A Dying Note (Silver Rush Mysteries)"
+  },
+  {
+    "item_name": "Macbeth"
+  },
+  {
+    "item_name": "The Ocean Liner"
+  },
+  {
+    "item_name": "The Good Liar"
+  },
+  {
+    "item_name": "Charity Ends At Home"
+  },
+  {
+    "item_name": "Jack Frost (Detective Jack Stratton Mystery-Thriller Series)"
+  },
+  {
+    "item_name": "The Girl With No Name: Absolutely gripping mystery and suspense (Detective Josie Quinn) (Volume 2)"
+  },
+  {
+    "item_name": "A Young Lawyer&#39;s Story"
+  },
+  {
+    "item_name": "The Cactus"
+  },
+  {
+    "item_name": "Wicked River: A Novel"
+  },
+  {
+    "item_name": "Sons of Blackbird Mountain (A Blackbird Mountain Novel)"
+  },
+  {
+    "item_name": "The Subway Girls: A Novel"
+  },
+  {
+    "item_name": "Rust &amp; Stardust: A Novel"
+  },
+  {
+    "item_name": "Sold on a Monday: A Novel"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 2,
+    "item_name": "Play Dead: A gripping serial killer thriller"
+  },
+  {
+    "rank": 3,
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "rank": 4,
+    "item_name": "Behind Closed Doors: A Novel"
+  },
+  {
+    "rank": 5,
+    "item_name": "THEIR LOST DAUGHTERS a gripping crime thriller with a huge twist"
+  },
+  {
+    "rank": 6,
+    "item_name": "Rules of Magic"
+  },
+  {
+    "rank": 7,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 8,
+    "item_name": "That Darkness (A Gardiner and Renner Novel)"
+  },
+  {
+    "rank": 9,
+    "item_name": "The Night Stalker (Detective Erika Foster) (Volume 2)"
+  },
+  {
+    "rank": 10,
+    "item_name": "The Woman in the Window: A Novel"
+  },
+  {
+    "rank": 11,
+    "item_name": "Summer House with Swimming Pool: A Novel"
+  },
+  {
+    "rank": 12,
+    "item_name": "Ink and Bone"
+  },
+  {
+    "rank": 13,
+    "item_name": "The Beauty of the End"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Passenger"
+  },
+  {
+    "rank": 15,
+    "item_name": "My Sister's Grave (Tracy Crosswhite)"
+  },
+  {
+    "rank": 16,
+    "item_name": "The Murderer's Daughter: A Novel"
+  },
+  {
+    "rank": 17,
+    "item_name": "Before the Fall: The year's best suspense novel"
+  },
+  {
+    "rank": 18,
+    "item_name": "The Farm"
+  },
+  {
+    "rank": 19,
+    "item_name": "The Forgotten Girls (Louise Rick series)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Immortalists"
+  },
+  {
+    "rank": 21,
+    "item_name": "Fool Me Once"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Marriage Pact: A Novel"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Secrets She Keeps: A Novel"
+  },
+  {
+    "rank": 24,
+    "item_name": "Girl in Snow: A Novel"
+  },
+  {
+    "rank": 25,
+    "item_name": "Dead Souls: A gripping serial killer thriller with a shocking twist (Detective Kim Stone Crime Thriller Series) (Volume 6)"
+  },
+  {
+    "rank": 26,
+    "item_name": "Broken Promise (Promise Falls Trilogy)"
+  },
+  {
+    "rank": 27,
+    "item_name": "The Other Widow: A Novel"
+  },
+  {
+    "rank": 28,
+    "item_name": "The Children: A Novel"
+  },
+  {
+    "rank": 29,
+    "item_name": "Someone Is Watching: A Novel"
+  },
+  {
+    "rank": 30,
+    "item_name": "A Noise Downstairs: A Novel"
+  },
+  {
+    "rank": 31,
+    "item_name": "The Mistake: An unputdownable psychological thriller with a brilliant twist"
+  },
+  {
+    "rank": 32,
+    "item_name": "The couple next door."
+  },
+  {
+    "rank": 33,
+    "item_name": "A Bitter Truth (Bess Crawford Mysteries)"
+  },
+  {
+    "rank": 34,
+    "item_name": "Evil Games (D.I. Kim Stone)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Fifth Petal"
+  },
+  {
+    "rank": 36,
+    "item_name": "Unravelling Oliver"
+  },
+  {
+    "rank": 37,
+    "item_name": "Ashley Bell"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Cutaway: A Thriller"
+  },
+  {
+    "rank": 39,
+    "item_name": "The Two-Family House: A Novel"
+  },
+  {
+    "rank": 40,
+    "item_name": "Daisy in Chains: A Novel"
+  },
+  {
+    "rank": 41,
+    "item_name": "As Night Falls: A Novel"
+  },
+  {
+    "rank": 42,
+    "item_name": "Vinegar Girl: William Shakespeare's The Taming of the Shrew Retold: A Novel (Hogarth Shakespeare)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Holding"
+  },
+  {
+    "rank": 44,
+    "item_name": "The Ways of the Dead: A Sully Carter Novel"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Romanov Empress: A Novel of Tsarina Maria Feodorovna"
+  },
+  {
+    "rank": 46,
+    "item_name": "The Family Next Door: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "Among the Ten Thousand Things: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "Somebody I Used to Know"
+  },
+  {
+    "rank": 49,
+    "item_name": "Dark Water: A gripping serial killer thriller (Detective Erika Foster) (Volume 3)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Two Nights: A Novel"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

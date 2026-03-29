@@ -1,0 +1,281 @@
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user's historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user's history.
+
+# User Profile
+
+The user profile is represented by the user's historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "Stiff Competition (A Mattie Winston Mystery)"
+  },
+  {
+    "item_name": "Murder with a Twist (Mack's Bar Mysteries)"
+  },
+  {
+    "item_name": "Body in the Woods (A Reverend Annabelle Dixon Cozy Mystery) (Volume 3)"
+  },
+  {
+    "item_name": "Cinderella Undone"
+  },
+  {
+    "item_name": "Shots in the Dark (Mack's Bar Mysteries)"
+  },
+  {
+    "item_name": "Her Big Fat Fake Billionaire Boyfriend (Billionaire Series) (Volume 1)"
+  },
+  {
+    "item_name": "A Toast to Murder (Mack's Bar Mysteries)"
+  },
+  {
+    "item_name": "Booked For Murder: An Oceanside Mystery"
+  },
+  {
+    "item_name": "Calamity Town"
+  },
+  {
+    "item_name": "Trophy Husband"
+  },
+  {
+    "item_name": "Killer Party"
+  },
+  {
+    "item_name": "Forget Me Knot (A Quilting Mystery)"
+  },
+  {
+    "item_name": "Sunday the Rabbi Stayed Home"
+  },
+  {
+    "item_name": "High Strung (Glass Bead Mystery Series) (Volume 1)"
+  },
+  {
+    "item_name": "Vampire Girl (Volume 1)"
+  },
+  {
+    "item_name": "The Last Single Girl (Brew Ha Ha) (Volume 1)"
+  },
+  {
+    "item_name": "Vegas Love"
+  },
+  {
+    "item_name": "Accidentally Married"
+  },
+  {
+    "item_name": "Scheduled to Death"
+  },
+  {
+    "item_name": "The Withdrawing Room (Sarah Kelling and Max Bittersohn Mysteries)"
+  },
+  {
+    "item_name": "Palace Guard (Sarah Kelling and Max Bittersohn Mysteries)"
+  },
+  {
+    "item_name": "Tough Cookie"
+  },
+  {
+    "item_name": "Picture Miss Seeton"
+  },
+  {
+    "item_name": "Of Murder and Men (A Cat Latimer Mystery)"
+  },
+  {
+    "item_name": "Odds on Miss Seeton"
+  },
+  {
+    "item_name": "Miss Seeton Sings"
+  },
+  {
+    "item_name": "Witch Miss Seeton"
+  },
+  {
+    "item_name": "Stilettos &amp; Scoundrels"
+  },
+  {
+    "item_name": "Resurrection Man"
+  },
+  {
+    "item_name": "Seeing Double (A Heartbreaker Novel)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user's interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user's past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_id": 4696,
+    "item_name": "The Littlest Cowboy (The Texas Brand) (Silhouette Intimate Moments, No 716)"
+  },
+  {
+    "rank": 2,
+    "item_id": 2444,
+    "item_name": "Brands Who Came for Christmas (The Oklahoma All-Girl Brands) (Silhouette Intimate Moments, 1039)"
+  },
+  {
+    "rank": 3,
+    "item_id": 4963,
+    "item_name": "A Hearth in Candlewood (The Candlewood Trilogy, Book 1)"
+  },
+  {
+    "rank": 4,
+    "item_id": 5113,
+    "item_name": "A Virgin River Christmas (A Virgin River Novel)"
+  },
+  {
+    "rank": 5,
+    "item_id": 6203,
+    "item_name": "The Georgian rake"
+  },
+  {
+    "rank": 6,
+    "item_id": 2519,
+    "item_name": "Homespun Bride (The McKaslin Clan: Historical Series, Book 1) (Steeple Hill Love Inspired Historical #2)"
+  },
+  {
+    "rank": 7,
+    "item_id": 5098,
+    "item_name": "Sunrise Point (Virgin River)"
+  },
+  {
+    "rank": 8,
+    "item_id": 4455,
+    "item_name": "Time for Love (The McCarthys of Gansett Island) (Volume 9)"
+  },
+  {
+    "rank": 9,
+    "item_id": 2413,
+    "item_name": "Hired By The Cowboy"
+  },
+  {
+    "rank": 10,
+    "item_id": 5950,
+    "item_name": "Dirty Rotten Scoundrel (J.J. Graves) (Volume 3)"
+  },
+  {
+    "rank": 11,
+    "item_id": 5372,
+    "item_name": "Reese (Rock Creek Six)"
+  },
+  {
+    "rank": 12,
+    "item_id": 1262,
+    "item_name": "Married By Mistake"
+  },
+  {
+    "rank": 13,
+    "item_id": 2426,
+    "item_name": "Cowboy Is A Daddy"
+  },
+  {
+    "rank": 14,
+    "item_id": 6241,
+    "item_name": "Magic for Joy"
+  },
+  {
+    "rank": 15,
+    "item_id": 2451,
+    "item_name": "Cowboys Don't Cry (Desire Large Print)"
+  },
+  {
+    "rank": 16,
+    "item_id": 2380,
+    "item_name": "The Escape (A Survivors' Club Novel)"
+  },
+  {
+    "rank": 17,
+    "item_id": 2460,
+    "item_name": "SEAL It with a Kiss: In Uniform (Harlequin Superromance, No. 833)"
+  },
+  {
+    "rank": 18,
+    "item_id": 5512,
+    "item_name": "Meant for Love (Gansett Island Series) (Volume 10)"
+  },
+  {
+    "rank": 19,
+    "item_id": 3522,
+    "item_name": "Betting the Rainbow (Harmony)"
+  },
+  {
+    "rank": 20,
+    "item_id": 2501,
+    "item_name": "Somebody To Love (Hqn)"
+  },
+  {
+    "rank": 21,
+    "item_id": 5373,
+    "item_name": "A Dangerous Dalliance (Zebra Regency Romance)"
+  },
+  {
+    "rank": 22,
+    "item_id": 4868,
+    "item_name": "Don't Want To Miss A Thing: A warm and witty romance with many twists along the way"
+  },
+  {
+    "rank": 23,
+    "item_id": 3474,
+    "item_name": "It Happened One Wedding"
+  },
+  {
+    "rank": 24,
+    "item_id": 2432,
+    "item_name": "Having Her Boss's Baby (Positively Pregnant)"
+  },
+  {
+    "rank": 25,
+    "item_id": 5376,
+    "item_name": "Lady Fiasco (Zebra Regency Romance)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_id": 123,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_id": 456,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 25 items (rank 1..25).
+- item_id MUST be copied exactly from the candidate list above.
+- Do not invent new item_id values.
+- Output must be ONLY the JSON list. No extra text.

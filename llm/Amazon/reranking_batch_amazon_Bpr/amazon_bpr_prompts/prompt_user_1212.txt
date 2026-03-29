@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "The Little Cottage on the Hill: A gorgeous feel good romance to escape with"
+  },
+  {
+    "item_name": "The Last Laugh: A romantic comedy that will make you laugh and cry"
+  },
+  {
+    "item_name": "Hiding: A gripping psychological thriller with chilling twists, from a unique voice"
+  },
+  {
+    "item_name": "Bring Me Flowers: A gripping serial killer thriller with a shocking twist (Detectives Kane and Alton) (Volume 2)"
+  },
+  {
+    "item_name": "MURDER IN THE GARDEN a gripping crime mystery full of twists"
+  },
+  {
+    "item_name": "WHITE IS THE COLDEST COLOUR"
+  },
+  {
+    "item_name": "The Visitor: A psychological thriller with a breathtaking twist"
+  },
+  {
+    "item_name": "Playing the Pauses (Sex, Love, and Rock &amp; Roll series) (Volume 2)"
+  },
+  {
+    "item_name": "The Babysitter: A gripping psychological thriller with edge of your seat suspense"
+  },
+  {
+    "item_name": "Walls of Silence"
+  },
+  {
+    "item_name": "Who Counts?: 100 Sheep, 10 Coins, and 2 Sons"
+  },
+  {
+    "item_name": "Emma Has a Dilemma!"
+  },
+  {
+    "item_name": "The Summer of Secrets: A feel good romance novel perfect for holiday reading"
+  },
+  {
+    "item_name": "The Gaslight Stalker: Nobody is safe in Whitechapel... (Esther &amp; Jack Enright Mystery)"
+  },
+  {
+    "item_name": "The Cafe at Seashell Cove: A heartwarming laugh out loud romantic comedy"
+  },
+  {
+    "item_name": "Doll Face"
+  },
+  {
+    "item_name": "No Safe Place: A gripping thriller with a shocking twist (Detective Lottie Parker) (Volume 4)"
+  },
+  {
+    "item_name": "MURDER BY FIRE a gripping crime mystery full of twists"
+  },
+  {
+    "item_name": "LOW LAKE a gripping crime mystery full of dark secrets"
+  },
+  {
+    "item_name": "Vegas Dumb Luck: A P. J. Stone Romance"
+  },
+  {
+    "item_name": "Never Rest"
+  },
+  {
+    "item_name": "FEAR PB"
+  },
+  {
+    "item_name": "Pendle Fire"
+  },
+  {
+    "item_name": "When evil calls your name"
+  },
+  {
+    "item_name": "Dying Truth: completely gripping crime thriller (Detective Kim Stone) (Volume 8)"
+  },
+  {
+    "item_name": "The Chosen Ones: A completely gripping murder mystery thriller with unputdownable suspense (Detective Robyn Carter) (Volume 5)"
+  },
+  {
+    "item_name": "Great Cape of Colors - Capa de colores: (English-Spanish with pronunciation guide) (Careers for Kids) (English and Spanish Edition)"
+  },
+  {
+    "item_name": "The Date: An unputdownable psychological thriller with a breathtaking twist"
+  },
+  {
+    "item_name": "The Romanov Empress: A Novel of Tsarina Maria Feodorovna"
+  },
+  {
+    "item_name": "Murder on the Marshes: A gripping murder mystery thriller that will keep you turning the pages (A Tara Thorpe Mystery) (Volume 1)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "The Idea of You"
+  },
+  {
+    "rank": 2,
+    "item_name": "Best Friends Forever"
+  },
+  {
+    "rank": 3,
+    "item_name": "While You Were Sleeping: A gripping psychological thriller you just can't put down"
+  },
+  {
+    "rank": 4,
+    "item_name": "Only the Brave (The DS Allie Shenton Trilogy)"
+  },
+  {
+    "rank": 5,
+    "item_name": "SINthetic"
+  },
+  {
+    "rank": 6,
+    "item_name": "I See You"
+  },
+  {
+    "rank": 7,
+    "item_name": "Double Blind: A Novel (Kendra Michaels)"
+  },
+  {
+    "rank": 8,
+    "item_name": "The Breakdown: A Novel"
+  },
+  {
+    "rank": 9,
+    "item_name": "THEIR LOST DAUGHTERS a gripping crime thriller with a huge twist"
+  },
+  {
+    "rank": 10,
+    "item_name": "Christmas in Vermont: A Very White Christmas"
+  },
+  {
+    "rank": 11,
+    "item_name": "Beautiful Maids All in a Row"
+  },
+  {
+    "rank": 12,
+    "item_name": "The Devil's Work"
+  },
+  {
+    "rank": 13,
+    "item_name": "Deadly Secrets: An absolutely gripping crime thriller (Detective Erika Foster) (Volume 6)"
+  },
+  {
+    "rank": 14,
+    "item_name": "The Spring Cleaning Murders - An Ellie Haskell Mystery (Signed Copy)"
+  },
+  {
+    "rank": 15,
+    "item_name": "Lone Wolf (An F.B.I. K-9 Novel)"
+  },
+  {
+    "rank": 16,
+    "item_name": "Sticks and Stones (An Alvin, Alabama Novel)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Don't Wake Up: The most gripping first chapter you will ever read!"
+  },
+  {
+    "rank": 18,
+    "item_name": "Spare Change: Family Saga (A Wyattsville Novel Book 1) (Series name Family Saga)"
+  },
+  {
+    "rank": 19,
+    "item_name": "Yellowthread Street (A Rinehart suspense novel)"
+  },
+  {
+    "rank": 20,
+    "item_name": "The Thing Is"
+  },
+  {
+    "rank": 21,
+    "item_name": "No Witness but the Moon (A Jimmy Vega Mystery)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Stepmother: A gripping psychological thriller with a killer twist"
+  },
+  {
+    "rank": 23,
+    "item_name": "The Kill List"
+  },
+  {
+    "rank": 24,
+    "item_name": "Let Me Lie"
+  },
+  {
+    "rank": 25,
+    "item_name": "Witness: A gripping psychological thriller with a surprising twist"
+  },
+  {
+    "rank": 26,
+    "item_name": "Blood Lines (Detective Kim Stone crime thriller series) (Volume 5)"
+  },
+  {
+    "rank": 27,
+    "item_name": "Bullet in the Blue Sky"
+  },
+  {
+    "rank": 28,
+    "item_name": "Speaking in Bones: A Novel (Temperance Brennan)"
+  },
+  {
+    "rank": 29,
+    "item_name": "The Doll's House: Di Helen Grace 3 (A Helen Grace Thriller)"
+  },
+  {
+    "rank": 30,
+    "item_name": "Little Girl Lost: A gripping thriller that will have you hooked (DI Robin Carter)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Found, Near Water (A Christchurch Crime Thriller)"
+  },
+  {
+    "rank": 32,
+    "item_name": "The Cutaway: A Thriller"
+  },
+  {
+    "rank": 33,
+    "item_name": "After Nightfall"
+  },
+  {
+    "rank": 34,
+    "item_name": "Anything for Her"
+  },
+  {
+    "rank": 35,
+    "item_name": "Seven Suspects (The Bobbi Logan Series)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Child&#39;s Play (The Elle Harrison Series Book 3) eBook"
+  },
+  {
+    "rank": 37,
+    "item_name": "The Book of Summer: A Novel"
+  },
+  {
+    "rank": 38,
+    "item_name": "Fatal Option"
+  },
+  {
+    "rank": 39,
+    "item_name": "Something (Wisteria 1)"
+  },
+  {
+    "rank": 40,
+    "item_name": "After Anna"
+  },
+  {
+    "rank": 41,
+    "item_name": "Pop Goes the Weasel (A Helen Grace Thriller)"
+  },
+  {
+    "rank": 42,
+    "item_name": "The Beauty of the End"
+  },
+  {
+    "rank": 43,
+    "item_name": "A Merciful Death (Mercy Kilpatrick)"
+  },
+  {
+    "rank": 44,
+    "item_name": "Swimsuit Body (The Cypress Bay Mysteries)"
+  },
+  {
+    "rank": 45,
+    "item_name": "The Perfect Mother: A Novel"
+  },
+  {
+    "rank": 46,
+    "item_name": "Emma in the Night: A Novel"
+  },
+  {
+    "rank": 47,
+    "item_name": "The Forgotten Ones: A Novel"
+  },
+  {
+    "rank": 48,
+    "item_name": "A Cold Cold Heart"
+  },
+  {
+    "rank": 49,
+    "item_name": "My Girl"
+  },
+  {
+    "rank": 50,
+    "item_name": "Bully Boy Blue: A dark psychological suspense novella"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.

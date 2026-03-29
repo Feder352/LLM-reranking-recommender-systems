@@ -1,0 +1,354 @@
+
+
+# Role and Task
+
+You are an expert recommender system whose goal is to rank the creativity of recommendations.
+
+Given a user’s historical interactions and a list of recommended items, your task is to re-rank the items by placing the most creative items first, according to the definition of creativity provided below.
+
+Creativity must always be evaluated relative to the user’s history.
+
+# User Profile
+
+The user profile is represented by the user’s historical interactions that includes each previously liked item.
+
+User History
+
+[
+  {
+    "item_name": "After You: A Novel (Me Before You Trilogy)"
+  },
+  {
+    "item_name": "Anything for You (The Blue Heron Series)"
+  },
+  {
+    "item_name": "Who's Afraid? (Tommi Grayson)"
+  },
+  {
+    "item_name": "The Midnight Watch: A Novel of the Titanic and the Californian"
+  },
+  {
+    "item_name": "The Moor"
+  },
+  {
+    "item_name": "Night Shift (A Novel of Midnight, Texas)"
+  },
+  {
+    "item_name": "Poison or Protect: A Delightfully Deadly Novella"
+  },
+  {
+    "item_name": "The Angels' Share (The Bourbon Kings)"
+  },
+  {
+    "item_name": "Harry Potter and the Cursed Child, parts one and two. [Based on the original new story by J.J. Rowling, John Tiffany &amp; Jack Thorne]. First produced by ... End production, special rehearsal edition."
+  },
+  {
+    "item_name": "The Hating Game: A Novel"
+  },
+  {
+    "item_name": "The Beast (Black Dagger Brotherhood Series)"
+  },
+  {
+    "item_name": "Magic Binds (Kate Daniels)"
+  },
+  {
+    "item_name": "Girl in Pieces"
+  },
+  {
+    "item_name": "Wildflower"
+  },
+  {
+    "item_name": "Ghosts"
+  },
+  {
+    "item_name": "Ghosts"
+  },
+  {
+    "item_name": "Hamilton: The Revolution"
+  },
+  {
+    "item_name": "This Adventure Ends"
+  },
+  {
+    "item_name": "Devil in Spring: The Ravenels, Book 3"
+  },
+  {
+    "item_name": "Silence Fallen (A Mercy Thompson Novel)"
+  },
+  {
+    "item_name": "Tanner"
+  },
+  {
+    "item_name": "Can't Hardly Breathe (Original Heartbreakers)"
+  },
+  {
+    "item_name": "Fall Girl"
+  },
+  {
+    "item_name": "The Radium Girls"
+  },
+  {
+    "item_name": "Still Me: A Novel (Me Before You Trilogy)"
+  },
+  {
+    "item_name": "It's Not Me, It's You"
+  },
+  {
+    "item_name": "Nowhere but Home: A Novel"
+  },
+  {
+    "item_name": "The Upside of Unrequited"
+  },
+  {
+    "item_name": "Burn Bright"
+  },
+  {
+    "item_name": "Third Son's a Charm (The Survivors)"
+  }
+]
+
+#Definition of Creativity
+
+Creativity is defined as a balanced combination of unexpectedness, relevance, and novelty.
+
+•Unexpectedness: The degree to which a candidate item deviates from what would typically be recommended to the user based on their historical preferences.
+
+•Relevance: The degree to which the candidate item aligns with the user’s interests inferred from their historical data.
+
+•Novelty: The degree to which the candidate item introduces new or not popular items compared to the user’s past interactions.
+
+Use this definition of creativity consistently when evaluating all items.
+
+#List of Recommended Items
+
+You are given a list of items to re-rank:
+
+[
+  {
+    "rank": 1,
+    "item_name": "Divergent"
+  },
+  {
+    "rank": 2,
+    "item_name": "Under the Never Sky"
+  },
+  {
+    "rank": 3,
+    "item_name": "Graceling"
+  },
+  {
+    "rank": 4,
+    "item_name": "Clockwork Angel"
+  },
+  {
+    "rank": 5,
+    "item_name": "Scarlet (Lunar Chronicles, Book 2)"
+  },
+  {
+    "rank": 6,
+    "item_name": "Lover Eternal (Black Dagger Brotherhood, Book 2)"
+  },
+  {
+    "rank": 7,
+    "item_name": "Abandon"
+  },
+  {
+    "rank": 8,
+    "item_name": "Moon Called"
+  },
+  {
+    "rank": 9,
+    "item_name": "Cinder"
+  },
+  {
+    "rank": 10,
+    "item_name": "My Soul to Save (Soul Screamers Book 2)"
+  },
+  {
+    "rank": 11,
+    "item_name": "The Iron King"
+  },
+  {
+    "rank": 12,
+    "item_name": "Magic Study (Study Series)"
+  },
+  {
+    "rank": 13,
+    "item_name": "Eve"
+  },
+  {
+    "rank": 14,
+    "item_name": "Iron Kissed (Mercy Thompson, Book 3)"
+  },
+  {
+    "rank": 15,
+    "item_name": "The Iron Daughter"
+  },
+  {
+    "rank": 16,
+    "item_name": "Twilight (The Twilight Saga, Book 1)"
+  },
+  {
+    "rank": 17,
+    "item_name": "Inside Out"
+  },
+  {
+    "rank": 18,
+    "item_name": "Harry Potter and the Deathly Hallows, Book 7"
+  },
+  {
+    "rank": 19,
+    "item_name": "Dreams of Gods &amp; Monsters (Daughter of Smoke &amp; Bone)"
+  },
+  {
+    "rank": 20,
+    "item_name": "Angelfall (Penryn &amp; the End of Days)"
+  },
+  {
+    "rank": 21,
+    "item_name": "Faefever (Fever, Book 3)"
+  },
+  {
+    "rank": 22,
+    "item_name": "The Selection. by Kiera Cass"
+  },
+  {
+    "rank": 23,
+    "item_name": "City of Bones (The Mortal Instruments)"
+  },
+  {
+    "rank": 24,
+    "item_name": "Beautiful Creatures. by Kami Garcia &amp; Margaret Stohl"
+  },
+  {
+    "rank": 25,
+    "item_name": "Code Name Verity"
+  },
+  {
+    "rank": 26,
+    "item_name": "Throne of Glass"
+  },
+  {
+    "rank": 27,
+    "item_name": "Days of Blood &amp; Starlight"
+  },
+  {
+    "rank": 28,
+    "item_name": "Incarnate (Incarnate Trilogy)"
+  },
+  {
+    "rank": 29,
+    "item_name": "Cress"
+  },
+  {
+    "rank": 30,
+    "item_name": "Dead Until Dark  (Sookie Stackhouse/True Blood, Book 1)"
+  },
+  {
+    "rank": 31,
+    "item_name": "Nine Rules to Break When Romancing a Rake: Number 1 in series (Love by Numbers)"
+  },
+  {
+    "rank": 32,
+    "item_name": "Wicked Lovely"
+  },
+  {
+    "rank": 33,
+    "item_name": "Dark Lover (Black Dagger Brotherhood, Book 1)"
+  },
+  {
+    "rank": 34,
+    "item_name": "City of Glass (The Mortal Instruments)"
+  },
+  {
+    "rank": 35,
+    "item_name": "The Immortal Rules (Blood of Eden)"
+  },
+  {
+    "rank": 36,
+    "item_name": "Poison Princess (The Arcana Chronicles)"
+  },
+  {
+    "rank": 37,
+    "item_name": "Nightshade"
+  },
+  {
+    "rank": 38,
+    "item_name": "The Eternity Cure (Blood of Eden)"
+  },
+  {
+    "rank": 39,
+    "item_name": "Nine Rules to Break When Romancing a Rake (Love By Numbers)"
+  },
+  {
+    "rank": 40,
+    "item_name": "The Viscount Who Loved Me (Bridgertons)"
+  },
+  {
+    "rank": 41,
+    "item_name": "The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)"
+  },
+  {
+    "rank": 42,
+    "item_name": "Magic Strikes (Kate Daniels)"
+  },
+  {
+    "rank": 43,
+    "item_name": "Entice"
+  },
+  {
+    "rank": 44,
+    "item_name": "Sweet Venom"
+  },
+  {
+    "rank": 45,
+    "item_name": "Ruby Red (The Ruby Red Trilogy)"
+  },
+  {
+    "rank": 46,
+    "item_name": "Living Dead in Dallas (Sookie Stackhouse/True Blood, Book 2)"
+  },
+  {
+    "rank": 47,
+    "item_name": "Struck"
+  },
+  {
+    "rank": 48,
+    "item_name": "Dead And Gone: A Sookie Stackhouse Novel (Sookie Stackhouse/True Blood)"
+  },
+  {
+    "rank": 49,
+    "item_name": "Bone Crossed (Mercy Thompson, Book 4)"
+  },
+  {
+    "rank": 50,
+    "item_name": "Angels' Blood (Guild Hunter, Book 1)"
+  }
+]
+
+#Instructions
+
+1. Assess the creativity of each item according to the provided definition.
+
+2. Re-rank the list from most creative to least creative.
+
+Items that are highly relevant but predictable should rank lower than items that achieve a better balance between relevance, novelty, and unexpectedness.
+
+#Output Format
+
+Return only the re-ranked list, without explanations, using the following format:
+
+[
+  {
+    "rank": 1,
+    "item_name": "..."
+  },
+  {
+    "rank": 2,
+    "item_name": "..."
+  }
+]
+
+IMPORTANT:
+- Return exactly 50 items (rank 1..50).
+- Output must be ONLY the JSON list. No extra text.
